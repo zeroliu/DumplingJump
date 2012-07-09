@@ -50,7 +50,7 @@ enum {
 	if( (self=[super init])) {
 		
 		// enable touches
-		self.isTouchEnabled = NO;
+		self.isTouchEnabled = YES;
 		
 		// enable accelerometer
 		self.isAccelerometerEnabled = YES;

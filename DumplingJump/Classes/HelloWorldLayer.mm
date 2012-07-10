@@ -1,6 +1,6 @@
 //
 //  HelloWorldLayer.mm
-//  DumplingJump
+//  DumplingJump00
 //
 //  Created by LIU Xiyuan on 12-7-9.
 //  Copyright INSA 2012年. All rights reserved.

@@ -157,8 +157,7 @@
 		7F41452815AAC65D002CFC9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F41452715AAC65D002CFC9A /* main.m */; };
 		7F41453715AAC65D002CFC9A /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41453615AAC65D002CFC9A /* blocks.png */; };
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
-		7F7010FC15AFEFFE00495B10 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EE15AFEFFE00495B10 /* GLES-Render.mm */; };
-		7F7010FD15AFEFFE00495B10 /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* HelloWorldLayer.mm */; };
+		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
 		7F70110115AFF0D900495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110015AFF0D900495B10 /* toBeDeleted */; };
 		7F70110315AFF10100495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110215AFF10100495B10 /* toBeDeleted */; };
@@ -477,10 +476,8 @@
 		7F7010EA15AFEFFE00495B10 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		7F7010EC15AFEFFE00495B10 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		7F7010ED15AFEFFE00495B10 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
-		7F7010EE15AFEFFE00495B10 /* GLES-Render.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
-		7F7010EF15AFEFFE00495B10 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		7F7010F015AFEFFE00495B10 /* HelloWorldLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
+		7F7010EF15AFEFFE00495B10 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		7F7010F015AFEFFE00495B10 /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
 		7F7010F115AFEFFE00495B10 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7F7010F215AFEFFE00495B10 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7F70110015AFF0D900495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toBeDeleted; path = ../fonts/toBeDeleted; sourceTree = "<group>"; };
@@ -1027,15 +1024,9 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7F7010EA15AFEFFE00495B10 /* AppDelegate.h */,
-				7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */,
-				7F7010EC15AFEFFE00495B10 /* GameConfig.h */,
-				7F7010ED15AFEFFE00495B10 /* GLES-Render.h */,
-				7F7010EE15AFEFFE00495B10 /* GLES-Render.mm */,
-				7F7010EF15AFEFFE00495B10 /* HelloWorldLayer.h */,
-				7F7010F015AFEFFE00495B10 /* HelloWorldLayer.mm */,
-				7F7010F115AFEFFE00495B10 /* RootViewController.h */,
-				7F7010F215AFEFFE00495B10 /* RootViewController.m */,
+				7FF0822215B2355200E093E1 /* System */,
+				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
+				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1122,6 +1113,18 @@
 			path = DU;
 			sourceTree = "<group>";
 		};
+		7FF0822215B2355200E093E1 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				7F7010EC15AFEFFE00495B10 /* GameConfig.h */,
+				7F7010F115AFEFFE00495B10 /* RootViewController.h */,
+				7F7010F215AFEFFE00495B10 /* RootViewController.m */,
+				7F7010EA15AFEFFE00495B10 /* AppDelegate.h */,
+				7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1149,7 +1152,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = INSA;
+				ORGANIZATIONNAME = "CMU ETC";
 			};
 			buildConfigurationList = 7F41434715AAC659002CFC9A /* Build configuration list for PBXProject "DumplingJump" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1332,8 +1335,7 @@
 				7F41452215AAC65D002CFC9A /* b2WeldJoint.cpp in Sources */,
 				7F41452815AAC65D002CFC9A /* main.m in Sources */,
 				7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */,
-				7F7010FC15AFEFFE00495B10 /* GLES-Render.mm in Sources */,
-				7F7010FD15AFEFFE00495B10 /* HelloWorldLayer.mm in Sources */,
+				7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */,
 				7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

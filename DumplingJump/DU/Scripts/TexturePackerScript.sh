@@ -8,6 +8,7 @@ if [ "${ACTION}" = "clean" ]
 then
     echo "cleaning..."
     rm DumplingJump/DU/Resources/spriteSheets/*.png
+    rm DumplingJump/DU/Resources/spriteSheets/*.pvr
     rm DumplingJump/DU/Resources/spriteSheets/*.plist
     
     # ....
@@ -17,5 +18,6 @@ else
     echo "building..."
     
     ${TP} DumplingJump/DU/Assets/hero.tps
+    ${TP} DumplingJump/DU/Assets/background.tps
 fi
 exit 0

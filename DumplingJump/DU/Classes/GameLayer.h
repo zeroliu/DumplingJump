@@ -1,12 +1,15 @@
 #import "Common.h"
+#import "PhysicsManager.h"
 @class BackgroundManager;
+@class BoardManager;
 
 @interface GameLayer : CCLayer
 {
-	b2World *world;
+	BoardManager *boardManager;
     BackgroundManager *bgManager;
+    CCSpriteBatchNode *batchNode;
 }
-
+@property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;
 
 @end

@@ -7,12 +7,18 @@
 
 @implementation BackgroundManager
 
--(id)initWithLayer:(CCLayer *)theLayer bgLayers:(BgLayer *)firstLayer, ...;
+-(id)initWithFile:(NSString *)theFileName bgLayers:(BgLayer *)firstLayer, ...;
 {
     if(self = [super init])
     {
         //Set parent layer
-        parentLayer = theLayer;
+        fileName = theFileName;
+        
+        //Set the batchNode
+        bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.pvr",theFileName]];
+        
+        //Add background plist to the frame cache
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"%@.plist",theFileName]];
         
         //Create bgLayerArray
         NSMutableArray *newBgLayers = [NSMutableArray array];
@@ -21,8 +27,8 @@
         for (BgLayer *arg = firstLayer; arg != nil; arg = va_arg(args, BgLayer *))
         {
             //Set the sprite according to the fileName
-            arg->sprite = [CCSprite spriteWithFile:arg->fileName];
-            arg->swapSprite = [CCSprite spriteWithFile:arg->fileName];
+            arg->sprite = [CCSprite spriteWithSpriteFrameName:arg->fileName];
+            arg->swapSprite = [CCSprite spriteWithSpriteFrameName:arg->fileName];
             
             NSValue *anLayer = [NSValue value:arg withObjCType:@encode(BgLayer)];
             [newBgLayers addObject:anLayer];
@@ -46,10 +52,11 @@
         
         //Set the sprite position of background sprite and swapSprite
         myLayer.sprite.position = ccp(W/2,H/2+myLayer.offset);
-        [parentLayer addChild:myLayer.sprite z:myLayer.z];
+        [bgBatchNode addChild:myLayer.sprite z:myLayer.z];
         myLayer.swapSprite.position = ccp(W/2,-H/2+myLayer.offset);
-        [parentLayer addChild:myLayer.swapSprite z:myLayer.z];
+        [bgBatchNode addChild:myLayer.swapSprite z:myLayer.z];
     }
+    [[[Hub shared]gameLayer] addChild:bgBatchNode];
 }
 
 -(void) updateBackground

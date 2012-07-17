@@ -29,11 +29,12 @@ typedef struct BgLayer {
 
 @interface BackgroundManager : CCNode
 {
-    CCLayer *parentLayer;
+    NSString *fileName;
+    CCSpriteBatchNode *bgBatchNode;
     NSArray *bgLayerArray;
 }
 
--(id)initWithLayer:(CCLayer *)theLayer bgLayers:(BgLayer *)layer1, ...;
+-(id)initWithFile:(NSString *)theFileName bgLayers:(BgLayer *)layer1, ...;
 -(void) updateBackground;
 
 @end

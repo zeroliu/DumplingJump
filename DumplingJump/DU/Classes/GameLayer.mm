@@ -1,17 +1,5 @@
-//
-//  GameLayer.mm
-//  DumplingJump
-//
-//  Created by LIU Xiyuan on 12-7-9.
-//  Copyright CMU ETC 2012. All rights reserved.
-//
-
-
 #import "GameLayer.h"
-
-//Pixel to Meter, for box2D unit transition
-#define PTM_RATIO 32
-
+#import "BackgroundManager.h"
 
 @implementation GameLayer
 
@@ -28,6 +16,11 @@
 	return scene;
 }
 
+-(void)update:(ccTime)dt
+{
+    [bgManager updateBackground];
+}
+
 -(id) init
 {
 	if( (self=[super init])) {
@@ -38,8 +31,20 @@
 		// enable accelerometer
 		self.isAccelerometerEnabled = YES;
 		
+        [self initBackground];
+        [self scheduleUpdate];
 	}
 	return self;
+}
+
+-(void) initBackground
+{
+    bgManager = [[BackgroundManager alloc] initWithLayer:self bgLayers:
+                 new BgLayer(1, 0, @"CA_background_1.png",-30),
+                 new BgLayer(2, 1, @"CA_background_2.png"),
+                 new BgLayer(3, 2, @"CA_background_3.png"),nil
+                 ];
+    
 }
 
 - (void) dealloc

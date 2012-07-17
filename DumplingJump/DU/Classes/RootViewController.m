@@ -1,8 +1,8 @@
 //
 //  RootViewController.m
-//  DumplingJump
+//  TestBoard
 //
-//  Created by LIU Xiyuan on 12-7-9.
+//  Created by LIU Xiyuan on 12-7-7.
 //  Copyright INSA 2012年. All rights reserved.
 //
 
@@ -21,10 +21,10 @@
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
  - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-	// Custom initialization
-	}
-	return self;
+ if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+ // Custom initialization
+ }
+ return self;
  }
  */
 
@@ -37,7 +37,7 @@
 /*
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad {
-	[super viewDidLoad];
+ [super viewDidLoad];
  }
  */
 
@@ -109,7 +109,7 @@
 	///
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 	CGRect rect = CGRectZero;
-
+    
 	
 	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)		
 		rect = screenRect;

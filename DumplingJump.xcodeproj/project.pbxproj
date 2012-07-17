@@ -159,14 +159,40 @@
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
-		7F70110115AFF0D900495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110015AFF0D900495B10 /* toBeDeleted */; };
-		7F70110315AFF10100495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110215AFF10100495B10 /* toBeDeleted */; };
-		7F70110515AFF10D00495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110415AFF10D00495B10 /* toBeDeleted */; };
-		7F70110715AFF11400495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110615AFF11400495B10 /* toBeDeleted */; };
-		7F70110915AFF11B00495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110815AFF11B00495B10 /* toBeDeleted */; };
-		7F70110B15AFF12000495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110A15AFF12000495B10 /* toBeDeleted */; };
-		7F70110D15AFF12600495B10 /* toBeDeleted in Resources */ = {isa = PBXBuildFile; fileRef = 7F70110C15AFF12600495B10 /* toBeDeleted */; };
+		7FD5281D15B3EDE100E50506 /* hero.tps in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5280E15B3EDE100E50506 /* hero.tps */; };
+		7FD5281E15B3EDE100E50506 /* AL_H_flat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281015B3EDE100E50506 /* AL_H_flat_1.png */; };
+		7FD5281F15B3EDE100E50506 /* AL_H_hero_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281115B3EDE100E50506 /* AL_H_hero_1.png */; };
+		7FD5282015B3EDE100E50506 /* AL_H_hero_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281215B3EDE100E50506 /* AL_H_hero_10.png */; };
+		7FD5282115B3EDE100E50506 /* AL_H_hero_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281315B3EDE100E50506 /* AL_H_hero_11.png */; };
+		7FD5282215B3EDE100E50506 /* AL_H_hero_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281415B3EDE100E50506 /* AL_H_hero_12.png */; };
+		7FD5282315B3EDE100E50506 /* AL_H_hero_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281515B3EDE100E50506 /* AL_H_hero_2.png */; };
+		7FD5282415B3EDE100E50506 /* AL_H_hero_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281615B3EDE100E50506 /* AL_H_hero_3.png */; };
+		7FD5282515B3EDE100E50506 /* AL_H_hero_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281715B3EDE100E50506 /* AL_H_hero_4.png */; };
+		7FD5282615B3EDE100E50506 /* AL_H_hero_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281815B3EDE100E50506 /* AL_H_hero_5.png */; };
+		7FD5282715B3EDE100E50506 /* AL_H_hero_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281915B3EDE100E50506 /* AL_H_hero_6.png */; };
+		7FD5282815B3EDE100E50506 /* AL_H_hero_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281A15B3EDE100E50506 /* AL_H_hero_7.png */; };
+		7FD5282915B3EDE100E50506 /* AL_H_hero_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281B15B3EDE100E50506 /* AL_H_hero_8.png */; };
+		7FD5282A15B3EDE100E50506 /* AL_H_hero_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281C15B3EDE100E50506 /* AL_H_hero_9.png */; };
+		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
+		7FD5283315B3EF8400E50506 /* BackgroundManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5282F15B3EE1900E50506 /* BackgroundManager.h */; };
+		7FD5283415B3EF8400E50506 /* BackgroundManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundManager.mm */; };
+		7FD5283515B3EF8400E50506 /* Common.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283115B3EE1900E50506 /* Common.h */; };
+		7FD5283615B3EF8400E50506 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283215B3EE1900E50506 /* Common.mm */; };
+		7FDB161415B4FD88009CD539 /* sheetHero-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161015B4FD88009CD539 /* sheetHero-hd.plist */; };
+		7FDB161515B4FD88009CD539 /* sheetHero-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161115B4FD88009CD539 /* sheetHero-hd.png */; };
+		7FDB161615B4FD88009CD539 /* sheetHero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161215B4FD88009CD539 /* sheetHero.plist */; };
+		7FDB161715B4FD88009CD539 /* sheetHero.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161315B4FD88009CD539 /* sheetHero.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FD5283B15B3F02000E50506 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F41434415AAC659002CFC9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FD5283715B3EFC300E50506;
+			remoteInfo = TexturePacker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7F41434D15AAC659002CFC9A /* DumplingJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumplingJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -487,6 +513,29 @@
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110A15AFF12000495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
+		7FD5280E15B3EDE100E50506 /* hero.tps */ = {isa = PBXFileReference; lastKnownFileType = file; path = hero.tps; sourceTree = "<group>"; };
+		7FD5281015B3EDE100E50506 /* AL_H_flat_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_flat_1.png; sourceTree = "<group>"; };
+		7FD5281115B3EDE100E50506 /* AL_H_hero_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_1.png; sourceTree = "<group>"; };
+		7FD5281215B3EDE100E50506 /* AL_H_hero_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_10.png; sourceTree = "<group>"; };
+		7FD5281315B3EDE100E50506 /* AL_H_hero_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_11.png; sourceTree = "<group>"; };
+		7FD5281415B3EDE100E50506 /* AL_H_hero_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_12.png; sourceTree = "<group>"; };
+		7FD5281515B3EDE100E50506 /* AL_H_hero_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_2.png; sourceTree = "<group>"; };
+		7FD5281615B3EDE100E50506 /* AL_H_hero_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_3.png; sourceTree = "<group>"; };
+		7FD5281715B3EDE100E50506 /* AL_H_hero_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_4.png; sourceTree = "<group>"; };
+		7FD5281815B3EDE100E50506 /* AL_H_hero_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_5.png; sourceTree = "<group>"; };
+		7FD5281915B3EDE100E50506 /* AL_H_hero_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_6.png; sourceTree = "<group>"; };
+		7FD5281A15B3EDE100E50506 /* AL_H_hero_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_7.png; sourceTree = "<group>"; };
+		7FD5281B15B3EDE100E50506 /* AL_H_hero_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_8.png; sourceTree = "<group>"; };
+		7FD5281C15B3EDE100E50506 /* AL_H_hero_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AL_H_hero_9.png; sourceTree = "<group>"; };
+		7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TexturePackerScript.sh; sourceTree = "<group>"; };
+		7FD5282F15B3EE1900E50506 /* BackgroundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundManager.h; sourceTree = "<group>"; };
+		7FD5283015B3EE1900E50506 /* BackgroundManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundManager.mm; sourceTree = "<group>"; };
+		7FD5283115B3EE1900E50506 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		7FD5283215B3EE1900E50506 /* Common.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
+		7FDB161015B4FD88009CD539 /* sheetHero-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetHero-hd.plist"; sourceTree = "<group>"; };
+		7FDB161115B4FD88009CD539 /* sheetHero-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetHero-hd.png"; sourceTree = "<group>"; };
+		7FDB161215B4FD88009CD539 /* sheetHero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetHero.plist; sourceTree = "<group>"; };
+		7FDB161315B4FD88009CD539 /* sheetHero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetHero.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1015,6 +1064,8 @@
 		7F7010E815AFEFFE00495B10 /* DU */ = {
 			isa = PBXGroup;
 			children = (
+				7FD5282C15B3EDED00E50506 /* Scripts */,
+				7FD5280D15B3EDE100E50506 /* Assets */,
 				7F7010E915AFEFFE00495B10 /* Classes */,
 				7F7010F315AFEFFE00495B10 /* Resources */,
 			);
@@ -1025,6 +1076,10 @@
 			isa = PBXGroup;
 			children = (
 				7FF0822215B2355200E093E1 /* System */,
+				7FD5282F15B3EE1900E50506 /* BackgroundManager.h */,
+				7FD5283015B3EE1900E50506 /* BackgroundManager.mm */,
+				7FD5283115B3EE1900E50506 /* Common.h */,
+				7FD5283215B3EE1900E50506 /* Common.mm */,
 				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
 				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
 			);
@@ -1088,6 +1143,10 @@
 		7F7010F915AFEFFE00495B10 /* spriteSheets */ = {
 			isa = PBXGroup;
 			children = (
+				7FDB161015B4FD88009CD539 /* sheetHero-hd.plist */,
+				7FDB161115B4FD88009CD539 /* sheetHero-hd.png */,
+				7FDB161215B4FD88009CD539 /* sheetHero.plist */,
+				7FDB161315B4FD88009CD539 /* sheetHero.png */,
 				7F70110A15AFF12000495B10 /* toBeDeleted */,
 			);
 			path = spriteSheets;
@@ -1113,6 +1172,43 @@
 			path = DU;
 			sourceTree = "<group>";
 		};
+		7FD5280D15B3EDE100E50506 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7FD5280E15B3EDE100E50506 /* hero.tps */,
+				7FD5280F15B3EDE100E50506 /* sheetHero */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7FD5280F15B3EDE100E50506 /* sheetHero */ = {
+			isa = PBXGroup;
+			children = (
+				7FD5281015B3EDE100E50506 /* AL_H_flat_1.png */,
+				7FD5281115B3EDE100E50506 /* AL_H_hero_1.png */,
+				7FD5281215B3EDE100E50506 /* AL_H_hero_10.png */,
+				7FD5281315B3EDE100E50506 /* AL_H_hero_11.png */,
+				7FD5281415B3EDE100E50506 /* AL_H_hero_12.png */,
+				7FD5281515B3EDE100E50506 /* AL_H_hero_2.png */,
+				7FD5281615B3EDE100E50506 /* AL_H_hero_3.png */,
+				7FD5281715B3EDE100E50506 /* AL_H_hero_4.png */,
+				7FD5281815B3EDE100E50506 /* AL_H_hero_5.png */,
+				7FD5281915B3EDE100E50506 /* AL_H_hero_6.png */,
+				7FD5281A15B3EDE100E50506 /* AL_H_hero_7.png */,
+				7FD5281B15B3EDE100E50506 /* AL_H_hero_8.png */,
+				7FD5281C15B3EDE100E50506 /* AL_H_hero_9.png */,
+			);
+			path = sheetHero;
+			sourceTree = "<group>";
+		};
+		7FD5282C15B3EDED00E50506 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		7FF0822215B2355200E093E1 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,6 +1223,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		7FD5283715B3EFC300E50506 /* TexturePacker */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = DumplingJump/DU/Scripts/TexturePackerScript.sh;
+			buildConfigurationList = 7FD5283815B3EFC300E50506 /* Build configuration list for PBXLegacyTarget "TexturePacker" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/bash;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = TexturePacker;
+			passBuildSettingsInEnvironment = 1;
+			productName = TexturePacker;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		7F41434C15AAC659002CFC9A /* DumplingJump */ = {
 			isa = PBXNativeTarget;
@@ -1139,6 +1252,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7FD5283C15B3F02000E50506 /* PBXTargetDependency */,
 			);
 			name = DumplingJump;
 			productName = DumplingJump;
@@ -1167,6 +1281,7 @@
 			projectRoot = "";
 			targets = (
 				7F41434C15AAC659002CFC9A /* DumplingJump */,
+				7FD5283715B3EFC300E50506 /* TexturePacker */,
 			);
 		};
 /* End PBXProject section */
@@ -1186,13 +1301,25 @@
 				7F41437215AAC659002CFC9A /* Icon@2x.png in Resources */,
 				7F41437515AAC659002CFC9A /* iTunesArtwork in Resources */,
 				7F41453715AAC65D002CFC9A /* blocks.png in Resources */,
-				7F70110115AFF0D900495B10 /* toBeDeleted in Resources */,
-				7F70110315AFF10100495B10 /* toBeDeleted in Resources */,
-				7F70110515AFF10D00495B10 /* toBeDeleted in Resources */,
-				7F70110715AFF11400495B10 /* toBeDeleted in Resources */,
-				7F70110915AFF11B00495B10 /* toBeDeleted in Resources */,
-				7F70110B15AFF12000495B10 /* toBeDeleted in Resources */,
-				7F70110D15AFF12600495B10 /* toBeDeleted in Resources */,
+				7FD5281D15B3EDE100E50506 /* hero.tps in Resources */,
+				7FD5281E15B3EDE100E50506 /* AL_H_flat_1.png in Resources */,
+				7FD5281F15B3EDE100E50506 /* AL_H_hero_1.png in Resources */,
+				7FD5282015B3EDE100E50506 /* AL_H_hero_10.png in Resources */,
+				7FD5282115B3EDE100E50506 /* AL_H_hero_11.png in Resources */,
+				7FD5282215B3EDE100E50506 /* AL_H_hero_12.png in Resources */,
+				7FD5282315B3EDE100E50506 /* AL_H_hero_2.png in Resources */,
+				7FD5282415B3EDE100E50506 /* AL_H_hero_3.png in Resources */,
+				7FD5282515B3EDE100E50506 /* AL_H_hero_4.png in Resources */,
+				7FD5282615B3EDE100E50506 /* AL_H_hero_5.png in Resources */,
+				7FD5282715B3EDE100E50506 /* AL_H_hero_6.png in Resources */,
+				7FD5282815B3EDE100E50506 /* AL_H_hero_7.png in Resources */,
+				7FD5282915B3EDE100E50506 /* AL_H_hero_8.png in Resources */,
+				7FD5282A15B3EDE100E50506 /* AL_H_hero_9.png in Resources */,
+				7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */,
+				7FDB161415B4FD88009CD539 /* sheetHero-hd.plist in Resources */,
+				7FDB161515B4FD88009CD539 /* sheetHero-hd.png in Resources */,
+				7FDB161615B4FD88009CD539 /* sheetHero.plist in Resources */,
+				7FDB161715B4FD88009CD539 /* sheetHero.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,6 +1330,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD5283315B3EF8400E50506 /* BackgroundManager.h in Sources */,
+				7FD5283415B3EF8400E50506 /* BackgroundManager.mm in Sources */,
+				7FD5283515B3EF8400E50506 /* Common.h in Sources */,
+				7FD5283615B3EF8400E50506 /* Common.mm in Sources */,
 				7F41437A15AAC659002CFC9A /* CCAction.m in Sources */,
 				7F41437D15AAC659002CFC9A /* CCActionCamera.m in Sources */,
 				7F41438015AAC659002CFC9A /* CCActionEase.m in Sources */,
@@ -1342,6 +1473,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7FD5283C15B3F02000E50506 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FD5283715B3EFC300E50506 /* TexturePacker */;
+			targetProxy = 7FD5283B15B3F02000E50506 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		7F41453815AAC65D002CFC9A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1415,6 +1554,52 @@
 			};
 			name = Release;
 		};
+		7FD5283915B3EFC300E50506 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7FD5283A15B3EFC300E50506 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1432,6 +1617,15 @@
 			buildConfigurations = (
 				7F41453B15AAC65D002CFC9A /* Debug */,
 				7F41453C15AAC65D002CFC9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FD5283815B3EFC300E50506 /* Build configuration list for PBXLegacyTarget "TexturePacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FD5283915B3EFC300E50506 /* Debug */,
+				7FD5283A15B3EFC300E50506 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

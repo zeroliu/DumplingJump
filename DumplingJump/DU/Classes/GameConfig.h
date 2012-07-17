@@ -1,8 +1,8 @@
 //
 //  GameConfig.h
-//  DumplingJump
+//  TestBoard
 //
-//  Created by LIU Xiyuan on 12-7-9.
+//  Created by LIU Xiyuan on 12-7-7.
 //  Copyright INSA 2012年. All rights reserved.
 //
 
@@ -27,7 +27,7 @@
 // TIP:
 // To improve the performance, you should set this value to "kGameAutorotationNone" or "kGameAutorotationCCDirector"
 #if defined(__ARM_NEON__) || TARGET_IPHONE_SIMULATOR
-#define GAME_AUTOROTATION kGameAutorotationUIViewController
+#define GAME_AUTOROTATION kGameAutorotationNone
 
 // ARMv6 (1st and 2nd generation devices): Don't rotate. It is very expensive
 #elif __arm__

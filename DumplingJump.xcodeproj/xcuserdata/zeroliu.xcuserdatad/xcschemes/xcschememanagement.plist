@@ -9,10 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>HeroTexturePacker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>7F41434C15AAC659002CFC9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7FD5283715B3EFC300E50506</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7FDE492615B3D9D400D08A2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

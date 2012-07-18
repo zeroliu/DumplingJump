@@ -518,7 +518,6 @@
 		7F70110215AFF10100495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110615AFF11400495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
-		7F70110A15AFF12000495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F9E3AC315B5353F005130D0 /* BoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardManager.h; sourceTree = "<group>"; };
 		7F9E3AC415B5353F005130D0 /* BoardManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BoardManager.mm; sourceTree = "<group>"; };
@@ -1181,7 +1180,6 @@
 				7FDB161115B4FD88009CD539 /* sheetHero-hd.png */,
 				7FDB161215B4FD88009CD539 /* sheetHero.plist */,
 				7FDB161315B4FD88009CD539 /* sheetHero.png */,
-				7F70110A15AFF12000495B10 /* toBeDeleted */,
 			);
 			path = spriteSheets;
 			sourceTree = "<group>";

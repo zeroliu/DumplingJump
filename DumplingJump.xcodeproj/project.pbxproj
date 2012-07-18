@@ -543,6 +543,14 @@
 		7FD5283015B3EE1900E50506 /* BackgroundManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundManager.mm; sourceTree = "<group>"; };
 		7FD5283115B3EE1900E50506 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7FD5283215B3EE1900E50506 /* Common.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
+		7FDFD2CA15B67FD200F55257 /* sheetBackground1-hd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sheetBackground1-hd.plist"; sourceTree = "<group>"; };
+		7FDFD2CB15B67FD200F55257 /* sheetBackground1-hd.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sheetBackground1-hd.pvr"; sourceTree = "<group>"; };
+		7FDFD2CC15B67FD200F55257 /* sheetBackground1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = sheetBackground1.plist; sourceTree = "<group>"; };
+		7FDFD2CD15B67FD200F55257 /* sheetBackground1.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = sheetBackground1.pvr; sourceTree = "<group>"; };
+		7FDFD2CE15B67FD200F55257 /* sheetHero-hd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sheetHero-hd.plist"; sourceTree = "<group>"; };
+		7FDFD2CF15B67FD200F55257 /* sheetHero-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetHero-hd.png"; sourceTree = "<group>"; };
+		7FDFD2D015B67FD200F55257 /* sheetHero.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = sheetHero.plist; sourceTree = "<group>"; };
+		7FDFD2D115B67FD200F55257 /* sheetHero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetHero.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1156,6 +1164,14 @@
 		7F7010F915AFEFFE00495B10 /* spriteSheets */ = {
 			isa = PBXGroup;
 			children = (
+				7FDFD2CA15B67FD200F55257 /* sheetBackground1-hd.plist */,
+				7FDFD2CB15B67FD200F55257 /* sheetBackground1-hd.pvr */,
+				7FDFD2CC15B67FD200F55257 /* sheetBackground1.plist */,
+				7FDFD2CD15B67FD200F55257 /* sheetBackground1.pvr */,
+				7FDFD2CE15B67FD200F55257 /* sheetHero-hd.plist */,
+				7FDFD2CF15B67FD200F55257 /* sheetHero-hd.png */,
+				7FDFD2D015B67FD200F55257 /* sheetHero.plist */,
+				7FDFD2D115B67FD200F55257 /* sheetHero.png */,
 			);
 			path = spriteSheets;
 			sourceTree = "<group>";

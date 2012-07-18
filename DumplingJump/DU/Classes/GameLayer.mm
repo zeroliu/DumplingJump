@@ -1,6 +1,7 @@
 #import "GameLayer.h"
 #import "BackgroundManager.h"
 #import "BoardManager.h"
+#import "Hero.h"
 
 @implementation GameLayer
 @synthesize batchNode;
@@ -38,13 +39,30 @@
 		
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
         
+        
+        [self initBatchNode];
+        
+        [self initHero];
         [self initBackground];
         [self initBoard];
+        
         [self scheduleUpdate];
 	}
 	return self;
 }
 
+-(void) initBatchNode
+{
+    batchNode = [CCSpriteBatchNode batchNodeWithFile:@"sheetObjects.png"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetObjects.plist"];
+    
+    [self addChild:batchNode z:10];
+}
+
+-(void) initHero
+{
+    hero = [[Hero alloc] initHeroWithFile:@"HERO/AL_H_hero_1.png" position:ccp(150,200)];
+}
 
 -(void) initBackground
 {

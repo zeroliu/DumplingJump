@@ -21,9 +21,9 @@
 
 -(void) createBallCostume:(CGPoint)point
 {
-    ballCostume = [CCSprite spriteWithFile:@"Icon-Small-50.png"];
+    ballCostume = [CCSprite spriteWithSpriteFrameName:@"HERO/AL_H_hero_1.png"];
     ballCostume.position = ccp(point.x,point.y);
-    [[[Hub shared]gameLayer] addChild:ballCostume z:10];
+    [[[[Hub shared]gameLayer]batchNode] addChild:ballCostume z:10];
 }
 
 -(void)createBall:(CGPoint)point

@@ -18,7 +18,7 @@ else
 echo "building..."
 
 mkdir -p DumplingJump/DU/Resources/spriteSheets
-${TP} DumplingJump/DU/Assets/hero.tps
+${TP} DumplingJump/DU/Assets/objects.tps
 ${TP} DumplingJump/DU/Assets/background.tps
 fi
 exit 0

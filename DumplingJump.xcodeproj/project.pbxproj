@@ -162,10 +162,6 @@
 		7F9E3AC515B5353F005130D0 /* BoardManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AC415B5353F005130D0 /* BoardManager.mm */; };
 		7F9E3AD115B53A9D005130D0 /* PhysicsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */; };
 		7F9E3AD315B53FF8005130D0 /* SK_plate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD215B53FF8005130D0 /* SK_plate.png */; };
-		7F9E3ADF15B5579F005130D0 /* sheetBackground1-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3ADB15B5579F005130D0 /* sheetBackground1-hd.plist */; };
-		7F9E3AE015B5579F005130D0 /* sheetBackground1-hd.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3ADC15B5579F005130D0 /* sheetBackground1-hd.pvr */; };
-		7F9E3AE115B5579F005130D0 /* sheetBackground1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3ADD15B5579F005130D0 /* sheetBackground1.plist */; };
-		7F9E3AE215B5579F005130D0 /* sheetBackground1.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3ADE15B5579F005130D0 /* sheetBackground1.pvr */; };
 		7F9E3AE515B561AF005130D0 /* Hub.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AE415B561AE005130D0 /* Hub.mm */; };
 		7FD5281D15B3EDE100E50506 /* hero.tps in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5280E15B3EDE100E50506 /* hero.tps */; };
 		7FD5281E15B3EDE100E50506 /* AL_H_flat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5281015B3EDE100E50506 /* AL_H_flat_1.png */; };
@@ -186,10 +182,6 @@
 		7FD5283415B3EF8400E50506 /* BackgroundManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundManager.mm */; };
 		7FD5283515B3EF8400E50506 /* Common.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283115B3EE1900E50506 /* Common.h */; };
 		7FD5283615B3EF8400E50506 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283215B3EE1900E50506 /* Common.mm */; };
-		7FDB161415B4FD88009CD539 /* sheetHero-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161015B4FD88009CD539 /* sheetHero-hd.plist */; };
-		7FDB161515B4FD88009CD539 /* sheetHero-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161115B4FD88009CD539 /* sheetHero-hd.png */; };
-		7FDB161615B4FD88009CD539 /* sheetHero.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161215B4FD88009CD539 /* sheetHero.plist */; };
-		7FDB161715B4FD88009CD539 /* sheetHero.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB161315B4FD88009CD539 /* sheetHero.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -530,10 +522,6 @@
 		7F9E3AD815B55783005130D0 /* CA_background_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_background_3.png; sourceTree = "<group>"; };
 		7F9E3AD915B55783005130D0 /* CA_background_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_background_4.png; sourceTree = "<group>"; };
 		7F9E3ADA15B55783005130D0 /* CA_background_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_background_5.png; sourceTree = "<group>"; };
-		7F9E3ADB15B5579F005130D0 /* sheetBackground1-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetBackground1-hd.plist"; sourceTree = "<group>"; };
-		7F9E3ADC15B5579F005130D0 /* sheetBackground1-hd.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sheetBackground1-hd.pvr"; sourceTree = "<group>"; };
-		7F9E3ADD15B5579F005130D0 /* sheetBackground1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetBackground1.plist; sourceTree = "<group>"; };
-		7F9E3ADE15B5579F005130D0 /* sheetBackground1.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = sheetBackground1.pvr; sourceTree = "<group>"; };
 		7F9E3AE315B561AE005130D0 /* Hub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hub.h; sourceTree = "<group>"; };
 		7F9E3AE415B561AE005130D0 /* Hub.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hub.mm; sourceTree = "<group>"; };
 		7FD5280E15B3EDE100E50506 /* hero.tps */ = {isa = PBXFileReference; lastKnownFileType = file; path = hero.tps; sourceTree = "<group>"; };
@@ -555,10 +543,6 @@
 		7FD5283015B3EE1900E50506 /* BackgroundManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundManager.mm; sourceTree = "<group>"; };
 		7FD5283115B3EE1900E50506 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7FD5283215B3EE1900E50506 /* Common.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
-		7FDB161015B4FD88009CD539 /* sheetHero-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetHero-hd.plist"; sourceTree = "<group>"; };
-		7FDB161115B4FD88009CD539 /* sheetHero-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetHero-hd.png"; sourceTree = "<group>"; };
-		7FDB161215B4FD88009CD539 /* sheetHero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetHero.plist; sourceTree = "<group>"; };
-		7FDB161315B4FD88009CD539 /* sheetHero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetHero.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1172,14 +1156,6 @@
 		7F7010F915AFEFFE00495B10 /* spriteSheets */ = {
 			isa = PBXGroup;
 			children = (
-				7F9E3ADB15B5579F005130D0 /* sheetBackground1-hd.plist */,
-				7F9E3ADC15B5579F005130D0 /* sheetBackground1-hd.pvr */,
-				7F9E3ADD15B5579F005130D0 /* sheetBackground1.plist */,
-				7F9E3ADE15B5579F005130D0 /* sheetBackground1.pvr */,
-				7FDB161015B4FD88009CD539 /* sheetHero-hd.plist */,
-				7FDB161115B4FD88009CD539 /* sheetHero-hd.png */,
-				7FDB161215B4FD88009CD539 /* sheetHero.plist */,
-				7FDB161315B4FD88009CD539 /* sheetHero.png */,
 			);
 			path = spriteSheets;
 			sourceTree = "<group>";
@@ -1362,15 +1338,7 @@
 				7FD5282915B3EDE100E50506 /* AL_H_hero_8.png in Resources */,
 				7FD5282A15B3EDE100E50506 /* AL_H_hero_9.png in Resources */,
 				7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */,
-				7FDB161415B4FD88009CD539 /* sheetHero-hd.plist in Resources */,
-				7FDB161515B4FD88009CD539 /* sheetHero-hd.png in Resources */,
-				7FDB161615B4FD88009CD539 /* sheetHero.plist in Resources */,
-				7FDB161715B4FD88009CD539 /* sheetHero.png in Resources */,
 				7F9E3AD315B53FF8005130D0 /* SK_plate.png in Resources */,
-				7F9E3ADF15B5579F005130D0 /* sheetBackground1-hd.plist in Resources */,
-				7F9E3AE015B5579F005130D0 /* sheetBackground1-hd.pvr in Resources */,
-				7F9E3AE115B5579F005130D0 /* sheetBackground1.plist in Resources */,
-				7F9E3AE215B5579F005130D0 /* sheetBackground1.pvr in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

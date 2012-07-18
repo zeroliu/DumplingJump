@@ -17,5 +17,4 @@ build/*
 *.pbxuser
 *.xcworkspace
 xcuserdata
-DumplingJump/DU/Resources/spriteSheets
-Dumplingjump/DU/Resources/a
+DumplingJump/DU/Resources/spriteSheets/*

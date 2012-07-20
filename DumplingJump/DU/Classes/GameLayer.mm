@@ -25,9 +25,13 @@
     [[PhysicsManager sharedPhysicsManager] updatePhysicsBody:dt];
 }
 
+#pragma mark - 
+#pragma mark Initialization
 -(id) init
 {
 	if( (self=[super init])) {
+        id a = [InputManager sharedInputManager];
+        
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
         
@@ -81,6 +85,12 @@
     boardManager = [[BoardManager alloc] initWithFile:@"SK_plate.png" z:10];
 }
 
+#pragma mark -
+#pragma mark ListenerHandlers
+
+
+#pragma mark -
+#pragma mark Dealloc
 - (void) dealloc
 {
 	[boardManager release];

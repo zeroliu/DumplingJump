@@ -1,5 +1,6 @@
 #import "Common.h"
 #import "PhysicsManager.h"
+#import "InputManager.h"
 @class BackgroundManager;
 @class BoardManager;
 @class Hero;

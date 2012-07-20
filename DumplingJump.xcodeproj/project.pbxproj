@@ -156,6 +156,7 @@
 		7F41452215AAC65D002CFC9A /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F41452115AAC65D002CFC9A /* b2WeldJoint.cpp */; };
 		7F41452815AAC65D002CFC9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F41452715AAC65D002CFC9A /* main.m */; };
 		7F41453715AAC65D002CFC9A /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41453615AAC65D002CFC9A /* blocks.png */; };
+		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
@@ -668,6 +669,8 @@
 		7F41452615AAC65D002CFC9A /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7F41452715AAC65D002CFC9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F41453615AAC65D002CFC9A /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
+		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
+		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
 		7F7010EA15AFEFFE00495B10 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		7F7010EC15AFEFFE00495B10 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
@@ -1412,6 +1415,19 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		7F5B00C815B945F400BA15D9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7F9E3ACF15B53A9D005130D0 /* PhysicsManager.h */,
+				7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */,
+				7FD5283115B3EE1900E50506 /* Common.h */,
+				7FD5283215B3EE1900E50506 /* Common.mm */,
+				7F9E3AE315B561AE005130D0 /* Hub.h */,
+				7F9E3AE415B561AE005130D0 /* Hub.mm */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		7F7010E815AFEFFE00495B10 /* DU */ = {
 			isa = PBXGroup;
 			children = (
@@ -1427,20 +1443,17 @@
 			isa = PBXGroup;
 			children = (
 				7FF0822215B2355200E093E1 /* System */,
-				7FDFD5AC15B6AE7A00F55257 /* Hero.h */,
-				7FDFD5AD15B6AE7A00F55257 /* Hero.mm */,
-				7FD5282F15B3EE1900E50506 /* BackgroundManager.h */,
-				7FD5283015B3EE1900E50506 /* BackgroundManager.mm */,
-				7FD5283115B3EE1900E50506 /* Common.h */,
-				7FD5283215B3EE1900E50506 /* Common.mm */,
+				7F5B00C815B945F400BA15D9 /* Helper */,
 				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
 				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
-				7F9E3AE315B561AE005130D0 /* Hub.h */,
-				7F9E3AE415B561AE005130D0 /* Hub.mm */,
-				7F9E3ACF15B53A9D005130D0 /* PhysicsManager.h */,
-				7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */,
+				7FD5282F15B3EE1900E50506 /* BackgroundManager.h */,
+				7FD5283015B3EE1900E50506 /* BackgroundManager.mm */,
+				7FDFD5AC15B6AE7A00F55257 /* Hero.h */,
+				7FDFD5AD15B6AE7A00F55257 /* Hero.mm */,
 				7F9E3AC315B5353F005130D0 /* BoardManager.h */,
 				7F9E3AC415B5353F005130D0 /* BoardManager.mm */,
+				7F5B00C915B9467200BA15D9 /* InputManager.h */,
+				7F5B00D415B952A800BA15D9 /* InputManager.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -2194,6 +2207,7 @@
 				7F9E3AD115B53A9D005130D0 /* PhysicsManager.mm in Sources */,
 				7F9E3AE515B561AF005130D0 /* Hub.mm in Sources */,
 				7FDFD5AE15B6AE7A00F55257 /* Hero.mm in Sources */,
+				7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,9 @@
         [[[[Hub shared] gameLayer] batchNode] addChild:heroSprite];
         [self setHeroAnimation];
         [self setHeroPhysicsWithPosition:thePosition];
+        
+        //Set up hero control
+        [[InputManager sharedInputManager] watchForSwipeUp:@selector(onSwipeUpDetected:) target:self number:1];
     }
     
     return self;
@@ -27,7 +30,7 @@
         [frameArray addObject:frameObject];
     }
     
-    id animObject = [CCAnimation animationWithFrames:frameArray delay:0.3];
+    id animObject = [CCAnimation animationWithFrames:frameArray delay:0.1];
     id animAction = [CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
     animAction = [CCRepeatForever actionWithAction:animAction];
     
@@ -42,12 +45,10 @@
     heroBodyDef.userData = heroSprite;
     
     heroBody = [[PhysicsManager sharedPhysicsManager] getWorld]->CreateBody(&heroBodyDef);
-    
-    b2PolygonShape heroShape;
-    heroShape.SetAsBox(heroSprite.contentSize.width/2/RATIO, heroSprite.contentSize.height/2/RATIO);
-    
-    b2CircleShape circle;
-    circle.m_radius = 25.0/RATIO;
+      
+    b2CircleShape heroShape;
+   
+    heroShape.m_radius = (heroSprite.contentSize.height/2-7) /RATIO;
     
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
@@ -57,10 +58,38 @@
     
     heroBody->CreateFixture(&heroFixtureDef);
     
+    heroBody->SetFixedRotation(true);
+    heroBody->SetSleepingAllowed(false);
+    
     b2MassData massData;
     massData.center = heroBody->GetLocalCenter();
     massData.mass = 100;
     massData.I = 1;
     heroBody->SetMassData(&massData);
+}
+
+-(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
+{
+    CGPoint p;
+    CGPoint v;
+    
+    NSLog(@"helloworld");
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            NSLog(@"pan begin");
+            break;
+        case UIGestureRecognizerStateChanged:
+            NSLog(@"pan changed");
+            break;
+        case UIGestureRecognizerStateEnded:
+            NSLog(@"pan ended");
+            break;
+        case UIGestureRecognizerStateCancelled:
+            NSLog(@"pan canceled");
+            break;
+        default:
+            break;
+    }
 }
 @end

@@ -2,6 +2,7 @@
 #import "SimpleAudioEngine.h"
 #import "Hub.h"
 #import "Box2D.h"
+#import "Constants.h"
 
 #define SAE [SimpleAudioEngine sharedEngine]
 

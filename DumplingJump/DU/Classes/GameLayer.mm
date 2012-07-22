@@ -23,6 +23,7 @@
 {
     [bgManager updateBackground];
     [[PhysicsManager sharedPhysicsManager] updatePhysicsBody:dt];
+    [hero updateHeroPosition];
 }
 
 #pragma mark - 

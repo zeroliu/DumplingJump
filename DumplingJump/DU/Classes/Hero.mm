@@ -3,6 +3,9 @@
 @implementation Hero
 @synthesize heroSprite;
 
+#pragma mark -
+#pragma Initialization
+
 -(id)initHeroWithFile:(NSString *)fileName position:(CGPoint)thePosition
 {
     if(self = [super init])
@@ -10,17 +13,34 @@
         heroSprite = [CCSprite spriteWithSpriteFrameName:fileName];
         heroSprite.position = thePosition;
         [[[[Hub shared] gameLayer] batchNode] addChild:heroSprite];
-        [self setHeroAnimation];
-        [self setHeroPhysicsWithPosition:thePosition];
+        
+        [self initHeroAnimation];
+        [self initHeroPhysicsWithPosition:thePosition];
+        [self initHeroSetting];
         
         //Set up hero control
-        [[InputManager sharedInputManager] watchForSwipeUp:@selector(onSwipeUpDetected:) target:self number:1];
+        [self initGestureHandler];
+        
     }
     
     return self;
 }
 
--(void) setHeroAnimation
+-(void) initGestureHandler
+{
+    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionUp selector:@selector(onSwipeUpDetected:) target:self number:1];
+    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionDown selector:@selector(onSwipeDownDetected:) target:self number:1];
+    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionLeft selector:@selector(onSwipeLeftDetected:) target:self number:1];
+    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
+}
+
+-(void) initHeroSetting
+{
+    speed = heroBody->GetLinearVelocity(); 
+    NSLog(@"speedY = %f",heroBody->GetLinearVelocity().y);
+}
+
+-(void) initHeroAnimation
 {
     NSMutableArray *frameArray = [NSMutableArray array];
     for (int i=1; i<=10; i++)
@@ -37,7 +57,7 @@
     [heroSprite runAction:animAction];
 }
 
--(void) setHeroPhysicsWithPosition:(CGPoint)thePosition
+-(void) initHeroPhysicsWithPosition:(CGPoint)thePosition
 {
     b2BodyDef heroBodyDef;
     heroBodyDef.type = b2_dynamicBody;
@@ -68,28 +88,37 @@
     heroBody->SetMassData(&massData);
 }
 
+#pragma mark -
+#pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
 {
-    CGPoint p;
-    CGPoint v;
-    
-    NSLog(@"helloworld");
-    
-    switch (recognizer.state) {
-        case UIGestureRecognizerStateBegan:
-            NSLog(@"pan begin");
-            break;
-        case UIGestureRecognizerStateChanged:
-            NSLog(@"pan changed");
-            break;
-        case UIGestureRecognizerStateEnded:
-            NSLog(@"pan ended");
-            break;
-        case UIGestureRecognizerStateCancelled:
-            NSLog(@"pan canceled");
-            break;
-        default:
-            break;
+    NSLog(@"state = %d", (int)recognizer.state);
+    //acc.Set([[Constants shared]heroAccelerationXBase], 0);
+    [self jump];
+    if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateBegan) 
+    {
+        CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] openGLView]]; 
+        ccp = [[CCDirector sharedDirector] convertToGL:ccp];
+        NSLog(@"point = (%g,%g)", ccp.x, ccp.y);
     }
 }
+
+#pragma mark -
+#pragma mark Movement
+-(void) setAccelerationWithX:(float)theX Y:(float)theY
+{
+    acc.Set(acc.x+theX, acc.y+theY);
+}
+
+-(void) jump
+{
+    heroBody->SetLinearVelocity(speed + *new b2Vec2(0, 10));
+}
+
+-(void) updateHeroPosition
+{
+    speed = heroBody->GetLinearVelocity() + acc;
+    heroBody->SetLinearVelocity(speed);
+}
+
 @end

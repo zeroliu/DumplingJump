@@ -29,17 +29,16 @@
     return self;
 }
 
--(UISwipeGestureRecognizer *)watchForSwipeUp:(SEL)selector target:(id)theTarget number:(int)tapRequired 
+-(UISwipeGestureRecognizer *)watchForSwipeWithDirection:(UISwipeGestureRecognizerDirection)theDirection selector:(SEL)theSelector target:(id)theTarget number:(int)tapRequired
 {
-    UISwipeGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:theTarget action:selector] autorelease];
+    UISwipeGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:theTarget action:theSelector] autorelease];
     recognizer.numberOfTouchesRequired = tapRequired;
-    recognizer.direction = UISwipeGestureRecognizerDirectionUp;
-    //[recognizer setDelegate:self];
+    recognizer.direction = theDirection;
     
     [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:recognizer];
-//    [[[Hub shared]gameLayer] addGestureRecognizer:recognizer];
     return recognizer;
 }
+
 
 -(void)unWatch:(UIGestureRecognizer *)recognizer
 {

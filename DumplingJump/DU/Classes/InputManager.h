@@ -2,5 +2,6 @@
 
 @interface InputManager : CCNode <UIGestureRecognizerDelegate>
 +(id) sharedInputManager;
--(UISwipeGestureRecognizer *)watchForSwipeUp:(SEL)selector target:(id)theTarget number:(int)tapRequired;
+-(UISwipeGestureRecognizer *)watchForSwipeWithDirection:(UISwipeGestureRecognizerDirection)theDirection selector:(SEL)theSelector target:(id)theTarget number:(int)tapRequired;
+
 @end

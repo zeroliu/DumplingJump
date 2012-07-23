@@ -2,7 +2,7 @@
 #import "PhysicsManager.h"
 #import "InputManager.h"
 #import "AccelerometerManager.h"
-#import "DUObjectsManager.h"9
+#import "DUObjectsFactory.h"
 @class BackgroundManager;
 @class BoardManager;
 @class Hero;

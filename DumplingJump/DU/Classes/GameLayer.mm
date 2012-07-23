@@ -58,8 +58,10 @@
 
 -(void) test
 {
-//    CCSprite *testSprite = [DUObjectsManager createSpriteWith
-//    [[DUObjectsManager shared] addObjectWithName:@"test"];
+    DUObject *testObject = [[DUObjectsFactory createObjectWithName:@"Hero"] autorelease];
+    NSLog(@"the old name is %@",testObject.name);
+    NSLog(@"before archieve: \n%@",[[DUObjectsDictionary sharedDictionary] printDictionary]);
+    [testObject archive];
 }
 
 -(void) initBatchNode

@@ -16,11 +16,10 @@
         
         [self initHeroAnimation];
         [self initHeroPhysicsWithPosition:thePosition];
-        [self initHeroSetting];
+        [self initSpeed];
         
         //Set up hero control
         [self initGestureHandler];
-        
     }
     
     return self;
@@ -29,12 +28,13 @@
 -(void) initGestureHandler
 {
     [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionUp selector:@selector(onSwipeUpDetected:) target:self number:1];
-    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionDown selector:@selector(onSwipeDownDetected:) target:self number:1];
-    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionLeft selector:@selector(onSwipeLeftDetected:) target:self number:1];
-    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
+//    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionDown selector:@selector(onSwipeDownDetected:) target:self number:1];
+//    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionLeft selector:@selector(onSwipeLeftDetected:) target:self number:1];
+//    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
 }
 
--(void) initHeroSetting
+
+-(void) initSpeed
 {
     speed = heroBody->GetLinearVelocity(); 
     NSLog(@"speedY = %f",heroBody->GetLinearVelocity().y);
@@ -83,7 +83,7 @@
     
     b2MassData massData;
     massData.center = heroBody->GetLocalCenter();
-    massData.mass = 100;
+    massData.mass = 200;
     massData.I = 1;
     heroBody->SetMassData(&massData);
 }
@@ -99,7 +99,6 @@
     {
         CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] openGLView]]; 
         ccp = [[CCDirector sharedDirector] convertToGL:ccp];
-        NSLog(@"point = (%g,%g)", ccp.x, ccp.y);
     }
 }
 
@@ -112,13 +111,20 @@
 
 -(void) jump
 {
-    heroBody->SetLinearVelocity(speed + *new b2Vec2(0, 10));
+    heroBody->SetLinearVelocity(speed + *new b2Vec2(0, 12));
 }
 
 -(void) updateHeroPosition
 {
-    speed = heroBody->GetLinearVelocity() + acc;
+    acc.Set([[AccelerometerManager shared] accX] * SENSIBILITY, 0);
+    speed.Set(clampf(heroBody->GetLinearVelocity().x + acc.x, -MAX_SPEED, MAX_SPEED),heroBody->GetLinearVelocity().y + acc.y);
     heroBody->SetLinearVelocity(speed);
+    speed.Set(speed.x * SPEED_INERTIA, speed.y);
 }
 
+-(void) dealloc
+{
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [super dealloc];
+}
 @end

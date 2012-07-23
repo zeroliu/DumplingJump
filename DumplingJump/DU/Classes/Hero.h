@@ -9,7 +9,7 @@
     b2Vec2 speed;
     b2Vec2 acc;
 }
-@property (nonatomic, retain) CCSprite *heroSprite;
+@property (nonatomic, retain) CCSprite *heroSprite; 
 
 -(id)initHeroWithFile:(NSString *)fileName position:(CGPoint)thePosition;
 -(void) updateHeroPosition;

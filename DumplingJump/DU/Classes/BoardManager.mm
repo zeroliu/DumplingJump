@@ -12,7 +12,7 @@
         
         //[self createNewBall];
         //[self scheduleUpdate];
-        [[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:1.0 paused:NO];
+        //[[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:0.04 paused:NO];
         count = 1;
     }
     
@@ -58,7 +58,7 @@
 -(void) createNewBall
 {
     count++;
-    CGPoint ballPos = ccp(0+10*count,450);
+    CGPoint ballPos = ccp(randomInt(0, 300),650);
     [self createBall:ballPos];
 }
 
@@ -83,7 +83,7 @@
     
     b2FixtureDef boardFixtureDef;
     
-    //TODO: NEED CHANGE TO THE REAL VALUE
+    //TODO: NEED CHANGE TO THE REAL VALUE;
     boardFixtureDef.friction = 10;
     boardFixtureDef.restitution = 0.8;
     boardFixtureDef.density = 10;

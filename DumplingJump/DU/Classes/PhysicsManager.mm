@@ -14,7 +14,7 @@
 
 -(void) initWorld
 {
-    b2Vec2 gravity = b2Vec2(0.0,-9.8);
+    b2Vec2 gravity = b2Vec2(0.0,-15);
     bool doSleep = true;
     world = new b2World(gravity,doSleep);
     

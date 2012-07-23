@@ -1,11 +1,3 @@
-//
-//  InputManager.m
-//  DumplingJump
-//
-//  Created by LIU Xiyuan on 12-7-20.
-//  Copyright (c) 2012年 CMU ETC. All rights reserved.
-//
-
 #import "InputManager.h"
 
 @implementation InputManager

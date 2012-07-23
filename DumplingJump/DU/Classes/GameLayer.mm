@@ -24,6 +24,7 @@
     [bgManager updateBackground];
     [[PhysicsManager sharedPhysicsManager] updatePhysicsBody:dt];
     [hero updateHeroPosition];
+//    NSLog(@"x=%g, y=%g, z=%g",[[AccelerometerManager shared] accX],[[AccelerometerManager shared] accY],[[AccelerometerManager shared] accZ]);
 }
 
 #pragma mark - 
@@ -31,19 +32,16 @@
 -(id) init
 {
 	if( (self=[super init])) {
-        id a = [InputManager sharedInputManager];
-        
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
         
 		// enable touches
 		self.isTouchEnabled = YES;
 		
-		// enable accelerometer
-		self.isAccelerometerEnabled = YES;
+//		// enable accelerometer
+//		self.isAccelerometerEnabled = YES;
 		
-        [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
-        
+        [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
         [self initBatchNode];
         
@@ -52,8 +50,16 @@
         [self initBoard];
         
         [self scheduleUpdate];
+        
+        [self test];
 	}
 	return self;
+}
+
+-(void) test
+{
+//    CCSprite *testSprite = [DUObjectsManager createSpriteWith
+//    [[DUObjectsManager shared] addObjectWithName:@"test"];
 }
 
 -(void) initBatchNode
@@ -88,7 +94,10 @@
 
 #pragma mark -
 #pragma mark ListenerHandlers
-
+-(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+}
 
 #pragma mark -
 #pragma mark Dealloc

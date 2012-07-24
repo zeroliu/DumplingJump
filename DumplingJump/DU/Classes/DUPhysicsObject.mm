@@ -48,4 +48,10 @@
     [self deactivate];
 }
 
+-(void) dealloc
+{
+    body->GetWorld()->DestroyBody(body);
+    [super dealloc];
+}
+
 @end

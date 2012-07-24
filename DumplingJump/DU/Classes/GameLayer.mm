@@ -53,7 +53,7 @@
         
         [self test];
         
-        [[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:0.04 paused:NO];
+        [[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:0.02 paused:NO];
 	}
 	return self;
 }
@@ -117,12 +117,13 @@
         
         b2MassData massData;
         massData.center = heroBody->GetLocalCenter();
-        massData.mass = 100;
+        massData.mass = 10;
         massData.I = 1;
         heroBody->SetMassData(&massData);
         ball = [DUObjectsFactory createPhysicsWithName:@"ball" file:@"HERO/AL_H_hero_1.png" body:heroBody];
         
     }
+    [ball.sprite runAction: [[AnimationManager shared] getAnimationWithName:@"HeroIdle" repeat:0]];
     ball.sprite.position = point;
     [ball addChildTo:[[[Hub shared] gameLayer] batchNode]];
 }

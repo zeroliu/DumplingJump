@@ -38,4 +38,10 @@
     [super archive];
 }
 
+-(void) dealloc
+{
+    [sprite release];
+    [super dealloc];
+}
+
 @end

@@ -1,16 +1,16 @@
 #import "GameLayer.h"
 
-@interface Hero : CCNode
+@interface Hero : DUPhysicsObject
 {
-    CCSprite *heroSprite;
-    b2Body *heroBody;
+//    CCSprite *heroSprite;
+//    b2Body *heroBody;
     
     float x,y;
     b2Vec2 speed;
     b2Vec2 acc;
 }
-@property (nonatomic, retain) CCSprite *heroSprite; 
+//@property (nonatomic, retain) CCSprite *heroSprite; 
 
--(id)initHeroWithFile:(NSString *)fileName position:(CGPoint)thePosition;
+-(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition;
 -(void) updateHeroPosition;
 @end

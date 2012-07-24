@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F30164815BE6B68006870EF /* AnimationManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164715BE6B68006870EF /* AnimationManager.mm */; };
+		7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */; };
 		7F41435215AAC659002CFC9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435115AAC659002CFC9A /* QuartzCore.framework */; };
 		7F41435415AAC659002CFC9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435315AAC659002CFC9A /* OpenGLES.framework */; };
 		7F41435615AAC659002CFC9A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435515AAC659002CFC9A /* OpenAL.framework */; };
@@ -164,7 +166,7 @@
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
-		7F9E3AC515B5353F005130D0 /* BoardManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AC415B5353F005130D0 /* BoardManager.mm */; };
+		7F9E3AC515B5353F005130D0 /* Board.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AC415B5353F005130D0 /* Board.mm */; };
 		7F9E3AD115B53A9D005130D0 /* PhysicsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */; };
 		7F9E3AD315B53FF8005130D0 /* SK_plate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD215B53FF8005130D0 /* SK_plate.png */; };
 		7F9E3AE515B561AF005130D0 /* Hub.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AE415B561AE005130D0 /* Hub.mm */; };
@@ -197,6 +199,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F30164615BE6B68006870EF /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
+		7F30164715BE6B68006870EF /* AnimationManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimationManager.mm; sourceTree = "<group>"; };
+		7F30164B15BE8F29006870EF /* DUPhysicsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUPhysicsObject.h; sourceTree = "<group>"; };
+		7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUPhysicsObject.mm; sourceTree = "<group>"; };
 		7F41434D15AAC659002CFC9A /* DumplingJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumplingJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41435115AAC659002CFC9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F41435315AAC659002CFC9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -523,8 +529,8 @@
 		7F70110615AFF11400495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
-		7F9E3AC315B5353F005130D0 /* BoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardManager.h; sourceTree = "<group>"; };
-		7F9E3AC415B5353F005130D0 /* BoardManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BoardManager.mm; sourceTree = "<group>"; };
+		7F9E3AC315B5353F005130D0 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		7F9E3AC415B5353F005130D0 /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
 		7F9E3ACF15B53A9D005130D0 /* PhysicsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsManager.h; sourceTree = "<group>"; };
 		7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PhysicsManager.mm; sourceTree = "<group>"; };
 		7F9E3AD215B53FF8005130D0 /* SK_plate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SK_plate.png; sourceTree = "<group>"; };
@@ -755,6 +761,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F30164A15BE6B78006870EF /* SharedManager */ = {
+			isa = PBXGroup;
+			children = (
+				7FF4977E15BBA3C6008EDF37 /* AccelerometerManager.h */,
+				7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */,
+				7F5B00C915B9467200BA15D9 /* InputManager.h */,
+				7F5B00D415B952A800BA15D9 /* InputManager.mm */,
+				7F9E3ACF15B53A9D005130D0 /* PhysicsManager.h */,
+				7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */,
+				7F30164615BE6B68006870EF /* AnimationManager.h */,
+				7F30164715BE6B68006870EF /* AnimationManager.mm */,
+			);
+			name = SharedManager;
+			sourceTree = "<group>";
+		};
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
@@ -1270,6 +1291,8 @@
 				7F4F505F15BD166E000A9C5F /* DUSprite.mm */,
 				7F4F506515BD1B17000A9C5F /* DUObjectsDictionary.h */,
 				7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */,
+				7F30164B15BE8F29006870EF /* DUPhysicsObject.h */,
+				7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */,
 			);
 			name = DUEntities;
 			sourceTree = "<group>";
@@ -1301,6 +1324,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F30164A15BE6B78006870EF /* SharedManager */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F5B00C815B945F400BA15D9 /* Helper */,
 				7F4F506415BD17B9000A9C5F /* DUEntities */,
@@ -1310,14 +1334,8 @@
 				7FD5283015B3EE1900E50506 /* BackgroundManager.mm */,
 				7FDFD5AC15B6AE7A00F55257 /* Hero.h */,
 				7FDFD5AD15B6AE7A00F55257 /* Hero.mm */,
-				7F9E3AC315B5353F005130D0 /* BoardManager.h */,
-				7F9E3AC415B5353F005130D0 /* BoardManager.mm */,
-				7FF4977E15BBA3C6008EDF37 /* AccelerometerManager.h */,
-				7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */,
-				7F5B00C915B9467200BA15D9 /* InputManager.h */,
-				7F5B00D415B952A800BA15D9 /* InputManager.mm */,
-				7F9E3ACF15B53A9D005130D0 /* PhysicsManager.h */,
-				7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */,
+				7F9E3AC315B5353F005130D0 /* Board.h */,
+				7F9E3AC415B5353F005130D0 /* Board.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1893,7 +1911,7 @@
 				7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */,
 				7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */,
 				7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */,
-				7F9E3AC515B5353F005130D0 /* BoardManager.mm in Sources */,
+				7F9E3AC515B5353F005130D0 /* Board.mm in Sources */,
 				7F9E3AD115B53A9D005130D0 /* PhysicsManager.mm in Sources */,
 				7F9E3AE515B561AF005130D0 /* Hub.mm in Sources */,
 				7FDFD5AE15B6AE7A00F55257 /* Hero.mm in Sources */,
@@ -1904,6 +1922,8 @@
 				7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */,
 				7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */,
 				7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */,
+				7F30164815BE6B68006870EF /* AnimationManager.mm in Sources */,
+				7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1922,7 +1942,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zero LIU (Z2GP6UH9C3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zero LIU (Z2GP6UH9C3)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1935,6 +1955,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "28EAE221-3D73-4BF7-864E-C57669539DA7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
@@ -1944,6 +1965,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zero LIU (Z2GP6UH9C3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
@@ -1952,6 +1974,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "28EAE221-3D73-4BF7-864E-C57669539DA7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};

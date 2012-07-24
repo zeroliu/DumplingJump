@@ -3,12 +3,10 @@
 @interface DUSprite : DUObject
 {
     CCSprite *sprite;
-    NSMutableDictionary *animDict;
 }
 @property (nonatomic, assign) CCSprite *sprite;
-@property (nonatomic, readonly) NSMutableDictionary *animDict;
 
--(id) initWithName:(NSString *)theName sprite:(CCSprite *)theSprite;
--(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay repeat:(BOOL)canRepeat;
-
+-(id) initWithName:(NSString *)theName file:(NSString *)fileName;
+-(BOOL) addChildTo: (CCNode *)node;
+-(BOOL) addChildTo:(CCNode *)node z:(int)zLayer;
 @end

@@ -1,7 +1,7 @@
 #import "DUObject.h"
 
 @implementation DUObject
-@synthesize name;
+@synthesize name,rebuilt;
 
 -(id)initWithName:(NSString *)theName
 {

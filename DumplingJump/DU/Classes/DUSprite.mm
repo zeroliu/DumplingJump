@@ -1,44 +1,41 @@
 #import "DUSprite.h"
 
 @implementation DUSprite
-@synthesize sprite, animDict;
+@synthesize sprite;
 
--(id) initWithName:(NSString *)theName sprite:(CCSprite *)theSprite
+-(id) initWithName:(NSString *)theName file:(NSString *)fileName;
 {
     if (self = [super initWithName:theName])
     {
-        sprite = theSprite;
-//        animDict = [NSMutableDictionary dictionary];
+        sprite = [CCSprite spriteWithSpriteFrameName:fileName];
+        rebuilt = NO;
     }
     
     return self;
 }
 
+-(BOOL) addChildTo: (CCNode *)node
+{
+    return [self addChildTo:node z:0];
+}
+
+-(BOOL) addChildTo:(CCNode *)node z:(int)zLayer
+{
+    if(rebuilt == YES)
+    {
+        return NO;
+    } else {
+        [node addChild:sprite z:zLayer];
+        return YES;
+    }
+}
+
 -(void) archive
 {
     sprite.visible = NO;
-    
+    sprite.position = ccp(-0,-0);
+    [sprite stopAllActions];
     [super archive];
 }
-
-//-(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay repeat:(BOOL)canRepeat
-//{
-//    NSMutableArray *frameArray = [NSMutableArray array];
-//    for (int i=start; i<=end; i++)
-//    {
-//        NSString *frameName = [NSString stringWithFormat:@"%@_%d.png",theFile,i];
-//        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-//        [frameArray addObject:frameObject];
-//    }
-//
-//    id animObject = [CCAnimation animationWithFrames:frameArray delay:theDelay];
-//    id animAction = [CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
-//    if(canRepeat)
-//    {
-//        animAction = [CCRepeatForever actionWithAction:animAction];
-//    }
-//
-//    [animDict setObject:animAction forKey:theName];
-//}
 
 @end

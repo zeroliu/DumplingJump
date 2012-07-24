@@ -1,4 +1,5 @@
 #import "Common.h"
+#import "DUPhysicsObject.h"
 
 #define RATIO 32
 

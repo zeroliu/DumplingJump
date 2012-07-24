@@ -39,10 +39,18 @@
     {
         if(b->GetUserData() != NULL)
         {
-            CCSprite* sprite = ((CCSprite *)b->GetUserData());
+            DUPhysicsObject *physicsObject = (DUPhysicsObject *)b->GetUserData();
+            CCSprite* sprite = ((DUPhysicsObject *)b->GetUserData()).sprite;
             sprite.position = ccp(b->GetPosition().x * RATIO,
                                   b->GetPosition().y * RATIO);
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+            
+            if(physicsObject.name == @"ball")
+            {
+                if (physicsObject.sprite.position.y < -100) {
+                    [physicsObject archive];
+                }
+            }
         }
     }
 }

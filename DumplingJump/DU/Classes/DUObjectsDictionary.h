@@ -1,7 +1,7 @@
 #import "cocos2d.h"
 @class DUObject;
 
-@interface DUObjectsDictionary : CCNode
+@interface DUObjectsDictionary : NSObject
 {
     NSMutableDictionary *DUDictionary;
 }

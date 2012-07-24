@@ -27,12 +27,11 @@
     return res;
 }
 
-
 -(id) init
 {
     if (self = [super init])
     {
-        DUDictionary = [NSMutableDictionary dictionary];
+        DUDictionary = [[NSMutableDictionary alloc] init];
     }
     
     return self;

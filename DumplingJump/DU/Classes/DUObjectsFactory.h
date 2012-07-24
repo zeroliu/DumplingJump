@@ -2,6 +2,7 @@
 #import "DUObjectsDictionary.h"
 #import "DUObject.h"
 #import "DUSprite.h"
+#import "DUPhysicsObject.h"
 
 #ifdef DEBUG
 #   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
@@ -13,8 +14,8 @@
 #define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 
-@interface DUObjectsFactory: CCNode
+@interface DUObjectsFactory: NSObject
 +(id) createObjectWithName:(NSString *)theName;
-+(id) createSpriteWithName:(NSString *)theName sprite:(CCSprite *)theSprite;
-
++(id) createSpriteWithName:(NSString *)theName file:(NSString *)theFile;
++(id) createPhysicsWithName:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody;
 @end

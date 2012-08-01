@@ -115,8 +115,6 @@
 
 -(void) dealloc
 {
-    body = NULL;
-    [sprite release];
     [super dealloc];
 }
 @end

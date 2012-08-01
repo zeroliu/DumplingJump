@@ -45,7 +45,7 @@
                                   b->GetPosition().y * RATIO);
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
             
-            if(physicsObject.name == @"ball")
+//            if(physicsObject.name == @"testBall")
             {
                 if (physicsObject.sprite.position.y < -100) {
                     [physicsObject archive];

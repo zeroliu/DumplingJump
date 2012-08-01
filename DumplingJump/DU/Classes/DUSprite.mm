@@ -8,33 +8,39 @@
     if (self = [super initWithName:theName])
     {
         sprite = [CCSprite spriteWithSpriteFrameName:fileName];
-        rebuilt = NO;
     }
     
     return self;
 }
 
--(BOOL) addChildTo: (CCNode *)node
+-(void) addChildTo: (CCNode *)node
 {
-    return [self addChildTo:node z:0];
+    [self addChildTo:node z:0];
 }
 
--(BOOL) addChildTo:(CCNode *)node z:(int)zLayer
+-(void) addChildTo:(CCNode *)node z:(int)zLayer
 {
-    if(rebuilt == YES)
-    {
-        return NO;
-    } else {
-        [node addChild:sprite z:zLayer];
-        return YES;
-    }
+    if (!rebuilt) [node addChild:sprite z:zLayer];
+}
+
+-(void) activate
+{
+    [super activate];
+    sprite.visible = YES;
+}
+
+-(void) deactivate
+{
+    [super deactivate];
+    sprite.visible = NO;
+    sprite.position = ccp(-0,-0);
+    [sprite stopAllActions];
+//    [sprite removeFromParentAndCleanup:NO];
+//    NSLog(@"call DUSpirte deactive");
 }
 
 -(void) archive
 {
-    sprite.visible = NO;
-    sprite.position = ccp(-0,-0);
-    [sprite stopAllActions];
     [super archive];
 }
 
@@ -43,5 +49,4 @@
     [sprite release];
     [super dealloc];
 }
-
 @end

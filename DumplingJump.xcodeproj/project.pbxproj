@@ -158,7 +158,6 @@
 		7F41452215AAC65D002CFC9A /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F41452115AAC65D002CFC9A /* b2WeldJoint.cpp */; };
 		7F41452815AAC65D002CFC9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F41452715AAC65D002CFC9A /* main.m */; };
 		7F41453715AAC65D002CFC9A /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F41453615AAC65D002CFC9A /* blocks.png */; };
-		7F4F505D15BCB906000A9C5F /* DUObjectsFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505C15BCB906000A9C5F /* DUObjectsFactory.mm */; };
 		7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505F15BD166E000A9C5F /* DUSprite.mm */; };
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
@@ -166,10 +165,15 @@
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
+		7F8EED3515BFCD5400F99B9D /* DUFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3415BFCD5400F99B9D /* DUFactory.mm */; };
+		7F8EED3C15BFE8F400F99B9D /* b2BodyBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */; };
 		7F9E3AC515B5353F005130D0 /* Board.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AC415B5353F005130D0 /* Board.mm */; };
 		7F9E3AD115B53A9D005130D0 /* PhysicsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */; };
 		7F9E3AD315B53FF8005130D0 /* SK_plate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD215B53FF8005130D0 /* SK_plate.png */; };
 		7F9E3AE515B561AF005130D0 /* Hub.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AE415B561AE005130D0 /* Hub.mm */; };
+		7FA2102415C84E3D000E76F0 /* b2FixtureDefBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102315C84E3D000E76F0 /* b2FixtureDefBuilder.mm */; };
+		7FA2102915C90FD2000E76F0 /* b2DisjointDefBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102815C90FD2000E76F0 /* b2DisjointDefBuilder.mm */; };
+		7FA2102F15C91BA7000E76F0 /* TestBall.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102E15C91BA7000E76F0 /* TestBall.mm */; };
 		7FA691BD15BB4E24000B15A2 /* Constants.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA691BC15BB4E24000B15A2 /* Constants.mm */; };
 		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
 		7FD5283315B3EF8400E50506 /* BackgroundManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5282F15B3EE1900E50506 /* BackgroundManager.h */; };
@@ -507,8 +511,6 @@
 		7F41452615AAC65D002CFC9A /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7F41452715AAC65D002CFC9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F41453615AAC65D002CFC9A /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
-		7F4F505B15BCB906000A9C5F /* DUObjectsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUObjectsFactory.h; sourceTree = "<group>"; };
-		7F4F505C15BCB906000A9C5F /* DUObjectsFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObjectsFactory.mm; sourceTree = "<group>"; };
 		7F4F505E15BD166E000A9C5F /* DUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUSprite.h; sourceTree = "<group>"; };
 		7F4F505F15BD166E000A9C5F /* DUSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUSprite.mm; sourceTree = "<group>"; };
 		7F4F506115BD1700000A9C5F /* DUObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUObject.h; sourceTree = "<group>"; };
@@ -529,6 +531,10 @@
 		7F70110615AFF11400495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
+		7F8EED3315BFCD5400F99B9D /* DUFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUFactory.h; sourceTree = "<group>"; };
+		7F8EED3415BFCD5400F99B9D /* DUFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUFactory.mm; sourceTree = "<group>"; };
+		7F8EED3A15BFE8F300F99B9D /* b2BodyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BodyBuilder.h; sourceTree = "<group>"; };
+		7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = b2BodyBuilder.mm; sourceTree = "<group>"; };
 		7F9E3AC315B5353F005130D0 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		7F9E3AC415B5353F005130D0 /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
 		7F9E3ACF15B53A9D005130D0 /* PhysicsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsManager.h; sourceTree = "<group>"; };
@@ -542,6 +548,12 @@
 		7F9E3ADA15B55783005130D0 /* CA_background_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_background_5.png; sourceTree = "<group>"; };
 		7F9E3AE315B561AE005130D0 /* Hub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hub.h; sourceTree = "<group>"; };
 		7F9E3AE415B561AE005130D0 /* Hub.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hub.mm; sourceTree = "<group>"; };
+		7FA2102215C84E3D000E76F0 /* b2FixtureDefBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2FixtureDefBuilder.h; sourceTree = "<group>"; };
+		7FA2102315C84E3D000E76F0 /* b2FixtureDefBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = b2FixtureDefBuilder.mm; sourceTree = "<group>"; };
+		7FA2102715C90FD2000E76F0 /* b2DisjointDefBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2DisjointDefBuilder.h; sourceTree = "<group>"; };
+		7FA2102815C90FD2000E76F0 /* b2DisjointDefBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = b2DisjointDefBuilder.mm; sourceTree = "<group>"; };
+		7FA2102D15C91BA7000E76F0 /* TestBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestBall.h; sourceTree = "<group>"; };
+		7FA2102E15C91BA7000E76F0 /* TestBall.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestBall.mm; sourceTree = "<group>"; };
 		7FA691BB15BB4E24000B15A2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7FA691BC15BB4E24000B15A2 /* Constants.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Constants.mm; sourceTree = "<group>"; };
 		7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TexturePackerScript.sh; sourceTree = "<group>"; };
@@ -1280,26 +1292,25 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		7F4F506415BD17B9000A9C5F /* DUEntities */ = {
+		7F4F506415BD17B9000A9C5F /* DUSystem */ = {
 			isa = PBXGroup;
 			children = (
 				7F4F506115BD1700000A9C5F /* DUObject.h */,
 				7F4F506215BD1700000A9C5F /* DUObject.mm */,
-				7F4F505B15BCB906000A9C5F /* DUObjectsFactory.h */,
-				7F4F505C15BCB906000A9C5F /* DUObjectsFactory.mm */,
 				7F4F505E15BD166E000A9C5F /* DUSprite.h */,
 				7F4F505F15BD166E000A9C5F /* DUSprite.mm */,
-				7F4F506515BD1B17000A9C5F /* DUObjectsDictionary.h */,
-				7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */,
 				7F30164B15BE8F29006870EF /* DUPhysicsObject.h */,
 				7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */,
+				7F4F506515BD1B17000A9C5F /* DUObjectsDictionary.h */,
+				7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */,
 			);
-			name = DUEntities;
+			name = DUSystem;
 			sourceTree = "<group>";
 		};
 		7F5B00C815B945F400BA15D9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				7FA2102615C90F73000E76F0 /* box2DHelper */,
 				7FD5283115B3EE1900E50506 /* Common.h */,
 				7FD5283215B3EE1900E50506 /* Common.mm */,
 				7F9E3AE315B561AE005130D0 /* Hub.h */,
@@ -1327,7 +1338,9 @@
 				7F30164A15BE6B78006870EF /* SharedManager */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F5B00C815B945F400BA15D9 /* Helper */,
-				7F4F506415BD17B9000A9C5F /* DUEntities */,
+				7FA2102A15C91A32000E76F0 /* DUFactories */,
+				7FA2102C15C91B47000E76F0 /* DUEntities */,
+				7F4F506415BD17B9000A9C5F /* DUSystem */,
 				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
 				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
 				7FD5282F15B3EE1900E50506 /* BackgroundManager.h */,
@@ -1439,6 +1452,37 @@
 				7F9E3ADA15B55783005130D0 /* CA_background_5.png */,
 			);
 			path = sheetBackground;
+			sourceTree = "<group>";
+		};
+		7FA2102615C90F73000E76F0 /* box2DHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7FA2102215C84E3D000E76F0 /* b2FixtureDefBuilder.h */,
+				7FA2102315C84E3D000E76F0 /* b2FixtureDefBuilder.mm */,
+				7F8EED3A15BFE8F300F99B9D /* b2BodyBuilder.h */,
+				7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */,
+				7FA2102715C90FD2000E76F0 /* b2DisjointDefBuilder.h */,
+				7FA2102815C90FD2000E76F0 /* b2DisjointDefBuilder.mm */,
+			);
+			name = box2DHelper;
+			sourceTree = "<group>";
+		};
+		7FA2102A15C91A32000E76F0 /* DUFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7F8EED3315BFCD5400F99B9D /* DUFactory.h */,
+				7F8EED3415BFCD5400F99B9D /* DUFactory.mm */,
+			);
+			name = DUFactories;
+			sourceTree = "<group>";
+		};
+		7FA2102C15C91B47000E76F0 /* DUEntities */ = {
+			isa = PBXGroup;
+			children = (
+				7FA2102D15C91BA7000E76F0 /* TestBall.h */,
+				7FA2102E15C91BA7000E76F0 /* TestBall.mm */,
+			);
+			name = DUEntities;
 			sourceTree = "<group>";
 		};
 		7FD5280D15B3EDE100E50506 /* Assets */ = {
@@ -1918,12 +1962,16 @@
 				7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */,
 				7FA691BD15BB4E24000B15A2 /* Constants.mm in Sources */,
 				7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */,
-				7F4F505D15BCB906000A9C5F /* DUObjectsFactory.mm in Sources */,
 				7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */,
 				7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */,
 				7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */,
 				7F30164815BE6B68006870EF /* AnimationManager.mm in Sources */,
 				7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */,
+				7F8EED3515BFCD5400F99B9D /* DUFactory.mm in Sources */,
+				7F8EED3C15BFE8F400F99B9D /* b2BodyBuilder.mm in Sources */,
+				7FA2102415C84E3D000E76F0 /* b2FixtureDefBuilder.mm in Sources */,
+				7FA2102915C90FD2000E76F0 /* b2DisjointDefBuilder.mm in Sources */,
+				7FA2102F15C91BA7000E76F0 /* TestBall.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

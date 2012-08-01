@@ -15,37 +15,45 @@
     return self;
 }
 
+-(void) setUserData:(id)data;
+{
+    body->SetUserData(data);
+}
+
+-(void) resetPhysicsBodyPosition
+{
+    body->SetTransform(*new b2Vec2(sprite.position.x/RATIO, sprite.position.y/RATIO),0);
+}
+
+-(void) addChildTo: (CCNode *)node z:(int)zLayer
+{
+    [self resetPhysicsBodyPosition];
+    [super addChildTo:node z:zLayer];
+}
+
 -(void) activate
 {
+    [super activate];
     body->SetActive(true);
     body->SetAwake(true);
-    [self resetPhysicsBody];
+    //TODO: Add info for contacts
 }
 
 -(void) deactivate
 {
+    [super deactivate];
     body->SetActive(false);
     body->SetAwake(false);
     body->SetTransform(*new b2Vec2(0, 0),0);
     body->SetLinearVelocity(*new b2Vec2(0,0));
     body->SetAngularVelocity(0);
-}
-
--(void) resetPhysicsBody
-{
-    body->SetTransform(*new b2Vec2(sprite.position.x/RATIO, sprite.position.y/RATIO),0);
-}
-
--(BOOL) addChildTo: (CCNode *)node
-{
-    [self resetPhysicsBody];
-    return [super addChildTo:node];
+    //TODO: Add info for contacts
+//    NSLog(@"call DUPhysics deactive");
 }
 
 -(void) archive
 {
     [super archive];
-    [self deactivate];
 }
 
 -(void) dealloc

@@ -3,7 +3,8 @@
 #import "InputManager.h"
 #import "AccelerometerManager.h"
 #import "AnimationManager.h"
-#import "DUObjectsFactory.h"
+#import "DUPhysicsObjectFactory.h"
+
 @class BackgroundManager;
 @class Board;
 @class Hero;
@@ -15,6 +16,8 @@
     CCSpriteBatchNode *batchNode;
     Hero *hero;
     
+    //Test use
+    DUPhysicsObjectFactory *ballFactory;
 }
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;

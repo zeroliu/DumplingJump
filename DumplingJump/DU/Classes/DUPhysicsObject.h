@@ -7,8 +7,6 @@
 }
 
 -(id) initWithName:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody;
--(void) activate;
--(void) deactivate;
--(void) resetPhysicsBody;
-
+-(void) resetPhysicsBodyPosition;
+-(void) setUserData:(id)data;
 @end

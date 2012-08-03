@@ -19,36 +19,6 @@
     }
     
     return self;
-//    
-//    fdBuilder circleShape:
-//    
-//    DUPhysicsObject *ball;
-    //
-    //        b2BodyDef heroBodyDef;
-    //        heroBodyDef.type = b2_dynamicBody;
-    //        CCSprite *herosprite = [CCSprite spriteWithSpriteFrameName:@"HERO/AL_H_hero_1.png"];
-    //        b2Body *heroBody = [[PhysicsManager sharedPhysicsManager] getWorld]->CreateBody(&heroBodyDef);
-    //        
-    //        b2CircleShape heroShape;
-    //        heroShape.m_radius = (herosprite.contentSize.height/2-7) /RATIO;
-    //        
-    //        b2FixtureDef heroFixtureDef;
-    //        heroFixtureDef.shape = &heroShape;
-    //        heroFixtureDef.density = 1.0f;
-    //        heroFixtureDef.friction = 0.3f;
-    //        heroFixtureDef.restitution = 0.6f;
-    //        
-    //        heroBody->CreateFixture(&heroFixtureDef);
-    //        b2MassData massData;
-    //        massData.center = heroBody->GetLocalCenter();
-    //        massData.mass = 10;
-    //        massData.I = 1;
-    //        heroBody->SetMassData(&massData);
-    //        ball= [[DUPhysicsObject alloc] initWithName: @"ball" file:@"HERO/AL_H_hero_1.png" body:heroBody];    
-    
-    //        ballFactory = [[DUPhysicsObjectFactory alloc] initWithDUObject:ball];
-    //        [self createNewBall];
-    //[self createNewBall];
 }
 
 -(id) createNewObject
@@ -57,7 +27,7 @@
     
     b2BodyDef heroBodyDef;
     heroBodyDef.type = b2_dynamicBody;
-    b2Body *heroBody = [[PhysicsManager sharedPhysicsManager] getWorld]->CreateBody(&heroBodyDef);
+    b2Body *heroBody = WORLD->CreateBody(&heroBodyDef);
          
     b2CircleShape heroShape;
     heroShape.m_radius = (herosprite.contentSize.height/2-7) /RATIO; 

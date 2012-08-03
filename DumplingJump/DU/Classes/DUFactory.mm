@@ -15,11 +15,11 @@
 {
     if ([[DUObjectsDictionary sharedDictionary] containsDUObject:name] == NO) 
     {
-        DLog(@"Key <%@> not found in the DUObjectsDictionary, add a new DUObject.", name);        
+//        DLog(@"Key <%@> not found in the DUObjectsDictionary, add a new DUObject.", name);        
         return [self createNewObject];
         
     } else {
-        DLog(@"Key <%@> found, reuse the object from the dictionary", name);
+//        DLog(@"Key <%@> found, reuse the object from the dictionary", name);
         return [self reuseOldObject];
     }
 }

@@ -1,7 +1,7 @@
 #import "BackgroundManager.h"
 
 #define SCROLL_SPEED 0.3
-#define dy 0.3
+#define dy -0.3
 #define W 320
 #define H 530
 
@@ -53,7 +53,7 @@
         //Set the sprite position of background sprite and swapSprite
         myLayer.sprite.position = ccp(W/2,H/2+myLayer.offset);
         [bgBatchNode addChild:myLayer.sprite z:myLayer.z];
-        myLayer.swapSprite.position = ccp(W/2,-H/2+myLayer.offset);
+        myLayer.swapSprite.position = ccp(W/2,H*3/2+myLayer.offset);
         [bgBatchNode addChild:myLayer.swapSprite z:myLayer.z];
     }
     [[[Hub shared]gameLayer] addChild:bgBatchNode];
@@ -68,8 +68,8 @@
         
         myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,dy*myLayer.speedScale));
         myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,dy*myLayer.speedScale));
-        if(myLayer.sprite.position.y > H * 3/2) myLayer.sprite.position = ccp(W/2, -H/2 + dy*myLayer.speedScale);
-        if(myLayer.swapSprite.position.y > H * 3/2) myLayer.swapSprite.position = ccp(W/2, -H/2 + dy*myLayer.speedScale);
+        if(myLayer.sprite.position.y < -H/2) myLayer.sprite.position = ccp(W/2, H*3/2 + dy*myLayer.speedScale);
+        if(myLayer.swapSprite.position.y < -H/2) myLayer.swapSprite.position = ccp(W/2, H*3/2 + dy*myLayer.speedScale);
 //        NSLog(@"sprite pos y = %f, swapsprite pos y = %g", myLayer.sprite.position.y, myLayer.swapSprite.position.y);
     }
 }

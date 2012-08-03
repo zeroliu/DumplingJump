@@ -1,9 +1,4 @@
 #import "Common.h"
-#import "PhysicsManager.h"
-#import "InputManager.h"
-#import "AccelerometerManager.h"
-#import "AnimationManager.h"
-#import "DUPhysicsObjectFactory.h"
 
 @class BackgroundManager;
 @class Board;
@@ -16,8 +11,7 @@
     CCSpriteBatchNode *batchNode;
     Hero *hero;
     
-    //Test use
-    DUPhysicsObjectFactory *ballFactory;
+    CCLabelTTF *label;
 }
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;

@@ -43,7 +43,7 @@
     boardDef.type = b2_dynamicBody;
     boardDef.userData = self;
     
-    body = [[PhysicsManager sharedPhysicsManager] getWorld]->CreateBody(&boardDef);
+    body = WORLD->CreateBody(&boardDef);
     
     b2PolygonShape boardShape;
     boardShape.SetAsBox(sprite.boundingBox.size.width/2/RATIO, sprite.boundingBox.size.height/2/RATIO);

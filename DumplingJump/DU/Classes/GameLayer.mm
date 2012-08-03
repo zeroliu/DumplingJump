@@ -24,9 +24,10 @@
 -(void)update:(ccTime)dt
 {
     [bgManager updateBackground];
-    [[PhysicsManager sharedPhysicsManager] updatePhysicsBody:dt];
+    [PHYSICSMANAGER updatePhysicsBody:dt];
     [hero updateHeroPosition];
-//    NSLog(@"x=%g, y=%g, z=%g",[[AccelerometerManager shared] accX],[[AccelerometerManager shared] accY],[[AccelerometerManager shared] accZ]);
+    [DUGAMEMANAGER update:dt];
+    [self updateUI];
 }
 
 #pragma mark - 
@@ -39,10 +40,7 @@
         
 		// enable touches
 		self.isTouchEnabled = YES;
-		
-//		// enable accelerometer
-//		self.isAccelerometerEnabled = YES;
-		
+			
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
         [self initBatchNode];
@@ -51,29 +49,32 @@
         [self initBackground];
         [self initBoard];
         
+        [self initUI];
+        
+        [self initListeners];
+        
         [self scheduleUpdate];
         
-        [self createNewBall];
-//        //[self createNewBall];
-        
-        [[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:0.02 paused:NO];
+//        [self createNewBall];
+//        
+//        [[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:0.02 paused:NO];
 	}
 	return self;
 }
-
--(void)createBall:(CGPoint)point
-{
-    DUPhysicsObject *ball = [[TestBall shared] create];
-    [ball.sprite runAction: [[AnimationManager shared] getAnimationWithName:@"HeroIdle" repeat:0]];
-    ball.sprite.position = point;
-    [ball addChildTo:[[[Hub shared] gameLayer] batchNode]];
-}
-
--(void) createNewBall
-{
-    CGPoint ballPos = ccp(randomInt(20, 300),650);
-    [self createBall:ballPos];
-}
+//
+//-(void)createBall:(CGPoint)point
+//{
+//    DUPhysicsObject *ball = [[TestBall shared] create];
+//    [ball.sprite runAction: [ANIMATIONMANAGER getAnimationWithName:@"HeroIdle" repeat:0]];
+//    ball.sprite.position = point;
+//    [ball addChildTo:[[[Hub shared] gameLayer] batchNode]];
+//}
+//
+//-(void) createNewBall
+//{
+//    CGPoint ballPos = ccp(randomInt(20, 300),650);
+//    [self createBall:ballPos];
+//}
 
 -(void) initBatchNode
 {
@@ -81,6 +82,19 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetObjects.plist"];
     
     [self addChild:batchNode z:10];
+}
+
+-(void) initListeners
+{
+    [MESSAGECENTER addObserver:self selector:@selector(updateDistanceText) name:DISTANCEUPDATED object:nil];
+}
+
+-(void) initUI
+{
+    label = [CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:20];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    label.position =  ccp( size.width - 20 , size.height - 20 );
+    [self addChild: label];
 }
 
 -(void) initHero
@@ -110,9 +124,21 @@
 
 #pragma mark -
 #pragma mark ListenerHandlers
+
+
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
+}
+
+-(void) updateUI
+{
+    [self updateDistanceText];
+}
+
+-(void) updateDistanceText
+{
+    [label setString:[NSString stringWithFormat: @"%d", (int)[SCOREMANAGER distance]]];
 }
 
 #pragma mark -

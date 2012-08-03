@@ -162,6 +162,9 @@
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
+		7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937915CBBAD800B8C80C /* ScoreManager.mm */; };
+		7F68937E15CBBDAF00B8C80C /* DUGameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937D15CBBDAF00B8C80C /* DUGameManager.mm */; };
+		7F68938115CBBE0400B8C80C /* DUGameModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68938015CBBE0400B8C80C /* DUGameModel.mm */; };
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
@@ -519,6 +522,12 @@
 		7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObjectsDictionary.mm; sourceTree = "<group>"; };
 		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
+		7F68937815CBBAD700B8C80C /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
+		7F68937915CBBAD800B8C80C /* ScoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoreManager.mm; sourceTree = "<group>"; };
+		7F68937C15CBBDAE00B8C80C /* DUGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DUGameManager.h; sourceTree = "<group>"; };
+		7F68937D15CBBDAF00B8C80C /* DUGameManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUGameManager.mm; sourceTree = "<group>"; };
+		7F68937F15CBBE0300B8C80C /* DUGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUGameModel.h; sourceTree = "<group>"; };
+		7F68938015CBBE0400B8C80C /* DUGameModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUGameModel.mm; sourceTree = "<group>"; };
 		7F7010EA15AFEFFE00495B10 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		7F7010EC15AFEFFE00495B10 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
@@ -784,6 +793,12 @@
 				7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */,
 				7F30164615BE6B68006870EF /* AnimationManager.h */,
 				7F30164715BE6B68006870EF /* AnimationManager.mm */,
+				7F68937815CBBAD700B8C80C /* ScoreManager.h */,
+				7F68937915CBBAD800B8C80C /* ScoreManager.mm */,
+				7F68937C15CBBDAE00B8C80C /* DUGameManager.h */,
+				7F68937D15CBBDAF00B8C80C /* DUGameManager.mm */,
+				7F68937F15CBBE0300B8C80C /* DUGameModel.h */,
+				7F68938015CBBE0400B8C80C /* DUGameModel.mm */,
 			);
 			name = SharedManager;
 			sourceTree = "<group>";
@@ -1295,6 +1310,8 @@
 		7F4F506415BD17B9000A9C5F /* DUSystem */ = {
 			isa = PBXGroup;
 			children = (
+				7F8EED3315BFCD5400F99B9D /* DUFactory.h */,
+				7F8EED3415BFCD5400F99B9D /* DUFactory.mm */,
 				7F4F506115BD1700000A9C5F /* DUObject.h */,
 				7F4F506215BD1700000A9C5F /* DUObject.mm */,
 				7F4F505E15BD166E000A9C5F /* DUSprite.h */,
@@ -1336,13 +1353,12 @@
 			isa = PBXGroup;
 			children = (
 				7F30164A15BE6B78006870EF /* SharedManager */,
+				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
+				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F5B00C815B945F400BA15D9 /* Helper */,
 				7FA2102A15C91A32000E76F0 /* DUFactories */,
-				7FA2102C15C91B47000E76F0 /* DUEntities */,
 				7F4F506415BD17B9000A9C5F /* DUSystem */,
-				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
-				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
 				7FD5282F15B3EE1900E50506 /* BackgroundManager.h */,
 				7FD5283015B3EE1900E50506 /* BackgroundManager.mm */,
 				7FDFD5AC15B6AE7A00F55257 /* Hero.h */,
@@ -1470,19 +1486,10 @@
 		7FA2102A15C91A32000E76F0 /* DUFactories */ = {
 			isa = PBXGroup;
 			children = (
-				7F8EED3315BFCD5400F99B9D /* DUFactory.h */,
-				7F8EED3415BFCD5400F99B9D /* DUFactory.mm */,
-			);
-			name = DUFactories;
-			sourceTree = "<group>";
-		};
-		7FA2102C15C91B47000E76F0 /* DUEntities */ = {
-			isa = PBXGroup;
-			children = (
 				7FA2102D15C91BA7000E76F0 /* TestBall.h */,
 				7FA2102E15C91BA7000E76F0 /* TestBall.mm */,
 			);
-			name = DUEntities;
+			name = DUFactories;
 			sourceTree = "<group>";
 		};
 		7FD5280D15B3EDE100E50506 /* Assets */ = {
@@ -1972,6 +1979,9 @@
 				7FA2102415C84E3D000E76F0 /* b2FixtureDefBuilder.mm in Sources */,
 				7FA2102915C90FD2000E76F0 /* b2DisjointDefBuilder.mm in Sources */,
 				7FA2102F15C91BA7000E76F0 /* TestBall.mm in Sources */,
+				7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */,
+				7F68937E15CBBDAF00B8C80C /* DUGameManager.mm in Sources */,
+				7F68938115CBBE0400B8C80C /* DUGameModel.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

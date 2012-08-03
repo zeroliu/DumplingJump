@@ -57,7 +57,7 @@
 
 -(void) initHeroAnimation
 {
-    [[AnimationManager shared] addAnimationWithName:@"HeroIdle" file:@"HERO/AL_H_hero" startFrame:1 endFrame:10 delay:0.1];
+    [ANIMATIONMANAGER addAnimationWithName:@"HeroIdle" file:@"HERO/AL_H_hero" startFrame:1 endFrame:10 delay:0.1];
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -73,7 +73,7 @@
     heroBodyDef.position.Set(thePosition.x/RATIO, thePosition.y/RATIO);
     heroBodyDef.userData = self;
     
-    body = [[PhysicsManager sharedPhysicsManager] getWorld]->CreateBody(&heroBodyDef);
+    body = WORLD->CreateBody(&heroBodyDef);
     
     b2CircleShape heroShape;
    

@@ -1,4 +1,4 @@
-#import "GameLayer.h"
+#import "cocos2d.h"
 
 @interface InputManager : CCNode <UIGestureRecognizerDelegate> 
 +(id) sharedInputManager;

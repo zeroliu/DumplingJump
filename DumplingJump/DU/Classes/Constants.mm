@@ -1,7 +1,7 @@
 #import "Constants.h"
 
 @implementation Constants
-@synthesize heroAccelerationXBase;
+@synthesize heroAccelerationXBase = _heroAccelerationXBase;
 +(id) shared
 {
     static id shared = nil;
@@ -17,7 +17,7 @@
 {
     if (self = [super init])
     {
-        heroAccelerationXBase = 0.1;
+        self.heroAccelerationXBase = 0.1;
     }
     
     return self;

@@ -163,8 +163,8 @@
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
 		7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937915CBBAD800B8C80C /* ScoreManager.mm */; };
-		7F68937E15CBBDAF00B8C80C /* DUGameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937D15CBBDAF00B8C80C /* DUGameManager.mm */; };
-		7F68938115CBBE0400B8C80C /* DUGameModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68938015CBBE0400B8C80C /* DUGameModel.mm */; };
+		7F68937E15CBBDAF00B8C80C /* GameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937D15CBBDAF00B8C80C /* GameManager.mm */; };
+		7F68938115CBBE0400B8C80C /* GameModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68938015CBBE0400B8C80C /* GameModel.mm */; };
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
@@ -178,9 +178,11 @@
 		7FA2102915C90FD2000E76F0 /* b2DisjointDefBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102815C90FD2000E76F0 /* b2DisjointDefBuilder.mm */; };
 		7FA2102F15C91BA7000E76F0 /* TestBall.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102E15C91BA7000E76F0 /* TestBall.mm */; };
 		7FA691BD15BB4E24000B15A2 /* Constants.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA691BC15BB4E24000B15A2 /* Constants.mm */; };
+		7FAFCC5B15D3A3E300F019F7 /* BackgroundView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */; };
+		7FAFCC5F15D3A69E00F019F7 /* BackgroundModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */; };
 		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
-		7FD5283315B3EF8400E50506 /* BackgroundManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5282F15B3EE1900E50506 /* BackgroundManager.h */; };
-		7FD5283415B3EF8400E50506 /* BackgroundManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundManager.mm */; };
+		7FD5283315B3EF8400E50506 /* BackgroundController.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5282F15B3EE1900E50506 /* BackgroundController.h */; };
+		7FD5283415B3EF8400E50506 /* BackgroundController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundController.mm */; };
 		7FD5283515B3EF8400E50506 /* Common.h in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283115B3EE1900E50506 /* Common.h */; };
 		7FD5283615B3EF8400E50506 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283215B3EE1900E50506 /* Common.mm */; };
 		7FD75DEC15BB952C0071E341 /* sheetBackground1-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE015BB8F620071E341 /* sheetBackground1-hd.plist */; };
@@ -524,10 +526,10 @@
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
 		7F68937815CBBAD700B8C80C /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		7F68937915CBBAD800B8C80C /* ScoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoreManager.mm; sourceTree = "<group>"; };
-		7F68937C15CBBDAE00B8C80C /* DUGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DUGameManager.h; sourceTree = "<group>"; };
-		7F68937D15CBBDAF00B8C80C /* DUGameManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUGameManager.mm; sourceTree = "<group>"; };
-		7F68937F15CBBE0300B8C80C /* DUGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUGameModel.h; sourceTree = "<group>"; };
-		7F68938015CBBE0400B8C80C /* DUGameModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUGameModel.mm; sourceTree = "<group>"; };
+		7F68937C15CBBDAE00B8C80C /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		7F68937D15CBBDAF00B8C80C /* GameManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameManager.mm; sourceTree = "<group>"; };
+		7F68937F15CBBE0300B8C80C /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		7F68938015CBBE0400B8C80C /* GameModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameModel.mm; sourceTree = "<group>"; };
 		7F7010EA15AFEFFE00495B10 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		7F7010EC15AFEFFE00495B10 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
@@ -565,9 +567,13 @@
 		7FA2102E15C91BA7000E76F0 /* TestBall.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestBall.mm; sourceTree = "<group>"; };
 		7FA691BB15BB4E24000B15A2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7FA691BC15BB4E24000B15A2 /* Constants.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Constants.mm; sourceTree = "<group>"; };
+		7FAFCC5915D3A3E300F019F7 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
+		7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundView.mm; sourceTree = "<group>"; };
+		7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundModel.h; sourceTree = "<group>"; };
+		7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundModel.mm; sourceTree = "<group>"; };
 		7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TexturePackerScript.sh; sourceTree = "<group>"; };
-		7FD5282F15B3EE1900E50506 /* BackgroundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundManager.h; sourceTree = "<group>"; };
-		7FD5283015B3EE1900E50506 /* BackgroundManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundManager.mm; sourceTree = "<group>"; };
+		7FD5282F15B3EE1900E50506 /* BackgroundController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundController.h; sourceTree = "<group>"; };
+		7FD5283015B3EE1900E50506 /* BackgroundController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundController.mm; sourceTree = "<group>"; };
 		7FD5283115B3EE1900E50506 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7FD5283215B3EE1900E50506 /* Common.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
 		7FD75DE015BB8F620071E341 /* sheetBackground1-hd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sheetBackground1-hd.plist"; sourceTree = "<group>"; };
@@ -795,10 +801,6 @@
 				7F30164715BE6B68006870EF /* AnimationManager.mm */,
 				7F68937815CBBAD700B8C80C /* ScoreManager.h */,
 				7F68937915CBBAD800B8C80C /* ScoreManager.mm */,
-				7F68937C15CBBDAE00B8C80C /* DUGameManager.h */,
-				7F68937D15CBBDAF00B8C80C /* DUGameManager.mm */,
-				7F68937F15CBBE0300B8C80C /* DUGameModel.h */,
-				7F68938015CBBE0400B8C80C /* DUGameModel.mm */,
 			);
 			name = SharedManager;
 			sourceTree = "<group>";
@@ -1355,12 +1357,20 @@
 				7F30164A15BE6B78006870EF /* SharedManager */,
 				7F7010EF15AFEFFE00495B10 /* GameLayer.h */,
 				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
+				7F68937C15CBBDAE00B8C80C /* GameManager.h */,
+				7F68937D15CBBDAF00B8C80C /* GameManager.mm */,
+				7F68937F15CBBE0300B8C80C /* GameModel.h */,
+				7F68938015CBBE0400B8C80C /* GameModel.mm */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F5B00C815B945F400BA15D9 /* Helper */,
 				7FA2102A15C91A32000E76F0 /* DUFactories */,
 				7F4F506415BD17B9000A9C5F /* DUSystem */,
-				7FD5282F15B3EE1900E50506 /* BackgroundManager.h */,
-				7FD5283015B3EE1900E50506 /* BackgroundManager.mm */,
+				7FD5282F15B3EE1900E50506 /* BackgroundController.h */,
+				7FD5283015B3EE1900E50506 /* BackgroundController.mm */,
+				7FAFCC5915D3A3E300F019F7 /* BackgroundView.h */,
+				7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */,
+				7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */,
+				7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */,
 				7FDFD5AC15B6AE7A00F55257 /* Hero.h */,
 				7FDFD5AD15B6AE7A00F55257 /* Hero.mm */,
 				7F9E3AC315B5353F005130D0 /* Board.h */,
@@ -1824,8 +1834,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD5283315B3EF8400E50506 /* BackgroundManager.h in Sources */,
-				7FD5283415B3EF8400E50506 /* BackgroundManager.mm in Sources */,
+				7FD5283315B3EF8400E50506 /* BackgroundController.h in Sources */,
+				7FD5283415B3EF8400E50506 /* BackgroundController.mm in Sources */,
 				7FD5283515B3EF8400E50506 /* Common.h in Sources */,
 				7FD5283615B3EF8400E50506 /* Common.mm in Sources */,
 				7F41437A15AAC659002CFC9A /* CCAction.m in Sources */,
@@ -1980,8 +1990,10 @@
 				7FA2102915C90FD2000E76F0 /* b2DisjointDefBuilder.mm in Sources */,
 				7FA2102F15C91BA7000E76F0 /* TestBall.mm in Sources */,
 				7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */,
-				7F68937E15CBBDAF00B8C80C /* DUGameManager.mm in Sources */,
-				7F68938115CBBE0400B8C80C /* DUGameModel.mm in Sources */,
+				7F68937E15CBBDAF00B8C80C /* GameManager.mm in Sources */,
+				7F68938115CBBE0400B8C80C /* GameModel.mm in Sources */,
+				7FAFCC5B15D3A3E300F019F7 /* BackgroundView.mm in Sources */,
+				7FAFCC5F15D3A69E00F019F7 /* BackgroundModel.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

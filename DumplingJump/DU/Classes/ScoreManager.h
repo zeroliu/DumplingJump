@@ -9,12 +9,8 @@
 #import "Common.h"
 
 @interface ScoreManager : CCNode
-{
-    float distance;
-    int level;
-    int multiplyer;
-}
-@property (readonly, nonatomic) float distance;
+
+@property (assign, nonatomic) float distance;
 @property (assign, nonatomic) int level;
 @property (assign, nonatomic) int multiplyer;
 

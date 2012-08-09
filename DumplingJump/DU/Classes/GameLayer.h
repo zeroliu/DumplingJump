@@ -1,15 +1,14 @@
 #import "Common.h"
-
-@class BackgroundManager;
-@class Board;
-@class Hero;
+#import "GameManager.h"
+//@class BackgroundManager;
+//@class Board;
+//@class Hero;
 
 @interface GameLayer : CCLayer
 {
-	Board *board;
-    BackgroundManager *bgManager;
-    CCSpriteBatchNode *batchNode;
-    Hero *hero;
+//	Board *board;
+//    BackgroundManager *bgManager;
+//    Hero *hero;
     
     CCLabelTTF *label;
 }

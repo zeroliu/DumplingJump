@@ -1,7 +1,7 @@
 #import "AccelerometerManager.h"
 
 @implementation AccelerometerManager
-@synthesize accX,accY,accZ;
+@synthesize accX = _accX, accY = _accY, accZ = _accZ;
 
 +(id) shared
 {
@@ -26,9 +26,9 @@
 
 -(void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
-    accX = acceleration.x;
-    accY = acceleration.y;
-    accZ = acceleration.z;
+    self.accX = acceleration.x;
+    self.accY = acceleration.y;
+    self.accZ = acceleration.z;
 }
 
 //-(void) dispatch:(UIAcceleration *)acceleration

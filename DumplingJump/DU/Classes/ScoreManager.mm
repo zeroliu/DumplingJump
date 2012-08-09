@@ -9,7 +9,7 @@
 #import "ScoreManager.h"
 
 @implementation ScoreManager
-@synthesize distance,level,multiplyer;
+@synthesize distance = _distance, level = _level, multiplyer = _multiplyer;
 
 +(id) shared
 {
@@ -26,10 +26,10 @@
 {
     if (self = [super init])
     {
-        distance = 0;
-        level = 0;
+        self.distance = 0;
+        self.level = 0;
         //TODO: Read multiplyer from plist
-        multiplyer = 1;
+        self.multiplyer = 1;
     }
     
     return self;
@@ -37,15 +37,15 @@
 
 -(int) increaseDistance
 {
-    distance += multiplyer * [DUGAMEMODEL scrollSpeed];
+//    self.distance += self.multiplyer * [DUGAMEMODEL scrollSpeed];
 //    NSDictionary *params = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:distance] forKey:@"distance"];
 //    [MESSAGECENTER postNotificationName:DISTANCEUPDATED object:self];
-    return distance;
+    return self.distance;
 }
 
 -(void) reset
 {
-    distance = 0;
-    level = 0;
+    self.distance = 0;
+    self.level = 0;
 }
 @end

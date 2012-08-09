@@ -3,13 +3,13 @@
 //  DumplingJump
 //
 //  Created by LIU Xiyuan on 12-7-17.
-//  Copyright (c) 2012年 CMU ETC. All rights reserved.
+//  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
 
 #import "Hub.h"
 
 @implementation Hub
-@synthesize gameLayer;
+@synthesize gameLayer = _gameLayer;
 
 +(id)shared
 {

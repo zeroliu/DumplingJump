@@ -1,10 +1,7 @@
 #import "DUObject.h"
 
 @interface DUSprite : DUObject
-{
-    CCSprite *sprite;
-}
-@property (nonatomic, assign) CCSprite *sprite;
+@property (nonatomic, retain) CCSprite *sprite;
 
 -(id) initWithName:(NSString *)theName file:(NSString *)fileName;
 -(void) addChildTo: (CCNode *)node;

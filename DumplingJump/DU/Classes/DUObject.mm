@@ -1,15 +1,15 @@
 #import "DUObject.h"
 
 @implementation DUObject
-@synthesize name,rebuilt,archived;
+@synthesize name = _name,rebuilt = _rebuilt, archived = _archived;
 
 -(id)initWithName:(NSString *)theName
 {
     if (self = [super init])
     {
-        name = theName;
-        rebuilt = NO;
-        archived = NO;
+        self.name = theName;
+        self.rebuilt = NO;
+        self.archived = NO;
     }
     
     return self;
@@ -17,19 +17,19 @@
 
 -(void) archive
 {
-    archived = YES;
+    self.archived = YES;
     [self deactivate];
     [[DUObjectsDictionary sharedDictionary] addDUObject:self];
 }
 
 -(void) activate
 {
-    archived = NO;
+    self.archived = NO;
 }
 
 -(void) deactivate
 {
-    rebuilt = YES;
+    self.rebuilt = YES;
 //    NSLog(@"call DUObject deactive");
 }
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "Common.h"
+#import "LevelManager.h"
+#import "BackgroundController.h"
+#import "BoardManager.h"
 
 @interface GameManager : CCNode
 

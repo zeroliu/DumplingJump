@@ -29,8 +29,6 @@
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
         
-        [self addChild:[GameManager shared]];
-        
 		// enable touches
 		self.isTouchEnabled = YES;
 			
@@ -38,6 +36,8 @@
         
         [self initBatchNode];
         [self initUI];
+        
+        [self addChild:[GameManager shared]];
         
 //        [self initListeners];
         
@@ -91,13 +91,6 @@
 //}
 //
 
-//
-//-(void) initBoard
-//{
-//    board = [[Board alloc] initWithName:@"board"];
-//    [board addChildTo:self.batchNode z:10];
-//}
-
 #pragma mark -
 #pragma mark ListenerHandlers
 //
@@ -115,10 +108,6 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
-//	[board release];
-//    [bgManager release];
-//    
-//    [hero release];
     [self.batchNode release];
 	[super dealloc];
 }

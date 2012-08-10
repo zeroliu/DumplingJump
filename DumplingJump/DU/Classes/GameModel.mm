@@ -9,7 +9,7 @@
 #import "GameModel.h"
 
 @implementation GameModel
-@synthesize scrollSpeed = _scrollSpeed;
+@synthesize currentLevel = _currentLevel;
 
 +(id) shared
 {

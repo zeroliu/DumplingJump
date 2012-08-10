@@ -7,10 +7,12 @@
 //
 
 #import "Common.h"
+#import "Level.h"
 
 @interface GameModel : CCNode
 
-@property (assign, nonatomic) float scrollSpeed;
+//@property (assign, nonatomic) float scrollSpeed;
+@property (nonatomic, retain) Level *currentLevel;
 
 +(id) shared;
 @end

@@ -1,13 +1,13 @@
 #import "DUSprite.h"
 
 @implementation DUSprite
-@synthesize sprite;
+@synthesize sprite = _sprite;
 
 -(id) initWithName:(NSString *)theName file:(NSString *)fileName;
 {
     if (self = [super initWithName:theName])
     {
-        sprite = [CCSprite spriteWithSpriteFrameName:fileName];
+        self.sprite = [CCSprite spriteWithSpriteFrameName:fileName];
     }
     
     return self;
@@ -20,21 +20,21 @@
 
 -(void) addChildTo:(CCNode *)node z:(int)zLayer
 {
-    if (!rebuilt) [node addChild:sprite z:zLayer];
+    if (!self.rebuilt) [node addChild:self.sprite z:zLayer];
 }
 
 -(void) activate
 {
     [super activate];
-    sprite.visible = YES;
+    self.sprite.visible = YES;
 }
 
 -(void) deactivate
 {
     [super deactivate];
-    sprite.visible = NO;
-    sprite.position = ccp(-0,-0);
-    [sprite stopAllActions];
+    self.sprite.visible = NO;
+    self.sprite.position = ccp(-0,-0);
+    [self.sprite stopAllActions];
 //    [sprite removeFromParentAndCleanup:NO];
 //    NSLog(@"call DUSpirte deactive");
 }
@@ -46,7 +46,7 @@
 
 -(void) dealloc
 {
-    [sprite release];
+    [self.sprite release];
     [super dealloc];
 }
 @end

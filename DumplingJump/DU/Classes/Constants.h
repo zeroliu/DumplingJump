@@ -23,13 +23,28 @@
 #define DISTANCEUPDATED @"distanceUpdated"
 
 #pragma mark -
-#pragma mark Others
-#define MESSAGECENTER [NSNotificationCenter defaultCenter]
-#define BATCHNODE [[Hub shared] gameLayer] batchNode]
-
-#pragma mark -
 #pragma mark Backgrounds
 #define SKY @"sheetBackground1"
+
+#pragma mark -
+#pragma mark Game states
+#define GAME_INIT 0
+#define GAME_READY 1
+#define GAME_START 2
+
+#pragma mark -
+#pragma mark Level names
+#define LEVEL_NORMAL @"normal"
+
+#pragma mark -
+#pragma mark Board filenames
+#define SKY_BOARD @"PLATE/SK_plate.png"
+
+#pragma mark -
+#pragma mark Others
+#define MESSAGECENTER [NSNotificationCenter defaultCenter]
+#define BATCHNODE [[[Hub shared] gameLayer] batchNode]
+
 
 @interface Constants : NSObject
 

@@ -2,14 +2,15 @@
 #define RATIO 32
 
 @implementation DUPhysicsObject
+@synthesize body = _body;
 
 -(id) initWithName:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody
 {
     if (self = [super initWithName:theName file:theFile])
     {
-        body = theBody;
-        sprite = [CCSprite spriteWithSpriteFrameName:theFile];
-        body->SetUserData(self);
+        self.body = theBody;
+        self.sprite = [CCSprite spriteWithSpriteFrameName:theFile];
+        self.body->SetUserData(self);
     }
     
     return self;
@@ -17,12 +18,12 @@
 
 -(void) setUserData:(id)data;
 {
-    body->SetUserData(data);
+    self.body->SetUserData(data);
 }
 
 -(void) resetPhysicsBodyPosition
 {
-    body->SetTransform(*new b2Vec2(sprite.position.x/RATIO, sprite.position.y/RATIO),0);
+    self.body->SetTransform(*new b2Vec2(self.sprite.position.x/RATIO, self.sprite.position.y/RATIO),0);
 }
 
 -(void) addChildTo: (CCNode *)node z:(int)zLayer
@@ -34,19 +35,19 @@
 -(void) activate
 {
     [super activate];
-    body->SetActive(true);
-    body->SetAwake(true);
+    self.body->SetActive(true);
+    self.body->SetAwake(true);
     //TODO: Add info for contacts
 }
 
 -(void) deactivate
 {
     [super deactivate];
-    body->SetActive(false);
-    body->SetAwake(false);
-    body->SetTransform(*new b2Vec2(0, 0),0);
-    body->SetLinearVelocity(*new b2Vec2(0,0));
-    body->SetAngularVelocity(0);
+    self.body->SetActive(false);
+    self.body->SetAwake(false);
+    self.body->SetTransform(*new b2Vec2(0, 0),0);
+    self.body->SetLinearVelocity(*new b2Vec2(0,0));
+    self.body->SetAngularVelocity(0);
     //TODO: Add info for contacts
 //    NSLog(@"call DUPhysics deactive");
 }
@@ -58,7 +59,7 @@
 
 -(void) dealloc
 {
-    body->GetWorld()->DestroyBody(body);
+    self.body->GetWorld()->DestroyBody(self.body);
     [super dealloc];
 }
 

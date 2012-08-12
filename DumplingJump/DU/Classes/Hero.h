@@ -1,16 +1,16 @@
-#import "GameLayer.h"
+//
+//  Hero.h
+//  DumplingJump
+//
+//  Created by LIU Xiyuan on 12-8-12.
+//  Copyright (c) 2012 CMU ETC. All rights reserved.
+//
+
+#import "Common.h"
 
 @interface Hero : DUPhysicsObject
-{
-//    CCSprite *heroSprite;
-//    b2Body *heroBody;
-    
-    float x,y;
-    b2Vec2 speed;
-    b2Vec2 acc;
-}
-//@property (nonatomic, retain) CCSprite *heroSprite; 
 
--(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition;
--(void) updateHeroPosition;
+-(id) initHeroWithName:(NSString *)theName position:(CGPoint)thePosition;
+-(void) updateHeroPositionWithAccX:(float)accX;
+-(void) jump;
 @end

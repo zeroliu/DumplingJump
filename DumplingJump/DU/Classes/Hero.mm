@@ -1,10 +1,24 @@
+//
+//  Hero.mm
+//  DumplingJump
+//
+//  Created by LIU Xiyuan on 12-8-12.
+//  Copyright (c) 2012 CMU ETC. All rights reserved.
+//
+
 #import "Hero.h"
+@interface Hero()
+
+@property (nonatomic, assign) float x,y;
+@property (nonatomic, assign) b2Vec2 speed,acc;
+
+@end
 
 @implementation Hero
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc;
 
 #pragma mark -
 #pragma Initialization
-
 -(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition
 {
     if (self = [super initWithName:theName]) 
@@ -13,27 +27,12 @@
         [self initHeroSpriteWithFile:@"HERO/AL_H_hero_1.png" position:thePosition];
         [self initHeroPhysicsWithPosition:thePosition];
         [self initSpeed];
-    
+        
         //Set up hero control
         [self initGestureHandler];
     }
     
     return self;
-}
-
--(void) initGestureHandler
-{
-    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionUp selector:@selector(onSwipeUpDetected:) target:self number:1];
-//    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionDown selector:@selector(onSwipeDownDetected:) target:self number:1];
-//    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionLeft selector:@selector(onSwipeLeftDetected:) target:self number:1];
-//    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
-}
-
-
--(void) initSpeed
-{
-    speed = self.body->GetLinearVelocity(); 
-//    NSLog(@"speedY = %f",body->GetLinearVelocity().y);
 }
 
 -(void) initHeroAnimation
@@ -57,7 +56,7 @@
     self.body = WORLD->CreateBody(&heroBodyDef);
     
     b2CircleShape heroShape;
-   
+    
     heroShape.m_radius = (self.sprite.contentSize.height/2-7) /RATIO;
     
     b2FixtureDef heroFixtureDef;
@@ -78,6 +77,21 @@
     self.body->SetMassData(&massData);
 }
 
+-(void) initSpeed
+{
+    self.speed = self.body->GetLinearVelocity(); 
+    //    NSLog(@"speedY = %f",body->GetLinearVelocity().y);
+}
+
+
+-(void) initGestureHandler
+{
+    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionUp selector:@selector(onSwipeUpDetected:) target:self number:1];
+    //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionDown selector:@selector(onSwipeDownDetected:) target:self number:1];
+    //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionLeft selector:@selector(onSwipeLeftDetected:) target:self number:1];
+    //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
+}
+
 #pragma mark -
 #pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
@@ -94,46 +108,29 @@
 
 #pragma mark -
 #pragma mark Movement
--(void) setAccelerationWithX:(float)theX Y:(float)theY
+
+-(void) updateHeroPositionWithAccX:(float)accX
 {
-    acc.Set(acc.x+theX, acc.y+theY);
+    //Set hero acceleration
+    self.acc = b2Vec2(accX * SENSIBILITY, 0);
+    //Set hero speed
+    self.speed = b2Vec2(clampf(self.body->GetLinearVelocity().x + self.acc.x, -MAX_SPEED, MAX_SPEED),self.body->GetLinearVelocity().y + self.acc.y);
+    
+    self.body->SetLinearVelocity(self.speed);
+    self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
+    DLog(@"speedY = %g", self.speed.y);
 }
 
 -(void) jump
 {
-    self.body->SetLinearVelocity(speed + *new b2Vec2(0, 12));
-}
-
--(void) updateHeroPosition
-{
-    acc.Set([[AccelerometerManager shared] accX] * SENSIBILITY, 0);
-    speed.Set(clampf(self.body->GetLinearVelocity().x + acc.x, -MAX_SPEED, MAX_SPEED),self.body->GetLinearVelocity().y + acc.y);
-    self.body->SetLinearVelocity(speed);
-    speed.Set(speed.x * SPEED_INERTIA, speed.y);
+    //TODO: Detect if hero is on the ground or on something
+    self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 12));
 }
 
 -(void) dealloc
 {
-//    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    //    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
     [super dealloc];
 }
 
-//-(id)initHeroWithFile:(NSString *)fileName position:(CGPoint)thePosition
-//{
-//    if(self = [super init])
-//    {
-//        heroSprite = [CCSprite spriteWithSpriteFrameName:fileName];
-//        heroSprite.position = thePosition;
-//        [[[[Hub shared] gameLayer] batchNode] addChild:heroSprite];
-//        
-//        [self initHeroAnimation];
-//        [self initHeroPhysicsWithPosition:thePosition];
-//        [self initSpeed];
-//        
-//        //Set up hero control
-//        [self initGestureHandler];
-//    }
-//    
-//    return self;
-//}
 @end

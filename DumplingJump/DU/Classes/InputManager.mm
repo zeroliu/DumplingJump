@@ -12,15 +12,6 @@
     return sharedInputManager;
 }
 
--(id) init
-{
-    if (self = [super init])
-    {
-        
-    }
-    return self;
-}
-
 -(UISwipeGestureRecognizer *)watchForSwipeWithDirection:(UISwipeGestureRecognizerDirection)theDirection selector:(SEL)theSelector target:(id)theTarget number:(int)tapRequired
 {
     UISwipeGestureRecognizer *recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:theTarget action:theSelector] autorelease];

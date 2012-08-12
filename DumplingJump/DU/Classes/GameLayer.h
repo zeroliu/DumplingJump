@@ -1,5 +1,4 @@
 #import "Common.h"
-#import "GameManager.h"
 //@class BackgroundManager;
 //@class Board;
 //@class Hero;
@@ -10,7 +9,7 @@
 //    BackgroundManager *bgManager;
 //    Hero *hero;
     
-    CCLabelTTF *label;
+//    CCLabelTTF *label;
 }
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;

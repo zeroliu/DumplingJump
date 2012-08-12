@@ -13,6 +13,6 @@
 
 //@property (assign, nonatomic) float scrollSpeed;
 @property (nonatomic, retain) Level *currentLevel;
+@property (nonatomic, assign) int state;
 
-+(id) shared;
 @end

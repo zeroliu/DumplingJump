@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "GameLayer.h"
-#import "GameManager.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate

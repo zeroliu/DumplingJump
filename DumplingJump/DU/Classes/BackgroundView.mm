@@ -40,7 +40,6 @@
         myLayer.swapSprite.position = ccp(W/2,H*3/2+myLayer.offset);
         [self.bgBatchNode addChild:myLayer.swapSprite z:myLayer.z];
     }
-    
 }
 
 -(void) updateBackgroundWithBGArray:(NSMutableArray *)theArray

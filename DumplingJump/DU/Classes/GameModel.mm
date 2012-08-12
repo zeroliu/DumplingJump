@@ -10,16 +10,7 @@
 
 @implementation GameModel
 @synthesize currentLevel = _currentLevel;
+@synthesize state = _state;
 
-+(id) shared
-{
-    static id shared = nil;
-    if (shared == nil)
-    {
-        shared = [[GameModel alloc] init];
-    }
-    
-    return shared;
-}
 
 @end

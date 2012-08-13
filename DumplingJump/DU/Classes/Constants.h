@@ -41,10 +41,19 @@
 #define SKY_BOARD @"PLATE/SK_plate.png"
 
 #pragma mark -
+#pragma mark Shapes
+#define CIRCLE @"Circle"
+#define BOX @"Box"
+
+#pragma mark -
+#pragma mark Addthings
+#define TUB @"TUB"
+#define VAT @"VAT"
+
+#pragma mark -
 #pragma mark Others
 #define MESSAGECENTER [NSNotificationCenter defaultCenter]
 #define BATCHNODE [[[Hub shared] gameLayer] batchNode]
-
 
 @interface Constants : NSObject
 

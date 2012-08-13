@@ -4,6 +4,7 @@
 #import "BackgroundController.h"
 #import "BoardManager.h"
 #import "HeroManager.h"
+#import "AddthingFactory.h"
 
 @interface GameLayer()
 @property (nonatomic, retain) GameModel *model;
@@ -11,7 +12,7 @@
 @property (nonatomic, retain) BackgroundController *bgController;
 @property (nonatomic, retain) BoardManager *boardManager;
 @property (nonatomic, retain) HeroManager *heroManager;
-
+@property (nonatomic, retain) AddthingFactory *addthingFactory;
 @end
 
 @implementation GameLayer
@@ -20,6 +21,7 @@
 @synthesize bgController = _bgController;
 @synthesize boardManager = _boardManager;
 @synthesize heroManager = _heroManager;
+@synthesize addthingFactory = _addthingFactory;
 
 
 @synthesize batchNode = _batchNode;
@@ -46,30 +48,6 @@
     return _model;
 }
 
--(id) bgController
-{
-    if (_bgController == nil) _bgController = [[BackgroundController alloc] init];
-    return _bgController;
-}
-
--(id) boardManager
-{
-    if (_boardManager == nil) _boardManager = [[BoardManager alloc] init];
-    return _boardManager;
-}
-
--(id) levelManager
-{
-    if (_levelManager == nil) _levelManager = [[LevelManager alloc] init];
-    return _levelManager;
-}
-
--(id) heroManager
-{
-    if (_heroManager == nil) _heroManager = [[HeroManager alloc] init];
-    return _heroManager;
-}
-
 #pragma mark - 
 #pragma mark Initialization
 -(id) init
@@ -80,12 +58,13 @@
         
 		// enable touches
 		self.isTouchEnabled = YES;
-			
+        
+        self.model.state = GAME_INIT;
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
         [self initBatchNode];
         
-        self.model.state = GAME_INIT;
+        [self initManagers];
         [self initListener];
         [self initGame];
         [self scheduleUpdate];
@@ -101,14 +80,13 @@
     [self addChild:self.batchNode z:10];
 }
 
--(void) update:(ccTime)deltaTime
+-(void) initManagers
 {
-    if (self.model.state == GAME_START)
-    {
-        [self.bgController updateBackground:deltaTime];
-        [PHYSICSMANAGER updatePhysicsBody:deltaTime];
-        [self.heroManager updateHeroPosition];
-    }
+    _heroManager = [[HeroManager alloc] init];
+    _boardManager = [[BoardManager alloc] init];
+    _levelManager = [[LevelManager alloc] init];
+    _bgController = [[BackgroundController alloc] init];
+    _addthingFactory = [[AddthingFactory alloc] initFactory];
 }
 
 -(void) initListener
@@ -124,11 +102,6 @@
     [self startGame];
 }
 
--(void) startGame
-{
-    self.model.state = GAME_START;
-}
-
 -(void) setLevelWithName:(NSString *)levelName
 {
     //Set the currentLevel by loading from levelManager
@@ -140,6 +113,37 @@
     //TODO: set the rest of the characters or elements for the level
 }
 
+-(void) update:(ccTime)deltaTime
+{
+    if (self.model.state == GAME_START)
+    {
+        [self.bgController updateBackground:deltaTime];
+        [PHYSICSMANAGER updatePhysicsBody:deltaTime];
+        [self.heroManager updateHeroPosition];
+    }
+}
+
+-(void) startGame
+{
+    self.model.state = GAME_START;
+    DUPhysicsObject *tub = [self.addthingFactory createWithName:TUB];
+    tub.sprite.position = ccp(100,650);
+    [tub addChildTo:BATCHNODE];
+    
+    DUPhysicsObject *vat = [self.addthingFactory createWithName:VAT];
+    vat.sprite.position = ccp(200,650);
+    [vat addChildTo:BATCHNODE];
+}
+
+- (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
+{
+    UITouch* touch = [touches anyObject];
+    DUPhysicsObject *vat = [self.addthingFactory createWithName:VAT];
+    vat.sprite.position = [self convertTouchToNodeSpace: touch];
+    [vat addChildTo:BATCHNODE];
+    //in your touchesEnded event, you would want to see if you touched
+    //down and then up inside the same place, and do your logic there.
+}
 #pragma mark -
 #pragma mark ListenerHandlers
 
@@ -152,8 +156,6 @@
 	[super dealloc];
 }
 @end
-
-
 
 //-(void) initListeners
 //{

@@ -21,7 +21,7 @@
     return self;
 }
 
--(id) createNewObject
+-(id) createNewObjectWithName:(NSString *)objectName
 {
     CCSprite *herosprite = [CCSprite spriteWithSpriteFrameName:@"HERO/AL_H_hero_1.png"];
     

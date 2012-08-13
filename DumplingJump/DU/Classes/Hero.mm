@@ -118,7 +118,7 @@
     
     self.body->SetLinearVelocity(self.speed);
     self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
-    DLog(@"speedY = %g", self.speed.y);
+//    DLog(@"speedY = %g", self.speed.y);
 }
 
 -(void) jump

@@ -47,7 +47,7 @@
             
 //            if(physicsObject.name == @"testBall")
             {
-                if (physicsObject.sprite.position.y < -100) {
+                if (physicsObject.sprite.position.y < -600) {
                     [physicsObject archive];
                 }
             }

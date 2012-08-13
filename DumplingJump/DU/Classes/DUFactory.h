@@ -14,7 +14,8 @@
 
 -(id) initWithName:(NSString *)theName;
 -(id) create;
+-(id) createWithName:(NSString *)objectName;
 
--(id) createNewObject;
--(id) reuseOldObject;
+-(id) createNewObjectWithName: (NSString *)objectName;
+-(id) reuseOldObjectWithName: (NSString *)objectName;
 @end

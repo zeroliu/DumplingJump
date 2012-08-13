@@ -197,6 +197,8 @@
 		7FD75DF315BB952C0071E341 /* sheetObjects.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE715BB8F620071E341 /* sheetObjects.png */; };
 		7FD820F115D83A82003AFCB8 /* Hero.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820F015D83A82003AFCB8 /* Hero.mm */; };
 		7FD820F515D85C39003AFCB8 /* Board.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820F415D85C38003AFCB8 /* Board.mm */; };
+		7FD820FF15D8642E003AFCB8 /* AddthingObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820FE15D8642E003AFCB8 /* AddthingObject.mm */; };
+		7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8210115D87471003AFCB8 /* AddthingFactory.mm */; };
 		7FDFD5AE15B6AE7A00F55257 /* HeroManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */; };
 		7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */; };
 /* End PBXBuildFile section */
@@ -596,6 +598,10 @@
 		7FD820F015D83A82003AFCB8 /* Hero.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hero.mm; sourceTree = "<group>"; };
 		7FD820F315D85C38003AFCB8 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		7FD820F415D85C38003AFCB8 /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
+		7FD820FD15D8642E003AFCB8 /* AddthingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingObject.h; sourceTree = "<group>"; };
+		7FD820FE15D8642E003AFCB8 /* AddthingObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingObject.mm; sourceTree = "<group>"; };
+		7FD8210015D87471003AFCB8 /* AddthingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingFactory.h; sourceTree = "<group>"; };
+		7FD8210115D87471003AFCB8 /* AddthingFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingFactory.mm; sourceTree = "<group>"; };
 		7FDFD43E15B6AAC600F55257 /* barrel */ = {isa = PBXFileReference; lastKnownFileType = file; path = barrel; sourceTree = "<group>"; };
 		7FDFD43F15B6AAC600F55257 /* CA_arrow_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_arrow_1.png; sourceTree = "<group>"; };
 		7FDFD44015B6AAC600F55257 /* CA_blind_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_blind_1.png; sourceTree = "<group>"; };
@@ -1324,8 +1330,6 @@
 		7F4F506415BD17B9000A9C5F /* DUSystem */ = {
 			isa = PBXGroup;
 			children = (
-				7F8EED3315BFCD5400F99B9D /* DUFactory.h */,
-				7F8EED3415BFCD5400F99B9D /* DUFactory.mm */,
 				7F4F506115BD1700000A9C5F /* DUObject.h */,
 				7F4F506215BD1700000A9C5F /* DUObject.mm */,
 				7F4F505E15BD166E000A9C5F /* DUSprite.h */,
@@ -1366,6 +1370,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7FD820F915D863A3003AFCB8 /* DUClasses */,
 				7FD820F615D85E95003AFCB8 /* GameObjects */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F5B00C815B945F400BA15D9 /* Helper */,
@@ -1376,18 +1381,6 @@
 				7F7010F015AFEFFE00495B10 /* GameLayer.mm */,
 				7F68937F15CBBE0300B8C80C /* GameModel.h */,
 				7F68938015CBBE0400B8C80C /* GameModel.mm */,
-				7F422ECC15D4E0E1007C6A33 /* LevelManager.h */,
-				7F422ECD15D4E0E1007C6A33 /* LevelManager.mm */,
-				7F422ECF15D4E0FE007C6A33 /* LevelData.h */,
-				7F422ED015D4E0FE007C6A33 /* LevelData.mm */,
-				7F422ED215D4E683007C6A33 /* Level.h */,
-				7F422ED315D4E683007C6A33 /* Level.mm */,
-				7FD5282F15B3EE1900E50506 /* BackgroundController.h */,
-				7FD5283015B3EE1900E50506 /* BackgroundController.mm */,
-				7FAFCC5915D3A3E300F019F7 /* BackgroundView.h */,
-				7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */,
-				7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */,
-				7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1509,6 +1502,10 @@
 		7FA2102A15C91A32000E76F0 /* DUFactories */ = {
 			isa = PBXGroup;
 			children = (
+				7F8EED3315BFCD5400F99B9D /* DUFactory.h */,
+				7F8EED3415BFCD5400F99B9D /* DUFactory.mm */,
+				7FD8210015D87471003AFCB8 /* AddthingFactory.h */,
+				7FD8210115D87471003AFCB8 /* AddthingFactory.mm */,
 				7FA2102D15C91BA7000E76F0 /* TestBall.h */,
 				7FA2102E15C91BA7000E76F0 /* TestBall.mm */,
 			);
@@ -1537,6 +1534,7 @@
 		7FD820F615D85E95003AFCB8 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				7FD820FC15D86410003AFCB8 /* Addthings */,
 				7FD820F815D86049003AFCB8 /* Board */,
 				7FD820F715D8603E003AFCB8 /* Hero */,
 			);
@@ -1563,6 +1561,50 @@
 				7F9E3AC415B5353F005130D0 /* BoardManager.mm */,
 			);
 			name = Board;
+			sourceTree = "<group>";
+		};
+		7FD820F915D863A3003AFCB8 /* DUClasses */ = {
+			isa = PBXGroup;
+			children = (
+				7FD820FB15D863CC003AFCB8 /* Background */,
+				7FD820FA15D863C0003AFCB8 /* Level */,
+			);
+			name = DUClasses;
+			sourceTree = "<group>";
+		};
+		7FD820FA15D863C0003AFCB8 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				7F422ECC15D4E0E1007C6A33 /* LevelManager.h */,
+				7F422ECD15D4E0E1007C6A33 /* LevelManager.mm */,
+				7F422ECF15D4E0FE007C6A33 /* LevelData.h */,
+				7F422ED015D4E0FE007C6A33 /* LevelData.mm */,
+				7F422ED215D4E683007C6A33 /* Level.h */,
+				7F422ED315D4E683007C6A33 /* Level.mm */,
+			);
+			name = Level;
+			sourceTree = "<group>";
+		};
+		7FD820FB15D863CC003AFCB8 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				7FD5282F15B3EE1900E50506 /* BackgroundController.h */,
+				7FD5283015B3EE1900E50506 /* BackgroundController.mm */,
+				7FAFCC5915D3A3E300F019F7 /* BackgroundView.h */,
+				7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */,
+				7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */,
+				7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+		7FD820FC15D86410003AFCB8 /* Addthings */ = {
+			isa = PBXGroup;
+			children = (
+				7FD820FD15D8642E003AFCB8 /* AddthingObject.h */,
+				7FD820FE15D8642E003AFCB8 /* AddthingObject.mm */,
+			);
+			name = Addthings;
 			sourceTree = "<group>";
 		};
 		7FDFD43C15B6AAC600F55257 /* sheetObjects */ = {
@@ -2042,6 +2084,8 @@
 				7F422ED415D4E684007C6A33 /* Level.mm in Sources */,
 				7FD820F115D83A82003AFCB8 /* Hero.mm in Sources */,
 				7FD820F515D85C39003AFCB8 /* Board.mm in Sources */,
+				7FD820FF15D8642E003AFCB8 /* AddthingObject.mm in Sources */,
+				7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

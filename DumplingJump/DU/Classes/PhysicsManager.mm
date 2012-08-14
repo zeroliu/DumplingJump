@@ -1,4 +1,5 @@
 #import "PhysicsManager.h"
+#import "DUContactListener.h"
 
 @implementation PhysicsManager
 
@@ -20,6 +21,10 @@
     
     b2BodyDef def;
     ground = world->CreateBody(&def);
+    
+    DUContactListener *listener;
+    listener = new DUContactListener();
+    world->SetContactListener(listener);
 }
 
 -(b2World *) getWorld

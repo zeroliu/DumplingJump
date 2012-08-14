@@ -35,7 +35,6 @@
     AddthingObject *vat = [[AddthingObject alloc] initWithName:VAT shape:CIRCLE spriteName:@"CA_vat_1" radius:30 width:0 length:0 I:2 mass:200 restitution:0.1 friction:2 gravity:100 blood:1];
     [tmp setObject:tub forKey:TUB];
     [tmp setObject:vat forKey:VAT];
-    
     self.addthingDictionary = [tmp copy];
 }
 
@@ -69,7 +68,7 @@
         } else if (selectedObject.shape == BOX)
         {
             b2PolygonShape objectShape;
-            objectShape.SetAsBox(selectedObject.width/RATIO, selectedObject.length/RATIO);            
+            objectShape.SetAsBox(selectedObject.width/2/RATIO, selectedObject.length/2/RATIO);            
             objectFixtureDef.shape = &objectShape;
         }
         
@@ -82,7 +81,8 @@
         objectBody->SetMassData(&massData);
         
         DUPhysicsObject *newObject;
-        newObject= [[DUPhysicsObject alloc] initWithName: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody]; 
+        newObject= [[DUPhysicsObject alloc] initWithName: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody canResize:YES];
+        
         return newObject;
     } else 
     {

@@ -161,6 +161,7 @@
 		7F422ECE15D4E0E1007C6A33 /* LevelManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F422ECD15D4E0E1007C6A33 /* LevelManager.mm */; };
 		7F422ED115D4E0FE007C6A33 /* LevelData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F422ED015D4E0FE007C6A33 /* LevelData.mm */; };
 		7F422ED415D4E684007C6A33 /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F422ED315D4E683007C6A33 /* Level.mm */; };
+		7F4C2B4615DA4139007724EF /* DUContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C2B4515DA4138007724EF /* DUContactListener.mm */; };
 		7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505F15BD166E000A9C5F /* DUSprite.mm */; };
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
@@ -528,6 +529,8 @@
 		7F422ED015D4E0FE007C6A33 /* LevelData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelData.mm; sourceTree = "<group>"; };
 		7F422ED215D4E683007C6A33 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		7F422ED315D4E683007C6A33 /* Level.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Level.mm; sourceTree = "<group>"; };
+		7F4C2B4415DA4138007724EF /* DUContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DUContactListener.h; sourceTree = "<group>"; };
+		7F4C2B4515DA4138007724EF /* DUContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUContactListener.mm; sourceTree = "<group>"; };
 		7F4F505E15BD166E000A9C5F /* DUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUSprite.h; sourceTree = "<group>"; };
 		7F4F505F15BD166E000A9C5F /* DUSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUSprite.mm; sourceTree = "<group>"; };
 		7F4F506115BD1700000A9C5F /* DUObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUObject.h; sourceTree = "<group>"; };
@@ -1330,6 +1333,8 @@
 		7F4F506415BD17B9000A9C5F /* DUSystem */ = {
 			isa = PBXGroup;
 			children = (
+				7F4C2B4415DA4138007724EF /* DUContactListener.h */,
+				7F4C2B4515DA4138007724EF /* DUContactListener.mm */,
 				7F4F506115BD1700000A9C5F /* DUObject.h */,
 				7F4F506215BD1700000A9C5F /* DUObject.mm */,
 				7F4F505E15BD166E000A9C5F /* DUSprite.h */,
@@ -2086,6 +2091,7 @@
 				7FD820F515D85C39003AFCB8 /* Board.mm in Sources */,
 				7FD820FF15D8642E003AFCB8 /* AddthingObject.mm in Sources */,
 				7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */,
+				7F4C2B4615DA4139007724EF /* DUContactListener.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

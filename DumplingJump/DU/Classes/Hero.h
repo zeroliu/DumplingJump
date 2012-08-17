@@ -7,10 +7,17 @@
 //
 
 #import "Common.h"
+#import "DUContactListener.h"
 
-@interface Hero : DUPhysicsObject
+@interface Hero : DUPhysicsObject <DUContactListenerDelegate>
+
+{
+    DUContactListener *listener;
+}
 
 -(id) initHeroWithName:(NSString *)theName position:(CGPoint)thePosition;
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) jump;
+
+-(void) heroLandOnBoard;
 @end

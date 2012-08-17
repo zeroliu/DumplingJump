@@ -14,6 +14,11 @@ DUContactListener::DUContactListener() : _contacts() {
 DUContactListener::~DUContactListener() {
 }
 
+void DUContactListener::setDelegate(id<DUContactListenerDelegate> delegate)
+{
+    _delegate = delegate;
+}
+
 void DUContactListener::BeginContact(b2Contact* contact) {
     // We need to copy out the data because the b2Contact passed in
     // is reused.
@@ -28,6 +33,13 @@ void DUContactListener::BeginContact(b2Contact* contact) {
     
 	id userDataA = (id)bodyA->GetUserData();
 	id userDataB = (id)bodyB->GetUserData();
+    
+    if(((DUObject *)userDataA).name == @"Hero"
+       || ((DUObject *)userDataB).name == @"Hero")
+    {
+        [MESSAGECENTER postNotificationName:HEROONBOARD object:nil];
+    }
+    
 }
 
 void DUContactListener::EndContact(b2Contact* contact) {
@@ -45,3 +57,10 @@ void DUContactListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifo
 void DUContactListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) {
 }
 
+void DUContactListener::test()
+{
+    if ([_delegate respondsToSelector:@selector(heroLandOnBoard)])
+    {
+        [_delegate heroLandOnBoard];
+    }
+}

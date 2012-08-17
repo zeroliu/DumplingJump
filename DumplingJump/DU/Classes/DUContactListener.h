@@ -5,11 +5,11 @@
 //  Created by Ray Wenderlich on 2/18/10.
 //  Copyright 2010 Ray Wenderlich. All rights reserved.
 //
-#import "DUPhysicsObject.h"
+#import "Common.h"
 #import <vector>
 #import <algorithm>
 
-@protocol DUContactListenerDelegate
+@protocol DUContactListenerDelegate<NSObject>
 @optional
 -(void)heroLandOnBoard;
 -(void)addthingHitBoard:(DUPhysicsObject *)addthing;
@@ -27,13 +27,15 @@ struct MyContact {
 
 class DUContactListener : public b2ContactListener {
     
-    id<DUContactListenerDelegate> delegate;
+    id<DUContactListenerDelegate> _delegate;
 
 public:
     std::vector<MyContact>_contacts;
     
     DUContactListener();
     ~DUContactListener();
+    void test();
+    void setDelegate(id<DUContactListenerDelegate> delegate);
     
 	virtual void BeginContact(b2Contact* contact);
 	virtual void EndContact(b2Contact* contact);

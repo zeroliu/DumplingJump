@@ -30,6 +30,8 @@
         
         //Set up hero control
         [self initGestureHandler];
+        
+        [self initContactListener];
     }
     
     return self;
@@ -92,6 +94,11 @@
     //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
 }
 
+-(void) initContactListener
+{
+    [MESSAGECENTER addObserver:self selector:@selector(heroLandOnBoard) name:HEROONBOARD object:nil];
+}
+
 #pragma mark -
 #pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
@@ -125,6 +132,11 @@
 {
     //TODO: Detect if hero is on the ground or on something
     self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 12));
+}
+
+-(void)heroLandOnBoard
+{
+    DLog(@"HeroLandOnBoard called in Hero.mm");
 }
 
 -(void) dealloc

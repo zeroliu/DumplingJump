@@ -19,8 +19,7 @@
 
 #pragma mark -
 #pragma mark Signals
-#define GAMELAYER_INITIALIZED @"GameLayerInitialized"
-#define DISTANCEUPDATED @"distanceUpdated"
+#define HEROONBOARD @"heroOnBoard"
 
 #pragma mark -
 #pragma mark Backgrounds

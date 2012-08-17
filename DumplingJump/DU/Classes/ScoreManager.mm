@@ -38,8 +38,7 @@
 -(int) increaseDistance
 {
 //    self.distance += self.multiplyer * [DUGAMEMODEL scrollSpeed];
-//    NSDictionary *params = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:distance] forKey:@"distance"];
-//    [MESSAGECENTER postNotificationName:DISTANCEUPDATED object:self];
+//    NSDictionary *params = [NSDictionary dictionaryWithObject:
     return self.distance;
 }
 

@@ -18,15 +18,24 @@
 {
     if (self = [super init])
     {
-        animDict = [[NSMutableDictionary alloc] init];
+//        animDict = [[NSMutableDictionary alloc] init];
+        [self loadAnimation];
     }
     
     return self;
 }
 
+-(void) loadAnimation
+{
+    //TODO: add from xml file
+    [self addAnimationWithName:HEROIDLE file:@"HERO/AL_H_hero" startFrame:1 endFrame:10 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:HERODIZZY file:@"HERO/AL_H_dizzy" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:ANIM_EXPLOSION file:@"EFFECTS/AL_E_del" startFrame:1 endFrame:5 delay:ANIMATION_DELAY_INBETWEEN];
+}
+
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay
 {
-    if ([animDict objectForKey:theName] != nil)
+    if ([[CCAnimationCache sharedAnimationCache] animationByName:theName] != nil)
     {
         DLog(@"Warning: Animation <%@> already existed.", theName);
         return;
@@ -41,27 +50,18 @@
     }
 
     id animObject = [CCAnimation animationWithFrames:frameArray delay:theDelay];
-    id animAction = [CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
-    
-    [animDict setObject:animAction forKey:theName];
-}
-
--(void) removeAnimationWithName:(NSString *)theName
-{
-    if ([animDict objectForKey:theName] == nil)
-    {
-        DLog(@"Warning: Animation <%@> does not exist. Remove can not be done", theName);
-        return;
-    }
-    
-    [animDict removeObjectForKey:theName];
+//    id animAction = [CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
+//    [animDict setObject:animAction forKey:theName];
+    [[CCAnimationCache sharedAnimationCache] addAnimation:animObject name:theName];
 }
 
 -(id) getAnimationWithName:(NSString *)theName
 {
-    return [self getAnimationWithName:theName repeat:-1];
+//    return [self getAnimationWithName:theName repeat:0];
+    return [[CCAnimationCache sharedAnimationCache] animationByName:theName];
 }
 
+/*
 -(id) getAnimationWithName:(NSString *)theName repeat:(int)repeatTimes
 {
     id animAction = [[animDict objectForKey:theName] copy];
@@ -78,7 +78,8 @@
     } else if (repeatTimes > 0) {
         animAction = [CCRepeat actionWithAction:animAction times:repeatTimes];
     }
-    
     return animAction;
 }
+ */
+
 @end

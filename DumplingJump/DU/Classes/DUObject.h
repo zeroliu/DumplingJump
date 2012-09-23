@@ -3,6 +3,7 @@
 
 @interface DUObject : NSObject
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *ID;
 @property (nonatomic, assign) BOOL rebuilt;
 @property (nonatomic, assign) BOOL archived;
 

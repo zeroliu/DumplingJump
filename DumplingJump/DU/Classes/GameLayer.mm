@@ -11,7 +11,7 @@
 @property (nonatomic, retain) LevelManager *levelManager;
 @property (nonatomic, retain) BackgroundController *bgController;
 @property (nonatomic, retain) BoardManager *boardManager;
-@property (nonatomic, retain) HeroManager *heroManager;
+
 @property (nonatomic, retain) AddthingFactory *addthingFactory;
 @end
 
@@ -22,7 +22,6 @@
 @synthesize boardManager = _boardManager;
 @synthesize heroManager = _heroManager;
 @synthesize addthingFactory = _addthingFactory;
-
 
 @synthesize batchNode = _batchNode;
 
@@ -63,9 +62,9 @@
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
         [self initBatchNode];
-        
         [self initManagers];
         [self initListener];
+        [self preloadGameData];
         [self initGame];
         [self scheduleUpdate];
 	}
@@ -94,6 +93,13 @@
     //    [MESSAGECENTER addObserver:self selector:@selector(gameStart) name:GAMELAYER_INITIALIZED object:nil];
 }
 
+-(void) preloadGameData
+{
+    [AnimationManager shared];
+    [ReactionManager shared];
+    [EffectManager shared];
+}
+
 -(void) initGame
 {
     //Init level with level name
@@ -108,7 +114,7 @@
     self.model.currentLevel = [self.levelManager selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
     [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
-    [self.boardManager createBoardWithBoardName:self.model.currentLevel.boardType position:ccp(160,100)];
+    [self.boardManager createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,100)];
     [self.heroManager createHeroWithPosition:ccp(150,200)];
     //TODO: set the rest of the characters or elements for the level
 }
@@ -126,13 +132,13 @@
 -(void) startGame
 {
     self.model.state = GAME_START;
-    DUPhysicsObject *tub = [self.addthingFactory createWithName:TUB];
-    tub.sprite.position = ccp(100,650);
-    [tub addChildTo:BATCHNODE];
-    
-    DUPhysicsObject *vat = [self.addthingFactory createWithName:VAT];
-    vat.sprite.position = ccp(200,650);
-    [vat addChildTo:BATCHNODE];
+//    DUPhysicsObject *tub = [self.addthingFactory createWithName:TUB];
+//    tub.sprite.position = ccp(100,650);
+//    [tub addChildTo:BATCHNODE];
+//    
+//    DUPhysicsObject *vat = [self.addthingFactory createWithName:VAT];
+//    vat.sprite.position = ccp(200,650);
+//    [vat addChildTo:BATCHNODE];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event

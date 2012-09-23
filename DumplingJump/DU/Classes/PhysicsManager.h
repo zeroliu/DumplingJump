@@ -12,5 +12,6 @@
 +(id) sharedPhysicsManager;
 -(b2World *) getWorld;
 -(b2Body *) getGround;
+-(void) addToArchiveList:(DUPhysicsObject *)physicsObject;
 -(void) updatePhysicsBody:(ccTime)dt;
 @end

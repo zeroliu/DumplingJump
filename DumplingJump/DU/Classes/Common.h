@@ -8,6 +8,8 @@
 #import "InputManager.h"
 #import "AccelerometerManager.h"
 #import "AnimationManager.h"
+#import "ReactionManager.h"
+#import "EffectManager.h"
 
 //#import "GameManager.h"
 

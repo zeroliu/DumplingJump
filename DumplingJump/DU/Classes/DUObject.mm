@@ -1,13 +1,14 @@
 #import "DUObject.h"
 
 @implementation DUObject
-@synthesize name = _name,rebuilt = _rebuilt, archived = _archived;
+@synthesize name = _name,rebuilt = _rebuilt, archived = _archived, ID = _ID;
 
 -(id)initWithName:(NSString *)theName
 {
     if (self = [super init])
     {
         self.name = theName;
+        self.ID = theName;
         self.rebuilt = NO;
         self.archived = NO;
     }

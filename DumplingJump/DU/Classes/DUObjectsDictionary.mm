@@ -67,7 +67,7 @@
 
 -(void) addDUObject:(DUObject *)theObject
 {
-    [theObject retain];
+//    [theObject retain];
     NSMutableArray *currentArray = [DUDictionary objectForKey:theObject.name];
     if (currentArray == nil)
     {

@@ -67,11 +67,12 @@
 -(void) deactivate
 {
     [super deactivate];
-    self.body->SetActive(false);
-    self.body->SetAwake(false);
     self.body->SetTransform(*new b2Vec2(0, 0),0);
     self.body->SetLinearVelocity(*new b2Vec2(0,0));
     self.body->SetAngularVelocity(0);
+    self.body->SetActive(false);
+    self.body->SetAwake(false);
+    
     //TODO: Add info for contacts
 //    NSLog(@"call DUPhysics deactive");
 }

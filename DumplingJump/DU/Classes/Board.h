@@ -10,5 +10,5 @@
 
 @interface Board : DUPhysicsObject
 
--(id) initBoardWithBoardName:(NSString *)theName position:(CGPoint) pos;
+-(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos;
 @end

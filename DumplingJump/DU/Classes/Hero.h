@@ -9,15 +9,18 @@
 #import "Common.h"
 #import "DUContactListener.h"
 
-@interface Hero : DUPhysicsObject <DUContactListenerDelegate>
+@interface Hero : DUPhysicsObject
 
 {
     DUContactListener *listener;
 }
 
+@property (nonatomic, retain) NSString *heroState;
+
 -(id) initHeroWithName:(NSString *)theName position:(CGPoint)thePosition;
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) jump;
-
--(void) heroLandOnBoard;
+-(void) idle;
+-(void) dizzy; //Called from AddthingObject
+//-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

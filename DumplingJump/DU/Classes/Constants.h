@@ -5,6 +5,7 @@
 #define SENSIBILITY 1.0f
 #define SPEED_INERTIA 0.8f
 #define MAX_SPEED 5.0f
+#define ANIMATION_DELAY_INBETWEEN 0.1f
 
 #pragma mark -
 #pragma mark Physics
@@ -16,6 +17,7 @@
 #define PHYSICSMANAGER [PhysicsManager sharedPhysicsManager]
 #define ANIMATIONMANAGER [AnimationManager shared]
 #define GAMEMANAGER [GameManager shared]
+#define REACTIONFUNCTIONS [ReactionFunctions shared]
 
 #pragma mark -
 #pragma mark Signals
@@ -46,13 +48,33 @@
 
 #pragma mark -
 #pragma mark Addthings
+#define HERO @"Hero"
+#define BOARD @"Board"
 #define TUB @"TUB"
 #define VAT @"VAT"
+
+#pragma mark -
+#pragma mark Effects
+#define FX_EXPLOSION @"FX_Explosion"
+#define FX_ARROW_BREAK @"FX_ArrowBreak"
+
+#pragma mark -
+#pragma mark Hero animations/Hero state
+#define HEROIDLE @"HeroIdle"
+#define HERODIZZY @"HeroDizzy"
+
+#pragma mark -
+#pragma mark Other animations
+#define ANIM_EXPLOSION @"ANIM_Explosion"
+#define ANIM_ARROW_BREAK @"ANIM_ArrowBreak"
 
 #pragma mark -
 #pragma mark Others
 #define MESSAGECENTER [NSNotificationCenter defaultCenter]
 #define BATCHNODE [[[Hub shared] gameLayer] batchNode]
+#define GAMELAYER [[Hub shared] gameLayer]
+#define HEROMANAGER [GAMELAYER heroManager]
+#define EFFECTMANAGER [EffectManager shared]
 
 @interface Constants : NSObject
 

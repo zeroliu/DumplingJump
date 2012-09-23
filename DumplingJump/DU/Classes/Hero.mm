@@ -11,11 +11,12 @@
 
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
+@property (nonatomic, assign) BOOL isOnGround;
 
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState;
 
 #pragma mark -
 #pragma Initialization
@@ -23,23 +24,22 @@
 {
     if (self = [super initWithName:theName]) 
     {
-        [self initHeroAnimation];
+        [self initHeroParam];
+//        [self initHeroAnimation];
         [self initHeroSpriteWithFile:@"HERO/AL_H_hero_1.png" position:thePosition];
         [self initHeroPhysicsWithPosition:thePosition];
         [self initSpeed];
-        
-        //Set up hero control
         [self initGestureHandler];
-        
         [self initContactListener];
     }
     
     return self;
 }
 
--(void) initHeroAnimation
+-(void) initHeroParam
 {
-    [ANIMATIONMANAGER addAnimationWithName:@"HeroIdle" file:@"HERO/AL_H_hero" startFrame:1 endFrame:10 delay:0.1];
+    self.isOnGround = FALSE;
+    self.heroState = HEROIDLE;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -96,7 +96,8 @@
 
 -(void) initContactListener
 {
-    [MESSAGECENTER addObserver:self selector:@selector(heroLandOnBoard) name:HEROONBOARD object:nil];
+    [MESSAGECENTER addObserver:self selector:@selector(heroLandOnObject:) name:[NSString stringWithFormat:@"%@Contact",self.name] object:nil];
+    [MESSAGECENTER addObserver:self selector:@selector(heroLandOffObject:) name:[NSString stringWithFormat:@"%@EndContact",self.name] object:nil];
 }
 
 #pragma mark -
@@ -131,13 +132,49 @@
 -(void) jump
 {
     //TODO: Detect if hero is on the ground or on something
-    self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 12));
+    if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 12));
 }
 
--(void)heroLandOnBoard
+-(void) idle
 {
-    DLog(@"HeroLandOnBoard called in Hero.mm");
+    //TODO: change the hero status (EX: enable jump and move)
+    if (self.heroState != HEROIDLE)
+    {
+        self.heroState = HEROIDLE;
+        id animation = [ANIMATIONMANAGER getAnimationWithName:HEROIDLE];
+        
+        if(animation != nil)
+        {
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [self.sprite runAction:animAction];
+        }
+    }
 }
+
+-(void) dizzy
+{
+    //TODO: change the hero status
+    
+    
+}
+-(void)heroLandOnObject:(NSNotification *)notification
+{
+    
+    DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
+    if (self.sprite.position.y > targetObject.sprite.position.y)
+    {
+        self.isOnGround = YES;
+    }
+//    DLog(@"Land on");
+}
+
+-(void)heroLandOffObject:(NSNotification *)notification
+{
+    self.isOnGround = NO;
+    
+//    DLog(@"Land off");
+}
+
 
 -(void) dealloc
 {

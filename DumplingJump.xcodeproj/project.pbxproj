@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7F30164815BE6B68006870EF /* AnimationManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164715BE6B68006870EF /* AnimationManager.mm */; };
 		7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */; };
+		7F307C89160373F1004D5203 /* ReactionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F307C88160373F1004D5203 /* ReactionManager.mm */; };
+		7F307C8D16038111004D5203 /* AddthingObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F307C8C16038111004D5203 /* AddthingObject.mm */; };
 		7F41435215AAC659002CFC9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435115AAC659002CFC9A /* QuartzCore.framework */; };
 		7F41435415AAC659002CFC9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435315AAC659002CFC9A /* OpenGLES.framework */; };
 		7F41435615AAC659002CFC9A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435515AAC659002CFC9A /* OpenAL.framework */; };
@@ -161,16 +163,20 @@
 		7F422ECE15D4E0E1007C6A33 /* LevelManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F422ECD15D4E0E1007C6A33 /* LevelManager.mm */; };
 		7F422ED115D4E0FE007C6A33 /* LevelData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F422ED015D4E0FE007C6A33 /* LevelData.mm */; };
 		7F422ED415D4E684007C6A33 /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F422ED315D4E683007C6A33 /* Level.mm */; };
+		7F44B86516058BFD00AF634A /* EffectFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F44B86416058BFD00AF634A /* EffectFactory.mm */; };
+		7F44B86816058D3100AF634A /* DUEffectData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F44B86716058D3000AF634A /* DUEffectData.mm */; };
 		7F4C2B4615DA4139007724EF /* DUContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4C2B4515DA4138007724EF /* DUContactListener.mm */; };
 		7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505F15BD166E000A9C5F /* DUSprite.mm */; };
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
+		7F5CC1E01602B07F00E45EDD /* Reaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CC1DF1602B07F00E45EDD /* Reaction.mm */; };
 		7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937915CBBAD800B8C80C /* ScoreManager.mm */; };
 		7F68938115CBBE0400B8C80C /* GameModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68938015CBBE0400B8C80C /* GameModel.mm */; };
 		7F7010FB15AFEFFE00495B10 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
+		7F81FC121605936A008AF71F /* DUEffectObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FC111605936A008AF71F /* DUEffectObject.mm */; };
 		7F8EED3515BFCD5400F99B9D /* DUFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3415BFCD5400F99B9D /* DUFactory.mm */; };
 		7F8EED3C15BFE8F400F99B9D /* b2BodyBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */; };
 		7F9E3AC515B5353F005130D0 /* BoardManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AC415B5353F005130D0 /* BoardManager.mm */; };
@@ -198,10 +204,12 @@
 		7FD75DF315BB952C0071E341 /* sheetObjects.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE715BB8F620071E341 /* sheetObjects.png */; };
 		7FD820F115D83A82003AFCB8 /* Hero.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820F015D83A82003AFCB8 /* Hero.mm */; };
 		7FD820F515D85C39003AFCB8 /* Board.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820F415D85C38003AFCB8 /* Board.mm */; };
-		7FD820FF15D8642E003AFCB8 /* AddthingObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820FE15D8642E003AFCB8 /* AddthingObject.mm */; };
+		7FD820FF15D8642E003AFCB8 /* AddthingObjectData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820FE15D8642E003AFCB8 /* AddthingObjectData.mm */; };
 		7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8210115D87471003AFCB8 /* AddthingFactory.mm */; };
 		7FDFD5AE15B6AE7A00F55257 /* HeroManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */; };
 		7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */; };
+		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
+		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +227,10 @@
 		7F30164715BE6B68006870EF /* AnimationManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimationManager.mm; sourceTree = "<group>"; };
 		7F30164B15BE8F29006870EF /* DUPhysicsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUPhysicsObject.h; sourceTree = "<group>"; };
 		7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUPhysicsObject.mm; sourceTree = "<group>"; };
+		7F307C87160373F1004D5203 /* ReactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionManager.h; sourceTree = "<group>"; };
+		7F307C88160373F1004D5203 /* ReactionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionManager.mm; sourceTree = "<group>"; };
+		7F307C8B16038111004D5203 /* AddthingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingObject.h; sourceTree = "<group>"; };
+		7F307C8C16038111004D5203 /* AddthingObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingObject.mm; sourceTree = "<group>"; };
 		7F41434D15AAC659002CFC9A /* DumplingJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumplingJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41435115AAC659002CFC9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F41435315AAC659002CFC9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -529,7 +541,11 @@
 		7F422ED015D4E0FE007C6A33 /* LevelData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelData.mm; sourceTree = "<group>"; };
 		7F422ED215D4E683007C6A33 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		7F422ED315D4E683007C6A33 /* Level.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Level.mm; sourceTree = "<group>"; };
-		7F4C2B4415DA4138007724EF /* DUContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DUContactListener.h; sourceTree = "<group>"; };
+		7F44B86316058BFD00AF634A /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectFactory.h; sourceTree = "<group>"; };
+		7F44B86416058BFD00AF634A /* EffectFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectFactory.mm; sourceTree = "<group>"; };
+		7F44B86616058D3000AF634A /* DUEffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUEffectData.h; sourceTree = "<group>"; };
+		7F44B86716058D3000AF634A /* DUEffectData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUEffectData.mm; sourceTree = "<group>"; };
+		7F4C2B4415DA4138007724EF /* DUContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUContactListener.h; sourceTree = "<group>"; };
 		7F4C2B4515DA4138007724EF /* DUContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUContactListener.mm; sourceTree = "<group>"; };
 		7F4F505E15BD166E000A9C5F /* DUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUSprite.h; sourceTree = "<group>"; };
 		7F4F505F15BD166E000A9C5F /* DUSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUSprite.mm; sourceTree = "<group>"; };
@@ -539,6 +555,8 @@
 		7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObjectsDictionary.mm; sourceTree = "<group>"; };
 		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
+		7F5CC1DE1602B07F00E45EDD /* Reaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reaction.h; sourceTree = "<group>"; };
+		7F5CC1DF1602B07F00E45EDD /* Reaction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Reaction.mm; sourceTree = "<group>"; };
 		7F68937815CBBAD700B8C80C /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		7F68937915CBBAD800B8C80C /* ScoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoreManager.mm; sourceTree = "<group>"; };
 		7F68937F15CBBE0300B8C80C /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
@@ -555,6 +573,8 @@
 		7F70110615AFF11400495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
+		7F81FC101605936A008AF71F /* DUEffectObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUEffectObject.h; sourceTree = "<group>"; };
+		7F81FC111605936A008AF71F /* DUEffectObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUEffectObject.mm; sourceTree = "<group>"; };
 		7F8EED3315BFCD5400F99B9D /* DUFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUFactory.h; sourceTree = "<group>"; };
 		7F8EED3415BFCD5400F99B9D /* DUFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUFactory.mm; sourceTree = "<group>"; };
 		7F8EED3A15BFE8F300F99B9D /* b2BodyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BodyBuilder.h; sourceTree = "<group>"; };
@@ -601,8 +621,8 @@
 		7FD820F015D83A82003AFCB8 /* Hero.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Hero.mm; sourceTree = "<group>"; };
 		7FD820F315D85C38003AFCB8 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		7FD820F415D85C38003AFCB8 /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
-		7FD820FD15D8642E003AFCB8 /* AddthingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingObject.h; sourceTree = "<group>"; };
-		7FD820FE15D8642E003AFCB8 /* AddthingObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingObject.mm; sourceTree = "<group>"; };
+		7FD820FD15D8642E003AFCB8 /* AddthingObjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingObjectData.h; sourceTree = "<group>"; };
+		7FD820FE15D8642E003AFCB8 /* AddthingObjectData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingObjectData.mm; sourceTree = "<group>"; };
 		7FD8210015D87471003AFCB8 /* AddthingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingFactory.h; sourceTree = "<group>"; };
 		7FD8210115D87471003AFCB8 /* AddthingFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingFactory.mm; sourceTree = "<group>"; };
 		7FDFD43E15B6AAC600F55257 /* barrel */ = {isa = PBXFileReference; lastKnownFileType = file; path = barrel; sourceTree = "<group>"; };
@@ -788,6 +808,10 @@
 		7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HeroManager.mm; sourceTree = "<group>"; };
 		7FF4977E15BBA3C6008EDF37 /* AccelerometerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerManager.h; sourceTree = "<group>"; };
 		7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerometerManager.mm; sourceTree = "<group>"; };
+		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
+		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
+		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
+		7FFD8E921605637900C460F0 /* EffectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectManager.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1330,6 +1354,21 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		7F44B86116058BD400AF634A /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				7FFD8E911605637900C460F0 /* EffectManager.h */,
+				7FFD8E921605637900C460F0 /* EffectManager.mm */,
+				7F44B86316058BFD00AF634A /* EffectFactory.h */,
+				7F44B86416058BFD00AF634A /* EffectFactory.mm */,
+				7F44B86616058D3000AF634A /* DUEffectData.h */,
+				7F44B86716058D3000AF634A /* DUEffectData.mm */,
+				7F81FC101605936A008AF71F /* DUEffectObject.h */,
+				7F81FC111605936A008AF71F /* DUEffectObject.mm */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
 		7F4F506415BD17B9000A9C5F /* DUSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -1361,6 +1400,19 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
+		7F5CC1DD1602B06600E45EDD /* Reactions */ = {
+			isa = PBXGroup;
+			children = (
+				7F5CC1DE1602B07F00E45EDD /* Reaction.h */,
+				7F5CC1DF1602B07F00E45EDD /* Reaction.mm */,
+				7F307C87160373F1004D5203 /* ReactionManager.h */,
+				7F307C88160373F1004D5203 /* ReactionManager.mm */,
+				7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */,
+				7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */,
+			);
+			name = Reactions;
+			sourceTree = "<group>";
+		};
 		7F7010E815AFEFFE00495B10 /* DU */ = {
 			isa = PBXGroup;
 			children = (
@@ -1375,9 +1427,9 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7FF0822215B2355200E093E1 /* System */,
 				7FD820F915D863A3003AFCB8 /* DUClasses */,
 				7FD820F615D85E95003AFCB8 /* GameObjects */,
-				7FF0822215B2355200E093E1 /* System */,
 				7F5B00C815B945F400BA15D9 /* Helper */,
 				7FA2102A15C91A32000E76F0 /* DUFactories */,
 				7F4F506415BD17B9000A9C5F /* DUSystem */,
@@ -1509,8 +1561,6 @@
 			children = (
 				7F8EED3315BFCD5400F99B9D /* DUFactory.h */,
 				7F8EED3415BFCD5400F99B9D /* DUFactory.mm */,
-				7FD8210015D87471003AFCB8 /* AddthingFactory.h */,
-				7FD8210115D87471003AFCB8 /* AddthingFactory.mm */,
 				7FA2102D15C91BA7000E76F0 /* TestBall.h */,
 				7FA2102E15C91BA7000E76F0 /* TestBall.mm */,
 			);
@@ -1539,6 +1589,8 @@
 		7FD820F615D85E95003AFCB8 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				7F44B86116058BD400AF634A /* Effects */,
+				7F5CC1DD1602B06600E45EDD /* Reactions */,
 				7FD820FC15D86410003AFCB8 /* Addthings */,
 				7FD820F815D86049003AFCB8 /* Board */,
 				7FD820F715D8603E003AFCB8 /* Hero */,
@@ -1561,9 +1613,9 @@
 			isa = PBXGroup;
 			children = (
 				7F9E3AC315B5353F005130D0 /* BoardManager.h */,
+				7F9E3AC415B5353F005130D0 /* BoardManager.mm */,
 				7FD820F315D85C38003AFCB8 /* Board.h */,
 				7FD820F415D85C38003AFCB8 /* Board.mm */,
-				7F9E3AC415B5353F005130D0 /* BoardManager.mm */,
 			);
 			name = Board;
 			sourceTree = "<group>";
@@ -1606,8 +1658,12 @@
 		7FD820FC15D86410003AFCB8 /* Addthings */ = {
 			isa = PBXGroup;
 			children = (
-				7FD820FD15D8642E003AFCB8 /* AddthingObject.h */,
-				7FD820FE15D8642E003AFCB8 /* AddthingObject.mm */,
+				7FD820FD15D8642E003AFCB8 /* AddthingObjectData.h */,
+				7FD820FE15D8642E003AFCB8 /* AddthingObjectData.mm */,
+				7FD8210015D87471003AFCB8 /* AddthingFactory.h */,
+				7FD8210115D87471003AFCB8 /* AddthingFactory.mm */,
+				7F307C8B16038111004D5203 /* AddthingObject.h */,
+				7F307C8C16038111004D5203 /* AddthingObject.mm */,
 			);
 			name = Addthings;
 			sourceTree = "<group>";
@@ -2089,9 +2145,17 @@
 				7F422ED415D4E684007C6A33 /* Level.mm in Sources */,
 				7FD820F115D83A82003AFCB8 /* Hero.mm in Sources */,
 				7FD820F515D85C39003AFCB8 /* Board.mm in Sources */,
-				7FD820FF15D8642E003AFCB8 /* AddthingObject.mm in Sources */,
+				7FD820FF15D8642E003AFCB8 /* AddthingObjectData.mm in Sources */,
 				7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */,
 				7F4C2B4615DA4139007724EF /* DUContactListener.mm in Sources */,
+				7F5CC1E01602B07F00E45EDD /* Reaction.mm in Sources */,
+				7F307C89160373F1004D5203 /* ReactionManager.mm in Sources */,
+				7F307C8D16038111004D5203 /* AddthingObject.mm in Sources */,
+				7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */,
+				7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */,
+				7F44B86516058BFD00AF634A /* EffectFactory.mm in Sources */,
+				7F44B86816058D3100AF634A /* DUEffectData.mm in Sources */,
+				7F81FC121605936A008AF71F /* DUEffectObject.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

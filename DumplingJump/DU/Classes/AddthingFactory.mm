@@ -7,20 +7,23 @@
 //
 
 #import "AddthingFactory.h"
+#import "AddthingObjectData.h"
 #import "AddthingObject.h"
 
 @interface AddthingFactory()
 @property (nonatomic, retain) NSDictionary *addthingDictionary;
+@property (nonatomic, assign) int idCounter;
 @end
 
 @implementation AddthingFactory
 @synthesize addthingDictionary = _addthingDictionary;
-
+@synthesize idCounter = _idCounter;
 -(id) initFactory
 {
     if (self = [super initWithName:@"AddthingFacotry"])
     {
         [self loadAddthingInfo];
+        self.idCounter = 0;
     }
     
     return self;
@@ -31,22 +34,20 @@
     //TODO: attach to the xml file
     //Fake loading here
     NSMutableDictionary *tmp = [NSMutableDictionary dictionary];
-    AddthingObject *tub = [[AddthingObject alloc] initWithName:TUB shape:CIRCLE spriteName:@"CA_tub_1" radius:15 width:0 length:0 I:1 mass:100 restitution:0.4 friction:2 gravity:80 blood:1];
-    AddthingObject *vat = [[AddthingObject alloc] initWithName:VAT shape:CIRCLE spriteName:@"CA_vat_1" radius:30 width:0 length:0 I:2 mass:200 restitution:0.1 friction:2 gravity:100 blood:1];
+    AddthingObjectData *tub = [[AddthingObjectData alloc] initWithName:TUB shape:CIRCLE spriteName:@"CA_tub_1" radius:15 width:0 length:0 I:1 mass:100 restitution:0.4 friction:2 gravity:80 blood:1 reactionName:@"bomb"];
+    AddthingObjectData *vat = [[AddthingObjectData alloc] initWithName:VAT shape:CIRCLE spriteName:@"CA_vat_1" radius:30 width:0 length:0 I:2 mass:200 restitution:0.1 friction:2 gravity:100 blood:1 reactionName:@"arrow"];
     [tmp setObject:tub forKey:TUB];
     [tmp setObject:vat forKey:VAT];
-    self.addthingDictionary = [tmp copy];
+    self.addthingDictionary = [NSDictionary dictionaryWithDictionary:tmp];
 }
 
 -(id) createNewObjectWithName:(NSString *)objectName
 {
-    AddthingObject *selectedObject = [self.addthingDictionary objectForKey:objectName];
+    AddthingObjectData *selectedObject = [self.addthingDictionary objectForKey:objectName];
     
     if (selectedObject != nil)
     {
 //        CCSprite *objectSprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName]];
-        
-        //TODO: Maybe resize the sprite
         
         b2BodyDef objectBodyDef;
         objectBodyDef.type = b2_dynamicBody; //Need to define whether configurable
@@ -80,8 +81,16 @@
         massData.I = selectedObject.i;
         objectBody->SetMassData(&massData);
         
-        DUPhysicsObject *newObject;
-        newObject= [[DUPhysicsObject alloc] initWithName: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody canResize:YES];
+        NSString *ID = [NSString stringWithFormat:@"%@_%d",selectedObject.name, self.idCounter];
+        
+        AddthingObject *newObject;
+        newObject = [[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName];
+        
+        self.idCounter ++;
+        if (self.idCounter >= INT_MAX)
+        {
+            self.idCounter = 0;
+        }
         
         return newObject;
     } else 

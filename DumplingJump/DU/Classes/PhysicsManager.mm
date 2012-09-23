@@ -1,6 +1,13 @@
 #import "PhysicsManager.h"
 #import "DUContactListener.h"
 
+@interface PhysicsManager()
+{
+    NSMutableArray *physicsToRemove;
+}
+
+@end
+
 @implementation PhysicsManager
 
 +(id) sharedPhysicsManager
@@ -11,6 +18,16 @@
         sharedPhysicsManager = [[self alloc] init];
     }
     return sharedPhysicsManager;
+}
+
+-(id) init
+{
+    if(self = [super init])
+    {
+        [self initWorld];
+        physicsToRemove = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
 
 -(void) initWorld
@@ -25,6 +42,7 @@
     DUContactListener *listener;
     listener = new DUContactListener();
     world->SetContactListener(listener);
+    
 }
 
 -(b2World *) getWorld
@@ -37,9 +55,24 @@
     return ground;
 }
 
+-(void) addToArchiveList:(DUPhysicsObject *)physicsObject
+{
+    [physicsToRemove addObject:physicsObject];
+}
+
 -(void) updatePhysicsBody:(ccTime)dt
 {
     world->Step(dt,10,10);
+   
+    if ([physicsToRemove count] > 0)
+    {
+         DLog(@"%@",physicsToRemove);
+        DUPhysicsObject *myObject = [physicsToRemove lastObject];
+        [physicsToRemove removeLastObject];
+        [myObject archive];
+        
+    }
+    
     for (b2Body *b = world->GetBodyList(); b; b=b->GetNext()) 
     {
         if(b->GetUserData() != NULL)
@@ -58,15 +91,6 @@
             }
         }
     }
-}
-
--(id) init
-{
-    if(self = [super init])
-    {
-        [self initWorld];
-    }
-    return self;
 }
 
 -(void) dealloc

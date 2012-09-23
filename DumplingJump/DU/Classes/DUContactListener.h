@@ -9,13 +9,6 @@
 #import <vector>
 #import <algorithm>
 
-@protocol DUContactListenerDelegate<NSObject>
-@optional
--(void)heroLandOnBoard;
--(void)addthingHitBoard:(DUPhysicsObject *)addthing;
--(void)heroStepOnAddthing:(DUPhysicsObject *)addthing;
-@end
-
 struct MyContact {
     b2Fixture *fixtureA;
     b2Fixture *fixtureB;
@@ -27,7 +20,7 @@ struct MyContact {
 
 class DUContactListener : public b2ContactListener {
     
-    id<DUContactListenerDelegate> _delegate;
+//    id<DUContactListenerDelegate> _delegate;
 
 public:
     std::vector<MyContact>_contacts;
@@ -35,7 +28,7 @@ public:
     DUContactListener();
     ~DUContactListener();
     void test();
-    void setDelegate(id<DUContactListenerDelegate> delegate);
+//    void setDelegate(id<DUContactListenerDelegate> delegate);
     
 	virtual void BeginContact(b2Contact* contact);
 	virtual void EndContact(b2Contact* contact);

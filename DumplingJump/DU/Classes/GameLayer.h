@@ -1,16 +1,10 @@
 #import "Common.h"
-//@class BackgroundManager;
-//@class Board;
-//@class Hero;
+
+@class HeroManager;
 
 @interface GameLayer : CCLayer
-{
-//	Board *board;
-//    BackgroundManager *bgManager;
-//    Hero *hero;
-    
-//    CCLabelTTF *label;
-}
+
+@property (nonatomic, retain) HeroManager *heroManager;
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;
 

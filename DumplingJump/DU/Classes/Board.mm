@@ -9,11 +9,11 @@
 #import "Board.h"
 
 @implementation Board
--(id) initBoardWithBoardName:(NSString *)theName position:(CGPoint) pos;
+-(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos;
 {
-    if (self = [super initWithName:@"board"])
+    if (self = [super initWithName:theName])
     {
-        self.sprite = [CCSprite spriteWithSpriteFrameName:theName];
+        self.sprite = [CCSprite spriteWithSpriteFrameName:fileName];
         self.sprite.position = pos;
     
         [self initBoardPhysics];

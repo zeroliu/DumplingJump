@@ -7,5 +7,9 @@
 
 -(id)createHeroWithPosition:(CGPoint)thePosition;
 -(void) updateHeroPosition;
--(void) jump;
+-(void) heroReactWithReaction:(Reaction *)theReaction;
+
+
+-(void) playAnimationWithName:(NSString *)animName;
+
 @end

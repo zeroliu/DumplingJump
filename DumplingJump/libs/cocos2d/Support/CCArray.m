@@ -2,17 +2,17 @@
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
  * Copyright (c) 2010 ForzeField Studios S.L. http://forzefield.com
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -106,8 +106,8 @@
 
 - (id) objectAtIndex:(NSUInteger)index
 {
-	NSAssert2( index < data->num, @"index out of range in objectAtIndex(%d), index %i", data->num, index );
-	
+	NSAssert2( index < data->num, @"index out of range in objectAtIndex(%lu), index %lu", (unsigned long)data->num, (unsigned long)index );
+
 	return data->arr[index];
 }
 
@@ -201,7 +201,7 @@
 - (void) removeLastObject
 {
 	NSAssert( data->num > 0, @"no objects added" );
-    
+
 	ccArrayRemoveObjectAtIndex(data, data->num-1);
 }
 
@@ -219,7 +219,7 @@
     if(index1 == NSNotFound) return;
     NSUInteger index2 = ccArrayGetIndexOfObject(data, object2);
     if(index2 == NSNotFound) return;
-    
+
     ccArraySwapObjectsAtIndexes(data, index1, index2);
 }
 
@@ -238,9 +238,9 @@
 	if (data->num > 1)
 	{
 		//floor it since in case of a oneven number the number of swaps stays the same
-		int count = (int) floorf(data->num/2.f); 
+		int count = (int) floorf(data->num/2.f);
 		NSUInteger maxIndex = data->num - 1;
-		
+
 		for (int i = 0; i < count ; i++)
 		{
 			ccArraySwapObjectsAtIndexes(data, i, maxIndex);
@@ -276,7 +276,7 @@
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
 {
 	if(state->state == 1) return 0;
-	
+
 	state->mutationsPtr = (unsigned long *)self;
 	state->itemsPtr = &data->arr[0];
 	state->state = 1;
@@ -291,12 +291,12 @@
 
 - (void) insertionSortUsingCFuncComparator:(int(*)(const void *, const void *))comparator
 {
-    insertionSort(data, comparator);
+	cc_insertionSort(data, comparator);
 }
 
 #pragma mark CCArray qsortUsingCFuncComparator
 
-- (void) qsortUsingCFuncComparator:(int(*)(const void *, const void *))comparator {
+- (void) qsortUsingCFuncComparator:(cc_comparator)comparator {
 	
 	// stable c qsort is used - cost of sorting:  best n*log(n), average n*log(n)
 	//  qsort(void *, size_t, size_t, int (*)(const void *arg1, const void *arg2));
@@ -306,9 +306,9 @@
 
 #pragma mark CCArray mergesortLUsingCFuncComparator
 
-- (void) mergesortLUsingCFuncComparator:(int(*)(const void *, const void *))comparator
+- (void) mergesortLUsingCFuncComparator:(cc_comparator)comparator
 {
-    mergesortL(data, sizeof (id), comparator); 
+	cc_mergesortL(data, sizeof (id), comparator); 
 }
 
 #pragma mark CCArray insertionSort with (SEL)selector
@@ -351,11 +351,13 @@ static inline NSInteger selectorCompare(id object1,id object2,void *userData){
 -(void)sortUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context
 {
     NSInteger h, i, j, k, l, m, n = [self count];
-    id  A, *B = NSZoneMalloc(NULL,(n/2 + 1) * sizeof(id));
+    id  A, *B = malloc( (n/2 + 1) * sizeof(id));
     
 	// to prevent retain counts from temporarily hitting zero.  
-    for(i=0;i<n;i++)
-        [[self objectAtIndex:i] retain];
+    for( i=0;i<n;i++)
+        // [[self objectAtIndex:i] retain]; // prevents compiler warning
+		[data->arr[i] retain];
+
     
     for (h = 1; h < n; h += h)
     {
@@ -364,10 +366,9 @@ static inline NSInteger selectorCompare(id object1,id object2,void *userData){
             l = m - h + 1;
             if (l < 0)
                 l = 0;
-            
             for (i = 0, j = l; j <= m; i++, j++)
                 B[i] = [self objectAtIndex:j];
-            
+
             for (i = 0, k = l; k < j && j <= m + h; k++)
             {
                 A = [self objectAtIndex:j];
@@ -386,7 +387,8 @@ static inline NSInteger selectorCompare(id object1,id object2,void *userData){
     }
     
     for(i=0;i<n;i++)
-        [[self objectAtIndex:i] release];
+		// [[self objectAtIndex:i] release]; // prevents compiler warning
+		[data->arr[i] release];
     
     free(B);
 }
@@ -417,13 +419,13 @@ static inline NSInteger selectorCompare(id object1,id object2,void *userData){
 
 - (NSString*) description
 {
-	NSMutableString *ret = [NSMutableString stringWithFormat:@"<%@ = %08X> = ( ", [self class], self];
+	NSMutableString *ret = [NSMutableString stringWithFormat:@"<%@ = %p> = ( ", [self class], self];
 
 	for( id obj in self)
 		[ret appendFormat:@"%@, ",obj];
-	
+
 	[ret appendString:@")"];
-	
+
 	return ret;
 }
 

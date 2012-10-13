@@ -144,7 +144,7 @@
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     UITouch* touch = [touches anyObject];
-    DUPhysicsObject *vat = [self.addthingFactory createWithName:VAT];
+    DUPhysicsObject *vat = [self.addthingFactory createWithName:STAR];
     vat.sprite.position = [self convertTouchToNodeSpace: touch];
     [vat addChildTo:BATCHNODE];
     //in your touchesEnded event, you would want to see if you touched

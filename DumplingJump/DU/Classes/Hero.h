@@ -22,5 +22,8 @@
 -(void) jump;
 -(void) idle;
 -(void) dizzy; //Called from AddthingObject
+-(void) hurt:(NSArray *)value; //Called from AddthingObject
+-(void) freeze; ////Called from AddthingObject
+
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

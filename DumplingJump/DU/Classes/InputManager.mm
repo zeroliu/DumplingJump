@@ -18,14 +18,14 @@
     recognizer.numberOfTouchesRequired = tapRequired;
     recognizer.direction = theDirection;
     
-    [[[CCDirector sharedDirector] openGLView] addGestureRecognizer:recognizer];
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:recognizer];
     return recognizer;
 }
 
 
 -(void)unWatch:(UIGestureRecognizer *)recognizer
 {
-    [[[CCDirector sharedDirector] openGLView] removeGestureRecognizer:recognizer];
+    [[[CCDirector sharedDirector] view] removeGestureRecognizer:recognizer];
 }
 
 @end

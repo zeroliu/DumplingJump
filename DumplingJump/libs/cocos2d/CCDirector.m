@@ -577,11 +577,11 @@ static CCDirector *_sharedDirector = nil;
 //			sprintf(format,"%.1f",frameRate);
 //			[FPSLabel setCString:format];
 
-			NSString *fpsstr = [[NSString alloc] initWithFormat:@"%.1f", frameRate_];
+			NSString *fpsstr = [[NSString alloc] initWithFormat:@"%d", (int)frameRate_];
 			[FPSLabel_ setString:fpsstr];
 			[fpsstr release];
 			
-			NSString *draws = [[NSString alloc] initWithFormat:@"%4lu", (unsigned long)__ccNumberOfDraws];
+			NSString *draws = [[NSString alloc] initWithFormat:@"%d", (int)__ccNumberOfDraws];
 			[drawsLabel_ setString:draws];
 			[draws release];
 		}

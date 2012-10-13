@@ -28,4 +28,8 @@
     DLog(@"test test");
 }
 
+-(void) explode
+{
+    DLog(@"explode");
+}
 @end

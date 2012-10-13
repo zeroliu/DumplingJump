@@ -16,18 +16,39 @@
     return self.hero;
 }
 
--(void) playAnimationWithName:(NSString *)animName
+-(void) playAnimationWithName:(NSString *)animName delay:(float)theDelay
 {
     if (self.hero == nil) return;
+    
+    [self.hero.sprite stopAllActions];
     
     id animation = [ANIMATIONMANAGER getAnimationWithName:animName];
     
     if(animation != nil)
     {
-        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+        id startAnimation = [CCCallFuncND actionWithTarget:self selector:@selector(playAnimationForever:data:) data:animName];
+//        id animAction = [CCAnimate actionWithAnimation:animation];
+//        [animAction setRepeatDuration:theDelay];
         
+//        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+
+        id waitDelay = [CCDelayTime actionWithDuration:theDelay];
+        id becomeIdle = [CCCallFunc actionWithTarget:self.hero selector:@selector(idle)];
+        
+        id sequence = [CCSequence actions:startAnimation,waitDelay,becomeIdle, nil];
+        [self.hero.sprite runAction:sequence];
+    }
+}
+
+-(void) playAnimationForever:(id)sender data:(void *)animName
+{
+    id animation = [ANIMATIONMANAGER getAnimationWithName:(NSString *)animName];
+    if(animation != nil)
+    {
+        id animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
         [self.hero.sprite runAction:animAction];
     }
+    
 }
 
 -(void) updateHeroPosition
@@ -35,14 +56,21 @@
     [self.hero updateHeroPositionWithAccX:[[AccelerometerManager shared] accX]];
 }
 
--(void) heroReactWithReaction:(Reaction *)theReaction
+-(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(DUPhysicsObject *)theContactObject
 {
     if (self.hero.heroState != theReaction.name)
     {
         self.hero.heroState = theReaction.name;
         if (theReaction.heroReactAnimationName != nil)
         {
-            [self playAnimationWithName:theReaction.heroReactAnimationName];
+            if (theReaction.reactionLasting <= 0)
+            {
+                [self playAnimationWithName:theReaction.heroReactAnimationName delay:2];
+            } else
+            {
+                [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
+            }
+            
         }
         
         if (theReaction.reactHeroSelectorName != nil)
@@ -54,7 +82,7 @@
                 [self.hero performSelector:callback];
             } else {
                 SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", theReaction.reactHeroSelectorName]);
-                [self.hero performSelector:callback withObject:theReaction.reactHeroSelectorParam];
+                [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theReaction.reactHeroSelectorParam, theContactObject, nil]];
             }
         }
     }

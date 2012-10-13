@@ -7,9 +7,9 @@
 
 -(id)createHeroWithPosition:(CGPoint)thePosition;
 -(void) updateHeroPosition;
--(void) heroReactWithReaction:(Reaction *)theReaction;
+-(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(DUPhysicsObject *)theContactObject;
 
 
--(void) playAnimationWithName:(NSString *)animName;
+-(void) playAnimationWithName:(NSString *)animName delay:(float)theDelay;
 
 @end

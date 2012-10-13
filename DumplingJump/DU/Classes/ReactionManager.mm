@@ -42,10 +42,12 @@
 -(void) loadReactions
 {
     NSMutableDictionary *tmp = [NSMutableDictionary dictionary];
-    Reaction *reaction1 = [[Reaction alloc] initWithName:@"arrow" heroReactAnimationName:HERODIZZY effectName:FX_EXPLOSION reactHeroSelectorName:@"dizzy" reactHeroSelectorParam:nil reactHeroStepOnSelectorName:@"stepOn" reactHeroStepOnSelectorParam:nil reactWorldSelectorName:nil reactWorldSelectorParam:nil reactTimeSelectorName:@"testFunction" reactionLasting:-1 reactTime:2 cleanTime:1 triggerCleanHero:-1 triggerCleanHeroStepOn:1 triggerCleanWorld:1 triggerCleanBoard:-1];
-    Reaction *reaction2 = [[Reaction alloc] initWithName:@"bomb" heroReactAnimationName:@"hurt" effectName:@"explosion" reactHeroSelectorName:nil reactHeroSelectorParam:nil reactHeroStepOnSelectorName:nil reactHeroStepOnSelectorParam:nil reactWorldSelectorName:nil reactWorldSelectorParam:nil reactTimeSelectorName:@"explode" reactionLasting:-1 reactTime:5 cleanTime:5 triggerCleanHero:0 triggerCleanHeroStepOn:0 triggerCleanWorld:0 triggerCleanBoard:-1];
+    Reaction *reaction1 = [[Reaction alloc] initWithName:@"arrow" heroReactAnimationName:HEROHURT effectName:FX_ARROW_BREAK reactHeroSelectorName:@"hurt" reactHeroSelectorParam:@"25" reactHeroStepOnSelectorName:@"hurt" reactHeroStepOnSelectorParam:@"25" reactWorldSelectorName:nil reactWorldSelectorParam:nil reactTimeSelectorName:nil reactionLasting:0 reactTime:-1 cleanTime:-1 triggerCleanHero:1 triggerCleanHeroStepOn:1 triggerCleanWorld:1 triggerCleanBoard:1];
+    Reaction *reaction2 = [[Reaction alloc] initWithName:@"bomb" heroReactAnimationName:HEROHURT effectName:FX_EXPLOSION reactHeroSelectorName:nil reactHeroSelectorParam:nil reactHeroStepOnSelectorName:nil reactHeroStepOnSelectorParam:nil reactWorldSelectorName:nil reactWorldSelectorParam:nil reactTimeSelectorName:@"explode" reactionLasting:0 reactTime:3 cleanTime:3 triggerCleanHero:-1 triggerCleanHeroStepOn:-1 triggerCleanWorld:-1 triggerCleanBoard:-1];
+    Reaction *reaction3 = [[Reaction alloc] initWithName:@"ice" heroReactAnimationName:HEROFREEZE effectName:FX_FRONZEN reactHeroSelectorName:@"freeze" reactHeroSelectorParam:nil reactHeroStepOnSelectorName:nil reactHeroStepOnSelectorParam:nil reactWorldSelectorName:nil reactWorldSelectorParam:nil reactTimeSelectorName:nil reactionLasting:4 reactTime:-1 cleanTime:-1 triggerCleanHero:1 triggerCleanHeroStepOn:1 triggerCleanWorld:1 triggerCleanBoard:1];
     [tmp setObject:reaction1 forKey:[reaction1 name]];
     [tmp setObject:reaction2 forKey:[reaction2 name]];
+    [tmp setObject:reaction3 forKey:[reaction3 name]];
     
     self.reactionDictionary = [NSDictionary dictionaryWithDictionary:tmp];
 }

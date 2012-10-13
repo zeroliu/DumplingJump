@@ -21,7 +21,8 @@ restitution = _restitution,
 friction = _friction,
 gravity = _gravity,
 blood = _blood,
-reactionName = _reactionName;
+reactionName = _reactionName,
+animationName = _animationName;
 
 -(id) initWithName:(NSString *)theName 
              shape:(NSString *)theShape 
@@ -36,6 +37,7 @@ reactionName = _reactionName;
            gravity:(double)theGravity
              blood:(double)theBlood
       reactionName:(NSString *)theReactionName
+     animationName:(NSString *)theAnimationName;
 {
     if (self = [super init])
     {
@@ -52,6 +54,7 @@ reactionName = _reactionName;
         _gravity = theGravity;
         _blood = theBlood;
         _reactionName = theReactionName;
+        _animationName = theAnimationName;
     }
     
     return self;

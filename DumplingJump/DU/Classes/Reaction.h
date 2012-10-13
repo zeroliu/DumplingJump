@@ -21,6 +21,7 @@ NSString *name, //Reaction name
 *reactWorldSelectorName, //The selector will be called if addthings touch anything else
 *reactWorldSelectorParam,
 *reactTimeSelectorName; //The selector will be called if time is up
+
 @property (assign, readonly)
 double reactionLasting, //How long does it last
 reactTime, //How long does it take to trigger the reactTimeSelector

@@ -32,8 +32,8 @@
                 scaleX = poly->m_vertices->x / self.sprite.boundingBox.size.width * RATIO;
                 scaleY = poly->m_vertices->y / self.sprite.boundingBox.size.height * RATIO;
             }
-            self.sprite.scaleX = scaleX;
-            self.sprite.scaleY = scaleY;
+            self.sprite.scaleX = min(scaleX, scaleY);
+            self.sprite.scaleY = min(scaleX, scaleY);
         }
     }
     

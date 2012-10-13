@@ -52,21 +52,29 @@
 #define BOARD @"Board"
 #define TUB @"TUB"
 #define VAT @"VAT"
+#define BOMB @"Bomb"
+#define ARROW @"Arrow"
+#define STAR @"Star"
 
 #pragma mark -
 #pragma mark Effects
 #define FX_EXPLOSION @"FX_Explosion"
 #define FX_ARROW_BREAK @"FX_ArrowBreak"
+#define FX_FRONZEN @"FX_Frozen"
 
 #pragma mark -
 #pragma mark Hero animations/Hero state
 #define HEROIDLE @"HeroIdle"
 #define HERODIZZY @"HeroDizzy"
+#define HEROHURT @"HeroHurt"
+#define HEROFREEZE @"HeroFreeze"
 
 #pragma mark -
 #pragma mark Other animations
 #define ANIM_EXPLOSION @"ANIM_Explosion"
 #define ANIM_ARROW_BREAK @"ANIM_ArrowBreak"
+#define ANIM_STAR @"ANIM_Star"
+#define ANIM_ICE_EXPLODE @"ANIM_Ice_Explode"
 
 #pragma mark -
 #pragma mark Others

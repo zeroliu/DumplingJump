@@ -34,10 +34,12 @@
 {
     NSMutableDictionary *tmp = [[NSMutableDictionary alloc] init ];
     DUEffectData *effect1 = [[DUEffectData alloc] initWithName: FX_EXPLOSION animation: ANIM_EXPLOSION idlePicture:@"EFFECTS/AL_E_del_1.png" times:1];
-    DUEffectData *effect2 = [[DUEffectData alloc] initWithName: FX_ARROW_BREAK animation: ANIM_ARROW_BREAK idlePicture:@"EFFECTS/CA_E_arrow_1.png" times:2];
+    DUEffectData *effect2 = [[DUEffectData alloc] initWithName: FX_ARROW_BREAK animation: ANIM_ARROW_BREAK idlePicture:@"EFFECTS/CA_E_arrow_1.png" times:1];
+    DUEffectData *effect3 = [[DUEffectData alloc] initWithName: FX_FRONZEN animation: ANIM_ICE_EXPLODE idlePicture:@"EFFECTS/SK_E_frozen_1.png" times:1];
     
     [tmp setObject:effect1 forKey:effect1.name];
     [tmp setObject:effect2 forKey:effect2.name];
+    [tmp setObject:effect3 forKey:effect3.name];
     
     self.effectsDictionary = [NSDictionary dictionaryWithDictionary:tmp];
 }

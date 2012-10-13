@@ -59,12 +59,12 @@
     
     b2CircleShape heroShape;
     
-    heroShape.m_radius = (self.sprite.contentSize.height/2-7) /RATIO;
+    heroShape.m_radius = (self.sprite.contentSize.height/2-10) /RATIO;
     
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
     heroFixtureDef.density = 1.0f;
-    heroFixtureDef.friction = 0.3f;
+    heroFixtureDef.friction = 3;
     heroFixtureDef.restitution = 0.6f;
     
     self.body->CreateFixture(&heroFixtureDef);
@@ -109,7 +109,7 @@
     [self jump];
     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateBegan) 
     {
-        CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] openGLView]]; 
+        CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] view]];
         ccp = [[CCDirector sharedDirector] convertToGL:ccp];
     }
 }
@@ -145,9 +145,17 @@
         
         if(animation != nil)
         {
+            [self.sprite stopAllActions];
             id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
             [self.sprite runAction:animAction];
         }
+        
+        /*
+        for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+        {
+            f->SetFriction(3);
+        }
+         */
     }
 }
 
@@ -156,6 +164,34 @@
     //TODO: change the hero status
     
     
+}
+
+-(void) hurt:(NSArray *)value
+{
+    int hurtValue = [[value objectAtIndex:0] intValue];
+    DUPhysicsObject *contactObject = [value objectAtIndex:1];
+    int offset = 0;
+    if (contactObject.sprite.position.x > self.sprite.position.x)
+    {
+        offset = -1;
+//        DLog(@"hurt call %d force left, %g", hurtValue, contactObject.sprite.position.x);
+    } else
+    {
+        offset = 1;
+//        DLog(@"hurt call %d force right, %g", hurtValue, contactObject.sprite.position.x);
+    }
+    b2Vec2 directionForce = b2Vec2(offset * self.body->GetMass() * 10 * hurtValue, 0);
+    self.body->ApplyLinearImpulse(directionForce, self.body->GetPosition());
+}
+
+-(void) freeze
+{
+    self.body->GetFixtureList()->SetFriction(0);
+    for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+    {
+        contactEdge->contact->ResetFriction();
+    }
+    DLog(@"freeze");
 }
 -(void)heroLandOnObject:(NSNotification *)notification
 {

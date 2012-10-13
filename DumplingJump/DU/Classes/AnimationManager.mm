@@ -30,7 +30,12 @@
     //TODO: add from xml file
     [self addAnimationWithName:HEROIDLE file:@"HERO/AL_H_hero" startFrame:1 endFrame:10 delay:ANIMATION_DELAY_INBETWEEN];
     [self addAnimationWithName:HERODIZZY file:@"HERO/AL_H_dizzy" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:HEROHURT file:@"HERO/AL_H_hurt" startFrame:1 endFrame:1 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:HEROFREEZE file:@"HERO/SK_H_ice" startFrame:1 endFrame:8 delay:ANIMATION_DELAY_INBETWEEN];
     [self addAnimationWithName:ANIM_EXPLOSION file:@"EFFECTS/AL_E_del" startFrame:1 endFrame:5 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:ANIM_ARROW_BREAK file:@"EFFECTS/CA_E_arrow" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:ANIM_ICE_EXPLODE file:@"EFFECTS/SK_E_frozen" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:ANIM_STAR file:@"ADDTHING/SK_star" startFrame:1 endFrame:7 delay:ANIMATION_DELAY_INBETWEEN];
 }
 
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay
@@ -49,7 +54,7 @@
         [frameArray addObject:frameObject];
     }
 
-    id animObject = [CCAnimation animationWithFrames:frameArray delay:theDelay];
+    id animObject = [CCAnimation animationWithSpriteFrames :frameArray delay:theDelay];
 //    id animAction = [CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
 //    [animDict setObject:animAction forKey:theName];
     [[CCAnimationCache sharedAnimationCache] addAnimation:animObject name:theName];

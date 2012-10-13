@@ -46,7 +46,7 @@
 
 -(void) dealloc
 {
-    [self.sprite removeFromParentAndCleanup:YES];
+    [self.sprite removeFromParentAndCleanup:NO];
     [self.sprite release];
     [super dealloc];
 }

@@ -34,10 +34,18 @@
     //TODO: attach to the xml file
     //Fake loading here
     NSMutableDictionary *tmp = [NSMutableDictionary dictionary];
-    AddthingObjectData *tub = [[AddthingObjectData alloc] initWithName:TUB shape:CIRCLE spriteName:@"CA_tub_1" radius:15 width:0 length:0 I:1 mass:100 restitution:0.4 friction:2 gravity:80 blood:1 reactionName:@"bomb"];
-    AddthingObjectData *vat = [[AddthingObjectData alloc] initWithName:VAT shape:CIRCLE spriteName:@"CA_vat_1" radius:30 width:0 length:0 I:2 mass:200 restitution:0.1 friction:2 gravity:100 blood:1 reactionName:@"arrow"];
+    AddthingObjectData *tub = [[AddthingObjectData alloc] initWithName:TUB shape:CIRCLE spriteName:@"CA_tub_1" radius:35 width:0 length:0 I:1 mass:100 restitution:0.4 friction:2 gravity:80 blood:1 reactionName:nil animationName:nil];
+    AddthingObjectData *vat = [[AddthingObjectData alloc] initWithName:VAT shape:CIRCLE spriteName:@"CA_vat_1" radius:30 width:0 length:0 I:1 mass:200 restitution:0.1 friction:2 gravity:100 blood:1 reactionName:@"arrow" animationName:nil];
+    AddthingObjectData *bomb = [[AddthingObjectData alloc] initWithName:BOMB shape:CIRCLE spriteName:@"SK_bomber_1" radius:25 width:0 length:0 I:1 mass:100 restitution:0.1 friction:20 gravity:50 blood:1 reactionName:@"bomb" animationName:nil];
+    AddthingObjectData *arrow = [[AddthingObjectData alloc] initWithName:ARROW shape:BOX spriteName:@"CA_arrow_1" radius:0 width:30 length:50 I:1 mass:5 restitution:0.1 friction:1 gravity:100 blood:1 reactionName:@"arrow" animationName:nil];
+    AddthingObjectData *star = [[AddthingObjectData alloc] initWithName:STAR shape:CIRCLE spriteName:@"SK_star_1" radius:30 width:0 length:0 I:1 mass:5 restitution:0.1 friction:1 gravity:100 blood:1 reactionName:@"ice" animationName:ANIM_STAR];
+ 
     [tmp setObject:tub forKey:TUB];
     [tmp setObject:vat forKey:VAT];
+    [tmp setObject:bomb forKey:BOMB];
+    [tmp setObject:arrow forKey:ARROW];
+    [tmp setObject:star forKey:STAR];
+//    [tmp setObject:arrow forKey:ICE];
     self.addthingDictionary = [NSDictionary dictionaryWithDictionary:tmp];
 }
 
@@ -75,6 +83,12 @@
         
         objectBody->CreateFixture(&objectFixtureDef);
         
+        if(selectedObject.gravity != 100)
+        {
+            //objectBody->ApplyForce(b2Vec2(0,15*(100-selectedObject.gravity)/100),objectBody->GetPosition());
+            objectBody->SetGravityScale((selectedObject.gravity)/100.0f);
+        }
+        
         b2MassData massData;
         massData.center = objectBody->GetLocalCenter();
         massData.mass = selectedObject.mass;
@@ -84,7 +98,7 @@
         NSString *ID = [NSString stringWithFormat:@"%@_%d",selectedObject.name, self.idCounter];
         
         AddthingObject *newObject;
-        newObject = [[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName];
+        newObject = [[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName];
         
         self.idCounter ++;
         if (self.idCounter >= INT_MAX)

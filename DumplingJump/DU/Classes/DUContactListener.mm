@@ -8,10 +8,12 @@
 
 #import "DUContactListener.h"
 
-DUContactListener::DUContactListener() : _contacts() {
+DUContactListener::DUContactListener() : _contacts()
+{
 }
 
-DUContactListener::~DUContactListener() {
+DUContactListener::~DUContactListener()
+{
 }
 
 //void DUContactListener::setDelegate(id<DUContactListenerDelegate> delegate)
@@ -19,7 +21,8 @@ DUContactListener::~DUContactListener() {
 //    _delegate = delegate;
 //}
 
-void DUContactListener::BeginContact(b2Contact* contact) {
+void DUContactListener::BeginContact(b2Contact* contact)
+{
     // We need to copy out the data because the b2Contact passed in
     // is reused.
 //    MyContact myContact = { contact->GetFixtureA(), contact->GetFixtureB() };
@@ -45,7 +48,8 @@ void DUContactListener::BeginContact(b2Contact* contact) {
 //    DLog(@"Contact between %@ and %@",((DUPhysicsObject *)userDataA).ID, ((DUPhysicsObject *)userDataB).ID);
 }
 
-void DUContactListener::EndContact(b2Contact* contact) {
+void DUContactListener::EndContact(b2Contact* contact)
+{
 //    MyContact myContact = { contact->GetFixtureA(), contact->GetFixtureB() };
 //    std::vector<MyContact>::iterator pos;
 //    pos = std::find(_contacts.begin(), _contacts.end(), myContact);
@@ -72,10 +76,12 @@ void DUContactListener::EndContact(b2Contact* contact) {
     
 }
 
-void DUContactListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
+void DUContactListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
+{
 }
 
-void DUContactListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) {
+void DUContactListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
+{
 }
 
 //void DUContactListener::test()

@@ -13,15 +13,22 @@
 
 @implementation AddthingObject
 @synthesize reaction = _reaction;
+@synthesize animation = _animation;
 
--(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName;
+-(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName;
 {
     if (self = [super initWithName:theName file:theFile body:theBody canResize:resize]) {
         _reaction = [[ReactionManager shared] getReactionWithName:reactionName];
+        _animation = animationName;
+        
         self.ID = theID;
         [self setContactListener];
         [self setCountdownClean];
         [self setCountdownFunction];
+        if (_animation != nil)
+        {
+            [self playAnimation];
+        }
     }
     
     return self;
@@ -29,7 +36,7 @@
 
 -(void) setCountdownClean
 {
-    if (self.reaction.cleanTime >= 0)
+    if (self.reaction != nil && self.reaction.cleanTime >= 0)
     {
         [self runAction:@selector(removeAddthing) target:self afterDelay:self.reaction.cleanTime];
     }
@@ -38,7 +45,7 @@
 -(void) setCountdownFunction
 {
     //If the addthing has a countdown feature
-    if (self.reaction.reactTime >= 0 && self.reaction.reactTimeSelectorName != nil)
+    if (self.reaction != nil && self.reaction.reactTime >= 0 && self.reaction.reactTimeSelectorName != nil)
     {
         SEL callback = NSSelectorFromString(self.reaction.reactTimeSelectorName);
         
@@ -67,7 +74,7 @@
         {
             //If addthing touch hero
             //Hero reacts
-            [HEROMANAGER heroReactWithReaction: self.reaction];
+            [HEROMANAGER heroReactWithReaction:self.reaction contactObject:self];
             
             //If addthing will disappear after touch the hero
             if (self.reaction.triggerCleanHero == 1)
@@ -84,6 +91,12 @@
                 [self removeAddthing];
             }
 //            DLog(@"%@ Touch Board",self.name);
+        } else
+        {
+            if (self.reaction.triggerCleanWorld == 1)
+            {
+                [self removeAddthing];
+            }
         }
     }
 }
@@ -106,8 +119,19 @@
     [self.sprite runAction:sequence];
 }
 
+-(void) playAnimation
+{
+    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:self.animation]];
+    [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
+
+}
+
 -(void) activate
 {
+    if (_animation != nil)
+    {
+        [self playAnimation];
+    }
     [self setCountdownClean];
     [self setCountdownFunction];
     [self setContactListener];

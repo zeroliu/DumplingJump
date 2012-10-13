@@ -34,7 +34,8 @@
 {
     b2Vec2 gravity = b2Vec2(0.0,-15);
     bool doSleep = true;
-    world = new b2World(gravity,doSleep);
+    world = new b2World(gravity);
+    world->SetAllowSleeping(doSleep);
     
     b2BodyDef def;
     ground = world->CreateBody(&def);
@@ -77,6 +78,7 @@
     {
         if(b->GetUserData() != NULL)
         {
+            
             DUPhysicsObject *physicsObject = (DUPhysicsObject *)b->GetUserData();
             CCSprite* sprite = ((DUPhysicsObject *)b->GetUserData()).sprite;
             sprite.position = ccp(b->GetPosition().x * RATIO,

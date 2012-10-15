@@ -38,9 +38,7 @@
         [self.model addBackgroundWithFileName:SKY bgLayers:
          new BgLayer(1, 0, @"CA_background_1.png",-30),
          new BgLayer(2, 1, @"CA_background_2.png"),
-         new BgLayer(3, 2, @"CA_background_3.png"),
-         new BgLayer(4, 3, @"CA_background_4.png"),
-         new BgLayer(5, 4, @"CA_background_5.png"),
+         new BgLayer(3, 1, @"CA_background_3.png"),
          nil
          ];
     }

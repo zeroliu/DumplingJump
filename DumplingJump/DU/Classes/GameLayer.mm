@@ -5,23 +5,20 @@
 #import "BoardManager.h"
 #import "HeroManager.h"
 #import "AddthingFactory.h"
+#import "AddthingTestTool.h"
 
 @interface GameLayer()
 @property (nonatomic, retain) GameModel *model;
-@property (nonatomic, retain) LevelManager *levelManager;
 @property (nonatomic, retain) BackgroundController *bgController;
 @property (nonatomic, retain) BoardManager *boardManager;
 
-@property (nonatomic, retain) AddthingFactory *addthingFactory;
 @end
 
 @implementation GameLayer
 @synthesize model = _model;
-@synthesize levelManager = _levelManager;
 @synthesize bgController = _bgController;
 @synthesize boardManager = _boardManager;
 @synthesize heroManager = _heroManager;
-@synthesize addthingFactory = _addthingFactory;
 
 @synthesize batchNode = _batchNode;
 
@@ -66,9 +63,17 @@
         [self initListener];
         [self preloadGameData];
         [self initGame];
+        
+        [self initDebugTool];
+        
         [self scheduleUpdate];
 	}
 	return self;
+}
+
+-(void) initDebugTool
+{
+    [AddthingTestTool shared];
 }
 
 -(void) initBatchNode
@@ -83,9 +88,7 @@
 {
     _heroManager = [[HeroManager alloc] init];
     _boardManager = [[BoardManager alloc] init];
-    _levelManager = [[LevelManager alloc] init];
     _bgController = [[BackgroundController alloc] init];
-    _addthingFactory = [[AddthingFactory alloc] initFactory];
 }
 
 -(void) initListener
@@ -111,7 +114,7 @@
 -(void) setLevelWithName:(NSString *)levelName
 {
     //Set the currentLevel by loading from levelManager
-    self.model.currentLevel = [self.levelManager selectLevelWithName:LEVEL_NORMAL];
+    self.model.currentLevel = [[LevelManager shared] selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
     [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
     [self.boardManager createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,100)];
@@ -143,12 +146,7 @@
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    UITouch* touch = [touches anyObject];
-    DUPhysicsObject *vat = [self.addthingFactory createWithName:STAR];
-    vat.sprite.position = [self convertTouchToNodeSpace: touch];
-    [vat addChildTo:BATCHNODE];
-    //in your touchesEnded event, you would want to see if you touched
-    //down and then up inside the same place, and do your logic there.
+    [[self.heroManager getHero] jump];
 }
 #pragma mark -
 #pragma mark ListenerHandlers
@@ -162,75 +160,3 @@
 	[super dealloc];
 }
 @end
-
-//-(void) initListeners
-//{
-//    [MESSAGECENTER addObserver:self selector:@selector(updateDistanceText) name:DISTANCEUPDATED object:nil];
-//}
-
-//-(void) initUI
-//{
-//    label = [CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:20];
-//    CGSize size = [[CCDirector sharedDirector] winSize];
-//    label.position =  ccp( size.width - 20 , size.height - 20 );
-//    [self addChild: label];
-//}
-//
-//-(void)createBall:(CGPoint)point
-//{
-//    DUPhysicsObject *ball = [[TestBall shared] create];
-//    [ball.sprite runAction: [ANIMATIONMANAGER getAnimationWithName:@"HeroIdle" repeat:0]];
-//    ball.sprite.position = point;
-//    [ball addChildTo:[[[Hub shared] gameLayer] batchNode]];
-//}
-//
-//-(void) createNewBall
-//{
-//    CGPoint ballPos = ccp(randomInt(20, 300),650);
-//    [self createBall:ballPos];
-//}
-//
-//-(void)update:(ccTime)dt
-//{
-//    [bgManager updateBackground];
-//    [PHYSICSMANAGER updatePhysicsBody:dt];
-//    [hero updateHeroPosition];
-//    [DUGAMEMANAGER update:dt];
-//    [self updateUI];
-//}
-
-//
-//-(void) updateUI
-//{
-//    [self updateDistanceText];
-//}
-
-//-(void) updateDistanceText
-//{
-//    [label setString:[NSString stringWithFormat: @"%d", (int)[SCOREMANAGER distance]]];
-//}
-
-
-//-(void) initHero
-//{
-////    hero = [[Hero alloc] initHeroWithFile:@"HERO/AL_H_hero_1.png" position:ccp(150,200)];
-//    hero = [[Hero alloc] initHeroWithName:@"TrueHero" position:ccp(150,200)];
-//    [hero addChildTo:self.batchNode z:10];
-//}
-//
-//        [self initListeners];
-
-//        [GAMEMANAGER init];
-//        [MESSAGECENTER postNotificationName:GAMELAYER_INITIALIZED object:self]; 
-//        
-//        [self initHero];
-//        [self initBackground];
-//        [self initBoard];
-//        
-//        
-//        
-//        [self scheduleUpdate];
-
-//        [self createNewBall];
-//        
-//        [[CCScheduler sharedScheduler] scheduleSelector:@selector(createNewBall) forTarget:self interval:0.02 paused:NO];

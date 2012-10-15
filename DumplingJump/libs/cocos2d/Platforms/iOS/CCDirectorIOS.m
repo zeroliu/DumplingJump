@@ -369,9 +369,10 @@ CGFloat	__ccContentScaleFactor = 1;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	BOOL ret =YES;
+    
 	if( [delegate_ respondsToSelector:_cmd] )
 		ret = (BOOL) [delegate_ shouldAutorotateToInterfaceOrientation:interfaceOrientation];
-
+     
 	return ret;
 }
 

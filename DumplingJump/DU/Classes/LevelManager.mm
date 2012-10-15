@@ -7,6 +7,7 @@
 //
 
 #import "LevelManager.h"
+#import "AddthingFactory.h"
 
 @interface LevelManager()
 @property (nonatomic, retain) LevelData *levelData;
@@ -14,6 +15,16 @@
 
 @implementation LevelManager
 @synthesize levelData = _levelData;
+
++(id) shared
+{
+    static id shared = nil;
+    if (shared == nil)
+    {
+        shared = [[LevelManager alloc] init];
+    }
+    return shared;
+}
 
 -(id) levelData
 {
@@ -24,6 +35,13 @@
 -(Level *) selectLevelWithName:(NSString *)levelName
 {
     return [self.levelData getLevelByName:levelName];
+}
+
+-(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
+{
+    DUPhysicsObject *addthing = [[AddthingFactory shared] createWithName:objectName];
+    addthing.sprite.position = position;
+    [addthing addChildTo:BATCHNODE];
 }
 
 @end

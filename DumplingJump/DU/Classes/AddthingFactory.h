@@ -10,6 +10,6 @@
 
 @interface AddthingFactory : DUFactory
 
--(id) initFactory;
++(id) shared;
 
 @end

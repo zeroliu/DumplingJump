@@ -18,10 +18,10 @@
 
 -(void) setBgBatchNodeWithName:(NSString *)bgName
 {
-    [[[Hub shared]gameLayer] removeChild:self.bgBatchNode cleanup:YES];
+    [[[Hub shared]gameLayer] removeChild:self.bgBatchNode cleanup:NO];
     
     //Set the batchNode
-    self.bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.pvr",bgName]];
+    self.bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",bgName]];
     
     [[[Hub shared]gameLayer] addChild:self.bgBatchNode];
 }

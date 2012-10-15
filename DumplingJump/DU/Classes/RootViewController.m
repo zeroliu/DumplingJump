@@ -59,6 +59,7 @@
 	// Since this method should return YES in at least 1 orientation, 
 	// we return YES only in the Portrait orientation
 	//
+
 	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
 	
 #elif GAME_AUTOROTATION==kGameAutorotationCCDirector

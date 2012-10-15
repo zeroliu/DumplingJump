@@ -6,6 +6,7 @@
 @property (nonatomic, retain) Hero *hero; 
 
 -(id)createHeroWithPosition:(CGPoint)thePosition;
+-(id)getHero;
 -(void) updateHeroPosition;
 -(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(DUPhysicsObject *)theContactObject;
 

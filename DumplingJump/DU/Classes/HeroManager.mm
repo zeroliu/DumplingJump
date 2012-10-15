@@ -16,6 +16,15 @@
     return self.hero;
 }
 
+-(id)getHero
+{
+    if (self.hero != nil)
+    {
+        return self.hero;
+    }
+    return [self createHeroWithPosition:ccp(300,500)];
+}
+
 -(void) playAnimationWithName:(NSString *)animName delay:(float)theDelay
 {
     if (self.hero == nil) return;

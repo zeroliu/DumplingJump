@@ -18,6 +18,18 @@
 @implementation AddthingFactory
 @synthesize addthingDictionary = _addthingDictionary;
 @synthesize idCounter = _idCounter;
+
++(id) shared
+{
+    static id shared = nil;
+    if (shared == nil)
+    {
+        shared = [[AddthingFactory alloc] initFactory];
+    }
+    
+    return shared;
+}
+
 -(id) initFactory
 {
     if (self = [super initWithName:@"AddthingFacotry"])

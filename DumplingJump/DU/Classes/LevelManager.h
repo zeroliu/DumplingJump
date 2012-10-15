@@ -11,6 +11,7 @@
 
 @interface LevelManager : CCNode
 
++(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;
-
+-(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
 @end

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F1632EA162B836C00C132B1 /* AddthingTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */; };
+		7F1632ED162B84F300C132B1 /* ButtonPlusSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632EB162B84F300C132B1 /* ButtonPlusSel.png */; };
+		7F1632EE162B84F300C132B1 /* ButtonPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632EC162B84F300C132B1 /* ButtonPlus.png */; };
+		7F1632F1162B8D7F00C132B1 /* ButtonMinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632EF162B8D7F00C132B1 /* ButtonMinus.png */; };
+		7F1632F2162B8D7F00C132B1 /* ButtonMinusSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F0162B8D7F00C132B1 /* ButtonMinusSel.png */; };
+		7F1632F5162BE7EA00C132B1 /* sheetBackground1-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F3162BE7EA00C132B1 /* sheetBackground1-hd.plist */; };
+		7F1632F6162BE7EA00C132B1 /* sheetBackground1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */; };
+		7F1632F9162BE8F900C132B1 /* sheetBackground1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */; };
+		7F1632FA162BE8F900C132B1 /* sheetBackground1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F8162BE8F900C132B1 /* sheetBackground1.png */; };
 		7F30164815BE6B68006870EF /* AnimationManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164715BE6B68006870EF /* AnimationManager.mm */; };
 		7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */; };
 		7F307C89160373F1004D5203 /* ReactionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F307C88160373F1004D5203 /* ReactionManager.mm */; };
@@ -215,10 +224,6 @@
 		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
 		7FD5283415B3EF8400E50506 /* BackgroundController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundController.mm */; };
 		7FD5283615B3EF8400E50506 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283215B3EE1900E50506 /* Common.mm */; };
-		7FD75DEC15BB952C0071E341 /* sheetBackground1-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE015BB8F620071E341 /* sheetBackground1-hd.plist */; };
-		7FD75DED15BB952C0071E341 /* sheetBackground1-hd.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE115BB8F620071E341 /* sheetBackground1-hd.pvr */; };
-		7FD75DEE15BB952C0071E341 /* sheetBackground1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE215BB8F620071E341 /* sheetBackground1.plist */; };
-		7FD75DEF15BB952C0071E341 /* sheetBackground1.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE315BB8F620071E341 /* sheetBackground1.pvr */; };
 		7FD75DF015BB952C0071E341 /* sheetObjects-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE415BB8F620071E341 /* sheetObjects-hd.plist */; };
 		7FD75DF115BB952C0071E341 /* sheetObjects-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE515BB8F620071E341 /* sheetObjects-hd.png */; };
 		7FD75DF215BB952C0071E341 /* sheetObjects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD75DE615BB8F620071E341 /* sheetObjects.plist */; };
@@ -245,6 +250,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F1632E8162B836C00C132B1 /* AddthingTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingTestTool.h; sourceTree = "<group>"; };
+		7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingTestTool.mm; sourceTree = "<group>"; };
+		7F1632EB162B84F300C132B1 /* ButtonPlusSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonPlusSel.png; sourceTree = "<group>"; };
+		7F1632EC162B84F300C132B1 /* ButtonPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonPlus.png; sourceTree = "<group>"; };
+		7F1632EF162B8D7F00C132B1 /* ButtonMinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonMinus.png; sourceTree = "<group>"; };
+		7F1632F0162B8D7F00C132B1 /* ButtonMinusSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonMinusSel.png; sourceTree = "<group>"; };
+		7F1632F3162BE7EA00C132B1 /* sheetBackground1-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetBackground1-hd.plist"; sourceTree = "<group>"; };
+		7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetBackground1.plist; sourceTree = "<group>"; };
+		7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetBackground1-hd.png"; sourceTree = "<group>"; };
+		7F1632F8162BE8F900C132B1 /* sheetBackground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetBackground1.png; sourceTree = "<group>"; };
 		7F30164615BE6B68006870EF /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
 		7F30164715BE6B68006870EF /* AnimationManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimationManager.mm; sourceTree = "<group>"; };
 		7F30164B15BE8F29006870EF /* DUPhysicsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUPhysicsObject.h; sourceTree = "<group>"; };
@@ -687,10 +702,6 @@
 		7FD5283015B3EE1900E50506 /* BackgroundController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundController.mm; sourceTree = "<group>"; };
 		7FD5283115B3EE1900E50506 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		7FD5283215B3EE1900E50506 /* Common.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
-		7FD75DE015BB8F620071E341 /* sheetBackground1-hd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sheetBackground1-hd.plist"; sourceTree = "<group>"; };
-		7FD75DE115BB8F620071E341 /* sheetBackground1-hd.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sheetBackground1-hd.pvr"; sourceTree = "<group>"; };
-		7FD75DE215BB8F620071E341 /* sheetBackground1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = sheetBackground1.plist; sourceTree = "<group>"; };
-		7FD75DE315BB8F620071E341 /* sheetBackground1.pvr */ = {isa = PBXFileReference; lastKnownFileType = file; path = sheetBackground1.pvr; sourceTree = "<group>"; };
 		7FD75DE415BB8F620071E341 /* sheetObjects-hd.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sheetObjects-hd.plist"; sourceTree = "<group>"; };
 		7FD75DE515BB8F620071E341 /* sheetObjects-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetObjects-hd.png"; sourceTree = "<group>"; };
 		7FD75DE615BB8F620071E341 /* sheetObjects.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = sheetObjects.plist; sourceTree = "<group>"; };
@@ -911,6 +922,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F1632E6162B831E00C132B1 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				7F1632E8162B836C00C132B1 /* AddthingTestTool.h */,
+				7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
 		7F30164A15BE6B78006870EF /* SharedManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1604,6 +1624,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F1632E6162B831E00C132B1 /* Debug */,
 				7FF0822215B2355200E093E1 /* System */,
 				7FD820F915D863A3003AFCB8 /* DUClasses */,
 				7FD820F615D85E95003AFCB8 /* GameObjects */,
@@ -1652,6 +1673,10 @@
 		7F7010F615AFEFFE00495B10 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7F1632EF162B8D7F00C132B1 /* ButtonMinus.png */,
+				7F1632F0162B8D7F00C132B1 /* ButtonMinusSel.png */,
+				7F1632EB162B84F300C132B1 /* ButtonPlusSel.png */,
+				7F1632EC162B84F300C132B1 /* ButtonPlus.png */,
 				7F9E3AD215B53FF8005130D0 /* SK_plate.png */,
 			);
 			path = images;
@@ -1676,10 +1701,10 @@
 		7F7010F915AFEFFE00495B10 /* spriteSheets */ = {
 			isa = PBXGroup;
 			children = (
-				7FD75DE015BB8F620071E341 /* sheetBackground1-hd.plist */,
-				7FD75DE115BB8F620071E341 /* sheetBackground1-hd.pvr */,
-				7FD75DE215BB8F620071E341 /* sheetBackground1.plist */,
-				7FD75DE315BB8F620071E341 /* sheetBackground1.pvr */,
+				7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */,
+				7F1632F8162BE8F900C132B1 /* sheetBackground1.png */,
+				7F1632F3162BE7EA00C132B1 /* sheetBackground1-hd.plist */,
+				7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */,
 				7FD75DE415BB8F620071E341 /* sheetObjects-hd.plist */,
 				7FD75DE515BB8F620071E341 /* sheetObjects-hd.png */,
 				7FD75DE615BB8F620071E341 /* sheetObjects.plist */,
@@ -2128,10 +2153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD75DEC15BB952C0071E341 /* sheetBackground1-hd.plist in Resources */,
-				7FD75DED15BB952C0071E341 /* sheetBackground1-hd.pvr in Resources */,
-				7FD75DEE15BB952C0071E341 /* sheetBackground1.plist in Resources */,
-				7FD75DEF15BB952C0071E341 /* sheetBackground1.pvr in Resources */,
 				7FD75DF015BB952C0071E341 /* sheetObjects-hd.plist in Resources */,
 				7FD75DF115BB952C0071E341 /* sheetObjects-hd.png in Resources */,
 				7FD75DF215BB952C0071E341 /* sheetObjects.plist in Resources */,
@@ -2151,6 +2172,14 @@
 				7F936B0C161AB08900620E6D /* Default-568h@2x.png in Resources */,
 				7F462F1D161AC46B007C43CC /* ChangeLog in Resources */,
 				7F462F1E161AC46B007C43CC /* CMakeLists.txt in Resources */,
+				7F1632ED162B84F300C132B1 /* ButtonPlusSel.png in Resources */,
+				7F1632EE162B84F300C132B1 /* ButtonPlus.png in Resources */,
+				7F1632F1162B8D7F00C132B1 /* ButtonMinus.png in Resources */,
+				7F1632F2162B8D7F00C132B1 /* ButtonMinusSel.png in Resources */,
+				7F1632F5162BE7EA00C132B1 /* sheetBackground1-hd.plist in Resources */,
+				7F1632F6162BE7EA00C132B1 /* sheetBackground1.plist in Resources */,
+				7F1632F9162BE8F900C132B1 /* sheetBackground1-hd.png in Resources */,
+				7F1632FA162BE8F900C132B1 /* sheetBackground1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2355,6 +2384,7 @@
 				7F3A0EF7161C152500DC0DDF /* b2WeldJoint.cpp in Sources */,
 				7F3A0EF8161C152500DC0DDF /* b2WheelJoint.cpp in Sources */,
 				7F3A0EF9161C152500DC0DDF /* b2Rope.cpp in Sources */,
+				7F1632EA162B836C00C132B1 /* AddthingTestTool.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -120,7 +120,7 @@
     self.model.currentLevel = [[LevelManager shared] selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
     [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
-    [self.boardManager createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,100)];
+    [self.boardManager createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,120)];
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
     //TODO: set the rest of the characters or elements for the level
 }

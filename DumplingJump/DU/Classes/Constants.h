@@ -2,9 +2,9 @@
 
 #pragma mark -
 #pragma mark Constants
-#define SENSIBILITY 1.0f
+#define SENSIBILITY 1.56f
 #define SPEED_INERTIA 0.8f
-#define MAX_SPEED 5.0f
+#define MAX_SPEED 3.125f
 #define ANIMATION_DELAY_INBETWEEN 0.1f
 
 #pragma mark -
@@ -55,6 +55,7 @@
 #define BOMB @"Bomb"
 #define ARROW @"Arrow"
 #define STAR @"Star"
+#define ICE @"ice"
 
 #pragma mark -
 #pragma mark Effects

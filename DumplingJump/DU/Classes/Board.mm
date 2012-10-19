@@ -15,7 +15,8 @@
     {
         self.sprite = [CCSprite spriteWithSpriteFrameName:fileName];
         self.sprite.position = pos;
-    
+        float scale = 370/2 / self.sprite.boundingBox.size.width;
+        self.sprite.scale = scale;
         [self initBoardPhysics];
     }
     return self;
@@ -42,8 +43,8 @@
     b2FixtureDef boardFixtureDef;
     
     //TODO: NEED CHANGE TO THE REAL VALUE;
-    boardFixtureDef.friction = 0.5;
-    boardFixtureDef.restitution = 0.3;
+    boardFixtureDef.friction = 0.3;
+    boardFixtureDef.restitution = 0;
     boardFixtureDef.density = 10;
     boardFixtureDef.shape = &boardShape;
     
@@ -93,12 +94,12 @@
                               self.body->GetPosition().y);
     b2Vec2 ground_LR = b2Vec2(self.body->GetPosition().x - (plateWidth/2+100)/RATIO,
                               self.body->GetPosition().y);
-    b2DistanceJointDef rocketDisjointDef_LR;
-    rocketDisjointDef_LR.Initialize(ground, self.body, ground_LR, anchor_LR);
-    rocketDisjointDef_LR.collideConnected = true;
-    rocketDisjointDef_LR.frequencyHz = 0.8;
-    rocketDisjointDef_LR.dampingRatio = 0.8;
-    world->CreateJoint(&rocketDisjointDef_LR);
+    b2DistanceJointDef rocketDisjointDef_ML;
+    rocketDisjointDef_ML.Initialize(ground, self.body, ground_LR, anchor_LR);
+    rocketDisjointDef_ML.collideConnected = true;
+    rocketDisjointDef_ML.frequencyHz = 0.8;
+    rocketDisjointDef_ML.dampingRatio = 0.8;
+    world->CreateJoint(&rocketDisjointDef_ML);
 }
 
 

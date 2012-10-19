@@ -64,7 +64,7 @@
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
     //heroFixtureDef.density = 10;
-    heroFixtureDef.friction = 3;
+    heroFixtureDef.friction = 0.3f;
     heroFixtureDef.restitution = 0;
     
     self.body->CreateFixture(&heroFixtureDef);
@@ -74,7 +74,7 @@
     
     b2MassData massData;
     massData.center = self.body->GetLocalCenter();
-    massData.mass = 34;
+    massData.mass = 13;
     massData.I = 1;
     self.body->SetMassData(&massData);
 }
@@ -134,7 +134,7 @@
 -(void) jump
 {
     //TODO: Detect if hero is on the ground or on something
-    if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 12));
+    if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 325/RATIO));
 }
 
 -(void) idle

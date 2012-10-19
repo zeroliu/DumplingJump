@@ -8,6 +8,8 @@
 
 #import "AddthingTestTool.h"
 #import "LevelManager.h"
+#import "AddthingFactory.h"
+#import "AddthingObjectData.h"
 
 @interface AddthingTestTool()
 {
@@ -18,6 +20,9 @@
     CCMenuItem *item2;
     CCMenuItem *item3;
     id dropingAction;
+    int dictLength;
+    int addthingCounter;
+    NSMutableArray *addthingArray;
 }
 @end
 
@@ -80,24 +85,48 @@
     
     //Create generate button
     CCMenuItemFont *generateButton = [CCMenuItemFont itemWithString:@"Generate" target:self selector:@selector(dropAddthings)];
-    generateButton.position = ccp(60, 30);
+    generateButton.position = ccp(150, winSize.height - 80);
     
     //Create repeat button
     item1 = [CCMenuItemImage itemWithNormalImage:@"Button1.png" selectedImage:@"Button1Sel.png"];
     item2 = [CCMenuItemImage itemWithNormalImage:@"Button2.png" selectedImage:@"Button2Sel.png"];
     item3 = [CCMenuItemImage itemWithNormalImage:@"Button3.png" selectedImage:@"Button3Sel.png"];
     CCMenuItemToggle *repeatToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(changeRepeat:) items:item1, item2, item3, nil];
-    repeatToggle.position = ccp(60,60);
+    repeatToggle.position = ccp(30, winSize.height - 100);
     repeatToggle.scale = 1.5f;
+    
+    //Create item menu
+    addthingCounter = 0;
+    NSDictionary *dict = [[AddthingFactory shared] addthingDictionary];
+    dictLength = [dict count];
+    addthingArray = [[NSMutableArray alloc] initWithCapacity:dictLength];
+    CCMenuItemToggle *addthingToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(changeItem:)];
+    NSMutableArray *tmpArray = [NSMutableArray arrayWithCapacity:dictLength];
+    for (NSString *key in dict)
+    {
+        AddthingObjectData *data = [dict objectForKey:key];
+        NSString *spriteName = [NSString stringWithFormat: @"%@.png", data.spriteName];
+        [addthingArray addObject:data.name];
+        CCMenuItemImage *addthingIcon = [CCMenuItemImage itemWithNormalImage: spriteName selectedImage: spriteName];
+        [tmpArray addObject:addthingIcon];
+    }
+    [addthingToggle initWithItems:tmpArray block:^(id sender)
+    {
+        addthingCounter = (addthingCounter + 1) % dictLength;
+    }];
+    
+    addthingToggle.position = ccp(30, winSize.height - 200);
     
     //Create menu
     CCMenu *menu = [CCMenu menuWithArray:itemArray];
     [menu addChild:generateButton];
     [menu addChild:repeatToggle];
+    [menu addChild:addthingToggle];
     menu.position = CGPointZero;
-
+    
     [GAMELAYER addChild:menu];
 }
+
 
 -(void) updateDropList:(id)sender
 {
@@ -126,7 +155,7 @@
     {
         if ([[_addthingDropList objectAtIndex:i] boolValue])
         {
-            [[LevelManager shared] dropAddthingWithName:TUB atPosition:ccp(xPosUnit * i + 5 + xPosUnit/2,600)];
+            [[LevelManager shared] dropAddthingWithName:[addthingArray objectAtIndex:addthingCounter] atPosition:ccp(xPosUnit * i + 5 + xPosUnit/2,600)];
         }
     }
 }
@@ -158,6 +187,8 @@
     [item3 release];
     [_addthingDropList release];
     _addthingDropList = nil;
+    [addthingArray release];
+    addthingArray = nil;
     [super dealloc];
 }
 

@@ -6,5 +6,4 @@
 @property (nonatomic, retain) DUPhysicsObject *board;
 
 -(id) createBoardWithSpriteName:(NSString *)theName position:(CGPoint) pos;
-
 @end

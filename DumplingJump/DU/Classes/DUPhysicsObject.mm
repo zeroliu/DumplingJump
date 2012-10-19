@@ -29,8 +29,8 @@
             } else if (self.body->GetFixtureList()->GetType() == b2Shape::e_polygon) 
             {
                 b2PolygonShape* poly = (b2PolygonShape*) self.body->GetFixtureList()->GetShape();
-                scaleX = poly->m_vertices->x / self.sprite.boundingBox.size.width * RATIO;
-                scaleY = poly->m_vertices->y / self.sprite.boundingBox.size.height * RATIO;
+                scaleX = 2 * poly->m_vertices->x / self.sprite.boundingBox.size.width * RATIO;
+                scaleY = 2 * poly->m_vertices->y / self.sprite.boundingBox.size.height * RATIO;
             }
             self.sprite.scaleX = min(scaleX, scaleY);
             self.sprite.scaleY = min(scaleX, scaleY);

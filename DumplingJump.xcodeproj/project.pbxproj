@@ -228,6 +228,10 @@
 		7FA691BD15BB4E24000B15A2 /* Constants.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA691BC15BB4E24000B15A2 /* Constants.mm */; };
 		7FAFCC5B15D3A3E300F019F7 /* BackgroundView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */; };
 		7FAFCC5F15D3A69E00F019F7 /* BackgroundModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */; };
+		7FB6526B163127340009AA38 /* CA_tub_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB65269163127330009AA38 /* CA_tub_1.png */; };
+		7FB6526C163127340009AA38 /* CA_vat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6526A163127330009AA38 /* CA_vat_1.png */; };
+		7FB6526F1631273D0009AA38 /* SK_ice_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6526E1631273D0009AA38 /* SK_ice_1.png */; };
+		7FB65271163127460009AA38 /* CA_arrow_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB65270163127460009AA38 /* CA_arrow_1.png */; };
 		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
 		7FD5283415B3EF8400E50506 /* BackgroundController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundController.mm */; };
 		7FD5283615B3EF8400E50506 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283215B3EE1900E50506 /* Common.mm */; };
@@ -712,6 +716,10 @@
 		7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundView.mm; sourceTree = "<group>"; };
 		7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundModel.h; sourceTree = "<group>"; };
 		7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundModel.mm; sourceTree = "<group>"; };
+		7FB65269163127330009AA38 /* CA_tub_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_tub_1.png; sourceTree = "<group>"; };
+		7FB6526A163127330009AA38 /* CA_vat_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_vat_1.png; sourceTree = "<group>"; };
+		7FB6526E1631273D0009AA38 /* SK_ice_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SK_ice_1.png; sourceTree = "<group>"; };
+		7FB65270163127460009AA38 /* CA_arrow_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_arrow_1.png; sourceTree = "<group>"; };
 		7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TexturePackerScript.sh; sourceTree = "<group>"; };
 		7FD5282F15B3EE1900E50506 /* BackgroundController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundController.h; sourceTree = "<group>"; };
 		7FD5283015B3EE1900E50506 /* BackgroundController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundController.mm; sourceTree = "<group>"; };
@@ -1690,6 +1698,10 @@
 		7F7010F615AFEFFE00495B10 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7FB65270163127460009AA38 /* CA_arrow_1.png */,
+				7FB6526E1631273D0009AA38 /* SK_ice_1.png */,
+				7FB65269163127330009AA38 /* CA_tub_1.png */,
+				7FB6526A163127330009AA38 /* CA_vat_1.png */,
 				7F86CD9E162D316700AB1024 /* Button1.png */,
 				7F86CD9F162D316700AB1024 /* Button1Sel.png */,
 				7F86CDA0162D316700AB1024 /* Button2.png */,
@@ -2209,6 +2221,10 @@
 				7F86CDA7162D316700AB1024 /* Button2Sel.png in Resources */,
 				7F86CDA8162D316700AB1024 /* Button3.png in Resources */,
 				7F86CDA9162D316700AB1024 /* Button3Sel.png in Resources */,
+				7FB6526B163127340009AA38 /* CA_tub_1.png in Resources */,
+				7FB6526C163127340009AA38 /* CA_vat_1.png in Resources */,
+				7FB6526F1631273D0009AA38 /* SK_ice_1.png in Resources */,
+				7FB65271163127460009AA38 /* CA_arrow_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

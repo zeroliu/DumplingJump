@@ -34,8 +34,9 @@
 
 -(void) createUI
 {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
     CCMenuItemFont *item = [CCMenuItemFont itemWithString:@"Revive" target:self selector:@selector(revive)];
-    item.position = ccp(250,30);
+    item.position = ccp(270, winSize.height - 200);
     CCMenu *menu = [CCMenu menuWithItems:item, nil];
     menu.position = CGPointZero;
     [GAMELAYER addChild:menu];

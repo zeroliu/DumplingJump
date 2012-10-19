@@ -9,7 +9,6 @@
 #import "DUFactory.h"
 
 @interface AddthingFactory : DUFactory
-
+@property (nonatomic, retain) NSDictionary *addthingDictionary;
 +(id) shared;
-
 @end

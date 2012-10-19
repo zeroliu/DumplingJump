@@ -13,6 +13,11 @@
 {
     NSMutableArray *_addthingDropList;
     float xPosUnit;
+    int repeat;
+    CCMenuItem *item1;
+    CCMenuItem *item2;
+    CCMenuItem *item3;
+    id dropingAction;
 }
 @end
 
@@ -34,6 +39,7 @@
 {
     if (self = [super init])
     {
+        repeat = 1;
         [self initDropList];
         [self createUI];
     }
@@ -73,12 +79,21 @@
     //End creating drop list buttons
     
     //Create generate button
-    CCMenuItemFont *generateButton = [CCMenuItemFont itemWithString:@"Generate" target:self selector:@selector(generateAddthing:)];
+    CCMenuItemFont *generateButton = [CCMenuItemFont itemWithString:@"Generate" target:self selector:@selector(dropAddthings)];
     generateButton.position = ccp(60, 30);
+    
+    //Create repeat button
+    item1 = [CCMenuItemImage itemWithNormalImage:@"Button1.png" selectedImage:@"Button1Sel.png"];
+    item2 = [CCMenuItemImage itemWithNormalImage:@"Button2.png" selectedImage:@"Button2Sel.png"];
+    item3 = [CCMenuItemImage itemWithNormalImage:@"Button3.png" selectedImage:@"Button3Sel.png"];
+    CCMenuItemToggle *repeatToggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(changeRepeat:) items:item1, item2, item3, nil];
+    repeatToggle.position = ccp(60,60);
+    repeatToggle.scale = 1.5f;
     
     //Create menu
     CCMenu *menu = [CCMenu menuWithArray:itemArray];
     [menu addChild:generateButton];
+    [menu addChild:repeatToggle];
     menu.position = CGPointZero;
 
     [GAMELAYER addChild:menu];
@@ -90,10 +105,22 @@
     
     [_addthingDropList replaceObjectAtIndex:item.tag withObject:
      [NSNumber numberWithBool:![[_addthingDropList objectAtIndex:item.tag] boolValue]]];
-    
 }
 
--(void) generateAddthing:(id)sender
+-(void) dropAddthings
+{
+    //[GAMELAYER stopAction:dropingAction];
+    
+    id func = [CCCallFunc actionWithTarget:[AddthingTestTool shared] selector:@selector(generateAddthing)];
+    id delay = [CCDelayTime actionWithDuration: 1];
+    id sequence = [CCSequence actions:func, delay, nil];
+    
+    dropingAction = [CCRepeat actionWithAction:sequence times:repeat];
+    
+    [GAMELAYER runAction:dropingAction];
+}
+
+-(void) generateAddthing
 {
     for (int i=0; i<[_addthingDropList count]; i++)
     {
@@ -104,12 +131,31 @@
     }
 }
 
+-(void) changeRepeat:(id)sender
+{
+    CCMenuItemToggle *item = (CCMenuItemToggle *)sender;
+    if (item.selectedItem == item1)
+    {
+        repeat = 1;
+    } else if (item.selectedItem == item2)
+    {
+        repeat = 5;
+    } else
+    {
+        repeat = 10;
+    }
+    
+}
+
 -(void) dealloc
 {
 //    [_plusItem release];
 //    _plusItem = nil;
 //    [_minusItem release];
 //    _minusItem = nil;
+    [item1 release];
+    [item2 release];
+    [item3 release];
     [_addthingDropList release];
     _addthingDropList = nil;
     [super dealloc];

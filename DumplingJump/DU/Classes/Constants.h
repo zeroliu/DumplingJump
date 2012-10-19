@@ -81,7 +81,7 @@
 #define MESSAGECENTER [NSNotificationCenter defaultCenter]
 #define BATCHNODE [[[Hub shared] gameLayer] batchNode]
 #define GAMELAYER [[Hub shared] gameLayer]
-#define HEROMANAGER [GAMELAYER heroManager]
+#define HEROMANAGER [HeroManager shared]
 #define EFFECTMANAGER [EffectManager shared]
 
 @interface Constants : NSObject

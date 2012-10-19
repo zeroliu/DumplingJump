@@ -6,9 +6,21 @@
 #pragma mark -
 #pragma Initialization
 
++(id) shared
+{
+    static id shared = nil;
+    
+    if (shared == nil)
+    {
+        shared = [[HeroManager alloc] init];
+    }
+    
+    return shared;
+}
+
 -(id)createHeroWithPosition:(CGPoint)thePosition
 {
-    if (self.hero != nil) [self.hero release];
+    if (self.hero != nil) [self.hero archive];
     self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition];
     [self.hero addChildTo:BATCHNODE];
     [self.hero idle];

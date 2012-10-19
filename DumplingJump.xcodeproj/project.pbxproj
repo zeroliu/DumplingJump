@@ -208,6 +208,13 @@
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
 		7F81FC121605936A008AF71F /* DUEffectObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FC111605936A008AF71F /* DUEffectObject.mm */; };
+		7F86CD9C162D26EC00AB1024 /* HeroTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */; };
+		7F86CDA4162D316700AB1024 /* Button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CD9E162D316700AB1024 /* Button1.png */; };
+		7F86CDA5162D316700AB1024 /* Button1Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CD9F162D316700AB1024 /* Button1Sel.png */; };
+		7F86CDA6162D316700AB1024 /* Button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CDA0162D316700AB1024 /* Button2.png */; };
+		7F86CDA7162D316700AB1024 /* Button2Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CDA1162D316700AB1024 /* Button2Sel.png */; };
+		7F86CDA8162D316700AB1024 /* Button3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CDA2162D316700AB1024 /* Button3.png */; };
+		7F86CDA9162D316700AB1024 /* Button3Sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CDA3162D316700AB1024 /* Button3Sel.png */; };
 		7F8EED3515BFCD5400F99B9D /* DUFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3415BFCD5400F99B9D /* DUFactory.mm */; };
 		7F8EED3C15BFE8F400F99B9D /* b2BodyBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */; };
 		7F936B0C161AB08900620E6D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F936B0B161AB08900620E6D /* Default-568h@2x.png */; };
@@ -667,6 +674,14 @@
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F81FC101605936A008AF71F /* DUEffectObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUEffectObject.h; sourceTree = "<group>"; };
 		7F81FC111605936A008AF71F /* DUEffectObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUEffectObject.mm; sourceTree = "<group>"; };
+		7F86CD9A162D26EC00AB1024 /* HeroTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroTestTool.h; sourceTree = "<group>"; };
+		7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HeroTestTool.mm; sourceTree = "<group>"; };
+		7F86CD9E162D316700AB1024 /* Button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button1.png; sourceTree = "<group>"; };
+		7F86CD9F162D316700AB1024 /* Button1Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button1Sel.png; sourceTree = "<group>"; };
+		7F86CDA0162D316700AB1024 /* Button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button2.png; sourceTree = "<group>"; };
+		7F86CDA1162D316700AB1024 /* Button2Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button2Sel.png; sourceTree = "<group>"; };
+		7F86CDA2162D316700AB1024 /* Button3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button3.png; sourceTree = "<group>"; };
+		7F86CDA3162D316700AB1024 /* Button3Sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button3Sel.png; sourceTree = "<group>"; };
 		7F8EED3315BFCD5400F99B9D /* DUFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUFactory.h; sourceTree = "<group>"; };
 		7F8EED3415BFCD5400F99B9D /* DUFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUFactory.mm; sourceTree = "<group>"; };
 		7F8EED3A15BFE8F300F99B9D /* b2BodyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BodyBuilder.h; sourceTree = "<group>"; };
@@ -927,6 +942,8 @@
 			children = (
 				7F1632E8162B836C00C132B1 /* AddthingTestTool.h */,
 				7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */,
+				7F86CD9A162D26EC00AB1024 /* HeroTestTool.h */,
+				7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -1673,6 +1690,12 @@
 		7F7010F615AFEFFE00495B10 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7F86CD9E162D316700AB1024 /* Button1.png */,
+				7F86CD9F162D316700AB1024 /* Button1Sel.png */,
+				7F86CDA0162D316700AB1024 /* Button2.png */,
+				7F86CDA1162D316700AB1024 /* Button2Sel.png */,
+				7F86CDA2162D316700AB1024 /* Button3.png */,
+				7F86CDA3162D316700AB1024 /* Button3Sel.png */,
 				7F1632EF162B8D7F00C132B1 /* ButtonMinus.png */,
 				7F1632F0162B8D7F00C132B1 /* ButtonMinusSel.png */,
 				7F1632EB162B84F300C132B1 /* ButtonPlusSel.png */,
@@ -2180,6 +2203,12 @@
 				7F1632F6162BE7EA00C132B1 /* sheetBackground1.plist in Resources */,
 				7F1632F9162BE8F900C132B1 /* sheetBackground1-hd.png in Resources */,
 				7F1632FA162BE8F900C132B1 /* sheetBackground1.png in Resources */,
+				7F86CDA4162D316700AB1024 /* Button1.png in Resources */,
+				7F86CDA5162D316700AB1024 /* Button1Sel.png in Resources */,
+				7F86CDA6162D316700AB1024 /* Button2.png in Resources */,
+				7F86CDA7162D316700AB1024 /* Button2Sel.png in Resources */,
+				7F86CDA8162D316700AB1024 /* Button3.png in Resources */,
+				7F86CDA9162D316700AB1024 /* Button3Sel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2385,6 +2414,7 @@
 				7F3A0EF8161C152500DC0DDF /* b2WheelJoint.cpp in Sources */,
 				7F3A0EF9161C152500DC0DDF /* b2Rope.cpp in Sources */,
 				7F1632EA162B836C00C132B1 /* AddthingTestTool.mm in Sources */,
+				7F86CD9C162D26EC00AB1024 /* HeroTestTool.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

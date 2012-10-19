@@ -104,6 +104,7 @@
 #pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
 {
+    /*
     NSLog(@"state = %d", (int)recognizer.state);
     //acc.Set([[Constants shared]heroAccelerationXBase], 0);
     [self jump];
@@ -112,6 +113,7 @@
         CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] view]];
         ccp = [[CCDirector sharedDirector] convertToGL:ccp];
     }
+     */
 }
 
 #pragma mark -

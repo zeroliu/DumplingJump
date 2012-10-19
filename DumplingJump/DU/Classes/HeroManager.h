@@ -5,6 +5,7 @@
 
 @property (nonatomic, retain) Hero *hero; 
 
++(id)shared;
 -(id)createHeroWithPosition:(CGPoint)thePosition;
 -(id)getHero;
 -(void) updateHeroPosition;

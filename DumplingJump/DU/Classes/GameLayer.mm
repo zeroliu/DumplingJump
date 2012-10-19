@@ -5,7 +5,9 @@
 #import "BoardManager.h"
 #import "HeroManager.h"
 #import "AddthingFactory.h"
+
 #import "AddthingTestTool.h"
+#import "HeroTestTool.h"
 
 @interface GameLayer()
 @property (nonatomic, retain) GameModel *model;
@@ -18,7 +20,7 @@
 @synthesize model = _model;
 @synthesize bgController = _bgController;
 @synthesize boardManager = _boardManager;
-@synthesize heroManager = _heroManager;
+//@synthesize heroManager = _heroManager;
 
 @synthesize batchNode = _batchNode;
 
@@ -74,6 +76,7 @@
 -(void) initDebugTool
 {
     [AddthingTestTool shared];
+    [HeroTestTool shared];
 }
 
 -(void) initBatchNode
@@ -86,7 +89,7 @@
 
 -(void) initManagers
 {
-    _heroManager = [[HeroManager alloc] init];
+    //_heroManager = [[HeroManager alloc] init];
     _boardManager = [[BoardManager alloc] init];
     _bgController = [[BackgroundController alloc] init];
 }
@@ -118,7 +121,7 @@
     //Set the corresponding background
     [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
     [self.boardManager createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,100)];
-    [self.heroManager createHeroWithPosition:ccp(150,200)];
+    [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
     //TODO: set the rest of the characters or elements for the level
 }
 
@@ -128,7 +131,7 @@
     {
         [self.bgController updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
-        [self.heroManager updateHeroPosition];
+        [[HeroManager shared] updateHeroPosition];
     }
 }
 
@@ -146,7 +149,7 @@
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    [[self.heroManager getHero] jump];
+    [[[HeroManager shared] getHero] jump];
 }
 #pragma mark -
 #pragma mark ListenerHandlers

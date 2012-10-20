@@ -25,7 +25,6 @@
     if (self = [super initWithName:theName]) 
     {
         [self initHeroParam];
-//        [self initHeroAnimation];
         [self initHeroSpriteWithFile:@"HERO/AL_H_hero_1.png" position:thePosition];
         [self initHeroPhysicsWithPosition:thePosition];
         [self initSpeed];

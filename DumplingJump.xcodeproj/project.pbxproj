@@ -16,6 +16,8 @@
 		7F1632F6162BE7EA00C132B1 /* sheetBackground1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */; };
 		7F1632F9162BE8F900C132B1 /* sheetBackground1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */; };
 		7F1632FA162BE8F900C132B1 /* sheetBackground1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F8162BE8F900C132B1 /* sheetBackground1.png */; };
+		7F2C1972163278B0009FD26F /* Paragraph.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F2C1971163278B0009FD26F /* Paragraph.mm */; };
+		7F2C19771632791B009FD26F /* Sentence.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F2C19761632791B009FD26F /* Sentence.mm */; };
 		7F30164815BE6B68006870EF /* AnimationManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164715BE6B68006870EF /* AnimationManager.mm */; };
 		7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */; };
 		7F307C89160373F1004D5203 /* ReactionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F307C88160373F1004D5203 /* ReactionManager.mm */; };
@@ -271,6 +273,10 @@
 		7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetBackground1.plist; sourceTree = "<group>"; };
 		7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetBackground1-hd.png"; sourceTree = "<group>"; };
 		7F1632F8162BE8F900C132B1 /* sheetBackground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetBackground1.png; sourceTree = "<group>"; };
+		7F2C1970163278B0009FD26F /* Paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paragraph.h; sourceTree = "<group>"; };
+		7F2C1971163278B0009FD26F /* Paragraph.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Paragraph.mm; sourceTree = "<group>"; };
+		7F2C19751632791B009FD26F /* Sentence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sentence.h; sourceTree = "<group>"; };
+		7F2C19761632791B009FD26F /* Sentence.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Sentence.mm; sourceTree = "<group>"; };
 		7F30164615BE6B68006870EF /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
 		7F30164715BE6B68006870EF /* AnimationManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AnimationManager.mm; sourceTree = "<group>"; };
 		7F30164B15BE8F29006870EF /* DUPhysicsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUPhysicsObject.h; sourceTree = "<group>"; };
@@ -954,6 +960,17 @@
 				7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */,
 			);
 			name = Debug;
+			sourceTree = "<group>";
+		};
+		7F2C1974163278C3009FD26F /* Paragraph */ = {
+			isa = PBXGroup;
+			children = (
+				7F2C1970163278B0009FD26F /* Paragraph.h */,
+				7F2C1971163278B0009FD26F /* Paragraph.mm */,
+				7F2C19751632791B009FD26F /* Sentence.h */,
+				7F2C19761632791B009FD26F /* Sentence.mm */,
+			);
+			name = Paragraph;
 			sourceTree = "<group>";
 		};
 		7F30164A15BE6B78006870EF /* SharedManager */ = {
@@ -1860,6 +1877,7 @@
 		7FD820F915D863A3003AFCB8 /* DUClasses */ = {
 			isa = PBXGroup;
 			children = (
+				7F2C1974163278C3009FD26F /* Paragraph */,
 				7FD820FB15D863CC003AFCB8 /* Background */,
 				7FD820FA15D863C0003AFCB8 /* Level */,
 			);
@@ -2431,6 +2449,8 @@
 				7F3A0EF9161C152500DC0DDF /* b2Rope.cpp in Sources */,
 				7F1632EA162B836C00C132B1 /* AddthingTestTool.mm in Sources */,
 				7F86CD9C162D26EC00AB1024 /* HeroTestTool.mm in Sources */,
+				7F2C1972163278B0009FD26F /* Paragraph.mm in Sources */,
+				7F2C19771632791B009FD26F /* Sentence.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

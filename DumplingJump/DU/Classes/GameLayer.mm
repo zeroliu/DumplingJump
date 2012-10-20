@@ -60,10 +60,12 @@
         self.model.state = GAME_INIT;
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
+        
         [self initBatchNode];
+        [self preloadGameData];
         [self initManagers];
         [self initListener];
-        [self preloadGameData];
+        [self initParameters];
         [self initGame];
         
         [self initDebugTool];
@@ -89,7 +91,7 @@
 
 -(void) initManagers
 {
-    //_heroManager = [[HeroManager alloc] init];
+
     _boardManager = [[BoardManager alloc] init];
     _bgController = [[BackgroundController alloc] init];
 }
@@ -104,6 +106,7 @@
     [AnimationManager shared];
     [ReactionManager shared];
     [EffectManager shared];
+    [LevelManager shared];
 }
 
 -(void) initGame
@@ -111,7 +114,13 @@
     //Init level with level name
     //TODO: select the level with a menu or something
     [self setLevelWithName:LEVEL_NORMAL];
+    [[LevelManager shared] loadParagraphAtIndex:0];
     [self startGame];
+}
+
+-(void) initParameters
+{
+    
 }
 
 -(void) setLevelWithName:(NSString *)levelName
@@ -132,6 +141,8 @@
         [self.bgController updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
+        self.model.distance += DISTANCE_UNIT;
+        [[LevelManager shared] dropNextAddthing];
     }
 }
 

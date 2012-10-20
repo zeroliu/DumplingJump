@@ -11,6 +11,5 @@
 @implementation GameModel
 @synthesize currentLevel = _currentLevel;
 @synthesize state = _state;
-
-
+@synthesize distance = _distance;
 @end

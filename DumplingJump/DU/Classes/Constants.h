@@ -6,6 +6,8 @@
 #define SPEED_INERTIA 0.8f
 #define MAX_SPEED 3.125f
 #define ANIMATION_DELAY_INBETWEEN 0.1f
+#define SLOTS_NUM 9
+#define DISTANCE_UNIT 0.015
 
 #pragma mark -
 #pragma mark Physics
@@ -48,6 +50,7 @@
 
 #pragma mark -
 #pragma mark Addthings
+#define NOTHING @"Nothing"
 #define HERO @"Hero"
 #define BOARD @"Board"
 #define TUB @"TUB"

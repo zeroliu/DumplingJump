@@ -55,7 +55,7 @@
 -(void) initDropList
 {
     _addthingDropList = [[NSMutableArray alloc] init];
-    for (int i=0; i<10; i++)
+    for (int i=0; i<SLOTS_NUM; i++)
     {
         [_addthingDropList addObject:[NSNumber numberWithBool:NO]];
     }
@@ -68,9 +68,9 @@
     //Create drop list buttons
     NSMutableArray *itemArray = [NSMutableArray array];
     float yPos = winSize.height - 30;
-    xPosUnit = (winSize.width-5) / 10.0f;
+    xPosUnit = (winSize.width-5) / (float)SLOTS_NUM;
     float itemScale = (xPosUnit - 5) / 30.0f;
-    for (int i=0; i<10; i++)
+    for (int i=0; i<SLOTS_NUM; i++)
     {
         CCMenuItem *_plusItem = [CCMenuItemImage itemWithNormalImage:@"ButtonPlus.png" selectedImage:@"ButtonPlusSel.png"];
         CCMenuItem *_minusItem = [CCMenuItemImage itemWithNormalImage:@"ButtonMinus.png" selectedImage:@"ButtonMinusSel.png"];

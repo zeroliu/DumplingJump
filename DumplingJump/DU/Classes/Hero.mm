@@ -8,7 +8,9 @@
 
 #import "Hero.h"
 @interface Hero()
-
+{
+    float adjustMove, adjustJump;
+}
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
 @property (nonatomic, assign) BOOL isOnGround;
@@ -39,6 +41,8 @@
 {
     self.isOnGround = FALSE;
     self.heroState = HEROIDLE;
+    adjustMove = 1;
+    adjustJump = 1;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -100,28 +104,12 @@
 }
 
 #pragma mark -
-#pragma mark ListenerHandler
--(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
-{
-    /*
-    NSLog(@"state = %d", (int)recognizer.state);
-    //acc.Set([[Constants shared]heroAccelerationXBase], 0);
-    [self jump];
-    if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateBegan) 
-    {
-        CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] view]];
-        ccp = [[CCDirector sharedDirector] convertToGL:ccp];
-    }
-     */
-}
-
-#pragma mark -
 #pragma mark Movement
 
 -(void) updateHeroPositionWithAccX:(float)accX
 {
     //Set hero acceleration
-    self.acc = b2Vec2(accX * SENSIBILITY, 0);
+    self.acc = b2Vec2(accX * SENSIBILITY * adjustMove, 0);
     //Set hero speed
     self.speed = b2Vec2(clampf(self.body->GetLinearVelocity().x + self.acc.x, -MAX_SPEED, MAX_SPEED),self.body->GetLinearVelocity().y + self.acc.y);
     
@@ -133,7 +121,7 @@
 -(void) jump
 {
     //TODO: Detect if hero is on the ground or on something
-    if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 325/RATIO));
+    if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 325/RATIO * adjustJump));
 }
 
 -(void) idle
@@ -151,12 +139,18 @@
             [self.sprite runAction:animAction];
         }
         
-        /*
         for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
         {
-            f->SetFriction(3);
+            f->SetFriction(0.3f);
+            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+            {
+                contactEdge->contact->ResetFriction();
+            }
         }
-         */
+        
+        adjustJump = 1;
+        adjustMove = 1;
+        
     }
 }
 
@@ -175,11 +169,9 @@
     if (contactObject.sprite.position.x > self.sprite.position.x)
     {
         offset = -1;
-//        DLog(@"hurt call %d force left, %g", hurtValue, contactObject.sprite.position.x);
     } else
     {
         offset = 1;
-//        DLog(@"hurt call %d force right, %g", hurtValue, contactObject.sprite.position.x);
     }
     b2Vec2 directionForce = b2Vec2(offset * self.body->GetMass() * 10 * hurtValue, 0);
     self.body->ApplyLinearImpulse(directionForce, self.body->GetPosition());
@@ -192,26 +184,63 @@
     {
         contactEdge->contact->ResetFriction();
     }
+    adjustJump = 0;
+    adjustMove = 0;
     DLog(@"freeze");
 }
 -(void)heroLandOnObject:(NSNotification *)notification
 {
-    
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
     if (self.sprite.position.y > targetObject.sprite.position.y)
     {
         self.isOnGround = YES;
     }
-//    DLog(@"Land on");
 }
 
 -(void)heroLandOffObject:(NSNotification *)notification
 {
     self.isOnGround = NO;
     
+    //Fix hero cannot jump bug
+    for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+    {
+        if (contactEdge->contact->IsTouching())
+        {
+            if (contactEdge->contact->GetFixtureA()->GetBody()->GetUserData() == self)
+            {
+                if (((DUPhysicsObject *)contactEdge->contact->GetFixtureB()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
+                {
+                    self.isOnGround = YES;
+                }
+            } else if(contactEdge->contact->GetFixtureB()->GetBody()->GetUserData() == self)
+            {
+                if (((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
+                {
+                    self.isOnGround = YES;
+                }
+            } 
+
+        }
+    }
 //    DLog(@"Land off");
 }
 
+
+#pragma mark -
+#pragma mark ListenerHandler
+-(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
+{
+    /*
+     NSLog(@"state = %d", (int)recognizer.state);
+     //acc.Set([[Constants shared]heroAccelerationXBase], 0);
+     [self jump];
+     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateBegan)
+     {
+     CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] view]];
+     ccp = [[CCDirector sharedDirector] convertToGL:ccp];
+     }
+     */
+}
 
 -(void) dealloc
 {

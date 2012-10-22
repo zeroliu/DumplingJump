@@ -107,6 +107,7 @@
     [ReactionManager shared];
     [EffectManager shared];
     [LevelManager shared];
+    [XMLHelper shared];
 }
 
 -(void) initGame

@@ -203,6 +203,8 @@
 		7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505F15BD166E000A9C5F /* DUSprite.mm */; };
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
+		7F57279E163521570023B985 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5E5DB16351A4D0018B085 /* libxml2.dylib */; };
+		7F5727A3163524BC0023B985 /* CA_level1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F5727A2163524BC0023B985 /* CA_level1.xml */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
 		7F5CC1E01602B07F00E45EDD /* Reaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CC1DF1602B07F00E45EDD /* Reaction.mm */; };
 		7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937915CBBAD800B8C80C /* ScoreManager.mm */; };
@@ -248,6 +250,12 @@
 		7FD9EBA9161ACBF800E36BB2 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7FDFD5AE15B6AE7A00F55257 /* HeroManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */; };
 		7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */; };
+		7FF5E5C4163516E40018B085 /* XMLHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5C3163516E40018B085 /* XMLHelper.mm */; };
+		7FF5E5D6163517E60018B085 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5C9163517E60018B085 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7FF5E5D7163517E60018B085 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5CC163517E60018B085 /* NSString+DDXML.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7FF5E5D8163517E60018B085 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5CF163517E60018B085 /* DDXMLDocument.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7FF5E5D9163517E60018B085 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5D1163517E60018B085 /* DDXMLElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7FF5E5DA163517E60018B085 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5D3163517E60018B085 /* DDXMLNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
@@ -662,6 +670,7 @@
 		7F4F506215BD1700000A9C5F /* DUObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObject.mm; sourceTree = "<group>"; };
 		7F4F506515BD1B17000A9C5F /* DUObjectsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUObjectsDictionary.h; sourceTree = "<group>"; };
 		7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObjectsDictionary.mm; sourceTree = "<group>"; };
+		7F5727A2163524BC0023B985 /* CA_level1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level1.xml; sourceTree = "<group>"; };
 		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
 		7F5CC1DE1602B07F00E45EDD /* Reaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reaction.h; sourceTree = "<group>"; };
@@ -926,6 +935,21 @@
 		7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HeroManager.mm; sourceTree = "<group>"; };
 		7FF4977E15BBA3C6008EDF37 /* AccelerometerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerManager.h; sourceTree = "<group>"; };
 		7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerometerManager.mm; sourceTree = "<group>"; };
+		7FF5E5C2163516E40018B085 /* XMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHelper.h; sourceTree = "<group>"; };
+		7FF5E5C3163516E40018B085 /* XMLHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMLHelper.mm; sourceTree = "<group>"; };
+		7FF5E5C8163517E60018B085 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		7FF5E5C9163517E60018B085 /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		7FF5E5CB163517E60018B085 /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		7FF5E5CC163517E60018B085 /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		7FF5E5CD163517E60018B085 /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		7FF5E5CE163517E60018B085 /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		7FF5E5CF163517E60018B085 /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		7FF5E5D0163517E60018B085 /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		7FF5E5D1163517E60018B085 /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		7FF5E5D2163517E60018B085 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		7FF5E5D3163517E60018B085 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		7FF5E5D5163517E60018B085 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		7FF5E5DB16351A4D0018B085 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
@@ -937,6 +961,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F57279E163521570023B985 /* libxml2.dylib in Frameworks */,
 				7F41435215AAC659002CFC9A /* QuartzCore.framework in Frameworks */,
 				7F41435415AAC659002CFC9A /* OpenGLES.framework in Frameworks */,
 				7F41435615AAC659002CFC9A /* OpenAL.framework in Frameworks */,
@@ -1378,6 +1403,7 @@
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
+				7FF5E5DB16351A4D0018B085 /* libxml2.dylib */,
 				7F936B0B161AB08900620E6D /* Default-568h@2x.png */,
 				7F41436115AAC659002CFC9A /* DumplingJump */,
 			);
@@ -1440,6 +1466,7 @@
 		7F41437615AAC659002CFC9A /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				7FF5E5C6163517E60018B085 /* KissXML */,
 				7F3A0E66161C152500DC0DDF /* Box2D */,
 				7F3A0C47161C13DD00DC0DDF /* cocos2d */,
 				7F462EA6161AC46A007C43CC /* kazmath */,
@@ -1625,6 +1652,14 @@
 			name = DUSystem;
 			sourceTree = "<group>";
 		};
+		7F5727A1163524970023B985 /* xmls */ = {
+			isa = PBXGroup;
+			children = (
+				7F5727A2163524BC0023B985 /* CA_level1.xml */,
+			);
+			name = xmls;
+			sourceTree = "<group>";
+		};
 		7F5B00C815B945F400BA15D9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1635,6 +1670,8 @@
 				7F9E3AE415B561AE005130D0 /* Hub.mm */,
 				7FA691BB15BB4E24000B15A2 /* Constants.h */,
 				7FA691BC15BB4E24000B15A2 /* Constants.mm */,
+				7FF5E5C2163516E40018B085 /* XMLHelper.h */,
+				7FF5E5C3163516E40018B085 /* XMLHelper.mm */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1685,6 +1722,7 @@
 		7F7010F315AFEFFE00495B10 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F5727A1163524970023B985 /* xmls */,
 				7F7010F415AFEFFE00495B10 /* fonts */,
 				7F7010F515AFEFFE00495B10 /* icons */,
 				7F7010F615AFEFFE00495B10 /* images */,
@@ -2136,6 +2174,49 @@
 			name = System;
 			sourceTree = "<group>";
 		};
+		7FF5E5C6163517E60018B085 /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				7FF5E5C7163517E60018B085 /* Additions */,
+				7FF5E5CA163517E60018B085 /* Categories */,
+				7FF5E5CD163517E60018B085 /* DDXML.h */,
+				7FF5E5CE163517E60018B085 /* DDXMLDocument.h */,
+				7FF5E5CF163517E60018B085 /* DDXMLDocument.m */,
+				7FF5E5D0163517E60018B085 /* DDXMLElement.h */,
+				7FF5E5D1163517E60018B085 /* DDXMLElement.m */,
+				7FF5E5D2163517E60018B085 /* DDXMLNode.h */,
+				7FF5E5D3163517E60018B085 /* DDXMLNode.m */,
+				7FF5E5D4163517E60018B085 /* Private */,
+			);
+			path = KissXML;
+			sourceTree = "<group>";
+		};
+		7FF5E5C7163517E60018B085 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				7FF5E5C8163517E60018B085 /* DDXMLElementAdditions.h */,
+				7FF5E5C9163517E60018B085 /* DDXMLElementAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		7FF5E5CA163517E60018B085 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7FF5E5CB163517E60018B085 /* NSString+DDXML.h */,
+				7FF5E5CC163517E60018B085 /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7FF5E5D4163517E60018B085 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				7FF5E5D5163517E60018B085 /* DDXMLPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -2243,6 +2324,7 @@
 				7FB6526C163127340009AA38 /* CA_vat_1.png in Resources */,
 				7FB6526F1631273D0009AA38 /* SK_ice_1.png in Resources */,
 				7FB65271163127460009AA38 /* CA_arrow_1.png in Resources */,
+				7F5727A3163524BC0023B985 /* CA_level1.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2451,6 +2533,12 @@
 				7F86CD9C162D26EC00AB1024 /* HeroTestTool.mm in Sources */,
 				7F2C1972163278B0009FD26F /* Paragraph.mm in Sources */,
 				7F2C19771632791B009FD26F /* Sentence.mm in Sources */,
+				7FF5E5C4163516E40018B085 /* XMLHelper.mm in Sources */,
+				7FF5E5D6163517E60018B085 /* DDXMLElementAdditions.m in Sources */,
+				7FF5E5D7163517E60018B085 /* NSString+DDXML.m in Sources */,
+				7FF5E5D8163517E60018B085 /* DDXMLDocument.m in Sources */,
+				7FF5E5D9163517E60018B085 /* DDXMLElement.m in Sources */,
+				7FF5E5DA163517E60018B085 /* DDXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2468,9 +2556,11 @@
 		7F41453815AAC65D002CFC9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zero LIU (Z2GP6UH9C3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zero LIU (Z2GP6UH9C3)";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2481,29 +2571,37 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "28EAE221-3D73-4BF7-864E-C57669539DA7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		7F41453915AAC65D002CFC9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Zero LIU (Z2GP6UH9C3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-lxml2";
 				PROVISIONING_PROFILE = "28EAE221-3D73-4BF7-864E-C57669539DA7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -2517,7 +2615,10 @@
 				GCC_PREFIX_HEADER = DumplingJump/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "\"DumplingJump/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDK_DIR)\"/usr/include/libxml2",
+					"\"DumplingJump/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
@@ -2536,7 +2637,10 @@
 				GCC_PREFIX_HEADER = DumplingJump/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "\"DumplingJump/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDK_DIR)\"/usr/include/libxml2",
+					"\"DumplingJump/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";

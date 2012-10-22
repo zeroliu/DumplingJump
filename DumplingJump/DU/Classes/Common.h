@@ -10,6 +10,7 @@
 #import "AnimationManager.h"
 #import "ReactionManager.h"
 #import "EffectManager.h"
+#import "XMLHelper.h"
 
 //#import "GameManager.h"
 

@@ -8,18 +8,17 @@
 
 #import "AddthingTestTool.h"
 #import "HeroTestTool.h"
+#import "LevelTestTool.h"
 
 @interface GameLayer()
 @property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) BackgroundController *bgController;
-@property (nonatomic, retain) BoardManager *boardManager;
 
 @end
 
 @implementation GameLayer
 @synthesize model = _model;
 @synthesize bgController = _bgController;
-@synthesize boardManager = _boardManager;
 //@synthesize heroManager = _heroManager;
 
 @synthesize batchNode = _batchNode;
@@ -79,6 +78,20 @@
 {
     [AddthingTestTool shared];
     [HeroTestTool shared];
+    [LevelTestTool shared];
+
+    world = [[PhysicsManager sharedPhysicsManager] getWorld];
+    
+    m_debugDraw = new GLESDebugDraw(RATIO);
+    world->SetDebugDraw(m_debugDraw);
+    uint32 flags = 0;
+    flags += b2Draw::e_shapeBit;
+    flags += b2Draw::e_jointBit;
+    flags += b2Draw::e_aabbBit;
+    flags += b2Draw::e_pairBit;
+    flags += b2Draw::e_centerOfMassBit;
+    m_debugDraw->SetFlags(flags);
+    
 }
 
 -(void) initBatchNode
@@ -91,8 +104,7 @@
 
 -(void) initManagers
 {
-
-    _boardManager = [[BoardManager alloc] init];
+    //_boardManager = [[BoardManager alloc] init];
     _bgController = [[BackgroundController alloc] init];
 }
 
@@ -107,6 +119,8 @@
     [ReactionManager shared];
     [EffectManager shared];
     [LevelManager shared];
+    [HeroManager shared];
+    [BoardManager shared];
     [XMLHelper shared];
 }
 
@@ -115,7 +129,7 @@
     //Init level with level name
     //TODO: select the level with a menu or something
     [self setLevelWithName:LEVEL_NORMAL];
-    [[LevelManager shared] loadParagraphAtIndex:0];
+    //[[LevelManager shared] loadParagraphAtIndex:0];
     [self startGame];
 }
 
@@ -130,7 +144,7 @@
     self.model.currentLevel = [[LevelManager shared] selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
     [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
-    [self.boardManager createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,120)];
+    [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,120*SCALE_MULTIPLIER)];
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
     //TODO: set the rest of the characters or elements for the level
 }
@@ -150,18 +164,24 @@
 -(void) startGame
 {
     self.model.state = GAME_START;
-//    DUPhysicsObject *tub = [self.addthingFactory createWithName:TUB];
-//    tub.sprite.position = ccp(100,650);
-//    [tub addChildTo:BATCHNODE];
-//    
-//    DUPhysicsObject *vat = [self.addthingFactory createWithName:VAT];
-//    vat.sprite.position = ccp(200,650);
-//    [vat addChildTo:BATCHNODE];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     [[[HeroManager shared] getHero] jump];
+    
+}
+
+-(void) draw
+{
+    [super draw];
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+	
+	kmGLPushMatrix();
+	
+	world->DrawDebugData();
+	
+	kmGLPopMatrix();
 }
 #pragma mark -
 #pragma mark ListenerHandlers

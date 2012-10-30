@@ -40,7 +40,9 @@
     if (self = [super init])
     {
         self.paragraphs = [[NSMutableArray alloc] init];
+        
         [self loadParagraphs];
+        
     }
     
     return self;
@@ -48,28 +50,18 @@
 
 -(void) loadParagraphs
 {
-    //TODO: load from xml file
-    Paragraph *test = [[Paragraph alloc] init];
+    //load paragraph from xml file
+    int i = 1;
+    NSString *testContent = nil;
+    do {
+        Paragraph *test = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"CA_level%d",i]];
+        DLog(@"Paragraph loaded + %d", i);
+        [self.paragraphs addObject:test];
+        i++;
+        testContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"CA_level%d",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
+    } while (testContent != nil);
     
-    NSMutableArray *a1 = [[NSMutableArray alloc] initWithObjects:
-                          NOTHING, VAT, NOTHING, NOTHING, NOTHING, NOTHING, NOTHING, NOTHING, NOTHING,nil];
-    NSMutableArray *a2 = [[NSMutableArray alloc] initWithObjects:
-                          NOTHING, NOTHING, VAT, NOTHING, NOTHING, VAT, NOTHING, NOTHING, NOTHING,nil];
-    NSMutableArray *a3 = [[NSMutableArray alloc] initWithObjects:
-                          VAT, NOTHING, NOTHING, NOTHING, VAT, NOTHING, NOTHING, NOTHING, VAT,nil];
-    Sentence *s1 = [[Sentence alloc] initWithDistance:1 Words:a1];
-    Sentence *s2 = [[Sentence alloc] initWithDistance:2 Words:a2];
-    Sentence *s3 = [[Sentence alloc] initWithDistance:3.5f Words:a3];
-    Sentence *s4 = [[Sentence alloc] initWithDistance:4 Words:a2];
-    Sentence *s5 = [[Sentence alloc] initWithDistance:6 Words:a3];
-    [test addSentence:s1];
-    [test addSentence:s2];
-    [test addSentence:s3];
-    [test addSentence:s4];
-    [test addSentence:s5];
-    [self.paragraphs addObject:test];
-    
-    DLog(@"Paragraph loaded");
+    //DLog(@"Paragraph loaded + %d", (i-1));
 }
 
 -(id) levelData
@@ -103,6 +95,12 @@
     currentParagraph = [self.paragraphs objectAtIndex:index];
     sentenceCounter = 0;
     sentenceIndex = 0;
+    sentenceTarget = 0;
+}
+
+-(int) paragraphsCount
+{
+    return [self.paragraphs count];
 }
 
 -(void) dropNextAddthing

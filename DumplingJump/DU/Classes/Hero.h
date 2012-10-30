@@ -21,9 +21,12 @@
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) jump;
 -(void) idle;
--(void) dizzy; //Called from AddthingObject
--(void) hurt:(NSArray *)value; //Called from AddthingObject
--(void) freeze; ////Called from AddthingObject
+//Called from AddthingObject
+-(void) flat;
+-(void) dizzy;
+-(void) hurt:(NSArray *)value;
+-(void) freeze;
 
+-(void) updateHeroForce;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

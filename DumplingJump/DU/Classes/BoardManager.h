@@ -3,7 +3,8 @@
 
 @interface BoardManager : NSObject
 
-@property (nonatomic, retain) DUPhysicsObject *board;
 
++(id) shared;
 -(id) createBoardWithSpriteName:(NSString *)theName position:(CGPoint) pos;
+-(id) getBoard;
 @end

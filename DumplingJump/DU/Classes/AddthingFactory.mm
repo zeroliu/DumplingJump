@@ -43,24 +43,7 @@
 
 -(void) loadAddthingInfo
 {
-    //TODO: attach to the xml file
-    //Fake loading here
-    NSMutableDictionary *tmp = [NSMutableDictionary dictionary];
-    AddthingObjectData *tub = [[AddthingObjectData alloc] initWithName:TUB shape:CIRCLE spriteName:@"CA_tub_1" radius:17 width:0 length:0 I:1 mass:10 restitution:0.4 friction:2 gravity:80 blood:1 reactionName:nil animationName:nil];
-    AddthingObjectData *vat = [[AddthingObjectData alloc] initWithName:VAT shape:CIRCLE spriteName:@"CA_vat_1" radius:25 width:0 length:0 I:1 mass:30 restitution:0.1 friction:2 gravity:100 blood:1 reactionName:nil animationName:nil];
-    /*
-    AddthingObjectData *bomb = [[AddthingObjectData alloc] initWithName:BOMB shape:CIRCLE spriteName:@"SK_bomber_1" radius:25 width:0 length:0 I:1 mass:100 restitution:0.1 friction:20 gravity:50 blood:1 reactionName:@"bomb" animationName:nil];
-     */
-    AddthingObjectData *arrow = [[AddthingObjectData alloc] initWithName:ARROW shape:BOX spriteName:@"CA_arrow_1" radius:0 width:15 length:25 I:1 mass:5 restitution:0.1 friction:1 gravity:100 blood:1 reactionName:@"arrow" animationName:nil];
-    AddthingObjectData *ice = [[AddthingObjectData alloc] initWithName:ICE shape:BOX spriteName:@"SK_ice_1" radius:0 width:40 length:25 I:10 mass:10 restitution:0 friction:5 gravity:150 blood:1 reactionName:@"ice" animationName:nil];
- 
-    [tmp setObject:tub forKey:TUB];
-    [tmp setObject:vat forKey:VAT];
-//    [tmp setObject:bomb forKey:BOMB];
-    [tmp setObject:arrow forKey:ARROW];
-    [tmp setObject:ice forKey:ICE];
-//    [tmp setObject:arrow forKey:ICE];
-    self.addthingDictionary = [NSDictionary dictionaryWithDictionary:tmp];
+    self.addthingDictionary = [[XMLHelper shared] loadAddthingWithXML:@"CA_addthing"];
 }
 
 -(id) createNewObjectWithName:(NSString *)objectName
@@ -80,7 +63,7 @@
         objectFixtureDef.friction = selectedObject.friction;
         objectFixtureDef.restitution = selectedObject.restitution;      
         
-        if (selectedObject.shape == CIRCLE)
+        if ([selectedObject.shape isEqualToString: CIRCLE])
         {
             b2CircleShape objectShape;
             objectShape.m_radius = (selectedObject.radius) /RATIO; 
@@ -88,7 +71,7 @@
             //EX: sprite.contentSize.x/2 - 7
             
             objectFixtureDef.shape = &objectShape;
-        } else if (selectedObject.shape == BOX)
+        } else if ([selectedObject.shape isEqualToString: BOX])
         {
             b2PolygonShape objectShape;
             objectShape.SetAsBox(selectedObject.width/2/RATIO, selectedObject.length/2/RATIO);            
@@ -97,11 +80,7 @@
         
         objectBody->CreateFixture(&objectFixtureDef);
         
-        if(selectedObject.gravity != 100)
-        {
-            //objectBody->ApplyForce(b2Vec2(0,15*(100-selectedObject.gravity)/100),objectBody->GetPosition());
-            objectBody->SetGravityScale((selectedObject.gravity)/100.0f);
-        }
+        objectBody->SetGravityScale((selectedObject.gravity)/100.0f);
         
         b2MassData massData;
         massData.center = objectBody->GetLocalCenter();

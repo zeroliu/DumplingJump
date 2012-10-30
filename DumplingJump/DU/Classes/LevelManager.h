@@ -18,4 +18,5 @@
 
 -(void) dropNextAddthing;
 -(void) loadParagraphAtIndex:(int) index;
+-(int) paragraphsCount;
 @end

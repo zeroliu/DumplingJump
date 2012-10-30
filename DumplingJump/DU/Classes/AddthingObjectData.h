@@ -10,9 +10,9 @@
 
 @interface AddthingObjectData : CCNode
 
-@property (nonatomic, readonly)
+@property (nonatomic, retain)
 NSString *name,*shape,*spriteName, *reactionName, *animationName;
-@property (nonatomic, readonly)
+@property (nonatomic, assign)
 double radius, //Used for circle
 width, //Used for Box
 length, //Used for Box
@@ -40,4 +40,5 @@ blood;
       reactionName:(NSString *)theReactionName
      animationName:(NSString *)theAnimationName;
 
+-(id) initEmptyData;
 @end

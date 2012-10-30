@@ -29,8 +29,8 @@
     {
         //TODO: Read from xml file to create a level
         Level *aLevel = [[Level alloc] initWithName:LEVEL_NORMAL];
-        aLevel.backgroundName = SKY;
-        aLevel.boardType = SKY_BOARD;
+        aLevel.backgroundName = MAZE;
+        aLevel.boardType = MAZE_BOARD;
         [self.levelDictionary setObject:aLevel forKey:LEVEL_NORMAL];
     }
     

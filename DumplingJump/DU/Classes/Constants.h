@@ -8,6 +8,8 @@
 #define ANIMATION_DELAY_INBETWEEN 0.1f
 #define SLOTS_NUM 9
 #define DISTANCE_UNIT 0.015
+#define SCALE_MULTIPLIER 1.33f
+#define MASS_MULTIPLIER 9.8f
 
 #pragma mark -
 #pragma mark Physics
@@ -27,7 +29,7 @@
 
 #pragma mark -
 #pragma mark Backgrounds
-#define SKY @"sheetBackground1"
+#define MAZE @"sheetBackground1"
 
 #pragma mark -
 #pragma mark Game states
@@ -42,6 +44,7 @@
 #pragma mark -
 #pragma mark Board filenames
 #define SKY_BOARD @"PLATE/SK_plate.png"
+#define MAZE_BOARD @"PLATE/CA_plate.png"
 
 #pragma mark -
 #pragma mark Shapes
@@ -65,12 +68,15 @@
 #define FX_EXPLOSION @"FX_Explosion"
 #define FX_ARROW_BREAK @"FX_ArrowBreak"
 #define FX_FRONZEN @"FX_Frozen"
+#define FX_STONEBREAK @"FX_StoneBreak"
+#define FX_POWDER @"FX_Powder"
 
 #pragma mark -
 #pragma mark Hero animations/Hero state
 #define HEROIDLE @"HeroIdle"
 #define HERODIZZY @"HeroDizzy"
 #define HEROHURT @"HeroHurt"
+#define HEROFLAT @"HeroFlat"
 #define HEROFREEZE @"HeroFreeze"
 
 #pragma mark -
@@ -79,6 +85,8 @@
 #define ANIM_ARROW_BREAK @"ANIM_ArrowBreak"
 #define ANIM_STAR @"ANIM_Star"
 #define ANIM_ICE_EXPLODE @"ANIM_Ice_Explode"
+#define ANIM_STONE_BREAK @"ANIM_Stone_Break"
+#define ANIM_POWDER_EXPLODE @"ANIM_Powder_Explode"
 
 #pragma mark -
 #pragma mark Others

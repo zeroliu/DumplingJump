@@ -11,4 +11,6 @@
 @interface XMLHelper : CCNode
 +(id) shared;
 
+-(id) loadParagraphWithXML: (NSString *)fileName;
+-(id) loadAddthingWithXML: (NSString *)fileName;
 @end

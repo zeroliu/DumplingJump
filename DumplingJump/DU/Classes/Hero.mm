@@ -10,6 +10,7 @@
 @interface Hero()
 {
     float adjustMove, adjustJump;
+    b2Vec2 directionForce;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -32,6 +33,7 @@
         [self initSpeed];
         [self initGestureHandler];
         [self initContactListener];
+        [self idle];
     }
     
     return self;
@@ -40,15 +42,14 @@
 -(void) initHeroParam
 {
     self.isOnGround = FALSE;
-    self.heroState = HEROIDLE;
-    adjustMove = 1;
-    adjustJump = 1;
+    self.heroState = nil;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
 {
     self.sprite = [CCSprite spriteWithSpriteFrameName:filename];
     self.sprite.position = thePosition;
+    self.sprite.scale = SCALE_MULTIPLIER;
 }
 
 -(void) initHeroPhysicsWithPosition:(CGPoint)thePosition
@@ -66,7 +67,6 @@
     
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
-    //heroFixtureDef.density = 10;
     heroFixtureDef.friction = 0.3f;
     heroFixtureDef.restitution = 0;
     
@@ -77,7 +77,7 @@
     
     b2MassData massData;
     massData.center = self.body->GetLocalCenter();
-    massData.mass = 13;
+    massData.mass = 13*MASS_MULTIPLIER;
     massData.I = 1;
     self.body->SetMassData(&massData);
 }
@@ -103,6 +103,14 @@
     [MESSAGECENTER addObserver:self selector:@selector(heroLandOffObject:) name:[NSString stringWithFormat:@"%@EndContact",self.name] object:nil];
 }
 
+-(void) updateHeroForce
+{
+    if (directionForce.x != 0 || directionForce.y != 0)
+    {
+        self.body->ApplyForce(directionForce, self.body->GetPosition());
+    }
+}
+
 #pragma mark -
 #pragma mark Movement
 
@@ -122,6 +130,7 @@
 {
     //TODO: Detect if hero is on the ground or on something
     if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, 325/RATIO * adjustJump));
+    [self checkIfOnGround];
 }
 
 -(void) idle
@@ -148,6 +157,8 @@
             }
         }
         
+        directionForce = b2Vec2(0,0);
+        
         adjustJump = 1;
         adjustMove = 1;
         
@@ -173,8 +184,16 @@
     {
         offset = 1;
     }
-    b2Vec2 directionForce = b2Vec2(offset * self.body->GetMass() * 10 * hurtValue, 0);
-    self.body->ApplyLinearImpulse(directionForce, self.body->GetPosition());
+    directionForce = b2Vec2(offset * self.body->GetMass() * 5 * hurtValue, 0);
+    adjustJump = 0;
+    //self.body->ApplyLinearImpulse(directionForce, self.body->GetPosition());
+    //self.body->ApplyForce(directionForce, self.body->GetPosition());
+    
+}
+
+-(void) flat
+{
+    adjustJump = 0;
 }
 
 -(void) freeze
@@ -200,8 +219,14 @@
 -(void)heroLandOffObject:(NSNotification *)notification
 {
     self.isOnGround = NO;
-    
+    [self checkIfOnGround];
+//    DLog(@"Land off");
+}
+
+-(void)checkIfOnGround
+{
     //Fix hero cannot jump bug
+    BOOL res = NO;
     for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
     {
         if (contactEdge->contact->IsTouching())
@@ -210,21 +235,19 @@
             {
                 if (((DUPhysicsObject *)contactEdge->contact->GetFixtureB()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
                 {
-                    self.isOnGround = YES;
+                    res = YES;
                 }
             } else if(contactEdge->contact->GetFixtureB()->GetBody()->GetUserData() == self)
             {
                 if (((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
                 {
-                    self.isOnGround = YES;
+                    res = YES;
                 }
-            } 
-
+            }
         }
     }
-//    DLog(@"Land off");
+    self.isOnGround = res;
 }
-
 
 #pragma mark -
 #pragma mark ListenerHandler

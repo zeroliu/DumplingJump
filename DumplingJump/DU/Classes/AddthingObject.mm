@@ -47,8 +47,8 @@
     //If the addthing has a countdown feature
     if (self.reaction != nil && self.reaction.reactTime >= 0 && self.reaction.reactTimeSelectorName != nil)
     {
-        SEL callback = NSSelectorFromString(self.reaction.reactTimeSelectorName);
-        
+        SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:data:", self.reaction.reactTimeSelectorName]);
+        DLog(@"%@", NSStringFromSelector(callback));
         [self runAction:callback target:REACTIONFUNCTIONS afterDelay:self.reaction.reactTime];
     }
 }
@@ -114,7 +114,8 @@
 -(void) runAction:(SEL)theSelector target:(id)theTarget afterDelay:(ccTime)theDelay
 {
     id delay = [CCDelayTime actionWithDuration:theDelay];
-    id funcWrapper = [CCCallFunc actionWithTarget:theTarget selector:theSelector];
+//    id funcWrapper = [CCCallFunc actionWithTarget:theTarget selector:theSelector];
+    id funcWrapper = [CCCallFuncND actionWithTarget:theTarget selector:theSelector data:self.reaction];
     id sequence = [CCSequence actions:delay, funcWrapper, nil];
     [self.sprite runAction:sequence];
 }

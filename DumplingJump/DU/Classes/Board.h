@@ -11,4 +11,7 @@
 @interface Board : DUPhysicsObject
 
 -(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos;
+
+-(void) missleEffectWithDirection:(int)direction; //0:left, 1:right
+-(void) recover;
 @end

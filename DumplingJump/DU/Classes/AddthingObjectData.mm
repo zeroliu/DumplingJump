@@ -60,4 +60,26 @@ animationName = _animationName;
     return self;
 }
 
+-(id) initEmptyData
+{
+    if (self = [super init])
+    {
+        _name = nil;
+        _shape = nil;
+        _spriteName = nil;
+        _radius = 0;
+        _width = 0;
+        _length = 0;
+        _i = 0;
+        _mass = 0;
+        _restitution = 0;
+        _friction = 0;
+        _gravity = 100;
+        _blood = 1;
+        _reactionName = nil;
+        _animationName = nil;
+    }
+    
+    return self;
+}
 @end

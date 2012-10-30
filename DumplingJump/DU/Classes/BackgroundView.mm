@@ -12,6 +12,7 @@
 
 #import "BackgroundView.h"
 #import "BackgroundController.h"
+#import "HeroManager.h"
 
 @implementation BackgroundView
 @synthesize bgBatchNode = _bgBatchNode;
@@ -23,7 +24,7 @@
     //Set the batchNode
     self.bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",bgName]];
     
-    [[[Hub shared]gameLayer] addChild:self.bgBatchNode];
+    //[[[Hub shared]gameLayer] addChild:self.bgBatchNode];
 }
 
 -(void) setBackgroundWithBGArray:(NSMutableArray *)theArray;
@@ -49,8 +50,10 @@
         BgLayer myLayer;
         [anObject getValue:&myLayer];
         
-        myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,dy*myLayer.speedScale));
-        myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,dy*myLayer.speedScale));
+        float y = dy*(myLayer.speedScale + ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y * ((120-myLayer.depth))/120);
+        
+        myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,y));
+        myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,y));
         if(myLayer.sprite.position.y < -H/2) myLayer.sprite.position = ccp(W/2, H*3/2 + dy*myLayer.speedScale);
         if(myLayer.swapSprite.position.y < -H/2) myLayer.swapSprite.position = ccp(W/2, H*3/2 + dy*myLayer.speedScale);
         //        NSLog(@"sprite pos y = %f, swapsprite pos y = %g", myLayer.sprite.position.y, myLayer.swapSprite.position.y);

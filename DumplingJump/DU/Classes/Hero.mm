@@ -11,6 +11,7 @@
 {
     float adjustMove, adjustJump;
     b2Vec2 directionForce;
+    float origHeight;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -19,14 +20,15 @@
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius;
 
 #pragma mark -
 #pragma Initialization
--(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition
+-(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius
 {
     if (self = [super initWithName:theName]) 
     {
+        self.radius = theRadius;
         [self initHeroParam];
         [self initHeroSpriteWithFile:@"HERO/AL_H_hero_1.png" position:thePosition];
         [self initHeroPhysicsWithPosition:thePosition];
@@ -49,7 +51,8 @@
 {
     self.sprite = [CCSprite spriteWithSpriteFrameName:filename];
     self.sprite.position = thePosition;
-    self.sprite.scale = SCALE_MULTIPLIER;
+    origHeight = self.sprite.contentSize.height;
+    //self.sprite.scale = self.radius/self.sprite.contentSize.height * SCALE_MULTIPLIER;
 }
 
 -(void) initHeroPhysicsWithPosition:(CGPoint)thePosition
@@ -63,8 +66,9 @@
     
     b2CircleShape heroShape;
     
-    heroShape.m_radius = (self.sprite.contentSize.height/2-10) /RATIO;
-    
+//    heroShape.m_radius = (self.sprite.contentSize.height/2-10) /RATIO;
+    heroShape.m_radius = self.radius / RATIO * SCALE_MULTIPLIER;
+    self.sprite.scale = (heroShape.m_radius * RATIO + 20) * 2 / origHeight;
     b2FixtureDef heroFixtureDef;
     heroFixtureDef.shape = &heroShape;
     heroFixtureDef.friction = 0.3f;
@@ -135,7 +139,6 @@
 
 -(void) idle
 {
-    //TODO: change the hero status (EX: enable jump and move)
     if (self.heroState != HEROIDLE)
     {
         self.heroState = HEROIDLE;
@@ -191,6 +194,24 @@
     
 }
 
+-(void) bowEffect:(NSArray *)value
+{
+    if (self.heroState != HEROIDLE)
+    {
+        CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
+        float distance = ccpDistance(explosionPos, self.sprite.position);
+        float explosionForce = min(SHOCK_PRESSURE / distance / distance, 15)/distance;
+        DLog(@"Force direction: %g,%g", explosionForce * (self.sprite.position.x - explosionPos.x), explosionForce * (self.sprite.position.y - explosionPos.y));
+        //float length = b2Vec2(self.sprite.position.x - explosionPos.x, self.sprite.position.y - explosionPos.y).Normalize();
+        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x), explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)), self.body->GetPosition());
+         
+        /*
+        directionForce = b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x), explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y));
+         */
+        //[self performSelector:@selector(bowEffect:) withObject:value afterDelay:1/23.0f];
+    }
+}
+
 -(void) flat
 {
     adjustJump = 0;
@@ -207,6 +228,7 @@
     adjustMove = 0;
     DLog(@"freeze");
 }
+
 -(void)heroLandOnObject:(NSNotification *)notification
 {
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
@@ -231,18 +253,33 @@
     {
         if (contactEdge->contact->IsTouching())
         {
+            /*
             if (contactEdge->contact->GetFixtureA()->GetBody()->GetUserData() == self)
             {
-                if (((DUPhysicsObject *)contactEdge->contact->GetFixtureB()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
+                b2WorldManifold manifold;
+                contactEdge->contact->GetWorldManifold(&manifold);
+                
+                if (manifold.points[0].y < self.sprite.position.y)
                 {
                     res = YES;
                 }
             } else if(contactEdge->contact->GetFixtureB()->GetBody()->GetUserData() == self)
             {
+                b2WorldManifold manifold;
+                contactEdge->contact->GetWorldManifold(&manifold);
+                
                 if (((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
                 {
                     res = YES;
                 }
+            }
+             */
+            b2WorldManifold manifold;
+            contactEdge->contact->GetWorldManifold(&manifold);
+            if (manifold.points[0].y < self.sprite.position.y)
+            {
+                res = YES;
+                break;
             }
         }
     }

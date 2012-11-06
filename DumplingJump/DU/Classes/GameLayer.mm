@@ -9,7 +9,7 @@
 #import "AddthingTestTool.h"
 #import "HeroTestTool.h"
 #import "LevelTestTool.h"
-
+#import "ParamConfigTool.h"
 @interface GameLayer()
 @property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) BackgroundController *bgController;
@@ -22,6 +22,27 @@
 //@synthesize heroManager = _heroManager;
 
 @synthesize batchNode = _batchNode;
+-(void) onEnter
+{
+    [super onEnter];
+    DLog(@"GameLayer scene onEnter");
+    if (isReload)
+    {
+        DLog(@"is reload");
+        
+        [[LevelTestTool shared] reload];
+    }
+    isReload = false;
+}
+
+-(void) onExit
+{
+    [super onExit];
+    DLog(@"GameLayer scene onExit");
+    isReload = true;
+    
+    
+}
 
 +(CCScene *) scene
 {
@@ -79,7 +100,8 @@
     [AddthingTestTool shared];
     [HeroTestTool shared];
     [LevelTestTool shared];
-
+    [ParamConfigTool shared];
+    
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
     
     m_debugDraw = new GLESDebugDraw(RATIO);

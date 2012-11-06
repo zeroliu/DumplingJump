@@ -10,6 +10,7 @@
 #import "GameLayer.h"
 #import "BoardManager.h"
 #import "AddthingObject.h"
+#import "HeroManager.h"
 @implementation ReactionFunctions
 
 +(id) shared
@@ -65,5 +66,23 @@
     [((Board *)[[BoardManager shared] getBoard]).sprite runAction:sequence];
     
     DLog(@"explode_r");
+}
+
+/*
+ * We did some tricks here by reusing the code of heromanager -> heroReactWithReaction
+ * In order to do that, we need to pass the reaction name, hero animation name and reaction duration
+ * Then, hardcode the selector name that you want to trigger in this reaction
+ * Different from heroRactionWithReaction, the param for the function is not a string but an id
+ * We did that just because I am lazy and I don't want to parse the string, lol
+ */
+
+-(void) bow:(id)source data:(void*)data
+{
+    CCSprite *target = (CCSprite *)source;
+    Reaction *reaction = (Reaction *)data;
+    
+    [[HeroManager shared] heroReactWithReactionName:reaction.name heroAnimName:reaction.heroReactAnimationName reactionLasting:reaction.reactionLasting heroSelectorName:@"bowEffect" heroSelectorParam:[NSValue valueWithCGPoint: target.position]];
+    
+    DLog(@"bow reaction %g,%g", target.position.x, target.position.y);
 }
 @end

@@ -12,8 +12,9 @@
 {
     UITextField *levelEditor;
     int levelNum;
+    UIView *myView;
 }
 +(id) shared;
-
+-(void) reload;
 
 @end

@@ -7,6 +7,7 @@
 {
     GLESDebugDraw *m_debugDraw;
     b2World *world;
+    BOOL isReload;
 }
 //@property (nonatomic, retain) HeroManager *heroManager;
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;

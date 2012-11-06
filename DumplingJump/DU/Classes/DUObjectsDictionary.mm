@@ -57,24 +57,12 @@
         [result retain];
         [currentArray removeObjectAtIndex:0];
         
-        [self printArray:currentArray];
-        
         if ([currentArray count] <= 0)
         {
             [DUDictionary removeObjectForKey:theName];
         }
     }
     return result;
-}
-
--(void) printArray:(NSArray *)currentArray
-{
-    NSString *test = @"after reuse: ";
-    for (DUObject *ob in currentArray)
-    {
-        test = [test stringByAppendingFormat:@"%@ ", ob.ID];
-    }
-    DLog(@"%@", test);
 }
 
 -(void) addDUObject:(DUObject *)theObject
@@ -87,17 +75,6 @@
         [DUDictionary setObject:currentArray forKey:theObject.name];
     }
     [currentArray addObject:theObject];
-    [self printMyArray:currentArray];
-}
-
--(void) printMyArray:(NSArray *)currentArray
-{
-    NSString *test = @"after add: ";
-    for (DUObject *ob in currentArray)
-    {
-       test = [test stringByAppendingFormat:@"%@ ", ob.ID];
-    }
-    DLog(@"%@", test);
 }
 
 @end

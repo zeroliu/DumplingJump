@@ -10,6 +10,7 @@
 #define DISTANCE_UNIT 0.015
 #define SCALE_MULTIPLIER 1.33f
 #define MASS_MULTIPLIER 9.8f
+#define SHOCK_PRESSURE 200000
 
 #pragma mark -
 #pragma mark Physics
@@ -70,6 +71,7 @@
 #define FX_FRONZEN @"FX_Frozen"
 #define FX_STONEBREAK @"FX_StoneBreak"
 #define FX_POWDER @"FX_Powder"
+#define FX_BOW @"FX_Bow"
 
 #pragma mark -
 #pragma mark Hero animations/Hero state
@@ -78,6 +80,7 @@
 #define HEROHURT @"HeroHurt"
 #define HEROFLAT @"HeroFlat"
 #define HEROFREEZE @"HeroFreeze"
+#define HEROBOW @"HeroBow"
 
 #pragma mark -
 #pragma mark Other animations
@@ -87,6 +90,7 @@
 #define ANIM_ICE_EXPLODE @"ANIM_Ice_Explode"
 #define ANIM_STONE_BREAK @"ANIM_Stone_Break"
 #define ANIM_POWDER_EXPLODE @"ANIM_Powder_Explode"
+#define ANIM_BOW @"ANIM_Bow"
 
 #pragma mark -
 #pragma mark Others

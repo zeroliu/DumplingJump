@@ -26,16 +26,7 @@
 {
     if (self = [super init])
     {
-        UIView *myView = [[CCDirector sharedDirector] view];
-        levelEditor = [[UITextField alloc] initWithFrame:CGRectMake(240, 60, 40, 40)];
-        [levelEditor setText:@""];
-        [levelEditor setBackgroundColor: [UIColor whiteColor]];
-        //[levelEditor becomeFirstResponder];
-        [levelEditor setDelegate:self];
-        levelEditor.clearsOnBeginEditing = YES;
-        levelEditor.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-        [myView addSubview:levelEditor];
-        [[[[CCDirector sharedDirector] view] window] addSubview:myView];
+        [self reload];
     }
     
     return self;
@@ -46,7 +37,6 @@
    if (textField == levelEditor)
    {
        [levelEditor endEditing:YES];
-       //[levelEditor removeFromSuperview];
        levelNum = [levelEditor.text intValue];
        if (levelNum < [[LevelManager shared] paragraphsCount])
        {
@@ -61,4 +51,17 @@
     return YES;
 }
 
+-(void) reload
+{
+    myView = [[CCDirector sharedDirector] view];
+    levelEditor = [[UITextField alloc] initWithFrame:CGRectMake(240, 60, 40, 40)];
+    [levelEditor setText:@""];
+    [levelEditor setBackgroundColor: [UIColor whiteColor]];
+    //[levelEditor becomeFirstResponder];
+    [levelEditor setDelegate:self];
+    levelEditor.clearsOnBeginEditing = YES;
+    levelEditor.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    [myView addSubview:levelEditor];
+    [[[[CCDirector sharedDirector] view] window] addSubview:myView];
+}
 @end

@@ -1,8 +1,10 @@
 #import "HeroManager.h"
 #import "ReactionFunctions.h"
 
+#define HERO_RADIUS 13.0f
+
 @implementation HeroManager
-@synthesize hero = _hero;
+@synthesize hero = _hero, heroRadius = _heroRadius;
 #pragma mark -
 #pragma Initialization
 
@@ -18,10 +20,19 @@
     return shared;
 }
 
+-(id) init
+{
+    if (self = [super init])
+    {
+        self.heroRadius = HERO_RADIUS;
+    }
+    return self;
+}
+
 -(id)createHeroWithPosition:(CGPoint)thePosition
 {
     if (self.hero != nil) [self.hero archive];
-    self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition];
+    self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius];
     [self.hero addChildTo:BATCHNODE];
     [self.hero idle];
     
@@ -79,7 +90,7 @@
 
 -(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(DUPhysicsObject *)theContactObject
 {
-    if (self.hero.heroState != theReaction.name)
+    if (self.hero.heroState != theReaction.name && theReaction.reactHeroSelectorName != nil)
     {
         self.hero.heroState = theReaction.name;
         if (theReaction.heroReactAnimationName != nil)
@@ -91,23 +102,50 @@
             {
                 [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
             }
-            
         }
         
-        if (theReaction.reactHeroSelectorName != nil)
+        if (theReaction.reactHeroSelectorParam == nil)
         {
-            if (theReaction.reactHeroSelectorParam == nil)
+            SEL callback = NSSelectorFromString(theReaction.reactHeroSelectorName);
+            
+            [self.hero performSelector:callback];
+        } else {
+            SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", theReaction.reactHeroSelectorName]);
+            [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theReaction.reactHeroSelectorParam, theContactObject, nil]];
+        }
+        
+    }
+}
+
+-(void) heroReactWithReactionName:(NSString *)theName heroAnimName:(NSString *)animName reactionLasting:(float)duration heroSelectorName:(NSString *)selectorName heroSelectorParam:(id) param
+{
+    if (self.hero.heroState != theName && selectorName != nil)
+    {
+        self.hero.heroState = theName;
+        if (animName != nil)
+        {
+            if (duration <= 0)
             {
-                SEL callback = NSSelectorFromString(theReaction.reactHeroSelectorName);
-                
-                [self.hero performSelector:callback];
-            } else {
-                SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", theReaction.reactHeroSelectorName]);
-                [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theReaction.reactHeroSelectorParam, theContactObject, nil]];
+                [self playAnimationWithName:animName delay:2];
+            } else
+            {
+                [self playAnimationWithName:animName delay:duration];
             }
+        }
+        
+        if (param == nil)
+        {
+            SEL callback = NSSelectorFromString(selectorName);
+            
+            [self.hero performSelector:callback];
+        } else {
+            SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", selectorName]);
+            [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:param, nil]];
         }
     }
 }
+
+
 
 
 @end

@@ -38,12 +38,14 @@
     DUEffectData *effect3 = [[DUEffectData alloc] initWithName: FX_FRONZEN animation: ANIM_ICE_EXPLODE idlePicture:@"EFFECTS/SK_E_frozen_1.png" times:1];
     DUEffectData *effect4 = [[DUEffectData alloc] initWithName: FX_STONEBREAK animation:ANIM_STONE_BREAK idlePicture:@"EFFECTS/CA_E_stone_1.png" times:1];
     DUEffectData *effect5 = [[DUEffectData alloc] initWithName: FX_POWDER animation:ANIM_POWDER_EXPLODE idlePicture:@"EFFECTS/AL_E_powder_1.png" times:1];
+    DUEffectData *effect6 = [[DUEffectData alloc] initWithName: FX_BOW animation:ANIM_BOW idlePicture:@"EFFECTS/CA_E_bomb_1.png" times:1];
     
     [tmp setObject:effect1 forKey:effect1.name];
     [tmp setObject:effect2 forKey:effect2.name];
     [tmp setObject:effect3 forKey:effect3.name];
     [tmp setObject:effect4 forKey:effect4.name];
     [tmp setObject:effect5 forKey:effect5.name];
+    [tmp setObject:effect6 forKey:effect6.name];
     
     self.effectsDictionary = [NSDictionary dictionaryWithDictionary:tmp];
 }

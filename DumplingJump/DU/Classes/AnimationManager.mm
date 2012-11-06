@@ -39,7 +39,7 @@
     [self addAnimationWithName:ANIM_STAR file:@"ADDTHING/SK_star" startFrame:1 endFrame:7 delay:ANIMATION_DELAY_INBETWEEN];
     [self addAnimationWithName:ANIM_STONE_BREAK file:@"EFFECTS/CA_E_stone" startFrame:1 endFrame:4 delay:ANIMATION_DELAY_INBETWEEN];
     [self addAnimationWithName:ANIM_POWDER_EXPLODE file:@"EFFECTS/AL_E_powder" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
-    
+    [self addAnimationWithName:ANIM_BOW file:@"EFFECTS/CA_E_bomb" startFrame:1 endFrame:8 delay:ANIMATION_DELAY_INBETWEEN];
 }
 
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F12470B1647A12E000448B4 /* TextInputField.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F12470A1647A12E000448B4 /* TextInputField.mm */; };
 		7F1632EA162B836C00C132B1 /* AddthingTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */; };
 		7F1632ED162B84F300C132B1 /* ButtonPlusSel.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632EB162B84F300C132B1 /* ButtonPlusSel.png */; };
 		7F1632EE162B84F300C132B1 /* ButtonPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632EC162B84F300C132B1 /* ButtonPlus.png */; };
@@ -237,6 +238,9 @@
 		7FB6526C163127340009AA38 /* CA_vat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6526A163127330009AA38 /* CA_vat_1.png */; };
 		7FB6526F1631273D0009AA38 /* SK_ice_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6526E1631273D0009AA38 /* SK_ice_1.png */; };
 		7FB65271163127460009AA38 /* CA_arrow_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB65270163127460009AA38 /* CA_arrow_1.png */; };
+		7FC1027316471DE000C01219 /* ParamConfigTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC1027216471DE000C01219 /* ParamConfigTool.mm */; };
+		7FC102761647219800C01219 /* ConfigScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC102751647219800C01219 /* ConfigScene.mm */; };
+		7FC1027C16473C6C00C01219 /* square_border.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC1027B16473C6C00C01219 /* square_border.png */; };
 		7FC85C461638FB12008872E6 /* LevelTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC85C451638FB12008872E6 /* LevelTestTool.mm */; };
 		7FCA8209163DDA77000D1B7B /* CA_level1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FB163DDA77000D1B7B /* CA_level1.xml */; };
 		7FCA820A163DDA77000D1B7B /* CA_level2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FC163DDA77000D1B7B /* CA_level2.xml */; };
@@ -300,6 +304,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F1247091647A12E000448B4 /* TextInputField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInputField.h; sourceTree = "<group>"; };
+		7F12470A1647A12E000448B4 /* TextInputField.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TextInputField.mm; sourceTree = "<group>"; };
 		7F1632E8162B836C00C132B1 /* AddthingTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingTestTool.h; sourceTree = "<group>"; };
 		7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingTestTool.mm; sourceTree = "<group>"; };
 		7F1632EB162B84F300C132B1 /* ButtonPlusSel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonPlusSel.png; sourceTree = "<group>"; };
@@ -766,6 +772,11 @@
 		7FB6526A163127330009AA38 /* CA_vat_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_vat_1.png; sourceTree = "<group>"; };
 		7FB6526E1631273D0009AA38 /* SK_ice_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SK_ice_1.png; sourceTree = "<group>"; };
 		7FB65270163127460009AA38 /* CA_arrow_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_arrow_1.png; sourceTree = "<group>"; };
+		7FC1027116471DE000C01219 /* ParamConfigTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamConfigTool.h; sourceTree = "<group>"; };
+		7FC1027216471DE000C01219 /* ParamConfigTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParamConfigTool.mm; sourceTree = "<group>"; };
+		7FC102741647219800C01219 /* ConfigScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigScene.h; sourceTree = "<group>"; };
+		7FC102751647219800C01219 /* ConfigScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigScene.mm; sourceTree = "<group>"; };
+		7FC1027B16473C6C00C01219 /* square_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_border.png; sourceTree = "<group>"; };
 		7FC85C441638FB12008872E6 /* LevelTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTestTool.h; sourceTree = "<group>"; };
 		7FC85C451638FB12008872E6 /* LevelTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelTestTool.mm; sourceTree = "<group>"; };
 		7FCA81FB163DDA77000D1B7B /* CA_level1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level1.xml; sourceTree = "<group>"; };
@@ -1039,6 +1050,7 @@
 		7F1632E6162B831E00C132B1 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				7FC1026F16471DBB00C01219 /* ParamConfigTool */,
 				7F1632E8162B836C00C132B1 /* AddthingTestTool.h */,
 				7F1632E9162B836C00C132B1 /* AddthingTestTool.mm */,
 				7F86CD9A162D26EC00AB1024 /* HeroTestTool.h */,
@@ -1829,6 +1841,7 @@
 		7F7010F615AFEFFE00495B10 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7FC1027B16473C6C00C01219 /* square_border.png */,
 				7FCA8229163DDF3D000D1B7B /* CA_shelter_1.png */,
 				7FCA822A163DDF3D000D1B7B /* CA_slash_1.png */,
 				7FCA822B163DDF3D000D1B7B /* CA_spring_1.png */,
@@ -1946,6 +1959,19 @@
 				7FA2102E15C91BA7000E76F0 /* TestBall.mm */,
 			);
 			name = DUFactories;
+			sourceTree = "<group>";
+		};
+		7FC1026F16471DBB00C01219 /* ParamConfigTool */ = {
+			isa = PBXGroup;
+			children = (
+				7FC1027116471DE000C01219 /* ParamConfigTool.h */,
+				7FC1027216471DE000C01219 /* ParamConfigTool.mm */,
+				7FC102741647219800C01219 /* ConfigScene.h */,
+				7FC102751647219800C01219 /* ConfigScene.mm */,
+				7F1247091647A12E000448B4 /* TextInputField.h */,
+				7F12470A1647A12E000448B4 /* TextInputField.mm */,
+			);
+			name = ParamConfigTool;
 			sourceTree = "<group>";
 		};
 		7FD5280D15B3EDE100E50506 /* Assets */ = {
@@ -2443,6 +2469,7 @@
 				7FCA822E163DDF3D000D1B7B /* CA_slash_1.png in Resources */,
 				7FCA822F163DDF3D000D1B7B /* CA_spring_1.png in Resources */,
 				7FCA8230163DDF3D000D1B7B /* CA_stone_1.png in Resources */,
+				7FC1027C16473C6C00C01219 /* square_border.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2659,6 +2686,9 @@
 				7FF5E5DA163517E60018B085 /* DDXMLNode.m in Sources */,
 				7F96F7B81637BBEC009943CB /* GLES-Render.mm in Sources */,
 				7FC85C461638FB12008872E6 /* LevelTestTool.mm in Sources */,
+				7FC1027316471DE000C01219 /* ParamConfigTool.mm in Sources */,
+				7FC102761647219800C01219 /* ConfigScene.mm in Sources */,
+				7F12470B1647A12E000448B4 /* TextInputField.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

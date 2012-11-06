@@ -143,7 +143,6 @@
 {
     [self removeContactListener];
     [super deactivate];
-    
 }
 
 @end

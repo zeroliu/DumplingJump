@@ -16,8 +16,9 @@
 }
 
 @property (nonatomic, retain) NSString *heroState;
+@property (nonatomic, assign) float radius;
 
--(id) initHeroWithName:(NSString *)theName position:(CGPoint)thePosition;
+-(id) initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius;
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) jump;
 -(void) idle;
@@ -26,7 +27,7 @@
 -(void) dizzy;
 -(void) hurt:(NSArray *)value;
 -(void) freeze;
-
+-(void) bowEffect:(NSArray *)value;
 -(void) updateHeroForce;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

@@ -70,7 +70,7 @@
    
     if ([physicsToRemove count] > 0)
     {
-        DLog(@"%@",physicsToRemove);
+        //DLog(@"%@",physicsToRemove);
         DUPhysicsObject *myObject = [physicsToRemove lastObject];
         [physicsToRemove removeLastObject];
         if (!myObject.archived) [myObject archive];

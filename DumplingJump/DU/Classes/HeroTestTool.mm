@@ -8,7 +8,7 @@
 
 #import "HeroTestTool.h"
 #import "HeroManager.h"
-
+#import "BoardManager.h"
 @implementation HeroTestTool
 +(id) shared
 {
@@ -45,5 +45,6 @@
 -(void) revive
 {
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
+    [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,120*SCALE_MULTIPLIER)];
 }
 @end

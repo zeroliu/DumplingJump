@@ -11,19 +11,35 @@
 @interface Board()
 {
     BOOL isUnderMissleEffect;
+    float _freq_l;
+    float _freq_m;
+    float _freq_r;
+    float _damp_l;
+    float _damp_m;
+    float _damp_r;
     
     b2DistanceJointDef rocketDisJointDef_L;
     b2DistanceJointDef rocketDisJointDef_R;
     b2DistanceJointDef rocketDisjointDef_MR;
     b2DistanceJointDef rocketDisjointDef_ML;
 }
+
+
+
 @end
 
 @implementation Board
--(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos;
+-(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos leftFreq:(float)freq_l middleFreq:(float)freq_m rightFreq:(float)freq_r leftDamp:(float)damp_l middleDamp:(float)damp_m rightDamp:(float)damp_r
 {
     if (self = [super initWithName:theName])
     {
+        _freq_l = freq_l;
+        _freq_m = freq_m;
+        _freq_r = freq_r;
+        _damp_l = damp_l;
+        _damp_m = damp_m;
+        _damp_r = damp_r;
+        
         self.sprite = [CCSprite spriteWithSpriteFrameName:fileName];
         self.sprite.position = pos;
         float scale = 370/2 / self.sprite.boundingBox.size.width * SCALE_MULTIPLIER;
@@ -81,8 +97,8 @@
     
     rocketDisJointDef_L.Initialize(ground, self.body, ground_L, anchor_L);
     rocketDisJointDef_L.collideConnected = true;
-    rocketDisJointDef_L.frequencyHz = 0.7f;
-    rocketDisJointDef_L.dampingRatio = 1;
+    rocketDisJointDef_L.frequencyHz = _freq_l;
+    rocketDisJointDef_L.dampingRatio = _damp_l;
     rocketDisJointDef_L.userData = @"rocketDisJointDef_L";
     world->CreateJoint(&rocketDisJointDef_L);
     
@@ -93,8 +109,8 @@
     
     rocketDisJointDef_R.Initialize(ground, self.body, ground_R, anchor_R);
     rocketDisJointDef_R.collideConnected = true;
-    rocketDisJointDef_R.frequencyHz = 0.7f;
-    rocketDisJointDef_R.dampingRatio = 1;
+    rocketDisJointDef_R.frequencyHz = _freq_r;
+    rocketDisJointDef_R.dampingRatio = _damp_r;
     rocketDisJointDef_R.userData = @"rocketDisJointDef_R";
     world->CreateJoint(&rocketDisJointDef_R);
     
@@ -105,8 +121,8 @@
     
     rocketDisjointDef_MR.Initialize(ground, self.body, ground_MR, anchor_MR);
     rocketDisjointDef_MR.collideConnected = true;
-    rocketDisjointDef_MR.frequencyHz = 0.8;
-    rocketDisjointDef_MR.dampingRatio = 0.8;
+    rocketDisjointDef_MR.frequencyHz = _freq_m;
+    rocketDisjointDef_MR.dampingRatio = _damp_m;
     world->CreateJoint(&rocketDisjointDef_MR);
     
     b2Vec2 anchor_LR = b2Vec2(self.body->GetPosition().x,
@@ -116,8 +132,8 @@
     
     rocketDisjointDef_ML.Initialize(ground, self.body, ground_LR, anchor_LR);
     rocketDisjointDef_ML.collideConnected = true;
-    rocketDisjointDef_ML.frequencyHz = 0.8;
-    rocketDisjointDef_ML.dampingRatio = 0.8;
+    rocketDisjointDef_ML.frequencyHz = _freq_m;
+    rocketDisjointDef_ML.dampingRatio = _damp_m;
     world->CreateJoint(&rocketDisjointDef_ML);
 }
 

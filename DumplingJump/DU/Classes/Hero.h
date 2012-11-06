@@ -16,9 +16,9 @@
 }
 
 @property (nonatomic, retain) NSString *heroState;
-@property (nonatomic, assign) float radius;
 
--(id) initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius;
+
+-(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue;
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) jump;
 -(void) idle;

@@ -84,7 +84,7 @@
                     data.i = [[child stringValue] doubleValue];
                 } else if ([[child name] isEqualToString:@"mass"])
                 {
-                    data.mass = [[child stringValue] doubleValue] * MASS_MULTIPLIER;
+                    data.mass = [[child stringValue] doubleValue] * [PHYSICSMANAGER mass_multiplier];
                 } else if ([[child name] isEqualToString:@"res"])
                 {
                     data.restitution = [[child stringValue] doubleValue];

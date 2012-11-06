@@ -11,6 +11,7 @@
 @end
 
 @implementation PhysicsManager
+@synthesize mass_multiplier = _mass_multiplier;
 
 +(id) sharedPhysicsManager
 {
@@ -26,6 +27,7 @@
 {
     if(self = [super init])
     {
+        self.mass_multiplier = MASS_MULTIPLIER;
         [self initWorld];
         physicsToRemove = [[NSMutableArray alloc] init];
     }
@@ -96,6 +98,11 @@
             }
         }
     }
+}
+
+-(void) setCustomGravity:(float)newGravity
+{
+    world->SetGravity(b2Vec2(0.0, -newGravity));
 }
 
 -(void) dealloc

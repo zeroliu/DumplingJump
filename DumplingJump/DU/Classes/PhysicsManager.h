@@ -9,9 +9,12 @@
     b2Body *ground;
 }
 
+@property (nonatomic, assign) float mass_multiplier;
+
 +(id) sharedPhysicsManager;
 -(b2World *) getWorld;
 -(b2Body *) getGround;
 -(void) addToArchiveList:(DUPhysicsObject *)physicsObject;
 -(void) updatePhysicsBody:(ccTime)dt;
+-(void) setCustomGravity:(float)newGravity;
 @end

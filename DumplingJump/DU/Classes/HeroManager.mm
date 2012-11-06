@@ -2,9 +2,17 @@
 #import "ReactionFunctions.h"
 
 #define HERO_RADIUS 13.0f
+#define HERO_MASS 13.0f
+#define HERO_I 1.0f
+#define HERO_FRIC 0.3f
+#define HERO_MAX_VX 3.125f
+#define HERO_MAX_VY 13.0f
+#define HERO_ACC 1.56f
+#define HERO_JUMP 325.0f
+
 
 @implementation HeroManager
-@synthesize hero = _hero, heroRadius = _heroRadius;
+@synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump;
 #pragma mark -
 #pragma Initialization
 
@@ -25,6 +33,13 @@
     if (self = [super init])
     {
         self.heroRadius = HERO_RADIUS;
+        self.heroMass = HERO_MASS;
+        self.heroI = HERO_I;
+        self.heroFric = HERO_FRIC;
+        self.heroMaxVx = HERO_MAX_VX;
+        self.heroMaxVy = HERO_MAX_VY;
+        self.heroAcc = HERO_ACC;
+        self.heroJump = HERO_JUMP;
     }
     return self;
 }
@@ -32,8 +47,8 @@
 -(id)createHeroWithPosition:(CGPoint)thePosition
 {
     if (self.hero != nil) [self.hero archive];
-    self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius];
-    [self.hero addChildTo:BATCHNODE];
+    self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump];
+    [self.hero addChildTo:BATCHNODE z:5];
     [self.hero idle];
     
     return self.hero;

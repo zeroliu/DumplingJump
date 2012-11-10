@@ -22,7 +22,6 @@
             float scaleX = 1,scaleY = 1;
             if (self.body->GetFixtureList()->GetType() == b2Shape::e_circle)
             {
-               
                 b2CircleShape* circle = (b2CircleShape*) self.body->GetFixtureList()->GetShape();
                 scaleX = 2 * circle->m_radius / self.sprite.boundingBox.size.width * RATIO;
                 scaleY = 2 * circle->m_radius / self.sprite.boundingBox.size.height * RATIO;

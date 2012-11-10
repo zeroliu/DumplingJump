@@ -24,14 +24,15 @@
 @property (nonatomic, assign) float maxVy;
 @property (nonatomic, assign) float accValue;
 @property (nonatomic, assign) float jumpValue;
+@property (nonatomic, assign) float gravity;
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, powerup = _powerup, powerupCountdown = _powerupCountdown;
 
 #pragma mark -
 #pragma Initialization
--(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue
+-(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue gravityValue:(float)theGravity
 {
     if (self = [super initWithName:theName]) 
     {
@@ -43,9 +44,12 @@
         self.maxVy = theMaxVy;
         self.accValue = theAccValue;
         self.jumpValue = theJumpValue;
+        self.gravity = theGravity;
+        
+        self.powerup = nil;
         
         [self initHeroParam];
-        [self initHeroSpriteWithFile:@"HERO/AL_H_hero_1.png" position:thePosition];
+        [self initHeroSpriteWithFile:@"AL_H_hero_1.png" position:thePosition];
         [self initHeroPhysicsWithPosition:thePosition];
         [self initSpeed];
         [self initGestureHandler];
@@ -76,7 +80,7 @@
     heroBodyDef.type = b2_dynamicBody;
     heroBodyDef.position.Set(thePosition.x/RATIO, thePosition.y/RATIO);
     heroBodyDef.userData = self;
-    
+
     self.body = WORLD->CreateBody(&heroBodyDef);
     
     b2CircleShape heroShape;
@@ -89,11 +93,17 @@
     heroFixtureDef.friction = self.fric;
     heroFixtureDef.restitution = 0;
     
+    b2CircleShape shellShape;
+    shellShape.m_radius = self.radius * 1.5f * RATIO * SCALE_MULTIPLIER;
+    shellFixtureDef.shape = &shellShape;
+    shellFixtureDef.friction = self.fric;
+    shellFixtureDef.restitution = 0;
+    
     self.body->CreateFixture(&heroFixtureDef);
     
     self.body->SetFixedRotation(true);
     self.body->SetSleepingAllowed(false);
-    
+    self.body->SetGravityScale((self.gravity)/100.0f);
     b2MassData massData;
     massData.center = self.body->GetLocalCenter();
     massData.mass = self.mass * [PHYSICSMANAGER mass_multiplier];
@@ -111,9 +121,6 @@
 -(void) initGestureHandler
 {
     [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionUp selector:@selector(onSwipeUpDetected:) target:self number:1];
-    //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionDown selector:@selector(onSwipeDownDetected:) target:self number:1];
-    //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionLeft selector:@selector(onSwipeLeftDetected:) target:self number:1];
-    //    [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionRight selector:@selector(onSwipeRightDetected:) target:self number:1];
 }
 
 -(void) initContactListener
@@ -127,6 +134,19 @@
     if (directionForce.x != 0 || directionForce.y != 0)
     {
         self.body->ApplyForce(directionForce, self.body->GetPosition());
+    }
+}
+
+-(void) updateHeroPowerupCountDown:(ccTime)dt
+{
+    if (self.powerupCountdown > 0)
+    {
+        self.powerupCountdown = self.powerupCountdown - dt;
+        if (self.powerupCountdown < 0)
+        {
+            self.powerupCountdown = 0;
+            self.powerup = nil;
+        }
     }
 }
 
@@ -147,8 +167,7 @@
 
 -(void) jump
 {
-    //TODO: Detect if hero is on the ground or on something
-    if (self.isOnGround) self.body->SetLinearVelocity(self.speed + *new b2Vec2(0, self.jumpValue/RATIO * adjustJump));
+    if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
     [self checkIfOnGround];
 }
 
@@ -180,6 +199,11 @@
         adjustJump = 1;
         adjustMove = 1;
         
+        if (shellFixture != NULL)
+        {
+            self.body->DestroyFixture(shellFixture);
+            shellFixture = NULL;
+        }
     }
 }
 
@@ -244,6 +268,27 @@
     DLog(@"freeze");
 }
 
+-(void) spring
+{
+    DLog(@"spring");
+}
+
+-(void) shelter
+{
+    DLog(@"shelter");
+    //shellFixture = self.body->CreateFixture(&shellFixtureDef);
+}
+
+-(void) magic:(NSArray *)value;
+{
+    DLog(@"magic - %@", value);
+}
+
+-(void) blind
+{
+    DLog(@"blind");
+}
+
 -(void)heroLandOnObject:(NSNotification *)notification
 {
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
@@ -268,27 +313,6 @@
     {
         if (contactEdge->contact->IsTouching())
         {
-            /*
-            if (contactEdge->contact->GetFixtureA()->GetBody()->GetUserData() == self)
-            {
-                b2WorldManifold manifold;
-                contactEdge->contact->GetWorldManifold(&manifold);
-                
-                if (manifold.points[0].y < self.sprite.position.y)
-                {
-                    res = YES;
-                }
-            } else if(contactEdge->contact->GetFixtureB()->GetBody()->GetUserData() == self)
-            {
-                b2WorldManifold manifold;
-                contactEdge->contact->GetWorldManifold(&manifold);
-                
-                if (((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetBody()->GetUserData()).sprite.position.y < self.sprite.position.y)
-                {
-                    res = YES;
-                }
-            }
-             */
             b2WorldManifold manifold;
             contactEdge->contact->GetWorldManifold(&manifold);
             if (manifold.points[0].y < self.sprite.position.y)

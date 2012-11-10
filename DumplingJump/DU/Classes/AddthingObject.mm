@@ -64,34 +64,53 @@
     [MESSAGECENTER removeObserver:self name:[NSString stringWithFormat:@"%@Contact",self.ID] object:nil];
 }
 
--(void)BeginContact:(NSNotification *)notification
+-(void) BeginContact:(NSNotification *)notification
 {
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
+    /*
     
-    if (self.reaction != nil)
+    */
+    if (targetObject.name == HERO)
     {
-        if (targetObject.name == HERO)
+        DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
+        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
         {
-            //If addthing touch hero
-            //Hero reacts
-            [HEROMANAGER heroReactWithReaction:self.reaction contactObject:self];
-            
-            //If addthing will disappear after touch the hero
-            if (self.reaction.triggerCleanHero == 1)
+            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
             {
-//                DLog(@"My ID is %@", self.ID);
-                [self removeAddthing];
+                contactEdge->contact->SetEnabled(false);
             }
-
-//            DLog(@"%@ Touch Hero",self.name);
-        } else if (targetObject.name == BOARD)
+            [self removeAddthingWithDel];
+            
+        } else
+        {
+            if (self.reaction != nil)
+            {
+                //If addthing touch hero
+                //Hero reacts
+                [HEROMANAGER heroReactWithReaction:self.reaction contactObject:self];
+                
+                //If addthing will disappear after touch the hero
+                if (self.reaction.triggerCleanHero == 1)
+                {
+                    //               DLog(@"My ID is %@", self.ID);
+                    [self removeAddthing];
+                }
+            }
+        }
+        //            DLog(@"%@ Touch Hero",self.name);
+    } else if (targetObject.name == BOARD)
+    {
+        if (self.reaction != nil)
         {
             if (self.reaction.triggerCleanBoard == 1)
             {
                 [self removeAddthing];
             }
-//            DLog(@"%@ Touch Board",self.name);
-        } else
+        }
+        //            DLog(@"%@ Touch Board",self.name);
+    } else
+    {
+        if (self.reaction != nil)
         {
             if (self.reaction.triggerCleanWorld == 1)
             {
@@ -99,6 +118,12 @@
             }
         }
     }
+}
+
+-(void) removeAddthingWithDel
+{
+    [PHYSICSMANAGER addToArchiveList:self];
+    [EFFECTMANAGER PlayEffectWithName:FX_DEL position:self.sprite.position];
 }
 
 -(void) removeAddthing
@@ -124,7 +149,6 @@
 {
     id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:self.animation]];
     [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
-
 }
 
 -(void) activate

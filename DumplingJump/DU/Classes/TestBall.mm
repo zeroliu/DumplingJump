@@ -23,7 +23,7 @@
 
 -(id) createNewObjectWithName:(NSString *)objectName
 {
-    CCSprite *herosprite = [CCSprite spriteWithSpriteFrameName:@"HERO/AL_H_hero_1.png"];
+    CCSprite *herosprite = [CCSprite spriteWithSpriteFrameName:@"AL_H_hero_1.png"];
     
     b2BodyDef heroBodyDef;
     heroBodyDef.type = b2_dynamicBody;

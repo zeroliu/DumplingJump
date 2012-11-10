@@ -11,6 +11,8 @@
 
 #import "Paragraph.h"
 #import "AddthingObjectData.h"
+#import "DUEffectData.h"
+#import "Reaction.h"
 #import "Constants.h"
 @implementation XMLHelper
 
@@ -168,4 +170,106 @@
     return result;
 }
 
+-(id) loadEffectWithXML: (NSString *)fileName
+{
+    NSMutableDictionary *effectDict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [self loadXMLContentFromFile:fileName];
+    NSError *err = nil;
+    
+    NSArray *nodeResult = [xmlDoc nodesForXPath:@"//Effect" error:&err];
+    for (DDXMLElement *effect in nodeResult)
+    {
+        DUEffectData *data = [[DUEffectData alloc]initEmptyEffect];
+
+        NSArray *effectArray = [effect children];
+        for (DDXMLElement *child in effectArray)
+        {
+            if ([[child name] isEqualToString:@"name"])
+            {
+                data.name = [child stringValue];
+            } else if ([[child name] isEqualToString:@"animation"])
+            {
+                data.animationName = [child stringValue];
+                [ANIMATIONMANAGER registerAnimationForName:data.animationName];
+            } else if ([[child name] isEqualToString:@"repeat"])
+            {
+                data.times = [[child stringValue] intValue];
+            }
+        }
+        if (data.name != nil)
+        {
+            [effectDict setObject:data forKey:data.name];
+        }
+    }
+    
+    return effectDict;
+}
+
+-(id) loadReactionWithXML: (NSString *)fileName
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [self loadXMLContentFromFile:fileName];
+    NSError *err = nil;
+    
+    //Create Node by finding level
+    NSArray *nodeResults = [xmlDoc nodesForXPath:@"//react" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    for (DDXMLElement *react in nodeResults)
+    {
+        if (![[[[react nodesForXPath:@"ID" error:&err] objectAtIndex:0] stringValue] isEqualToString:@"0"])
+        {
+            Reaction *theReaction = [[Reaction alloc] initEmptyData];
+            for (DDXMLElement *child in [react children])
+            {
+                if ([[child name] isEqualToString:@"react_type"])
+                {
+                    theReaction.name = [child stringValue];
+                } else if ([[child name] isEqualToString:@"reactimage"])
+                {
+                    theReaction.heroReactAnimationName = [child stringValue];
+                    [ANIMATIONMANAGER registerAnimationForName:theReaction.heroReactAnimationName];
+                } else if ([[child name] isEqualToString:@"effectimage"])
+                {
+                    theReaction.effectName = [child stringValue];
+                } else if ([[child name] isEqualToString:@"statetime"])
+                {
+                    theReaction.reactionLasting = [[child stringValue] doubleValue];
+                } else if ([[child name] isEqualToString:@"react_hero"])
+                {
+                    theReaction.reactHeroSelectorName = [child stringValue];
+                } else if ([[child name] isEqualToString:@"react_hero_param"])
+                {
+                    theReaction.reactHeroSelectorParam = [child stringValue];
+                } else if ([[child name] isEqualToString:@"trigger_clean_hero"])
+                {
+                    theReaction.triggerCleanHero = [[child stringValue] intValue];
+                } else if ([[child name] isEqualToString:@"trigger_clean_board"])
+                {
+                    theReaction.triggerCleanBoard = [[child stringValue] intValue];
+                } else if ([[child name] isEqualToString:@"react_item"])
+                {
+                    theReaction.reactWorldSelectorName = [child stringValue];
+                } else if ([[child name] isEqualToString:@"trigger_clean_item"])
+                {
+                    theReaction.triggerCleanWorld = [[child stringValue] intValue];
+                } else if ([[child name] isEqualToString:@"react_time"])
+                {
+                    theReaction.reactTimeSelectorName = [child stringValue];
+                } else if ([[child name] isEqualToString:@"trigger_react_time"])
+                {
+                    theReaction.reactTime = [[child stringValue] doubleValue];
+                } else if ([[child name] isEqualToString:@"trigger_clean_time"])
+                {
+                    theReaction.cleanTime = [[child stringValue] doubleValue];
+                }
+            }
+            [dict setObject:theReaction forKey:theReaction.name];
+        }
+    }
+    
+    return [NSDictionary dictionaryWithDictionary:dict];
+}
 @end

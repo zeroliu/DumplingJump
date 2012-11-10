@@ -75,7 +75,6 @@
     
     b2FixtureDef boardFixtureDef;
     
-    //TODO: NEED CHANGE TO THE REAL VALUE;
     boardFixtureDef.friction = 0.3;
     boardFixtureDef.restitution = 0;
     boardFixtureDef.density = 10;

@@ -33,8 +33,7 @@
     if (self = [super init])
     {
         bgLoaded = false;
-        //TODO: load background information from xml file
-        
+
         [self.model addBackgroundWithFileName:MAZE bgLayers:
          new BgLayer(1, 0, 120, @"CA_background_1.png",-30),
          new BgLayer(2, 13, 100, @"CA_background_2.png"),

@@ -72,6 +72,7 @@
     [self addChild:[self createConfigBlockWithName: @"Damp_R" Tag:14 Size:ccp(100, 40) Position:ccp(260, height - 260) Selector:@selector(setDamp_r:) InitValue:[NSString stringWithFormat:@"%.2f",((BoardManager*)[BoardManager shared]).damp_r]]];
     [self addChild:[self createConfigBlockWithName: @"Gravity" Tag:15 Size:ccp(100, 40) Position:ccp(60, height - 340) Selector:@selector(setGravity:) InitValue:[NSString stringWithFormat:@"%.2f",( -[PHYSICSMANAGER getWorld]->GetGravity()).y]]];
     [self addChild:[self createConfigBlockWithName: @"Mass_Mult" Tag:16 Size:ccp(100, 40) Position:ccp(160, height - 340) Selector:@selector(setMassMultiplier:) InitValue:[NSString stringWithFormat:@"%.2f",((PhysicsManager *)PHYSICSMANAGER).mass_multiplier]]];
+    [self addChild:[self createConfigBlockWithName: @"Hero_G" Tag:17 Size:ccp(100, 40) Position:ccp(260, height - 340) Selector:@selector(setHeroGravity:) InitValue:[NSString stringWithFormat:@"%.2f",((HeroManager *)[HeroManager shared]).heroGravity]]];
 }
 
 -(id) createConfigBlockWithName:(NSString *)name Tag:(int)tag Size:(CGPoint)size Position:(CGPoint)position Selector:(SEL)selector InitValue:(NSString *)initValue
@@ -177,6 +178,10 @@
     ((PhysicsManager*)PHYSICSMANAGER).mass_multiplier = [inputString floatValue];
 }
 
+-(void) setHeroGravity:(NSString *)inputString
+{
+    ((HeroManager*)[HeroManager shared]).heroGravity = [inputString floatValue];
+}
 
 -(void) test:(NSString *)returnValue
 {

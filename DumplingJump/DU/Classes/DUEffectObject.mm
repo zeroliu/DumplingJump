@@ -13,8 +13,9 @@
 
 -(id) initWithName:(NSString *)theName effect:(DUEffectData *)effectData
 {
-    if (self = [super initWithName:theName file:effectData.idlePictureName])
+    if (self = [super initWithName:theName file:[NSString stringWithFormat:@"%@_1.png", effectData.animationName]])
     {
+        //DLog(@"%@", effectData.idlePictureName);
         _effectData = effectData;
     }
     

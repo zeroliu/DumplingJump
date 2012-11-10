@@ -2,6 +2,7 @@
 #import "DUContactListener.h"
 #import "Hero.h"
 #import "HeroManager.h"
+#import "LevelManager.h"
 
 @interface PhysicsManager()
 {
@@ -88,11 +89,11 @@
                                   b->GetPosition().y * RATIO);
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
             
-//            if(physicsObject.name == @"testBall")
             if(![physicsObject isMemberOfClass:Hero.class])
             {
                 if (physicsObject.sprite.position.y < -600)
                 {
+                    [[LevelManager shared] removeObjectFromList:physicsObject];
                     [physicsObject archive];
                 }
             }

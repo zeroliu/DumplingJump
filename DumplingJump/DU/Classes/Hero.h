@@ -10,16 +10,18 @@
 #import "DUContactListener.h"
 
 @interface Hero : DUPhysicsObject
-
 {
     DUContactListener *listener;
+    b2FixtureDef shellFixtureDef;
+    b2Fixture *shellFixture;
 }
 
 @property (nonatomic, retain) NSString *heroState;
-
-
--(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue;
+@property (nonatomic, retain) NSString *powerup;
+@property (nonatomic, assign) float powerupCountdown;
+-(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue gravityValue:(float)theGravity;
 -(void) updateHeroPositionWithAccX:(float)accX;
+-(void) updateHeroPowerupCountDown:(ccTime)dt;
 -(void) jump;
 -(void) idle;
 //Called from AddthingObject
@@ -28,6 +30,10 @@
 -(void) hurt:(NSArray *)value;
 -(void) freeze;
 -(void) bowEffect:(NSArray *)value;
+-(void) spring;
+-(void) shelter;
+-(void) magic:(NSArray *)value;
+-(void) blind;
 -(void) updateHeroForce;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

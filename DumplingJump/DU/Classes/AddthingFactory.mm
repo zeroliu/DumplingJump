@@ -52,8 +52,6 @@
     
     if (selectedObject != nil)
     {
-//        CCSprite *objectSprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName]];
-        
         b2BodyDef objectBodyDef;
         objectBodyDef.type = b2_dynamicBody; //Need to define whether configurable
         b2Body *objectBody = WORLD->CreateBody(&objectBodyDef);
@@ -91,7 +89,7 @@
         NSString *ID = [NSString stringWithFormat:@"%@_%d",selectedObject.name, self.idCounter];
         
         AddthingObject *newObject;
-        newObject = [[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"ADDTHING/%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName];
+        newObject = [[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName];
         
         self.idCounter ++;
         if (self.idCounter >= INT_MAX)

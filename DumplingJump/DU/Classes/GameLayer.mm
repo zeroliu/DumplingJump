@@ -149,7 +149,6 @@
 -(void) initGame
 {
     //Init level with level name
-    //TODO: select the level with a menu or something
     [self setLevelWithName:LEVEL_NORMAL];
     //[[LevelManager shared] loadParagraphAtIndex:0];
     [self startGame];
@@ -168,7 +167,6 @@
     [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
     [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,120*SCALE_MULTIPLIER)];
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
-    //TODO: set the rest of the characters or elements for the level
 }
 
 -(void) update:(ccTime)deltaTime
@@ -178,6 +176,7 @@
         [self.bgController updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
+        [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         self.model.distance += DISTANCE_UNIT;
         [[LevelManager shared] dropNextAddthing];
     }

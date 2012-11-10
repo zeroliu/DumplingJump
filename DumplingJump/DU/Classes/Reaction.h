@@ -10,7 +10,7 @@
 
 @interface Reaction : CCNode
 
-@property (nonatomic, readonly)
+@property (nonatomic, retain)
 NSString *name, //Reaction name
 *heroReactAnimationName, //The animation needs to be played when touch hero
 *effectName, //The animation needs to be played when taking effect
@@ -22,11 +22,11 @@ NSString *name, //Reaction name
 *reactWorldSelectorParam,
 *reactTimeSelectorName; //The selector will be called if time is up
 
-@property (assign, readonly)
+@property (assign, nonatomic)
 double reactionLasting, //How long does it last
 reactTime, //How long does it take to trigger the reactTimeSelector
 cleanTime; //How long does it take to make the addthing disappear by itself
-@property (assign, readonly)
+@property (assign, nonatomic)
 int triggerCleanHero, //1 => Addthing get removed after touch the hero. Any other numbers => nothing happens
 triggerCleanHeroStepOn, //1 => Addthing get removed after hero steps on it
 triggerCleanWorld,
@@ -34,7 +34,7 @@ triggerCleanBoard;
 
 -(id) initWithName              :(NSString *)theName 
 heroReactAnimationName          :(NSString *)theHeroReactAnimationName 
-effectName             :(NSString *)theAnimationName 
+effectName                      :(NSString *)theAnimationName 
 reactHeroSelectorName           :(NSString *)theReactHeroSelectorName
 reactHeroSelectorParam          :(NSString *)theReactHeroSelectorParam
 reactHeroStepOnSelectorName     :(NSString *)theReactHeroStepOnSelectorName
@@ -51,4 +51,5 @@ triggerCleanWorld               :(int)
 theTriggerCleanWorld
 triggerCleanBoard               :(int) theTriggerCleanBoard;
 
+-(id) initEmptyData;
 @end

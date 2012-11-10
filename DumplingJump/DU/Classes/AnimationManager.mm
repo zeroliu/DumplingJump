@@ -1,6 +1,11 @@
 #import "AnimationManager.h"
 
+@interface AnimationManager()
+@property (nonatomic, retain) NSMutableDictionary *animDataDictionary;
+@end
+
 @implementation AnimationManager
+@synthesize animDataDictionary = _animDataDictionary;
 
 +(id) shared
 {
@@ -19,28 +24,50 @@
     if (self = [super init])
     {
 //        animDict = [[NSMutableDictionary alloc] init];
-        [self loadAnimation];
+        
+        [self loadAnimationData];
+        
     }
     
     return self;
 }
 
--(void) loadAnimation
+-(void) loadAnimationData
 {
-    //TODO: add from xml file
-    [self addAnimationWithName:HEROIDLE file:@"HERO/AL_H_hero" startFrame:1 endFrame:10 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:HERODIZZY file:@"HERO/AL_H_dizzy" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:HEROHURT file:@"HERO/AL_H_hurt" startFrame:1 endFrame:1 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:HEROFLAT file:@"HERO/AL_H_flat" startFrame:1 endFrame:1 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:HEROFREEZE file:@"HERO/SK_H_ice" startFrame:1 endFrame:8 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_EXPLOSION file:@"EFFECTS/AL_E_del" startFrame:1 endFrame:5 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_ARROW_BREAK file:@"EFFECTS/CA_E_arrow" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_ICE_EXPLODE file:@"EFFECTS/SK_E_frozen" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_STAR file:@"ADDTHING/SK_star" startFrame:1 endFrame:7 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_STONE_BREAK file:@"EFFECTS/CA_E_stone" startFrame:1 endFrame:4 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_POWDER_EXPLODE file:@"EFFECTS/AL_E_powder" startFrame:1 endFrame:6 delay:ANIMATION_DELAY_INBETWEEN];
-    [self addAnimationWithName:ANIM_BOW file:@"EFFECTS/CA_E_bomb" startFrame:1 endFrame:8 delay:ANIMATION_DELAY_INBETWEEN];
+    NSString *path;
+    if (CC_CONTENT_SCALE_FACTOR() == 2)
+    {
+        path = [[NSBundle mainBundle] pathForResource:@"sheetObjects-hd" ofType:@"plist"];
+    } else
+    {
+        path = [[NSBundle mainBundle] pathForResource:@"sheetObjects" ofType:@"plist"];
+    }
+    
+    self.animDataDictionary = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] objectForKey:@"frames"];
 }
+
+-(void) registerAnimationForName:(NSString *)theName
+{
+    if ([[CCAnimationCache sharedAnimationCache] animationByName:theName] != nil)
+    {
+        DLog(@"Warning: Animation <%@> already existed.", theName);
+        return;
+    }
+    
+    int count = 1;
+    while ([self.animDataDictionary objectForKey:[NSString stringWithFormat:@"%@_%d.png", theName, count]] != nil)
+    {
+        count ++;
+    }
+
+    if (theName == HEROIDLE)
+    {
+        DLog(@"hero idle animation: %d", count);
+    }
+    
+    [self addAnimationWithName:theName file:theName startFrame:1 endFrame:(count-1) delay:ANIMATION_DELAY_INBETWEEN];
+}
+
 
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay
 {

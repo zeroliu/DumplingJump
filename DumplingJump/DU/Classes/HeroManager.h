@@ -12,6 +12,7 @@
 @property (nonatomic, assign) float heroMaxVy;
 @property (nonatomic, assign) float heroAcc;
 @property (nonatomic, assign) float heroJump;
+@property (nonatomic, assign) float heroGravity;
 
 +(id)shared;
 -(id)createHeroWithPosition:(CGPoint)thePosition;

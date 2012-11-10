@@ -207,6 +207,7 @@
 		7F57279E163521570023B985 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5E5DB16351A4D0018B085 /* libxml2.dylib */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
 		7F5CC1E01602B07F00E45EDD /* Reaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CC1DF1602B07F00E45EDD /* Reaction.mm */; };
+		7F6214CF164BA4B8007D880C /* DU_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F6214CE164BA4B8007D880C /* DU_effect.xml */; };
 		7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937915CBBAD800B8C80C /* ScoreManager.mm */; };
 		7F68938115CBBE0400B8C80C /* GameModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68938015CBBE0400B8C80C /* GameModel.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
@@ -281,6 +282,7 @@
 		7FD820FF15D8642E003AFCB8 /* AddthingObjectData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD820FE15D8642E003AFCB8 /* AddthingObjectData.mm */; };
 		7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8210115D87471003AFCB8 /* AddthingFactory.mm */; };
 		7FD9EBA9161ACBF800E36BB2 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
+		7FDD5906164CF29B00590D38 /* CA_react.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FDD5905164CF29B00590D38 /* CA_react.xml */; };
 		7FDFD5AE15B6AE7A00F55257 /* HeroManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */; };
 		7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */; };
 		7FF5E5C4163516E40018B085 /* XMLHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5C3163516E40018B085 /* XMLHelper.mm */; };
@@ -709,6 +711,7 @@
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
 		7F5CC1DE1602B07F00E45EDD /* Reaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reaction.h; sourceTree = "<group>"; };
 		7F5CC1DF1602B07F00E45EDD /* Reaction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Reaction.mm; sourceTree = "<group>"; };
+		7F6214CE164BA4B8007D880C /* DU_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DU_effect.xml; sourceTree = "<group>"; };
 		7F68937815CBBAD700B8C80C /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		7F68937915CBBAD800B8C80C /* ScoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoreManager.mm; sourceTree = "<group>"; };
 		7F68937F15CBBE0300B8C80C /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
@@ -823,7 +826,8 @@
 		7FD820FE15D8642E003AFCB8 /* AddthingObjectData.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingObjectData.mm; sourceTree = "<group>"; };
 		7FD8210015D87471003AFCB8 /* AddthingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingFactory.h; sourceTree = "<group>"; };
 		7FD8210115D87471003AFCB8 /* AddthingFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingFactory.mm; sourceTree = "<group>"; };
-		7FDFD43E15B6AAC600F55257 /* barrel */ = {isa = PBXFileReference; lastKnownFileType = file; path = barrel; sourceTree = "<group>"; };
+		7FDD5905164CF29B00590D38 /* CA_react.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_react.xml; sourceTree = "<group>"; };
+		7FDFD43E15B6AAC600F55257 /* barrel */ = {isa = PBXFileReference; lastKnownFileType = text; path = barrel; sourceTree = "<group>"; };
 		7FDFD43F15B6AAC600F55257 /* CA_arrow_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_arrow_1.png; sourceTree = "<group>"; };
 		7FDFD44015B6AAC600F55257 /* CA_blind_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_blind_1.png; sourceTree = "<group>"; };
 		7FDFD44115B6AAC600F55257 /* CA_blind_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_blind_2.png; sourceTree = "<group>"; };
@@ -1729,6 +1733,8 @@
 		7F5727A1163524970023B985 /* xmls */ = {
 			isa = PBXGroup;
 			children = (
+				7FDD5905164CF29B00590D38 /* CA_react.xml */,
+				7F6214CE164BA4B8007D880C /* DU_effect.xml */,
 				7FCA81FB163DDA77000D1B7B /* CA_level1.xml */,
 				7FCA81FC163DDA77000D1B7B /* CA_level2.xml */,
 				7FCA81FD163DDA77000D1B7B /* CA_level3.xml */,
@@ -2470,6 +2476,8 @@
 				7FCA822F163DDF3D000D1B7B /* CA_spring_1.png in Resources */,
 				7FCA8230163DDF3D000D1B7B /* CA_stone_1.png in Resources */,
 				7FC1027C16473C6C00C01219 /* square_border.png in Resources */,
+				7F6214CF164BA4B8007D880C /* DU_effect.xml in Resources */,
+				7FDD5906164CF29B00590D38 /* CA_react.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

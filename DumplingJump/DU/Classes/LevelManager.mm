@@ -20,10 +20,11 @@
 
 @property (nonatomic, retain) LevelData *levelData;
 @property (nonatomic, retain) NSMutableArray *paragraphs;
+@property (nonatomic, retain) NSMutableArray *generatedObjects;
 @end
 
 @implementation LevelManager
-@synthesize levelData = _levelData, paragraphs = _paragraphs;
+@synthesize levelData = _levelData, paragraphs = _paragraphs, generatedObjects = _generatedObjects;
 
 +(id) shared
 {
@@ -40,7 +41,7 @@
     if (self = [super init])
     {
         self.paragraphs = [[NSMutableArray alloc] init];
-        
+        self.generatedObjects = [[NSMutableArray alloc] init];
         [self loadParagraphs];
         
     }
@@ -52,14 +53,14 @@
 {
     //load paragraph from xml file
     int i = 1;
-    NSString *testContent = nil;
+    NSString *levelContent = nil;
     do {
-        Paragraph *test = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"CA_level%d",i]];
+        Paragraph *level = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"CA_level%d",i]];
         DLog(@"Paragraph loaded + %d", i);
-        [self.paragraphs addObject:test];
+        [self.paragraphs addObject:level];
         i++;
-        testContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"CA_level%d",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
-    } while (testContent != nil);
+        levelContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"CA_level%d",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
+    } while (levelContent != nil);
     
     //DLog(@"Paragraph loaded + %d", (i-1));
 }
@@ -79,6 +80,7 @@
 {
     DUPhysicsObject *addthing = [[AddthingFactory shared] createWithName:objectName];
     addthing.sprite.position = position;
+    [self.generatedObjects addObject:addthing];
     [addthing addChildTo:BATCHNODE];
 }
 
@@ -131,6 +133,19 @@
                 currentParagraph = nil;
             }
         }
+    }
+}
+
+-(void) removeObjectFromList:(DUObject *)myObject
+{
+    [self.generatedObjects removeObject:myObject];
+}
+
+-(void) destroyAllObjects
+{
+    for (DUPhysicsObject *ob in self.generatedObjects)
+    {
+        [ob archive];
     }
 }
 

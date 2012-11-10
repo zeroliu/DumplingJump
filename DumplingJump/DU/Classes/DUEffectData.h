@@ -14,5 +14,6 @@
 @property (nonatomic, retain) NSString *idlePictureName;
 @property (nonatomic, assign) int times; //How many times the animation should play before it is destroied
 
--(id) initWithName:(NSString *)theName animation:(NSString *)animationName idlePicture:(NSString *)idlePictureName times:(int)theTimes;
+-(id) initWithName:(NSString *)theName animation:(NSString *)animationName idlePictureName:(NSString *)idleName times:(int)theTimes;
+-(id) initEmptyEffect;
 @end

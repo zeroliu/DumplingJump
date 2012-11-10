@@ -12,7 +12,7 @@
 
 
 @implementation HeroManager
-@synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump;
+@synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump, heroGravity = _heroGravity;
 #pragma mark -
 #pragma Initialization
 
@@ -40,6 +40,8 @@
         self.heroMaxVy = HERO_MAX_VY;
         self.heroAcc = HERO_ACC;
         self.heroJump = HERO_JUMP;
+        self.heroGravity = 100;
+        [ANIMATIONMANAGER registerAnimationForName:HEROIDLE];
     }
     return self;
 }
@@ -47,7 +49,7 @@
 -(id)createHeroWithPosition:(CGPoint)thePosition
 {
     if (self.hero != nil) [self.hero archive];
-    self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump];
+    self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump gravityValue:self.heroGravity];
     [self.hero addChildTo:BATCHNODE z:5];
     [self.hero idle];
     
@@ -129,6 +131,11 @@
             [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theReaction.reactHeroSelectorParam, theContactObject, nil]];
         }
         
+        if ([theReaction.name isEqualToString:@"SHELTER"] || [theReaction.name isEqualToString:@"MAGIC"] || [theReaction.name isEqualToString:@"SPRING"])
+        {
+            self.hero.powerup = theReaction.name;
+            self.hero.powerupCountdown = theReaction.reactionLasting - 0.1f;
+        }
     }
 }
 

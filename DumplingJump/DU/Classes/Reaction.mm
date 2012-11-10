@@ -8,7 +8,7 @@
 //Step on feature is not implemented, Don't use it
 
 #import "Reaction.h"
-
+#import "AnimationManager.h"
 @implementation Reaction
 @synthesize 
 name = _name, //Reaction name
@@ -31,7 +31,7 @@ triggerCleanBoard = _triggerCleanBoard;
 
 -(id) initWithName              :(NSString *)theName 
 heroReactAnimationName          :(NSString *)theHeroReactAnimationName 
-effectName             :(NSString *)theEffectName 
+effectName                      :(NSString *)theEffectName 
 reactHeroSelectorName           :(NSString *)theReactHeroSelectorName
 reactHeroSelectorParam          :(NSString *)theReactHeroSelectorParam
 reactHeroStepOnSelectorName     :(NSString *)theReactHeroStepOnSelectorName
@@ -66,6 +66,37 @@ triggerCleanBoard               :(int)theTriggerCleanBoard
         _triggerCleanHeroStepOn = theTriggerCleanHeroStepOn;
         _triggerCleanWorld = theTriggerCleanWorld;
         _triggerCleanBoard = theTriggerCleanBoard;
+        
+        if (_heroReactAnimationName != nil)
+        {
+            [ANIMATIONMANAGER registerAnimationForName:_heroReactAnimationName];
+        }
+    }
+    
+    return self;
+}
+
+-(id) initEmptyData
+{
+    if (self = [super init])
+    {
+        _name = nil;
+        _heroReactAnimationName = nil;
+        _effectName = nil;
+        _reactHeroSelectorName = nil;
+        _reactHeroSelectorParam = nil;
+        _reactHeroStepOnSelectorName = nil;
+        _reactHeroStepOnSelectorParam = nil;
+        _reactWorldSelectorName = nil;
+        _reactWorldSelectorParam = nil;
+        _reactTimeSelectorName = nil;
+        _reactionLasting = -1;
+        _reactTime = -1;
+        _cleanTime = -1;
+        _triggerCleanHero = -1;
+        _triggerCleanHeroStepOn = -1;
+        _triggerCleanWorld = -1;
+        _triggerCleanBoard = -1;
     }
     
     return self;

@@ -19,4 +19,6 @@
 -(void) dropNextAddthing;
 -(void) loadParagraphAtIndex:(int) index;
 -(int) paragraphsCount;
+-(void) removeObjectFromList:(DUObject *)myObject;
+-(void) destroyAllObjects;
 @end

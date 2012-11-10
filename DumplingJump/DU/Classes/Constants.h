@@ -44,8 +44,8 @@
 
 #pragma mark -
 #pragma mark Board filenames
-#define SKY_BOARD @"PLATE/SK_plate.png"
-#define MAZE_BOARD @"PLATE/CA_plate.png"
+#define SKY_BOARD @"SK_plate.png"
+#define MAZE_BOARD @"CA_plate.png"
 
 #pragma mark -
 #pragma mark Shapes
@@ -72,25 +72,25 @@
 #define FX_STONEBREAK @"FX_StoneBreak"
 #define FX_POWDER @"FX_Powder"
 #define FX_BOW @"FX_Bow"
+#define FX_DEL @"FX_Del"
 
 #pragma mark -
 #pragma mark Hero animations/Hero state
-#define HEROIDLE @"HeroIdle"
-#define HERODIZZY @"HeroDizzy"
-#define HEROHURT @"HeroHurt"
-#define HEROFLAT @"HeroFlat"
-#define HEROFREEZE @"HeroFreeze"
-#define HEROBOW @"HeroBow"
+#define HEROIDLE @"AL_H_hero"
+#define HERODIZZY @"AL_H_dizzy"
+#define HEROHURT @"AL_H_hurt"
+#define HEROFLAT @"AL_H_flat"
+#define HEROFREEZE @"SK_H_ice"
 
 #pragma mark -
 #pragma mark Other animations
-#define ANIM_EXPLOSION @"ANIM_Explosion"
-#define ANIM_ARROW_BREAK @"ANIM_ArrowBreak"
-#define ANIM_STAR @"ANIM_Star"
-#define ANIM_ICE_EXPLODE @"ANIM_Ice_Explode"
-#define ANIM_STONE_BREAK @"ANIM_Stone_Break"
-#define ANIM_POWDER_EXPLODE @"ANIM_Powder_Explode"
-#define ANIM_BOW @"ANIM_Bow"
+#define ANIM_EXPLOSION @"AL_E_del"
+#define ANIM_ARROW_BREAK @"CA_E_arrow"
+#define ANIM_STAR @"SK_star"
+#define ANIM_ICE_EXPLODE @"SK_E_frozen"
+#define ANIM_STONE_BREAK @"CA_E_stone"
+#define ANIM_POWDER_EXPLODE @"AL_E_powder"
+#define ANIM_BOW @"CA_E_bomb"
 
 #pragma mark -
 #pragma mark Others

@@ -22,7 +22,6 @@ restitution,
 friction,
 gravity,
 blood;
-//TODO: Animation/Sprite name
 
 
 -(id) initWithName:(NSString *)theName 

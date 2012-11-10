@@ -71,10 +71,13 @@
     NSMutableArray *currentArray = [DUDictionary objectForKey:theObject.name];
     if (currentArray == nil)
     {
-        currentArray = [NSMutableArray array];
+        currentArray = [[NSMutableArray alloc] init];
         [DUDictionary setObject:currentArray forKey:theObject.name];
     }
-    [currentArray addObject:theObject];
+    if (![currentArray containsObject:theObject])
+    {
+        [currentArray addObject:theObject];
+    }
 }
 
 @end

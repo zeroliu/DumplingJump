@@ -27,7 +27,6 @@
 {
     if (self = [super init])
     {
-        //TODO: Read from xml file to create a level
         Level *aLevel = [[Level alloc] initWithName:LEVEL_NORMAL];
         aLevel.backgroundName = MAZE;
         aLevel.boardType = MAZE_BOARD;

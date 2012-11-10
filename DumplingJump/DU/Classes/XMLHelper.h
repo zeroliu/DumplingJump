@@ -13,4 +13,6 @@
 
 -(id) loadParagraphWithXML: (NSString *)fileName;
 -(id) loadAddthingWithXML: (NSString *)fileName;
+-(id) loadEffectWithXML: (NSString *)fileName;
+-(id) loadReactionWithXML: (NSString *)fileName;
 @end

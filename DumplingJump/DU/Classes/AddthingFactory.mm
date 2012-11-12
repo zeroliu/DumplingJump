@@ -60,6 +60,15 @@
         objectFixtureDef.density = 1.0f;
         objectFixtureDef.friction = selectedObject.friction;
         objectFixtureDef.restitution = selectedObject.restitution;      
+        if ([objectName isEqualToString:@"SLASH"])
+        {
+            objectFixtureDef.filter.categoryBits = C_SLASH;
+            objectFixtureDef.filter.maskBits = C_ADDTHING;
+        } else
+        {
+            objectFixtureDef.filter.categoryBits = C_ADDTHING;
+            objectFixtureDef.filter.maskBits = C_SLASH | C_HERO | C_BOARD | C_ADDTHING;
+        }
         
         if ([selectedObject.shape isEqualToString: CIRCLE])
         {

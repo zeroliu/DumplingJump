@@ -1,7 +1,7 @@
 #import "cocos2d.h"
 #import "DUObjectsDictionary.h"
 
-@interface DUObject : NSObject
+@interface DUObject : CCNode
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *ID;
 @property (nonatomic, assign) BOOL rebuilt;

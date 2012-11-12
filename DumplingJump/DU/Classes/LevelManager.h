@@ -13,8 +13,8 @@
 
 +(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;
--(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
--(void) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
+-(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
+-(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
 
 -(void) dropNextAddthing;
 -(void) loadParagraphAtIndex:(int) index;

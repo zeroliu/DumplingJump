@@ -108,6 +108,9 @@
             }
         }
         //            DLog(@"%@ Touch Board",self.name);
+    } else if ([targetObject.name isEqualToString:@"SLASH"])
+    {
+        [self removeAddthingWithDel];
     } else
     {
         if (self.reaction != nil)

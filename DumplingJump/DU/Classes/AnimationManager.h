@@ -10,6 +10,7 @@
 //-(void) removeAnimationWithName:(NSString *)theName;
 -(id) getAnimationWithName:(NSString *)theName; //Repeat forever
 -(void) registerAnimationForName:(NSString *)theName;
+-(void) registerAnimationForName:(NSString *)theName speed:(float)theSpeed;
 //-(id) getAnimationWithName:(NSString *)theName repeat:(int)repeatTimes;
 
 @end

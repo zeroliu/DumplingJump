@@ -91,7 +91,7 @@
             
             if(![physicsObject isMemberOfClass:Hero.class])
             {
-                if (physicsObject.sprite.position.y < -600)
+                if (physicsObject.sprite.position.y < -600 || physicsObject.sprite.position.y > 2000)
                 {
                     [[LevelManager shared] removeObjectFromList:physicsObject];
                     [physicsObject archive];

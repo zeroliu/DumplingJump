@@ -158,7 +158,8 @@
 	<react>
 		<ID>光束劍</ID>
 		<react_type>slash</react_type>
-		<effectimage>AL_E_del</effectimage>
+		<effectimage>FX_Del</effectimage>
+        <trigger_clean_item>1</trigger_clean_item>
 	</react>
 
 </reactlist>

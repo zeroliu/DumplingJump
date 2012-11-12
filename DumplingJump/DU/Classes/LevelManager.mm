@@ -76,20 +76,22 @@
     return [self.levelData getLevelByName:levelName];
 }
 
--(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
+-(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
 {
     DUPhysicsObject *addthing = [[AddthingFactory shared] createWithName:objectName];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
     [addthing addChildTo:BATCHNODE];
+    
+    return addthing;
 }
 
--(void) dropAddthingWithName:(NSString *)objectName atSlot:(int) num
+-(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num
 {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     float xPosUnit = (winSize.width-5) / (float)SLOTS_NUM;
     
-    [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,600)];
+    return [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,600)];
 }
 
 -(void) loadParagraphAtIndex:(int) index

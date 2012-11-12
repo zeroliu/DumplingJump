@@ -10,7 +10,11 @@
 #import "HeroTestTool.h"
 #import "LevelTestTool.h"
 #import "ParamConfigTool.h"
+
 @interface GameLayer()
+{
+    
+}
 @property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) BackgroundController *bgController;
 
@@ -80,7 +84,6 @@
         self.model.state = GAME_INIT;
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
-        
         [self initBatchNode];
         [self preloadGameData];
         [self initManagers];
@@ -126,7 +129,6 @@
 
 -(void) initManagers
 {
-    //_boardManager = [[BoardManager alloc] init];
     _bgController = [[BackgroundController alloc] init];
 }
 
@@ -179,18 +181,27 @@
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         self.model.distance += DISTANCE_UNIT;
         [[LevelManager shared] dropNextAddthing];
+        
     }
 }
 
 -(void) startGame
 {
     self.model.state = GAME_START;
+    
+    
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     [[[HeroManager shared] getHero] jump];
     
+}
+
+-(void) fire
+{
+    DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(((Hero *)[HEROMANAGER getHero]).sprite.position.x,((Hero *)[HEROMANAGER getHero]).sprite.position.y +5)];
+    slash.body->SetLinearVelocity(b2Vec2(0,24));
 }
 
 -(void) draw

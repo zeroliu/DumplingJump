@@ -79,7 +79,8 @@
     boardFixtureDef.restitution = 0;
     boardFixtureDef.density = 10;
     boardFixtureDef.shape = &boardShape;
-    
+    boardFixtureDef.filter.categoryBits = C_BOARD;
+    boardFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING;
     self.body->CreateFixture(&boardFixtureDef);
 }
 

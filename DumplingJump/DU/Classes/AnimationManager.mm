@@ -48,6 +48,11 @@
 
 -(void) registerAnimationForName:(NSString *)theName
 {
+    [self registerAnimationForName:theName speed:1];
+}
+
+-(void) registerAnimationForName:(NSString *)theName speed:(float)theSpeed
+{
     if ([[CCAnimationCache sharedAnimationCache] animationByName:theName] != nil)
     {
         DLog(@"Warning: Animation <%@> already existed.", theName);
@@ -59,15 +64,14 @@
     {
         count ++;
     }
-
+    
     if (theName == HEROIDLE)
     {
         DLog(@"hero idle animation: %d", count);
     }
     
-    [self addAnimationWithName:theName file:theName startFrame:1 endFrame:(count-1) delay:ANIMATION_DELAY_INBETWEEN];
+    [self addAnimationWithName:theName file:theName startFrame:1 endFrame:(count-1) delay:ANIMATION_DELAY_INBETWEEN/theSpeed];
 }
-
 
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay
 {

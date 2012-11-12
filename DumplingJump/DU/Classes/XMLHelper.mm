@@ -190,7 +190,7 @@
             } else if ([[child name] isEqualToString:@"animation"])
             {
                 data.animationName = [child stringValue];
-                [ANIMATIONMANAGER registerAnimationForName:data.animationName];
+                [ANIMATIONMANAGER registerAnimationForName:data.animationName speed:1.8f];
             } else if ([[child name] isEqualToString:@"repeat"])
             {
                 data.times = [[child stringValue] intValue];

@@ -230,7 +230,7 @@
 		<mass>5</mass>
 		<res>0.1</res>
 		<fric>1</fric>
-		<gravity>0</gravity>
+		<gravity>-0</gravity>
 		<blood>1</blood>
 		<react_type>slash</react_type>
 	</Item>

@@ -7,6 +7,7 @@
 //
 
 #import "Hero.h"
+
 @interface Hero()
 {
     float adjustMove, adjustJump;
@@ -80,7 +81,7 @@
     heroBodyDef.type = b2_dynamicBody;
     heroBodyDef.position.Set(thePosition.x/RATIO, thePosition.y/RATIO);
     heroBodyDef.userData = self;
-
+    
     self.body = WORLD->CreateBody(&heroBodyDef);
     
     b2CircleShape heroShape;
@@ -92,6 +93,8 @@
     heroFixtureDef.shape = &heroShape;
     heroFixtureDef.friction = self.fric;
     heroFixtureDef.restitution = 0;
+    heroFixtureDef.filter.categoryBits = C_HERO;
+    heroFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING;
     
     b2CircleShape shellShape;
     shellShape.m_radius = self.radius * 1.5f * RATIO * SCALE_MULTIPLIER;
@@ -162,12 +165,29 @@
     
     self.body->SetLinearVelocity(self.speed);
     self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
+    
+    if ([self.heroState isEqualToString:@"spring"] && self.isOnGround)
+    {
+        [self springJump];
+    }
+    
+    if (maskNode != NULL)
+    {
+        [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
+    }
+    
 //    DLog(@"speedY = %g", self.speed.y);
 }
 
 -(void) jump
 {
     if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
+    [self checkIfOnGround];
+}
+
+-(void) springJump
+{
+    if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue * 1.5f/RATIO * adjustJump));
     [self checkIfOnGround];
 }
 
@@ -203,6 +223,15 @@
         {
             self.body->DestroyFixture(shellFixture);
             shellFixture = NULL;
+        }
+        
+        [GAMELAYER unschedule:@selector(fire)];
+        
+        if (maskNode != nil)
+        {
+            [maskNode removeMask];
+            [maskNode release];
+            maskNode = nil;
         }
     }
 }
@@ -282,11 +311,20 @@
 -(void) magic:(NSArray *)value;
 {
     DLog(@"magic - %@", value);
+    [GAMELAYER schedule:@selector(fire) interval:1];
 }
 
 -(void) blind
 {
     DLog(@"blind");
+    CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
+    CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
+    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    maskNode = [[CircleMask alloc] initWithTexture:[blackBg retain] Mask:[mask retain]];
+    CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
+    final.position = ccp(winSize.width/2,winSize.height/2);
+    [GAMELAYER addChild:final z:10];
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification

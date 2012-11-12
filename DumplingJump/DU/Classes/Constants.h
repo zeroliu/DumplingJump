@@ -93,6 +93,13 @@
 #define ANIM_BOW @"CA_E_bomb"
 
 #pragma mark -
+#pragma mark Collision Layers
+#define C_HERO 0x0001
+#define C_BOARD 0x0002
+#define C_ADDTHING 0x0004
+#define C_SLASH 0x0008
+
+#pragma mark -
 #pragma mark Others
 #define MESSAGECENTER [NSNotificationCenter defaultCenter]
 #define BATCHNODE [[[Hub shared] gameLayer] batchNode]

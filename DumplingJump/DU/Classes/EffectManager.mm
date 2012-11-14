@@ -43,7 +43,7 @@
 {
     DUEffectObject *effect = [self.factory createWithName:effectName];
     effect.sprite.position = thePosition;
-    [effect addChildTo:BATCHNODE z:1];
+    [effect addChildTo:BATCHNODE z:20];
     
     id animation = [ANIMATIONMANAGER getAnimationWithName:effect.effectData.animationName];
     

@@ -8,6 +8,7 @@
 
 #import "LevelManager.h"
 #import "AddthingFactory.h"
+#import "StarManager.h"
 #import "Paragraph.h"
 
 @interface LevelManager()
@@ -81,7 +82,12 @@
     DUPhysicsObject *addthing = [[AddthingFactory shared] createWithName:objectName];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
-    [addthing addChildTo:BATCHNODE];
+    int depth = 3;
+    if ([objectName isEqualToString:@"STAR"])
+    {
+        depth = 1;
+    }
+    [addthing addChildTo:BATCHNODE z:depth];
     
     return addthing;
 }
@@ -119,9 +125,15 @@
             for (int i=0; i<SLOTS_NUM; i++)
             {
                 NSString *item = [mySentence.words objectAtIndex:i];
-                if (item != NOTHING)
+                if ([item rangeOfString:@"star"].location == 0)
                 {
-                    [self dropAddthingWithName:item atSlot:i];
+                    [[StarManager shared] dropStar:item AtSlot:i];
+                } else
+                {
+                    if (item != NOTHING)
+                    {
+                        [self dropAddthingWithName:item atSlot:i];
+                    }
                 }
             }
             

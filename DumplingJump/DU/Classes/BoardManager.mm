@@ -1,10 +1,10 @@
 #import "BoardManager.h"
 
-#define FREQ_L 0.7f
-#define FREQ_M 0.8f
-#define FREQ_R 0.7f
+#define FREQ_L 1.2f
+#define FREQ_M 1.0f
+#define FREQ_R 1.2f
 #define DAMP_L 1.0f
-#define DAMP_M 0.8f
+#define DAMP_M 1.0f
 #define DAMP_R 1.0f
 
 @interface BoardManager()
@@ -47,7 +47,7 @@
     //Create new board with the board name and the position
     self.board = [[Board alloc] initBoardWithBoardName:BOARD spriteName:fileName position:pos leftFreq:self.freq_l middleFreq:self.freq_m rightFreq:self.freq_r leftDamp:self.damp_l middleDamp:self.damp_m rightDamp:self.damp_r];
     //Add the board to the view
-    [self.board addChildTo:BATCHNODE];
+    [self.board addChildTo:BATCHNODE z:2];
     return self.board;
 }
 

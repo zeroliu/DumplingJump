@@ -4,12 +4,12 @@
 #define HERO_RADIUS 13.0f
 #define HERO_MASS 13.0f
 #define HERO_I 1.0f
-#define HERO_FRIC 0.3f
-#define HERO_MAX_VX 3.125f
-#define HERO_MAX_VY 13.0f
+#define HERO_FRIC 0.6f
+#define HERO_MAX_VX 5.0f
+#define HERO_MAX_VY 26.0f
 #define HERO_ACC 1.56f
-#define HERO_JUMP 325.0f
-
+#define HERO_JUMP 400.0f
+#define HERO_GRAVITY 150.0f
 
 @implementation HeroManager
 @synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump, heroGravity = _heroGravity;
@@ -40,7 +40,7 @@
         self.heroMaxVy = HERO_MAX_VY;
         self.heroAcc = HERO_ACC;
         self.heroJump = HERO_JUMP;
-        self.heroGravity = 100;
+        self.heroGravity = HERO_GRAVITY;
         [ANIMATIONMANAGER registerAnimationForName:HEROIDLE];
     }
     return self;

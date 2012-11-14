@@ -63,11 +63,15 @@
         if ([objectName isEqualToString:@"SLASH"])
         {
             objectFixtureDef.filter.categoryBits = C_SLASH;
-            objectFixtureDef.filter.maskBits = C_ADDTHING;
+            objectFixtureDef.filter.maskBits = C_ADDTHING | C_STAR;
+        } else if ([objectName isEqualToString:@"STAR"])
+        {
+            objectFixtureDef.filter.categoryBits = C_STAR;
+            objectFixtureDef.filter.maskBits = C_HERO | C_SLASH;
         } else
         {
             objectFixtureDef.filter.categoryBits = C_ADDTHING;
-            objectFixtureDef.filter.maskBits = C_SLASH | C_HERO | C_BOARD | C_ADDTHING;
+            objectFixtureDef.filter.maskBits = EVERYTHING;
         }
         
         if ([selectedObject.shape isEqualToString: CIRCLE])

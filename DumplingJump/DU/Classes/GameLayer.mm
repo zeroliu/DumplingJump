@@ -4,6 +4,7 @@
 #import "BackgroundController.h"
 #import "BoardManager.h"
 #import "HeroManager.h"
+#import "StarManager.h"
 #import "AddthingFactory.h"
 
 #import "AddthingTestTool.h"
@@ -139,13 +140,14 @@
 
 -(void) preloadGameData
 {
+    [XMLHelper shared];
     [AnimationManager shared];
     [ReactionManager shared];
     [EffectManager shared];
     [LevelManager shared];
     [HeroManager shared];
     [BoardManager shared];
-    [XMLHelper shared];
+    [StarManager shared];
 }
 
 -(void) initGame

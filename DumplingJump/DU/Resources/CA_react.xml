@@ -31,9 +31,9 @@
 		<react_type>arrow</react_type>
 		<reactimage>AL_H_hurt</reactimage>
 		<effectimage>FX_ArrowBreak</effectimage>
-		<statetime>0.5</statetime>
+		<statetime>0.25</statetime>
 		<react_hero>hurt</react_hero>
-		<react_hero_param>25</react_hero_param>
+		<react_hero_param>30</react_hero_param>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
@@ -154,6 +154,19 @@
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_time>4</trigger_clean_time>
 		<MEMO>法師</MEMO>
+	</react>
+    <react>
+		<ID>星星</ID>
+		<react_type>star</react_type>
+		<reactimage>AL_H_happy</reactimage>
+		<effectimage>FX_Star</effectimage>
+		<statetime>0</statetime>
+		<react_hero>star</react_hero>
+		<trigger_react_hero>1</trigger_react_hero>
+		<trigger_clean_hero>1</trigger_clean_hero>
+		<trigger_clean_board>1</trigger_clean_board>
+        <trigger_clean_item>1</trigger_clean_item>
+		<MEMO>星星</MEMO>
 	</react>
 	<react>
 		<ID>光束劍</ID>

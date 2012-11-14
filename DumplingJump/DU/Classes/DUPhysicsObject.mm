@@ -23,16 +23,16 @@
             if (self.body->GetFixtureList()->GetType() == b2Shape::e_circle)
             {
                 b2CircleShape* circle = (b2CircleShape*) self.body->GetFixtureList()->GetShape();
-                scaleX = 2 * circle->m_radius / self.sprite.boundingBox.size.width * RATIO;
-                scaleY = 2 * circle->m_radius / self.sprite.boundingBox.size.height * RATIO;
+                scaleX = 2*1.15f * circle->m_radius / self.sprite.boundingBox.size.width * RATIO;
+                scaleY = 2*1.15f * circle->m_radius / self.sprite.boundingBox.size.height * RATIO;
             } else if (self.body->GetFixtureList()->GetType() == b2Shape::e_polygon) 
             {
                 b2PolygonShape* poly = (b2PolygonShape*) self.body->GetFixtureList()->GetShape();
-                scaleX = 2 * poly->m_vertices->x / self.sprite.boundingBox.size.width * RATIO;
-                scaleY = 2 * poly->m_vertices->y / self.sprite.boundingBox.size.height * RATIO;
+                scaleX = 2*1.15f * poly->m_vertices->x / self.sprite.boundingBox.size.width * RATIO;
+                scaleY = 2*1.15f * poly->m_vertices->y / self.sprite.boundingBox.size.height * RATIO;
             }
-            self.sprite.scaleX = min(scaleX, scaleY);
-            self.sprite.scaleY = min(scaleX, scaleY);
+            self.sprite.scaleX = max(scaleX, scaleY);
+            self.sprite.scaleY = max(scaleX, scaleY);
         }
     }
     

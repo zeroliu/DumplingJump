@@ -60,4 +60,10 @@
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
+    <Effect>
+        <name>FX_Star</name>
+		<animation>AL_E_starshining</animation>
+		<repeat>1</repeat>
+		<sound>NULL</sound>
+	</Effect>
 </effects>

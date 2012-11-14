@@ -94,7 +94,7 @@
     heroFixtureDef.friction = self.fric;
     heroFixtureDef.restitution = 0;
     heroFixtureDef.filter.categoryBits = C_HERO;
-    heroFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING;
+    heroFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING | C_STAR;
     
     b2CircleShape shellShape;
     shellShape.m_radius = self.radius * 1.5f * RATIO * SCALE_MULTIPLIER;
@@ -187,7 +187,7 @@
 
 -(void) springJump
 {
-    if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue * 1.5f/RATIO * adjustJump));
+    if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
     [self checkIfOnGround];
 }
 
@@ -299,6 +299,7 @@
 
 -(void) spring
 {
+    
     DLog(@"spring");
 }
 
@@ -311,7 +312,7 @@
 -(void) magic:(NSArray *)value;
 {
     DLog(@"magic - %@", value);
-    [GAMELAYER schedule:@selector(fire) interval:1];
+    [GAMELAYER schedule:@selector(fire) interval:0.8f];
 }
 
 -(void) blind
@@ -325,6 +326,12 @@
     CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     final.position = ccp(winSize.width/2,winSize.height/2);
     [GAMELAYER addChild:final z:10];
+}
+
+-(void) star
+{
+    self.heroState = @"_star";
+    DLog(@"star!!");
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification

@@ -37,7 +37,7 @@
 
 -(void) initWorld
 {
-    b2Vec2 gravity = b2Vec2(0.0,-9.8f);
+    b2Vec2 gravity = b2Vec2(0.0,-12.0f);
     bool doSleep = true;
     world = new b2World(gravity);
     world->SetAllowSleeping(doSleep);

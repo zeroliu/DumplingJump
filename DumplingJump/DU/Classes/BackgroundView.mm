@@ -24,7 +24,7 @@
     //Set the batchNode
     self.bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",bgName]];
     
-    [[[Hub shared]gameLayer] addChild:self.bgBatchNode];
+    //[[[Hub shared]gameLayer] addChild:self.bgBatchNode];
 }
 
 -(void) setBackgroundWithBGArray:(NSMutableArray *)theArray;

@@ -13,6 +13,7 @@
 #import "AddthingObjectData.h"
 #import "DUEffectData.h"
 #import "Reaction.h"
+#import "Star.h"
 #import "Constants.h"
 @implementation XMLHelper
 
@@ -271,5 +272,55 @@
     }
     
     return [NSDictionary dictionaryWithDictionary:dict];
+}
+
+-(id) loadStarDataWithXML: (NSString *)fileName
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [self loadXMLContentFromFile:fileName];
+    NSError *err = nil;
+    
+    //Create Node by finding level
+    NSArray *nodeResults = [xmlDoc nodesForXPath:@"//Line" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    Star *currentStar;
+    int lineWidth = 0;
+    int lineCounter = 0;
+    NSString *currentStarName;
+    
+    for (DDXMLElement *line in nodeResults)
+    {
+        if ([line attributeForName:@"name"] != nil)
+        {
+            //DLog(@"%@", [line attributeForName:@"name"]);
+            currentStarName = [[line attributeForName:@"name"] stringValue];
+            currentStar = [[Star alloc] initEmptyStar];
+            currentStar.name = [currentStarName retain];
+            lineWidth = 0;
+            lineCounter = 0;
+        } else
+        {
+            NSArray *slots = [line children];
+            for (DDXMLElement *slot in slots)
+            {
+                int slotNum = [[[slot name] substringFromIndex:4] intValue] - 1;
+                [[currentStar.starLines objectAtIndex:lineCounter] replaceObjectAtIndex:slotNum withObject:@"1"];
+                lineWidth = max(slotNum, lineWidth);
+            }
+            
+            lineCounter ++;
+            if (lineCounter == 9)
+            {
+                currentStar.width = lineWidth;
+                [dict setObject:currentStar forKey:currentStarName];
+            }
+        }
+    }
+    
+    return dict;
 }
 @end

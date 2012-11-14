@@ -70,7 +70,7 @@
     /*
     
     */
-    if (targetObject.name == HERO)
+    if ([targetObject.name isEqualToString: HERO])
     {
         DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
         if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
@@ -98,7 +98,7 @@
             }
         }
         //            DLog(@"%@ Touch Hero",self.name);
-    } else if (targetObject.name == BOARD)
+    } else if ([targetObject.name isEqualToString: BOARD])
     {
         if (self.reaction != nil)
         {

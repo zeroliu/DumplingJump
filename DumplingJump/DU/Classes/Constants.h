@@ -7,9 +7,10 @@
 #define MAX_SPEED 3.125f
 #define ANIMATION_DELAY_INBETWEEN 0.1f
 #define SLOTS_NUM 9
+#define STAR_Y_INTERVAL 40
 #define DISTANCE_UNIT 0.015
 #define SCALE_MULTIPLIER 1.33f
-#define MASS_MULTIPLIER 9.8f
+#define MASS_MULTIPLIER 6.0f
 #define SHOCK_PRESSURE 200000
 
 #pragma mark -
@@ -63,6 +64,7 @@
 #define ARROW @"Arrow"
 #define STAR @"Star"
 #define ICE @"ice"
+#define EVERYTHING C_SLASH | C_HERO | C_BOARD | C_ADDTHING | C_STAR
 
 #pragma mark -
 #pragma mark Effects
@@ -98,6 +100,7 @@
 #define C_BOARD 0x0002
 #define C_ADDTHING 0x0004
 #define C_SLASH 0x0008
+#define C_STAR 0x00016
 
 #pragma mark -
 #pragma mark Others

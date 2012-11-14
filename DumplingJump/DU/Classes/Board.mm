@@ -42,9 +42,12 @@
         
         self.sprite = [CCSprite spriteWithSpriteFrameName:fileName];
         self.sprite.position = pos;
-        float scale = 370/2 / self.sprite.boundingBox.size.width * SCALE_MULTIPLIER;
+        float scaleX = 1.1f*370/2 / self.sprite.boundingBox.size.width * SCALE_MULTIPLIER;
+        float scaleY = 1.1f*40/2 / self.sprite.boundingBox.size.height * SCALE_MULTIPLIER;
+        
         NSLog(@"width: %g",self.sprite.boundingBox.size.width);
-        self.sprite.scale = scale;
+        self.sprite.scaleX = scaleX;
+        self.sprite.scaleY = scaleY;
         NSLog(@"after scale width: %g",self.sprite.boundingBox.size.width);
         [self initBoardPhysics];
         isUnderMissleEffect = NO;

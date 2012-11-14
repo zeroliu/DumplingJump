@@ -35,6 +35,7 @@
 -(void) shelter;
 -(void) magic:(NSArray *)value;
 -(void) blind;
+-(void) star;
 -(void) updateHeroForce;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

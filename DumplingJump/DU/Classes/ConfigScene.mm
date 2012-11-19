@@ -10,8 +10,11 @@
 #import "TextInputField.h"
 #import "HeroManager.h"
 #import "BoardManager.h"
+#import "GameLayer.h"
+#import "TestScene.h"
 
 @implementation ConfigScene
+/*
 +(CCScene *) scene
 {
     CCScene *scene = [CCScene node];
@@ -19,20 +22,17 @@
     [scene addChild:layer];
     return scene;
 }
+ */
 
 -(void) onExit
 {
-    NSArray *subViews = [[[CCDirector sharedDirector] view] subviews];
-    for (id view in subViews)
-    {
-        [view removeFromSuperview];
-    }
-
+    [super onExit];
 }
 
 -(id) init
 {
-    if (self = [super initWithColor:ccc4(192,192,192,125)])
+    //if (self = [super initWithColor:ccc4(192,192,192,125)])
+    if (self = [super init])
     {
         [self createBackButton];
         [self createConfigButtons];
@@ -190,7 +190,12 @@
 
 -(void) backToGame
 {
-    [[CCDirector sharedDirector] popScene];
+    NSArray *subViews = [[[CCDirector sharedDirector] view] subviews];
+    for (id view in subViews)
+    {
+        [view removeFromSuperview];
+    }
+    [[CCDirector sharedDirector] replaceScene:[GameLayer scene]];
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "HeroTestTool.h"
 #import "LevelTestTool.h"
 #import "ParamConfigTool.h"
+#import "CCBReader.h"
 
 @interface GameLayer()
 {
@@ -18,7 +19,6 @@
 }
 @property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) BackgroundController *bgController;
-
 @end
 
 @implementation GameLayer
@@ -27,26 +27,17 @@
 //@synthesize heroManager = _heroManager;
 
 @synthesize batchNode = _batchNode;
+
 -(void) onEnter
 {
     [super onEnter];
     DLog(@"GameLayer scene onEnter");
-    if (isReload)
-    {
-        DLog(@"is reload");
-        
-        [[LevelTestTool shared] reload];
-    }
-    isReload = false;
 }
 
 -(void) onExit
 {
     [super onExit];
     DLog(@"GameLayer scene onExit");
-    isReload = true;
-    
-    
 }
 
 +(CCScene *) scene
@@ -91,20 +82,61 @@
         [self initListener];
         [self initParameters];
         [self initGame];
+        [self initUILayer];
         
         [self initDebugTool];
         
         [self scheduleUpdate];
+        
+        paused = NO;
 	}
 	return self;
 }
 
+-(void) initUILayer
+{
+    CCNode *node = [CCBReader nodeGraphFromFile:@"GameUI.ccbi" owner:self];
+    node.position = ccp(0,[[CCDirector sharedDirector] winSize].height - node.boundingBox.size.height);
+    
+    [self addChild:node z:Z_GAMEUI];
+}
+
+-(void) TestPause:(id)sender
+{
+    DLog(@"TestPause");
+    if (!paused)
+    {
+        //[[CCDirector sharedDirector] stopAnimation];
+        [[CCDirector sharedDirector] pause];
+        paused = YES;
+    } else
+    {
+        //[[CCDirector sharedDirector] stopAnimation];
+        [[CCDirector sharedDirector] resume];
+        //[[CCDirector sharedDirector] startAnimation];
+        paused = NO;
+    }
+}
+
+-(void) testItem1:(id)sender
+{
+    DLog(@"item1");
+}
+-(void) testItem2:(id)sender
+{
+    DLog(@"item2");
+}
+-(void) testItem3:(id)sender
+{
+    DLog(@"item3");
+}
+
 -(void) initDebugTool
 {
-    [AddthingTestTool shared];
-    [HeroTestTool shared];
-    [LevelTestTool shared];
-    [ParamConfigTool shared];
+    //[[AddthingTestTool shared] reset];
+    [[HeroTestTool shared] reset];
+    [[LevelTestTool shared] reload];
+    [[ParamConfigTool shared] reset];
     
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
     
@@ -181,9 +213,9 @@
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
-        self.model.distance += DISTANCE_UNIT;
+        self.model.distance += DISTANCE_UNIT * 10;
+        [UI_scoreText setString:[NSString stringWithFormat:@"%d", (int)self.model.distance]];
         [[LevelManager shared] dropNextAddthing];
-        
     }
 }
 

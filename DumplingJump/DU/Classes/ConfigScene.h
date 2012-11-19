@@ -8,6 +8,6 @@
 
 #import "Common.h"
 
-@interface ConfigScene : CCLayerColor
-+(CCScene *) scene;
+@interface ConfigScene : CCScene
+//+(CCScene *) scene;
 @end

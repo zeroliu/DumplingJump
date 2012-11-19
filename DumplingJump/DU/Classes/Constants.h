@@ -14,6 +14,12 @@
 #define SHOCK_PRESSURE 200000
 
 #pragma mark -
+#pragma mark Layer Priority
+#define Z_GAMEUI 10
+#define Z_Hero 5
+#define Z_Board 6
+
+#pragma mark -
 #pragma mark Physics
 #define WORLD [[PhysicsManager sharedPhysicsManager] getWorld]
 #define GROUND [[PhysicsManager sharedPhysicsManager] getGround]

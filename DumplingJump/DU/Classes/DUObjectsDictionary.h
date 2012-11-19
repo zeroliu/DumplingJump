@@ -16,7 +16,7 @@
 -(BOOL) containsDUObject:(NSString *)theName;
 -(id) getDUObjectbyName:(NSString *)theName;
 -(void) addDUObject:(DUObject *)theObject;
-
+-(void) cleanObjectByName:(NSString *)theName;
 -(NSString *) printDictionary;
 
 @end

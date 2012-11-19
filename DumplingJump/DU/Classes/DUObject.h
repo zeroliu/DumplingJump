@@ -11,4 +11,5 @@
 -(void) archive;
 -(void) activate;
 -(void) deactivate;
+-(void) remove;
 @end

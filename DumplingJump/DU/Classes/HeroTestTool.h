@@ -10,4 +10,5 @@
 
 @interface HeroTestTool : CCNode
 +(id) shared;
+-(void) reset;
 @end

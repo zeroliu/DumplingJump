@@ -1,4 +1,5 @@
 #import "BoardManager.h"
+#import "DUObjectsDictionary.h"
 
 #define FREQ_L 1.2f
 #define FREQ_M 1.0f
@@ -43,7 +44,11 @@
 -(id) createBoardWithSpriteName:(NSString *)fileName position:(CGPoint) pos
 {
     //Remove the existing board
-    if (self.board != nil) [self.board release];
+    if (self.board != nil)
+    {
+        [self.board remove];
+        self.board = nil;
+    }
     //Create new board with the board name and the position
     self.board = [[Board alloc] initBoardWithBoardName:BOARD spriteName:fileName position:pos leftFreq:self.freq_l middleFreq:self.freq_m rightFreq:self.freq_r leftDamp:self.damp_l middleDamp:self.damp_m rightDamp:self.damp_r];
     //Add the board to the view

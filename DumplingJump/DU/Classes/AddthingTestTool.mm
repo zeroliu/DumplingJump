@@ -44,12 +44,22 @@
 {
     if (self = [super init])
     {
-        repeat = 1;
-        [self initDropList];
-        [self createUI];
+        [self reset];
     }
     
     return self;
+}
+
+-(void) reset
+{
+    [_addthingDropList release];
+    _addthingDropList = nil;
+    [addthingArray release];
+    addthingArray = nil;
+    repeat = 1;
+    [self initDropList];
+    [self createUI];
+    
 }
 
 -(void) initDropList
@@ -178,10 +188,6 @@
 
 -(void) dealloc
 {
-//    [_plusItem release];
-//    _plusItem = nil;
-//    [_minusItem release];
-//    _minusItem = nil;
     [item1 release];
     [item2 release];
     [item3 release];

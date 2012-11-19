@@ -1,5 +1,4 @@
 #import "PhysicsManager.h"
-#import "DUContactListener.h"
 #import "Hero.h"
 #import "HeroManager.h"
 #import "LevelManager.h"
@@ -7,6 +6,7 @@
 @interface PhysicsManager()
 {
     NSMutableArray *physicsToRemove;
+    DUContactListener *listener;
 }
 
 @end
@@ -45,7 +45,6 @@
     b2BodyDef def;
     ground = world->CreateBody(&def);
     
-    DUContactListener *listener;
     listener = new DUContactListener();
     world->SetContactListener(listener);
     
@@ -108,9 +107,11 @@
 
 -(void) dealloc
 {
+    delete listener;
     delete world;
 	world = NULL;
-    
+    //[physicsToRemove release];
+    physicsToRemove = nil;
     [super dealloc];
 }
 

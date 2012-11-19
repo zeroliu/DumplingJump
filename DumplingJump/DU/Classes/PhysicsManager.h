@@ -1,6 +1,6 @@
 #import "Common.h"
 #import "DUPhysicsObject.h"
-
+#import "DUContactListener.h"
 #define RATIO 32
 
 @interface PhysicsManager : CCNode

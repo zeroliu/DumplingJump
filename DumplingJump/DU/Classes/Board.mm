@@ -18,10 +18,10 @@
     float _damp_m;
     float _damp_r;
     
-    b2DistanceJointDef rocketDisJointDef_L;
-    b2DistanceJointDef rocketDisJointDef_R;
-    b2DistanceJointDef rocketDisjointDef_MR;
-    b2DistanceJointDef rocketDisjointDef_ML;
+    b2Joint *jointL;
+    b2Joint *jointR;
+    b2Joint *jointMR;
+    b2Joint *jointML;
 }
 
 
@@ -89,6 +89,11 @@
 
 -(void) createBoardJoints
 {
+    b2DistanceJointDef rocketDisJointDef_L;
+    b2DistanceJointDef rocketDisJointDef_R;
+    b2DistanceJointDef rocketDisjointDef_MR;
+    b2DistanceJointDef rocketDisjointDef_ML;
+    
     float plateWidth = self.sprite.boundingBox.size.width;
     b2World *world = [[PhysicsManager sharedPhysicsManager] getWorld];
     b2Body *ground = [[PhysicsManager sharedPhysicsManager] getGround];
@@ -103,7 +108,7 @@
     rocketDisJointDef_L.frequencyHz = _freq_l;
     rocketDisJointDef_L.dampingRatio = _damp_l;
     rocketDisJointDef_L.userData = @"rocketDisJointDef_L";
-    world->CreateJoint(&rocketDisJointDef_L);
+    jointL = world->CreateJoint(&rocketDisJointDef_L);
     
     b2Vec2 anchor_R = b2Vec2(self.body->GetPosition().x + plateWidth/2/RATIO,
                              self.body->GetPosition().y);
@@ -115,7 +120,7 @@
     rocketDisJointDef_R.frequencyHz = _freq_r;
     rocketDisJointDef_R.dampingRatio = _damp_r;
     rocketDisJointDef_R.userData = @"rocketDisJointDef_R";
-    world->CreateJoint(&rocketDisJointDef_R);
+    jointR = world->CreateJoint(&rocketDisJointDef_R);
     
     b2Vec2 anchor_MR = b2Vec2(self.body->GetPosition().x,
                               self.body->GetPosition().y);
@@ -126,7 +131,8 @@
     rocketDisjointDef_MR.collideConnected = true;
     rocketDisjointDef_MR.frequencyHz = _freq_m;
     rocketDisjointDef_MR.dampingRatio = _damp_m;
-    world->CreateJoint(&rocketDisjointDef_MR);
+    rocketDisjointDef_MR.userData = @"rocketDisJointDef_MR";
+    jointMR = world->CreateJoint(&rocketDisjointDef_MR);
     
     b2Vec2 anchor_LR = b2Vec2(self.body->GetPosition().x,
                               self.body->GetPosition().y);
@@ -137,7 +143,8 @@
     rocketDisjointDef_ML.collideConnected = true;
     rocketDisjointDef_ML.frequencyHz = _freq_m;
     rocketDisjointDef_ML.dampingRatio = _damp_m;
-    world->CreateJoint(&rocketDisjointDef_ML);
+    rocketDisjointDef_ML.userData = @"rocketDisJointDef_ML";
+    jointML = world->CreateJoint(&rocketDisjointDef_ML);
 }
 
 -(void) missleEffectWithDirection:(int)direction
@@ -197,6 +204,11 @@
 
 -(void) dealloc
 {
+    b2World *world = [[PhysicsManager sharedPhysicsManager] getWorld];
+    world->DestroyJoint(jointML);
+    world->DestroyJoint(jointMR);
+    world->DestroyJoint(jointL);
+    world->DestroyJoint(jointR);
     [super dealloc];
 }
 

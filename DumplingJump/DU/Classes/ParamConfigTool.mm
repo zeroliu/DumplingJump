@@ -19,10 +19,15 @@
 {
     if (self = [super init])
     {
-        [self createGotoConfigSceneButton];
+        [self reset];
     }
     
     return self;
+}
+
+-(void) reset
+{
+    [self createGotoConfigSceneButton];
 }
 
 -(void) createGotoConfigSceneButton
@@ -42,6 +47,6 @@
     {
         [view removeFromSuperview];
     }
-    [[CCDirector sharedDirector] pushScene:[CCTransitionShrinkGrow transitionWithDuration:0.2f scene:[ConfigScene scene]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:0.2f scene:[ConfigScene node]]];
 }
 @end

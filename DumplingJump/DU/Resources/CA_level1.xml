@@ -96,6 +96,7 @@
 	</level>
 	<level>
 		<time>22</time>
+        <slot2>star1</slot2>
 	</level>
 	<level>
 		<time>23</time>
@@ -126,5 +127,9 @@
 	<level>
 		<time>30</time>
 		<slot3>VAT</slot3>
+	</level>
+    <level>
+		<time>31</time>
+		<slot3>star1</slot3>
 	</level>
 </stage1>

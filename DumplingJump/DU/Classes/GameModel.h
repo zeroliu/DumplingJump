@@ -14,5 +14,5 @@
 //@property (assign, nonatomic) float scrollSpeed;
 @property (nonatomic, retain) Level *currentLevel;
 @property (nonatomic, assign) int state;
-@property (nonatomic, assign) int distance;
+@property (nonatomic, assign) float distance;
 @end

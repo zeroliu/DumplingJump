@@ -27,10 +27,15 @@
 {
     if (self = [super init])
     {
-        [self createUI];
+        [self reset];
     }
     
     return self;
+}
+
+-(void) reset
+{
+    [self createUI];
 }
 
 -(void) createUI

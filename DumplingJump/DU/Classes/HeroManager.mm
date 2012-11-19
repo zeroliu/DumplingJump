@@ -1,5 +1,6 @@
 #import "HeroManager.h"
 #import "ReactionFunctions.h"
+#import "DUObjectsDictionary.h"
 
 #define HERO_RADIUS 13.0f
 #define HERO_MASS 13.0f
@@ -48,7 +49,11 @@
 
 -(id)createHeroWithPosition:(CGPoint)thePosition
 {
-    if (self.hero != nil) [self.hero archive];
+    if (self.hero != nil)
+    {
+        [self.hero remove];
+//        [[DUObjectsDictionary sharedDictionary] cleanObjectByName:HERO];
+    }
     self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump gravityValue:self.heroGravity];
     [self.hero addChildTo:BATCHNODE z:5];
     [self.hero idle];

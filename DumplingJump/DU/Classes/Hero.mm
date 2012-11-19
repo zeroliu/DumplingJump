@@ -95,13 +95,13 @@
     heroFixtureDef.restitution = 0;
     heroFixtureDef.filter.categoryBits = C_HERO;
     heroFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING | C_STAR;
-    
+    /*
     b2CircleShape shellShape;
     shellShape.m_radius = self.radius * 1.5f * RATIO * SCALE_MULTIPLIER;
     shellFixtureDef.shape = &shellShape;
     shellFixtureDef.friction = self.fric;
     shellFixtureDef.restitution = 0;
-    
+    */
     self.body->CreateFixture(&heroFixtureDef);
     
     self.body->SetFixedRotation(true);
@@ -123,13 +123,21 @@
 
 -(void) initGestureHandler
 {
+    /*
     [[InputManager sharedInputManager] watchForSwipeWithDirection:UISwipeGestureRecognizerDirectionUp selector:@selector(onSwipeUpDetected:) target:self number:1];
+     */
 }
 
 -(void) initContactListener
 {
     [MESSAGECENTER addObserver:self selector:@selector(heroLandOnObject:) name:[NSString stringWithFormat:@"%@Contact",self.name] object:nil];
     [MESSAGECENTER addObserver:self selector:@selector(heroLandOffObject:) name:[NSString stringWithFormat:@"%@EndContact",self.name] object:nil];
+}
+
+-(void) removeContactListner
+{
+    [MESSAGECENTER removeObserver:self name:[NSString stringWithFormat:@"%@Contact",self.name] object:nil];
+    [MESSAGECENTER removeObserver:self name:[NSString stringWithFormat:@"%@EndContact",self.name] object:nil];
 }
 
 -(void) updateHeroForce
@@ -218,13 +226,13 @@
         
         adjustJump = 1;
         adjustMove = 1;
-        
+        /*
         if (shellFixture != NULL)
         {
             self.body->DestroyFixture(shellFixture);
             shellFixture = NULL;
         }
-        
+        */
         [GAMELAYER unschedule:@selector(fire)];
         
         if (maskNode != nil)
@@ -389,6 +397,7 @@
 -(void) dealloc
 {
     //    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [self removeContactListner];
     [super dealloc];
 }
 

@@ -7,13 +7,11 @@
 //
 
 #import "Common.h"
-#import "DUContactListener.h"
 #import "CircleMask.h"
 @interface Hero : DUPhysicsObject
 {
-    DUContactListener *listener;
-    b2FixtureDef shellFixtureDef;
-    b2Fixture *shellFixture;
+    //b2FixtureDef shellFixtureDef;
+    //b2Fixture *shellFixture;
     CircleMask *maskNode;
 }
 

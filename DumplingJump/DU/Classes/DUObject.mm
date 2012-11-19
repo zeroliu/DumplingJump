@@ -23,6 +23,12 @@
     [[DUObjectsDictionary sharedDictionary] addDUObject:self];
 }
 
+-(void) remove
+{
+    [self deactivate];
+    [self release];
+}
+
 -(void) activate
 {
     self.archived = NO;

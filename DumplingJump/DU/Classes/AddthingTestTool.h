@@ -11,5 +11,5 @@
 @interface AddthingTestTool : CCNode
 
 +(id) shared;
-
+-(void) reset;
 @end

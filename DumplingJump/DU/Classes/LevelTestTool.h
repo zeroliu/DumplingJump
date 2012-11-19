@@ -16,5 +16,4 @@
 }
 +(id) shared;
 -(void) reload;
-
 @end

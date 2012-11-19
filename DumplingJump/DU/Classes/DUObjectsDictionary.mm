@@ -80,4 +80,13 @@
     }
 }
 
+-(void) cleanObjectByName:(NSString *)theName
+{
+    NSMutableArray *myArray = [DUDictionary objectForKey:theName];
+    if (myArray)
+    {
+        [myArray release];
+    }
+}
+
 @end

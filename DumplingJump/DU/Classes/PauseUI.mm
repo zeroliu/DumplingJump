@@ -39,7 +39,7 @@
 -(void)resumeGame:(id)sender
 {
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
-    id delay = [CCDelayTime actionWithDuration:0.2];
+    id delay = [CCDelayTime actionWithDuration:0.5];
     id resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(resumeGame)];
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
     id sequence = [CCSequence actions:delay, resumeGameFunc, selfDestruction, nil];
@@ -49,7 +49,7 @@
 
 -(void)restartGame:(id)sender
 {
-    id delay = [CCDelayTime actionWithDuration:0.2];
+    id delay = [CCDelayTime actionWithDuration:0.5];
     id restartGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(restart)];
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
     id sequence = [CCSequence actions:delay, restartGameFunc, selfDestruction, nil];

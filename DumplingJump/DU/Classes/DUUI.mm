@@ -23,7 +23,7 @@
 -(void) destroy
 {
     [node removeFromParentAndCleanup:NO];
-    [node release];
-    node = nil;
+    //[node release];
+    //node = nil;
 }
 @end

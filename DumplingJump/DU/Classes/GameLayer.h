@@ -8,12 +8,12 @@
     GLESDebugDraw *m_debugDraw;
     b2World *world;
     BOOL isReload;
-    
-    CCLabelTTF *UI_scoreText;
-    BOOL paused;
 }
 //@property (nonatomic, retain) HeroManager *heroManager;
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;
 
+-(void) gameOver;
+-(void) pauseGame;
+-(void) resumeGame;
 @end

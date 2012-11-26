@@ -88,9 +88,13 @@
                                   b->GetPosition().y * RATIO);
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
             
-            if(![physicsObject isMemberOfClass:Hero.class])
+            
+            if (physicsObject.sprite.position.y < -600 || physicsObject.sprite.position.y > 2000)
             {
-                if (physicsObject.sprite.position.y < -600 || physicsObject.sprite.position.y > 2000)
+                if([physicsObject isMemberOfClass:Hero.class])
+                {
+                    [[[Hub shared]gameLayer] gameOver];
+                } else
                 {
                     [[LevelManager shared] removeObjectFromList:physicsObject];
                     [physicsObject archive];

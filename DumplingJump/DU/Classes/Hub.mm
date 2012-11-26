@@ -7,7 +7,7 @@
 //
 
 #import "Hub.h"
-
+#import "GameLayer.h"
 @implementation Hub
 @synthesize gameLayer = _gameLayer;
 
@@ -20,4 +20,7 @@
     }
     return shared;
 }
+
+
+
 @end

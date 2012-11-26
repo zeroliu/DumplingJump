@@ -11,12 +11,10 @@
 #import "HeroTestTool.h"
 #import "LevelTestTool.h"
 #import "ParamConfigTool.h"
-#import "CCBReader.h"
+#import "GameUI.h"
+#import "DeadUI.h"
 
 @interface GameLayer()
-{
-    
-}
 @property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) BackgroundController *bgController;
 @end
@@ -46,10 +44,9 @@
 	CCScene *scene = [CCScene node];
 	
 //	autorelease object.
-	GameLayer *layer = [GameLayer node];
-
-	[scene addChild: layer];
-	
+	GameLayer *gamelayer = [GameLayer node];
+    gamelayer.tag = GAMELAYER_TAG;
+	[scene addChild: gamelayer z:1];
 	return scene;
 }
 
@@ -79,56 +76,14 @@
         [self initBatchNode];
         [self preloadGameData];
         [self initManagers];
-        [self initListener];
-        [self initParameters];
+        [self initUI];
         [self initGame];
-        [self initUILayer];
         
-        [self initDebugTool];
+        //[self initDebugTool];
         
         [self scheduleUpdate];
-        
-        paused = NO;
 	}
 	return self;
-}
-
--(void) initUILayer
-{
-    CCNode *node = [CCBReader nodeGraphFromFile:@"GameUI.ccbi" owner:self];
-    node.position = ccp(0,[[CCDirector sharedDirector] winSize].height - node.boundingBox.size.height);
-    
-    [self addChild:node z:Z_GAMEUI];
-}
-
--(void) TestPause:(id)sender
-{
-    DLog(@"TestPause");
-    if (!paused)
-    {
-        //[[CCDirector sharedDirector] stopAnimation];
-        [[CCDirector sharedDirector] pause];
-        paused = YES;
-    } else
-    {
-        //[[CCDirector sharedDirector] stopAnimation];
-        [[CCDirector sharedDirector] resume];
-        //[[CCDirector sharedDirector] startAnimation];
-        paused = NO;
-    }
-}
-
--(void) testItem1:(id)sender
-{
-    DLog(@"item1");
-}
--(void) testItem2:(id)sender
-{
-    DLog(@"item2");
-}
--(void) testItem3:(id)sender
-{
-    DLog(@"item3");
 }
 
 -(void) initDebugTool
@@ -139,7 +94,7 @@
     [[ParamConfigTool shared] reset];
     
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
-    
+    /*
     m_debugDraw = new GLESDebugDraw(RATIO);
     world->SetDebugDraw(m_debugDraw);
     uint32 flags = 0;
@@ -149,7 +104,7 @@
     flags += b2Draw::e_pairBit;
     flags += b2Draw::e_centerOfMassBit;
     m_debugDraw->SetFlags(flags);
-    
+    */
 }
 
 -(void) initBatchNode
@@ -165,9 +120,9 @@
     _bgController = [[BackgroundController alloc] init];
 }
 
--(void) initListener
+-(void) initUI
 {
-    //    [MESSAGECENTER addObserver:self selector:@selector(gameStart) name:GAMELAYER_INITIALIZED object:nil];
+    [[GameUI shared] createUI];
 }
 
 -(void) preloadGameData
@@ -190,11 +145,6 @@
     [self startGame];
 }
 
--(void) initParameters
-{
-    
-}
-
 -(void) setLevelWithName:(NSString *)levelName
 {
     //Set the currentLevel by loading from levelManager
@@ -214,7 +164,7 @@
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         self.model.distance += DISTANCE_UNIT * 10;
-        [UI_scoreText setString:[NSString stringWithFormat:@"%d", (int)self.model.distance]];
+        [[GameUI shared] updateDistance:(int)self.model.distance];
         [[LevelManager shared] dropNextAddthing];
     }
 }
@@ -222,14 +172,11 @@
 -(void) startGame
 {
     self.model.state = GAME_START;
-    
-    
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     [[[HeroManager shared] getHero] jump];
-    
 }
 
 -(void) fire
@@ -238,8 +185,64 @@
     slash.body->SetLinearVelocity(b2Vec2(0,24));
 }
 
+-(void) gameOver
+{
+    [self pauseGame];
+    [[DeadUI shared] createUI];
+}
+
+-(void) restart
+{
+    //Reset score
+    self.model.distance = 0;
+    
+    //Reset star
+    
+    //Destroy all objects
+    [[LevelManager shared] destroyAllObjects];
+    
+    //Reset Level
+    [[LevelManager shared] stopCurrentParagraph];
+    
+    //Reset Hero
+    [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
+    
+    //Reset Board
+    [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,120*SCALE_MULTIPLIER)];
+    
+    //Show Fade out animation
+    [[GameUI shared] fadeOut];
+    
+    //Resume game
+    [self resumeGame];
+}
+
+-(void) pauseGame
+{
+    [self pauseSchedulerAndActions];
+    [BATCHNODE pauseSchedulerAndActions];
+    //self.batchNode.isRunning = NO;
+    CCNode *child;
+    CCARRAY_FOREACH([BATCHNODE children], child)
+    {
+        [child pauseSchedulerAndActions];
+    }
+}
+
+-(void) resumeGame
+{
+    CCNode *child;
+    CCARRAY_FOREACH([BATCHNODE children], child)
+    {
+        [child resumeSchedulerAndActions];
+    }
+    [self resumeSchedulerAndActions];
+    [BATCHNODE resumeSchedulerAndActions];
+}
+
 -(void) draw
 {
+    /*
     [super draw];
     ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 	
@@ -248,6 +251,7 @@
 	world->DrawDebugData();
 	
 	kmGLPopMatrix();
+     */
 }
 #pragma mark -
 #pragma mark ListenerHandlers

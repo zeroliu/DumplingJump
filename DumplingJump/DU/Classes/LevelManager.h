@@ -21,4 +21,5 @@
 -(int) paragraphsCount;
 -(void) removeObjectFromList:(DUObject *)myObject;
 -(void) destroyAllObjects;
+-(void) stopCurrentParagraph;
 @end

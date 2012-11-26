@@ -150,6 +150,11 @@
     }
 }
 
+-(void) stopCurrentParagraph
+{
+    currentParagraph = nil;
+}
+
 -(void) removeObjectFromList:(DUObject *)myObject
 {
     [self.generatedObjects removeObject:myObject];

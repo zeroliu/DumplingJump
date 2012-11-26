@@ -12,9 +12,13 @@
 #define SCALE_MULTIPLIER 1.33f
 #define MASS_MULTIPLIER 6.0f
 #define SHOCK_PRESSURE 200000
+#define GAMELAYER_TAG 1
+#define GAMEUI_TAG 2
 
 #pragma mark -
 #pragma mark Layer Priority
+#define Z_DEADUI 15
+#define Z_PAUSEUI 15
 #define Z_GAMEUI 10
 #define Z_Hero 5
 #define Z_Board 6

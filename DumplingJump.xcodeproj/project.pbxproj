@@ -30,6 +30,17 @@
 		7F30164D15BE8F2A006870EF /* DUPhysicsObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F30164C15BE8F2A006870EF /* DUPhysicsObject.mm */; };
 		7F307C89160373F1004D5203 /* ReactionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F307C88160373F1004D5203 /* ReactionManager.mm */; };
 		7F307C8D16038111004D5203 /* AddthingObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F307C8C16038111004D5203 /* AddthingObject.mm */; };
+		7F3288831662D89200DF86FC /* GameUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F3288821662D89200DF86FC /* GameUI.mm */; };
+		7F3288861662E5D800DF86FC /* DeadUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F3288851662E5D800DF86FC /* DeadUI.mm */; };
+		7F32888E166331AC00DF86FC /* DUUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F32888D166331AC00DF86FC /* DUUI.mm */; };
+		7F3288901663375E00DF86FC /* GameUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F32888F1663375E00DF86FC /* GameUI.ccbi */; };
+		7F3288921663376500DF86FC /* DeadUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F3288911663376500DF86FC /* DeadUI.ccbi */; };
+		7F3288951663385C00DF86FC /* PauseUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F3288941663385C00DF86FC /* PauseUI.mm */; };
+		7F3288991663419600DF86FC /* AchievementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3288981663419600DF86FC /* AchievementNode.m */; };
+		7F32889C166341A800DF86FC /* MissionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F32889B166341A800DF86FC /* MissionNode.m */; };
+		7F32889E1663442A00DF86FC /* PauseUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F32889D1663442A00DF86FC /* PauseUI.ccbi */; };
+		7F3288A0166345AF00DF86FC /* MissionNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F32889F166345AF00DF86FC /* MissionNode.ccbi */; };
+		7F3288A2166345B900DF86FC /* AchievementNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F3288A1166345B900DF86FC /* AchievementNode.ccbi */; };
 		7F3A0D0A161C13DD00DC0DDF /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0C49161C13DD00DC0DDF /* CCAction.m */; };
 		7F3A0D0B161C13DD00DC0DDF /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0C4B161C13DD00DC0DDF /* CCActionCamera.m */; };
 		7F3A0D0C161C13DD00DC0DDF /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0C4D161C13DD00DC0DDF /* CCActionCatmullRom.m */; };
@@ -211,6 +222,10 @@
 		7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505F15BD166E000A9C5F /* DUSprite.mm */; };
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
+		7F4FEC97165F05D1008C49A9 /* sheetUI-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC93165F05D1008C49A9 /* sheetUI-hd.plist */; };
+		7F4FEC98165F05D1008C49A9 /* sheetUI-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */; };
+		7F4FEC99165F05D1008C49A9 /* sheetUI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC95165F05D1008C49A9 /* sheetUI.plist */; };
+		7F4FEC9A165F05D1008C49A9 /* sheetUI.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC96165F05D1008C49A9 /* sheetUI.png */; };
 		7F57279E163521570023B985 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5E5DB16351A4D0018B085 /* libxml2.dylib */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
 		7F5CC1E01602B07F00E45EDD /* Reaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CC1DF1602B07F00E45EDD /* Reaction.mm */; };
@@ -318,8 +333,6 @@
 		7FEA39E9165A0AE1005350F2 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA39CB165A0AE1005350F2 /* unzip.c */; };
 		7FEA39EA165A0AE1005350F2 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA39CD165A0AE1005350F2 /* zip.c */; };
 		7FEA39EB165A0AE1005350F2 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA39D0165A0AE1005350F2 /* SSZipArchive.m */; };
-		7FEA39F5165A1AEB005350F2 /* GameUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA39F3165A1AEB005350F2 /* GameUI.ccbi */; };
-		7FEA39F6165A1AEB005350F2 /* MainMenu.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA39F4165A1AEB005350F2 /* MainMenu.ccbi */; };
 		7FEA39F8165A1F32005350F2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA39F7165A1F32005350F2 /* pause.png */; };
 		7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */; };
 		7FF5E5C4163516E40018B085 /* XMLHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5C3163516E40018B085 /* XMLHelper.mm */; };
@@ -378,6 +391,23 @@
 		7F307C88160373F1004D5203 /* ReactionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionManager.mm; sourceTree = "<group>"; };
 		7F307C8B16038111004D5203 /* AddthingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddthingObject.h; sourceTree = "<group>"; };
 		7F307C8C16038111004D5203 /* AddthingObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingObject.mm; sourceTree = "<group>"; };
+		7F3288811662D89200DF86FC /* GameUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameUI.h; sourceTree = "<group>"; };
+		7F3288821662D89200DF86FC /* GameUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameUI.mm; sourceTree = "<group>"; };
+		7F3288841662E5D800DF86FC /* DeadUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadUI.h; sourceTree = "<group>"; };
+		7F3288851662E5D800DF86FC /* DeadUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeadUI.mm; sourceTree = "<group>"; };
+		7F32888C166331AC00DF86FC /* DUUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUUI.h; sourceTree = "<group>"; };
+		7F32888D166331AC00DF86FC /* DUUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUUI.mm; sourceTree = "<group>"; };
+		7F32888F1663375E00DF86FC /* GameUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameUI.ccbi; path = DumplingJump/DU/GameUI.ccbi; sourceTree = SOURCE_ROOT; };
+		7F3288911663376500DF86FC /* DeadUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = DeadUI.ccbi; path = DumplingJump/DU/DeadUI.ccbi; sourceTree = SOURCE_ROOT; };
+		7F3288931663385C00DF86FC /* PauseUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseUI.h; sourceTree = "<group>"; };
+		7F3288941663385C00DF86FC /* PauseUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PauseUI.mm; sourceTree = "<group>"; };
+		7F3288971663419600DF86FC /* AchievementNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementNode.h; sourceTree = "<group>"; };
+		7F3288981663419600DF86FC /* AchievementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementNode.m; sourceTree = "<group>"; };
+		7F32889A166341A800DF86FC /* MissionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MissionNode.h; sourceTree = "<group>"; };
+		7F32889B166341A800DF86FC /* MissionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MissionNode.m; sourceTree = "<group>"; };
+		7F32889D1663442A00DF86FC /* PauseUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = PauseUI.ccbi; path = DumplingJump/DU/PauseUI.ccbi; sourceTree = SOURCE_ROOT; };
+		7F32889F166345AF00DF86FC /* MissionNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = MissionNode.ccbi; path = DumplingJump/DU/MissionNode.ccbi; sourceTree = SOURCE_ROOT; };
+		7F3288A1166345B900DF86FC /* AchievementNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementNode.ccbi; path = DumplingJump/DU/AchievementNode.ccbi; sourceTree = SOURCE_ROOT; };
 		7F3A0C48161C13DD00DC0DDF /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		7F3A0C49161C13DD00DC0DDF /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		7F3A0C4A161C13DD00DC0DDF /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -755,6 +785,10 @@
 		7F4F506215BD1700000A9C5F /* DUObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObject.mm; sourceTree = "<group>"; };
 		7F4F506515BD1B17000A9C5F /* DUObjectsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUObjectsDictionary.h; sourceTree = "<group>"; };
 		7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObjectsDictionary.mm; sourceTree = "<group>"; };
+		7F4FEC93165F05D1008C49A9 /* sheetUI-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-hd.plist"; sourceTree = "<group>"; };
+		7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-hd.png"; sourceTree = "<group>"; };
+		7F4FEC95165F05D1008C49A9 /* sheetUI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetUI.plist; sourceTree = "<group>"; };
+		7F4FEC96165F05D1008C49A9 /* sheetUI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetUI.png; sourceTree = "<group>"; };
 		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
 		7F5CC1DE1602B07F00E45EDD /* Reaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reaction.h; sourceTree = "<group>"; };
@@ -1108,8 +1142,6 @@
 		7FEA39CE165A0AE1005350F2 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		7FEA39CF165A0AE1005350F2 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		7FEA39D0165A0AE1005350F2 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
-		7FEA39F3165A1AEB005350F2 /* GameUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameUI.ccbi; path = DumplingJump/DU/GameUI.ccbi; sourceTree = SOURCE_ROOT; };
-		7FEA39F4165A1AEB005350F2 /* MainMenu.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = MainMenu.ccbi; path = DumplingJump/DU/MainMenu.ccbi; sourceTree = SOURCE_ROOT; };
 		7FEA39F7165A1F32005350F2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		7FF4977E15BBA3C6008EDF37 /* AccelerometerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerManager.h; sourceTree = "<group>"; };
 		7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerometerManager.mm; sourceTree = "<group>"; };
@@ -1214,6 +1246,33 @@
 				7F68937915CBBAD800B8C80C /* ScoreManager.mm */,
 			);
 			name = SharedManager;
+			sourceTree = "<group>";
+		};
+		7F32887F1662D87800DF86FC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7F3288961663416B00DF86FC /* SubCCB */,
+				7F3288811662D89200DF86FC /* GameUI.h */,
+				7F3288821662D89200DF86FC /* GameUI.mm */,
+				7F3288841662E5D800DF86FC /* DeadUI.h */,
+				7F3288851662E5D800DF86FC /* DeadUI.mm */,
+				7F32888C166331AC00DF86FC /* DUUI.h */,
+				7F32888D166331AC00DF86FC /* DUUI.mm */,
+				7F3288931663385C00DF86FC /* PauseUI.h */,
+				7F3288941663385C00DF86FC /* PauseUI.mm */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		7F3288961663416B00DF86FC /* SubCCB */ = {
+			isa = PBXGroup;
+			children = (
+				7F3288971663419600DF86FC /* AchievementNode.h */,
+				7F3288981663419600DF86FC /* AchievementNode.m */,
+				7F32889A166341A800DF86FC /* MissionNode.h */,
+				7F32889B166341A800DF86FC /* MissionNode.m */,
+			);
+			name = SubCCB;
 			sourceTree = "<group>";
 		};
 		7F3A0C47161C13DD00DC0DDF /* cocos2d */ = {
@@ -1923,6 +1982,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F32887F1662D87800DF86FC /* UI */,
 				7F1632E6162B831E00C132B1 /* Debug */,
 				7FF0822215B2355200E093E1 /* System */,
 				7FD820F915D863A3003AFCB8 /* DUClasses */,
@@ -2030,6 +2090,10 @@
 		7F7010F915AFEFFE00495B10 /* spriteSheets */ = {
 			isa = PBXGroup;
 			children = (
+				7F4FEC93165F05D1008C49A9 /* sheetUI-hd.plist */,
+				7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */,
+				7F4FEC95165F05D1008C49A9 /* sheetUI.plist */,
+				7F4FEC96165F05D1008C49A9 /* sheetUI.png */,
 				7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */,
 				7F1632F8162BE8F900C132B1 /* sheetBackground1.png */,
 				7F1632F3162BE7EA00C132B1 /* sheetBackground1-hd.plist */,
@@ -2542,8 +2606,11 @@
 		7FEA39EC165A10D3005350F2 /* UILayouts */ = {
 			isa = PBXGroup;
 			children = (
-				7FEA39F3165A1AEB005350F2 /* GameUI.ccbi */,
-				7FEA39F4165A1AEB005350F2 /* MainMenu.ccbi */,
+				7F3288A1166345B900DF86FC /* AchievementNode.ccbi */,
+				7F32889F166345AF00DF86FC /* MissionNode.ccbi */,
+				7F32889D1663442A00DF86FC /* PauseUI.ccbi */,
+				7F3288911663376500DF86FC /* DeadUI.ccbi */,
+				7F32888F1663375E00DF86FC /* GameUI.ccbi */,
 			);
 			name = UILayouts;
 			sourceTree = "<group>";
@@ -2749,9 +2816,16 @@
 				7F9DC1F016538D7800E65AA7 /* CA_star_1.png in Resources */,
 				7FEA39E4165A0AE1005350F2 /* README.md in Resources */,
 				7FEA39E6165A0AE1005350F2 /* LICENSE in Resources */,
-				7FEA39F5165A1AEB005350F2 /* GameUI.ccbi in Resources */,
-				7FEA39F6165A1AEB005350F2 /* MainMenu.ccbi in Resources */,
 				7FEA39F8165A1F32005350F2 /* pause.png in Resources */,
+				7F4FEC97165F05D1008C49A9 /* sheetUI-hd.plist in Resources */,
+				7F4FEC98165F05D1008C49A9 /* sheetUI-hd.png in Resources */,
+				7F4FEC99165F05D1008C49A9 /* sheetUI.plist in Resources */,
+				7F4FEC9A165F05D1008C49A9 /* sheetUI.png in Resources */,
+				7F3288901663375E00DF86FC /* GameUI.ccbi in Resources */,
+				7F3288921663376500DF86FC /* DeadUI.ccbi in Resources */,
+				7F32889E1663442A00DF86FC /* PauseUI.ccbi in Resources */,
+				7F3288A0166345AF00DF86FC /* MissionNode.ccbi in Resources */,
+				7F3288A2166345B900DF86FC /* AchievementNode.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2999,6 +3073,12 @@
 				7FEA39E9165A0AE1005350F2 /* unzip.c in Sources */,
 				7FEA39EA165A0AE1005350F2 /* zip.c in Sources */,
 				7FEA39EB165A0AE1005350F2 /* SSZipArchive.m in Sources */,
+				7F3288831662D89200DF86FC /* GameUI.mm in Sources */,
+				7F3288861662E5D800DF86FC /* DeadUI.mm in Sources */,
+				7F32888E166331AC00DF86FC /* DUUI.mm in Sources */,
+				7F3288951663385C00DF86FC /* PauseUI.mm in Sources */,
+				7F3288991663419600DF86FC /* AchievementNode.m in Sources */,
+				7F32889C166341A800DF86FC /* MissionNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

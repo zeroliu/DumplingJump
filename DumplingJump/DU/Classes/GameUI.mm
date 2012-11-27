@@ -9,7 +9,7 @@
 #import "GameUI.h"
 #import "PauseUI.h"
 #import "CCBReader.h"
-
+#import "HeroManager.h"
 @implementation GameUI
 +(id) shared
 {
@@ -39,11 +39,11 @@
 
 -(void) testItem1:(id)sender
 {
-    DLog(@"item1");
+    [[[HeroManager shared] getHero] bombPowerup];
 }
 -(void) testItem2:(id)sender
 {
-    DLog(@"item2");
+    [[[HeroManager shared] getHero] rebornPowerup];
 }
 -(void) testItem3:(id)sender
 {

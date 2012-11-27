@@ -35,5 +35,7 @@
 -(void) blind;
 -(void) star;
 -(void) updateHeroForce;
+-(void) bombPowerup;
+-(void) rebornPowerup;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

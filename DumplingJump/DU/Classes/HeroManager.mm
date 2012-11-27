@@ -51,11 +51,15 @@
 {
     if (self.hero != nil)
     {
+        [self.hero removeFromParentAndCleanup:NO];
         [self.hero remove];
 //        [[DUObjectsDictionary sharedDictionary] cleanObjectByName:HERO];
     }
     self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump gravityValue:self.heroGravity];
+    //Add hero sprite to BATCHNODE
     [self.hero addChildTo:BATCHNODE z:5];
+    //Add hero object to GameLayer
+    [GAMELAYER addChild:self.hero];
     [self.hero idle];
     
     return self.hero;
@@ -81,11 +85,6 @@
     if(animation != nil)
     {
         id startAnimation = [CCCallFuncND actionWithTarget:self selector:@selector(playAnimationForever:data:) data:animName];
-//        id animAction = [CCAnimate actionWithAnimation:animation];
-//        [animAction setRepeatDuration:theDelay];
-        
-//        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
-
         id waitDelay = [CCDelayTime actionWithDuration:theDelay];
         id becomeIdle = [CCCallFunc actionWithTarget:self.hero selector:@selector(idle)];
         
@@ -102,7 +101,6 @@
         id animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
         [self.hero.sprite runAction:animAction];
     }
-    
 }
 
 -(void) updateHeroPosition

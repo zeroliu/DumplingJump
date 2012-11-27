@@ -70,12 +70,16 @@
     [[[HeroManager shared] getHero] updateHeroForce];
     world->Step(dt,10,10);
    
-    if ([physicsToRemove count] > 0)
+    while ([physicsToRemove count] > 0)
     {
         //DLog(@"%@",physicsToRemove);
         DUPhysicsObject *myObject = [physicsToRemove lastObject];
         [physicsToRemove removeLastObject];
-        if (!myObject.archived) [myObject archive];
+        if ([((LevelManager *)[LevelManager shared]).generatedObjects containsObject:myObject])
+        {
+            [((LevelManager *)[LevelManager shared]).generatedObjects removeObject:myObject];
+        }
+        [myObject archive];
     }
     
     for (b2Body *b = world->GetBodyList(); b; b=b->GetNext()) 

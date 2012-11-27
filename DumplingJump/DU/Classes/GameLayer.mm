@@ -79,7 +79,7 @@
         [self initUI];
         [self initGame];
         
-        //[self initDebugTool];
+        [self initDebugTool];
         
         [self scheduleUpdate];
 	}
@@ -177,12 +177,6 @@
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
     [[[HeroManager shared] getHero] jump];
-}
-
--(void) fire
-{
-    DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(((Hero *)[HEROMANAGER getHero]).sprite.position.x,((Hero *)[HEROMANAGER getHero]).sprite.position.y +5)];
-    slash.body->SetLinearVelocity(b2Vec2(0,24));
 }
 
 -(void) gameOver

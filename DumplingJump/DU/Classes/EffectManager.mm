@@ -41,16 +41,22 @@
 
 -(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition
 {
+    [self PlayEffectWithName:effectName position:thePosition scale:1 z:20];
+}
+
+-(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition scale:(float)theScale z:(int)theZ
+{
     DUEffectObject *effect = [self.factory createWithName:effectName];
     effect.sprite.position = thePosition;
-    [effect addChildTo:BATCHNODE z:20];
+    effect.sprite.scale = theScale;
+    [effect addChildTo:BATCHNODE z:theZ];
     
     id animation = [ANIMATIONMANAGER getAnimationWithName:effect.effectData.animationName];
     
     if(animation != nil)
     {
         id animAction = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation:animation] times:effect.effectData.times];
-        id callbackWrapper = [CCCallFunc actionWithTarget:effect selector:@selector(archive)];  
+        id callbackWrapper = [CCCallFunc actionWithTarget:effect selector:@selector(archive)];
         id sequence = [CCSequence actions:animAction, callbackWrapper, nil];
         [effect.sprite runAction:sequence];
     }

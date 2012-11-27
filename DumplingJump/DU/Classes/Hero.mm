@@ -7,7 +7,8 @@
 //
 
 #import "Hero.h"
-
+#import "LevelManager.h"
+#import "EffectManager.h"
 @interface Hero()
 {
     float adjustMove, adjustJump;
@@ -26,10 +27,11 @@
 @property (nonatomic, assign) float accValue;
 @property (nonatomic, assign) float jumpValue;
 @property (nonatomic, assign) float gravity;
+@property (nonatomic, assign) BOOL canRevive;
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, powerup = _powerup, powerupCountdown = _powerupCountdown;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, powerup = _powerup, powerupCountdown = _powerupCountdown, canRevive = _canRevive;
 
 #pragma mark -
 #pragma Initialization
@@ -71,6 +73,7 @@
 {
     self.sprite = [CCSprite spriteWithSpriteFrameName:filename];
     self.sprite.position = thePosition;
+    //self.sprite.anchorPoint = ccp(0.5,0.5);
     origHeight = self.sprite.contentSize.height;
     //self.sprite.scale = self.radius/self.sprite.contentSize.height * SCALE_MULTIPLIER;
 }
@@ -233,7 +236,7 @@
             shellFixture = NULL;
         }
         */
-        [GAMELAYER unschedule:@selector(fire)];
+        [self unschedule:@selector(fire)];
         
         if (maskNode != nil)
         {
@@ -279,12 +282,7 @@
         float explosionForce = min(SHOCK_PRESSURE / distance / distance, 15)/distance;
         DLog(@"Force direction: %g,%g", explosionForce * (self.sprite.position.x - explosionPos.x), explosionForce * (self.sprite.position.y - explosionPos.y));
         //float length = b2Vec2(self.sprite.position.x - explosionPos.x, self.sprite.position.y - explosionPos.y).Normalize();
-        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x), explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)), self.body->GetPosition());
-         
-        /*
-        directionForce = b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x), explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y));
-         */
-        //[self performSelector:@selector(bowEffect:) withObject:value afterDelay:1/23.0f];
+        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (explosionPos.x-self.sprite.position.x), explosionForce * self.body->GetMass() * (explosionPos.y - self.sprite.position.y)), self.body->GetPosition());
     }
 }
 
@@ -320,7 +318,7 @@
 -(void) magic:(NSArray *)value;
 {
     DLog(@"magic - %@", value);
-    [GAMELAYER schedule:@selector(fire) interval:0.8f];
+    [self schedule:@selector(fire) interval:0.8f];
 }
 
 -(void) blind
@@ -336,10 +334,52 @@
     [GAMELAYER addChild:final z:10];
 }
 
+-(void) fire
+{
+    DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(self.sprite.position.x,self.sprite.position.y +5)];
+    slash.body->SetLinearVelocity(b2Vec2(0,24));
+}
+
 -(void) star
 {
     self.heroState = @"_star";
     DLog(@"star!!");
+}
+
+-(void) bombPowerup
+{
+    for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
+    {
+        CGPoint explosionPos = ob.sprite.position;
+        float distance = ccpDistance(explosionPos, self.sprite.position);
+        float explosionForce = SHOCK_PRESSURE/5000/distance;
+//        DLog(@"Force direction: %g,%g", explosionForce * (self.sprite.position.x - explosionPos.x), explosionForce * (self.sprite.position.y - explosionPos.y));
+        ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (explosionPos.x - self.sprite.position.x), explosionForce * ob.body->GetMass() * (explosionPos.y - self.sprite.position.y)), ob.body->GetPosition());
+    }
+    [EFFECTMANAGER PlayEffectWithName:FX_BOW position:self.sprite.position scale:3 z:Z_Hero-1];
+}
+
+-(void) rebornPowerup
+{
+    if (!self.canRevive)
+    {
+        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"AL_E_powerup_1.png"];
+        halo.scale = 3;
+        halo.tag = 1;
+        halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        [self.sprite addChild:halo z:-1];
+    }
+    self.canRevive = YES;
+    [self unschedule:@selector(rebornFinish)];
+    [self scheduleOnce:@selector(rebornFinish) delay:10];
+    //TODO: Add hero reborn active animation
+}
+
+-(void) rebornFinish
+{
+    DLog(@"test rebornFinish");
+    [[self.sprite getChildByTag:1] removeFromParentAndCleanup:NO];
+    self.canRevive = NO;
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification

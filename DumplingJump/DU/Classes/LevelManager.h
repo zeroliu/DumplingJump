@@ -10,6 +10,7 @@
 #import "LevelData.h"
 
 @interface LevelManager : CCNode
+@property (nonatomic, retain) NSMutableArray *generatedObjects;
 
 +(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;

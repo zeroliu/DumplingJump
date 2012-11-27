@@ -21,7 +21,6 @@
 
 @property (nonatomic, retain) LevelData *levelData;
 @property (nonatomic, retain) NSMutableArray *paragraphs;
-@property (nonatomic, retain) NSMutableArray *generatedObjects;
 @end
 
 @implementation LevelManager
@@ -82,6 +81,7 @@
     DUPhysicsObject *addthing = [[AddthingFactory shared] createWithName:objectName];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
+    //DLog(@"%@", [self.generatedObjects description]);
     int depth = 3;
     if ([objectName isEqualToString:@"STAR"])
     {
@@ -166,6 +166,7 @@
     {
         [ob archive];
     }
+    [self.generatedObjects removeAllObjects];
 }
 
 @end

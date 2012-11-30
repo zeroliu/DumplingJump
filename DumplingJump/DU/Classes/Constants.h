@@ -106,6 +106,7 @@
 
 #pragma mark -
 #pragma mark Collision Layers
+#define C_NOTHING 0x0000
 #define C_HERO 0x0001
 #define C_BOARD 0x0002
 #define C_ADDTHING 0x0004

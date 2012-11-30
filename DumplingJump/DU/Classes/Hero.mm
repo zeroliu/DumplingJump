@@ -14,6 +14,7 @@
     float adjustMove, adjustJump;
     b2Vec2 directionForce;
     float origHeight;
+    BOOL isReborning;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -27,11 +28,10 @@
 @property (nonatomic, assign) float accValue;
 @property (nonatomic, assign) float jumpValue;
 @property (nonatomic, assign) float gravity;
-@property (nonatomic, assign) BOOL canRevive;
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, powerup = _powerup, powerupCountdown = _powerupCountdown, canRevive = _canRevive;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, powerup = _powerup, powerupCountdown = _powerupCountdown, canReborn = _canReborn;
 
 #pragma mark -
 #pragma Initialization
@@ -65,8 +65,9 @@
 
 -(void) initHeroParam
 {
-    self.isOnGround = FALSE;
+    self.isOnGround = NO;
     self.heroState = nil;
+    isReborning = NO;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -361,7 +362,7 @@
 
 -(void) rebornPowerup
 {
-    if (!self.canRevive)
+    if (!self.canReborn)
     {
         CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"AL_E_powerup_1.png"];
         halo.scale = 3;
@@ -369,7 +370,7 @@
         halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
         [self.sprite addChild:halo z:-1];
     }
-    self.canRevive = YES;
+    self.canReborn = YES;
     [self unschedule:@selector(rebornFinish)];
     [self scheduleOnce:@selector(rebornFinish) delay:10];
     //TODO: Add hero reborn active animation
@@ -378,8 +379,61 @@
 -(void) rebornFinish
 {
     DLog(@"test rebornFinish");
+    [self unschedule:@selector(rebornFinish)];
     [[self.sprite getChildByTag:1] removeFromParentAndCleanup:NO];
-    self.canRevive = NO;
+    self.canReborn = NO;
+}
+
+-(void) reborn
+{
+    if (!isReborning)
+    {
+        isReborning = YES;
+        
+        //destroy objects on the screen
+        [[LevelManager shared] destroyAllObjects];
+        
+        //pause level
+        [[LevelManager shared] stopCurrentParagraph];
+        
+        //reset to the idle state
+        [self idle];
+        
+        //remove collision detection
+        [self removeCollisionDetection];
+        
+        //pause physics simulation
+        self.body->SetActive(false);
+        self.body->SetAwake(false);
+        self.body->SetLinearVelocity(b2Vec2(0,0));
+        self.body->SetAngularVelocity(0);
+        
+        //add smoke effect
+        
+        //move hero to the center of the screen
+        id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,450)];
+        id ease = [CCEaseSineOut actionWithAction:moveTo];
+        id endingFunc = [CCCallFunc actionWithTarget:self selector:@selector(rebornEnding)];
+        [self.sprite runAction:[CCSequence actions:ease, endingFunc, nil]];
+    }
+}
+
+//Called by reborn
+-(void) rebornEnding
+{
+    //Set physic body to the center
+    self.body->SetTransform(b2Vec2(self.sprite.position.x/RATIO, self.sprite.position.y/RATIO), 0);
+    
+    //reset physics simulation
+    self.body->SetActive(true);
+    self.body->SetAwake(true);
+    
+    //reset collision detection
+    [self resetCollisionDetection];
+    isReborning = NO;
+    
+    //remove rebornEffect
+    [self rebornFinish];
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification
@@ -416,6 +470,28 @@
         }
     }
     self.isOnGround = res;
+}
+
+-(void) removeCollisionDetection
+{
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        b2Filter filter;
+        filter = f->GetFilterData();
+        filter.categoryBits = C_NOTHING;
+        f->SetFilterData(filter);
+    }
+}
+
+-(void) resetCollisionDetection
+{
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        b2Filter filter;
+        filter = f->GetFilterData();
+        filter.categoryBits = C_HERO;
+        f->SetFilterData(filter);
+    }
 }
 
 #pragma mark -

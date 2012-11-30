@@ -84,9 +84,10 @@
     
     for (b2Body *b = world->GetBodyList(); b; b=b->GetNext()) 
     {
-        if(b->GetUserData() != NULL)
+        if(b->GetUserData() != NULL && b->IsActive())
         {
             DUPhysicsObject *physicsObject = (DUPhysicsObject *)b->GetUserData();
+            
             CCSprite* sprite = ((DUPhysicsObject *)b->GetUserData()).sprite;
             sprite.position = ccp(b->GetPosition().x * RATIO,
                                   b->GetPosition().y * RATIO);
@@ -97,7 +98,13 @@
             {
                 if([physicsObject isMemberOfClass:Hero.class])
                 {
-                    [[[Hub shared]gameLayer] gameOver];
+                    if (((Hero *)[[HeroManager shared] getHero]).canReborn)
+                    {
+                        [[[HeroManager shared] getHero] reborn];
+                    } else
+                    {
+                        [[[Hub shared]gameLayer] gameOver];
+                    }
                 } else
                 {
                     [[LevelManager shared] removeObjectFromList:physicsObject];

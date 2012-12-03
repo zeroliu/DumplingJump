@@ -7,14 +7,18 @@
 //
 
 #import "Hero.h"
+#import "AddthingObject.h"
+#import "BackgroundController.h"
 #import "LevelManager.h"
 #import "EffectManager.h"
+#import "GameModel.h"
 @interface Hero()
 {
     float adjustMove, adjustJump;
     b2Vec2 directionForce;
     float origHeight;
     BOOL isReborning;
+    BOOL isAbsorbing;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -68,6 +72,7 @@
     self.isOnGround = NO;
     self.heroState = nil;
     isReborning = NO;
+    isAbsorbing = NO;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -99,14 +104,21 @@
     heroFixtureDef.restitution = 0;
     heroFixtureDef.filter.categoryBits = C_HERO;
     heroFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING | C_STAR;
-    /*
+    heroFixtureDef.userData = @"heroBody";
+    
     b2CircleShape shellShape;
-    shellShape.m_radius = self.radius * 1.5f * RATIO * SCALE_MULTIPLIER;
+    shellShape.m_radius = self.radius * 5 / RATIO * SCALE_MULTIPLIER;
+    b2FixtureDef shellFixtureDef;
     shellFixtureDef.shape = &shellShape;
-    shellFixtureDef.friction = self.fric;
+    shellFixtureDef.friction = 0;
     shellFixtureDef.restitution = 0;
-    */
+    shellFixtureDef.isSensor = true;
+    shellFixtureDef.filter.categoryBits = C_ABSORB;
+    shellFixtureDef.filter.maskBits = C_NOTHING;
+    shellFixtureDef.userData = @"absorb";
+    
     self.body->CreateFixture(&heroFixtureDef);
+    self.body->CreateFixture(&shellFixtureDef);
     
     self.body->SetFixedRotation(true);
     self.body->SetSleepingAllowed(false);
@@ -193,13 +205,13 @@
 
 -(void) jump
 {
-    if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
+    if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
     [self checkIfOnGround];
 }
 
 -(void) springJump
 {
-    if (self.isOnGround) self.body->SetLinearVelocity(*new b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
+    if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
     [self checkIfOnGround];
 }
 
@@ -341,9 +353,34 @@
     slash.body->SetLinearVelocity(b2Vec2(0,24));
 }
 
--(void) star
+-(void) star:(NSArray *)value
 {
+    AddthingObject *star = [value objectAtIndex:1];
     self.heroState = @"_star";
+    
+    if (isAbsorbing)
+    {
+        [PHYSICSMANAGER addToDisactiveList:star];
+        id rotateStar = [CCRotateBy actionWithDuration:0.5 angle:180];
+        id moveToPlayer = [CCCallBlock actionWithBlock:^
+                           {
+                               [star schedule:@selector(moveToHeroWithSpeed:) interval:0.01];
+                           }];
+        id delay = [CCDelayTime actionWithDuration:0.4];
+        id removeStar = [CCCallBlock actionWithBlock:^
+                         {
+                             [star unschedule:@selector(moveToHeroWithSpeed:)];
+                             [star removeAddthing];
+                         }];
+        //TODO: increment star number
+        [star.sprite runAction:rotateStar];
+        [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
+    } else
+    {
+        //TODO: increment star number
+        [star removeAddthing];
+    }
+    
     DLog(@"star!!");
 }
 
@@ -400,7 +437,7 @@
         [self idle];
         
         //remove collision detection
-        [self removeCollisionDetection];
+        [self changeCollisionDetection:C_NOTHING];
         
         //pause physics simulation
         self.body->SetActive(false);
@@ -409,6 +446,9 @@
         self.body->SetAngularVelocity(0);
         
         //add smoke effect
+        
+        //speed up background scroll
+        [[BackgroundController shared] speedUpWithScale:3 interval:1.5];
         
         //move hero to the center of the screen
         id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,450)];
@@ -434,6 +474,66 @@
     
     //remove rebornEffect
     [self rebornFinish];
+}
+
+-(void) rocketPowerup
+{
+    float scale = self.sprite.scale;
+    
+    //Become idle except for reviving
+    [self idle];
+    //Make it not collide with any objects except for the board
+    [self changeCollisionDetection:C_BOARD];
+    //Scale up Hero
+    id scaleUp = [CCScaleTo actionWithDuration:0.3 scale:0.8*scale];
+    //Countdown certain amount of time
+    float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
+    DLog(@"duration: %f", duration);
+    id delay = [CCDelayTime actionWithDuration: duration];
+    //Reset the hero collision
+    id resetCollision = [CCCallBlock actionWithBlock:^
+    {
+        [self resetCollisionDetection];
+    }];
+    //Scale down Hero to normal;
+    id scaleDown = [CCScaleTo actionWithDuration:0.3 scale:scale];
+    
+    [self runAction:[CCSequence actions:scaleUp, delay, resetCollision, scaleDown, nil]];
+}
+
+-(void) absorbPowerup
+{
+    NSLog(@"absorb power up");
+    
+    
+    //Turn on absorb collision detection
+    [self turnOnAbsorbCollisionDetection];
+    
+    //Create effect
+    if (!isAbsorbing)
+    {
+        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"AL_E_powerup_1.png"];
+        halo.scale = 3;
+        halo.tag = 1;
+        halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        [self.sprite addChild:halo z:-1];
+    }
+    
+    isAbsorbing = YES;
+    
+    //Wait for a certain amount of time
+    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"absorb"] floatValue]];
+    //Remove effect
+    id removeAbsorb = [CCCallBlock actionWithBlock:^
+                       {
+                           [[self.sprite getChildByTag:1] removeFromParentAndCleanup:NO];
+                           //Remove absorb collision detection
+                           [self removeAbsorbCollisionDetection];
+                           isAbsorbing = NO;
+                       }];
+    CCSequence *sequence = [CCSequence actions:delay, removeAbsorb, nil];
+    
+    [self.sprite runAction:sequence];
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification
@@ -472,14 +572,45 @@
     self.isOnGround = res;
 }
 
--(void) removeCollisionDetection
+-(void) changeCollisionDetection:(uint)maskBits
 {
     for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
     {
-        b2Filter filter;
-        filter = f->GetFilterData();
-        filter.categoryBits = C_NOTHING;
-        f->SetFilterData(filter);
+        if ([((NSString *)f->GetUserData()) isEqualToString:@"heroBody"])
+        {
+            b2Filter filter;
+            filter = f->GetFilterData();
+            filter.maskBits = maskBits;
+            f->SetFilterData(filter);
+        }
+    }
+}
+
+-(void) turnOnAbsorbCollisionDetection
+{
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if ([((NSString *)f->GetUserData()) isEqualToString:@"absorb"])
+        {
+            b2Filter filter;
+            filter = f->GetFilterData();
+            filter.maskBits = C_STAR;
+            f->SetFilterData(filter);
+        }
+    }
+}
+
+-(void) removeAbsorbCollisionDetection
+{
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if ([((NSString *)f->GetUserData()) isEqualToString:@"absorb"])
+        {
+            b2Filter filter;
+            filter = f->GetFilterData();
+            filter.maskBits = C_NOTHING;
+            f->SetFilterData(filter);
+        }
     }
 }
 
@@ -487,10 +618,13 @@
 {
     for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
     {
-        b2Filter filter;
-        filter = f->GetFilterData();
-        filter.categoryBits = C_HERO;
-        f->SetFilterData(filter);
+        if ([((NSString *)f->GetUserData()) isEqualToString:@"heroBody"])
+        {
+            b2Filter filter;
+            filter = f->GetFilterData();
+            filter.maskBits = C_HERO | C_BOARD | C_ADDTHING | C_STAR;
+            f->SetFilterData(filter);
+        }
     }
 }
 
@@ -513,6 +647,10 @@
 -(void) dealloc
 {
     //    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [super deactivate];
+    [self idle];
+    [self removeAllChildrenWithCleanup:NO];
+    [self stopAllActions];
     [self removeContactListner];
     [super dealloc];
 }

@@ -11,6 +11,7 @@
 @interface BackgroundView : CCNode
 
 @property (nonatomic, retain) CCSpriteBatchNode *bgBatchNode;
+@property (nonatomic, assign) float scrollSpeedScale;
 
 -(void) setBgBatchNodeWithName:(NSString *)bgName;
 -(void) setBackgroundWithBGArray:(NSMutableArray *)theArray;

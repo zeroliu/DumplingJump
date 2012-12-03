@@ -163,7 +163,7 @@
 		<statetime>0</statetime>
 		<react_hero>star</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
-		<trigger_clean_hero>1</trigger_clean_hero>
+        <react_hero_param>1</react_hero_param>
 		<trigger_clean_board>1</trigger_clean_board>
         <trigger_clean_item>1</trigger_clean_item>
 		<MEMO>星星</MEMO>

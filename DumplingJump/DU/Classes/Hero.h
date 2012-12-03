@@ -35,10 +35,12 @@
 -(void) shelter;
 -(void) magic:(NSArray *)value;
 -(void) blind;
--(void) star;
+-(void) star:(NSArray *)value;
 -(void) reborn;
 -(void) updateHeroForce;
 -(void) bombPowerup;
 -(void) rebornPowerup;
+-(void) rocketPowerup;
+-(void) absorbPowerup;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

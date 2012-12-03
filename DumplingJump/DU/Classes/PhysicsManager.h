@@ -15,6 +15,8 @@
 -(b2World *) getWorld;
 -(b2Body *) getGround;
 -(void) addToArchiveList:(DUPhysicsObject *)physicsObject;
+-(void) addToDisactiveList:(DUPhysicsObject *)physicsObject;
 -(void) updatePhysicsBody:(ccTime)dt;
 -(void) setCustomGravity:(float)newGravity;
+
 @end

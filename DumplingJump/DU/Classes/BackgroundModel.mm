@@ -41,6 +41,7 @@
             arg->swapSprite = [CCSprite spriteWithSpriteFrameName:arg->fileName];
             NSValue *anLayer = [NSValue value:arg withObjCType:@encode(BgLayer)];
             [newArray addObject:anLayer];
+            free(arg);
         }
         va_end(args);
         [self.bgDictionary setObject:newArray forKey:theBGSpritesheetFileName];

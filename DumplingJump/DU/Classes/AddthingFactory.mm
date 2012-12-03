@@ -67,7 +67,7 @@
         } else if ([objectName isEqualToString:@"STAR"])
         {
             objectFixtureDef.filter.categoryBits = C_STAR;
-            objectFixtureDef.filter.maskBits = C_HERO | C_SLASH;
+            objectFixtureDef.filter.maskBits = C_HERO | C_SLASH | C_ABSORB;
         } else
         {
             objectFixtureDef.filter.categoryBits = C_ADDTHING;
@@ -103,7 +103,7 @@
         
         AddthingObject *newObject;
         newObject = [[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName];
-        
+        [GAMELAYER addChild:newObject];
         self.idCounter ++;
         if (self.idCounter >= INT_MAX)
         {

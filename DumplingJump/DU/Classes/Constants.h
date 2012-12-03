@@ -74,7 +74,7 @@
 #define ARROW @"Arrow"
 #define STAR @"Star"
 #define ICE @"ice"
-#define EVERYTHING C_SLASH | C_HERO | C_BOARD | C_ADDTHING | C_STAR
+
 
 #pragma mark -
 #pragma mark Effects
@@ -111,7 +111,9 @@
 #define C_BOARD 0x0002
 #define C_ADDTHING 0x0004
 #define C_SLASH 0x0008
-#define C_STAR 0x00016
+#define C_STAR 0x0010
+#define C_ABSORB 0x0020
+#define EVERYTHING C_SLASH | C_HERO | C_BOARD | C_ADDTHING | C_STAR
 
 #pragma mark -
 #pragma mark Others
@@ -120,6 +122,7 @@
 #define GAMELAYER [[Hub shared] gameLayer]
 #define HEROMANAGER [HeroManager shared]
 #define EFFECTMANAGER [EffectManager shared]
+#define POWERUP_DATA ((GameLayer *) GAMELAYER).model.powerUpData
 
 @interface Constants : NSObject
 

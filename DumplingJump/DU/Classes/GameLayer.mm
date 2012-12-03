@@ -15,13 +15,12 @@
 #import "DeadUI.h"
 
 @interface GameLayer()
-@property (nonatomic, retain) GameModel *model;
-@property (nonatomic, retain) BackgroundController *bgController;
+
 @end
 
 @implementation GameLayer
 @synthesize model = _model;
-@synthesize bgController = _bgController;
+//@synthesize bgController = _bgController;
 //@synthesize heroManager = _heroManager;
 
 @synthesize batchNode = _batchNode;
@@ -52,7 +51,10 @@
 
 #pragma mark - 
 #pragma mark Lazy Init
-
+-(GameModel *) getGameMode
+{
+    return self.model;
+}
 -(id) model
 {
     if (_model == nil) _model = [[GameModel alloc] init];
@@ -75,7 +77,7 @@
         
         [self initBatchNode];
         [self preloadGameData];
-        [self initManagers];
+        [self loadUserData];
         [self initUI];
         [self initGame];
         
@@ -94,7 +96,7 @@
     [[ParamConfigTool shared] reset];
     
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
-    /*
+    
     m_debugDraw = new GLESDebugDraw(RATIO);
     world->SetDebugDraw(m_debugDraw);
     uint32 flags = 0;
@@ -104,7 +106,7 @@
     flags += b2Draw::e_pairBit;
     flags += b2Draw::e_centerOfMassBit;
     m_debugDraw->SetFlags(flags);
-    */
+    
 }
 
 -(void) initBatchNode
@@ -117,7 +119,7 @@
 
 -(void) initManagers
 {
-    _bgController = [[BackgroundController alloc] init];
+    //_bgController = [[BackgroundController alloc] init];
 }
 
 -(void) initUI
@@ -135,6 +137,12 @@
     [HeroManager shared];
     [BoardManager shared];
     [StarManager shared];
+    [[BackgroundController shared] initParam];
+}
+
+-(void) loadUserData
+{
+    [self.model loadPowerUpLevelsData];
 }
 
 -(void) initGame
@@ -150,7 +158,7 @@
     //Set the currentLevel by loading from levelManager
     self.model.currentLevel = [[LevelManager shared] selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
-    [self.bgController setBackgroundWithName:self.model.currentLevel.backgroundName];
+    [[BackgroundController shared] setBackgroundWithName:self.model.currentLevel.backgroundName];
     [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,120*SCALE_MULTIPLIER)];
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
 }
@@ -159,7 +167,7 @@
 {
     if (self.model.state == GAME_START)
     {
-        [self.bgController updateBackground:deltaTime];
+        [[BackgroundController shared] updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
@@ -236,7 +244,7 @@
 
 -(void) draw
 {
-    /*
+    
     [super draw];
     ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 	
@@ -245,8 +253,9 @@
 	world->DrawDebugData();
 	
 	kmGLPopMatrix();
-     */
+    
 }
+
 #pragma mark -
 #pragma mark ListenerHandlers
 

@@ -10,6 +10,9 @@
 #import "PauseUI.h"
 #import "CCBReader.h"
 #import "HeroManager.h"
+#import "BoardManager.h"
+#import "BackgroundController.h"
+#import "GameModel.h"
 @implementation GameUI
 +(id) shared
 {
@@ -37,17 +40,31 @@
     [[PauseUI shared] createUI];
 }
 
+//Get called by cocosbuilder
 -(void) testItem1:(id)sender
 {
+    //bomb, will blow everything away
     [[[HeroManager shared] getHero] bombPowerup];
 }
+
 -(void) testItem2:(id)sender
 {
+    //reborn, count down a certain amount of time. revive when you die
     [[[HeroManager shared] getHero] rebornPowerup];
 }
+
 -(void) testItem3:(id)sender
 {
-    DLog(@"item3");
+    [[[HeroManager shared] getHero] absorbPowerup];
+    /*
+    //Rocket, dash with the board for a certain amount of time
+    [[[HeroManager shared] getHero] rocketPowerup];
+    [[[BoardManager shared] getBoard] rocketPowerup];
+    //Speed up scrolling speed
+    [[BackgroundController shared] speedUpWithScale:6 interval:[[POWERUP_DATA objectForKey:@"rocket"] floatValue]];
+    
+    //Increase distance calculation speed
+     */
 }
 
 -(void) fadeOut

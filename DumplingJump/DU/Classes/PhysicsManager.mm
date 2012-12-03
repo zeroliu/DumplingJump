@@ -1,11 +1,13 @@
 #import "PhysicsManager.h"
 #import "Hero.h"
 #import "HeroManager.h"
+#import "BoardManager.h"
 #import "LevelManager.h"
 
 @interface PhysicsManager()
 {
     NSMutableArray *physicsToRemove;
+    NSMutableArray *physicsToDisactive;
     DUContactListener *listener;
 }
 
@@ -31,6 +33,7 @@
         self.mass_multiplier = MASS_MULTIPLIER;
         [self initWorld];
         physicsToRemove = [[NSMutableArray alloc] init];
+        physicsToDisactive = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -65,9 +68,15 @@
     [physicsToRemove addObject:physicsObject];
 }
 
+-(void) addToDisactiveList:(DUPhysicsObject *)physicsObject
+{
+    [physicsToDisactive addObject:physicsObject];
+}
+
 -(void) updatePhysicsBody:(ccTime)dt
 {
     [[[HeroManager shared] getHero] updateHeroForce];
+    [[[BoardManager shared] getBoard] updateBoardForce];
     world->Step(dt,10,10);
    
     while ([physicsToRemove count] > 0)
@@ -80,6 +89,14 @@
             [((LevelManager *)[LevelManager shared]).generatedObjects removeObject:myObject];
         }
         [myObject archive];
+    }
+    
+    while ([physicsToDisactive count] > 0)
+    {
+        DUPhysicsObject *myObject = [physicsToDisactive lastObject];
+        [physicsToDisactive removeLastObject];
+        myObject.body->SetActive(false);
+        
     }
     
     for (b2Body *b = world->GetBodyList(); b; b=b->GetNext()) 
@@ -96,7 +113,7 @@
             
             if (physicsObject.sprite.position.y < -600 || physicsObject.sprite.position.y > 2000)
             {
-                if([physicsObject isMemberOfClass:Hero.class])
+                if([physicsObject isMemberOfClass:Hero.class] && physicsObject.body->IsActive())
                 {
                     if (((Hero *)[[HeroManager shared] getHero]).canReborn)
                     {
@@ -104,6 +121,7 @@
                     } else
                     {
                         [[[Hub shared]gameLayer] gameOver];
+                        //[[[HeroManager shared] getHero] reborn];
                     }
                 } else
                 {

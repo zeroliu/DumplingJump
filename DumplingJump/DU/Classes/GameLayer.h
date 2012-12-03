@@ -1,6 +1,6 @@
 #import "Common.h"
 #import "GLES-Render.h"
-
+@class GameModel;
 @class HeroManager;
 
 @interface GameLayer : CCLayer
@@ -9,7 +9,7 @@
     b2World *world;
     BOOL isReload;
 }
-//@property (nonatomic, retain) HeroManager *heroManager;
+@property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
 +(CCScene *) scene;
 

@@ -15,7 +15,7 @@
 @property (nonatomic, retain) Reaction *reaction;
 @property (nonatomic, retain) NSString *animation;
 -(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName;
-
+-(void) removeAddthing;
 
 
 @end

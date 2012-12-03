@@ -67,9 +67,7 @@
 -(void) BeginContact:(NSNotification *)notification
 {
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
-    /*
-    
-    */
+
     if ([targetObject.name isEqualToString: HERO])
     {
         DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
@@ -92,7 +90,7 @@
                 //If addthing will disappear after touch the hero
                 if (self.reaction.triggerCleanHero == 1)
                 {
-                    //               DLog(@"My ID is %@", self.ID);
+                    //DLog(@"My ID is %@", self.ID);
                     [self removeAddthing];
                 }
             }
@@ -137,6 +135,14 @@
     {
         [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
     }
+}
+
+-(void) moveToHeroWithSpeed:(int)theSpeed
+{
+    Hero *hero = [[HeroManager shared] getHero];
+    float ratio = ccpDistance(hero.sprite.position, self.sprite.position) / 7;
+    CGPoint direction = ccp((hero.sprite.position.x - self.sprite.position.x)/ratio, (hero.sprite.position.y - self.sprite.position.y)/ratio);
+    self.sprite.position = ccpAdd(self.sprite.position, direction);
 }
 
 -(void) runAction:(SEL)theSelector target:(id)theTarget afterDelay:(ccTime)theDelay

@@ -8,6 +8,7 @@
 
 #import "Board.h"
 #import "GLES-Render.h"
+#import "GameModel.h"
 @interface Board()
 {
     BOOL isUnderMissleEffect;
@@ -22,9 +23,9 @@
     b2Joint *jointR;
     b2Joint *jointMR;
     b2Joint *jointML;
+    
+    b2Vec2 directionForce;
 }
-
-
 
 @end
 
@@ -199,6 +200,71 @@
                 (dynamic_cast<b2DistanceJoint *>(joint))->SetFrequency(0.7f);
             }
         }
+    }
+}
+
+-(void) rocketPowerup
+{
+    float scaleX = self.sprite.scaleX;
+    float scaleY = self.sprite.scaleY;
+    
+    //Make it not collide with any objects except for the board
+    [self changeCollisionDetection:C_HERO];
+    
+    //Scale up Hero
+    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:0.8*scaleX scaleY:0.8*scaleY];
+    
+    //Push board to the middle of the screen
+    directionForce = b2Vec2(0, self.body->GetMass()*60);
+    
+    //Countdown certain amount of time
+    float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
+    id delay = [CCDelayTime actionWithDuration: duration];
+    
+    //Remove pushing force
+    id resetDirectionForce = [CCCallBlock actionWithBlock:^
+                              {
+                                  directionForce = b2Vec2(0, 0);
+                              }];
+    
+    //Reset the hero collision
+    id resetCollision = [CCCallBlock actionWithBlock:^
+                         {
+                             [self resetCollisionDetection];
+                         }];
+    //Scale down Hero to normal;
+    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];;
+    
+    [self.sprite runAction:[CCSequence actions:scaleUp, delay, resetDirectionForce, resetCollision, scaleDown, nil]];
+}
+
+-(void) changeCollisionDetection:(uint)maskBits
+{
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        b2Filter filter;
+        filter = f->GetFilterData();
+        filter.maskBits = maskBits;
+        f->SetFilterData(filter);
+    }
+}
+
+-(void) resetCollisionDetection
+{
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        b2Filter filter;
+        filter = f->GetFilterData();
+        filter.maskBits = C_HERO | C_BOARD | C_ADDTHING;
+        f->SetFilterData(filter);
+    }
+}
+
+-(void) updateBoardForce
+{
+    if (directionForce.x != 0 || directionForce.y != 0)
+    {
+        self.body->ApplyForce(directionForce, self.body->GetPosition());
     }
 }
 

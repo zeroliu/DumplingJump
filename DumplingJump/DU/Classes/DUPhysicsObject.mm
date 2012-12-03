@@ -46,7 +46,7 @@
 
 -(void) resetPhysicsBodyPosition
 {
-    self.body->SetTransform(*new b2Vec2(self.sprite.position.x/RATIO, self.sprite.position.y/RATIO),0);
+    self.body->SetTransform(b2Vec2(self.sprite.position.x/RATIO, self.sprite.position.y/RATIO),0);
 }
 
 -(void) addChildTo: (CCNode *)node z:(int)zLayer
@@ -68,8 +68,8 @@
     [super deactivate];
     self.body->SetActive(false);
     self.body->SetAwake(false);
-    self.body->SetTransform(*new b2Vec2(0, 0),0);
-    self.body->SetLinearVelocity(*new b2Vec2(0,0));
+    self.body->SetTransform(b2Vec2(150/RATIO, 200/RATIO),0);
+    self.body->SetLinearVelocity(b2Vec2(0,0));
     self.body->SetAngularVelocity(0);
     
     //TODO: Add info for contacts

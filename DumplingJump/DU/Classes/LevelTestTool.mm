@@ -53,6 +53,13 @@
 
 -(void) reload
 {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CCMenuItemFont *item = [CCMenuItemFont itemWithString:@"Next" target:[LevelManager shared] selector:@selector(jumpToNextLevel)];
+    item.position = ccp(270, winSize.height - 250);
+    CCMenu *menu = [CCMenu menuWithItems:item, nil];
+    menu.position = CGPointZero;
+    [GAMELAYER addChild:menu];
+    
     myView = [[CCDirector sharedDirector] view];
     levelEditor = [[UITextField alloc] initWithFrame:CGRectMake(240, 60, 40, 40)];
     [levelEditor setText:@""];

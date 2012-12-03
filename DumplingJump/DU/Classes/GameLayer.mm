@@ -24,6 +24,7 @@
 //@synthesize heroManager = _heroManager;
 
 @synthesize batchNode = _batchNode;
+@synthesize isDebug = _isDebug;
 
 -(void) onEnter
 {
@@ -66,6 +67,9 @@
 -(id) init
 {
 	if( (self=[super init])) {
+        //Set debug mode
+        _isDebug = YES;
+        
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
         
@@ -81,7 +85,10 @@
         [self initUI];
         [self initGame];
         
-        [self initDebugTool];
+        if (_isDebug)
+        {
+            [self initDebugTool];
+        }
         
         [self scheduleUpdate];
 	}

@@ -11,6 +11,7 @@
 }
 @property (nonatomic, retain) GameModel *model;
 @property (nonatomic, retain) CCSpriteBatchNode *batchNode;
+@property (nonatomic, assign) BOOL isDebug;
 +(CCScene *) scene;
 
 -(void) gameOver;

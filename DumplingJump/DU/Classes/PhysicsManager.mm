@@ -113,7 +113,7 @@
             
             if (physicsObject.sprite.position.y < -600 || physicsObject.sprite.position.y > 2000)
             {
-                if([physicsObject isMemberOfClass:Hero.class] && physicsObject.body->IsActive())
+                if([physicsObject isMemberOfClass:[Hero class]] && physicsObject.body->IsActive())
                 {
                     if (((Hero *)[[HeroManager shared] getHero]).canReborn)
                     {

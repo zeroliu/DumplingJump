@@ -54,10 +54,10 @@
     {
         for (int i=0; i<SLOTS_NUM; i++)
         {
-            NSArray *line = star.starLines[i];
+            NSArray *line = [star.starLines objectAtIndex:i];
             for (int j=0; j<SLOTS_NUM-slot; j++)
             {
-                if ([line[j] isEqual:@"1"])
+                if ([[line objectAtIndex:j] isEqual:@"1"])
                 {
                     [[LevelManager shared] dropAddthingWithName:@"STAR" atPosition:ccp(xPosUnit * (slot + j) + 5 + xPosUnit/2,600+(SLOTS_NUM-1-i)*yPosUnit)];
                 }

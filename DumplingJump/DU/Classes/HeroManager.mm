@@ -13,7 +13,7 @@
 #define HERO_GRAVITY 150.0f
 
 @implementation HeroManager
-@synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump, heroGravity = _heroGravity;
+@synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroFric = _heroFric, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump, heroGravity = _heroGravity;
 #pragma mark -
 #pragma Initialization
 
@@ -170,8 +170,5 @@
         }
     }
 }
-
-
-
 
 @end

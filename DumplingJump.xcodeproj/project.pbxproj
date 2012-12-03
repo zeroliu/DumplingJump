@@ -235,6 +235,34 @@
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
 		7F7A2FD1163CBAD800DB2719 /* CA_addthing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7A2FD0163CBAD800DB2719 /* CA_addthing.xml */; };
+		7F7C7BE4166C8EFE00886E83 /* level1_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BC8166C8EFE00886E83 /* level1_1.xml */; };
+		7F7C7BE5166C8EFE00886E83 /* level1_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BC9166C8EFE00886E83 /* level1_2.xml */; };
+		7F7C7BE6166C8EFE00886E83 /* level2_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BCA166C8EFE00886E83 /* level2_1.xml */; };
+		7F7C7BE7166C8EFE00886E83 /* level2_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BCB166C8EFE00886E83 /* level2_2.xml */; };
+		7F7C7BE8166C8EFE00886E83 /* level3_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BCC166C8EFE00886E83 /* level3_1.xml */; };
+		7F7C7BE9166C8EFE00886E83 /* level3_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BCD166C8EFE00886E83 /* level3_2.xml */; };
+		7F7C7BEA166C8EFE00886E83 /* level4_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BCE166C8EFE00886E83 /* level4_1.xml */; };
+		7F7C7BEB166C8EFE00886E83 /* level4_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BCF166C8EFE00886E83 /* level4_2.xml */; };
+		7F7C7BEC166C8EFE00886E83 /* level5_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD0166C8EFE00886E83 /* level5_1.xml */; };
+		7F7C7BED166C8EFE00886E83 /* level5_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD1166C8EFE00886E83 /* level5_2.xml */; };
+		7F7C7BEE166C8EFE00886E83 /* level6_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD2166C8EFE00886E83 /* level6_1.xml */; };
+		7F7C7BEF166C8EFE00886E83 /* level6_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD3166C8EFE00886E83 /* level6_2.xml */; };
+		7F7C7BF0166C8EFE00886E83 /* level7_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD4166C8EFE00886E83 /* level7_1.xml */; };
+		7F7C7BF1166C8EFE00886E83 /* level7_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD5166C8EFE00886E83 /* level7_2.xml */; };
+		7F7C7BF2166C8EFE00886E83 /* level8_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD6166C8EFE00886E83 /* level8_1.xml */; };
+		7F7C7BF3166C8EFE00886E83 /* level8_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD7166C8EFE00886E83 /* level8_2.xml */; };
+		7F7C7BF4166C8EFE00886E83 /* level9_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD8166C8EFE00886E83 /* level9_1.xml */; };
+		7F7C7BF5166C8EFE00886E83 /* level9_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BD9166C8EFE00886E83 /* level9_2.xml */; };
+		7F7C7BF6166C8EFE00886E83 /* level10_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BDA166C8EFE00886E83 /* level10_1.xml */; };
+		7F7C7BF7166C8EFE00886E83 /* level10_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BDB166C8EFE00886E83 /* level10_2.xml */; };
+		7F7C7BF8166C8EFE00886E83 /* level11_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BDC166C8EFE00886E83 /* level11_1.xml */; };
+		7F7C7BF9166C8EFE00886E83 /* level11_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BDD166C8EFE00886E83 /* level11_2.xml */; };
+		7F7C7BFA166C8EFE00886E83 /* level12_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BDE166C8EFE00886E83 /* level12_1.xml */; };
+		7F7C7BFB166C8EFE00886E83 /* level12_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BDF166C8EFE00886E83 /* level12_2.xml */; };
+		7F7C7BFC166C8EFE00886E83 /* level13_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BE0166C8EFE00886E83 /* level13_1.xml */; };
+		7F7C7BFD166C8EFE00886E83 /* level13_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BE1166C8EFE00886E83 /* level13_2.xml */; };
+		7F7C7BFE166C8EFE00886E83 /* level14_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BE2166C8EFE00886E83 /* level14_1.xml */; };
+		7F7C7BFF166C8EFE00886E83 /* level14_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BE3166C8EFE00886E83 /* level14_2.xml */; };
 		7F81FC121605936A008AF71F /* DUEffectObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FC111605936A008AF71F /* DUEffectObject.mm */; };
 		7F86CD9C162D26EC00AB1024 /* HeroTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */; };
 		7F86CDA4162D316700AB1024 /* Button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CD9E162D316700AB1024 /* Button1.png */; };
@@ -265,20 +293,6 @@
 		7FC102761647219800C01219 /* ConfigScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC102751647219800C01219 /* ConfigScene.mm */; };
 		7FC1027C16473C6C00C01219 /* square_border.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC1027B16473C6C00C01219 /* square_border.png */; };
 		7FC85C461638FB12008872E6 /* LevelTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC85C451638FB12008872E6 /* LevelTestTool.mm */; };
-		7FCA8209163DDA77000D1B7B /* CA_level1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FB163DDA77000D1B7B /* CA_level1.xml */; };
-		7FCA820A163DDA77000D1B7B /* CA_level2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FC163DDA77000D1B7B /* CA_level2.xml */; };
-		7FCA820B163DDA77000D1B7B /* CA_level3.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FD163DDA77000D1B7B /* CA_level3.xml */; };
-		7FCA820C163DDA77000D1B7B /* CA_level4.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FE163DDA77000D1B7B /* CA_level4.xml */; };
-		7FCA820D163DDA77000D1B7B /* CA_level5.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA81FF163DDA77000D1B7B /* CA_level5.xml */; };
-		7FCA820E163DDA77000D1B7B /* CA_level6.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8200163DDA77000D1B7B /* CA_level6.xml */; };
-		7FCA820F163DDA77000D1B7B /* CA_level7.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8201163DDA77000D1B7B /* CA_level7.xml */; };
-		7FCA8210163DDA77000D1B7B /* CA_level8.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8202163DDA77000D1B7B /* CA_level8.xml */; };
-		7FCA8211163DDA77000D1B7B /* CA_level9.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8203163DDA77000D1B7B /* CA_level9.xml */; };
-		7FCA8212163DDA77000D1B7B /* CA_level10.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8204163DDA77000D1B7B /* CA_level10.xml */; };
-		7FCA8213163DDA77000D1B7B /* CA_level11.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8205163DDA77000D1B7B /* CA_level11.xml */; };
-		7FCA8214163DDA77000D1B7B /* CA_level12.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8206163DDA77000D1B7B /* CA_level12.xml */; };
-		7FCA8215163DDA77000D1B7B /* CA_level13.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8207163DDA77000D1B7B /* CA_level13.xml */; };
-		7FCA8216163DDA77000D1B7B /* CA_level14.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8208163DDA77000D1B7B /* CA_level14.xml */; };
 		7FCA8220163DDF2E000D1B7B /* CA_blind_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8217163DDF2E000D1B7B /* CA_blind_1.png */; };
 		7FCA8221163DDF2E000D1B7B /* CA_bow_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8218163DDF2E000D1B7B /* CA_bow_1.png */; };
 		7FCA8222163DDF2E000D1B7B /* CA_box_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FCA8219163DDF2E000D1B7B /* CA_box_1.png */; };
@@ -811,6 +825,34 @@
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F7A2FD0163CBAD800DB2719 /* CA_addthing.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_addthing.xml; sourceTree = "<group>"; };
+		7F7C7BC8166C8EFE00886E83 /* level1_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1_1.xml; sourceTree = "<group>"; };
+		7F7C7BC9166C8EFE00886E83 /* level1_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1_2.xml; sourceTree = "<group>"; };
+		7F7C7BCA166C8EFE00886E83 /* level2_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level2_1.xml; sourceTree = "<group>"; };
+		7F7C7BCB166C8EFE00886E83 /* level2_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level2_2.xml; sourceTree = "<group>"; };
+		7F7C7BCC166C8EFE00886E83 /* level3_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level3_1.xml; sourceTree = "<group>"; };
+		7F7C7BCD166C8EFE00886E83 /* level3_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level3_2.xml; sourceTree = "<group>"; };
+		7F7C7BCE166C8EFE00886E83 /* level4_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level4_1.xml; sourceTree = "<group>"; };
+		7F7C7BCF166C8EFE00886E83 /* level4_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level4_2.xml; sourceTree = "<group>"; };
+		7F7C7BD0166C8EFE00886E83 /* level5_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level5_1.xml; sourceTree = "<group>"; };
+		7F7C7BD1166C8EFE00886E83 /* level5_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level5_2.xml; sourceTree = "<group>"; };
+		7F7C7BD2166C8EFE00886E83 /* level6_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level6_1.xml; sourceTree = "<group>"; };
+		7F7C7BD3166C8EFE00886E83 /* level6_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level6_2.xml; sourceTree = "<group>"; };
+		7F7C7BD4166C8EFE00886E83 /* level7_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level7_1.xml; sourceTree = "<group>"; };
+		7F7C7BD5166C8EFE00886E83 /* level7_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level7_2.xml; sourceTree = "<group>"; };
+		7F7C7BD6166C8EFE00886E83 /* level8_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level8_1.xml; sourceTree = "<group>"; };
+		7F7C7BD7166C8EFE00886E83 /* level8_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level8_2.xml; sourceTree = "<group>"; };
+		7F7C7BD8166C8EFE00886E83 /* level9_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level9_1.xml; sourceTree = "<group>"; };
+		7F7C7BD9166C8EFE00886E83 /* level9_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level9_2.xml; sourceTree = "<group>"; };
+		7F7C7BDA166C8EFE00886E83 /* level10_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level10_1.xml; sourceTree = "<group>"; };
+		7F7C7BDB166C8EFE00886E83 /* level10_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level10_2.xml; sourceTree = "<group>"; };
+		7F7C7BDC166C8EFE00886E83 /* level11_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level11_1.xml; sourceTree = "<group>"; };
+		7F7C7BDD166C8EFE00886E83 /* level11_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level11_2.xml; sourceTree = "<group>"; };
+		7F7C7BDE166C8EFE00886E83 /* level12_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level12_1.xml; sourceTree = "<group>"; };
+		7F7C7BDF166C8EFE00886E83 /* level12_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level12_2.xml; sourceTree = "<group>"; };
+		7F7C7BE0166C8EFE00886E83 /* level13_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level13_1.xml; sourceTree = "<group>"; };
+		7F7C7BE1166C8EFE00886E83 /* level13_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level13_2.xml; sourceTree = "<group>"; };
+		7F7C7BE2166C8EFE00886E83 /* level14_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level14_1.xml; sourceTree = "<group>"; };
+		7F7C7BE3166C8EFE00886E83 /* level14_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level14_2.xml; sourceTree = "<group>"; };
 		7F81FC101605936A008AF71F /* DUEffectObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUEffectObject.h; sourceTree = "<group>"; };
 		7F81FC111605936A008AF71F /* DUEffectObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUEffectObject.mm; sourceTree = "<group>"; };
 		7F86CD9A162D26EC00AB1024 /* HeroTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroTestTool.h; sourceTree = "<group>"; };
@@ -863,20 +905,6 @@
 		7FC1027B16473C6C00C01219 /* square_border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_border.png; sourceTree = "<group>"; };
 		7FC85C441638FB12008872E6 /* LevelTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTestTool.h; sourceTree = "<group>"; };
 		7FC85C451638FB12008872E6 /* LevelTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelTestTool.mm; sourceTree = "<group>"; };
-		7FCA81FB163DDA77000D1B7B /* CA_level1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level1.xml; sourceTree = "<group>"; };
-		7FCA81FC163DDA77000D1B7B /* CA_level2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level2.xml; sourceTree = "<group>"; };
-		7FCA81FD163DDA77000D1B7B /* CA_level3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level3.xml; sourceTree = "<group>"; };
-		7FCA81FE163DDA77000D1B7B /* CA_level4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level4.xml; sourceTree = "<group>"; };
-		7FCA81FF163DDA77000D1B7B /* CA_level5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level5.xml; sourceTree = "<group>"; };
-		7FCA8200163DDA77000D1B7B /* CA_level6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level6.xml; sourceTree = "<group>"; };
-		7FCA8201163DDA77000D1B7B /* CA_level7.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level7.xml; sourceTree = "<group>"; };
-		7FCA8202163DDA77000D1B7B /* CA_level8.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level8.xml; sourceTree = "<group>"; };
-		7FCA8203163DDA77000D1B7B /* CA_level9.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level9.xml; sourceTree = "<group>"; };
-		7FCA8204163DDA77000D1B7B /* CA_level10.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level10.xml; sourceTree = "<group>"; };
-		7FCA8205163DDA77000D1B7B /* CA_level11.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level11.xml; sourceTree = "<group>"; };
-		7FCA8206163DDA77000D1B7B /* CA_level12.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level12.xml; sourceTree = "<group>"; };
-		7FCA8207163DDA77000D1B7B /* CA_level13.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level13.xml; sourceTree = "<group>"; };
-		7FCA8208163DDA77000D1B7B /* CA_level14.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CA_level14.xml; sourceTree = "<group>"; };
 		7FCA8217163DDF2E000D1B7B /* CA_blind_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_blind_1.png; sourceTree = "<group>"; };
 		7FCA8218163DDF2E000D1B7B /* CA_bow_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_bow_1.png; sourceTree = "<group>"; };
 		7FCA8219163DDF2E000D1B7B /* CA_box_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CA_box_1.png; sourceTree = "<group>"; };
@@ -1916,23 +1944,37 @@
 		7F5727A1163524970023B985 /* xmls */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C7BC8166C8EFE00886E83 /* level1_1.xml */,
+				7F7C7BC9166C8EFE00886E83 /* level1_2.xml */,
+				7F7C7BCA166C8EFE00886E83 /* level2_1.xml */,
+				7F7C7BCB166C8EFE00886E83 /* level2_2.xml */,
+				7F7C7BCC166C8EFE00886E83 /* level3_1.xml */,
+				7F7C7BCD166C8EFE00886E83 /* level3_2.xml */,
+				7F7C7BCE166C8EFE00886E83 /* level4_1.xml */,
+				7F7C7BCF166C8EFE00886E83 /* level4_2.xml */,
+				7F7C7BD0166C8EFE00886E83 /* level5_1.xml */,
+				7F7C7BD1166C8EFE00886E83 /* level5_2.xml */,
+				7F7C7BD2166C8EFE00886E83 /* level6_1.xml */,
+				7F7C7BD3166C8EFE00886E83 /* level6_2.xml */,
+				7F7C7BD4166C8EFE00886E83 /* level7_1.xml */,
+				7F7C7BD5166C8EFE00886E83 /* level7_2.xml */,
+				7F7C7BD6166C8EFE00886E83 /* level8_1.xml */,
+				7F7C7BD7166C8EFE00886E83 /* level8_2.xml */,
+				7F7C7BD8166C8EFE00886E83 /* level9_1.xml */,
+				7F7C7BD9166C8EFE00886E83 /* level9_2.xml */,
+				7F7C7BDA166C8EFE00886E83 /* level10_1.xml */,
+				7F7C7BDB166C8EFE00886E83 /* level10_2.xml */,
+				7F7C7BDC166C8EFE00886E83 /* level11_1.xml */,
+				7F7C7BDD166C8EFE00886E83 /* level11_2.xml */,
+				7F7C7BDE166C8EFE00886E83 /* level12_1.xml */,
+				7F7C7BDF166C8EFE00886E83 /* level12_2.xml */,
+				7F7C7BE0166C8EFE00886E83 /* level13_1.xml */,
+				7F7C7BE1166C8EFE00886E83 /* level13_2.xml */,
+				7F7C7BE2166C8EFE00886E83 /* level14_1.xml */,
+				7F7C7BE3166C8EFE00886E83 /* level14_2.xml */,
 				7F2B548416522A600022867D /* Star_editor.xml */,
 				7FDD5905164CF29B00590D38 /* CA_react.xml */,
 				7F6214CE164BA4B8007D880C /* DU_effect.xml */,
-				7FCA81FB163DDA77000D1B7B /* CA_level1.xml */,
-				7FCA81FC163DDA77000D1B7B /* CA_level2.xml */,
-				7FCA81FD163DDA77000D1B7B /* CA_level3.xml */,
-				7FCA81FE163DDA77000D1B7B /* CA_level4.xml */,
-				7FCA81FF163DDA77000D1B7B /* CA_level5.xml */,
-				7FCA8200163DDA77000D1B7B /* CA_level6.xml */,
-				7FCA8201163DDA77000D1B7B /* CA_level7.xml */,
-				7FCA8202163DDA77000D1B7B /* CA_level8.xml */,
-				7FCA8203163DDA77000D1B7B /* CA_level9.xml */,
-				7FCA8204163DDA77000D1B7B /* CA_level10.xml */,
-				7FCA8205163DDA77000D1B7B /* CA_level11.xml */,
-				7FCA8206163DDA77000D1B7B /* CA_level12.xml */,
-				7FCA8207163DDA77000D1B7B /* CA_level13.xml */,
-				7FCA8208163DDA77000D1B7B /* CA_level14.xml */,
 				7F7A2FD0163CBAD800DB2719 /* CA_addthing.xml */,
 			);
 			name = xmls;
@@ -2780,20 +2822,6 @@
 				7FB6526F1631273D0009AA38 /* SK_ice_1.png in Resources */,
 				7FB65271163127460009AA38 /* CA_arrow_1.png in Resources */,
 				7F7A2FD1163CBAD800DB2719 /* CA_addthing.xml in Resources */,
-				7FCA8209163DDA77000D1B7B /* CA_level1.xml in Resources */,
-				7FCA820A163DDA77000D1B7B /* CA_level2.xml in Resources */,
-				7FCA820B163DDA77000D1B7B /* CA_level3.xml in Resources */,
-				7FCA820C163DDA77000D1B7B /* CA_level4.xml in Resources */,
-				7FCA820D163DDA77000D1B7B /* CA_level5.xml in Resources */,
-				7FCA820E163DDA77000D1B7B /* CA_level6.xml in Resources */,
-				7FCA820F163DDA77000D1B7B /* CA_level7.xml in Resources */,
-				7FCA8210163DDA77000D1B7B /* CA_level8.xml in Resources */,
-				7FCA8211163DDA77000D1B7B /* CA_level9.xml in Resources */,
-				7FCA8212163DDA77000D1B7B /* CA_level10.xml in Resources */,
-				7FCA8213163DDA77000D1B7B /* CA_level11.xml in Resources */,
-				7FCA8214163DDA77000D1B7B /* CA_level12.xml in Resources */,
-				7FCA8215163DDA77000D1B7B /* CA_level13.xml in Resources */,
-				7FCA8216163DDA77000D1B7B /* CA_level14.xml in Resources */,
 				7FCA8220163DDF2E000D1B7B /* CA_blind_1.png in Resources */,
 				7FCA8221163DDF2E000D1B7B /* CA_bow_1.png in Resources */,
 				7FCA8222163DDF2E000D1B7B /* CA_box_1.png in Resources */,
@@ -2826,6 +2854,34 @@
 				7F32889E1663442A00DF86FC /* PauseUI.ccbi in Resources */,
 				7F3288A0166345AF00DF86FC /* MissionNode.ccbi in Resources */,
 				7F3288A2166345B900DF86FC /* AchievementNode.ccbi in Resources */,
+				7F7C7BE4166C8EFE00886E83 /* level1_1.xml in Resources */,
+				7F7C7BE5166C8EFE00886E83 /* level1_2.xml in Resources */,
+				7F7C7BE6166C8EFE00886E83 /* level2_1.xml in Resources */,
+				7F7C7BE7166C8EFE00886E83 /* level2_2.xml in Resources */,
+				7F7C7BE8166C8EFE00886E83 /* level3_1.xml in Resources */,
+				7F7C7BE9166C8EFE00886E83 /* level3_2.xml in Resources */,
+				7F7C7BEA166C8EFE00886E83 /* level4_1.xml in Resources */,
+				7F7C7BEB166C8EFE00886E83 /* level4_2.xml in Resources */,
+				7F7C7BEC166C8EFE00886E83 /* level5_1.xml in Resources */,
+				7F7C7BED166C8EFE00886E83 /* level5_2.xml in Resources */,
+				7F7C7BEE166C8EFE00886E83 /* level6_1.xml in Resources */,
+				7F7C7BEF166C8EFE00886E83 /* level6_2.xml in Resources */,
+				7F7C7BF0166C8EFE00886E83 /* level7_1.xml in Resources */,
+				7F7C7BF1166C8EFE00886E83 /* level7_2.xml in Resources */,
+				7F7C7BF2166C8EFE00886E83 /* level8_1.xml in Resources */,
+				7F7C7BF3166C8EFE00886E83 /* level8_2.xml in Resources */,
+				7F7C7BF4166C8EFE00886E83 /* level9_1.xml in Resources */,
+				7F7C7BF5166C8EFE00886E83 /* level9_2.xml in Resources */,
+				7F7C7BF6166C8EFE00886E83 /* level10_1.xml in Resources */,
+				7F7C7BF7166C8EFE00886E83 /* level10_2.xml in Resources */,
+				7F7C7BF8166C8EFE00886E83 /* level11_1.xml in Resources */,
+				7F7C7BF9166C8EFE00886E83 /* level11_2.xml in Resources */,
+				7F7C7BFA166C8EFE00886E83 /* level12_1.xml in Resources */,
+				7F7C7BFB166C8EFE00886E83 /* level12_2.xml in Resources */,
+				7F7C7BFC166C8EFE00886E83 /* level13_1.xml in Resources */,
+				7F7C7BFD166C8EFE00886E83 /* level13_2.xml in Resources */,
+				7F7C7BFE166C8EFE00886E83 /* level14_1.xml in Resources */,
+				7F7C7BFF166C8EFE00886E83 /* level14_2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

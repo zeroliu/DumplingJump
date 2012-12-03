@@ -7,12 +7,16 @@
 //
 
 #import "LevelManager.h"
+#import "HeroManager.h"
+#import "BoardManager.h"
+#import "BackgroundController.h"
 #import "AddthingFactory.h"
 #import "StarManager.h"
 #import "Paragraph.h"
 
 @interface LevelManager()
 {
+    int currentParagraphIndex;
     int sentenceIndex;
     float sentenceCounter;
     float sentenceTarget;
@@ -40,7 +44,10 @@
 {
     if (self = [super init])
     {
-        self.paragraphs = [[NSMutableArray alloc] init];
+        self.paragraphs = [[NSMutableArray alloc] initWithCapacity:2];
+        [self.paragraphs addObject:[[NSMutableArray alloc] init]];
+        [self.paragraphs addObject:[[NSMutableArray alloc] init]];
+        
         self.generatedObjects = [[NSMutableArray alloc] init];
         [self loadParagraphs];
         
@@ -55,9 +62,13 @@
     int i = 1;
     NSString *levelContent = nil;
     do {
-        Paragraph *level = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"CA_level%d",i]];
-        DLog(@"Paragraph loaded + %d", i);
-        [self.paragraphs addObject:level];
+        for (int j=1; j<=2; j++)
+        {
+            Paragraph *level = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"level%d_%d",i, j]];
+            DLog(@"Paragraph loaded + %d_%d", i, j);
+            [[self.paragraphs objectAtIndex:(j-1)] addObject:level];
+        }
+        
         i++;
         levelContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"CA_level%d",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
     } while (levelContent != nil);
@@ -102,15 +113,26 @@
 
 -(void) loadParagraphAtIndex:(int) index
 {
-    currentParagraph = [self.paragraphs objectAtIndex:index];
     sentenceCounter = 0;
     sentenceIndex = 0;
     sentenceTarget = 0;
+    currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:index];
+    currentParagraphIndex = index;
+    
+}
+
+-(void) loadCurrentParagraph
+{
+    sentenceCounter = 0;
+    sentenceIndex = 0;
+    sentenceTarget = 0;
+    currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:currentParagraphIndex];
+    
 }
 
 -(int) paragraphsCount
 {
-    return [self.paragraphs count];
+    return [[self.paragraphs objectAtIndex:0] count];
 }
 
 -(void) dropNextAddthing
@@ -138,6 +160,7 @@
             }
             
             sentenceIndex ++;
+            
             if (sentenceIndex < [currentParagraph countSentencesNum])
             {
                 //If there are still sentences, set new sentence target
@@ -145,14 +168,38 @@
             } else
             {
                 currentParagraph = nil;
+                [self jumpToNextLevel];
+                
             }
         }
     }
 }
 
+-(void) jumpToNextLevel
+{
+    //current paragraph finished
+    currentParagraphIndex++;
+    if (currentParagraphIndex > [self paragraphsCount] - 1)
+    {
+        currentParagraphIndex = 2;
+    }
+    
+    [self switchToNextLevelEffect];
+    [self performSelector:@selector(loadCurrentParagraph) withObject:nil afterDelay:5];
+}
+
+-(void) switchToNextLevelEffect
+{
+    [[[HeroManager shared] getHero] rocketPowerup];
+    [[[BoardManager shared] getBoard] rocketPowerup];
+    //Speed up scrolling speed
+    [[BackgroundController shared] speedUpWithScale:6 interval:5];
+}
+
 -(void) stopCurrentParagraph
 {
     currentParagraph = nil;
+    currentParagraphIndex = 0;
 }
 
 -(void) removeObjectFromList:(DUObject *)myObject

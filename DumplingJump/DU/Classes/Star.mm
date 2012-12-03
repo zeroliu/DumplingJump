@@ -9,7 +9,7 @@
 #import "Star.h"
 
 @implementation Star
-@synthesize width = _width, starLines = _starLines;
+@synthesize name=_name, width = _width, starLines = _starLines;
 
 -(id) initEmptyStar
 {

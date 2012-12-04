@@ -14,32 +14,30 @@
 	</level>
 	<level>
 		<time>2</time>
+		<slot2>SPRING</slot2>
 	</level>
 	<level>
 		<time>3</time>
-		<slot2>SPRING</slot2>
+	</level>
+	<level>
+		<time>4</time>
 		<slot4>TUB</slot4>
 		<slot6>TUB</slot6>
 	</level>
 	<level>
-		<time>4</time>
+		<time>5</time>
 		<slot5>TUB</slot5>
 		<slot7>TUB</slot7>
 	</level>
 	<level>
-		<time>5</time>
+		<time>6</time>
 		<slot4>TUB</slot4>
 		<slot6>TUB</slot6>
-	</level>
-	<level>
-		<time>6</time>
-		<slot3>TUB</slot3>
-		<slot5>TUB</slot5>
 	</level>
 	<level>
 		<time>7</time>
-		<slot4>TUB</slot4>
-		<slot6>TUB</slot6>
+		<slot3>TUB</slot3>
+		<slot5>TUB</slot5>
 	</level>
 	<level>
 		<time>8</time>
@@ -53,45 +51,36 @@
 	</level>
 	<level>
 		<time>10</time>
-		<slot4>TUB</slot4>
-		<slot6>TUB</slot6>
 	</level>
 	<level>
 		<time>11</time>
-		<slot5>TUB</slot5>
-		<slot7>TUB</slot7>
+		<slot5>SHELTER</slot5>
 	</level>
 	<level>
 		<time>12</time>
-		<slot4>TUB</slot4>
-		<slot6>TUB</slot6>
 	</level>
 	<level>
 		<time>13</time>
-		<slot3>TUB</slot3>
-		<slot5>TUB</slot5>
+		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>14</time>
-		<slot5>TUB</slot5>
-		<slot7>TUB</slot7>
+		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>15</time>
-		<slot3>TUB</slot3>
-		<slot5>TUB</slot5>
+		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>16</time>
+		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>17</time>
-		<slot6>VAT</slot6>
-		<slot7>SHELTER</slot7>
 	</level>
 	<level>
 		<time>18</time>
-		<slot4>VAT</slot4>
+		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>19</time>
@@ -103,7 +92,6 @@
 	</level>
 	<level>
 		<time>21</time>
-		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>22</time>
@@ -111,88 +99,58 @@
 	</level>
 	<level>
 		<time>23</time>
-		<slot6>VAT</slot6>
+		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>24</time>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>25</time>
-		<slot6>VAT</slot6>
+		<slot3>TUB</slot3>
+		<slot4>TUB</slot4>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>26</time>
-		<slot6>VAT</slot6>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>27</time>
-		<slot4>VAT</slot4>
+		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>28</time>
+		<slot3>VAT</slot3>
+		<slot6>TUB</slot6>
+		<slot7>TUB</slot7>
 	</level>
 	<level>
 		<time>29</time>
-		<slot4>VAT</slot4>
+		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>30</time>
-		<slot4>VAT</slot4>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>31</time>
+		<slot3>TUB</slot3>
+		<slot4>TUB</slot4>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>32</time>
-		<slot3>TUB</slot3>
-		<slot4>TUB</slot4>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>33</time>
-		<slot7>VAT</slot7>
+		<slot1>*/</slot1>
 	</level>
 	<level>
 		<time>34</time>
-		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>35</time>
-		<slot3>VAT</slot3>
-		<slot6>TUB</slot6>
-		<slot7>TUB</slot7>
-	</level>
-	<level>
-		<time>36</time>
-		<slot3>VAT</slot3>
-	</level>
-	<level>
-		<time>37</time>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>38</time>
-		<slot3>TUB</slot3>
-		<slot4>TUB</slot4>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>39</time>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>40</time>
-		<slot3>VAT</slot3>
-	</level>
-	<level>
-		<time>41</time>
-		<slot3>VAT</slot3>
-		<slot6>TUB</slot6>
-		<slot7>TUB</slot7>
-	</level>
-	<level>
-		<time>42</time>
-		<slot3>VAT</slot3>
 	</level>
 </stage1>

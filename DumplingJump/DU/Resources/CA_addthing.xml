@@ -234,16 +234,16 @@
 		<blood>1</blood>
 		<react_type>slash</react_type>
 	</Item>
-    <Item>
+	<Item>
 		<ID>星星</ID>
 		<name>STAR</name>
 		<shape>Circle</shape>
-		<radius>23</radius>
+		<radius>18</radius>
 		<I>1</I>
 		<mass>0</mass>
 		<res>0.1</res>
 		<fric>2</fric>
-		<gravity>20</gravity>
+		<gravity>14</gravity>
 		<blood>1</blood>
 		<react_type>star</react_type>
 	</Item>

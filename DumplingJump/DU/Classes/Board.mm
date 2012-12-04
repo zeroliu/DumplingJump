@@ -302,17 +302,20 @@
 
 -(void) updateEnginePosition
 {
-    float boardPx = self.body->GetPosition().x * RATIO;
-    float boardPy = self.body->GetPosition().y * RATIO;
-    float boardAngle = self.body->GetAngle();
-    
-    float zOffset = -40;
-    float xOffset = 50;
-    engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
-    engineLeft.rotation = -boardAngle;
-    
-    engineRight.position = ccp(boardPx + (boardWidth+xOffset)/2* cos(boardAngle), zOffset + boardPy + (boardWidth+xOffset)/2* sin(boardAngle));
-    engineRight.rotation = -boardAngle;
+    if (engineLeft != nil && engineRight != nil)
+    {
+        float boardPx = self.body->GetPosition().x * RATIO;
+        float boardPy = self.body->GetPosition().y * RATIO;
+        float boardAngle = self.body->GetAngle();
+        
+        float zOffset = -40;
+        float xOffset = 50;
+        engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
+        engineLeft.rotation = -boardAngle;
+        
+        engineRight.position = ccp(boardPx + (boardWidth+xOffset)/2* cos(boardAngle), zOffset + boardPy + (boardWidth+xOffset)/2* sin(boardAngle));
+        engineRight.rotation = -boardAngle;
+    }
 }
 
 -(void) cleanEngine
@@ -320,14 +323,14 @@
     if (engineLeft != nil)
     {
         [engineLeft removeFromParentAndCleanup:NO];
-        [engineLeft release];
+        //[engineLeft release];
         engineLeft = nil;
     }
     
     if (engineRight != nil)
     {
         [engineRight removeFromParentAndCleanup:NO];
-        [engineRight release];
+        //[engineRight release];
         engineRight = nil;
     }
 }

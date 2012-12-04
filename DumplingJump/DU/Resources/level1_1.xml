@@ -14,11 +14,7 @@
 	</level>
 	<level>
 		<time>2</time>
-<<<<<<< HEAD
-        <slot1>*1</slot1>
-=======
 		<slot5>*1</slot5>
->>>>>>> 70383b19e0d2d5edf0391acbbbc25626c25f5383
 	</level>
 	<level>
 		<time>3</time>
@@ -93,11 +89,7 @@
 	</level>
 	<level>
 		<time>22</time>
-<<<<<<< HEAD
-        <slot2>*1</slot2>
-=======
 		<slot5>TUB</slot5>
->>>>>>> 70383b19e0d2d5edf0391acbbbc25626c25f5383
 	</level>
 	<level>
 		<time>23</time>
@@ -131,9 +123,6 @@
 	</level>
 	<level>
 		<time>31</time>
-<<<<<<< HEAD
-		<slot3>*1</slot3>
-=======
 	</level>
 	<level>
 		<time>32</time>
@@ -142,6 +131,5 @@
 	<level>
 		<time>33</time>
 		<slot5>*1</slot5>
->>>>>>> 70383b19e0d2d5edf0391acbbbc25626c25f5383
 	</level>
 </stage1>

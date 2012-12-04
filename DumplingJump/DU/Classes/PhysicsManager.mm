@@ -77,6 +77,7 @@
 {
     [[[HeroManager shared] getHero] updateHeroForce];
     [[[BoardManager shared] getBoard] updateBoardForce];
+    [[[BoardManager shared] getBoard] updateEnginePosition];
     world->Step(dt,10,10);
    
     while ([physicsToRemove count] > 0)

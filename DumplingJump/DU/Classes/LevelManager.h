@@ -23,4 +23,5 @@
 -(void) removeObjectFromList:(DUObject *)myObject;
 -(void) destroyAllObjects;
 -(void) stopCurrentParagraph;
+-(void) loadCurrentParagraph;
 @end

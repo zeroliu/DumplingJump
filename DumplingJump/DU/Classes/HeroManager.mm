@@ -3,9 +3,9 @@
 #import "DUObjectsDictionary.h"
 
 #define HERO_RADIUS 13.0f
-#define HERO_MASS 13.0f
+#define HERO_MASS 15.0f
 #define HERO_I 1.0f
-#define HERO_FRIC 0.6f
+#define HERO_FRIC 0
 #define HERO_MAX_VX 5.0f
 #define HERO_MAX_VY 26.0f
 #define HERO_ACC 1.56f
@@ -52,7 +52,7 @@
     if (self.hero != nil)
     {
         [self.hero removeFromParentAndCleanup:NO];
-        [self.hero remove];
+        [self.hero archive];
         self.hero = nil;
 //        [[DUObjectsDictionary sharedDictionary] cleanObjectByName:HERO];
     }

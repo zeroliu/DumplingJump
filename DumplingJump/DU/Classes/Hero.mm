@@ -644,14 +644,19 @@
      */
 }
 
--(void) dealloc
+-(void) deactivate
 {
-    //    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-    [super deactivate];
     [self idle];
     [self removeAllChildrenWithCleanup:NO];
     [self stopAllActions];
     [self removeContactListner];
+    [super deactivate];
+}
+
+-(void) dealloc
+{
+    //    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    
     [super dealloc];
 }
 

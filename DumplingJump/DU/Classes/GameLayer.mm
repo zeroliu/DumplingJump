@@ -35,6 +35,7 @@
 -(void) onExit
 {
     [super onExit];
+    [[DUObjectsDictionary sharedDictionary] cleanDictionary];
     DLog(@"GameLayer scene onExit");
 }
 
@@ -79,6 +80,7 @@
         self.model.state = GAME_INIT;
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
+        [self cleanScreen];
         [self initBatchNode];
         [self preloadGameData];
         [self loadUserData];
@@ -93,6 +95,11 @@
         [self scheduleUpdate];
 	}
 	return self;
+}
+
+-(void) cleanScreen
+{
+    [self removeAllChildrenWithCleanup:NO];
 }
 
 -(void) initDebugTool
@@ -202,6 +209,9 @@
 
 -(void) restart
 {
+    //Clean object dictionary
+    [[DUObjectsDictionary sharedDictionary] cleanDictionary];
+    
     //Reset score
     self.model.distance = 0;
     
@@ -221,6 +231,9 @@
     
     //Show Fade out animation
     [[GameUI shared] fadeOut];
+    
+    //if isDebug, restart currentLevel
+    [[LevelManager shared] loadCurrentParagraph];
     
     //Resume game
     [self resumeGame];

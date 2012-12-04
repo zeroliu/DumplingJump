@@ -15,4 +15,6 @@
 -(void) recover;
 -(void) rocketPowerup;
 -(void) updateBoardForce;
+-(void) updateEnginePosition;
+-(void) cleanEngine;
 @end

@@ -1,4 +1,4 @@
-f//
+//
 //  LevelManager.mm
 //  DumplingJump
 //
@@ -147,7 +147,6 @@ f//
             for (int i=0; i<SLOTS_NUM; i++)
             {
                 NSString *item = [mySentence.words objectAtIndex:i];
-                NSLog(item);
                 if ([item rangeOfString:@"*"].location == 0)
                 {
                     
@@ -201,7 +200,7 @@ f//
 -(void) stopCurrentParagraph
 {
     currentParagraph = nil;
-    currentParagraphIndex = 0;
+    //currentParagraphIndex = 0;
 }
 
 -(void) removeObjectFromList:(DUObject *)myObject

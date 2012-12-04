@@ -24,6 +24,11 @@
     b2Joint *jointMR;
     b2Joint *jointML;
     
+    CCSprite *engineLeft;
+    CCSprite *engineRight;
+    
+    float boardWidth;
+    
     b2Vec2 directionForce;
 }
 
@@ -45,6 +50,33 @@
         self.sprite.position = pos;
         float scaleX = 1.1f*370/2 / self.sprite.boundingBox.size.width * SCALE_MULTIPLIER;
         float scaleY = 1.1f*40/2 / self.sprite.boundingBox.size.height * SCALE_MULTIPLIER;
+        
+        boardWidth = self.sprite.boundingBox.size.width;
+
+        engineLeft = [CCSprite spriteWithSpriteFrameName:@"CA_engine_1.png"];
+        engineRight = [CCSprite spriteWithSpriteFrameName:@"CA_engine_1.png"];
+        
+        engineLeft.scale = scaleX;
+        engineRight.scale = scaleX;
+        
+        id animation = [ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM];
+        
+        if(animation != nil)
+        {
+            [engineLeft stopAllActions];
+            [engineRight stopAllActions];
+            id animAction1 = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            id animAction2 = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            
+            [engineLeft runAction:animAction1];
+            [engineRight runAction:animAction2];
+        }
+        
+        engineLeft.position = ccp(100,200);
+        engineRight.position = ccp(200,200);
+        
+        [BATCHNODE addChild:engineLeft z:Z_Engine];
+        [BATCHNODE addChild:engineRight z:Z_Engine];
         
         NSLog(@"width: %g",self.sprite.boundingBox.size.width);
         self.sprite.scaleX = scaleX;
@@ -79,7 +111,7 @@
     
     b2FixtureDef boardFixtureDef;
     
-    boardFixtureDef.friction = 0.3;
+    boardFixtureDef.friction = 0;
     boardFixtureDef.restitution = 0;
     boardFixtureDef.density = 10;
     boardFixtureDef.shape = &boardShape;
@@ -268,13 +300,62 @@
     }
 }
 
--(void) dealloc
+-(void) updateEnginePosition
+{
+    float boardPx = self.body->GetPosition().x * RATIO;
+    float boardPy = self.body->GetPosition().y * RATIO;
+    float boardAngle = self.body->GetAngle();
+    
+    float zOffset = -40;
+    float xOffset = 50;
+    engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
+    engineLeft.rotation = -boardAngle;
+    
+    engineRight.position = ccp(boardPx + (boardWidth+xOffset)/2* cos(boardAngle), zOffset + boardPy + (boardWidth+xOffset)/2* sin(boardAngle));
+    engineRight.rotation = -boardAngle;
+}
+
+-(void) cleanEngine
+{
+    if (engineLeft != nil)
+    {
+        [engineLeft removeFromParentAndCleanup:NO];
+        [engineLeft release];
+        engineLeft = nil;
+    }
+    
+    if (engineRight != nil)
+    {
+        [engineRight removeFromParentAndCleanup:NO];
+        [engineRight release];
+        engineRight = nil;
+    }
+}
+
+-(void) remove
+{
+    [self cleanEngine];
+    [super remove];
+}
+
+-(void) onExit
+{
+    [self cleanEngine];
+}
+
+-(void) deactivate
 {
     b2World *world = [[PhysicsManager sharedPhysicsManager] getWorld];
     world->DestroyJoint(jointML);
     world->DestroyJoint(jointMR);
     world->DestroyJoint(jointL);
     world->DestroyJoint(jointR);
+    [super deactivate];
+}
+
+-(void) dealloc
+{
+    
     [super dealloc];
 }
 

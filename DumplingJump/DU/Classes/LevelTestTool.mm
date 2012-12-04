@@ -38,9 +38,9 @@
    {
        [levelEditor endEditing:YES];
        levelNum = [levelEditor.text intValue];
-       if (levelNum < [[LevelManager shared] paragraphsCount])
+       if (levelNum < [[LevelManager shared] paragraphsCount] && levelNum > 0)
        {
-           [[LevelManager shared] loadParagraphAtIndex:levelNum];
+           [[LevelManager shared] loadParagraphAtIndex:(levelNum-1)];
        }
    }
 }

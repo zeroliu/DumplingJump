@@ -89,4 +89,19 @@
     }
 }
 
+-(void) cleanDictionary
+{
+    for (id key in DUDictionary)
+    {
+        NSArray *array = [DUDictionary objectForKey:key];
+        for (DUObject *ob in array)
+        {
+            [ob remove];
+        }
+    }
+    [DUDictionary removeAllObjects];
+    [DUDictionary release];
+    DUDictionary = [[NSMutableDictionary alloc] init];
+}
+
 @end

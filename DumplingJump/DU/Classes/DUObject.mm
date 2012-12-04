@@ -20,7 +20,8 @@
 {
     self.archived = YES;
     [self deactivate];
-    [[DUObjectsDictionary sharedDictionary] addDUObject:self];
+    [self release];
+    //[[DUObjectsDictionary sharedDictionary] addDUObject:self];
 }
 
 -(void) remove

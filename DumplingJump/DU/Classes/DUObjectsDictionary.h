@@ -17,6 +17,7 @@
 -(id) getDUObjectbyName:(NSString *)theName;
 -(void) addDUObject:(DUObject *)theObject;
 -(void) cleanObjectByName:(NSString *)theName;
+-(void) cleanDictionary;
 -(NSString *) printDictionary;
 
 @end

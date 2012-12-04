@@ -22,6 +22,7 @@
 #define Z_GAMEUI 10
 #define Z_Hero 5
 #define Z_Board 6
+#define Z_Engine 7
 
 #pragma mark -
 #pragma mark Physics
@@ -103,6 +104,7 @@
 #define ANIM_STONE_BREAK @"CA_E_stone"
 #define ANIM_POWDER_EXPLODE @"AL_E_powder"
 #define ANIM_BOW @"CA_E_bomb"
+#define ANIM_BROOM @"CA_engine"
 
 #pragma mark -
 #pragma mark Collision Layers

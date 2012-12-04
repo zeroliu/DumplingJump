@@ -71,7 +71,7 @@
     self.body->SetTransform(b2Vec2(150/RATIO, 200/RATIO),0);
     self.body->SetLinearVelocity(b2Vec2(0,0));
     self.body->SetAngularVelocity(0);
-    
+    self.body->GetWorld()->DestroyBody(self.body);
     //TODO: Add info for contacts
 //    NSLog(@"call DUPhysics deactive");
 }
@@ -83,7 +83,7 @@
 
 -(void) dealloc
 {
-    self.body->GetWorld()->DestroyBody(self.body);
+    
     [super dealloc];
 }
 

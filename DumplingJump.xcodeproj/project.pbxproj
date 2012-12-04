@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182AC972166DC8F0005F0722 /* level15_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 182AC971166DC8F0005F0722 /* level15_1.xml */; };
+		182AC975166DC8FB005F0722 /* level15_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 182AC974166DC8FB005F0722 /* level15_2.xml */; };
 		7F0F2F011650EC7700DE57FF /* CircleMask.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F2F001650EC7700DE57FF /* CircleMask.mm */; };
 		7F0F2F041650F1B300DE57FF /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0F2F021650F1B300DE57FF /* mask.png */; };
 		7F0F2F051650F1B300DE57FF /* blackbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0F2F031650F1B300DE57FF /* blackbg.png */; };
@@ -370,6 +372,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182AC971166DC8F0005F0722 /* level15_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level15_1.xml; sourceTree = "<group>"; };
+		182AC974166DC8FB005F0722 /* level15_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level15_2.xml; sourceTree = "<group>"; };
 		7F0F2EFF1650EC7700DE57FF /* CircleMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleMask.h; sourceTree = "<group>"; };
 		7F0F2F001650EC7700DE57FF /* CircleMask.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CircleMask.mm; sourceTree = "<group>"; };
 		7F0F2F021650F1B300DE57FF /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
@@ -1972,6 +1976,8 @@
 				7F7C7BE1166C8EFE00886E83 /* level13_2.xml */,
 				7F7C7BE2166C8EFE00886E83 /* level14_1.xml */,
 				7F7C7BE3166C8EFE00886E83 /* level14_2.xml */,
+				182AC971166DC8F0005F0722 /* level15_1.xml */,
+				182AC974166DC8FB005F0722 /* level15_2.xml */,
 				7F2B548416522A600022867D /* Star_editor.xml */,
 				7FDD5905164CF29B00590D38 /* CA_react.xml */,
 				7F6214CE164BA4B8007D880C /* DU_effect.xml */,
@@ -2882,6 +2888,8 @@
 				7F7C7BFD166C8EFE00886E83 /* level13_2.xml in Resources */,
 				7F7C7BFE166C8EFE00886E83 /* level14_1.xml in Resources */,
 				7F7C7BFF166C8EFE00886E83 /* level14_2.xml in Resources */,
+				182AC972166DC8F0005F0722 /* level15_1.xml in Resources */,
+				182AC975166DC8FB005F0722 /* level15_2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-//
+f//
 //  LevelManager.mm
 //  DumplingJump
 //
@@ -70,7 +70,7 @@
         }
         
         i++;
-        levelContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"CA_level%d",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
+        levelContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level%d_1",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
     } while (levelContent != nil);
     
     //DLog(@"Paragraph loaded + %d", (i-1));
@@ -147,8 +147,10 @@
             for (int i=0; i<SLOTS_NUM; i++)
             {
                 NSString *item = [mySentence.words objectAtIndex:i];
-                if ([item rangeOfString:@"star"].location == 0)
+                NSLog(item);
+                if ([item rangeOfString:@"*"].location == 0)
                 {
+                    
                     [[StarManager shared] dropStar:item AtSlot:i];
                 } else
                 {

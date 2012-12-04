@@ -309,7 +309,7 @@
             for (DDXMLElement *slot in slots)
             {
                 int slotNum = [[[slot name] substringFromIndex:4] intValue] - 1;
-                [[currentStar.starLines objectAtIndex:lineCounter] replaceObjectAtIndex:slotNum withObject:@"1"];
+                [[currentStar.starLines objectAtIndex:lineCounter] replaceObjectAtIndex:slotNum withObject:@"O"];
                 lineWidth = max(slotNum, lineWidth);
             }
             

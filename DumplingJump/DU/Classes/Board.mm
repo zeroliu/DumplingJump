@@ -111,7 +111,7 @@
     
     b2FixtureDef boardFixtureDef;
     
-    boardFixtureDef.friction = 0;
+    boardFixtureDef.friction = 0.6f;
     boardFixtureDef.restitution = 0;
     boardFixtureDef.density = 10;
     boardFixtureDef.shape = &boardShape;

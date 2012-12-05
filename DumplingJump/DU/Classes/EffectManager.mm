@@ -46,11 +46,10 @@
 
 -(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition scale:(float)theScale z:(int)theZ
 {
-    DUEffectObject *effect = [self.factory createWithName:effectName];
+    DUEffectObject *effect = [[self.factory createWithName:effectName] retain];
     effect.sprite.position = thePosition;
     effect.sprite.scale = theScale;
     [effect addChildTo:BATCHNODE z:theZ];
-    
     id animation = [ANIMATIONMANAGER getAnimationWithName:effect.effectData.animationName];
     
     if(animation != nil)

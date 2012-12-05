@@ -10,6 +10,13 @@
 #import "ReactionFunctions.h"
 #import "GameLayer.h"
 #import "HeroManager.h"
+#import "LevelManager.h"
+
+@interface AddthingObject()
+{
+    BOOL _isRemoved;
+}
+@end
 
 @implementation AddthingObject
 @synthesize reaction = _reaction;
@@ -20,7 +27,7 @@
     if (self = [super initWithName:theName file:theFile body:theBody canResize:resize]) {
         _reaction = [[ReactionManager shared] getReactionWithName:reactionName];
         _animation = animationName;
-        
+        _isRemoved = NO;
         self.ID = theID;
         [self setContactListener];
         [self setCountdownClean];
@@ -30,7 +37,6 @@
             [self playAnimation];
         }
     }
-    
     return self;
 }
 
@@ -70,7 +76,7 @@
 
     if ([targetObject.name isEqualToString: HERO])
     {
-        DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
+        //DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
         if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
         {
             for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
@@ -123,18 +129,25 @@
 
 -(void) removeAddthingWithDel
 {
+    [[LevelManager shared] removeObjectFromList:self];
     [PHYSICSMANAGER addToArchiveList:self];
     [EFFECTMANAGER PlayEffectWithName:FX_DEL position:self.sprite.position];
 }
 
 -(void) removeAddthing
 {
-    [PHYSICSMANAGER addToArchiveList:self];
-    //If addthing needs to trigger an effect after touching the hero
-    if (self.reaction.effectName != nil)
+    if (!_isRemoved)
     {
-        [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
+        _isRemoved = YES;
+        [[LevelManager shared] removeObjectFromList:self];
+        [PHYSICSMANAGER addToArchiveList:self];
+        //If addthing needs to trigger an effect after touching the hero
+        if (self.reaction.effectName != nil)
+        {
+            [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
+        }
     }
+    
 }
 
 -(void) moveToHeroWithSpeed:(int)theSpeed
@@ -148,7 +161,6 @@
 -(void) runAction:(SEL)theSelector target:(id)theTarget afterDelay:(ccTime)theDelay
 {
     id delay = [CCDelayTime actionWithDuration:theDelay];
-//    id funcWrapper = [CCCallFunc actionWithTarget:theTarget selector:theSelector];
     id funcWrapper = [CCCallFuncND actionWithTarget:theTarget selector:theSelector data:self.reaction];
     id sequence = [CCSequence actions:delay, funcWrapper, nil];
     [self.sprite runAction:sequence];

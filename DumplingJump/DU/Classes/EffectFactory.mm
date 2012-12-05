@@ -43,7 +43,7 @@
     //DLog(@"%@", ((DUEffectData *)[self.effectsDictionary objectForKey:FX_ARROW_BREAK]).idlePictureName);
     if (objectData != nil)
     {
-         myObject = [[DUEffectObject alloc] initWithName: objectName effect:objectData];
+         myObject = [[[DUEffectObject alloc] initWithName: objectName effect:objectData] autorelease];
     } else 
     {
         DLog(@"Effect <%@> not found in the dictionary, cannot create new object", objectName);

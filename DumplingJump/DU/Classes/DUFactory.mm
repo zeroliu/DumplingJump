@@ -18,15 +18,18 @@
 
 -(id) createWithName:(NSString *)objectName
 {
-    if ([[DUObjectsDictionary sharedDictionary] containsDUObject:objectName] == NO) 
+    //if ([[DUObjectsDictionary sharedDictionary] containsDUObject:objectName] == NO)
     {
         //        DLog(@"Key <%@> not found in the DUObjectsDictionary, add a new DUObject.", name);        
         return [self createNewObjectWithName:objectName];
         
-    } else {
+    }
+    /*
+    else {
         //        DLog(@"Key <%@> found, reuse the object from the dictionary", name);
         return [self reuseOldObjectWithName:objectName];
     }
+     */
 }
 
 -(id) createNewObjectWithName:(NSString *)objectName;

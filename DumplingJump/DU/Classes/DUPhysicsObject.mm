@@ -35,7 +35,6 @@
             self.sprite.scaleY = max(scaleX, scaleY);
         }
     }
-    
     return self;
 }
 

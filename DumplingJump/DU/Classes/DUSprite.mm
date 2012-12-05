@@ -9,7 +9,6 @@
     {
         self.sprite = [CCSprite spriteWithSpriteFrameName:fileName];
     }
-    
     return self;
 }
 
@@ -35,7 +34,7 @@
     self.sprite.visible = NO;
     self.sprite.position = ccp(-0,-0);
     [self.sprite stopAllActions];
-//    [sprite removeFromParentAndCleanup:NO];
+    [self.sprite removeFromParentAndCleanup:YES];
 //    NSLog(@"call DUSpirte deactive");
 }
 
@@ -46,7 +45,7 @@
 
 -(void) dealloc
 {
-    [self.sprite removeFromParentAndCleanup:NO];
+    [self.sprite removeFromParentAndCleanup:YES];
     [self.sprite release];
     [super dealloc];
 }

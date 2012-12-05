@@ -66,6 +66,7 @@
 -(void) addToArchiveList:(DUPhysicsObject *)physicsObject
 {
     [physicsToRemove addObject:physicsObject];
+    
 }
 
 -(void) addToDisactiveList:(DUPhysicsObject *)physicsObject
@@ -126,7 +127,10 @@
                     }
                 } else
                 {
-                    [[LevelManager shared] removeObjectFromList:physicsObject];
+                    if ([((LevelManager *)[LevelManager shared]).generatedObjects containsObject:physicsObject])
+                    {
+                        [((LevelManager *)[LevelManager shared]).generatedObjects removeObject:physicsObject];
+                    }
                     [physicsObject archive];
                 }
             }

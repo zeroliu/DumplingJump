@@ -113,6 +113,8 @@
                 }
             }
             data.spriteName = [NSString stringWithFormat:@"CA_%@_1", [addthingName lowercaseString]];
+            NSString *animName = [NSString stringWithFormat:@"CA_%@", [addthingName lowercaseString]];
+            [ANIMATIONMANAGER registerAnimationForName: animName];
             [result setObject:data forKey:addthingName];
         }
     }

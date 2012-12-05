@@ -89,7 +89,8 @@
 
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
 {
-    DUPhysicsObject *addthing = [[AddthingFactory shared] createWithName:objectName];
+    DUPhysicsObject *addthing = [[[AddthingFactory shared] createWithName:objectName] retain];
+    
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
     //DLog(@"%@", [self.generatedObjects description]);
@@ -99,7 +100,6 @@
         depth = 1;
     }
     [addthing addChildTo:BATCHNODE z:depth];
-    
     return addthing;
 }
 

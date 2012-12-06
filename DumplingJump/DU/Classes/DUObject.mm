@@ -21,7 +21,7 @@
     self.archived = YES;
     [self deactivate];
     
-    DLog(@"before release %@ count:%d [1]", self.name, [self retainCount]);
+    //DLog(@"before release %@ count:%d [1]", self.name, [self retainCount]);
     
     [self release];
     //[[DUObjectsDictionary sharedDictionary] addDUObject:self];

@@ -80,4 +80,12 @@
     }
 }
 
+-(void) updateStar:(int)starNum
+{
+    if (UIStarText != nil)
+    {
+        [UIStarText setString:[NSString stringWithFormat:@"%d", starNum]];
+    }
+}
+
 @end

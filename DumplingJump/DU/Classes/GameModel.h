@@ -15,6 +15,7 @@
 @property (nonatomic, retain) Level *currentLevel;
 @property (nonatomic, assign) int state;
 @property (nonatomic, assign) float distance;
+@property (nonatomic, assign) float star;
 
 @property (nonatomic, assign) NSMutableDictionary *powerUpData;
 

@@ -185,8 +185,9 @@
         currentParagraphIndex = 2;
     }
     
-    [self switchToNextLevelEffect];
-    [self performSelector:@selector(loadCurrentParagraph) withObject:nil afterDelay:5];
+    [self performSelector:@selector(switchToNextLevelEffect) withObject:nil afterDelay:5];
+    //[self switchToNextLevelEffect];
+    [self performSelector:@selector(loadCurrentParagraph) withObject:nil afterDelay:10];
 }
 
 -(void) switchToNextLevelEffect

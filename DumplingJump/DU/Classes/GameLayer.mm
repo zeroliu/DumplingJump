@@ -84,6 +84,7 @@
         [self initBatchNode];
         [self preloadGameData];
         [self loadUserData];
+        [self initGameParam];
         [self initUI];
         [self initGame];
         
@@ -131,14 +132,17 @@
     [self addChild:self.batchNode z:10];
 }
 
--(void) initManagers
+-(void) initGameParam
 {
-    //_bgController = [[BackgroundController alloc] init];
+    self.model.star = 0;
+    self.model.distance = 0;
 }
 
 -(void) initUI
 {
     [[GameUI shared] createUI];
+    [[GameUI shared] updateStar:0];
+    [[GameUI shared] updateDistance:0];
 }
 
 -(void) preloadGameData
@@ -216,6 +220,8 @@
     self.model.distance = 0;
     
     //Reset star
+    self.model.star = 0;
+    [[GameUI shared] updateStar:self.model.star];
     
     //Destroy all objects
     [[LevelManager shared] destroyAllObjects];

@@ -12,6 +12,7 @@
 #import "LevelManager.h"
 #import "EffectManager.h"
 #import "GameModel.h"
+#import "GameUI.h"
 @interface Hero()
 {
     float adjustMove, adjustJump;
@@ -205,14 +206,16 @@
 
 -(void) jump
 {
-    if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
     [self checkIfOnGround];
+    if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
+    
 }
 
 -(void) springJump
 {
-    if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
     [self checkIfOnGround];
+    if (self.isOnGround && self.sprite.position.y < 500) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
+    
 }
 
 -(void) idle
@@ -370,14 +373,18 @@
         id removeStar = [CCCallBlock actionWithBlock:^
                          {
                              [star unschedule:@selector(moveToHeroWithSpeed:)];
+                             ((GameLayer *)GAMELAYER).model.star++;
+                             [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
                              [star removeAddthing];
                          }];
-        //TODO: increment star number
+        
         [star.sprite runAction:rotateStar];
         [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
     } else
     {
         //TODO: increment star number
+        ((GameLayer *)GAMELAYER).model.star++;
+        [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
     }
     
@@ -564,6 +571,7 @@
             contactEdge->contact->GetWorldManifold(&manifold);
             if (manifold.points[0].y < self.sprite.position.y)
             {
+                //DLog(@"%@", ((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetUserData()).name);
                 res = YES;
                 break;
             }

@@ -10,8 +10,10 @@
 @interface GameUI : DUUI
 {
     CCLabelTTF *UIScoreText;
+    CCLabelTTF *UIStarText;
 }
 +(id) shared;
 -(void) fadeOut;
 -(void) updateDistance:(int)distance;
+-(void) updateStar:(int)starNum;
 @end

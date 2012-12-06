@@ -29,28 +29,28 @@
 	<react>
 		<ID>弓箭</ID>
 		<react_type>arrow</react_type>
-		<reactimage>AL_H_hurt</reactimage>
+		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_ArrowBreak</effectimage>
 		<statetime>0.25</statetime>
 		<react_hero>hurt</react_hero>
-		<react_hero_param>30</react_hero_param>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
 		<MEMO>弓箭</MEMO>
+		<react_hero_param>30</react_hero_param>
 	</react>
 	<react>
 		<ID>釘錘</ID>
 		<react_type>claw</react_type>
-		<reactimage>AL_H_hurt</reactimage>
+		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Claw</effectimage>
-		<react_hero>hurt</react_hero>
 		<statetime>0.5</statetime>
-		<react_hero_param>25</react_hero_param>
+		<react_hero>hurt</react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_step>1</trigger_clean_step>
 		<MEMO>釘錘</MEMO>
+		<react_hero_param>25</react_hero_param>
 	</react>
 	<react>
 		<ID>火藥</ID>
@@ -85,7 +85,7 @@
 	<react>
 		<ID>偽裝蝙蝠</ID>
 		<react_type>blind</react_type>
-		<reactimage>CA_H_blind</reactimage>
+		<reactimage>H_blind</reactimage>
 		<effectimage>FX_Powerdown</effectimage>
 		<statetime>4</statetime>
 		<react_hero>blind</react_hero>
@@ -98,7 +98,7 @@
 	<react>
 		<ID>对人炸弹</ID>
 		<react_type>bow</react_type>
-		<reactimage>AL_H_hurt</reactimage>
+		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Bow</effectimage>
 		<react_time>bow</react_time>
 		<trigger_react_time>2.5</trigger_react_time>
@@ -108,7 +108,7 @@
 	<react>
 		<ID>彈簧腳</ID>
 		<react_type>spring</react_type>
-		<reactimage>AL_H_spring</reactimage>
+		<reactimage>H_spring</reactimage>
 		<effectimage>FX_Powerup</effectimage>
 		<statetime>8</statetime>
 		<react_hero>spring</react_hero>
@@ -120,7 +120,7 @@
 	<react>
 		<ID>防護罩</ID>
 		<react_type>shelter</react_type>
-		<reactimage>AL_H_shelter</reactimage>
+		<reactimage>H_shelter</reactimage>
 		<effectimage>FX_Powerup</effectimage>
 		<statetime>6</statetime>
 		<react_hero>shelter</react_hero>
@@ -132,7 +132,7 @@
 	<react>
 		<ID>扁平</ID>
 		<react_type>flat</react_type>
-		<reactimage>AL_H_flat</reactimage>
+		<reactimage>H_flat</reactimage>
 		<effectimage>FX_StoneBreak</effectimage>
 		<statetime>4</statetime>
 		<react_hero>flat</react_hero>
@@ -144,35 +144,34 @@
 	<react>
 		<ID>法師</ID>
 		<react_type>magic</react_type>
-		<reactimage>CA_H_magic</reactimage>
+		<reactimage>H_magic</reactimage>
 		<effectimage>FX_Powerup</effectimage>
 		<statetime>8</statetime>
 		<react_hero>magic</react_hero>
-		<react_hero_param>slash</react_hero_param>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_time>4</trigger_clean_time>
 		<MEMO>法師</MEMO>
+		<react_hero_param>slash</react_hero_param>
 	</react>
-    <react>
+	<react>
 		<ID>星星</ID>
 		<react_type>star</react_type>
-		<reactimage>AL_H_happy</reactimage>
+		<reactimage>H_happy</reactimage>
 		<effectimage>FX_Star</effectimage>
 		<statetime>0</statetime>
 		<react_hero>star</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
-        <react_hero_param>1</react_hero_param>
 		<trigger_clean_board>1</trigger_clean_board>
-        <trigger_clean_item>1</trigger_clean_item>
+		<trigger_clean_item>1</trigger_clean_item>
 		<MEMO>星星</MEMO>
+		<react_hero_param>1</react_hero_param>
 	</react>
 	<react>
 		<ID>光束劍</ID>
 		<react_type>slash</react_type>
 		<effectimage>FX_Del</effectimage>
-        <trigger_clean_item>1</trigger_clean_item>
+		<trigger_clean_item>1</trigger_clean_item>
 	</react>
-
 </reactlist>

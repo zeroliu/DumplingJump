@@ -1,68 +1,68 @@
-<?xml version="1.0"?>
-<effects>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<effects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Effect>
 		<name>FX_Explosion</name>
-		<animation>AL_E_del</animation>
+		<animation>E_del</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
 		<name>FX_ArrowBreak</name>
-		<animation>CA_E_arrow</animation>
+		<animation>E_arrow</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
 		<name>FX_Frozen</name>
-		<animation>SK_E_frozen</animation>
+		<animation>E_frozen</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
 		<name>FX_StoneBreak</name>
-		<animation>CA_E_stone</animation>
+		<animation>E_stone</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
 		<name>FX_Powder</name>
-		<animation>AL_E_powder</animation>
+		<animation>E_powder</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
 		<name>FX_Bow</name>
-		<animation>CA_E_bomb</animation>
+		<animation>E_bomb</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
-    <Effect>
-        <name>FX_Claw</name>
-		<animation>CA_E_claw</animation>
+	<Effect>
+		<name>FX_Claw</name>
+		<animation>E_claw</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
-    <Effect>
-        <name>FX_Powerdown</name>
-		<animation>AL_E_powerdown</animation>
+	<Effect>
+		<name>FX_Powerdown</name>
+		<animation>E_powerdown</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
-    <Effect>
-        <name>FX_Powerup</name>
-		<animation>AL_E_powerup</animation>
+	<Effect>
+		<name>FX_Powerup</name>
+		<animation>E_powerup</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
-    <Effect>
-        <name>FX_Del</name>
-		<animation>AL_E_del</animation>
+	<Effect>
+		<name>FX_Del</name>
+		<animation>E_del</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>
-    <Effect>
-        <name>FX_Star</name>
-		<animation>AL_E_starshining</animation>
+	<Effect>
+		<name>FX_Star</name>
+		<animation>E_starshining</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>

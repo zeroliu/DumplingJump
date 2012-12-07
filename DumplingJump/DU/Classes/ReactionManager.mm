@@ -41,7 +41,7 @@
 
 -(void) loadReactions
 {
-    self.reactionDictionary = [[XMLHelper shared] loadReactionWithXML:@"CA_react"];
+    self.reactionDictionary = [[XMLHelper shared] loadReactionWithXML:@"Editor_react"];
 }
 
 -(Reaction *) getReactionWithName:(NSString *)reactionName

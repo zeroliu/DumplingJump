@@ -9,6 +9,8 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
+#import "CCBReader.h"
+#import "MainMenu.h"
 #import "GameLayer.h"
 
 @implementation AppController
@@ -76,9 +78,10 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 	
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene: [GameLayer scene]];
-	
-	
+//	[director_ pushScene: [GameLayer scene]];
+	CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"];
+	[director_ pushScene:scene];
+    
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
 	navController_.navigationBarHidden = YES;

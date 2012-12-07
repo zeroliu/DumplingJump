@@ -1,4 +1,5 @@
 #import "DUPhysicsObject.h"
+#import "PhysicsManager.h"
 #define RATIO 32
 
 @implementation DUPhysicsObject
@@ -77,6 +78,8 @@
 
 -(void) archive
 {
+    //For some special case, object get released before removed from physics needToRemove list, check that before release
+    [PHYSICSMANAGER removeFromListIfNeeded:self];
     [super archive];
 }
 

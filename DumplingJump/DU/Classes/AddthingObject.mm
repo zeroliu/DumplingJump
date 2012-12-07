@@ -9,6 +9,8 @@
 #import "AddthingObject.h"
 #import "ReactionFunctions.h"
 #import "GameLayer.h"
+#import "GameModel.h"
+#import "GameUI.h"
 #import "HeroManager.h"
 #import "LevelManager.h"
 
@@ -156,6 +158,15 @@
     float ratio = ccpDistance(hero.sprite.position, self.sprite.position) / 7;
     CGPoint direction = ccp((hero.sprite.position.x - self.sprite.position.x)/ratio, (hero.sprite.position.y - self.sprite.position.y)/ratio);
     self.sprite.position = ccpAdd(self.sprite.position, direction);
+    
+    if (ccpDistance(hero.sprite.position, self.sprite.position) < 3)
+    {
+        [self unschedule:@selector(moveToHeroWithSpeed:)];
+        ((GameLayer *)GAMELAYER).model.star++;
+        [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
+        [self removeFromParentAndCleanup:YES];
+        [self removeAddthing];
+    }
 }
 
 -(void) runAction:(SEL)theSelector target:(id)theTarget afterDelay:(ccTime)theDelay

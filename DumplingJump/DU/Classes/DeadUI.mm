@@ -10,6 +10,7 @@
 #import "LevelManager.h"
 #import "HeroManager.h"
 #import "BoardManager.h"
+#import "CCBReader.h"
 
 @implementation DeadUI
 +(id) shared
@@ -42,6 +43,12 @@
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
     id sequence = [CCSequence actions:delay,restartFunc,selfDestruction, nil];
     [node runAction:sequence];
+}
+
+-(void) home:(id)sender
+{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"]]];
+    
 }
 
 -(void) test:(id)sender

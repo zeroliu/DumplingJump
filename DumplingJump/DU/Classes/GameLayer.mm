@@ -15,7 +15,9 @@
 #import "DeadUI.h"
 
 @interface GameLayer()
-
+{
+    CCMenu *_loadingPlaceHolder;
+}
 @end
 
 @implementation GameLayer
@@ -81,21 +83,32 @@
         [CCTexture2D PVRImagesHavePremultipliedAlpha:YES];        
         
         [self cleanScreen];
-        [self initBatchNode];
-        [self preloadGameData];
-        [self loadUserData];
-        [self initGameParam];
-        [self initUI];
-        [self initGame];
+        //Show loading text
+        [self setLoadingScreen];
         
-        if (_isDebug)
+        //Loading in the background
+        dispatch_queue_t loadingQueue = dispatch_queue_create("loadingQueue", NULL);
+        dispatch_async(loadingQueue, ^
         {
-            [self initDebugTool];
-        }
-        
-        [self scheduleUpdate];
+            [[LevelManager shared] destroyAllObjects];
+            [self initBatchNode];
+            [self loadBackendData];
+            [self loadUserData];
+            [self initGameParam];
+            //Load the draw related content on main thread
+            [self performSelectorOnMainThread:@selector(loadFrontendData) withObject:self waitUntilDone:YES];
+        });
 	}
 	return self;
+}
+
+-(void) setLoadingScreen
+{
+    CCMenuItemFont *loadingText = [CCMenuItemFont itemWithString:@"loading..."];
+    loadingText.position = CGPointZero;
+    _loadingPlaceHolder = [CCMenu menuWithItems:loadingText, nil];
+    _loadingPlaceHolder.position = ccp(100,100);
+    [self addChild:_loadingPlaceHolder];
 }
 
 -(void) cleanScreen
@@ -145,17 +158,36 @@
     [[GameUI shared] updateDistance:0];
 }
 
--(void) preloadGameData
+-(void) loadBackendData
 {
     [XMLHelper shared];
     [AnimationManager shared];
     [ReactionManager shared];
     [EffectManager shared];
     [LevelManager shared];
+}
+
+-(void) loadFrontendData
+{
     [HeroManager shared];
     [BoardManager shared];
     [StarManager shared];
     [[BackgroundController shared] initParam];
+    [self initUI];
+    [self initGame];
+    if (_isDebug)
+    {
+        [self initDebugTool];
+    }
+    
+    [self scheduleUpdate];
+    [self startGame];
+    if (_loadingPlaceHolder != nil)
+    {
+        [_loadingPlaceHolder removeFromParentAndCleanup:YES];
+        _loadingPlaceHolder = nil;
+    }
+    [[GameUI shared] fadeOut];
 }
 
 -(void) loadUserData
@@ -168,7 +200,6 @@
     //Init level with level name
     [self setLevelWithName:LEVEL_NORMAL];
     //[[LevelManager shared] loadParagraphAtIndex:0];
-    [self startGame];
 }
 
 -(void) setLevelWithName:(NSString *)levelName
@@ -198,6 +229,7 @@
 -(void) startGame
 {
     self.model.state = GAME_START;
+    [[LevelManager shared] loadCurrentParagraph];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
@@ -270,7 +302,7 @@
 
 -(void) draw
 {
-    
+    /*
     [super draw];
     ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 	
@@ -279,7 +311,7 @@
 	world->DrawDebugData();
 	
 	kmGLPopMatrix();
-    
+    */
 }
 
 #pragma mark -

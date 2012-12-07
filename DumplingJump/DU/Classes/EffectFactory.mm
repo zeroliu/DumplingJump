@@ -32,7 +32,7 @@
 
 -(void) loadEffects
 {
-    self.effectsDictionary = [[XMLHelper shared] loadEffectWithXML:@"DU_effect"];
+    self.effectsDictionary = [[XMLHelper shared] loadEffectWithXML:@"Editor_effect"];
 }
 
 -(id) createNewObjectWithName:(NSString *)objectName

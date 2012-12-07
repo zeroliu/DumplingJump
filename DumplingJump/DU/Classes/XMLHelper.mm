@@ -112,8 +112,8 @@
                     data.animationName = [child stringValue];
                 }
             }
-            data.spriteName = [NSString stringWithFormat:@"CA_%@_1", [addthingName lowercaseString]];
-            NSString *animName = [NSString stringWithFormat:@"CA_%@", [addthingName lowercaseString]];
+            data.spriteName = [NSString stringWithFormat:@"A_%@_1", [addthingName lowercaseString]];
+            NSString *animName = [NSString stringWithFormat:@"A_%@", [addthingName lowercaseString]];
             [ANIMATIONMANAGER registerAnimationForName: animName];
             [result setObject:data forKey:addthingName];
         }

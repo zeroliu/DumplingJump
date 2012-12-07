@@ -31,7 +31,7 @@
 {
     if (self = [super init])
     {
-        self.starDictionary = [[XMLHelper shared] loadStarDataWithXML:@"Star_editor"];
+        self.starDictionary = [[XMLHelper shared] loadStarDataWithXML:@"Editor_star"];
     }
     
     return self;

@@ -50,7 +50,6 @@
     
     listener = new DUContactListener();
     world->SetContactListener(listener);
-    
 }
 
 -(b2World *) getWorld
@@ -72,6 +71,14 @@
 -(void) addToDisactiveList:(DUPhysicsObject *)physicsObject
 {
     [physicsToDisactive addObject:physicsObject];
+}
+
+-(void) removeFromListIfNeeded:(DUPhysicsObject *)object
+{
+    if ([physicsToRemove containsObject:object])
+    {
+        [physicsToRemove removeObject:object];
+    }
 }
 
 -(void) updatePhysicsBody:(ccTime)dt

@@ -120,8 +120,8 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>Resources/spriteSheets/sheetUI.plist</string>
-							<string>blackLayer.png</string>
+							<string>Resources/spriteSheets/sheetUI-1.plist</string>
+							<string>UI_other_mask.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -135,8 +135,6 @@
 						<integer>255</integer>
 					</dict>
 				</array>
-				<key>seqExpanded</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>animatedProperties</key>
@@ -197,6 +195,78 @@
 				<string>CCSprite</string>
 				<key>children</key>
 				<array>
+					<dict>
+						<key>baseClass</key>
+						<string>CCSprite</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>newRecord</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>50</real>
+									<real>383</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>displayFrame</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_king.png</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
 					<dict>
 						<key>baseClass</key>
 						<string>CCLabelTTF</string>
@@ -419,8 +489,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>162</real>
-									<real>350</real>
+									<real>164</real>
+									<real>354</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -875,7 +945,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>180</real>
+									<real>170</real>
 									<real>305</real>
 									<integer>0</integer>
 								</array>
@@ -1003,7 +1073,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>180</real>
+									<real>170</real>
 									<real>275</real>
 									<integer>0</integer>
 								</array>
@@ -1131,7 +1201,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>180</real>
+									<real>170</real>
 									<real>245</real>
 									<integer>0</integer>
 								</array>
@@ -1259,7 +1329,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>180</real>
+									<real>170</real>
 									<real>215</real>
 									<integer>0</integer>
 								</array>
@@ -1515,8 +1585,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>164</real>
-									<real>114</real>
+									<real>163</real>
+									<real>112</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1637,8 +1707,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>retryButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_again.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1660,8 +1730,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>retryButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_again.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1683,8 +1753,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>retryButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_again.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1723,8 +1793,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>71</real>
-									<real>56</real>
+									<real>37</real>
+									<real>46</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1767,7 +1837,7 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string>test:</string>
+									<string>home:</string>
 									<integer>2</integer>
 									<integer>32</integer>
 								</array>
@@ -1825,8 +1895,8 @@
 								<string>Size</string>
 								<key>value</key>
 								<array>
-									<real>77</real>
-									<real>71</real>
+									<real>64</real>
+									<real>59</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1845,8 +1915,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>homeButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_home.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1868,8 +1938,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>homeButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_home.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1891,8 +1961,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>homeButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_home.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1931,8 +2001,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>258</real>
-									<real>55</real>
+									<real>259</real>
+									<real>54</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2053,8 +2123,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>storeButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_store.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2076,8 +2146,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>storeButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_store.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2099,8 +2169,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>storeButton.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_store.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2113,6 +2183,702 @@
 									<integer>255</integer>
 									<integer>255</integer>
 									<integer>255</integer>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCControlButton</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>missionButton</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>103</real>
+									<real>46</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccControl</string>
+								<key>type</key>
+								<string>BlockCCControl</string>
+								<key>value</key>
+								<array>
+									<string></string>
+									<integer>0</integer>
+									<integer>32</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>enabled</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>title|1</string>
+								<key>type</key>
+								<string>String</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTF|1</string>
+								<key>type</key>
+								<string>FontTTF</string>
+								<key>value</key>
+								<string>Helvetica</string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTFSize|1</string>
+								<key>type</key>
+								<string>FloatScale</string>
+								<key>value</key>
+								<array>
+									<real>12</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>labelAnchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>preferedSize</string>
+								<key>type</key>
+								<string>Size</string>
+								<key>value</key>
+								<array>
+									<real>64</real>
+									<real>59</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>zoomOnTouchDown</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|1</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_mission.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|1</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|2</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_mission.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|2</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|3</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_mission.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|3</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCControlButton</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>twitterButton</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>241</real>
+									<real>234</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccControl</string>
+								<key>type</key>
+								<string>BlockCCControl</string>
+								<key>value</key>
+								<array>
+									<string></string>
+									<integer>0</integer>
+									<integer>32</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>enabled</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>title|1</string>
+								<key>type</key>
+								<string>String</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTF|1</string>
+								<key>type</key>
+								<string>FontTTF</string>
+								<key>value</key>
+								<string>Helvetica</string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTFSize|1</string>
+								<key>type</key>
+								<string>FloatScale</string>
+								<key>value</key>
+								<array>
+									<real>12</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>labelAnchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>preferedSize</string>
+								<key>type</key>
+								<string>Size</string>
+								<key>value</key>
+								<array>
+									<real>45</real>
+									<real>45</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>zoomOnTouchDown</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|1</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_twitter.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|1</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|2</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_twitter.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|2</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|3</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_twitter.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|3</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCControlButton</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>facebookButton</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>240</real>
+									<real>285</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccControl</string>
+								<key>type</key>
+								<string>BlockCCControl</string>
+								<key>value</key>
+								<array>
+									<string></string>
+									<integer>0</integer>
+									<integer>32</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>enabled</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>title|1</string>
+								<key>type</key>
+								<string>String</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTF|1</string>
+								<key>type</key>
+								<string>FontTTF</string>
+								<key>value</key>
+								<string>Helvetica</string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTFSize|1</string>
+								<key>type</key>
+								<string>FloatScale</string>
+								<key>value</key>
+								<array>
+									<real>12</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>labelAnchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>preferedSize</string>
+								<key>type</key>
+								<string>Size</string>
+								<key>value</key>
+								<array>
+									<real>42</real>
+									<real>41</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>zoomOnTouchDown</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|1</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_facebook.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|1</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|2</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_facebook.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|2</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|3</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_facebook.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|3</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCSprite</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>expression</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>283</real>
+									<real>91</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>displayFrame</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_expression.png</string>
 								</array>
 							</dict>
 						</array>
@@ -2184,13 +2950,11 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>Resources/spriteSheets/sheetUI.plist</string>
-							<string>Retry.png</string>
+							<string>Resources/spriteSheets/sheetUI-1.plist</string>
+							<string>UI_retry_canvas.png</string>
 						</array>
 					</dict>
 				</array>
-				<key>seqExpanded</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>animatedProperties</key>
@@ -2370,8 +3134,6 @@
 						<integer>255</integer>
 					</dict>
 				</array>
-				<key>seqExpanded</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -2463,7 +3225,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.8666666746139526</real>
+			<real>0.69999998807907104</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

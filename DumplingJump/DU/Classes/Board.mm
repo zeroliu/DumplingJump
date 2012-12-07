@@ -53,8 +53,8 @@
         
         boardWidth = self.sprite.boundingBox.size.width;
 
-        engineLeft = [CCSprite spriteWithSpriteFrameName:@"CA_engine_1.png"];
-        engineRight = [CCSprite spriteWithSpriteFrameName:@"CA_engine_1.png"];
+        engineLeft = [CCSprite spriteWithSpriteFrameName:@"O_engine_1.png"];
+        engineRight = [CCSprite spriteWithSpriteFrameName:@"O_engine_1.png"];
         
         engineLeft.scale = scaleX;
         engineRight.scale = scaleX;

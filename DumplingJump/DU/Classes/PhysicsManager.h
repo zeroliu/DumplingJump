@@ -18,5 +18,6 @@
 -(void) addToDisactiveList:(DUPhysicsObject *)physicsObject;
 -(void) updatePhysicsBody:(ccTime)dt;
 -(void) setCustomGravity:(float)newGravity;
+-(void) removeFromListIfNeeded:(DUPhysicsObject *)object;
 
 @end

@@ -22,7 +22,6 @@
     return recognizer;
 }
 
-
 -(void)unWatch:(UIGestureRecognizer *)recognizer
 {
     [[[CCDirector sharedDirector] view] removeGestureRecognizer:recognizer];

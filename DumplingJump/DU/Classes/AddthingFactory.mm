@@ -43,7 +43,7 @@
 
 -(void) loadAddthingInfo
 {
-    self.addthingDictionary = [[XMLHelper shared] loadAddthingWithXML:@"CA_addthing"];
+    self.addthingDictionary = [[XMLHelper shared] loadAddthingWithXML:@"Editor_addthing"];
 }
 
 -(id) createNewObjectWithName:(NSString *)objectName
@@ -104,7 +104,7 @@
         AddthingObject *newObject;
         newObject = [[[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName] autorelease];
         //[GAMELAYER addChild:newObject];
-        NSString *animName = [NSString stringWithFormat:@"CA_%@", [selectedObject.name lowercaseString]];
+        NSString *animName = [NSString stringWithFormat:@"A_%@", [selectedObject.name lowercaseString]];
         //[ANIMATIONMANAGER registerAnimationForName: animName];
         
         id animation = [ANIMATIONMANAGER getAnimationWithName:animName];

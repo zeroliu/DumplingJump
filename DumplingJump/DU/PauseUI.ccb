@@ -7,7 +7,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>fileType</key>
 	<string>CocosBuilder</string>
 	<key>fileVersion</key>
@@ -20,6 +20,167 @@
 		<string>CCNode</string>
 		<key>children</key>
 		<array>
+			<dict>
+				<key>animatedProperties</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.033333335071802139</real>
+									<key>type</key>
+									<integer>5</integer>
+									<key>value</key>
+									<integer>255</integer>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.26666668057441711</real>
+									<key>type</key>
+									<integer>5</integer>
+									<key>value</key>
+									<integer>255</integer>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>5</integer>
+						</dict>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.033333335071802139</real>
+									<key>type</key>
+									<integer>5</integer>
+									<key>value</key>
+									<integer>0</integer>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.26666668057441711</real>
+									<key>type</key>
+									<integer>5</integer>
+									<key>value</key>
+									<integer>0</integer>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>5</integer>
+						</dict>
+					</dict>
+				</dict>
+				<key>baseClass</key>
+				<string>CCSprite</string>
+				<key>children</key>
+				<array/>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>mask</string>
+				<key>memberVarAssignmentName</key>
+				<string></string>
+				<key>memberVarAssignmentType</key>
+				<integer>0</integer>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>anchorPoint</string>
+						<key>type</key>
+						<string>Point</string>
+						<key>value</key>
+						<array>
+							<real>0.5</real>
+							<real>0.5</real>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>1</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>ignoreAnchorPointForPosition</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>displayFrame</string>
+						<key>type</key>
+						<string>SpriteFrame</string>
+						<key>value</key>
+						<array>
+							<string>Resources/spriteSheets/sheetUI-1.plist</string>
+							<string>UI_other_mask.png</string>
+						</array>
+					</dict>
+					<dict>
+						<key>baseValue</key>
+						<integer>255</integer>
+						<key>name</key>
+						<string>opacity</string>
+						<key>type</key>
+						<string>Byte</string>
+						<key>value</key>
+						<integer>255</integer>
+					</dict>
+				</array>
+				<key>seqExpanded</key>
+				<true/>
+			</dict>
 			<dict>
 				<key>animatedProperties</key>
 				<dict>
@@ -188,8 +349,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>272</real>
-									<real>46</real>
+									<real>270</real>
+									<real>49</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -290,8 +451,8 @@
 								<string>Size</string>
 								<key>value</key>
 								<array>
-									<real>90</real>
-									<real>81</real>
+									<real>100</real>
+									<real>92</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -310,8 +471,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>resumePause.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_other_play.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -333,8 +494,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>resumePause.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_other_play.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -356,8 +517,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>resumePause.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_other_play.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -396,8 +557,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>182</real>
-									<real>42</real>
+									<real>179</real>
+									<real>47</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -518,8 +679,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>retryPause.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_pause_retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -541,8 +702,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>retryPause.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_pause_retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -564,8 +725,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI.plist</string>
-									<string>retryPause.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_pause_retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -606,7 +767,7 @@
 						<key>value</key>
 						<array>
 							<real>0.0</real>
-							<real>500</real>
+							<real>0.0</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -736,7 +897,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.033333335071802139</real>
+			<real>0.26666668057441711</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
@@ -756,7 +917,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.1666666269302368</real>
+			<real>0.26666668057441711</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

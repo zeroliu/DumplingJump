@@ -56,8 +56,7 @@
 
 #pragma mark -
 #pragma mark Board filenames
-#define SKY_BOARD @"SK_plate.png"
-#define MAZE_BOARD @"CA_plate.png"
+#define MAZE_BOARD @"O_plate.png"
 
 #pragma mark -
 #pragma mark Shapes
@@ -89,22 +88,11 @@
 
 #pragma mark -
 #pragma mark Hero animations/Hero state
-#define HEROIDLE @"AL_H_hero"
-#define HERODIZZY @"AL_H_dizzy"
-#define HEROHURT @"AL_H_hurt"
-#define HEROFLAT @"AL_H_flat"
-#define HEROFREEZE @"SK_H_ice"
+#define HEROIDLE @"H_hero"
 
 #pragma mark -
 #pragma mark Other animations
-#define ANIM_EXPLOSION @"AL_E_del"
-#define ANIM_ARROW_BREAK @"CA_E_arrow"
-#define ANIM_STAR @"SK_star"
-#define ANIM_ICE_EXPLODE @"SK_E_frozen"
-#define ANIM_STONE_BREAK @"CA_E_stone"
-#define ANIM_POWDER_EXPLODE @"AL_E_powder"
-#define ANIM_BOW @"CA_E_bomb"
-#define ANIM_BROOM @"CA_engine"
+#define ANIM_BROOM @"O_engine"
 
 #pragma mark -
 #pragma mark Collision Layers

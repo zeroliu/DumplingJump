@@ -57,7 +57,7 @@
         self.powerup = nil;
         
         [self initHeroParam];
-        [self initHeroSpriteWithFile:@"AL_H_hero_1.png" position:thePosition];
+        [self initHeroSpriteWithFile:@"H_hero_1.png" position:thePosition];
         [self initHeroPhysicsWithPosition:thePosition];
         [self initSpeed];
         [self initGestureHandler];
@@ -367,19 +367,23 @@
         id rotateStar = [CCRotateBy actionWithDuration:0.5 angle:180];
         id moveToPlayer = [CCCallBlock actionWithBlock:^
                            {
+                               [GAMELAYER addChild:star];
                                [star schedule:@selector(moveToHeroWithSpeed:) interval:0.01];
                            }];
+        /*
         id delay = [CCDelayTime actionWithDuration:0.4];
         id removeStar = [CCCallBlock actionWithBlock:^
                          {
                              [star unschedule:@selector(moveToHeroWithSpeed:)];
                              ((GameLayer *)GAMELAYER).model.star++;
                              [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
+                             [star removeFromParentAndCleanup:YES];
                              [star removeAddthing];
                          }];
-        
+        */
         [star.sprite runAction:rotateStar];
-        [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
+        [star.sprite runAction:moveToPlayer];
+//        [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
     } else
     {
         //TODO: increment star number
@@ -408,7 +412,7 @@
 {
     if (!self.canReborn)
     {
-        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"AL_E_powerup_1.png"];
+        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"E_powerup_1.png"];
         halo.scale = 3;
         halo.tag = 1;
         halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
@@ -436,9 +440,6 @@
         
         //destroy objects on the screen
         [[LevelManager shared] destroyAllObjects];
-        
-        //pause level
-        [[LevelManager shared] stopCurrentParagraph];
         
         //reset to the idle state
         [self idle];
@@ -519,7 +520,7 @@
     //Create effect
     if (!isAbsorbing)
     {
-        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"AL_E_powerup_1.png"];
+        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"E_powerup_1.png"];
         halo.scale = 3;
         halo.tag = 1;
         halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);

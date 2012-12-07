@@ -11,6 +11,7 @@
 #import "BoardManager.h"
 #import "BackgroundController.h"
 #import "AddthingFactory.h"
+#import "AddthingObject.h"
 #import "StarManager.h"
 #import "Paragraph.h"
 
@@ -211,11 +212,14 @@
 
 -(void) destroyAllObjects
 {
-    for (DUPhysicsObject *ob in self.generatedObjects)
+    NSArray *array = [self.generatedObjects copy];
+    for (AddthingObject *ob in array)
     {
-        [ob archive];
+        //[self.generatedObjects removeObject:ob];
+        [ob removeAddthing];
     }
-    [self.generatedObjects removeAllObjects];
+    [array release];
+//    [self.generatedObjects removeAllObjects];
 }
 
 @end

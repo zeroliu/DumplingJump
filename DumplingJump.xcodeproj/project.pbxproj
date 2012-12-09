@@ -332,8 +332,6 @@
 		7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8210115D87471003AFCB8 /* AddthingFactory.mm */; };
 		7FD9EBA9161ACBF800E36BB2 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7FDFD5AE15B6AE7A00F55257 /* HeroManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */; };
-		7FE2B0FA1671B8A6009CB539 /* ScrollViewContent.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7FE2B0F81671B8A6009CB539 /* ScrollViewContent.ccbi */; };
-		7FE2B0FB1671B8A6009CB539 /* testScrollView.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7FE2B0F91671B8A6009CB539 /* testScrollView.ccbi */; };
 		7FE2B0FF1671CF37009CB539 /* CCScrollPageControlView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FE2B0FE1671CF37009CB539 /* CCScrollPageControlView.mm */; };
 		7FEA39D1165A0AE1005350F2 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3996165A0AE1005350F2 /* CCBAnimationManager.m */; };
 		7FEA39D2165A0AE1005350F2 /* CCBKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3998165A0AE1005350F2 /* CCBKeyframe.m */; };
@@ -1147,8 +1145,6 @@
 		7FDFD5A315B6AC0700F55257 /* objects.tps */ = {isa = PBXFileReference; lastKnownFileType = file; path = objects.tps; sourceTree = "<group>"; };
 		7FDFD5AC15B6AE7A00F55257 /* HeroManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroManager.h; sourceTree = "<group>"; };
 		7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HeroManager.mm; sourceTree = "<group>"; };
-		7FE2B0F81671B8A6009CB539 /* ScrollViewContent.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = ScrollViewContent.ccbi; path = DumplingJump/DU/ScrollViewContent.ccbi; sourceTree = SOURCE_ROOT; };
-		7FE2B0F91671B8A6009CB539 /* testScrollView.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = testScrollView.ccbi; path = DumplingJump/DU/testScrollView.ccbi; sourceTree = SOURCE_ROOT; };
 		7FE2B0FD1671CF37009CB539 /* CCScrollPageControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollPageControlView.h; sourceTree = "<group>"; };
 		7FE2B0FE1671CF37009CB539 /* CCScrollPageControlView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCScrollPageControlView.mm; sourceTree = "<group>"; };
 		7FEA3995165A0AE1005350F2 /* CCBAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBAnimationManager.h; sourceTree = "<group>"; };
@@ -2706,8 +2702,6 @@
 		7FEA39EC165A10D3005350F2 /* UILayouts */ = {
 			isa = PBXGroup;
 			children = (
-				7FE2B0F81671B8A6009CB539 /* ScrollViewContent.ccbi */,
-				7FE2B0F91671B8A6009CB539 /* testScrollView.ccbi */,
 				7FAA48DE1671797700A8FCA0 /* MainMenu.ccbi */,
 				7F3288A1166345B900DF86FC /* AchievementNode.ccbi */,
 				7F32889F166345AF00DF86FC /* MissionNode.ccbi */,
@@ -2950,8 +2944,6 @@
 				7FC7C5D5167099B200E3B82C /* A_vat_1.png in Resources */,
 				7FC7C5D6167099B200E3B82C /* O_plate.png in Resources */,
 				7FAA48DF1671797700A8FCA0 /* MainMenu.ccbi in Resources */,
-				7FE2B0FA1671B8A6009CB539 /* ScrollViewContent.ccbi in Resources */,
-				7FE2B0FB1671B8A6009CB539 /* testScrollView.ccbi in Resources */,
 				7F938E6D167416240011319E /* UI_mission_pages_off.png in Resources */,
 				7F938E6E167416240011319E /* UI_mission_pages_on.png in Resources */,
 			);

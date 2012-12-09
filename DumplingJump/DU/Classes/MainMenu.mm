@@ -20,6 +20,7 @@ typedef enum {
 @interface MainMenu()
 {
     MainMenuState state;
+    DUScrollPageView *achievementScrollView;
 }
 @end
 
@@ -33,22 +34,48 @@ typedef enum {
     
     //Hide unused buttons
     [backButton setOpacity:0];
+    [storeButton setOpacity:0];
+    [continueButton setOpacity:0];
+    
+    [backButton setEnabled:NO];
+    [storeButton setEnabled:NO];
+    [continueButton setEnabled:NO];
+    
+    //Disable the achievement scroll view
+    achievementScrollView.isTouchEnabled = NO;
 }
 
 -(void) createScrollPageControlView
 {
-    DUScrollPageView *scrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
+    achievementScrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
                      {
                          CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
                          return sampleNode;
                      } num:8 padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
     
-    scrollView.position = ccp(0,0);
-    [objectHolder addChild:scrollView];
+    achievementScrollView.position = ccp(0,0);
+    [achievementHolder addChild:achievementScrollView];
 }
 
--(void) gameStart
+-(void) showEquipment
 {
+    state = MainMenuStateEquipment;
+    //Hide all the buttons on main menu
+    [self setMainMenuButtonsEnabled:NO];
+    [self scheduleOnce:@selector(showEquipmentBody) delay:0.1];
+}
+
+-(void) showEquipmentBody
+{
+    //Scroll down the achievement view
+    [animationManager runAnimationsForSequenceNamed:@"Show Equipment"];
+    //Show Equipment buttons
+    [self setEquipmentButtonsEnabled:YES];
+}
+
+-(void) startGame
+{
+    [animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
     NSLog(@"game start");
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
 }
@@ -59,11 +86,21 @@ typedef enum {
     {
         [backButton setEnabled:NO];
         [backButton runAction:[CCFadeTo actionWithDuration:0.05 opacity:0]];
-        [self scheduleOnce:@selector(hideMissionBody) delay:0.05];
+        achievementScrollView.isTouchEnabled = NO;
+        [self scheduleOnce:@selector(hideAchievementBody) delay:0.1];
+    } else if (state == MainMenuStateEquipment)
+    {
+        [self setEquipmentButtonsEnabled:NO];
+        [self scheduleOnce:@selector(hideEquipmentBody) delay:0.1];
     }
     
     state = MainMenuStateHome;
     [self scheduleOnce:@selector(backToMainMenu) delay:0.1];
+}
+
+-(void) hideEquipmentBody
+{
+    [animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
 }
 
 -(void) backToMainMenu
@@ -71,9 +108,9 @@ typedef enum {
     [self setMainMenuButtonsEnabled:YES];
 }
 
--(void) hideMissionBody
+-(void) hideAchievementBody
 {
-    [animationManager runAnimationsForSequenceNamed:@"Achievement scroll up"];
+    [animationManager runAnimationsForSequenceNamed:@"Hide Achievement"];
 }
 
 //Show achievement view
@@ -84,12 +121,14 @@ typedef enum {
     //Hide all the buttons on main menu
     [self setMainMenuButtonsEnabled:NO];
     [self scheduleOnce:@selector(showAchievementBody) delay:0.1];
+    //Enable touch
+    achievementScrollView.isTouchEnabled = YES;
 }
 
 -(void) showAchievementBody
 {
     //Scroll down the achievement view
-    [animationManager runAnimationsForSequenceNamed:@"Achievement scroll down"];
+    [animationManager runAnimationsForSequenceNamed:@"Show Achievement"];
     //Show back button
     [backButton setEnabled:YES];
     [backButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:255]];
@@ -102,16 +141,39 @@ typedef enum {
     [settingButton setEnabled:isEnabled];
     [gameCenterButton setEnabled:isEnabled];
     
-    int scale = 0;
-    
+    int opacity = 0;
     if (isEnabled)
     {
-        scale = 255;
+        opacity = 255;
     }
     
-    [playButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:scale]];
-    [achievementButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:scale]];
-    [settingButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:scale]];
-    [gameCenterButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:scale]];
+    [playButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+    [achievementButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+    [settingButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+    [gameCenterButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+}
+
+-(void) setEquipmentButtonsEnabled:(BOOL)isEnabled
+{
+    [storeButton setEnabled:isEnabled];
+    [backButton setEnabled:isEnabled];
+    [continueButton setEnabled:isEnabled];
+    
+    int opacity = 0;
+    if (isEnabled)
+    {
+        opacity = 255;
+    }
+    
+    [storeButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+    [backButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+    [continueButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
+}
+
+- (void)dealloc
+{
+    [achievementHolder removeAllChildrenWithCleanup:YES];
+    [achievementScrollView release];
+    [super dealloc];
 }
 @end

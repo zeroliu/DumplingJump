@@ -7,9 +7,17 @@
 //
 
 #import "cocos2d.h"
-
+#import "CCControlButton.h"
+#import "CCBAnimationManager.h"
 @interface MainMenu : CCLayer
 {
     CCNode *objectHolder;
+    CCControlButton *playButton;
+    CCControlButton *achievementButton;
+    CCControlButton *settingButton;
+    CCControlButton *gameCenterButton;
+    CCControlButton *backButton;
+    
+    CCBAnimationManager *animationManager;
 }
 @end

@@ -228,10 +228,12 @@
 		7F4FEC99165F05D1008C49A9 /* sheetUI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC95165F05D1008C49A9 /* sheetUI.plist */; };
 		7F4FEC9A165F05D1008C49A9 /* sheetUI.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC96165F05D1008C49A9 /* sheetUI.png */; };
 		7F57279E163521570023B985 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5E5DB16351A4D0018B085 /* libxml2.dylib */; };
+		7F5AE4A516740F30006854DF /* DUScrollPageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5AE4A416740F30006854DF /* DUScrollPageView.mm */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
 		7F5CC1E01602B07F00E45EDD /* Reaction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5CC1DF1602B07F00E45EDD /* Reaction.mm */; };
 		7F68937A15CBBAD800B8C80C /* ScoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68937915CBBAD800B8C80C /* ScoreManager.mm */; };
 		7F68938115CBBE0400B8C80C /* GameModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F68938015CBBE0400B8C80C /* GameModel.mm */; };
+		7F6E2BAA1673F6F600524CE8 /* DUPageControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E2BA91673F6F600524CE8 /* DUPageControl.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
 		7F7C7BE4166C8EFE00886E83 /* level1_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F7C7BC8166C8EFE00886E83 /* level1_1.xml */; };
@@ -273,6 +275,8 @@
 		7F8EED3515BFCD5400F99B9D /* DUFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3415BFCD5400F99B9D /* DUFactory.mm */; };
 		7F8EED3C15BFE8F400F99B9D /* b2BodyBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */; };
 		7F936B0C161AB08900620E6D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F936B0B161AB08900620E6D /* Default-568h@2x.png */; };
+		7F938E6D167416240011319E /* UI_mission_pages_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F938E6B167416240011319E /* UI_mission_pages_off.png */; };
+		7F938E6E167416240011319E /* UI_mission_pages_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F938E6C167416240011319E /* UI_mission_pages_on.png */; };
 		7F96F7B81637BBEC009943CB /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F96F7B71637BBEC009943CB /* GLES-Render.mm */; };
 		7F9E3AC515B5353F005130D0 /* BoardManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AC415B5353F005130D0 /* BoardManager.mm */; };
 		7F9E3AD115B53A9D005130D0 /* PhysicsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F9E3AD015B53A9D005130D0 /* PhysicsManager.mm */; };
@@ -815,6 +819,8 @@
 		7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-hd.png"; sourceTree = "<group>"; };
 		7F4FEC95165F05D1008C49A9 /* sheetUI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetUI.plist; sourceTree = "<group>"; };
 		7F4FEC96165F05D1008C49A9 /* sheetUI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetUI.png; sourceTree = "<group>"; };
+		7F5AE4A316740F30006854DF /* DUScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUScrollPageView.h; sourceTree = "<group>"; };
+		7F5AE4A416740F30006854DF /* DUScrollPageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUScrollPageView.mm; sourceTree = "<group>"; };
 		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
 		7F5B00D415B952A800BA15D9 /* InputManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputManager.mm; sourceTree = "<group>"; };
 		7F5CC1DE1602B07F00E45EDD /* Reaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reaction.h; sourceTree = "<group>"; };
@@ -823,6 +829,8 @@
 		7F68937915CBBAD800B8C80C /* ScoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScoreManager.mm; sourceTree = "<group>"; };
 		7F68937F15CBBE0300B8C80C /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
 		7F68938015CBBE0400B8C80C /* GameModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameModel.mm; sourceTree = "<group>"; };
+		7F6E2BA81673F6F600524CE8 /* DUPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUPageControl.h; sourceTree = "<group>"; };
+		7F6E2BA91673F6F600524CE8 /* DUPageControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUPageControl.mm; sourceTree = "<group>"; };
 		7F7010EA15AFEFFE00495B10 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		7F7010EC15AFEFFE00495B10 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
@@ -878,6 +886,8 @@
 		7F8EED3A15BFE8F300F99B9D /* b2BodyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2BodyBuilder.h; sourceTree = "<group>"; };
 		7F8EED3B15BFE8F300F99B9D /* b2BodyBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = b2BodyBuilder.mm; sourceTree = "<group>"; };
 		7F936B0B161AB08900620E6D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7F938E6B167416240011319E /* UI_mission_pages_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_pages_off.png; sourceTree = "<group>"; };
+		7F938E6C167416240011319E /* UI_mission_pages_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_pages_on.png; sourceTree = "<group>"; };
 		7F96F7B61637BBEC009943CB /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		7F96F7B71637BBEC009943CB /* GLES-Render.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		7F9E3AC315B5353F005130D0 /* BoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardManager.h; sourceTree = "<group>"; };
@@ -2103,6 +2113,8 @@
 		7F7010F615AFEFFE00495B10 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7F938E6B167416240011319E /* UI_mission_pages_off.png */,
+				7F938E6C167416240011319E /* UI_mission_pages_on.png */,
 				7FC7C5B1167099AD00E3B82C /* A_arrow_1.png */,
 				7FC7C5B2167099AD00E3B82C /* A_blind_1.png */,
 				7FC7C5B3167099AD00E3B82C /* A_bow_1.png */,
@@ -2240,6 +2252,10 @@
 				7FAA48D81671744500A8FCA0 /* MainMenu.mm */,
 				7FE2B0FD1671CF37009CB539 /* CCScrollPageControlView.h */,
 				7FE2B0FE1671CF37009CB539 /* CCScrollPageControlView.mm */,
+				7F6E2BA81673F6F600524CE8 /* DUPageControl.h */,
+				7F6E2BA91673F6F600524CE8 /* DUPageControl.mm */,
+				7F5AE4A316740F30006854DF /* DUScrollPageView.h */,
+				7F5AE4A416740F30006854DF /* DUScrollPageView.mm */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -2936,6 +2952,8 @@
 				7FAA48DF1671797700A8FCA0 /* MainMenu.ccbi in Resources */,
 				7FE2B0FA1671B8A6009CB539 /* ScrollViewContent.ccbi in Resources */,
 				7FE2B0FB1671B8A6009CB539 /* testScrollView.ccbi in Resources */,
+				7F938E6D167416240011319E /* UI_mission_pages_off.png in Resources */,
+				7F938E6E167416240011319E /* UI_mission_pages_on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3191,6 +3209,8 @@
 				7F32889C166341A800DF86FC /* MissionNode.m in Sources */,
 				7FAA48D91671744500A8FCA0 /* MainMenu.mm in Sources */,
 				7FE2B0FF1671CF37009CB539 /* CCScrollPageControlView.mm in Sources */,
+				7F6E2BAA1673F6F600524CE8 /* DUPageControl.mm in Sources */,
+				7F5AE4A516740F30006854DF /* DUScrollPageView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

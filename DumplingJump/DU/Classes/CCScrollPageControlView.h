@@ -8,8 +8,15 @@
 
 #import "cocos2d.h"
 #import "CCScrollView.h"
-@interface CCScrollPageControlView : CCScrollView <UIGestureRecognizerDelegate>
+@protocol CCSCrollPageViewDelegate
 
+@optional
+-(void) scrollToPage:(int)index;
+
+@end
+
+@interface CCScrollPageControlView : CCScrollView <CCScrollViewDelegate>
+@property (nonatomic, retain) id pageDelegate;
 //Init with the scroll view size, the node needed to be repeated and the number of repetition
 -(id)initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)())block num:(int)viewNum padding:(float)thePadding;
 @end

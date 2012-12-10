@@ -18,7 +18,7 @@
     recognizer.numberOfTouchesRequired = tapRequired;
     recognizer.direction = theDirection;
     
-    [[[CCDirector sharedDirector] view] addGestureRecognizer:recognizer];
+    //[[[CCDirector sharedDirector] view] addGestureRecognizer:recognizer];
     return recognizer;
 }
 

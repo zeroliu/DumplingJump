@@ -333,6 +333,8 @@ mask.png
 O_plate.png
 pause.png
 square_border.png
+UI_mission_pages_off.png
+UI_mission_pages_on.png
 sheetBackground1-hd.plist
 sheetBackground1-hd.png
 sheetBackground1.plist
@@ -353,5 +355,3 @@ sheetUI-hd.plist
 sheetUI-hd.png
 sheetUI.plist
 sheetUI.png
-ScrollViewContent.ccbi
-testScrollView.ccbi

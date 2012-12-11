@@ -12,6 +12,7 @@
 #import "CCBReader.h"
 #import "MainMenu.h"
 #import "GameLayer.h"
+#import "EquipmentData.h"
 
 @implementation AppController
 
@@ -133,6 +134,7 @@
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [[EquipmentData shared] saveEquipmentData];
 	CC_DIRECTOR_END();
 }
 

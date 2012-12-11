@@ -326,4 +326,74 @@
     
     return dict;
 }
+
+-(id) loadEquipmentDataWithXML: (NSString *)fileName
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:fileName] retain];
+    NSError *err = nil;
+    
+    //Create Node by finding level
+    NSArray *nodeResults = [xmlDoc nodesForXPath:@"//Item" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLElement *item in nodeResults)
+    {
+        NSString *typeName = [[[item nodesForXPath:@"type" error:&err] objectAtIndex:0] stringValue];
+        //Skip the header
+        if (! [typeName isEqualToString:@"type"])
+        {
+            NSMutableArray *itemArray = [dict objectForKey:typeName];
+            //If there is no array existed for a certain type
+            if (itemArray == nil)
+            {
+                itemArray = [NSMutableArray array];
+                [dict setObject:itemArray forKey:typeName];
+            }
+            NSMutableDictionary *itemData = [NSMutableDictionary dictionary];
+            
+            NSArray *itemRawDataArray = [item children];
+            [itemData setObject:[NSNumber numberWithInt:0] forKey:@"level"];
+            for(DDXMLDocument *element in itemRawDataArray)
+            {
+                if ([[element name] isEqualToString:@"group"])
+                {
+                    if ([[element stringValue] intValue] == 0)
+                    {
+                        [itemData setObject:[NSNumber numberWithBool:YES] forKey:@"unlocked"];
+                        [itemData setObject:[NSNumber numberWithInt:4] forKey:@"progress"];
+                    } else
+                    {
+                        [itemData setObject:[NSNumber numberWithBool:NO] forKey:@"unlocked"];
+                        [itemData setObject:[NSNumber numberWithInt:0] forKey:@"progress"];
+                    }
+                    [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"group"];
+                } else if ([[element name] isEqualToString:@"description"])
+                {
+                    [itemData setObject:[element stringValue] forKey:@"description"];
+                } else if ([[element name] isEqualToString:@"name"])
+                {
+                    [itemData setObject:[element stringValue] forKey:@"name"];
+                } else if ([[element name] isEqualToString:@"multiplier"])
+                {
+                    [itemData setObject:[NSNumber numberWithFloat:[[element stringValue] floatValue]] forKey:@"multiplier"];
+                } else if ([[element name] isEqualToString:@"base"])
+                {
+                    [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"base"];
+                } else if ([[element name] isEqualToString:@"max"])
+                {
+                    [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"max"];
+                }
+            }
+            [itemArray addObject:itemData];
+        }
+    }
+    [xmlDoc release];
+    DLog(@"%@", [dict description]);
+    
+    return dict;
+}
 @end

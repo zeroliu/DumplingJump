@@ -300,7 +300,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>Resources/fonts/Eras Bold ITC.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1641,7 +1641,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>Resources/fonts/Eras Bold ITC.ttf</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1688,9 +1688,11 @@
 						<key>type</key>
 						<string>Text</string>
 						<key>value</key>
-						<string>001</string>
+						<string>002</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -1714,8 +1716,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>270</real>
-							<real>433</real>
+							<real>263</real>
+							<real>432</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -1820,8 +1822,6 @@
 				<true/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

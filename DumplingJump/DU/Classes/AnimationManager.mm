@@ -65,12 +65,8 @@
         count ++;
     }
     
-    if (theName == HEROIDLE)
-    {
-        DLog(@"hero idle animation: %d", count);
-    }
-    
     [self addAnimationWithName:theName file:theName startFrame:1 endFrame:(count-1) delay:ANIMATION_DELAY_INBETWEEN/theSpeed];
+    DLog(@"Animation %@ registed", theName);
 }
 
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay

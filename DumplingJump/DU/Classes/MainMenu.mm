@@ -10,7 +10,7 @@
 #import "GameLayer.h"
 #import "CCBReader.h"
 #import "DUScrollPageView.h"
-
+#import "EquipmentData.h"
 typedef enum {
     MainMenuStateHome,
     MainMenuStateMission,
@@ -28,7 +28,10 @@ typedef enum {
 
 - (void) didLoadFromCCB
 {
-    [self createScrollPageControlView];
+    //Load EquipmentData if first launch
+    [EquipmentData shared];
+    [self createEquipmentView];
+    [self createTableView];
     animationManager = self.userObject;
     state = MainMenuStateHome;
     
@@ -45,7 +48,7 @@ typedef enum {
     achievementScrollView.isTouchEnabled = NO;
 }
 
--(void) createScrollPageControlView
+-(void) createEquipmentView
 {
     achievementScrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
                      {
@@ -55,6 +58,20 @@ typedef enum {
     
     achievementScrollView.position = ccp(0,0);
     [achievementHolder addChild:achievementScrollView];
+}
+
+-(void) createTableView
+{
+    /*
+    DUScrollPageView *testview = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
+                             {
+                                 CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
+                                 return sampleNode;
+                             } num:8 padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
+    
+    testview.position = ccp(0,0);
+    [tableViewHolder addChild:testview];
+     */
 }
 
 -(void) showEquipment
@@ -78,6 +95,13 @@ typedef enum {
     [animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
     NSLog(@"game start");
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
+}
+
+-(void) gotoStore
+{
+    NSLog(@"goto store");
+    
+    [[EquipmentData shared] saveEquipmentData];
 }
 
 -(void) back
@@ -106,6 +130,12 @@ typedef enum {
 -(void) backToMainMenu
 {
     [self setMainMenuButtonsEnabled:YES];
+    [self scheduleOnce:@selector(playTitleScreenAnimation) delay:0.2];
+}
+
+-(void) playTitleScreenAnimation
+{
+    [animationManager runAnimationsForSequenceNamed:@"Default Timeline" tweenDuration:0.2];
 }
 
 -(void) hideAchievementBody

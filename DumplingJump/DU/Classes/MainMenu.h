@@ -20,6 +20,13 @@
     
     CCControlButton *storeButton;
     CCControlButton *continueButton;
+    
+    CCNode *equipmentViewHolder;
+    
+    CCSprite *heroImage;
+    
+    CCLabelTTF *starNum;
+    
     CCBAnimationManager *animationManager;
 }
 @end

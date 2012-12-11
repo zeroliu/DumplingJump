@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Equipments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Item>
+		<group>group</group>
+		<type>type</type>
+		<name>name</name>
+        <description>description</description>
+		<multiplier>multiplier</multiplier>
+		<base>base</base>
+		<max>max</max>
+	</Item>
+	<Item>
+		<group>0</group>
+		<type>powerups</type>
+		<name>shield</name>
+        <description>Protect your hero</description>
+		<multiplier>2.5</multiplier>
+		<base>100</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>0</group>
+		<type>powerups</type>
+		<name>sword</name>
+        <description>Protect your hero</description>
+		<multiplier>2.5</multiplier>
+		<base>100</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>0</group>
+		<type>powerups</type>
+		<name>spring</name>
+        <description>Protect your hero</description>
+		<multiplier>2.5</multiplier>
+		<base>100</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>1</group>
+		<type>utilities</type>
+		<name>bomb</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>300</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>2</group>
+		<type>utilities</type>
+		<name>reborn</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>800</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>3</group>
+		<type>utilities</type>
+		<name>magnet</name>
+        <description>Protect your hero</description>
+		<multiplier>1.2</multiplier>
+		<base>200</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>4</group>
+		<type>utilities</type>
+		<name>rocket</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>1000</base>
+		<max>9</max>
+	</Item>
+	<Item>
+		<group>5</group>
+		<type>upgrades</type>
+		<name>reborn upgrade</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>500</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>6</group>
+		<type>upgrades</type>
+		<name>coin multiplier</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>500</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>7</group>
+		<type>multiplier</type>
+		<name>bronze score multiplier</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>500</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>8</group>
+		<type>multiplier</type>
+		<name>silver score multiplier </name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>500</base>
+		<max>4</max>
+	</Item>
+	<Item>
+		<group>9</group>
+		<type>multiplier</type>
+		<name>golden score multiplier</name>
+        <description>Protect your hero</description>
+		<multiplier>1.5</multiplier>
+		<base>500</base>
+		<max>4</max>
+	</Item>
+</Equipments>

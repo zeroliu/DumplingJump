@@ -24,7 +24,7 @@
     CCNode *equipmentViewHolder;
     
     CCSprite *heroImage;
-    
+    CCSprite *equipmentBoard;
     CCLabelTTF *starNum;
     
     CCBAnimationManager *animationManager;

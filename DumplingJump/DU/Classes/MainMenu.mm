@@ -10,6 +10,7 @@
 #import "GameLayer.h"
 #import "CCBReader.h"
 #import "DUScrollPageView.h"
+#import "DUTableView.h"
 #import "EquipmentData.h"
 typedef enum {
     MainMenuStateHome,
@@ -31,7 +32,7 @@ typedef enum {
     //Load EquipmentData if first launch
     [EquipmentData shared];
     [self createEquipmentView];
-    [self createTableView];
+    //[self createTableView];
     animationManager = self.userObject;
     state = MainMenuStateHome;
     
@@ -62,6 +63,14 @@ typedef enum {
 
 -(void) createTableView
 {
+    
+    CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"UnlockedCell.ccbi"];
+    DUTableView *equipmentView = [[DUTableView alloc] initWithSize:CGSizeMake(sampleNode.boundingBox.size.width, 400) dataSource:((EquipmentData *)[EquipmentData shared]).dataDictionary];
+    //equipmentView.position = ccp(0,0);
+   // equipmentView.anchorPoint = ccp(0, 1);
+    
+    [equipmentBoard addChild:equipmentView];
+    equipmentView.position = ccp(0, 90);
     /*
     DUScrollPageView *testview = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
                              {

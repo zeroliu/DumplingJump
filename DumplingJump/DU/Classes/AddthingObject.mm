@@ -13,6 +13,8 @@
 #import "GameUI.h"
 #import "HeroManager.h"
 #import "LevelManager.h"
+#import "CCBReader.h"
+#import "CCParticleSystemQuad.h"
 
 @interface AddthingObject()
 {
@@ -144,7 +146,16 @@
         [[LevelManager shared] removeObjectFromList:self];
         [PHYSICSMANAGER addToArchiveList:self];
         //If addthing needs to trigger an effect after touching the hero
-        if (self.reaction.effectName != nil)
+        
+        //TODO: CHANGE IT BACK, DO NOT HARD CODE IT
+        if ([self.name isEqualToString:@"STAR"])
+        {
+            CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_coinstarGet.ccbi" parent:GAMELAYER z:20];
+            particleNode.position = self.sprite.position;
+        } else if ([self.reaction.effectName isEqualToString:@"FX_Powder"])
+        {
+            [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position scale:2 z:Z_Engine+1];
+        } else if (self.reaction.effectName != nil)
         {
             [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
         }

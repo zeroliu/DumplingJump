@@ -248,6 +248,9 @@
     //Clean object dictionary
     [[DUObjectsDictionary sharedDictionary] cleanDictionary];
     
+    //Clean all the actions in the gamelayer
+    [self stopAllActions];
+    
     //Reset score
     self.model.distance = 0;
     

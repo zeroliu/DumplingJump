@@ -43,6 +43,14 @@
     return self;
 }
 
+-(void) configParams
+{
+    self.minZoomScale = 1;
+    self.maxZoomScale = 1;
+    self.direction = CCScrollViewDirectionHorizontal;
+    _isAnimating = NO;
+}
+
 -(void) scrollSpeedExceedLimit:(CCScrollView *)view
 {
 //    NSLog(@"scrollSpeedExceedLimit");
@@ -112,14 +120,6 @@
     }
     [contentContainer setContentSize: CGSizeMake((tmpNode.boundingBox.size.width + thePadding) * viewNum - thePadding, tmpNode.boundingBox.size.height)];
     return contentContainer;
-}
-
--(void) configParams
-{
-    self.minZoomScale = 1;
-    self.maxZoomScale = 1;
-    self.direction = CCScrollViewDirectionHorizontal;
-    _isAnimating = NO;
 }
 
 - (void)dealloc

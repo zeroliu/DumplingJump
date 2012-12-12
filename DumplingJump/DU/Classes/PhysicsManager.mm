@@ -117,6 +117,8 @@
             CCSprite* sprite = ((DUPhysicsObject *)b->GetUserData()).sprite;
             sprite.position = ccp(b->GetPosition().x * RATIO,
                                   b->GetPosition().y * RATIO);
+            physicsObject.position = ccp(b->GetPosition().x * RATIO,
+                                         b->GetPosition().y * RATIO);
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
             
             

@@ -21,7 +21,6 @@ mkdir -p DumplingJump/DU/Resources/spriteSheets
 ${TP} DumplingJump/DU/Assets/objects.tps
 ${TP} DumplingJump/DU/Assets/background.tps
 ${TP} DumplingJump/DU/Assets/effects.tps
-${TP} DumplingJump/DU/Assets/ui.tps
 ${TP} DumplingJump/DU/Assets/ui1.tps
 ${TP} DumplingJump/DU/Assets/ui2.tps
 

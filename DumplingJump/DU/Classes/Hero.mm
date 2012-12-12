@@ -260,6 +260,7 @@
             [maskNode release];
             maskNode = nil;
         }
+        
     }
 }
 
@@ -454,7 +455,8 @@
         self.body->SetAngularVelocity(0);
         
         //add smoke effect
-        
+        CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_revive.ccbi" parent:GAMELAYER z:Z_Hero-1 duration:1.5 life:2.3 following:self.sprite];
+        particleNode.position = self.sprite.position;
         //speed up background scroll
         [[BackgroundController shared] speedUpWithScale:3 interval:1.5];
         

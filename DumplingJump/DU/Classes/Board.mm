@@ -24,8 +24,8 @@
     b2Joint *jointMR;
     b2Joint *jointML;
     
-    CCSprite *engineLeft;
-    CCSprite *engineRight;
+    //CCSprite *engineLeft;
+    //CCSprite *engineRight;
     
     float boardWidth;
     
@@ -35,6 +35,8 @@
 @end
 
 @implementation Board
+@synthesize engineLeft = _engineLeft, engineRight = _engineRight;
+
 -(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos leftFreq:(float)freq_l middleFreq:(float)freq_m rightFreq:(float)freq_r leftDamp:(float)damp_l middleDamp:(float)damp_m rightDamp:(float)damp_r
 {
     if (self = [super initWithName:theName])
@@ -53,30 +55,30 @@
         
         boardWidth = self.sprite.boundingBox.size.width;
 
-        engineLeft = [CCSprite spriteWithSpriteFrameName:@"O_engine_1.png"];
-        engineRight = [CCSprite spriteWithSpriteFrameName:@"O_engine_1.png"];
+        self.engineLeft = [CCSprite spriteWithSpriteFrameName:@"O_engine_1.png"];
+        self.engineRight = [CCSprite spriteWithSpriteFrameName:@"O_engine_1.png"];
         
-        engineLeft.scale = scaleX;
-        engineRight.scale = scaleX;
+        self.engineLeft.scale = scaleX;
+        self.engineRight.scale = scaleX;
         
         id animation = [ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM];
         
         if(animation != nil)
         {
-            [engineLeft stopAllActions];
-            [engineRight stopAllActions];
+            [self.engineLeft stopAllActions];
+            [self.engineRight stopAllActions];
             id animAction1 = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
             id animAction2 = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
             
-            [engineLeft runAction:animAction1];
-            [engineRight runAction:animAction2];
+            [self.engineLeft runAction:animAction1];
+            [self.engineRight runAction:animAction2];
         }
         
-        engineLeft.position = ccp(100,200);
-        engineRight.position = ccp(200,200);
+        self.engineLeft.position = ccp(100,200);
+        self.engineRight.position = ccp(200,200);
         
-        [BATCHNODE addChild:engineLeft z:Z_Engine];
-        [BATCHNODE addChild:engineRight z:Z_Engine];
+        [BATCHNODE addChild:self.engineLeft z:Z_Engine];
+        [BATCHNODE addChild:self.engineRight z:Z_Engine];
         
         NSLog(@"width: %g",self.sprite.boundingBox.size.width);
         self.sprite.scaleX = scaleX;
@@ -134,7 +136,7 @@
     b2Vec2 anchor_L = b2Vec2(self.body->GetPosition().x - plateWidth/2/RATIO,
                              self.body->GetPosition().y);
     b2Vec2 ground_L = b2Vec2(self.body->GetPosition().x - plateWidth/2/RATIO,
-                             self.body->GetPosition().y + 50*SCALE_MULTIPLIER/RATIO);
+                             self.body->GetPosition().y + 100*SCALE_MULTIPLIER/RATIO);
     
     rocketDisJointDef_L.Initialize(ground, self.body, ground_L, anchor_L);
     rocketDisJointDef_L.collideConnected = true;
@@ -146,7 +148,7 @@
     b2Vec2 anchor_R = b2Vec2(self.body->GetPosition().x + plateWidth/2/RATIO,
                              self.body->GetPosition().y);
     b2Vec2 ground_R = b2Vec2(self.body->GetPosition().x + plateWidth/2/RATIO,
-                             self.body->GetPosition().y + 50*SCALE_MULTIPLIER/RATIO);
+                             self.body->GetPosition().y + 100*SCALE_MULTIPLIER/RATIO);
     
     rocketDisJointDef_R.Initialize(ground, self.body, ground_R, anchor_R);
     rocketDisJointDef_R.collideConnected = true;
@@ -240,10 +242,10 @@
     float scaleX = self.sprite.scaleX;
     float scaleY = self.sprite.scaleY;
     
-    //Make it not collide with any objects except for the board
+    //Make it not collide with any objects except for the hero
     [self changeCollisionDetection:C_HERO];
     
-    //Scale up Hero
+    //Scale down board
     id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:0.8*scaleX scaleY:0.8*scaleY];
     
     //Push board to the middle of the screen
@@ -302,36 +304,37 @@
 
 -(void) updateEnginePosition
 {
-    if (engineLeft != nil && engineRight != nil)
+    if (self.engineLeft != nil && self.engineRight != nil)
     {
+        boardWidth = self.sprite.boundingBox.size.width;
         float boardPx = self.body->GetPosition().x * RATIO;
         float boardPy = self.body->GetPosition().y * RATIO;
         float boardAngle = self.body->GetAngle();
         
         float zOffset = -40;
-        float xOffset = 50;
-        engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
-        engineLeft.rotation = -boardAngle;
+        float xOffset = -20;
+        self.engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
+        self.engineLeft.rotation = -boardAngle;
         
-        engineRight.position = ccp(boardPx + (boardWidth+xOffset)/2* cos(boardAngle), zOffset + boardPy + (boardWidth+xOffset)/2* sin(boardAngle));
-        engineRight.rotation = -boardAngle;
+        self.engineRight.position = ccp(boardPx + (boardWidth+xOffset)/2* cos(boardAngle), zOffset + boardPy + (boardWidth+xOffset)/2* sin(boardAngle));
+        self.engineRight.rotation = -boardAngle;
     }
 }
 
 -(void) cleanEngine
 {
-    if (engineLeft != nil)
+    if (self.engineLeft != nil)
     {
-        [engineLeft removeFromParentAndCleanup:NO];
+        [self.engineLeft removeFromParentAndCleanup:NO];
         //[engineLeft release];
-        engineLeft = nil;
+        self.engineLeft = nil;
     }
     
-    if (engineRight != nil)
+    if (self.engineRight != nil)
     {
-        [engineRight removeFromParentAndCleanup:NO];
+        [self.engineRight removeFromParentAndCleanup:NO];
         //[engineRight release];
-        engineRight = nil;
+        self.engineRight = nil;
     }
 }
 
@@ -358,7 +361,8 @@
 
 -(void) dealloc
 {
-    
+    [_engineLeft release];
+    [_engineRight release];
     [super dealloc];
 }
 

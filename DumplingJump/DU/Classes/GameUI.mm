@@ -41,7 +41,7 @@
 }
 
 //Get called by cocosbuilder
--(void) testItem1:(id)sender
+-(void) bombClicked:(id)sender
 {
     //bomb, will blow everything away
     [[[HeroManager shared] getHero] bombPowerup];
@@ -53,7 +53,7 @@
     [[[HeroManager shared] getHero] rebornPowerup];
 }
 
--(void) testItem3:(id)sender
+-(void) magnetClicked:(id)sender
 {
     [[[HeroManager shared] getHero] absorbPowerup];
     /*

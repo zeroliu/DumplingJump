@@ -393,7 +393,7 @@
         [star removeAddthing];
     }
     
-    DLog(@"star!!");
+    //DLog(@"star!!");
 }
 
 -(void) bombPowerup
@@ -498,7 +498,6 @@
     id scaleUp = [CCScaleTo actionWithDuration:0.3 scale:0.8*scale];
     //Countdown certain amount of time
     float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
-    DLog(@"duration: %f", duration);
     id delay = [CCDelayTime actionWithDuration: duration];
     //Reset the hero collision
     id resetCollision = [CCCallBlock actionWithBlock:^

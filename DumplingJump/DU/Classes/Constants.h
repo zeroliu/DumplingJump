@@ -93,6 +93,8 @@
 #pragma mark -
 #pragma mark Other animations
 #define ANIM_BROOM @"O_engine"
+#define ANIM_BROOM_BROKEN @"O_engine_broken"
+#define ANIM_BROOM_RECOVER @"O_engine_recover"
 
 #pragma mark -
 #pragma mark Collision Layers

@@ -8,7 +8,7 @@
 #define SCROLL_SPEED 0.3
 #define dy -0.3
 #define W 320
-#define H 530
+#define H 480
 
 #import "BackgroundView.h"
 #import "BackgroundController.h"

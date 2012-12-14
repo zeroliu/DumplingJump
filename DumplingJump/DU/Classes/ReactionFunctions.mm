@@ -45,12 +45,32 @@
 -(void) explode_l:(id)source data:(void*)data
 {
     Reaction *reaction = (Reaction *)data;
+    CCSprite *engine = ((Board *)[[BoardManager shared] getBoard]).engineLeft;
+    
+    id animation = [ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM_BROKEN];
+    if(animation != nil)
+    {
+        [engine stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+        [engine runAction:animAction];
+    }
     
     [[[BoardManager shared] getBoard] missleEffectWithDirection:0];
     id delay = [CCDelayTime actionWithDuration:reaction.reactionLasting];
     id functionWrapper = [CCCallFunc actionWithTarget:[[BoardManager shared] getBoard] selector:@selector(recover)];
+    [engine stopAllActions];
+    id engineRecover = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM_RECOVER]];
+    id engineAnimPlay = [CCCallBlock actionWithBlock:^
+                         {
+                             [engine stopAllActions];
+                             [engine runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM]]]];
+                         }];
+    
     id sequence = [CCSequence actions:delay,functionWrapper, nil];
+    id engineSequence = [CCSequence actions:delay, engineRecover, engineAnimPlay, nil];
+    [engine runAction:engineSequence];
     [((Board *)[[BoardManager shared] getBoard]).sprite runAction:sequence];
+
 
    DLog(@"explode_l");
 }
@@ -58,11 +78,29 @@
 -(void) explode_r:(id)source data:(void*)data
 {
     Reaction *reaction = (Reaction *)data;
+    CCSprite *engine = ((Board *)[[BoardManager shared] getBoard]).engineRight;
     
+    id animation = [ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM_BROKEN];
+    if(animation != nil)
+    {
+        [engine stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+        [engine runAction:animAction];
+    }
+
     [[[BoardManager shared] getBoard] missleEffectWithDirection:1];
     id delay = [CCDelayTime actionWithDuration:reaction.reactionLasting];
     id functionWrapper = [CCCallFunc actionWithTarget:[[BoardManager shared] getBoard] selector:@selector(recover)];
+    id engineRecover = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM_RECOVER]];
+    id engineAnimPlay = [CCCallBlock actionWithBlock:^
+                         {
+                             [engine stopAllActions];
+                             [engine runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM]]]];
+                         }];
+    
     id sequence = [CCSequence actions:delay,functionWrapper, nil];
+    id engineSequence = [CCSequence actions:delay, engineRecover, engineAnimPlay, nil];
+    [engine runAction:engineSequence];
     [((Board *)[[BoardManager shared] getBoard]).sprite runAction:sequence];
     
     DLog(@"explode_r");

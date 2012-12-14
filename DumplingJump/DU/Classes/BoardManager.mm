@@ -1,9 +1,9 @@
 #import "BoardManager.h"
 #import "DUObjectsDictionary.h"
 
-#define FREQ_L 1.05f
+#define FREQ_L 1.1f
 #define FREQ_M 1.0f
-#define FREQ_R 1.05f
+#define FREQ_R 1.1f
 #define DAMP_L 1.0f
 #define DAMP_M 1.0f
 #define DAMP_R 1.0f
@@ -38,6 +38,9 @@
         self.damp_r = DAMP_R;
         
         [ANIMATIONMANAGER registerAnimationForName:ANIM_BROOM];
+        [ANIMATIONMANAGER registerAnimationForName:ANIM_BROOM_BROKEN];
+        [ANIMATIONMANAGER registerAnimationForName:ANIM_BROOM_RECOVER];
+        
     }
     
     return self;

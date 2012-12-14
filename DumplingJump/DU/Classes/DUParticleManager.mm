@@ -66,7 +66,7 @@
     id delayDuration = [CCDelayTime actionWithDuration:duration_];
     id stopEmiting = [CCCallBlock actionWithBlock:^
                       {
-                          NSLog(@"duration = %g", duration_);
+                          //NSLog(@"duration = %g", duration_);
                           for (id particle in [node children])
                           {
                               if ([particle isMemberOfClass:[CCParticleSystemQuad class]])
@@ -78,7 +78,7 @@
     id delayLife_ = [CCDelayTime actionWithDuration:life_];
     id removeParticle = [CCCallBlock actionWithBlock:^
                     {
-                        NSLog(@"life = %g", life_);
+                        //NSLog(@"life = %g", life_);
                         [node stopAllActions];
                         [node removeFromParentAndCleanup:YES];
                     }];

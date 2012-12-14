@@ -9,6 +9,8 @@
 #import "Common.h"
 
 @interface Board : DUPhysicsObject
+@property (nonatomic, retain) CCSprite *engineLeft;
+@property (nonatomic, retain) CCSprite *engineRight;
 
 -(id) initBoardWithBoardName:(NSString *)theName spriteName:(NSString *)fileName position:(CGPoint) pos leftFreq:(float)freq_l middleFreq:(float)freq_m rightFreq:(float)freq_r leftDamp:(float)damp_l middleDamp:(float)damp_m rightDamp:(float)damp_r;
 -(void) missleEffectWithDirection:(int)direction; //0:left, 1:right

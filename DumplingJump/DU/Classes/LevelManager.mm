@@ -65,6 +65,7 @@
     do {
         for (int j=1; j<=2; j++)
         {
+            DLog(@"Loading: %d_%d", i, j);
             Paragraph *level = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"level%d_%d",i, j]];
             DLog(@"Paragraph loaded + %d_%d", i, j);
             [[self.paragraphs objectAtIndex:(j-1)] addObject:level];

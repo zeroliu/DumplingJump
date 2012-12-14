@@ -119,9 +119,9 @@
 -(void) initDebugTool
 {
     //[[AddthingTestTool shared] reset];
-    [[HeroTestTool shared] reset];
+    //[[HeroTestTool shared] reset];
     [[LevelTestTool shared] reload];
-    [[ParamConfigTool shared] reset];
+    //[[ParamConfigTool shared] reset];
     
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
     
@@ -208,7 +208,7 @@
     self.model.currentLevel = [[LevelManager shared] selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
     [[BackgroundController shared] setBackgroundWithName:self.model.currentLevel.backgroundName];
-    [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,120*SCALE_MULTIPLIER)];
+    [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,150*SCALE_MULTIPLIER)];
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
 }
 
@@ -268,7 +268,7 @@
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
     
     //Reset Board
-    [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,120*SCALE_MULTIPLIER)];
+    [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
     
     //Show Fade out animation
     [[GameUI shared] fadeOut];

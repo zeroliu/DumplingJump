@@ -248,6 +248,9 @@
     //Clean object dictionary
     [[DUObjectsDictionary sharedDictionary] cleanDictionary];
     
+    //Clean particles
+    [[DUParticleManager shared] cleanParticlesInGame];
+    
     //Clean all the actions in the gamelayer
     [self stopAllActions];
     

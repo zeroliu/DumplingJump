@@ -495,19 +495,26 @@
     //Make it not collide with any objects except for the board
     [self changeCollisionDetection:C_BOARD];
     //Scale up Hero
-    id scaleUp = [CCScaleTo actionWithDuration:0.3 scale:0.8*scale];
+    id scaleUp = [CCScaleTo actionWithDuration:0.3 scale:1.3*scale];
+    //Set z value
+    self.sprite.zOrder = Z_Hero + 10;
     //Countdown certain amount of time
     float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
     id delay = [CCDelayTime actionWithDuration: duration];
     //Reset the hero collision
     id resetCollision = [CCCallBlock actionWithBlock:^
-    {
-        [self resetCollisionDetection];
-    }];
+                        {
+                            [self resetCollisionDetection];
+                        }];
+    //Reset z value
+    id resetHeroZ = [CCCallBlock actionWithBlock:^
+                     {
+                         self.sprite.zOrder = Z_Hero;
+                     }];
     //Scale down Hero to normal;
     id scaleDown = [CCScaleTo actionWithDuration:0.3 scale:scale];
     
-    [self runAction:[CCSequence actions:scaleUp, delay, resetCollision, scaleDown, nil]];
+    [self runAction:[CCSequence actions:scaleUp, delay, resetCollision, resetHeroZ, scaleDown, nil]];
 }
 
 -(void) absorbPowerup

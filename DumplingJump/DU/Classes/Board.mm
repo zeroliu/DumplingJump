@@ -245,8 +245,13 @@
     //Make it not collide with any objects except for the hero
     [self changeCollisionDetection:C_HERO];
     
-    //Scale down board
-    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:0.8*scaleX scaleY:0.8*scaleY];
+    //Scale up board
+    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:1.1*scaleX scaleY:1.1*scaleY];
+    
+    //Set z value
+    self.sprite.zOrder = Z_Board + 10;
+    _engineLeft.zOrder = Z_Engine + 10;
+    _engineRight.zOrder = Z_Engine + 10;
     
     //Push board to the middle of the screen
     directionForce = b2Vec2(0, self.body->GetMass()*60);
@@ -266,12 +271,19 @@
                          {
                              [self resetCollisionDetection];
                          }];
-    //Scale up board to normal;
-    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];;
+    //Reset z value
+    id resetBoardZ = [CCCallBlock actionWithBlock:^
+                     {
+                         self.sprite.zOrder = Z_Board;
+                         _engineLeft.zOrder = Z_Engine;
+                         _engineRight.zOrder = Z_Engine;
+                     }];
     
-    [self.sprite runAction:[CCSequence actions:scaleDown, delay, resetDirectionForce, resetCollision, scaleUp, nil]];
-    [_engineLeft runAction:[CCSequence actions:scaleDown, delay, scaleUp, nil]];
-    [_engineRight runAction:[CCSequence actions:scaleDown, delay, scaleUp, nil]];
+    //Scale up board to normal;
+    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];
+    [self.sprite runAction:[CCSequence actions:scaleUp, delay, resetDirectionForce, resetCollision, resetBoardZ, scaleDown, nil]];
+    [_engineLeft runAction:[CCSequence actions:scaleUp, delay, scaleDown, nil]];
+    [_engineRight runAction:[CCSequence actions:scaleUp, delay, scaleDown, nil]];
 }
 
 -(void) changeCollisionDetection:(uint)maskBits
@@ -300,7 +312,8 @@
 {
     if (directionForce.x != 0 || directionForce.y != 0)
     {
-        self.body->ApplyForce(directionForce, self.body->GetPosition());
+        self.body->ApplyForce(directionForce, self.body->GetPosition()+b2Vec2(5,0));
+        self.body->ApplyForce(directionForce, self.body->GetPosition()+b2Vec2(-5,0));
     }
 }
 
@@ -308,7 +321,7 @@
 {
     if (self.engineLeft != nil && self.engineRight != nil)
     {
-        boardWidth = self.sprite.boundingBox.size.width;
+        boardWidth = self.sprite.contentSize.width * self.sprite.scaleX;
         float boardPx = self.body->GetPosition().x * RATIO;
         float boardPy = self.body->GetPosition().y * RATIO;
         float boardAngle = self.body->GetAngle();

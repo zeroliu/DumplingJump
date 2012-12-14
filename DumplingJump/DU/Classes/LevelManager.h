@@ -16,7 +16,7 @@
 -(Level *) selectLevelWithName:(NSString *)levelName;
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
-
+-(void) jumpToNextLevel;
 -(void) dropNextAddthing;
 -(void) loadParagraphAtIndex:(int) index;
 -(int) paragraphsCount;

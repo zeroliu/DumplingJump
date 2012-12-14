@@ -58,7 +58,7 @@
     }
     self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump gravityValue:self.heroGravity];
     //Add hero sprite to BATCHNODE
-    [self.hero addChildTo:BATCHNODE z:5];
+    [self.hero addChildTo:BATCHNODE z:Z_Hero];
     //Add hero object to GameLayer
     [GAMELAYER addChild:self.hero];
     [self.hero idle];

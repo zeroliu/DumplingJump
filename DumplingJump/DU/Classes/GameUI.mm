@@ -11,6 +11,7 @@
 #import "CCBReader.h"
 #import "HeroManager.h"
 #import "BoardManager.h"
+#import "LevelManager.h"
 #import "BackgroundController.h"
 #import "GameModel.h"
 @implementation GameUI
@@ -50,7 +51,8 @@
 -(void) testItem2:(id)sender
 {
     //reborn, count down a certain amount of time. revive when you die
-    [[[HeroManager shared] getHero] rebornPowerup];
+    //[[[ shared] getHero] rebornPowerup];
+    [[LevelManager shared] jumpToNextLevel];
 }
 
 -(void) magnetClicked:(id)sender

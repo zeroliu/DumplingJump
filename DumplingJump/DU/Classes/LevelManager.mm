@@ -51,7 +51,6 @@
         
         self.generatedObjects = [[NSMutableArray alloc] init];
         [self loadParagraphs];
-        
     }
     
     return self;
@@ -120,7 +119,6 @@
     sentenceTarget = 0;
     currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:index];
     currentParagraphIndex = index;
-    
 }
 
 -(void) loadCurrentParagraph
@@ -129,7 +127,6 @@
     sentenceIndex = 0;
     sentenceTarget = 0;
     currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:currentParagraphIndex];
-    
 }
 
 -(int) paragraphsCount
@@ -187,9 +184,16 @@
         currentParagraphIndex = 2;
     }
     
-    [self performSelector:@selector(switchToNextLevelEffect) withObject:nil afterDelay:5];
+    id switchToNextLevelAction = [CCCallFunc actionWithTarget:self selector:@selector(switchToNextLevelEffect)];
+    id delay1 = [CCDelayTime actionWithDuration:8];
+    id loadParagraphAction = [CCCallFunc actionWithTarget:self selector:@selector(loadCurrentParagraph)];
+    id delay2 = [CCDelayTime actionWithDuration:12];
+    
+    //[self performSelector:@selector(switchToNextLevelEffect) withObject:nil afterDelay:5];
     //[self switchToNextLevelEffect];
-    [self performSelector:@selector(loadCurrentParagraph) withObject:nil afterDelay:10];
+    //[self performSelector:@selector(loadCurrentParagraph) withObject:nil afterDelay:10];
+    [GAMELAYER runAction:[CCSequence actions:delay1, switchToNextLevelAction, delay2, loadParagraphAction, nil]];
+    
 }
 
 -(void) switchToNextLevelEffect
@@ -198,6 +202,9 @@
     [[[BoardManager shared] getBoard] rocketPowerup];
     //Speed up scrolling speed
     [[BackgroundController shared] speedUpWithScale:6 interval:5];
+    //Play speed line effect
+    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration:5 life:1];
+    particleNode.position = CGPointZero;
 }
 
 -(void) stopCurrentParagraph

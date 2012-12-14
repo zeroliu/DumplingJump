@@ -34,7 +34,8 @@
     //Set the batchNode
     self.bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",bgName]];
     
-    [[[Hub shared]gameLayer] addChild:self.bgBatchNode];
+    [GAMELAYER addChild:self];
+    [GAMELAYER addChild:self.bgBatchNode];
 }
 
 -(void) setBackgroundWithBGArray:(NSMutableArray *)theArray;
@@ -76,6 +77,12 @@
         }
         //        NSLog(@"sprite pos y = %f, swapsprite pos y = %g", myLayer.sprite.position.y, myLayer.swapSprite.position.y);
     }
+}
+
+- (void)dealloc
+{
+    [self.bgBatchNode release];
+    [super dealloc];
 }
 
 @end

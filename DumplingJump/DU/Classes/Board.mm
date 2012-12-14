@@ -246,7 +246,7 @@
     [self changeCollisionDetection:C_HERO];
     
     //Scale down board
-    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:0.8*scaleX scaleY:0.8*scaleY];
+    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:0.8*scaleX scaleY:0.8*scaleY];
     
     //Push board to the middle of the screen
     directionForce = b2Vec2(0, self.body->GetMass()*60);
@@ -266,10 +266,12 @@
                          {
                              [self resetCollisionDetection];
                          }];
-    //Scale down Hero to normal;
-    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];;
+    //Scale up board to normal;
+    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];;
     
-    [self.sprite runAction:[CCSequence actions:scaleUp, delay, resetDirectionForce, resetCollision, scaleDown, nil]];
+    [self.sprite runAction:[CCSequence actions:scaleDown, delay, resetDirectionForce, resetCollision, scaleUp, nil]];
+    [_engineLeft runAction:[CCSequence actions:scaleDown, delay, scaleUp, nil]];
+    [_engineRight runAction:[CCSequence actions:scaleDown, delay, scaleUp, nil]];
 }
 
 -(void) changeCollisionDetection:(uint)maskBits
@@ -312,7 +314,7 @@
         float boardAngle = self.body->GetAngle();
         
         float zOffset = -40;
-        float xOffset = -20;
+        float xOffset = -40;
         self.engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
         self.engineLeft.rotation = -boardAngle;
         

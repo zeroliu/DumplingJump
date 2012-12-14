@@ -64,8 +64,16 @@
         
         myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,y));
         myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,y));
-        if(myLayer.sprite.position.y < -H/2) myLayer.sprite.position = ccp(W/2, H*3/2 + dy* _scrollSpeedScale*myLayer.speedScale);
-        if(myLayer.swapSprite.position.y < -H/2) myLayer.swapSprite.position = ccp(W/2, H*3/2 + dy* _scrollSpeedScale*myLayer.speedScale);
+        if(myLayer.sprite.position.y < -H/2)
+        {
+            //myLayer.sprite.position = ccp(W/2, H*3/2 + dy* _scrollSpeedScale*myLayer.speedScale);
+            myLayer.sprite.position = ccp(W/2, myLayer.swapSprite.position.y + myLayer.swapSprite.boundingBox.size.height);
+        }
+        if(myLayer.swapSprite.position.y < -H/2)
+        {
+            //myLayer.swapSprite.position = ccp(W/2, H*3/2 + dy* _scrollSpeedScale*myLayer.speedScale);
+            myLayer.swapSprite.position = ccp(W/2, myLayer.sprite.position.y + myLayer.sprite.boundingBox.size.height);
+        }
         //        NSLog(@"sprite pos y = %f, swapsprite pos y = %g", myLayer.sprite.position.y, myLayer.swapSprite.position.y);
     }
 }

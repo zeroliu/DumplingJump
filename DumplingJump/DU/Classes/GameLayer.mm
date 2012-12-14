@@ -17,6 +17,7 @@
 @interface GameLayer()
 {
     CCMenu *_loadingPlaceHolder;
+    BOOL _loadCompleted;
 }
 @end
 
@@ -72,6 +73,8 @@
 	if( (self=[super init])) {
         //Set debug mode
         _isDebug = YES;
+        
+        _loadCompleted = NO;
         
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
@@ -188,6 +191,7 @@
         _loadingPlaceHolder = nil;
     }
     [[GameUI shared] fadeOut];
+    _loadCompleted = YES;
 }
 
 -(void) loadUserData
@@ -309,15 +313,18 @@
 -(void) draw
 {
     /*
-    [super draw];
-    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-	
-	kmGLPushMatrix();
-	
-	world->DrawDebugData();
-	
-	kmGLPopMatrix();
-    */
+    if (_loadCompleted)
+    {
+        [super draw];
+        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+        
+        kmGLPushMatrix();
+        
+        world->DrawDebugData();
+        
+        kmGLPopMatrix();
+    }
+     */
 }
 
 #pragma mark -

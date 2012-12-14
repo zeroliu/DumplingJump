@@ -52,7 +52,7 @@
 {
     //reborn, count down a certain amount of time. revive when you die
     //[[[ shared] getHero] rebornPowerup];
-    [[LevelManager shared] jumpToNextLevel];
+    [[LevelManager shared] switchToNextLevelEffect];
 }
 
 -(void) magnetClicked:(id)sender

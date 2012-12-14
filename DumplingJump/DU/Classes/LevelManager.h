@@ -24,4 +24,6 @@
 -(void) destroyAllObjects;
 -(void) stopCurrentParagraph;
 -(void) loadCurrentParagraph;
+
+-(void) switchToNextLevelEffect;
 @end

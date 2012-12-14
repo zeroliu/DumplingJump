@@ -104,7 +104,7 @@
     heroFixtureDef.friction = self.fric;
     heroFixtureDef.restitution = 0;
     heroFixtureDef.filter.categoryBits = C_HERO;
-    heroFixtureDef.filter.maskBits = C_HERO | C_BOARD | C_ADDTHING | C_STAR;
+    heroFixtureDef.filter.maskBits = C_BOARD | C_ADDTHING | C_STAR;
     heroFixtureDef.userData = @"heroBody";
     
     b2CircleShape shellShape;

@@ -59,26 +59,22 @@
 	</level>
 	<level>
 		<time>7.5</time>
+		<slot3>*&lt;</slot3>
 	</level>
 	<level>
 		<time>8</time>
-		<slot3>ARROW</slot3>
-		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>8.5</time>
 	</level>
 	<level>
 		<time>9</time>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>9.5</time>
 	</level>
 	<level>
 		<time>10</time>
-		<slot5>STONE</slot5>
 	</level>
 	<level>
 		<time>10.5</time>
@@ -95,35 +91,35 @@
 	</level>
 	<level>
 		<time>12.5</time>
-		<slot3>ARROW</slot3>
+		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>13</time>
-		<slot7>ARROW</slot7>
+		<slot4>ARROW</slot4>
 	</level>
 	<level>
 		<time>13.5</time>
-		<slot3>ARROW</slot3>
 		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>14</time>
+		<slot3>ARROW</slot3>
 	</level>
 	<level>
 		<time>14.5</time>
-		<slot3>ARROW</slot3>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>15</time>
-		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>15.5</time>
-		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
 	</level>
 	<level>
 		<time>16</time>
-		<slot7>ARROW</slot7>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>16.5</time>
@@ -131,18 +127,17 @@
 	</level>
 	<level>
 		<time>17</time>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>17.5</time>
-		<slot3>ARROW</slot3>
-		<slot5>STONE</slot5>
 	</level>
 	<level>
 		<time>18</time>
+		<slot2>STONE</slot2>
 	</level>
 	<level>
 		<time>18.5</time>
-		<slot4>BLIND</slot4>
 	</level>
 	<level>
 		<time>19</time>
@@ -157,7 +152,6 @@
 	<level>
 		<time>20</time>
 		<slot4>ARROW</slot4>
-		<slot8>SHELTER</slot8>
 	</level>
 	<level>
 		<time>20.5</time>
@@ -268,6 +262,7 @@
 	</level>
 	<level>
 		<time>34</time>
+		<slot7>SHELTER</slot7>
 	</level>
 	<level>
 		<time>34.5</time>
@@ -526,11 +521,5 @@
 	<level>
 		<time>66</time>
 		<slot8>*1</slot8>
-	</level>
-	<level>
-		<time>66.5</time>
-	</level>
-	<level>
-		<time>67</time>
 	</level>
 </stage1>

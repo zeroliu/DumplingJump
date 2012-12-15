@@ -34,8 +34,8 @@
 		<shape>Circle</shape>
 		<radius>50</radius>
 		<I>1</I>
-		<mass>30</mass>
-		<res>0.1</res>
+		<mass>35</mass>
+		<res>0.05</res>
 		<fric>2</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
@@ -48,7 +48,7 @@
 		<width>70</width>
 		<length>70</length>
 		<I>2</I>
-		<mass>8</mass>
+		<mass>15</mass>
 		<res>0.4</res>
 		<fric>2</fric>
 		<gravity>100</gravity>
@@ -109,34 +109,6 @@
 		<gravity>80</gravity>
 		<blood>1</blood>
 		<react_type>claw</react_type>
-	</Item>
-	<Item>
-		<ID>火藥</ID>
-		<name>POWDER_L</name>
-		<shape>Box</shape>
-		<width>80</width>
-		<length>80</length>
-		<I>1</I>
-		<mass>5</mass>
-		<res>0.1</res>
-		<fric>5</fric>
-		<gravity>100</gravity>
-		<blood>1</blood>
-		<react_type>powder_l</react_type>
-	</Item>
-	<Item>
-		<ID>火藥</ID>
-		<name>POWDER_R</name>
-		<shape>Box</shape>
-		<width>80</width>
-		<length>80</length>
-		<I>1</I>
-		<mass>5</mass>
-		<res>0.1</res>
-		<fric>5</fric>
-		<gravity>100</gravity>
-		<blood>1</blood>
-		<react_type>powder_r</react_type>
 	</Item>
 	<Item>
 		<ID>火藥</ID>
@@ -246,5 +218,19 @@
 		<gravity>14</gravity>
 		<blood>1</blood>
 		<react_type>star</react_type>
+	</Item>
+	<Item>
+		<ID>冰雹</ID>
+		<name>ICE</name>
+		<shape>Box</shape>
+		<width>80</width>
+		<length>50</length>
+		<I>10</I>
+		<mass>10</mass>
+		<res>0</res>
+		<fric>5</fric>
+		<gravity>120</gravity>
+		<blood>1</blood>
+		<react_type>ice</react_type>
 	</Item>
 </things>

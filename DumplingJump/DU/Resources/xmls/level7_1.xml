@@ -82,6 +82,7 @@
 	</level>
 	<level>
 		<time>20</time>
+		<slot1>*/</slot1>
 	</level>
 	<level>
 		<time>21</time>
@@ -159,6 +160,7 @@
 	</level>
 	<level>
 		<time>40</time>
+		<slot1>*\</slot1>
 		<slot6>POWDER</slot6>
 	</level>
 	<level>
@@ -238,6 +240,7 @@
 	</level>
 	<level>
 		<time>60</time>
+		<slot1>*1</slot1>
 		<slot3>BOX</slot3>
 		<slot7>BOX</slot7>
 	</level>

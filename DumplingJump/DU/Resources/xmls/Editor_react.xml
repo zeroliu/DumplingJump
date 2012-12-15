@@ -58,29 +58,9 @@
 		<effectimage>FX_Powder</effectimage>
 		<statetime>2</statetime>
 		<react_time>explode</react_time>
-		<trigger_react_time>3.5</trigger_react_time>
-		<trigger_clean_time>3.5</trigger_clean_time>
+		<trigger_react_time>6</trigger_react_time>
+		<trigger_clean_time>6</trigger_clean_time>
 		<MEMO>火藥</MEMO>
-	</react>
-	<react>
-		<ID>火藥L</ID>
-		<react_type>powder_l</react_type>
-		<effectimage>FX_Powder</effectimage>
-		<statetime>2</statetime>
-		<react_time>explode_l</react_time>
-		<trigger_react_time>3.5</trigger_react_time>
-		<trigger_clean_time>3.5</trigger_clean_time>
-		<MEMO>火藥L</MEMO>
-	</react>
-	<react>
-		<ID>火藥R</ID>
-		<react_type>powder_r</react_type>
-		<effectimage>FX_Powder</effectimage>
-		<statetime>2</statetime>
-		<react_time>explode_r</react_time>
-		<trigger_react_time>3.5</trigger_react_time>
-		<trigger_clean_time>3.5</trigger_clean_time>
-		<MEMO>火藥R</MEMO>
 	</react>
 	<react>
 		<ID>偽裝蝙蝠</ID>
@@ -172,6 +152,21 @@
 		<ID>光束劍</ID>
 		<react_type>slash</react_type>
 		<effectimage>FX_Del</effectimage>
+		<trigger_clean_item>1</trigger_clean_item>
+	</react>
+	<react>
+		<ID>冰塊</ID>
+		<react_type>ice</react_type>
+		<reactimage>H_ice</reactimage>
+		<effectimage>FX_Frozen</effectimage>
+		<statetime>3</statetime>
+		<react_hero>freeze</react_hero>
+		<trigger_react_hero>1</trigger_react_hero>
+		<trigger_clean_hero>1</trigger_clean_hero>
+		<react_step>ice</react_step>
+		<trigger_react_step>1</trigger_react_step>
+		<trigger_clean_step>1</trigger_clean_step>
+		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
 	</react>
 </reactlist>

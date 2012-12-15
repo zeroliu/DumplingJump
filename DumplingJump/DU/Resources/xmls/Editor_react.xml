@@ -56,10 +56,10 @@
 		<ID>火藥</ID>
 		<react_type>powder</react_type>
 		<effectimage>FX_Powder</effectimage>
-		<statetime>2</statetime>
+		<statetime>2.5</statetime>
 		<react_time>explode</react_time>
-		<trigger_react_time>6</trigger_react_time>
-		<trigger_clean_time>6</trigger_clean_time>
+		<trigger_react_time>3</trigger_react_time>
+		<trigger_clean_time>3</trigger_clean_time>
 		<MEMO>火藥</MEMO>
 	</react>
 	<react>

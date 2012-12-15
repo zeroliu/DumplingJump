@@ -117,7 +117,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>0.20000000298023224</real>
 							<real>0.10000000149011612</real>
 						</array>
 					</dict>
@@ -139,7 +139,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>20</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -184,9 +184,9 @@
 						<key>value</key>
 						<array>
 							<array>
-								<real>0.97882920503616333</real>
+								<real>0.98602408170700073</real>
+								<real>0.98930293321609497</real>
 								<real>1</real>
-								<real>0.0</real>
 								<real>1</real>
 							</array>
 							<array>
@@ -205,10 +205,10 @@
 						<key>value</key>
 						<array>
 							<array>
-								<real>0.99999600648880005</real>
+								<real>0.9888882040977478</real>
+								<real>0.9912371039390564</real>
 								<real>1</real>
-								<real>1</real>
-								<real>1</real>
+								<real>0.0</real>
 							</array>
 							<array>
 								<real>0.0</real>
@@ -247,7 +247,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>100</real>
+							<real>200</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -279,7 +279,7 @@
 						<key>type</key>
 						<string>Texture</string>
 						<key>value</key>
-						<string>Assets/sheetEffects/E_star_normal_white.png</string>
+						<string>Assets/sheetEffects/E_itemGet_star.png</string>
 					</dict>
 				</array>
 			</dict>

@@ -12,6 +12,6 @@
 
 +(id) shared;
 
--(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition;
--(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition scale:(float)theScale z:(int)theZ;
+-(id) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition;
+-(id) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition z:(int)theZ parent:(id)theParent;
 @end

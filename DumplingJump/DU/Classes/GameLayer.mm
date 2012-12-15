@@ -28,6 +28,7 @@
 
 @synthesize batchNode = _batchNode;
 @synthesize isDebug = _isDebug;
+@synthesize timeScale = _timeScale;
 
 -(void) onEnter
 {
@@ -73,8 +74,8 @@
 	if( (self=[super init])) {
         //Set debug mode
         _isDebug = YES;
-        
         _loadCompleted = NO;
+        _timeScale = 1;
         
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
@@ -227,6 +228,7 @@
         self.model.distance += DISTANCE_UNIT * 10;
         [[GameUI shared] updateDistance:(int)self.model.distance];
         [[LevelManager shared] dropNextAddthing];
+        [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
     }
 }
 
@@ -279,6 +281,9 @@
     
     //Reset Board
     [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
+    
+    //Reset game frame
+    [[CCDirector sharedDirector].scheduler setTimeScale:1.0];
     
     //Show Fade out animation
     [[GameUI shared] fadeOut];

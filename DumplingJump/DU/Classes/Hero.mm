@@ -5,6 +5,8 @@
 //  Created by LIU Xiyuan on 12-8-12.
 //  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
+#define ABSORB_POWERUP_TAG 1
+#define REBORN_POWERUP_TAG 2
 
 #import "Hero.h"
 #import "AddthingObject.h"
@@ -13,6 +15,7 @@
 #import "EffectManager.h"
 #import "GameModel.h"
 #import "GameUI.h"
+#import "DUEffectObject.h"
 @interface Hero()
 {
     float adjustMove, adjustJump;
@@ -80,7 +83,7 @@
 {
     self.sprite = [CCSprite spriteWithSpriteFrameName:filename];
     self.sprite.position = thePosition;
-    //self.sprite.anchorPoint = ccp(0.5,0.5);
+//    self.sprite = ccp(0.5,0.5);
     origHeight = self.sprite.contentSize.height;
     //self.sprite.scale = self.radius/self.sprite.contentSize.height * SCALE_MULTIPLIER;
 }
@@ -245,7 +248,14 @@
         
         adjustJump = 1;
         adjustMove = 1;
+        
         /*
+        for (CCSprite *child in [self.sprite children])
+        {
+            NSLog(@"idle: %g,%g", self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+            child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        }
+        
         if (shellFixture != NULL)
         {
             self.body->DestroyFixture(shellFixture);
@@ -322,13 +332,19 @@
 
 -(void) spring
 {
-    
     DLog(@"spring");
 }
 
 -(void) shelter
 {
     DLog(@"shelter");
+    /*
+    for (CCSprite *child in [self.sprite children])
+    {
+        NSLog(@"Begin Shelter:%g,%g", self.sprite.boundingBox.size.width/2,self.sprite.boundingBox.size.height/2);
+        child.position = ccp(self.sprite.boundingBox.size.width/2,self.sprite.boundingBox.size.height/2);
+    }
+     */
     //shellFixture = self.body->CreateFixture(&shellFixtureDef);
 }
 
@@ -403,21 +419,30 @@
         CGPoint explosionPos = ob.sprite.position;
         float distance = ccpDistance(explosionPos, self.sprite.position);
         float explosionForce = SHOCK_PRESSURE/5000/distance;
-//        DLog(@"Force direction: %g,%g", explosionForce * (self.sprite.position.x - explosionPos.x), explosionForce * (self.sprite.position.y - explosionPos.y));
         ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (explosionPos.x - self.sprite.position.x), explosionForce * ob.body->GetMass() * (explosionPos.y - self.sprite.position.y)), ob.body->GetPosition());
     }
-    [EFFECTMANAGER PlayEffectWithName:FX_BOW position:self.sprite.position scale:3 z:Z_Hero-1];
+    [EFFECTMANAGER PlayEffectWithName:FX_ItemBomb position:self.sprite.position z:Z_Hero-1 parent:BATCHNODE];
 }
 
 -(void) rebornPowerup
 {
     if (!self.canReborn)
     {
-        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"E_powerup_1.png"];
-        halo.scale = 3;
-        halo.tag = 1;
-        halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"E_item_reborn_start_1.png"];
+        halo.scale = 0.8;
+        halo.tag = REBORN_POWERUP_TAG;
+        
+        id animation = [ANIMATIONMANAGER getAnimationWithName:@"E_item_reborn_start"];
+        
+        if(animation != nil)
+        {
+            [halo stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [halo runAction:animAction];
+        }
+
         [self.sprite addChild:halo z:-1];
+        halo.position = ccp(halo.parent.contentSize.width/2,halo.parent.contentSize.height/2 + 3);
     }
     self.canReborn = YES;
     [self unschedule:@selector(rebornFinish)];
@@ -429,8 +454,10 @@
 {
     DLog(@"test rebornFinish");
     [self unschedule:@selector(rebornFinish)];
-    [[self.sprite getChildByTag:1] removeFromParentAndCleanup:NO];
-    self.canReborn = NO;
+    [[self.sprite getChildByTag:REBORN_POWERUP_TAG] removeFromParentAndCleanup:NO];
+
+    //Play reborn finish animation
+    [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];    self.canReborn = NO;
 }
 
 -(void) reborn
@@ -543,11 +570,18 @@
     //Create effect
     if (!isAbsorbing)
     {
-        CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"E_powerup_1.png"];
-        halo.scale = 3;
-        halo.tag = 1;
-        halo.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
-        [self.sprite addChild:halo z:-1];
+        CCSprite *absorbEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_coinstar_1.png"];
+        absorbEffect.scale = 2;
+        absorbEffect.tag = ABSORB_POWERUP_TAG;
+        absorbEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        id animation = [ANIMATIONMANAGER getAnimationWithName:@"E_item_coinstar"];
+        if(animation != nil)
+        {
+            [absorbEffect stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [absorbEffect runAction:animAction];
+        }
+        [self.sprite addChild:absorbEffect z:-1];
     }
     
     isAbsorbing = YES;
@@ -557,7 +591,7 @@
     //Remove effect
     id removeAbsorb = [CCCallBlock actionWithBlock:^
                        {
-                           [[self.sprite getChildByTag:1] removeFromParentAndCleanup:NO];
+                           [[self.sprite getChildByTag:ABSORB_POWERUP_TAG] removeFromParentAndCleanup:NO];
                            //Remove absorb collision detection
                            [self removeAbsorbCollisionDetection];
                            isAbsorbing = NO;

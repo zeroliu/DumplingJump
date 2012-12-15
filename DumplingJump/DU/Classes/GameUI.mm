@@ -57,8 +57,8 @@
 -(void) testItem2:(id)sender
 {
     //reborn, count down a certain amount of time. revive when you die
-    //[[[ shared] getHero] rebornPowerup];
-    [[LevelManager shared] switchToNextLevelEffect];
+    [[[HeroManager shared] getHero] rebornPowerup];
+    //[[LevelManager shared] switchToNextLevelEffect];
 }
 
 -(void) magnetClicked:(id)sender

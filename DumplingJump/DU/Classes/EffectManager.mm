@@ -39,17 +39,17 @@
     return self;
 }
 
--(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition
+-(id) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition
 {
-    [self PlayEffectWithName:effectName position:thePosition scale:1 z:20];
+   return [self PlayEffectWithName:effectName position:thePosition z:20 parent:BATCHNODE];
 }
 
--(void) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition scale:(float)theScale z:(int)theZ
+-(id) PlayEffectWithName:(NSString *)effectName position:(CGPoint)thePosition z:(int)theZ parent:(id)theParent
 {
     DUEffectObject *effect = [[self.factory createWithName:effectName] retain];
     effect.sprite.position = thePosition;
-    effect.sprite.scale = theScale;
-    [effect addChildTo:BATCHNODE z:theZ];
+    effect.sprite.scale = effect.effectData.scale;
+    [effect addChildTo:theParent z:theZ];
     id animation = [ANIMATIONMANAGER getAnimationWithName:effect.effectData.animationName];
     
     if(animation != nil)
@@ -59,6 +59,8 @@
         id sequence = [CCSequence actions:animAction, callbackWrapper, nil];
         [effect.sprite runAction:sequence];
     }
+    
+    return effect;
 }
 
 

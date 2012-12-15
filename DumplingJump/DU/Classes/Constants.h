@@ -84,7 +84,7 @@
 #define FX_FRONZEN @"FX_Frozen"
 #define FX_STONEBREAK @"FX_StoneBreak"
 #define FX_POWDER @"FX_Powder"
-#define FX_BOW @"FX_Bow"
+#define FX_ItemBomb @"FX_ItemBomb"
 #define FX_DEL @"FX_Del"
 
 #pragma mark -

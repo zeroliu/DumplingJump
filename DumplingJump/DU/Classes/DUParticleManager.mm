@@ -83,7 +83,7 @@
     id delayDuration = [CCDelayTime actionWithDuration:duration_];
     id stopEmiting = [CCCallBlock actionWithBlock:^
                       {
-                          NSLog(@"%@: duration = %g", ccbiFileName, duration_);
+                          //NSLog(@"%@: duration = %g", ccbiFileName, duration_);
                           for (id particle in [node children])
                           {
                               if ([particle isMemberOfClass:[CCParticleSystemQuad class]])

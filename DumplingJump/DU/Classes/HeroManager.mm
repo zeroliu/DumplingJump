@@ -44,6 +44,8 @@
         self.heroGravity = HERO_GRAVITY;
         [ANIMATIONMANAGER registerAnimationForName:HEROIDLE];
         [ANIMATIONMANAGER registerAnimationForName:@"H_happy"];
+        [ANIMATIONMANAGER registerAnimationForName:@"E_item_reborn_start"];
+        [ANIMATIONMANAGER registerAnimationForName:@"E_item_coinstar"];
     }
     return self;
 }

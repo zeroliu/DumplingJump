@@ -48,16 +48,6 @@
 		7F25307B1678645B005138A1 /* level9_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530581678645B005138A1 /* level9_2.xml */; };
 		7F25307C1678645B005138A1 /* level10_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530591678645B005138A1 /* level10_1.xml */; };
 		7F25307D1678645B005138A1 /* level10_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305A1678645B005138A1 /* level10_2.xml */; };
-		7F25307E1678645B005138A1 /* level11_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305B1678645B005138A1 /* level11_1.xml */; };
-		7F25307F1678645B005138A1 /* level11_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305C1678645B005138A1 /* level11_2.xml */; };
-		7F2530801678645B005138A1 /* level12_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305D1678645B005138A1 /* level12_1.xml */; };
-		7F2530811678645B005138A1 /* level12_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305E1678645B005138A1 /* level12_2.xml */; };
-		7F2530821678645B005138A1 /* level13_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305F1678645B005138A1 /* level13_1.xml */; };
-		7F2530831678645B005138A1 /* level13_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530601678645B005138A1 /* level13_2.xml */; };
-		7F2530841678645B005138A1 /* level14_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530611678645B005138A1 /* level14_1.xml */; };
-		7F2530851678645B005138A1 /* level14_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530621678645B005138A1 /* level14_2.xml */; };
-		7F2530861678645B005138A1 /* level15_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530631678645B005138A1 /* level15_1.xml */; };
-		7F2530871678645B005138A1 /* level15_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530641678645B005138A1 /* level15_2.xml */; };
 		7F25309616786686005138A1 /* AchievementNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308D16786686005138A1 /* AchievementNode.ccbi */; };
 		7F25309716786686005138A1 /* CategoryCell.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308E16786686005138A1 /* CategoryCell.ccbi */; };
 		7F25309816786686005138A1 /* DeadUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308F16786686005138A1 /* DeadUI.ccbi */; };
@@ -750,16 +740,6 @@
 		7F2530581678645B005138A1 /* level9_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level9_2.xml; path = xmls/level9_2.xml; sourceTree = "<group>"; };
 		7F2530591678645B005138A1 /* level10_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level10_1.xml; path = xmls/level10_1.xml; sourceTree = "<group>"; };
 		7F25305A1678645B005138A1 /* level10_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level10_2.xml; path = xmls/level10_2.xml; sourceTree = "<group>"; };
-		7F25305B1678645B005138A1 /* level11_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level11_1.xml; path = xmls/level11_1.xml; sourceTree = "<group>"; };
-		7F25305C1678645B005138A1 /* level11_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level11_2.xml; path = xmls/level11_2.xml; sourceTree = "<group>"; };
-		7F25305D1678645B005138A1 /* level12_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level12_1.xml; path = xmls/level12_1.xml; sourceTree = "<group>"; };
-		7F25305E1678645B005138A1 /* level12_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level12_2.xml; path = xmls/level12_2.xml; sourceTree = "<group>"; };
-		7F25305F1678645B005138A1 /* level13_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level13_1.xml; path = xmls/level13_1.xml; sourceTree = "<group>"; };
-		7F2530601678645B005138A1 /* level13_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level13_2.xml; path = xmls/level13_2.xml; sourceTree = "<group>"; };
-		7F2530611678645B005138A1 /* level14_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level14_1.xml; path = xmls/level14_1.xml; sourceTree = "<group>"; };
-		7F2530621678645B005138A1 /* level14_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level14_2.xml; path = xmls/level14_2.xml; sourceTree = "<group>"; };
-		7F2530631678645B005138A1 /* level15_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level15_1.xml; path = xmls/level15_1.xml; sourceTree = "<group>"; };
-		7F2530641678645B005138A1 /* level15_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level15_2.xml; path = xmls/level15_2.xml; sourceTree = "<group>"; };
 		7F25308D16786686005138A1 /* AchievementNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementNode.ccbi; path = UILayouts/AchievementNode.ccbi; sourceTree = "<group>"; };
 		7F25308E16786686005138A1 /* CategoryCell.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = CategoryCell.ccbi; path = UILayouts/CategoryCell.ccbi; sourceTree = "<group>"; };
 		7F25308F16786686005138A1 /* DeadUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = DeadUI.ccbi; path = UILayouts/DeadUI.ccbi; sourceTree = "<group>"; };
@@ -2824,16 +2804,6 @@
 				7F2530581678645B005138A1 /* level9_2.xml */,
 				7F2530591678645B005138A1 /* level10_1.xml */,
 				7F25305A1678645B005138A1 /* level10_2.xml */,
-				7F25305B1678645B005138A1 /* level11_1.xml */,
-				7F25305C1678645B005138A1 /* level11_2.xml */,
-				7F25305D1678645B005138A1 /* level12_1.xml */,
-				7F25305E1678645B005138A1 /* level12_2.xml */,
-				7F25305F1678645B005138A1 /* level13_1.xml */,
-				7F2530601678645B005138A1 /* level13_2.xml */,
-				7F2530611678645B005138A1 /* level14_1.xml */,
-				7F2530621678645B005138A1 /* level14_2.xml */,
-				7F2530631678645B005138A1 /* level15_1.xml */,
-				7F2530641678645B005138A1 /* level15_2.xml */,
 			);
 			name = xmls;
 			sourceTree = "<group>";
@@ -3568,16 +3538,6 @@
 				7F25307B1678645B005138A1 /* level9_2.xml in Resources */,
 				7F25307C1678645B005138A1 /* level10_1.xml in Resources */,
 				7F25307D1678645B005138A1 /* level10_2.xml in Resources */,
-				7F25307E1678645B005138A1 /* level11_1.xml in Resources */,
-				7F25307F1678645B005138A1 /* level11_2.xml in Resources */,
-				7F2530801678645B005138A1 /* level12_1.xml in Resources */,
-				7F2530811678645B005138A1 /* level12_2.xml in Resources */,
-				7F2530821678645B005138A1 /* level13_1.xml in Resources */,
-				7F2530831678645B005138A1 /* level13_2.xml in Resources */,
-				7F2530841678645B005138A1 /* level14_1.xml in Resources */,
-				7F2530851678645B005138A1 /* level14_2.xml in Resources */,
-				7F2530861678645B005138A1 /* level15_1.xml in Resources */,
-				7F2530871678645B005138A1 /* level15_2.xml in Resources */,
 				7F25309616786686005138A1 /* AchievementNode.ccbi in Resources */,
 				7F25309716786686005138A1 /* CategoryCell.ccbi in Resources */,
 				7F25309816786686005138A1 /* DeadUI.ccbi in Resources */,

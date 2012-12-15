@@ -198,6 +198,9 @@
             } else if ([[child name] isEqualToString:@"repeat"])
             {
                 data.times = [[child stringValue] intValue];
+            } else if ([[child name] isEqualToString:@"scale"])
+            {
+                data.scale = [[child stringValue] intValue];
             }
         }
         if (data.name != nil)

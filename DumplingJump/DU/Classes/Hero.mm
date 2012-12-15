@@ -598,7 +598,7 @@
                        }];
     CCSequence *sequence = [CCSequence actions:delay, removeAbsorb, nil];
     
-    [self.sprite runAction:sequence];
+    [self runAction:sequence];
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification

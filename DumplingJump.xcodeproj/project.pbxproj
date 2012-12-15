@@ -561,8 +561,6 @@
 		7F4F506015BD166F000A9C5F /* DUSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F505F15BD166E000A9C5F /* DUSprite.mm */; };
 		7F4F506315BD1700000A9C5F /* DUObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506215BD1700000A9C5F /* DUObject.mm */; };
 		7F4F506715BD1B18000A9C5F /* DUObjectsDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */; };
-		7F4FEC97165F05D1008C49A9 /* sheetUI-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC93165F05D1008C49A9 /* sheetUI-hd.plist */; };
-		7F4FEC98165F05D1008C49A9 /* sheetUI-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */; };
 		7F57279E163521570023B985 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5E5DB16351A4D0018B085 /* libxml2.dylib */; };
 		7F5AE4A516740F30006854DF /* DUScrollPageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5AE4A416740F30006854DF /* DUScrollPageView.mm */; };
 		7F5B00D515B952A900BA15D9 /* InputManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B00D415B952A800BA15D9 /* InputManager.mm */; };
@@ -1465,8 +1463,6 @@
 		7F4F506215BD1700000A9C5F /* DUObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObject.mm; sourceTree = "<group>"; };
 		7F4F506515BD1B17000A9C5F /* DUObjectsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUObjectsDictionary.h; sourceTree = "<group>"; };
 		7F4F506615BD1B17000A9C5F /* DUObjectsDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUObjectsDictionary.mm; sourceTree = "<group>"; };
-		7F4FEC93165F05D1008C49A9 /* sheetUI-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-hd.plist"; sourceTree = "<group>"; };
-		7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-hd.png"; sourceTree = "<group>"; };
 		7F5AE4A316740F30006854DF /* DUScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUScrollPageView.h; sourceTree = "<group>"; };
 		7F5AE4A416740F30006854DF /* DUScrollPageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUScrollPageView.mm; sourceTree = "<group>"; };
 		7F5B00C915B9467200BA15D9 /* InputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputManager.h; sourceTree = "<group>"; };
@@ -2971,8 +2967,6 @@
 				7FC7C56716707B4400E3B82C /* sheetUI-1-hd.png */,
 				7FC7C56816707B4400E3B82C /* sheetUI-2-hd.plist */,
 				7FC7C56916707B4400E3B82C /* sheetUI-2-hd.png */,
-				7F4FEC93165F05D1008C49A9 /* sheetUI-hd.plist */,
-				7F4FEC94165F05D1008C49A9 /* sheetUI-hd.png */,
 				7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */,
 				7F1632F8162BE8F900C132B1 /* sheetBackground1.png */,
 				7F1632F3162BE7EA00C132B1 /* sheetBackground1-hd.plist */,
@@ -3481,8 +3475,6 @@
 				7FEA39E4165A0AE1005350F2 /* README.md in Resources */,
 				7FEA39E6165A0AE1005350F2 /* LICENSE in Resources */,
 				7FEA39F8165A1F32005350F2 /* pause.png in Resources */,
-				7F4FEC97165F05D1008C49A9 /* sheetUI-hd.plist in Resources */,
-				7F4FEC98165F05D1008C49A9 /* sheetUI-hd.png in Resources */,
 				7FC7C56A16707B4400E3B82C /* sheetUI-1-hd.plist in Resources */,
 				7FC7C56B16707B4400E3B82C /* sheetUI-1-hd.png in Resources */,
 				7FC7C56C16707B4400E3B82C /* sheetUI-2-hd.plist in Resources */,

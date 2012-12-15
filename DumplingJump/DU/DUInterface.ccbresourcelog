@@ -100,6 +100,16 @@ E_item_bomb_4.png
 E_item_bomb_5.png
 E_item_bomb_6.png
 E_item_bomb_7.png
+E_item_coinstar_1.png
+E_item_coinstar_10.png
+E_item_coinstar_2.png
+E_item_coinstar_3.png
+E_item_coinstar_4.png
+E_item_coinstar_5.png
+E_item_coinstar_6.png
+E_item_coinstar_7.png
+E_item_coinstar_8.png
+E_item_coinstar_9.png
 E_item_reborn_end_1.png
 E_item_reborn_end_2.png
 E_item_reborn_end_3.png
@@ -655,7 +665,6 @@ sheetEffects-hd.plist
 sheetEffects-hd.png
 sheetEffects.plist
 sheetEffects.png
-sheetObjects-hd.plist
 sheetObjects-hd.png
 sheetObjects.plist
 sheetObjects.png

@@ -26,7 +26,7 @@
     [_powerUpData setObject:[NSNumber numberWithFloat:1] forKey:@"bomb"];
     [_powerUpData setObject:[NSNumber numberWithFloat:1] forKey:@"reborn"];
     [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"rocket"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:30] forKey:@"absorb"];
+    [_powerUpData setObject:[NSNumber numberWithFloat:20] forKey:@"absorb"];
 }
 
 - (void)dealloc

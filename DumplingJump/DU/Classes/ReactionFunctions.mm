@@ -31,15 +31,19 @@
 
 -(void) explode:(id)source data:(void*)data
 {
-     CCSprite *target = (CCSprite *)source;
-    if (target.position.x > [[CCDirector sharedDirector] winSize].width/2)
+    CCSprite *target = (CCSprite *)source;
+
+    if (target.position.x > 0 && target.position.x < [[CCDirector sharedDirector] winSize].width && target.position.y < [[CCDirector sharedDirector] winSize].height/2 + 100 && target.position.y > 40)
     {
-        [self explode_r:source data:data];
-    } else
-    {
-        [self explode_l:source data:data];
+        if (target.position.x > [[CCDirector sharedDirector] winSize].width/2)
+        {
+            [self explode_r:source data:data];
+        } else
+        {
+            [self explode_l:source data:data];
+        }
+        DLog(@"explode");
     }
-    DLog(@"explode");
 }
 
 -(void) explode_l:(id)source data:(void*)data

@@ -5,8 +5,8 @@
 //  Created by LIU Xiyuan on 12-8-12.
 //  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
-#define ABSORB_POWERUP_TAG 1
-#define REBORN_POWERUP_TAG 2
+#define ABSORB_POWERUP_TAG 10
+#define REBORN_POWERUP_TAG 20
 
 #import "Hero.h"
 #import "AddthingObject.h"
@@ -698,16 +698,6 @@
 #pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
 {
-    /*
-     NSLog(@"state = %d", (int)recognizer.state);
-     //acc.Set([[Constants shared]heroAccelerationXBase], 0);
-     [self jump];
-     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateBegan)
-     {
-     CGPoint ccp = [recognizer locationInView:[[CCDirector sharedDirector] view]];
-     ccp = [[CCDirector sharedDirector] convertToGL:ccp];
-     }
-     */
 }
 
 -(void) deactivate

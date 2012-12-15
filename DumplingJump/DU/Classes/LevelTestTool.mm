@@ -61,7 +61,7 @@
     //[GAMELAYER addChild:menu];
     
     myView = [[CCDirector sharedDirector] view];
-    levelEditor = [[UITextField alloc] initWithFrame:CGRectMake(240, 60, 40, 40)];
+    levelEditor = [[UITextField alloc] initWithFrame:CGRectMake(20, 420, 40, 40)];
     [levelEditor setText:@""];
     [levelEditor setBackgroundColor: [UIColor whiteColor]];
     //[levelEditor becomeFirstResponder];

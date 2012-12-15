@@ -11,9 +11,13 @@
 {
     CCLabelTTF *UIScoreText;
     CCLabelTTF *UIStarText;
+    CCNode *clearMessage;
+    CCLabelTTF *distanceNum;
 }
 +(id) shared;
 -(void) fadeOut;
+-(void) resetUI;
 -(void) updateDistance:(int)distance;
 -(void) updateStar:(int)starNum;
+-(void) showStageClearMessageWithDistance;
 @end

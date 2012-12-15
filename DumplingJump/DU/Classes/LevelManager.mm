@@ -14,6 +14,7 @@
 #import "AddthingObject.h"
 #import "StarManager.h"
 #import "Paragraph.h"
+#import "GameUI.h"
 
 @interface LevelManager()
 {
@@ -200,11 +201,16 @@
 {
     [[[HeroManager shared] getHero] rocketPowerup];
     [[[BoardManager shared] getBoard] rocketPowerup];
+    
     //Speed up scrolling speed
     [[BackgroundController shared] speedUpWithScale:6 interval:5];
+    
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration:5 life:1];
     particleNode.position = CGPointZero;
+    
+    //Show Stage clear text
+    [[GameUI shared] showStageClearMessageWithDistance];
 }
 
 -(void) stopCurrentParagraph

@@ -28,12 +28,21 @@
 		<name>FX_Powder</name>
 		<animation>E_powder</animation>
 		<repeat>1</repeat>
+        <scale>2</scale>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
+		<name>FX_ItemBomb</name>
+		<animation>E_item_bomb</animation>
+		<repeat>1</repeat>
+        <scale>2</scale>
+		<sound>NULL</sound>
+	</Effect>
+    <Effect>
 		<name>FX_Bow</name>
 		<animation>E_bomb</animation>
 		<repeat>1</repeat>
+        <scale>2</scale>
 		<sound>NULL</sound>
 	</Effect>
 	<Effect>
@@ -63,6 +72,12 @@
 	<Effect>
 		<name>FX_Star</name>
 		<animation>E_starshining</animation>
+		<repeat>1</repeat>
+		<sound>NULL</sound>
+	</Effect>
+    <Effect>
+		<name>FX_ReviveEnd</name>
+		<animation>E_item_reborn_end</animation>
 		<repeat>1</repeat>
 		<sound>NULL</sound>
 	</Effect>

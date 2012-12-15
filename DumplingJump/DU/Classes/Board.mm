@@ -24,6 +24,8 @@
     b2Joint *jointMR;
     b2Joint *jointML;
     
+    b2Body *pushSupport;
+    
     //CCSprite *engineLeft;
     //CCSprite *engineRight;
     
@@ -243,13 +245,47 @@
     float scaleY = self.sprite.scaleY;
     
     //Make it not collide with any objects except for the hero
-    [self changeCollisionDetection:C_HERO];
+    [self changeCollisionDetection:(C_HERO|C_BOARD)];
     
-    //Scale down board
-    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:0.8*scaleX scaleY:0.8*scaleY];
+    //Scale up board
+    id scaleUp = [CCScaleTo actionWithDuration:0.3 scaleX:1.1*scaleX scaleY:1.1*scaleY];
+    
+    //Set z value
+    self.sprite.zOrder = Z_Board + 10;
+    _engineLeft.zOrder = Z_Engine + 10;
+    _engineRight.zOrder = Z_Engine + 10;
     
     //Push board to the middle of the screen
-    directionForce = b2Vec2(0, self.body->GetMass()*60);
+    id pushBoard = [CCCallBlock actionWithBlock:^
+                    {
+                        //Create an invisible block
+                        b2BodyDef supportDef;
+                        supportDef.position.Set([[CCDirector sharedDirector] winSize].width/2/RATIO,self.sprite.position.y/RATIO - 10);
+                        supportDef.type = b2_dynamicBody;
+                        supportDef.userData = NULL;
+                        pushSupport = WORLD->CreateBody(&supportDef);
+                        
+                        float supportWidth = 300/2*SCALE_MULTIPLIER;
+                        float supportHeight = 40/2*SCALE_MULTIPLIER;
+                        
+                        b2PolygonShape supportShape;
+                        supportShape.SetAsBox(supportWidth/2/RATIO, supportHeight/2/RATIO);
+                        
+                        b2FixtureDef supportFixtureDef;
+                        
+                        supportFixtureDef.friction = 10;
+                        supportFixtureDef.restitution = 0;
+                        supportFixtureDef.density = 10;
+                        supportFixtureDef.shape = &supportShape;
+                        //Set collision detection to C_HERO cause board can only collide with hero in this phase
+                        supportFixtureDef.filter.categoryBits = C_BOARD;
+                        supportFixtureDef.filter.maskBits = C_BOARD;
+                        pushSupport->CreateFixture(&supportFixtureDef);
+                        //Fix the rotation
+                        pushSupport->SetFixedRotation(true);
+                        
+                        directionForce = b2Vec2(0, pushSupport->GetMass()*40);
+                    }];
     
     //Countdown certain amount of time
     float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
@@ -259,6 +295,10 @@
     id resetDirectionForce = [CCCallBlock actionWithBlock:^
                               {
                                   directionForce = b2Vec2(0, 0);
+                                  //Remove this box
+                                  pushSupport->SetActive(false);
+                                  WORLD->DestroyBody(pushSupport);
+                                  pushSupport = NULL;
                               }];
     
     //Reset the hero collision
@@ -266,10 +306,19 @@
                          {
                              [self resetCollisionDetection];
                          }];
-    //Scale down Hero to normal;
-    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];;
+    //Reset z value
+    id resetBoardZ = [CCCallBlock actionWithBlock:^
+                     {
+                         self.sprite.zOrder = Z_Board;
+                         _engineLeft.zOrder = Z_Engine;
+                         _engineRight.zOrder = Z_Engine;
+                     }];
     
-    [self.sprite runAction:[CCSequence actions:scaleUp, delay, resetDirectionForce, resetCollision, scaleDown, nil]];
+    //Scale up board to normal;
+    id scaleDown = [CCScaleTo actionWithDuration:0.3 scaleX:scaleX scaleY:scaleY];
+    [self.sprite runAction:[CCSequence actions:scaleUp, pushBoard, delay, resetDirectionForce, resetCollision, resetBoardZ, scaleDown, nil]];
+    //[_engineLeft runAction:[CCSequence actions: scaleUp, delay, scaleDown, nil]];
+    //[_engineRight runAction:[CCSequence actions: scaleUp, delay, scaleDown, nil]];
 }
 
 -(void) changeCollisionDetection:(uint)maskBits
@@ -298,7 +347,8 @@
 {
     if (directionForce.x != 0 || directionForce.y != 0)
     {
-        self.body->ApplyForce(directionForce, self.body->GetPosition());
+        pushSupport->ApplyForce(directionForce, self.body->GetPosition()+b2Vec2(5,0));
+        pushSupport->ApplyForce(directionForce, self.body->GetPosition()+b2Vec2(-5,0));
     }
 }
 
@@ -306,13 +356,13 @@
 {
     if (self.engineLeft != nil && self.engineRight != nil)
     {
-        boardWidth = self.sprite.boundingBox.size.width;
+        boardWidth = self.sprite.contentSize.width * self.sprite.scaleX;
         float boardPx = self.body->GetPosition().x * RATIO;
         float boardPy = self.body->GetPosition().y * RATIO;
         float boardAngle = self.body->GetAngle();
         
         float zOffset = -40;
-        float xOffset = -20;
+        float xOffset = -40;
         self.engineLeft.position = ccp(boardPx - (boardWidth+xOffset)/2 * cos(boardAngle), zOffset + boardPy - (boardWidth+xOffset)/2* sin(boardAngle));
         self.engineLeft.rotation = -boardAngle;
         
@@ -356,6 +406,10 @@
     world->DestroyJoint(jointMR);
     world->DestroyJoint(jointL);
     world->DestroyJoint(jointR);
+    if (pushSupport != NULL)
+    {
+        world->DestroyBody(pushSupport);
+    }
     [super deactivate];
 }
 

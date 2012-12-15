@@ -17,12 +17,13 @@
 
 #pragma mark -
 #pragma mark Layer Priority
-#define Z_DEADUI 15
-#define Z_PAUSEUI 15
-#define Z_GAMEUI 10
-#define Z_Hero 5
-#define Z_Board 6
-#define Z_Engine 7
+#define Z_DEADUI 25
+#define Z_PAUSEUI 25
+#define Z_GAMEUI 21
+#define Z_Speedline 20
+#define Z_Hero 7
+#define Z_Board 5
+#define Z_Engine 6
 
 #pragma mark -
 #pragma mark Physics

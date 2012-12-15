@@ -37,13 +37,16 @@ void DUContactListener::BeginContact(b2Contact* contact)
 	id userDataA = (id)bodyA->GetUserData();
 	id userDataB = (id)bodyB->GetUserData();
     
-    //Everytime where there is a contact, system will send two messages
-    //to both objects and attach the information of the other one.
-    [MESSAGECENTER postNotificationName:
-     [NSString stringWithFormat:@"%@Contact",((DUPhysicsObject *)userDataA).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataB forKey:@"object"]];
-    
-    [MESSAGECENTER postNotificationName:
-     [NSString stringWithFormat:@"%@Contact",((DUPhysicsObject *)userDataB).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataA forKey:@"object"]];
+    if ([userDataA isKindOfClass:[DUPhysicsObject class]] && [userDataB isKindOfClass:[DUPhysicsObject class]])
+    {
+        //Everytime where there is a contact, system will send two messages
+        //to both objects and attach the information of the other one.
+        [MESSAGECENTER postNotificationName:
+         [NSString stringWithFormat:@"%@Contact",((DUPhysicsObject *)userDataA).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataB forKey:@"object"]];
+        
+        [MESSAGECENTER postNotificationName:
+         [NSString stringWithFormat:@"%@Contact",((DUPhysicsObject *)userDataB).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataA forKey:@"object"]];
+    }
     
 //    DLog(@"Contact between %@ and %@",((DUPhysicsObject *)userDataA).ID, ((DUPhysicsObject *)userDataB).ID);
 }
@@ -64,15 +67,16 @@ void DUContactListener::EndContact(b2Contact* contact)
     
 	id userDataA = (id)bodyA->GetUserData();
 	id userDataB = (id)bodyB->GetUserData();
-    
-    //Everytime where there is a contact, system will send two messages
-    //to both object and attach the information of the other one.
-    [MESSAGECENTER postNotificationName:
-     [NSString stringWithFormat:@"%@EndContact",((DUPhysicsObject *)userDataA).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataB forKey:@"object"]];
-    
-    [MESSAGECENTER postNotificationName:
-     [NSString stringWithFormat:@"%@EndContact",((DUPhysicsObject *)userDataB).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataA forKey:@"object"]];
-    
+    if ([userDataA isKindOfClass:[DUPhysicsObject class]] && [userDataB isKindOfClass:[DUPhysicsObject class]])
+    {
+        //Everytime where there is a contact, system will send two messages
+        //to both object and attach the information of the other one.
+        [MESSAGECENTER postNotificationName:
+         [NSString stringWithFormat:@"%@EndContact",((DUPhysicsObject *)userDataA).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataB forKey:@"object"]];
+        
+        [MESSAGECENTER postNotificationName:
+         [NSString stringWithFormat:@"%@EndContact",((DUPhysicsObject *)userDataB).ID] object:nil userInfo:[NSDictionary dictionaryWithObject:userDataA forKey:@"object"]];
+    }
     
 }
 

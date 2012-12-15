@@ -42,8 +42,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>334</real>
-							<real>-125</real>
+							<real>320</real>
+							<real>480</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -184,7 +184,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>90</real>
+							<real>-90</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -317,8 +317,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>-36</real>
-							<real>-117</real>
+							<real>0.0</real>
+							<real>480</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -459,7 +459,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>90</real>
+							<real>-90</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -583,18 +583,6 @@
 		<array>
 			<dict>
 				<key>name</key>
-				<string>contentSize</string>
-				<key>type</key>
-				<string>Size</string>
-				<key>value</key>
-				<array>
-					<real>100</real>
-					<real>100</real>
-					<integer>1</integer>
-				</array>
-			</dict>
-			<dict>
-				<key>name</key>
 				<string>anchorPoint</string>
 				<key>type</key>
 				<string>Point</string>
@@ -626,6 +614,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

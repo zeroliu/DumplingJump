@@ -21,4 +21,5 @@
  
 -(CCNode *) createParticleWithName:(NSString *)ccbiFileName parent:(id)parent z:(int)z duration:(float)duration life:(float)life following:(CCNode *)follower;
 
+-(void) cleanParticlesInGame;
 @end

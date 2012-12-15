@@ -58,7 +58,7 @@
     //Create new board with the board name and the position
     self.board = [[Board alloc] initBoardWithBoardName:BOARD spriteName:fileName position:pos leftFreq:self.freq_l middleFreq:self.freq_m rightFreq:self.freq_r leftDamp:self.damp_l middleDamp:self.damp_m rightDamp:self.damp_r];
     //Add the board to the view
-    [self.board addChildTo:BATCHNODE z:2];
+    [self.board addChildTo:BATCHNODE z:Z_Board];
     //Add board object to GameLayer
     [GAMELAYER addChild:self.board];
     return self.board;

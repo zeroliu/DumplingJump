@@ -43,6 +43,7 @@
         self.heroJump = HERO_JUMP;
         self.heroGravity = HERO_GRAVITY;
         [ANIMATIONMANAGER registerAnimationForName:HEROIDLE];
+        [ANIMATIONMANAGER registerAnimationForName:@"H_happy"];
     }
     return self;
 }

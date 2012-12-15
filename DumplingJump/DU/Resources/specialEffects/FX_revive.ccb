@@ -104,7 +104,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>4</real>
+						<real>12</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -294,6 +294,8 @@
 						<string>Assets/sheetEffects/E_smoke_big.png</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -1128,8 +1130,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

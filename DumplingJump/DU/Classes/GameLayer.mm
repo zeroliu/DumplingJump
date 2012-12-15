@@ -258,6 +258,9 @@
     //Clean all the actions in the gamelayer
     [self stopAllActions];
     
+    //Reset gameUI
+    [[GameUI shared] resetUI];
+    
     //Reset score
     self.model.distance = 0;
     

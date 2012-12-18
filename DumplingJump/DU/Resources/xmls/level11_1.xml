@@ -100,25 +100,25 @@
 	</level>
 	<level>
 		<time>27</time>
-		<slot5>ICE</slot5>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>28</time>
 	</level>
 	<level>
 		<time>29</time>
-		<slot7>ICE</slot7>
 	</level>
 	<level>
 		<time>30</time>
-		<slot3>ICE</slot3>
 	</level>
 	<level>
 		<time>31</time>
 	</level>
 	<level>
 		<time>32</time>
+		<slot3>ICE</slot3>
 		<slot5>POWDER</slot5>
+		<slot7>ICE</slot7>
 	</level>
 	<level>
 		<time>33</time>

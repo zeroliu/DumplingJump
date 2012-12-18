@@ -77,6 +77,8 @@
         _loadCompleted = NO;
         _timeScale = 1;
         
+        //[[XMLHelper shared] loadParagraphFromFolder:@"xmls"];
+        
         //Initialize Hub
         [[Hub shared] setGameLayer:self];
         

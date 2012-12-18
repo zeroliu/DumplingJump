@@ -38,6 +38,7 @@
     if (CC_CONTENT_SCALE_FACTOR() == 2)
     {
         path = [[NSBundle mainBundle] pathForResource:@"sheetObjects-hd" ofType:@"plist"];
+        //DLog(@"animation path = %@", path);
     } else
     {
         path = [[NSBundle mainBundle] pathForResource:@"sheetObjects" ofType:@"plist"];

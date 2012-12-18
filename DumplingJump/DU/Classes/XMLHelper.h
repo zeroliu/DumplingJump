@@ -12,6 +12,8 @@
 +(id) shared;
 
 -(id) loadParagraphWithXML: (NSString *)fileName;
+-(id) loadParagraphCombinationWithXML: (NSString *)fileName;
+-(id) loadParagraphFromFolder:(NSString *)folderName;
 -(id) loadAddthingWithXML: (NSString *)fileName;
 -(id) loadEffectWithXML: (NSString *)fileName;
 -(id) loadReactionWithXML: (NSString *)fileName;

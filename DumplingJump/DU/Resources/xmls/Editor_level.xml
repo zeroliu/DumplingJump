@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Levels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Combination>
+		<phase>phase</phase>
+		<step0>step1</step0>
+		<step1>step2</step1>
+		<step2>step3</step2>
+	</Combination>
+	<Combination>
+		<phase>0</phase>
+		<step0>tutorial_0</step0>
+		<step1>tutorial_1</step1>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>arrow_1</step0>
+		<step1>box_1</step1>
+		<step2>powder_1</step2>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>box_1</step0>
+		<step1>arrow_1</step1>
+	</Combination>
+	<Combination>
+		<phase>2</phase>
+		<step0>box_1</step0>
+		<step1>arrow_1</step1>
+		<step2>bonus_1</step2>
+	</Combination>
+	<Combination>
+		<phase>2</phase>
+		<step0>powder_1</step0>
+		<step1>box_1</step1>
+	</Combination>
+</Levels>

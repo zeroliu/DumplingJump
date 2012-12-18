@@ -37,10 +37,9 @@
     {
         if (err)
         {
-            NSLog(@"error parse to xmldoc, %@", [err description]);
+            NSLog(@"error parse to xmldoc, %@", [err localizedDescription]);
         }
     }
-    
     return xmlDoc;
 }
 
@@ -124,10 +123,14 @@
 
 -(id) loadParagraphWithXML: (NSString *)fileName
 {
-    Paragraph *result = [[Paragraph alloc] init];
-    
     DDXMLDocument *xmlDoc = [self loadXMLContentFromFile:fileName];
-    NSError *err = nil;
+    return [self loadParagraphWithXMLDoc:xmlDoc];
+}
+
+-(id) loadParagraphWithXMLDoc:(DDXMLDocument *)xmlDoc
+{
+    Paragraph *result = [[[Paragraph alloc] init] autorelease];
+    NSError *err;
     
     //Create Node by finding level
     NSArray *nodeResults = [xmlDoc nodesForXPath:@"//level" error:&err];
@@ -168,10 +171,95 @@
             }
             Sentence *thisSentence = [[Sentence alloc] initWithDistance:distance Words:slotsArray];
             [result addSentence:thisSentence];
+            [thisSentence release];
         }
     }
-
+    
     return result;
+}
+
+-(id) loadParagraphCombinationWithXML: (NSString *)fileName
+{
+    /*
+     *  Data Structure
+     *  CombinationArray 
+     *      -> PhaseArray (0)
+     *          -> SubArray -> tutorial_1, tutorial_2
+     *      -> PhaseArray (1)
+     *          -> SubArray -> box_1, arrow_1, bonus_1
+     *          -> SubArray -> powder_1, box_1
+     */
+    
+    NSMutableArray *combinationArray = [NSMutableArray array];
+    
+    DDXMLDocument *xmlDoc = [self loadXMLContentFromFile:fileName];
+    NSError *err = nil;
+    
+    NSArray *nodeResult = [xmlDoc nodesForXPath:@"//Combination" error:&err];
+    for (int i=1; i<[nodeResult count]; i++)
+    {
+        DDXMLDocument *combinationData = [nodeResult objectAtIndex:i];
+        
+        //Get phase number
+        int phase = [[[[combinationData nodesForXPath:@"phase" error:&err] objectAtIndex:0] stringValue] intValue];
+        //Get subArray which is at this phase position
+        NSMutableArray *phaseArray = nil;
+        if ([combinationArray count] > phase)
+        {
+            phaseArray = [combinationArray objectAtIndex:phase];
+        }
+        if (phaseArray == nil)
+        {
+            phaseArray = [NSMutableArray array];
+            [combinationArray insertObject: phaseArray atIndex:phase];
+        }
+        
+        NSArray *dataArray = [combinationData children];
+        NSMutableArray *subArray = [NSMutableArray array];
+        for (DDXMLElement *child in dataArray)
+        {
+            if ([[child name] rangeOfString:@"step"].location != NSNotFound)
+            {
+                int step = [[[child name] substringFromIndex:4] intValue];
+                [subArray insertObject:[child stringValue] atIndex:step];
+            }
+        }
+        [phaseArray addObject:subArray];
+    }
+    
+    return combinationArray;
+}
+
+-(id) loadParagraphFromFolder:(NSString *)folderName
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSString *path = [[NSBundle mainBundle] resourcePath];
+    NSString *xmlsPath = [path stringByAppendingPathComponent:folderName];
+    DLog(@"path = %@", xmlsPath);
+    
+    NSError *error;
+    NSArray *xmlfiles = [manager contentsOfDirectoryAtPath:xmlsPath error:&error];
+    if (xmlfiles == nil)
+    {
+        if (error)
+        {
+            DLog(@"%@", [error localizedDescription]);
+        }
+        return nil;
+    } else
+    {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        for (NSString *file in xmlfiles)
+        {
+            NSString *content = [NSString stringWithContentsOfFile:[xmlsPath stringByAppendingPathComponent:file] encoding:NSUTF8StringEncoding error:&error];
+            DDXMLDocument *xmlDoc = [[DDXMLDocument alloc] initWithXMLString:content options:0 error:&error];
+            DLog(@"%@", [file stringByDeletingPathExtension]);
+            Paragraph *currentParagraph = [self loadParagraphWithXMLDoc:xmlDoc];
+            [dict setObject:currentParagraph forKey:[file stringByDeletingPathExtension]];
+            [xmlDoc release];
+        }
+        return dict;
+    }
 }
 
 -(id) loadEffectWithXML: (NSString *)fileName

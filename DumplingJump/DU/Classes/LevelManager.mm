@@ -27,10 +27,12 @@
 
 @property (nonatomic, retain) LevelData *levelData;
 @property (nonatomic, retain) NSMutableArray *paragraphs;
+@property (nonatomic, retain) NSDictionary *paragraphsData;
+@property (nonatomic, retain) NSArray *paragraphsCombination;
 @end
 
 @implementation LevelManager
-@synthesize levelData = _levelData, paragraphs = _paragraphs, generatedObjects = _generatedObjects;
+@synthesize levelData = _levelData, paragraphs = _paragraphs, generatedObjects = _generatedObjects, paragraphsData = _paragraphsData, paragraphsCombination = _paragraphsCombination;
 
 +(id) shared
 {
@@ -51,6 +53,13 @@
         [self.paragraphs addObject:[[NSMutableArray alloc] init]];
         
         self.generatedObjects = [[NSMutableArray alloc] init];
+        
+        //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
+        self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
+        //Load combination data from Editor_level.xml
+        self.paragraphsCombination = [[XMLHelper shared] loadParagraphCombinationWithXML:@"Editor_level"];
+        DLog(@"%@", [self.paragraphsCombination description]);
+        //Create weigh look up table for the combinations
         [self loadParagraphs];
     }
     

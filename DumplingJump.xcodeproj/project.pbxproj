@@ -23,31 +23,6 @@
 		7F1632F6162BE7EA00C132B1 /* sheetBackground1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */; };
 		7F1632F9162BE8F900C132B1 /* sheetBackground1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */; };
 		7F1632FA162BE8F900C132B1 /* sheetBackground1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F8162BE8F900C132B1 /* sheetBackground1.png */; };
-		7F2530651678645B005138A1 /* Editor_addthing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530421678645B005138A1 /* Editor_addthing.xml */; };
-		7F2530661678645B005138A1 /* Editor_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530431678645B005138A1 /* Editor_effect.xml */; };
-		7F2530671678645B005138A1 /* Editor_equipment.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530441678645B005138A1 /* Editor_equipment.xml */; };
-		7F2530681678645B005138A1 /* Editor_react.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530451678645B005138A1 /* Editor_react.xml */; };
-		7F2530691678645B005138A1 /* Editor_star.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530461678645B005138A1 /* Editor_star.xml */; };
-		7F25306A1678645B005138A1 /* level1_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530471678645B005138A1 /* level1_1.xml */; };
-		7F25306B1678645B005138A1 /* level1_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530481678645B005138A1 /* level1_2.xml */; };
-		7F25306C1678645B005138A1 /* level2_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530491678645B005138A1 /* level2_1.xml */; };
-		7F25306D1678645B005138A1 /* level2_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25304A1678645B005138A1 /* level2_2.xml */; };
-		7F25306E1678645B005138A1 /* level3_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25304B1678645B005138A1 /* level3_1.xml */; };
-		7F25306F1678645B005138A1 /* level3_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25304C1678645B005138A1 /* level3_2.xml */; };
-		7F2530701678645B005138A1 /* level4_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25304D1678645B005138A1 /* level4_1.xml */; };
-		7F2530711678645B005138A1 /* level4_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25304E1678645B005138A1 /* level4_2.xml */; };
-		7F2530721678645B005138A1 /* level5_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25304F1678645B005138A1 /* level5_1.xml */; };
-		7F2530731678645B005138A1 /* level5_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530501678645B005138A1 /* level5_2.xml */; };
-		7F2530741678645B005138A1 /* level6_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530511678645B005138A1 /* level6_1.xml */; };
-		7F2530751678645B005138A1 /* level6_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530521678645B005138A1 /* level6_2.xml */; };
-		7F2530761678645B005138A1 /* level7_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530531678645B005138A1 /* level7_1.xml */; };
-		7F2530771678645B005138A1 /* level7_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530541678645B005138A1 /* level7_2.xml */; };
-		7F2530781678645B005138A1 /* level8_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530551678645B005138A1 /* level8_1.xml */; };
-		7F2530791678645B005138A1 /* level8_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530561678645B005138A1 /* level8_2.xml */; };
-		7F25307A1678645B005138A1 /* level9_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530571678645B005138A1 /* level9_1.xml */; };
-		7F25307B1678645B005138A1 /* level9_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530581678645B005138A1 /* level9_2.xml */; };
-		7F25307C1678645B005138A1 /* level10_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530591678645B005138A1 /* level10_1.xml */; };
-		7F25307D1678645B005138A1 /* level10_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F25305A1678645B005138A1 /* level10_2.xml */; };
 		7F25309616786686005138A1 /* AchievementNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308D16786686005138A1 /* AchievementNode.ccbi */; };
 		7F25309716786686005138A1 /* CategoryCell.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308E16786686005138A1 /* CategoryCell.ccbi */; };
 		7F25309816786686005138A1 /* DeadUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308F16786686005138A1 /* DeadUI.ccbi */; };
@@ -508,6 +483,34 @@
 		7F3A0EF7161C152500DC0DDF /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0EC4161C152500DC0DDF /* b2WeldJoint.cpp */; };
 		7F3A0EF8161C152500DC0DDF /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0EC6161C152500DC0DDF /* b2WheelJoint.cpp */; };
 		7F3A0EF9161C152500DC0DDF /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0EC9161C152500DC0DDF /* b2Rope.cpp */; };
+		7F4073171680D2C900EE08CD /* Editor_addthing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4072FA1680D2C900EE08CD /* Editor_addthing.xml */; };
+		7F4073181680D2C900EE08CD /* Editor_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4072FB1680D2C900EE08CD /* Editor_effect.xml */; };
+		7F4073191680D2C900EE08CD /* Editor_equipment.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4072FC1680D2C900EE08CD /* Editor_equipment.xml */; };
+		7F40731A1680D2C900EE08CD /* Editor_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4072FD1680D2C900EE08CD /* Editor_level.xml */; };
+		7F40731B1680D2C900EE08CD /* Editor_react.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4072FE1680D2C900EE08CD /* Editor_react.xml */; };
+		7F40731C1680D2C900EE08CD /* Editor_star.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4072FF1680D2C900EE08CD /* Editor_star.xml */; };
+		7F40731D1680D2C900EE08CD /* level10_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073011680D2C900EE08CD /* level10_1.xml */; };
+		7F40731E1680D2C900EE08CD /* level10_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073021680D2C900EE08CD /* level10_2.xml */; };
+		7F40731F1680D2C900EE08CD /* level11_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073031680D2C900EE08CD /* level11_1.xml */; };
+		7F4073201680D2C900EE08CD /* level11_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073041680D2C900EE08CD /* level11_2.xml */; };
+		7F4073211680D2C900EE08CD /* level1_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073051680D2C900EE08CD /* level1_1.xml */; };
+		7F4073221680D2C900EE08CD /* level1_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073061680D2C900EE08CD /* level1_2.xml */; };
+		7F4073231680D2C900EE08CD /* level2_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073071680D2C900EE08CD /* level2_1.xml */; };
+		7F4073241680D2C900EE08CD /* level2_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073081680D2C900EE08CD /* level2_2.xml */; };
+		7F4073251680D2C900EE08CD /* level3_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073091680D2C900EE08CD /* level3_1.xml */; };
+		7F4073261680D2C900EE08CD /* level3_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F40730A1680D2C900EE08CD /* level3_2.xml */; };
+		7F4073271680D2CA00EE08CD /* level4_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F40730B1680D2C900EE08CD /* level4_1.xml */; };
+		7F4073281680D2CA00EE08CD /* level4_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F40730C1680D2C900EE08CD /* level4_2.xml */; };
+		7F4073291680D2CA00EE08CD /* level5_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F40730D1680D2C900EE08CD /* level5_1.xml */; };
+		7F40732A1680D2CA00EE08CD /* level5_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F40730E1680D2C900EE08CD /* level5_2.xml */; };
+		7F40732B1680D2CA00EE08CD /* level6_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F40730F1680D2C900EE08CD /* level6_1.xml */; };
+		7F40732C1680D2CA00EE08CD /* level6_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073101680D2C900EE08CD /* level6_2.xml */; };
+		7F40732D1680D2CA00EE08CD /* level7_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073111680D2C900EE08CD /* level7_1.xml */; };
+		7F40732E1680D2CA00EE08CD /* level7_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073121680D2C900EE08CD /* level7_2.xml */; };
+		7F40732F1680D2CA00EE08CD /* level8_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073131680D2C900EE08CD /* level8_1.xml */; };
+		7F4073301680D2CA00EE08CD /* level8_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073141680D2C900EE08CD /* level8_2.xml */; };
+		7F4073311680D2CA00EE08CD /* level9_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073151680D2C900EE08CD /* level9_1.xml */; };
+		7F4073321680D2CA00EE08CD /* level9_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F4073161680D2C900EE08CD /* level9_2.xml */; };
 		7F41435215AAC659002CFC9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435115AAC659002CFC9A /* QuartzCore.framework */; };
 		7F41435415AAC659002CFC9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435315AAC659002CFC9A /* OpenGLES.framework */; };
 		7F41435615AAC659002CFC9A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435515AAC659002CFC9A /* OpenAL.framework */; };
@@ -713,31 +716,6 @@
 		7F1632F4162BE7EA00C132B1 /* sheetBackground1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetBackground1.plist; sourceTree = "<group>"; };
 		7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetBackground1-hd.png"; sourceTree = "<group>"; };
 		7F1632F8162BE8F900C132B1 /* sheetBackground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetBackground1.png; sourceTree = "<group>"; };
-		7F2530421678645B005138A1 /* Editor_addthing.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Editor_addthing.xml; path = xmls/Editor_addthing.xml; sourceTree = "<group>"; };
-		7F2530431678645B005138A1 /* Editor_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Editor_effect.xml; path = xmls/Editor_effect.xml; sourceTree = "<group>"; };
-		7F2530441678645B005138A1 /* Editor_equipment.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Editor_equipment.xml; path = xmls/Editor_equipment.xml; sourceTree = "<group>"; };
-		7F2530451678645B005138A1 /* Editor_react.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Editor_react.xml; path = xmls/Editor_react.xml; sourceTree = "<group>"; };
-		7F2530461678645B005138A1 /* Editor_star.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Editor_star.xml; path = xmls/Editor_star.xml; sourceTree = "<group>"; };
-		7F2530471678645B005138A1 /* level1_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level1_1.xml; path = xmls/level1_1.xml; sourceTree = "<group>"; };
-		7F2530481678645B005138A1 /* level1_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level1_2.xml; path = xmls/level1_2.xml; sourceTree = "<group>"; };
-		7F2530491678645B005138A1 /* level2_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level2_1.xml; path = xmls/level2_1.xml; sourceTree = "<group>"; };
-		7F25304A1678645B005138A1 /* level2_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level2_2.xml; path = xmls/level2_2.xml; sourceTree = "<group>"; };
-		7F25304B1678645B005138A1 /* level3_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level3_1.xml; path = xmls/level3_1.xml; sourceTree = "<group>"; };
-		7F25304C1678645B005138A1 /* level3_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level3_2.xml; path = xmls/level3_2.xml; sourceTree = "<group>"; };
-		7F25304D1678645B005138A1 /* level4_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level4_1.xml; path = xmls/level4_1.xml; sourceTree = "<group>"; };
-		7F25304E1678645B005138A1 /* level4_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level4_2.xml; path = xmls/level4_2.xml; sourceTree = "<group>"; };
-		7F25304F1678645B005138A1 /* level5_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level5_1.xml; path = xmls/level5_1.xml; sourceTree = "<group>"; };
-		7F2530501678645B005138A1 /* level5_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level5_2.xml; path = xmls/level5_2.xml; sourceTree = "<group>"; };
-		7F2530511678645B005138A1 /* level6_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level6_1.xml; path = xmls/level6_1.xml; sourceTree = "<group>"; };
-		7F2530521678645B005138A1 /* level6_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level6_2.xml; path = xmls/level6_2.xml; sourceTree = "<group>"; };
-		7F2530531678645B005138A1 /* level7_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level7_1.xml; path = xmls/level7_1.xml; sourceTree = "<group>"; };
-		7F2530541678645B005138A1 /* level7_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level7_2.xml; path = xmls/level7_2.xml; sourceTree = "<group>"; };
-		7F2530551678645B005138A1 /* level8_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level8_1.xml; path = xmls/level8_1.xml; sourceTree = "<group>"; };
-		7F2530561678645B005138A1 /* level8_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level8_2.xml; path = xmls/level8_2.xml; sourceTree = "<group>"; };
-		7F2530571678645B005138A1 /* level9_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level9_1.xml; path = xmls/level9_1.xml; sourceTree = "<group>"; };
-		7F2530581678645B005138A1 /* level9_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level9_2.xml; path = xmls/level9_2.xml; sourceTree = "<group>"; };
-		7F2530591678645B005138A1 /* level10_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level10_1.xml; path = xmls/level10_1.xml; sourceTree = "<group>"; };
-		7F25305A1678645B005138A1 /* level10_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = level10_2.xml; path = xmls/level10_2.xml; sourceTree = "<group>"; };
 		7F25308D16786686005138A1 /* AchievementNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementNode.ccbi; path = UILayouts/AchievementNode.ccbi; sourceTree = "<group>"; };
 		7F25308E16786686005138A1 /* CategoryCell.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = CategoryCell.ccbi; path = UILayouts/CategoryCell.ccbi; sourceTree = "<group>"; };
 		7F25308F16786686005138A1 /* DeadUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = DeadUI.ccbi; path = UILayouts/DeadUI.ccbi; sourceTree = "<group>"; };
@@ -1367,6 +1345,34 @@
 		7F3A0EC7161C152500DC0DDF /* b2WheelJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WheelJoint.h; sourceTree = "<group>"; };
 		7F3A0EC9161C152500DC0DDF /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		7F3A0ECA161C152500DC0DDF /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
+		7F4072FA1680D2C900EE08CD /* Editor_addthing.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Editor_addthing.xml; sourceTree = "<group>"; };
+		7F4072FB1680D2C900EE08CD /* Editor_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Editor_effect.xml; sourceTree = "<group>"; };
+		7F4072FC1680D2C900EE08CD /* Editor_equipment.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Editor_equipment.xml; sourceTree = "<group>"; };
+		7F4072FD1680D2C900EE08CD /* Editor_level.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Editor_level.xml; sourceTree = "<group>"; };
+		7F4072FE1680D2C900EE08CD /* Editor_react.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Editor_react.xml; sourceTree = "<group>"; };
+		7F4072FF1680D2C900EE08CD /* Editor_star.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Editor_star.xml; sourceTree = "<group>"; };
+		7F4073011680D2C900EE08CD /* level10_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level10_1.xml; sourceTree = "<group>"; };
+		7F4073021680D2C900EE08CD /* level10_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level10_2.xml; sourceTree = "<group>"; };
+		7F4073031680D2C900EE08CD /* level11_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level11_1.xml; sourceTree = "<group>"; };
+		7F4073041680D2C900EE08CD /* level11_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level11_2.xml; sourceTree = "<group>"; };
+		7F4073051680D2C900EE08CD /* level1_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1_1.xml; sourceTree = "<group>"; };
+		7F4073061680D2C900EE08CD /* level1_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level1_2.xml; sourceTree = "<group>"; };
+		7F4073071680D2C900EE08CD /* level2_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level2_1.xml; sourceTree = "<group>"; };
+		7F4073081680D2C900EE08CD /* level2_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level2_2.xml; sourceTree = "<group>"; };
+		7F4073091680D2C900EE08CD /* level3_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level3_1.xml; sourceTree = "<group>"; };
+		7F40730A1680D2C900EE08CD /* level3_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level3_2.xml; sourceTree = "<group>"; };
+		7F40730B1680D2C900EE08CD /* level4_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level4_1.xml; sourceTree = "<group>"; };
+		7F40730C1680D2C900EE08CD /* level4_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level4_2.xml; sourceTree = "<group>"; };
+		7F40730D1680D2C900EE08CD /* level5_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level5_1.xml; sourceTree = "<group>"; };
+		7F40730E1680D2C900EE08CD /* level5_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level5_2.xml; sourceTree = "<group>"; };
+		7F40730F1680D2C900EE08CD /* level6_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level6_1.xml; sourceTree = "<group>"; };
+		7F4073101680D2C900EE08CD /* level6_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level6_2.xml; sourceTree = "<group>"; };
+		7F4073111680D2C900EE08CD /* level7_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level7_1.xml; sourceTree = "<group>"; };
+		7F4073121680D2C900EE08CD /* level7_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level7_2.xml; sourceTree = "<group>"; };
+		7F4073131680D2C900EE08CD /* level8_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level8_1.xml; sourceTree = "<group>"; };
+		7F4073141680D2C900EE08CD /* level8_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level8_2.xml; sourceTree = "<group>"; };
+		7F4073151680D2C900EE08CD /* level9_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level9_1.xml; sourceTree = "<group>"; };
+		7F4073161680D2C900EE08CD /* level9_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = level9_2.xml; sourceTree = "<group>"; };
 		7F41434D15AAC659002CFC9A /* DumplingJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumplingJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41435115AAC659002CFC9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F41435315AAC659002CFC9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2519,6 +2525,49 @@
 			path = Rope;
 			sourceTree = "<group>";
 		};
+		7F4072F91680D2C900EE08CD /* xmls */ = {
+			isa = PBXGroup;
+			children = (
+				7F4072FA1680D2C900EE08CD /* Editor_addthing.xml */,
+				7F4072FB1680D2C900EE08CD /* Editor_effect.xml */,
+				7F4072FC1680D2C900EE08CD /* Editor_equipment.xml */,
+				7F4072FD1680D2C900EE08CD /* Editor_level.xml */,
+				7F4072FE1680D2C900EE08CD /* Editor_react.xml */,
+				7F4072FF1680D2C900EE08CD /* Editor_star.xml */,
+				7F4073001680D2C900EE08CD /* levels */,
+			);
+			path = xmls;
+			sourceTree = "<group>";
+		};
+		7F4073001680D2C900EE08CD /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				7F4073011680D2C900EE08CD /* level10_1.xml */,
+				7F4073021680D2C900EE08CD /* level10_2.xml */,
+				7F4073031680D2C900EE08CD /* level11_1.xml */,
+				7F4073041680D2C900EE08CD /* level11_2.xml */,
+				7F4073051680D2C900EE08CD /* level1_1.xml */,
+				7F4073061680D2C900EE08CD /* level1_2.xml */,
+				7F4073071680D2C900EE08CD /* level2_1.xml */,
+				7F4073081680D2C900EE08CD /* level2_2.xml */,
+				7F4073091680D2C900EE08CD /* level3_1.xml */,
+				7F40730A1680D2C900EE08CD /* level3_2.xml */,
+				7F40730B1680D2C900EE08CD /* level4_1.xml */,
+				7F40730C1680D2C900EE08CD /* level4_2.xml */,
+				7F40730D1680D2C900EE08CD /* level5_1.xml */,
+				7F40730E1680D2C900EE08CD /* level5_2.xml */,
+				7F40730F1680D2C900EE08CD /* level6_1.xml */,
+				7F4073101680D2C900EE08CD /* level6_2.xml */,
+				7F4073111680D2C900EE08CD /* level7_1.xml */,
+				7F4073121680D2C900EE08CD /* level7_2.xml */,
+				7F4073131680D2C900EE08CD /* level8_1.xml */,
+				7F4073141680D2C900EE08CD /* level8_2.xml */,
+				7F4073151680D2C900EE08CD /* level9_1.xml */,
+				7F4073161680D2C900EE08CD /* level9_2.xml */,
+			);
+			path = levels;
+			sourceTree = "<group>";
+		};
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
@@ -2772,38 +2821,6 @@
 			name = DUSystem;
 			sourceTree = "<group>";
 		};
-		7F5727A1163524970023B985 /* xmls */ = {
-			isa = PBXGroup;
-			children = (
-				7F2530421678645B005138A1 /* Editor_addthing.xml */,
-				7F2530431678645B005138A1 /* Editor_effect.xml */,
-				7F2530441678645B005138A1 /* Editor_equipment.xml */,
-				7F2530451678645B005138A1 /* Editor_react.xml */,
-				7F2530461678645B005138A1 /* Editor_star.xml */,
-				7F2530471678645B005138A1 /* level1_1.xml */,
-				7F2530481678645B005138A1 /* level1_2.xml */,
-				7F2530491678645B005138A1 /* level2_1.xml */,
-				7F25304A1678645B005138A1 /* level2_2.xml */,
-				7F25304B1678645B005138A1 /* level3_1.xml */,
-				7F25304C1678645B005138A1 /* level3_2.xml */,
-				7F25304D1678645B005138A1 /* level4_1.xml */,
-				7F25304E1678645B005138A1 /* level4_2.xml */,
-				7F25304F1678645B005138A1 /* level5_1.xml */,
-				7F2530501678645B005138A1 /* level5_2.xml */,
-				7F2530511678645B005138A1 /* level6_1.xml */,
-				7F2530521678645B005138A1 /* level6_2.xml */,
-				7F2530531678645B005138A1 /* level7_1.xml */,
-				7F2530541678645B005138A1 /* level7_2.xml */,
-				7F2530551678645B005138A1 /* level8_1.xml */,
-				7F2530561678645B005138A1 /* level8_2.xml */,
-				7F2530571678645B005138A1 /* level9_1.xml */,
-				7F2530581678645B005138A1 /* level9_2.xml */,
-				7F2530591678645B005138A1 /* level10_1.xml */,
-				7F25305A1678645B005138A1 /* level10_2.xml */,
-			);
-			name = xmls;
-			sourceTree = "<group>";
-		};
 		7F5B00C815B945F400BA15D9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -2868,9 +2885,9 @@
 		7F7010F315AFEFFE00495B10 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F4072F91680D2C900EE08CD /* xmls */,
 				7F25309F167868C0005138A1 /* spectialEffect */,
 				7FEA39EC165A10D3005350F2 /* UILayouts */,
-				7F5727A1163524970023B985 /* xmls */,
 				7F7010F415AFEFFE00495B10 /* fonts */,
 				7F7010F515AFEFFE00495B10 /* icons */,
 				7F7010F615AFEFFE00495B10 /* images */,
@@ -3505,31 +3522,6 @@
 				7FB56EBE167721A000C87AAA /* sheetEffects.plist in Resources */,
 				7FB56EBF167721A000C87AAA /* sheetEffects.png in Resources */,
 				7FA80E041677383600C23879 /* Eras Bold ITC.ttf in Resources */,
-				7F2530651678645B005138A1 /* Editor_addthing.xml in Resources */,
-				7F2530661678645B005138A1 /* Editor_effect.xml in Resources */,
-				7F2530671678645B005138A1 /* Editor_equipment.xml in Resources */,
-				7F2530681678645B005138A1 /* Editor_react.xml in Resources */,
-				7F2530691678645B005138A1 /* Editor_star.xml in Resources */,
-				7F25306A1678645B005138A1 /* level1_1.xml in Resources */,
-				7F25306B1678645B005138A1 /* level1_2.xml in Resources */,
-				7F25306C1678645B005138A1 /* level2_1.xml in Resources */,
-				7F25306D1678645B005138A1 /* level2_2.xml in Resources */,
-				7F25306E1678645B005138A1 /* level3_1.xml in Resources */,
-				7F25306F1678645B005138A1 /* level3_2.xml in Resources */,
-				7F2530701678645B005138A1 /* level4_1.xml in Resources */,
-				7F2530711678645B005138A1 /* level4_2.xml in Resources */,
-				7F2530721678645B005138A1 /* level5_1.xml in Resources */,
-				7F2530731678645B005138A1 /* level5_2.xml in Resources */,
-				7F2530741678645B005138A1 /* level6_1.xml in Resources */,
-				7F2530751678645B005138A1 /* level6_2.xml in Resources */,
-				7F2530761678645B005138A1 /* level7_1.xml in Resources */,
-				7F2530771678645B005138A1 /* level7_2.xml in Resources */,
-				7F2530781678645B005138A1 /* level8_1.xml in Resources */,
-				7F2530791678645B005138A1 /* level8_2.xml in Resources */,
-				7F25307A1678645B005138A1 /* level9_1.xml in Resources */,
-				7F25307B1678645B005138A1 /* level9_2.xml in Resources */,
-				7F25307C1678645B005138A1 /* level10_1.xml in Resources */,
-				7F25307D1678645B005138A1 /* level10_2.xml in Resources */,
 				7F25309616786686005138A1 /* AchievementNode.ccbi in Resources */,
 				7F25309716786686005138A1 /* CategoryCell.ccbi in Resources */,
 				7F25309816786686005138A1 /* DeadUI.ccbi in Resources */,
@@ -3846,6 +3838,34 @@
 				7F25332F16786AD5005138A1 /* UI_tutorial_tap_8.png in Resources */,
 				7F25333016786AD5005138A1 /* UI_tutorial_tap_9.png in Resources */,
 				7F25333116786AD5005138A1 /* UI_unlock_canvas.png in Resources */,
+				7F4073171680D2C900EE08CD /* Editor_addthing.xml in Resources */,
+				7F4073181680D2C900EE08CD /* Editor_effect.xml in Resources */,
+				7F4073191680D2C900EE08CD /* Editor_equipment.xml in Resources */,
+				7F40731A1680D2C900EE08CD /* Editor_level.xml in Resources */,
+				7F40731B1680D2C900EE08CD /* Editor_react.xml in Resources */,
+				7F40731C1680D2C900EE08CD /* Editor_star.xml in Resources */,
+				7F40731D1680D2C900EE08CD /* level10_1.xml in Resources */,
+				7F40731E1680D2C900EE08CD /* level10_2.xml in Resources */,
+				7F40731F1680D2C900EE08CD /* level11_1.xml in Resources */,
+				7F4073201680D2C900EE08CD /* level11_2.xml in Resources */,
+				7F4073211680D2C900EE08CD /* level1_1.xml in Resources */,
+				7F4073221680D2C900EE08CD /* level1_2.xml in Resources */,
+				7F4073231680D2C900EE08CD /* level2_1.xml in Resources */,
+				7F4073241680D2C900EE08CD /* level2_2.xml in Resources */,
+				7F4073251680D2C900EE08CD /* level3_1.xml in Resources */,
+				7F4073261680D2C900EE08CD /* level3_2.xml in Resources */,
+				7F4073271680D2CA00EE08CD /* level4_1.xml in Resources */,
+				7F4073281680D2CA00EE08CD /* level4_2.xml in Resources */,
+				7F4073291680D2CA00EE08CD /* level5_1.xml in Resources */,
+				7F40732A1680D2CA00EE08CD /* level5_2.xml in Resources */,
+				7F40732B1680D2CA00EE08CD /* level6_1.xml in Resources */,
+				7F40732C1680D2CA00EE08CD /* level6_2.xml in Resources */,
+				7F40732D1680D2CA00EE08CD /* level7_1.xml in Resources */,
+				7F40732E1680D2CA00EE08CD /* level7_2.xml in Resources */,
+				7F40732F1680D2CA00EE08CD /* level8_1.xml in Resources */,
+				7F4073301680D2CA00EE08CD /* level8_2.xml in Resources */,
+				7F4073311680D2CA00EE08CD /* level9_1.xml in Resources */,
+				7F4073321680D2CA00EE08CD /* level9_2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

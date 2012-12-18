@@ -247,6 +247,7 @@
 {
     [self pauseGame];
     [[DeadUI shared] createUI];
+    [[DeadUI shared] updateUIDataWithScore:self.model.distance Star:self.model.star TotalStar:self.model.star Distance:self.model.distance Multiplier:10 IsHighScore:NO];
 }
 
 -(void) restart

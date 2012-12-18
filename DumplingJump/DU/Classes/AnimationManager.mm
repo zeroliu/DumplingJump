@@ -117,5 +117,9 @@
     return animAction;
 }
  */
-
+- (void)dealloc
+{
+    [_animDataDictionary release];
+    [super dealloc];
+}
 @end

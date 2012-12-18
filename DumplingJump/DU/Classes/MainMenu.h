@@ -22,8 +22,8 @@
     CCControlButton *continueButton;
     
     CCNode *equipmentViewHolder;
+    CCNode *titleHeroHolder;
     
-    CCSprite *heroImage;
     CCSprite *equipmentBoard;
     CCLabelTTF *starNum;
     

@@ -493,9 +493,9 @@
 						<key>displayName</key>
 						<string>Score</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>scoreText</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -949,9 +949,9 @@
 						<key>displayName</key>
 						<string>gainedStarNum</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>starText</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1077,9 +1077,9 @@
 						<key>displayName</key>
 						<string>totalStarNum</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>totalStarText</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1205,9 +1205,9 @@
 						<key>displayName</key>
 						<string>distanceNum</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>distanceText</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1333,9 +1333,9 @@
 						<key>displayName</key>
 						<string>multiplierNum</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>multiplierText</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1450,6 +1450,8 @@
 								<string>20x</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>

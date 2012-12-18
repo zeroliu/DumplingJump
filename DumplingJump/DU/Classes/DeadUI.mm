@@ -34,6 +34,15 @@
     return self;
 }
 
+-(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(int)multiplier IsHighScore:(BOOL)isHighScore
+{
+    [scoreText setString:[NSString stringWithFormat:@"%d",score]];
+    [starText setString:[NSString stringWithFormat:@"%d",star]];
+    [totalStarText setString:[NSString stringWithFormat:@"%d",totalStar]];
+    [distanceText setString:[NSString stringWithFormat:@"%d",distance]];
+    [multiplierText setString:[NSString stringWithFormat:@"%dx",multiplier]];
+}
+
 -(void) retry:(id)sender
 {
     DLog(@"retry");

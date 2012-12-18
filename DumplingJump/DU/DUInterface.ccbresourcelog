@@ -665,6 +665,7 @@ sheetEffects-hd.plist
 sheetEffects-hd.png
 sheetEffects.plist
 sheetEffects.png
+sheetObjects-hd.plist
 sheetObjects-hd.png
 sheetObjects.plist
 sheetObjects.png
@@ -676,8 +677,6 @@ sheetUI-2-hd.plist
 sheetUI-2-hd.png
 sheetUI-2.plist
 sheetUI-2.png
-sheetUI-hd.plist
-sheetUI-hd.png
 AchievementNode.ccbi
 CategoryCell.ccbi
 DeadUI.ccbi

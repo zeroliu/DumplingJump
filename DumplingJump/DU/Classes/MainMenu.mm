@@ -22,6 +22,7 @@ typedef enum {
 {
     MainMenuState state;
     DUScrollPageView *achievementScrollView;
+    CCSprite *_titleHero;
 }
 @end
 
@@ -35,6 +36,9 @@ typedef enum {
     //[self createTableView];
     animationManager = self.userObject;
     state = MainMenuStateHome;
+    
+    //Create title hero
+    [self createTitleHero];
     
     //Hide unused buttons
     [backButton setOpacity:0];
@@ -81,6 +85,44 @@ typedef enum {
     testview.position = ccp(0,0);
     [tableViewHolder addChild:testview];
      */
+}
+
+-(void) createTitleHero
+{
+    if (![[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"sheetObjects.plist"]])
+    {
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sheetObjects.plist"]];
+    }
+    
+    if (_titleHero != nil)
+    {
+        [_titleHero removeFromParentAndCleanup:NO];
+        _titleHero = nil;
+    }
+    
+    _titleHero = [CCSprite spriteWithSpriteFrameName:@"H_hero_1.png"];
+    _titleHero.scale = 1.3;
+    _titleHero.position = CGPointZero;
+    
+    //Build hero animation
+    NSMutableArray *frameArray = [NSMutableArray array];
+    for (int i=1; i<=6; i++)
+    {
+        NSString *frameName = [NSString stringWithFormat:@"H_magic_%d.png",i];
+        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        [frameArray addObject:frameObject];
+    }
+    
+    id heroAnim = [CCAnimation animationWithSpriteFrames :frameArray delay:0.12];
+    
+    if (heroAnim != nil)
+    {
+        id heroAnimate = [CCAnimate actionWithAnimation:heroAnim];
+        [_titleHero stopAllActions];
+        [_titleHero runAction:[CCRepeatForever actionWithAction:heroAnimate]];
+    }
+    
+    [titleHeroHolder addChild:_titleHero z:1];
 }
 
 -(void) showEquipment

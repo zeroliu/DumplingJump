@@ -103,35 +103,33 @@
 	</level>
 	<level>
 		<time>22</time>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>23</time>
-		<slot5>ICE</slot5>
-		<slot8>ICE</slot8>
 	</level>
 	<level>
 		<time>24</time>
-		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>25</time>
-		<slot3>VAT</slot3>
-		<slot5>ICE</slot5>
-		<slot8>ICE</slot8>
 	</level>
 	<level>
 		<time>26</time>
-		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>27</time>
-	</level>
-	<level>
-		<time>28</time>
 		<slot8>MAGIC</slot8>
 	</level>
 	<level>
+		<time>28</time>
+		<slot2>VAT</slot2>
+		<slot3>VAT</slot3>
+	</level>
+	<level>
 		<time>29</time>
+		<slot2>VAT</slot2>
+		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>30</time>

@@ -71,7 +71,8 @@
 #pragma mark Initialization
 -(id) init
 {
-	if( (self=[super init])) {
+	if( (self=[super init]))
+    {
         //Set debug mode
         _isDebug = YES;
         _loadCompleted = NO;
@@ -206,7 +207,6 @@
 {
     //Init level with level name
     [self setLevelWithName:LEVEL_NORMAL];
-    //[[LevelManager shared] loadParagraphAtIndex:0];
 }
 
 -(void) setLevelWithName:(NSString *)levelName
@@ -278,6 +278,7 @@
     
     //Reset Level
     [[LevelManager shared] stopCurrentParagraph];
+    [[LevelManager shared] resetParagraph];
     
     //Reset Hero
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
@@ -291,7 +292,7 @@
     //Show Fade out animation
     [[GameUI shared] fadeOut];
     
-    //if isDebug, restart currentLevel
+    //Start loading level
     [[LevelManager shared] loadCurrentParagraph];
     
     //Resume game
@@ -302,7 +303,6 @@
 {
     [self pauseSchedulerAndActions];
     [BATCHNODE pauseSchedulerAndActions];
-    //self.batchNode.isRunning = NO;
     CCNode *child;
     CCARRAY_FOREACH([BATCHNODE children], child)
     {

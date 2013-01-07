@@ -15,10 +15,14 @@
 #import "StarManager.h"
 #import "Paragraph.h"
 #import "GameUI.h"
+#import "LevelTestTool.h"
 
 @interface LevelManager()
 {
-    int currentParagraphIndex;
+    //int currentParagraphIndex;
+    
+    int currentPhaseIndex;
+    NSMutableArray *phasePharagraphs;
     int sentenceIndex;
     float sentenceCounter;
     float sentenceTarget;
@@ -26,13 +30,13 @@
 }
 
 @property (nonatomic, retain) LevelData *levelData;
-@property (nonatomic, retain) NSMutableArray *paragraphs;
+//@property (nonatomic, retain) NSMutableArray *paragraphs;
 @property (nonatomic, retain) NSDictionary *paragraphsData;
 @property (nonatomic, retain) NSArray *paragraphsCombination;
 @end
 
 @implementation LevelManager
-@synthesize levelData = _levelData, paragraphs = _paragraphs, generatedObjects = _generatedObjects, paragraphsData = _paragraphsData, paragraphsCombination = _paragraphsCombination;
+@synthesize levelData = _levelData, generatedObjects = _generatedObjects, paragraphsData = _paragraphsData, paragraphsCombination = _paragraphsCombination;
 
 +(id) shared
 {
@@ -48,24 +52,25 @@
 {
     if (self = [super init])
     {
-        self.paragraphs = [[NSMutableArray alloc] initWithCapacity:2];
-        [self.paragraphs addObject:[[NSMutableArray alloc] init]];
-        [self.paragraphs addObject:[[NSMutableArray alloc] init]];
+        phasePharagraphs = nil;
         
-        self.generatedObjects = [[NSMutableArray alloc] init];
+        _generatedObjects = [[NSMutableArray alloc] init];
         
         //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
+        
         //Load combination data from Editor_level.xml
         self.paragraphsCombination = [[XMLHelper shared] loadParagraphCombinationWithXML:@"Editor_level"];
-        DLog(@"%@", [self.paragraphsCombination description]);
-        //Create weigh look up table for the combinations
-        [self loadParagraphs];
+        
+        //TODO: Create weight look up table for the combinations
+        
+        currentPhaseIndex = 0;
     }
     
     return self;
 }
 
+/*
 -(void) loadParagraphs
 {
     //load paragraph from xml file
@@ -86,6 +91,7 @@
     
     //DLog(@"Paragraph loaded + %d", (i-1));
 }
+*/
 
 -(id) levelData
 {
@@ -127,8 +133,8 @@
     sentenceCounter = 0;
     sentenceIndex = 0;
     sentenceTarget = 0;
-    currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:index];
-    currentParagraphIndex = index;
+    //currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:index];
+    //currentParagraphIndex = index;
 }
 
 -(void) loadCurrentParagraph
@@ -136,12 +142,50 @@
     sentenceCounter = 0;
     sentenceIndex = 0;
     sentenceTarget = 0;
-    currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:currentParagraphIndex];
+    
+    if (phasePharagraphs == nil)
+    {
+        
+        int selectedCombination = randomInt(0, [[self.paragraphsCombination objectAtIndex:currentPhaseIndex] count]);
+        phasePharagraphs = [[NSMutableArray arrayWithArray:[[self.paragraphsCombination objectAtIndex:currentPhaseIndex] objectAtIndex:selectedCombination]] retain];
+        DLog(@"Level numbers: %d", [[self.paragraphsCombination objectAtIndex:currentPhaseIndex] count]);
+        DLog(@"Phase No.%d loaded", currentPhaseIndex);
+    }
+    
+    //Get the first one in the array
+    NSString *currentParagraphName = [phasePharagraphs objectAtIndex:0];
+    
+    //Load the paragraph data of this name
+    currentParagraph = [_paragraphsData objectForKey:currentParagraphName];
+    
+    if (currentParagraph != nil)
+    {
+        DLog(@"Now playing level %@", currentParagraphName);
+    } else
+    {
+        DLog(@"Loading level %@ error", currentParagraphName);
+    }
+    
+    [[LevelTestTool shared] updateLevelName:currentParagraphName];
+    
+    //Remove the first element of the array
+    [phasePharagraphs removeObjectAtIndex:0];
+    
+    //If the array is empty
+    if ([phasePharagraphs count] == 0)
+    {
+        //Set the array to nil
+        [phasePharagraphs release];
+        phasePharagraphs = nil;
+    //currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:currentParagraphIndex];
+    }
+    
 }
 
 -(int) paragraphsCount
 {
-    return [[self.paragraphs objectAtIndex:0] count];
+    //return [[self.paragraphs objectAtIndex:0] count];
+    return 0;
 }
 
 -(void) dropNextAddthing
@@ -177,9 +221,7 @@
                 sentenceTarget = ((Sentence *)[currentParagraph getSentenceAtIndex:sentenceIndex]).distance;
             } else
             {
-                currentParagraph = nil;
                 [self jumpToNextLevel];
-                
             }
         }
     }
@@ -188,20 +230,27 @@
 -(void) jumpToNextLevel
 {
     //current paragraph finished
-    currentParagraphIndex++;
-    if (currentParagraphIndex > [self paragraphsCount] - 1)
+    currentParagraph = nil;
+    
+    //If finished currentPhase, move to next phase
+    if (phasePharagraphs == nil)
     {
-        currentParagraphIndex = 2;
+        currentPhaseIndex ++;
+        int phaseTotalNum = [_paragraphsCombination count];
+        DLog(@"new phase TotalNum = %d", phaseTotalNum);
+        if (currentPhaseIndex >= phaseTotalNum)
+        {
+            currentPhaseIndex = 1;
+        }
+        
+        DLog(@"Phase ends, now loading phase No.%d", currentPhaseIndex);
     }
     
     id switchToNextLevelAction = [CCCallFunc actionWithTarget:self selector:@selector(switchToNextLevelEffect)];
     id delay1 = [CCDelayTime actionWithDuration:8];
     id loadParagraphAction = [CCCallFunc actionWithTarget:self selector:@selector(loadCurrentParagraph)];
-    id delay2 = [CCDelayTime actionWithDuration:12];
+    id delay2 = [CCDelayTime actionWithDuration:8];
     
-    //[self performSelector:@selector(switchToNextLevelEffect) withObject:nil afterDelay:5];
-    //[self switchToNextLevelEffect];
-    //[self performSelector:@selector(loadCurrentParagraph) withObject:nil afterDelay:10];
     [GAMELAYER runAction:[CCSequence actions:delay1, switchToNextLevelAction, delay2, loadParagraphAction, nil]];
     
 }
@@ -225,7 +274,14 @@
 -(void) stopCurrentParagraph
 {
     currentParagraph = nil;
-    //currentParagraphIndex = 0;
+}
+
+-(void) resetParagraph
+{
+    currentPhaseIndex = 0;
+    [phasePharagraphs removeAllObjects];
+    [phasePharagraphs release];
+    phasePharagraphs = nil;
 }
 
 -(void) removeObjectFromList:(DUObject *)myObject
@@ -238,11 +294,20 @@
     NSArray *array = [self.generatedObjects copy];
     for (AddthingObject *ob in array)
     {
-        //[self.generatedObjects removeObject:ob];
         [ob removeAddthing];
     }
     [array release];
-//    [self.generatedObjects removeAllObjects];
 }
-
+- (void)dealloc
+{
+    if ([phasePharagraphs retainCount] > 0)
+    {
+        [phasePharagraphs release];
+    }
+    [_levelData release];
+    [_paragraphsData release];
+    [_paragraphsCombination release];
+    [_generatedObjects release];
+    [super dealloc];
+}
 @end

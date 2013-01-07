@@ -10,20 +10,26 @@
 #import "LevelData.h"
 
 @interface LevelManager : CCNode
+
+//Save all the addthingObject in this array
 @property (nonatomic, retain) NSMutableArray *generatedObjects;
 
 +(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;
+
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
+
 -(void) jumpToNextLevel;
 -(void) dropNextAddthing;
--(void) loadParagraphAtIndex:(int) index;
--(int) paragraphsCount;
+-(void) stopCurrentParagraph;
+-(void) resetParagraph;
+-(void) loadCurrentParagraph;
+-(void) loadParagraphAtIndex:(int) index; //Used in Debug tool
+-(int) paragraphsCount; //Used in Debug tool
+
 -(void) removeObjectFromList:(DUObject *)myObject;
 -(void) destroyAllObjects;
--(void) stopCurrentParagraph;
--(void) loadCurrentParagraph;
 
 -(void) switchToNextLevelEffect;
 @end

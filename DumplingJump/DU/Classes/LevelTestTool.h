@@ -16,4 +16,5 @@
 }
 +(id) shared;
 -(void) reload;
+-(void) updateLevelName:(NSString *)theLevelName;
 @end

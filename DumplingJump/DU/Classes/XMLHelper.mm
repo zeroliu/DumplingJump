@@ -31,7 +31,7 @@
 {
     DDXMLDocument *xmlDoc;
     NSError *err = nil;
-    NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:xmlFilename ofType:@"xml"] encoding:NSUTF8StringEncoding error:&err];
+    NSString *content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:xmlFilename ofType:@"xml" inDirectory:@"xmls"] encoding:NSUTF8StringEncoding error:&err];
     xmlDoc = [[[DDXMLDocument alloc] initWithXMLString:content options:0 error:&err] autorelease];
     if (xmlDoc == nil)
     {

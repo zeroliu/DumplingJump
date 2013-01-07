@@ -8,6 +8,12 @@
 
 #import "LevelTestTool.h"
 #import "LevelManager.h"
+@interface LevelTestTool()
+{
+    CCMenuItemFont *levelName;
+}
+@end
+
 @implementation LevelTestTool
 
 +(id) shared
@@ -56,19 +62,27 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CCMenuItemFont *item = [CCMenuItemFont itemWithString:@"Next" target:[LevelManager shared] selector:@selector(jumpToNextLevel)];
     item.position = ccp(270, winSize.height - 300);
-    CCMenu *menu = [CCMenu menuWithItems:item, nil];
+    [levelName removeFromParentAndCleanup:NO];
+    levelName = [CCMenuItemFont itemWithString:@"LevelName"];
+    levelName.position = ccp(winSize.width, 30);
+    levelName.anchorPoint = ccp(1,0);
+    CCMenu *menu = [CCMenu menuWithItems:levelName, nil];
     menu.position = CGPointZero;
-    //[GAMELAYER addChild:menu];
+    [GAMELAYER addChild:menu];
     
     myView = [[CCDirector sharedDirector] view];
     levelEditor = [[UITextField alloc] initWithFrame:CGRectMake(20, 420, 40, 40)];
     [levelEditor setText:@""];
     [levelEditor setBackgroundColor: [UIColor whiteColor]];
-    //[levelEditor becomeFirstResponder];
     [levelEditor setDelegate:self];
     levelEditor.clearsOnBeginEditing = YES;
     levelEditor.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     [myView addSubview:levelEditor];
     [[[[CCDirector sharedDirector] view] window] addSubview:myView];
+}
+
+-(void) updateLevelName:(NSString *)theLevelName
+{
+    [levelName setString:theLevelName];
 }
 @end

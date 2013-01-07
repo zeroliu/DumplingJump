@@ -35,6 +35,7 @@
 
     if (target.position.x > 0 && target.position.x < [[CCDirector sharedDirector] winSize].width && target.position.y < [[CCDirector sharedDirector] winSize].height/2 + 100 && target.position.y > 40)
     {
+        DLog(@"explode");
         if (target.position.x > [[CCDirector sharedDirector] winSize].width/2)
         {
             [self explode_r:source data:data];
@@ -42,7 +43,6 @@
         {
             [self explode_l:source data:data];
         }
-        DLog(@"explode");
     }
 }
 
@@ -62,7 +62,6 @@
     [[[BoardManager shared] getBoard] missleEffectWithDirection:0];
     id delay = [CCDelayTime actionWithDuration:reaction.reactionLasting];
     id functionWrapper = [CCCallFunc actionWithTarget:[[BoardManager shared] getBoard] selector:@selector(recover)];
-    [engine stopAllActions];
     id engineRecover = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:ANIM_BROOM_RECOVER]];
     id engineAnimPlay = [CCCallBlock actionWithBlock:^
                          {
@@ -74,7 +73,6 @@
     id engineSequence = [CCSequence actions:delay, engineRecover, engineAnimPlay, nil];
     [engine runAction:engineSequence];
     [((Board *)[[BoardManager shared] getBoard]).sprite runAction:sequence];
-
 
    DLog(@"explode_l");
 }

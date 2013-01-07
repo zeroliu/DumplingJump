@@ -8,29 +8,32 @@
 	</Combination>
 	<Combination>
 		<phase>0</phase>
-		<step0>tutorial_0</step0>
-		<step1>tutorial_1</step1>
-	</Combination>
-	<Combination>
-		<phase>1</phase>
 		<step0>arrow_1</step0>
-		<step1>box_1</step1>
-		<step2>powder_1</step2>
+	</Combination>
+    <Combination>
+		<phase>0</phase>
+		<step0>box_1</step0>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
 		<step0>box_1</step0>
-		<step1>arrow_1</step1>
+		<step1>dog_1</step1>
+		<step2>flag_1</step2>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>cat_1</step0>
+		<step1>elephant_1</step1>
 	</Combination>
 	<Combination>
 		<phase>2</phase>
-		<step0>box_1</step0>
-		<step1>arrow_1</step1>
-		<step2>bonus_1</step2>
+		<step0>gas_1</step0>
+		<step1>highway_1</step1>
+		<step2>jack_1</step2>
 	</Combination>
 	<Combination>
 		<phase>2</phase>
-		<step0>powder_1</step0>
-		<step1>box_1</step1>
+		<step0>jack_1</step0>
+		<step1>ink_1</step1>
 	</Combination>
 </Levels>

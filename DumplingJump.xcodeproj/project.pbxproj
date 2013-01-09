@@ -566,6 +566,10 @@
 		7FA2102415C84E3D000E76F0 /* b2FixtureDefBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102315C84E3D000E76F0 /* b2FixtureDefBuilder.mm */; };
 		7FA2102915C90FD2000E76F0 /* b2DisjointDefBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2102815C90FD2000E76F0 /* b2DisjointDefBuilder.mm */; };
 		7FA691BD15BB4E24000B15A2 /* Constants.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FA691BC15BB4E24000B15A2 /* Constants.mm */; };
+		7FA7AB1F169D45EA00310361 /* sheetUI-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FA7AB1B169D45EA00310361 /* sheetUI-1.plist */; };
+		7FA7AB20169D45EA00310361 /* sheetUI-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA7AB1C169D45EA00310361 /* sheetUI-1.png */; };
+		7FA7AB21169D45EA00310361 /* sheetUI-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FA7AB1D169D45EA00310361 /* sheetUI-2.plist */; };
+		7FA7AB22169D45EA00310361 /* sheetUI-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA7AB1E169D45EA00310361 /* sheetUI-2.png */; };
 		7FA80E041677383600C23879 /* Eras Bold ITC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FA80E031677383600C23879 /* Eras Bold ITC.ttf */; };
 		7FAA48D91671744500A8FCA0 /* MainMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA48D81671744500A8FCA0 /* MainMenu.mm */; };
 		7FAFCC5B15D3A3E300F019F7 /* BackgroundView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */; };
@@ -1474,6 +1478,10 @@
 		7FA2102815C90FD2000E76F0 /* b2DisjointDefBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = b2DisjointDefBuilder.mm; sourceTree = "<group>"; };
 		7FA691BB15BB4E24000B15A2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7FA691BC15BB4E24000B15A2 /* Constants.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Constants.mm; sourceTree = "<group>"; };
+		7FA7AB1B169D45EA00310361 /* sheetUI-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-1.plist"; sourceTree = "<group>"; };
+		7FA7AB1C169D45EA00310361 /* sheetUI-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-1.png"; sourceTree = "<group>"; };
+		7FA7AB1D169D45EA00310361 /* sheetUI-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-2.plist"; sourceTree = "<group>"; };
+		7FA7AB1E169D45EA00310361 /* sheetUI-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-2.png"; sourceTree = "<group>"; };
 		7FA80E031677383600C23879 /* Eras Bold ITC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eras Bold ITC.ttf"; sourceTree = "<group>"; };
 		7FAA48D71671744500A8FCA0 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		7FAA48D81671744500A8FCA0 /* MainMenu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenu.mm; sourceTree = "<group>"; };
@@ -2879,6 +2887,10 @@
 		7F7010F915AFEFFE00495B10 /* spriteSheets */ = {
 			isa = PBXGroup;
 			children = (
+				7FA7AB1B169D45EA00310361 /* sheetUI-1.plist */,
+				7FA7AB1C169D45EA00310361 /* sheetUI-1.png */,
+				7FA7AB1D169D45EA00310361 /* sheetUI-2.plist */,
+				7FA7AB1E169D45EA00310361 /* sheetUI-2.png */,
 				7FB56EB81677219F00C87AAA /* sheetEffects-hd.plist */,
 				7FB56EB91677219F00C87AAA /* sheetEffects-hd.png */,
 				7FB56EBA1677219F00C87AAA /* sheetEffects.plist */,
@@ -3742,6 +3754,10 @@
 				7F25333016786AD5005138A1 /* UI_tutorial_tap_9.png in Resources */,
 				7F25333116786AD5005138A1 /* UI_unlock_canvas.png in Resources */,
 				7F8C38AB169B1A1100F2E57B /* xmls in Resources */,
+				7FA7AB1F169D45EA00310361 /* sheetUI-1.plist in Resources */,
+				7FA7AB20169D45EA00310361 /* sheetUI-1.png in Resources */,
+				7FA7AB21169D45EA00310361 /* sheetUI-2.plist in Resources */,
+				7FA7AB22169D45EA00310361 /* sheetUI-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

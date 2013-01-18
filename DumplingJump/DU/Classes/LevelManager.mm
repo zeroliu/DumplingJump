@@ -128,11 +128,21 @@
     return [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,600)];
 }
 
--(void) loadParagraphAtIndex:(int) index
+-(void) loadParagraphWithName:(NSString *)name
 {
     sentenceCounter = 0;
     sentenceIndex = 0;
     sentenceTarget = 0;
+    
+    currentParagraph = [_paragraphsData objectForKey:name];
+    
+    if (currentParagraph == nil)
+    {
+        [[LevelTestTool shared] updateLevelName:@"error: No such level"];
+    } else
+    {
+        [[LevelTestTool shared] updateLevelName:name];
+    }
     //currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:index];
     //currentParagraphIndex = index;
 }
@@ -145,7 +155,6 @@
     
     if (phasePharagraphs == nil)
     {
-        
         int selectedCombination = randomInt(0, [[self.paragraphsCombination objectAtIndex:currentPhaseIndex] count]);
         phasePharagraphs = [[NSMutableArray arrayWithArray:[[self.paragraphsCombination objectAtIndex:currentPhaseIndex] objectAtIndex:selectedCombination]] retain];
         DLog(@"Level numbers: %d", [[self.paragraphsCombination objectAtIndex:currentPhaseIndex] count]);

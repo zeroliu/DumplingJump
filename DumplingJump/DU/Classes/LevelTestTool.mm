@@ -10,7 +10,7 @@
 #import "LevelManager.h"
 @interface LevelTestTool()
 {
-    CCMenuItemFont *levelName;
+    CCMenuItemFont *levelNameDisplay;
 }
 @end
 
@@ -43,11 +43,9 @@
    if (textField == levelEditor)
    {
        [levelEditor endEditing:YES];
-       levelNum = [levelEditor.text intValue];
-       if (levelNum <= [[LevelManager shared] paragraphsCount] && levelNum > 0)
-       {
-           [[LevelManager shared] loadParagraphAtIndex:(levelNum-1)];
-       }
+       levelName = levelEditor.text;
+        [[LevelManager shared] loadParagraphWithName:levelName];
+       
    }
 }
 
@@ -62,11 +60,12 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CCMenuItemFont *item = [CCMenuItemFont itemWithString:@"Next" target:[LevelManager shared] selector:@selector(jumpToNextLevel)];
     item.position = ccp(270, winSize.height - 300);
-    [levelName removeFromParentAndCleanup:NO];
-    levelName = [CCMenuItemFont itemWithString:@"LevelName"];
-    levelName.position = ccp(winSize.width, 30);
-    levelName.anchorPoint = ccp(1,0);
-    CCMenu *menu = [CCMenu menuWithItems:levelName, nil];
+    [levelNameDisplay removeFromParentAndCleanup:NO];
+    levelNameDisplay = [CCMenuItemFont itemWithString:@"LevelName"];
+    levelNameDisplay.position = ccp(winSize.width, 30);
+    levelNameDisplay.anchorPoint = ccp(1,0);
+    [levelNameDisplay setIsEnabled:NO];
+    CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, nil];
     menu.position = CGPointZero;
     [GAMELAYER addChild:menu];
     
@@ -83,6 +82,6 @@
 
 -(void) updateLevelName:(NSString *)theLevelName
 {
-    [levelName setString:theLevelName];
+    [levelNameDisplay setString:theLevelName];
 }
 @end

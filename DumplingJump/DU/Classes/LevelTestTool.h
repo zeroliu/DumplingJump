@@ -11,7 +11,7 @@
 @interface LevelTestTool : CCNode <UITextFieldDelegate>
 {
     UITextField *levelEditor;
-    int levelNum;
+    NSString *levelName;
     UIView *myView;
 }
 +(id) shared;

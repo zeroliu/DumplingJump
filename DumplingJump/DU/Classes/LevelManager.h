@@ -25,7 +25,7 @@
 -(void) stopCurrentParagraph;
 -(void) resetParagraph;
 -(void) loadCurrentParagraph;
--(void) loadParagraphAtIndex:(int) index; //Used in Debug tool
+-(void) loadParagraphWithName:(NSString *)name; //Used in Debug tool
 -(int) paragraphsCount; //Used in Debug tool
 
 -(void) removeObjectFromList:(DUObject *)myObject;

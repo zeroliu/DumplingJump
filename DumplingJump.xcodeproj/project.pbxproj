@@ -483,6 +483,10 @@
 		7F3A0EF7161C152500DC0DDF /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0EC4161C152500DC0DDF /* b2WeldJoint.cpp */; };
 		7F3A0EF8161C152500DC0DDF /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0EC6161C152500DC0DDF /* b2WheelJoint.cpp */; };
 		7F3A0EF9161C152500DC0DDF /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A0EC9161C152500DC0DDF /* b2Rope.cpp */; };
+		7F3D725C16AB522A008025CA /* sheetUI-3-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F3D725816AB522A008025CA /* sheetUI-3-hd.plist */; };
+		7F3D725D16AB522A008025CA /* sheetUI-3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3D725916AB522A008025CA /* sheetUI-3-hd.png */; };
+		7F3D725E16AB522A008025CA /* sheetUI-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F3D725A16AB522A008025CA /* sheetUI-3.plist */; };
+		7F3D725F16AB522A008025CA /* sheetUI-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F3D725B16AB522A008025CA /* sheetUI-3.png */; };
 		7F41435215AAC659002CFC9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435115AAC659002CFC9A /* QuartzCore.framework */; };
 		7F41435415AAC659002CFC9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435315AAC659002CFC9A /* OpenGLES.framework */; };
 		7F41435615AAC659002CFC9A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F41435515AAC659002CFC9A /* OpenAL.framework */; };
@@ -1322,6 +1326,10 @@
 		7F3A0EC7161C152500DC0DDF /* b2WheelJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WheelJoint.h; sourceTree = "<group>"; };
 		7F3A0EC9161C152500DC0DDF /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		7F3A0ECA161C152500DC0DDF /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
+		7F3D725816AB522A008025CA /* sheetUI-3-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-3-hd.plist"; sourceTree = "<group>"; };
+		7F3D725916AB522A008025CA /* sheetUI-3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-3-hd.png"; sourceTree = "<group>"; };
+		7F3D725A16AB522A008025CA /* sheetUI-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-3.plist"; sourceTree = "<group>"; };
+		7F3D725B16AB522A008025CA /* sheetUI-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-3.png"; sourceTree = "<group>"; };
 		7F41434D15AAC659002CFC9A /* DumplingJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumplingJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41435115AAC659002CFC9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F41435315AAC659002CFC9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2899,6 +2907,10 @@
 				7FC7C56716707B4400E3B82C /* sheetUI-1-hd.png */,
 				7FC7C56816707B4400E3B82C /* sheetUI-2-hd.plist */,
 				7FC7C56916707B4400E3B82C /* sheetUI-2-hd.png */,
+				7F3D725816AB522A008025CA /* sheetUI-3-hd.plist */,
+				7F3D725916AB522A008025CA /* sheetUI-3-hd.png */,
+				7F3D725A16AB522A008025CA /* sheetUI-3.plist */,
+				7F3D725B16AB522A008025CA /* sheetUI-3.png */,
 				7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */,
 				7F1632F8162BE8F900C132B1 /* sheetBackground1.png */,
 				7F1632F3162BE7EA00C132B1 /* sheetBackground1-hd.plist */,
@@ -3758,6 +3770,10 @@
 				7FA7AB20169D45EA00310361 /* sheetUI-1.png in Resources */,
 				7FA7AB21169D45EA00310361 /* sheetUI-2.plist in Resources */,
 				7FA7AB22169D45EA00310361 /* sheetUI-2.png in Resources */,
+				7F3D725C16AB522A008025CA /* sheetUI-3-hd.plist in Resources */,
+				7F3D725D16AB522A008025CA /* sheetUI-3-hd.png in Resources */,
+				7F3D725E16AB522A008025CA /* sheetUI-3.plist in Resources */,
+				7F3D725F16AB522A008025CA /* sheetUI-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,6 +23,6 @@ ${TP} DumplingJump/DU/Assets/background.tps
 ${TP} DumplingJump/DU/Assets/effects.tps
 ${TP} DumplingJump/DU/Assets/ui1.tps
 ${TP} DumplingJump/DU/Assets/ui2.tps
-
+${TP} DumplingJump/DU/Assets/ui3.tps
 fi
 exit 0

@@ -452,7 +452,6 @@
 
 -(void) rebornFinish
 {
-    DLog(@"test rebornFinish");
     [self unschedule:@selector(rebornFinish)];
     [[self.sprite getChildByTag:REBORN_POWERUP_TAG] removeFromParentAndCleanup:NO];
 
@@ -464,6 +463,10 @@
 {
     if (!isReborning)
     {
+        //This line is added for the new reborn feature and rebornpowerup shouldn't
+        //be called anywhere else
+        [self rebornPowerup];
+        
         isReborning = YES;
         
         //destroy objects on the screen
@@ -691,6 +694,23 @@
             filter.maskBits = C_HERO | C_BOARD | C_ADDTHING | C_STAR;
             f->SetFilterData(filter);
         }
+    }
+}
+
+-(void) beforeDie
+{
+    //TODO: detect if has revive
+    if (1)
+    {
+        //Pause game
+        [[[Hub shared] gameLayer] pauseGame];
+        
+        //Show revive button
+        [[GameUI shared] showRebornButton];
+    } else
+    {
+        //if has no revive
+        [[[Hub shared] gameLayer] gameOver];
     }
 }
 

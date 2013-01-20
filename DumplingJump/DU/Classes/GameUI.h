@@ -13,6 +13,10 @@
     CCLabelTTF *UIStarText;
     CCNode *clearMessage;
     CCLabelTTF *distanceNum;
+    
+    CCSprite *UIMask;
+    CCSprite *rebornBar;
+    CCNode *rebornButtonHolder;
 }
 +(id) shared;
 -(void) fadeOut;
@@ -20,4 +24,5 @@
 -(void) updateDistance:(int)distance;
 -(void) updateStar:(int)starNum;
 -(void) showStageClearMessageWithDistance;
+-(void) showRebornButton;
 @end

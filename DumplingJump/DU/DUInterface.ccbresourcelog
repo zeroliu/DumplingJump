@@ -34,6 +34,10 @@ A_magic_1.png
 A_magic_2.png
 A_magic_3.png
 A_magic_4.png
+A_mega_1.png
+A_mega_2.png
+A_mega_3.png
+A_mega_4.png
 A_powder_1.png
 A_powder_2.png
 A_powder_3.png
@@ -567,6 +571,8 @@ UI_item_coinstar.png
 UI_item_coinstar_shadow.png
 UI_item_magnet.png
 UI_item_magnet_shadow.png
+UI_item_megacoins.png
+UI_item_megacoins_shadow.png
 UI_item_reborn.png
 UI_item_reborn_shadow.png
 UI_item_scorex1.png
@@ -603,6 +609,15 @@ UI_tutorial_tap_7.png
 UI_tutorial_tap_8.png
 UI_tutorial_tap_9.png
 UI_unlock_canvas.png
+UI_purch_box_normal.png
+UI_purch_box_press.png
+UI_purch_like.png
+UI_purch_stars_lv1.png
+UI_purch_stars_lv2.png
+UI_purch_stars_lv3.png
+UI_purch_stars_lv4.png
+UI_purch_stars_x2.png
+UI_purch_tweet.png
 ccbDefaultImages-hd.plist
 ccbDefaultImages-hd.png
 ccbDefaultImages-ipad.plist
@@ -678,6 +693,10 @@ sheetUI-2-hd.plist
 sheetUI-2-hd.png
 sheetUI-2.plist
 sheetUI-2.png
+sheetUI-3-hd.plist
+sheetUI-3-hd.png
+sheetUI-3.plist
+sheetUI-3.png
 AchievementNode.ccbi
 CategoryCell.ccbi
 DeadUI.ccbi

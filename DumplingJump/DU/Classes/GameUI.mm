@@ -17,6 +17,7 @@
 @interface GameUI()
 {
     id showMessageAction;
+    BOOL _isShowingRebornButton;
 }
 @end
 
@@ -36,6 +37,7 @@
     {
         ccbFileName = @"GameUI.ccbi";
         priority = Z_GAMEUI;
+        _isShowingRebornButton = NO;
     }
     
     return self;
@@ -73,6 +75,14 @@
     
     //Increase distance calculation speed
      */
+}
+
+-(void) rebornClicked:(id)sender
+{
+    DLog(@"reborn button clicked");
+    [self hideRebornButton];
+    [[[Hub shared] gameLayer] resumeGame];
+    [[[HeroManager shared] getHero] reborn];
 }
 
 -(void) fadeOut
@@ -133,5 +143,58 @@
     
     [clearMessage runAction:[CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil]];
 }
+
+-(void) showRebornButton
+{
+    DLog(@"Showing reborn button");
+  
+    //TODO: Disable all buttons
+    
+    [UIMask stopAllActions];
+    [rebornButtonHolder stopAllActions];
+    [rebornBar stopAllActions];
+    
+    //Reset button
+    //TODO: need to change back to the real number
+    rebornBar.scaleX = 2;
+    
+    //Mask fadein
+    //id showMask = [CCFadeTo actionWithDuration:0.2 opacity:255];
+    
+    //Reborn button fly in from the bottom
+    id rebornFlyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2)];
+    
+    float rebornCountdown = 3;
+    //Start countdown animation
+    id countdownAnimation = [CCScaleTo actionWithDuration:rebornCountdown scaleX:0 scaleY:rebornBar.scaleY];
+    //Start countdown system
+    id countdownSystem = [CCDelayTime actionWithDuration:rebornCountdown];
+    
+    id noButtonPressedConsequence = [CCCallBlock actionWithBlock:^{
+        [self beforeGameover];
+    }];
+    
+    //[UIMask runAction:showMask];
+    id sequence = [CCSequence actions:[CCEaseExponentialOut actionWithAction:rebornFlyin], countdownSystem, noButtonPressedConsequence, nil];
+    
+    [rebornButtonHolder runAction:sequence];
+    [rebornBar runAction:countdownAnimation];
+}
+
+-(void) hideRebornButton
+{
+    [UIMask stopAllActions];
+    [rebornButtonHolder stopAllActions];
+    [rebornBar stopAllActions];
+    
+    rebornButtonHolder.position = ccp([[CCDirector sharedDirector] winSize].width/2, -100);
+}
+
+-(void) beforeGameover
+{
+    [self hideRebornButton];
+    [[[Hub shared] gameLayer] gameOver];
+}
+
 
 @end

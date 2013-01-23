@@ -27,9 +27,8 @@
 -(void) loadCurrentParagraph;
 -(void) loadParagraphWithName:(NSString *)name; //Used in Debug tool
 -(int) paragraphsCount; //Used in Debug tool
-
 -(void) removeObjectFromList:(DUObject *)myObject;
 -(void) destroyAllObjects;
-
 -(void) switchToNextLevelEffect;
+-(NSString *) getParagraphNameByIndex:(int)index;
 @end

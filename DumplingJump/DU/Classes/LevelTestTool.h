@@ -8,11 +8,13 @@
 
 #import "CCNode.h"
 #import "Common.h"
-@interface LevelTestTool : CCNode <UITextFieldDelegate>
+@interface LevelTestTool : CCNode <UIPickerViewDelegate, UIPickerViewDataSource>
 {
     UITextField *levelEditor;
     NSString *levelName;
     UIView *myView;
+    
+    UIPickerView *myPickerView;
 }
 +(id) shared;
 -(void) reload;

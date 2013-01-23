@@ -33,10 +33,11 @@
 //@property (nonatomic, retain) NSMutableArray *paragraphs;
 @property (nonatomic, retain) NSDictionary *paragraphsData;
 @property (nonatomic, retain) NSArray *paragraphsCombination;
+@property (nonatomic, retain) NSArray *paragraphNames; //Array used to save paragraph (level) names
 @end
 
 @implementation LevelManager
-@synthesize levelData = _levelData, generatedObjects = _generatedObjects, paragraphsData = _paragraphsData, paragraphsCombination = _paragraphsCombination;
+@synthesize levelData = _levelData, generatedObjects = _generatedObjects, paragraphsData = _paragraphsData, paragraphsCombination = _paragraphsCombination, paragraphNames = _paragraphNames;
 
 +(id) shared
 {
@@ -59,6 +60,9 @@
         //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
         
+        //Save all the paragraph names
+        self.paragraphNames = [self.paragraphsData allKeys];
+        
         //Load combination data from Editor_level.xml
         self.paragraphsCombination = [[XMLHelper shared] loadParagraphCombinationWithXML:@"Editor_level"];
         
@@ -69,29 +73,6 @@
     
     return self;
 }
-
-/*
--(void) loadParagraphs
-{
-    //load paragraph from xml file
-    int i = 1;
-    NSString *levelContent = nil;
-    do {
-        for (int j=1; j<=2; j++)
-        {
-            DLog(@"Loading: %d_%d", i, j);
-            Paragraph *level = [[XMLHelper shared] loadParagraphWithXML:[NSString stringWithFormat:@"level%d_%d",i, j]];
-            DLog(@"Paragraph loaded + %d_%d", i, j);
-            [[self.paragraphs objectAtIndex:(j-1)] addObject:level];
-        }
-        
-        i++;
-        levelContent = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"level%d_1",i] ofType:@"xml"]  encoding:NSUTF8StringEncoding error:nil];
-    } while (levelContent != nil);
-    
-    //DLog(@"Paragraph loaded + %d", (i-1));
-}
-*/
 
 -(id) levelData
 {
@@ -193,8 +174,7 @@
 
 -(int) paragraphsCount
 {
-    //return [[self.paragraphs objectAtIndex:0] count];
-    return 0;
+    return [self.paragraphsData count];
 }
 
 -(void) dropNextAddthing
@@ -307,6 +287,21 @@
     }
     [array release];
 }
+
+-(NSString *) getParagraphNameByIndex:(int)index
+{
+    //DLog(@"%@", self.paragraphNames);
+    
+    if (index < [self.paragraphNames count])
+    {
+        return [self.paragraphNames objectAtIndex:index];
+    }
+    else
+    {
+        return @"Wrong index";
+    }
+}
+
 - (void)dealloc
 {
     if ([phasePharagraphs retainCount] > 0)
@@ -317,6 +312,7 @@
     [_paragraphsData release];
     [_paragraphsCombination release];
     [_generatedObjects release];
+    [_paragraphNames release];
     [super dealloc];
 }
 @end

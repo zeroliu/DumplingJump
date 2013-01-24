@@ -308,6 +308,7 @@
     {
         [child pauseSchedulerAndActions];
     }
+    [[GameUI shared] pauseUI];
 }
 
 -(void) resumeGame
@@ -319,6 +320,7 @@
     }
     [self resumeSchedulerAndActions];
     [BATCHNODE resumeSchedulerAndActions];
+    [[GameUI shared] resumeUI];
 }
 
 -(void) draw

@@ -475,6 +475,18 @@
         //reset to the idle state
         [self idle];
         
+        //change state to reborn
+        self.heroState = HEROREBORN;
+        
+        id animation = [ANIMATIONMANAGER getAnimationWithName:@"H_happy"];
+        
+        if(animation != nil)
+        {
+            [self.sprite stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [self.sprite runAction:animAction];
+        }
+        
         //remove collision detection
         [self changeCollisionDetection:C_NOTHING];
         
@@ -491,10 +503,13 @@
         [[BackgroundController shared] speedUpWithScale:3 interval:1.5];
         
         //move hero to the center of the screen
-        id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,450)];
-        id ease = [CCEaseSineOut actionWithAction:moveTo];
+        id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,280)];
+        id ease = [CCEaseExponentialOut actionWithAction:moveTo];
+        id moveTo2 = [CCMoveTo actionWithDuration:0.5 position:ccp(150,300)];
+        id ease2 = [CCEaseSineInOut actionWithAction:moveTo2];
+        
         id endingFunc = [CCCallFunc actionWithTarget:self selector:@selector(rebornEnding)];
-        [self.sprite runAction:[CCSequence actions:ease, endingFunc, nil]];
+        [self.sprite runAction:[CCSequence actions:ease, ease2, endingFunc, nil]];
     }
 }
 
@@ -505,6 +520,7 @@
     self.body->SetTransform(b2Vec2(self.sprite.position.x/RATIO, self.sprite.position.y/RATIO), 0);
     
     //reset physics simulation
+    self.body->SetLinearVelocity(b2Vec2(0,0));
     self.body->SetActive(true);
     self.body->SetAwake(true);
     
@@ -514,6 +530,9 @@
     
     //remove rebornEffect
     [self rebornFinish];
+    
+    //become idle again
+    [self idle];
 }
 
 -(void) rocketPowerup

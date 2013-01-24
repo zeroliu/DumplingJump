@@ -90,6 +90,7 @@
 #pragma mark -
 #pragma mark Hero animations/Hero state
 #define HEROIDLE @"H_hero"
+#define HEROREBORN @"H_heroReborn"
 
 #pragma mark -
 #pragma mark Other animations

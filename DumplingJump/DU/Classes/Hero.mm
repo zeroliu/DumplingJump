@@ -453,6 +453,8 @@
 -(void) rebornFinish
 {
     [self unschedule:@selector(rebornFinish)];
+    
+    //remove wing
     [[self.sprite getChildByTag:REBORN_POWERUP_TAG] removeFromParentAndCleanup:NO];
 
     //Play reborn finish animation
@@ -505,11 +507,17 @@
         //move hero to the center of the screen
         id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,280)];
         id ease = [CCEaseExponentialOut actionWithAction:moveTo];
+        
         id moveTo2 = [CCMoveTo actionWithDuration:0.5 position:ccp(150,300)];
         id ease2 = [CCEaseSineInOut actionWithAction:moveTo2];
         
+        //wing fade out animation
+        id wingFadeoutAnim = [CCCallBlock actionWithBlock:^{
+            [[self.sprite getChildByTag:REBORN_POWERUP_TAG] runAction:[CCFadeOut actionWithDuration:0.5]];
+        }];
+        
         id endingFunc = [CCCallFunc actionWithTarget:self selector:@selector(rebornEnding)];
-        [self.sprite runAction:[CCSequence actions:ease, ease2, endingFunc, nil]];
+        [self.sprite runAction:[CCSequence actions:ease, wingFadeoutAnim, ease2, endingFunc, nil]];
     }
 }
 
@@ -539,23 +547,25 @@
 {
     float scale = self.sprite.scale;
     
-    //Become idle except for reviving
-    [self idle];
+    if (self.heroState != HEROREBORN)
+    {
+        //Become idle except for reviving
+        [self idle];
+    
+        //Hero becomes happy
+        id animation = [ANIMATIONMANAGER getAnimationWithName:@"H_happy"];
+        if(animation != nil)
+        {
+            [self.sprite stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [self.sprite runAction:animAction];
+            self.heroState = @"happy";
+        }
+    }
     //Make it not collide with any objects except for the board
     [self changeCollisionDetection:C_BOARD];
     //Scale up Hero
     id scaleUp = [CCScaleTo actionWithDuration:0.3 scale:1.3*scale];
-    
-    //Hero becomes happy
-    id animation = [ANIMATIONMANAGER getAnimationWithName:@"H_happy"];
-    if(animation != nil)
-    {
-        [self.sprite stopAllActions];
-        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
-        [self.sprite runAction:animAction];
-        self.heroState = @"happy";
-    }
-    
     //Set z value
     self.sprite.zOrder = Z_Hero + 10;
     //Countdown certain amount of time

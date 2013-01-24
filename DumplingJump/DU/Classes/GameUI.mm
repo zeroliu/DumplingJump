@@ -19,9 +19,17 @@
     id showMessageAction;
     BOOL _isShowingRebornButton;
 }
+
+//Dictionary used to match the button names with button green bars
+@property (nonatomic, retain) NSMutableDictionary *buttonsDictionary;
+//Dictionary used to save button status
+@property (nonatomic, retain) NSMutableDictionary *buttonstatusDictionary;
+
 @end
 
 @implementation GameUI
+@synthesize buttonsDictionary = _buttonsDictionary, buttonstatusDictionary = _buttonstatusDictionary;
+
 +(id) shared
 {
     static id shared = nil;
@@ -43,6 +51,48 @@
     return self;
 }
 
+- (void) createUI
+{
+    [super createUI];
+    [self initButtonDictionary];
+}
+
+-(void) initButtonDictionary
+{
+    if (_buttonsDictionary != nil)
+    {
+        [_buttonsDictionary release];
+        _buttonsDictionary = nil;
+    }
+    
+    if (_buttonstatusDictionary != nil)
+    {
+        [_buttonstatusDictionary release];
+        _buttonstatusDictionary = nil;
+    }
+    
+    _buttonsDictionary = [[NSMutableDictionary alloc] init];
+    _buttonstatusDictionary = [[NSMutableDictionary alloc] init];
+    [_buttonsDictionary setValue:bombBar forKey:@"bomb"];
+    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"bomb"];
+    [_buttonsDictionary setValue:magnetBar forKey:@"magnet"];
+    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"magnet"];
+}
+
+-(void) pauseUI
+{
+    for (NSString *buttonName in [self.buttonsDictionary allKeys])
+    {
+        [[self.buttonsDictionary objectForKey:buttonName] pauseSchedulerAndActions];
+    }
+}
+-(void) resumeUI
+{
+    for (NSString *buttonName in [self.buttonsDictionary allKeys])
+    {
+        [[self.buttonsDictionary objectForKey:buttonName] resumeSchedulerAndActions];
+    }
+}
 -(void) pauseGame:(id)sender
 {
     [GAMELAYER pauseGame];
@@ -52,29 +102,21 @@
 //Get called by cocosbuilder
 -(void) bombClicked:(id)sender
 {
-    //bomb, will blow everything away
-    [[[HeroManager shared] getHero] bombPowerup];
-}
-
--(void) testItem2:(id)sender
-{
-    //reborn, count down a certain amount of time. revive when you die
-    [[[HeroManager shared] getHero] rebornPowerup];
-    //[[LevelManager shared] switchToNextLevelEffect];
+    if ([[self.buttonstatusDictionary objectForKey:@"bomb"] boolValue])
+    {
+        //bomb, will blow everything away
+        [[[HeroManager shared] getHero] bombPowerup];
+        [self cooldownButtonBarWithName:@"bomb"];
+    }
 }
 
 -(void) magnetClicked:(id)sender
 {
-    [[[HeroManager shared] getHero] absorbPowerup];
-    /*
-    //Rocket, dash with the board for a certain amount of time
-    [[[HeroManager shared] getHero] rocketPowerup];
-    [[[BoardManager shared] getBoard] rocketPowerup];
-    //Speed up scrolling speed
-    [[BackgroundController shared] speedUpWithScale:6 interval:[[POWERUP_DATA objectForKey:@"rocket"] floatValue]];
-    
-    //Increase distance calculation speed
-     */
+    if ([[self.buttonstatusDictionary objectForKey:@"magnet"] boolValue])
+    {
+        [[[HeroManager shared] getHero] absorbPowerup];
+        [self cooldownButtonBarWithName:@"magnet"];
+    }
 }
 
 -(void) rebornClicked:(id)sender
@@ -146,10 +188,7 @@
 
 -(void) showRebornButton
 {
-    DLog(@"Showing reborn button");
-  
     //TODO: Disable all buttons
-    
     [UIMask stopAllActions];
     [rebornButtonHolder stopAllActions];
     [rebornBar stopAllActions];
@@ -196,5 +235,49 @@
     [[[Hub shared] gameLayer] gameOver];
 }
 
+//Reset all the button bars to full
+-(void) resetAllButtonBar
+{
+    for (NSString *buttonName in [self.buttonsDictionary allKeys])
+    {
+        [self resetButtonBarWithName:buttonName];
+    }
+}
+
+//Reset a certain button bar to full
+-(void) resetButtonBarWithName:(NSString *)buttonName
+{
+    [[self.buttonsDictionary objectForKey:buttonName] setScale:1];
+    [self.buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:buttonName];
+}
+
+//Cool down a button
+-(void) cooldownButtonBarWithName:(NSString *)buttonName
+{
+    CCSprite *myButton = [self.buttonsDictionary objectForKey:buttonName];
+    
+    //Change button status
+    [self.buttonstatusDictionary setValue:[NSNumber numberWithBool:NO] forKey:buttonName];
+    //Change scale to 0
+    [myButton setScaleY:0];
+    //Slowly increase the scale to 1
+    //TODO: change time to button specific time
+    id cooldownAnimation = [CCScaleTo actionWithDuration:5 scale:1];
+    //when finish, reset the button
+    id cooldownFinishAction = [CCCallBlock actionWithBlock:^{
+        [self resetButtonBarWithName:buttonName];
+    }];
+    
+    [myButton runAction:[CCSequence actions:cooldownAnimation, cooldownFinishAction, nil]];
+}
+
+- (void)dealloc
+{
+    [_buttonsDictionary release];
+    _buttonsDictionary = nil;
+    [_buttonstatusDictionary release];
+    _buttonstatusDictionary = nil;
+    [super dealloc];
+}
 
 @end

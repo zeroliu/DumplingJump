@@ -13,11 +13,13 @@
     CCLabelTTF *UIStarText;
     CCNode *clearMessage;
     CCLabelTTF *distanceNum;
-    
+    CCSprite *bombBar;
+    CCSprite *magnetBar;
     CCSprite *UIMask;
     CCSprite *rebornBar;
     CCNode *rebornButtonHolder;
 }
+
 +(id) shared;
 -(void) fadeOut;
 -(void) resetUI;
@@ -25,4 +27,12 @@
 -(void) updateStar:(int)starNum;
 -(void) showStageClearMessageWithDistance;
 -(void) showRebornButton;
+-(void) pauseUI;
+-(void) resumeUI;
+//Reset all the button bars to full
+-(void) resetAllButtonBar;
+//Reset a certain button bar to full
+-(void) resetButtonBarWithName:(NSString *)buttonName;
+//Cool down a button
+-(void) cooldownButtonBarWithName:(NSString *)buttonName;
 @end

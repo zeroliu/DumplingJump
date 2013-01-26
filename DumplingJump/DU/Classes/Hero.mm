@@ -238,10 +238,10 @@
         for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
         {
             f->SetFriction(0.3f);
-            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
-            {
-                contactEdge->contact->ResetFriction();
-            }
+        }
+        for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+        {
+            contactEdge->contact->ResetFriction();
         }
         
         directionForce = b2Vec2(0,0);
@@ -320,11 +320,17 @@
 
 -(void) freeze
 {
-    self.body->GetFixtureList()->SetFriction(0);
+//    self.body->GetFixtureList()->SetFriction(0);
+    for ( b2Fixture* bodyFixture = self.body->GetFixtureList(); bodyFixture; bodyFixture = bodyFixture->GetNext())
+    {
+        bodyFixture->SetFriction(0);
+    }
+    
     for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
     {
         contactEdge->contact->ResetFriction();
     }
+//    for ( b2Shape* shape = self.body->get)
     adjustJump = 0;
     adjustMove = 0;
     DLog(@"freeze");
@@ -505,10 +511,10 @@
         [[BackgroundController shared] speedUpWithScale:3 interval:1.5];
         
         //move hero to the center of the screen
-        id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,280)];
+        id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,350)];
         id ease = [CCEaseExponentialOut actionWithAction:moveTo];
         
-        id moveTo2 = [CCMoveTo actionWithDuration:0.5 position:ccp(150,300)];
+        id moveTo2 = [CCMoveTo actionWithDuration:0.3 position:ccp(150,360)];
         id ease2 = [CCEaseSineInOut actionWithAction:moveTo2];
         
         //wing fade out animation

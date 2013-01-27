@@ -381,8 +381,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -2186,13 +2184,13 @@
 				<array>
 					<dict>
 						<key>baseClass</key>
-						<string>CCControlButton</string>
+						<string>CCSprite</string>
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
 						<string></string>
 						<key>displayName</key>
-						<string>rebornButton</string>
+						<string>frame</string>
 						<key>memberVarAssignmentName</key>
 						<string></string>
 						<key>memberVarAssignmentType</key>
@@ -2217,9 +2215,69 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1.5</real>
-									<real>1.5</real>
-									<true/>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>displayFrame</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_play_revive_frame.png</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCControlButton</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>reviveBox</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2296,8 +2354,8 @@
 								<string>Size</string>
 								<key>value</key>
 								<array>
-									<real>35</real>
-									<real>33</real>
+									<real>75</real>
+									<real>81</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2307,7 +2365,7 @@
 								<key>type</key>
 								<string>Check</string>
 								<key>value</key>
-								<false/>
+								<true/>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -2316,8 +2374,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI-2.plist</string>
-									<string>UI_item_reborn.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_play_revive_box.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2339,8 +2397,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI-2.plist</string>
-									<string>UI_item_reborn.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_play_revive_box.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2362,8 +2420,8 @@
 								<string>SpriteFrame</string>
 								<key>value</key>
 								<array>
-									<string>Resources/spriteSheets/sheetUI-2.plist</string>
-									<string>UI_item_reborn.png</string>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_play_revive_box.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -2388,7 +2446,79 @@
 						<key>customClass</key>
 						<string></string>
 						<key>displayName</key>
-						<string>rebornBar</string>
+						<string>characterIcon</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>0</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>4</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>displayFrame</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-2.plist</string>
+									<string>UI_item_reborn.png</string>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCSprite</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>bar</string>
 						<key>memberVarAssignmentName</key>
 						<string>rebornBar</string>
 						<key>memberVarAssignmentType</key>
@@ -2402,8 +2532,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>-70</real>
-									<real>-60</real>
+									<real>-27</real>
+									<real>-29</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2425,8 +2555,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>2</real>
-									<real>0.30000001192092896</real>
+									<real>1</real>
+									<real>1</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -2447,7 +2577,7 @@
 								<key>value</key>
 								<array>
 									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_play_item_box_green.png</string>
+									<string>UI_play_revive_time.png</string>
 								</array>
 							</dict>
 						</array>
@@ -2508,6 +2638,8 @@
 						<false/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -2619,7 +2751,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.7000000476837158</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

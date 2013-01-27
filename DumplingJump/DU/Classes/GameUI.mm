@@ -195,7 +195,7 @@
     
     //Reset button
     //TODO: need to change back to the real number
-    rebornBar.scaleX = 2;
+    rebornBar.scaleX = 1;
     
     //Mask fadein
     //id showMask = [CCFadeTo actionWithDuration:0.2 opacity:255];

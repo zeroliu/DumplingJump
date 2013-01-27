@@ -270,7 +270,7 @@
     [myButton setScaleY:0];
     //Slowly increase the scale to 1
     //TODO: change time to button specific time
-    id cooldownAnimation = [CCScaleTo actionWithDuration:5 scale:1];
+    id cooldownAnimation = [CCScaleTo actionWithDuration:20 scale:1];
     //when finish, play finish animation
     id finishAnimation = [CCCallBlock actionWithBlock:^{
         CCSprite *whiteEffect = (CCSprite *)[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:2];

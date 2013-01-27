@@ -18,8 +18,6 @@
 	</level>
 	<level>
 		<time>3</time>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>4</time>
@@ -28,7 +26,7 @@
 		<time>5</time>
 		<slot1>ARROW</slot1>
 		<slot3>ARROW</slot3>
-		<slot5>ARROW</slot5>
+		<slot4>ARROW</slot4>
 		<slot7>ARROW</slot7>
 		<slot9>ARROW</slot9>
 	</level>
@@ -48,13 +46,13 @@
 		<time>9</time>
 		<slot1>ARROW</slot1>
 		<slot3>ARROW</slot3>
-		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
 		<slot9>ARROW</slot9>
 	</level>
 	<level>
 		<time>10</time>
-		<slot8>SHELTER</slot8>
+		<slot7>SHELTER</slot7>
 	</level>
 	<level>
 		<time>11</time>
@@ -85,13 +83,13 @@
 	</level>
 	<level>
 		<time>17</time>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>18</time>
 	</level>
 	<level>
 		<time>19</time>
-		<slot7>POWDER</slot7>
 	</level>
 	<level>
 		<time>20</time>
@@ -115,10 +113,10 @@
 	</level>
 	<level>
 		<time>24</time>
+		<slot7>POWDER</slot7>
 	</level>
 	<level>
 		<time>25</time>
-		<slot6>POWDER</slot6>
 	</level>
 	<level>
 		<time>26</time>
@@ -147,7 +145,7 @@
 	</level>
 	<level>
 		<time>31</time>
-		<slot1>MAGIC</slot1>
+		<slot3>MAGIC</slot3>
 	</level>
 	<level>
 		<time>32</time>

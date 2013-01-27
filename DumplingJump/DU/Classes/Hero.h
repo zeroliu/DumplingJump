@@ -23,6 +23,7 @@
 -(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue gravityValue:(float)theGravity;
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) updateHeroPowerupCountDown:(ccTime)dt;
+-(void) updateHeroChildrenPosition;
 -(void) jump;
 -(void) idle;
 //Called from AddthingObject

@@ -83,7 +83,7 @@
     if (self.hero == nil) return;
     
     [self.hero.sprite stopAllActions];
-    
+    //self.hero.sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_1.png", animName]];
     id animation = [ANIMATIONMANAGER getAnimationWithName:animName];
     
     if(animation != nil)

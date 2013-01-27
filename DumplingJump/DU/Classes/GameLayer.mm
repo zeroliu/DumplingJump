@@ -227,6 +227,7 @@
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
+        [[[HeroManager shared] getHero] updateHeroChildrenPosition];
         self.model.distance += DISTANCE_UNIT * 10;
         [[GameUI shared] updateDistance:(int)self.model.distance];
         [[LevelManager shared] dropNextAddthing];

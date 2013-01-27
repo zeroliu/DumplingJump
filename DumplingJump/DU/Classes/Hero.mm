@@ -23,6 +23,7 @@
     float origHeight;
     BOOL isReborning;
     BOOL isAbsorbing;
+    CGSize heroSize;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -181,6 +182,26 @@
     }
 }
 
+//Dirty function
+-(void) updateHeroChildrenPosition
+{
+    if (heroSize.width != self.sprite.contentSize.width || heroSize.height != self.sprite.contentSize.height)
+    {
+        heroSize = self.sprite.contentSize;
+        for (CCSprite *child in [self.sprite children])
+        {
+            if (child.tag == REBORN_POWERUP_TAG)
+            {
+                child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2+3);
+            } else
+            {
+                child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+            }
+            
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark Movement
 
@@ -231,6 +252,7 @@
         if(animation != nil)
         {
             [self.sprite stopAllActions];
+            //self.sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_1.png", HEROIDLE]];
             id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
             [self.sprite runAction:animAction];
         }
@@ -344,14 +366,11 @@
 -(void) shelter
 {
     DLog(@"shelter");
-    /*
-    for (CCSprite *child in [self.sprite children])
-    {
-        NSLog(@"Begin Shelter:%g,%g", self.sprite.boundingBox.size.width/2,self.sprite.boundingBox.size.height/2);
-        child.position = ccp(self.sprite.boundingBox.size.width/2,self.sprite.boundingBox.size.height/2);
-    }
-     */
+    
+    
+    
     //shellFixture = self.body->CreateFixture(&shellFixtureDef);
+    
 }
 
 -(void) magic:(NSArray *)value;

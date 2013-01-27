@@ -13,8 +13,8 @@
     CCLabelTTF *UIStarText;
     CCNode *clearMessage;
     CCLabelTTF *distanceNum;
-    CCSprite *bombBar;
-    CCSprite *magnetBar;
+    CCNode *bombButtonHolder;
+    CCNode *magnetButtonHolder;
     CCSprite *UIMask;
     CCSprite *rebornBar;
     CCNode *rebornButtonHolder;

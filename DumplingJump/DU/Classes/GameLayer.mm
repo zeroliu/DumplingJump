@@ -349,7 +349,8 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
-    [self.batchNode release];
+    [_model release];
+    [_batchNode release];
 	[super dealloc];
 }
 @end

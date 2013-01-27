@@ -483,7 +483,8 @@
     [[self.sprite getChildByTag:REBORN_POWERUP_TAG] removeFromParentAndCleanup:NO];
 
     //Play reborn finish animation
-    [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];    self.canReborn = NO;
+    [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
+    self.canReborn = NO;
 }
 
 -(void) reborn
@@ -754,7 +755,7 @@
 -(void) beforeDie
 {
     //TODO: detect if has revive
-    if (1)
+    if ([[POWERUP_DATA objectForKey:@"reborn"] intValue] > 0)
     {
         //Pause game
         [[[Hub shared] gameLayer] pauseGame];

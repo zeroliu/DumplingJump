@@ -122,6 +122,10 @@
 -(void) rebornClicked:(id)sender
 {
     DLog(@"reborn button clicked");
+    
+    int rebornTime = [[POWERUP_DATA objectForKey:@"reborn"] intValue];
+    [POWERUP_DATA setObject:[NSNumber numberWithInt:(rebornTime - 1)] forKey:@"reborn"];
+    
     [self hideRebornButton];
     [[[Hub shared] gameLayer] resumeGame];
     [[[HeroManager shared] getHero] reborn];
@@ -193,6 +197,10 @@
     [rebornButtonHolder stopAllActions];
     [rebornBar stopAllActions];
     
+    //Update reborn quantity number
+    
+    [rebornQuantity setString:[NSString stringWithFormat:@"%d",[[POWERUP_DATA objectForKey:@"reborn"] intValue]]];
+//    
     //Reset button
     //TODO: need to change back to the real number
     rebornBar.scaleX = 1;

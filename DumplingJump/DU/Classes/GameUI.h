@@ -18,6 +18,7 @@
     CCSprite *UIMask;
     CCSprite *rebornBar;
     CCNode *rebornButtonHolder;
+    CCLabelTTF *rebornQuantity;
 }
 
 +(id) shared;

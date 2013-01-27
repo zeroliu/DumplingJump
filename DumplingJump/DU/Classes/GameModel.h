@@ -17,7 +17,7 @@
 @property (nonatomic, assign) float distance;
 @property (nonatomic, assign) float star;
 
-@property (nonatomic, assign) NSMutableDictionary *powerUpData;
+@property (nonatomic, retain) NSMutableDictionary *powerUpData;
 
 -(void) loadPowerUpLevelsData;
 @end

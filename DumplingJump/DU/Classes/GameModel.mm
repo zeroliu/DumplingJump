@@ -24,7 +24,7 @@
     
     //TODO: load power up from plist file
     [_powerUpData setObject:[NSNumber numberWithFloat:1] forKey:@"bomb"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:1] forKey:@"reborn"];
+    [_powerUpData setObject:[NSNumber numberWithFloat:3] forKey:@"reborn"];
     [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"rocket"];
     [_powerUpData setObject:[NSNumber numberWithFloat:20] forKey:@"absorb"];
 }

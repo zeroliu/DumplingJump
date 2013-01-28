@@ -34,7 +34,7 @@
     bgLoaded = false;
     [self.model addBackgroundWithFileName:MAZE bgLayers:
      new BgLayer(1, 0, 120, @"CA_background_1.png"),
-     new BgLayer(2, 13, 100, @"CA_background_2.png"),
+     new BgLayer(2, 5, 100, @"CA_background_2.png"),
      new BgLayer(3, 10, 60, @"CA_background_3.png"),
      nil
      ];

@@ -660,6 +660,8 @@
 		7FF5E5D8163517E60018B085 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5CF163517E60018B085 /* DDXMLDocument.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7FF5E5D9163517E60018B085 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5D1163517E60018B085 /* DDXMLElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7FF5E5DA163517E60018B085 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5D3163517E60018B085 /* DDXMLNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7FF645C816B5D06A00CF7E5C /* WorldData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF645C716B5D06A00CF7E5C /* WorldData.m */; };
+		7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF645CC16B5D1C500CF7E5C /* worldData.plist */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
@@ -1448,7 +1450,6 @@
 		7F70110015AFF0D900495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toBeDeleted; path = ../fonts/toBeDeleted; sourceTree = "<group>"; };
 		7F70110615AFF11400495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F70110815AFF11B00495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
-		7F70110C15AFF12600495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
 		7F81FC101605936A008AF71F /* DUEffectObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUEffectObject.h; sourceTree = "<group>"; };
 		7F81FC111605936A008AF71F /* DUEffectObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUEffectObject.mm; sourceTree = "<group>"; };
 		7F86CD9A162D26EC00AB1024 /* HeroTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroTestTool.h; sourceTree = "<group>"; };
@@ -1627,6 +1628,9 @@
 		7FF5E5D3163517E60018B085 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
 		7FF5E5D5163517E60018B085 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		7FF5E5DB16351A4D0018B085 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		7FF645C616B5D06A00CF7E5C /* WorldData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldData.h; sourceTree = "<group>"; };
+		7FF645C716B5D06A00CF7E5C /* WorldData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldData.m; sourceTree = "<group>"; };
+		7FF645CC16B5D1C500CF7E5C /* worldData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worldData.plist; sourceTree = "<group>"; };
 		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
@@ -2784,6 +2788,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7FF645C416B5D05300CF7E5C /* Data */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F32887F1662D87800DF86FC /* UI */,
 				7F1632E6162B831E00C132B1 /* Debug */,
@@ -2805,6 +2810,7 @@
 			isa = PBXGroup;
 			children = (
 				7F8C38AA169B1A1100F2E57B /* xmls */,
+				7FF645C916B5D19E00CF7E5C /* plists */,
 				7F25309F167868C0005138A1 /* spectialEffect */,
 				7FEA39EC165A10D3005350F2 /* UILayouts */,
 				7F7010F415AFEFFE00495B10 /* fonts */,
@@ -2813,7 +2819,6 @@
 				7F7010F715AFEFFE00495B10 /* particles */,
 				7F7010F815AFEFFE00495B10 /* sounds */,
 				7F7010F915AFEFFE00495B10 /* spriteSheets */,
-				7F7010FA15AFEFFE00495B10 /* texts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -2921,14 +2926,6 @@
 				7FD75DE715BB8F620071E341 /* sheetObjects.png */,
 			);
 			path = spriteSheets;
-			sourceTree = "<group>";
-		};
-		7F7010FA15AFEFFE00495B10 /* texts */ = {
-			isa = PBXGroup;
-			children = (
-				7F70110C15AFF12600495B10 /* toBeDeleted */,
-			);
-			path = texts;
 			sourceTree = "<group>";
 		};
 		7F7010FF15AFF03C00495B10 /* Apple */ = {
@@ -3309,6 +3306,23 @@
 				7FF5E5D5163517E60018B085 /* DDXMLPrivate.h */,
 			);
 			path = Private;
+			sourceTree = "<group>";
+		};
+		7FF645C416B5D05300CF7E5C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7FF645C616B5D06A00CF7E5C /* WorldData.h */,
+				7FF645C716B5D06A00CF7E5C /* WorldData.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		7FF645C916B5D19E00CF7E5C /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				7FF645CC16B5D1C500CF7E5C /* worldData.plist */,
+			);
+			path = plists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3774,6 +3788,7 @@
 				7F3D725D16AB522A008025CA /* sheetUI-3-hd.png in Resources */,
 				7F3D725E16AB522A008025CA /* sheetUI-3.plist in Resources */,
 				7F3D725F16AB522A008025CA /* sheetUI-3.png in Resources */,
+				7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4037,6 +4052,7 @@
 				7FB56EC31677276600C87AAA /* EquipmentCategoryCell.m in Sources */,
 				7FB56EC616772D1A00C87AAA /* EquipmentLockedCell.m in Sources */,
 				7F2533341678706E005138A1 /* DUParticleManager.mm in Sources */,
+				7FF645C816B5D06A00CF7E5C /* WorldData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

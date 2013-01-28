@@ -8,12 +8,29 @@
 
 #import "GameModel.h"
 
+@interface GameModel()
+
+@end
+
 @implementation GameModel
 @synthesize currentLevel = _currentLevel;
 @synthesize state = _state;
 @synthesize distance = _distance;
 
-@synthesize powerUpData = _powerUpData;
+@synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed;
+
+-(id) init
+{
+    if (self = [super init])
+    {
+        _gameSpeed = 1;
+        _gameSpeedIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedIncreaseUnit"] floatValue];
+        _gameSpeedMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedMax"] floatValue];
+        _objectInitialSpeed = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"objectInitialSpeed"] floatValue];
+    }
+    
+    return self;
+}
 
 -(void) loadPowerUpLevelsData
 {
@@ -27,6 +44,20 @@
     [_powerUpData setObject:[NSNumber numberWithFloat:3] forKey:@"reborn"];
     [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"rocket"];
     [_powerUpData setObject:[NSNumber numberWithFloat:20] forKey:@"absorb"];
+}
+
+-(void) updateGameSpeed
+{
+    if (_gameSpeed < _gameSpeedMax)
+    {
+        _gameSpeed = MIN(_gameSpeed * (1+_gameSpeedIncreaseUnit), _gameSpeedMax);
+        //DLog(@"game speed: %f", _gameSpeed);
+    }
+}
+
+-(void) resetGameSpeed
+{
+    _gameSpeed = 1;
 }
 
 - (void)dealloc

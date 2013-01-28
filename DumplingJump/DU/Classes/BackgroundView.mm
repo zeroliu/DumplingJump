@@ -5,14 +5,19 @@
 //  Created by LIU Xiyuan on 12-8-9.
 //  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
-#define SCROLL_SPEED 0.3
-#define dy -0.3
 #define W 320
 #define H 480
 
 #import "BackgroundView.h"
 #import "BackgroundController.h"
 #import "HeroManager.h"
+#import "GameModel.h"
+
+@interface BackgroundView()
+{
+    float dy;
+}
+@end
 
 @implementation BackgroundView
 @synthesize bgBatchNode = _bgBatchNode, scrollSpeedScale = _scrollSpeedScale;
@@ -22,6 +27,7 @@
     if (self = [super init])
     {
         _scrollSpeedScale = 1;
+        dy = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scrollSpeed"] floatValue];
     }
     
     return self;
@@ -61,7 +67,7 @@
         BgLayer myLayer;
         [anObject getValue:&myLayer];
         
-        float y = dy* _scrollSpeedScale * (myLayer.speedScale + ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y * ((120-myLayer.depth))/120);
+        float y = dy * GAMEMODEL.gameSpeed * _scrollSpeedScale * (myLayer.speedScale + ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y * ((120-myLayer.depth))/120);
         
         myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,y));
         myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,y));

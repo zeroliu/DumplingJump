@@ -172,6 +172,7 @@
     [ReactionManager shared];
     [EffectManager shared];
     [LevelManager shared];
+    [WorldData shared];
 }
 
 -(void) loadFrontendData
@@ -228,10 +229,11 @@
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];
-        self.model.distance += DISTANCE_UNIT * 10;
+        self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
         [[GameUI shared] updateDistance:(int)self.model.distance];
         [[LevelManager shared] dropNextAddthing];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
+        [self.model updateGameSpeed];
     }
 }
 
@@ -295,6 +297,9 @@
     
     //Start loading level
     [[LevelManager shared] loadCurrentParagraph];
+    
+    //Reset game speed
+    [self.model resetGameSpeed];
     
     //Resume game
     [self resumeGame];

@@ -8,7 +8,6 @@
 #define ANIMATION_DELAY_INBETWEEN 0.1f
 #define SLOTS_NUM 9
 #define STAR_Y_INTERVAL 40
-#define DISTANCE_UNIT 0.015
 #define SCALE_MULTIPLIER 1.33f
 #define MASS_MULTIPLIER 6.0f
 #define SHOCK_PRESSURE 200000
@@ -117,6 +116,7 @@
 #define HEROMANAGER [HeroManager shared]
 #define EFFECTMANAGER [EffectManager shared]
 #define POWERUP_DATA ((GameLayer *) GAMELAYER).model.powerUpData
+#define GAMEMODEL ((GameModel *)((GameLayer *) GAMELAYER).model)
 
 @interface Constants : NSObject
 

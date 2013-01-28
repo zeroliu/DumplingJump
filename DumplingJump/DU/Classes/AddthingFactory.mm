@@ -9,6 +9,7 @@
 #import "AddthingFactory.h"
 #import "AddthingObjectData.h"
 #import "AddthingObject.h"
+#import "GameModel.h"
 
 @interface AddthingFactory()
 
@@ -92,6 +93,8 @@
         objectBody->CreateFixture(&objectFixtureDef);
         
         objectBody->SetGravityScale((selectedObject.gravity)/100.0f);
+        
+        objectBody->SetLinearVelocity(b2Vec2(0,-GAMEMODEL.objectInitialSpeed*(GAMEMODEL.gameSpeed-1)/GAMEMODEL.gameSpeedMax));
         
         b2MassData massData;
         massData.center = objectBody->GetLocalCenter();

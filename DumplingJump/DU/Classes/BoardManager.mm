@@ -1,12 +1,12 @@
 #import "BoardManager.h"
 #import "DUObjectsDictionary.h"
 
-#define FREQ_L 1.1f
-#define FREQ_M 1.0f
-#define FREQ_R 1.1f
-#define DAMP_L 1.0f
-#define DAMP_M 1.0f
-#define DAMP_R 1.0f
+#define FREQ_L @"freqL"
+#define FREQ_M @"freqM"
+#define FREQ_R @"freqR"
+#define DAMP_L @"dampL"
+#define DAMP_M @"dampM"
+#define DAMP_R @"dampR"
 
 @interface BoardManager()
 @property (nonatomic, retain) DUPhysicsObject *board;
@@ -30,12 +30,13 @@
 {
     if (self = [super init])
     {
-        self.freq_l = FREQ_L;
-        self.freq_m = FREQ_M;
-        self.freq_r = FREQ_R;
-        self.damp_l = DAMP_L;
-        self.damp_m = DAMP_M;
-        self.damp_r = DAMP_R;
+        NSDictionary *boardData = [[WorldData shared] loadDataWithAttributName:@"board"];
+        self.freq_l = [[boardData objectForKey:FREQ_L] floatValue];
+        self.freq_m = [[boardData objectForKey:FREQ_M] floatValue];
+        self.freq_r = [[boardData objectForKey:FREQ_R] floatValue];
+        self.damp_l = [[boardData objectForKey:DAMP_L] floatValue];
+        self.damp_m = [[boardData objectForKey:DAMP_M] floatValue];
+        self.damp_r = [[boardData objectForKey:DAMP_R] floatValue];
         
         [ANIMATIONMANAGER registerAnimationForName:ANIM_BROOM];
         [ANIMATIONMANAGER registerAnimationForName:ANIM_BROOM_BROKEN];

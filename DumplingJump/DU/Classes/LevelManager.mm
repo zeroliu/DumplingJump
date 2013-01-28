@@ -16,6 +16,7 @@
 #import "Paragraph.h"
 #import "GameUI.h"
 #import "LevelTestTool.h"
+#import "GameModel.h"
 
 @interface LevelManager()
 {
@@ -181,7 +182,7 @@
 {
     if (currentParagraph != nil)
     {
-        sentenceCounter += DISTANCE_UNIT;
+        sentenceCounter += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
         if (sentenceTarget <= sentenceCounter)
         {
             //Trigger a sentence

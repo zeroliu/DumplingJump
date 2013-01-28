@@ -2,15 +2,15 @@
 #import "ReactionFunctions.h"
 #import "DUObjectsDictionary.h"
 
-#define HERO_RADIUS 13.0f
-#define HERO_MASS 15.0f
-#define HERO_I 1.0f
-#define HERO_FRIC 0
-#define HERO_MAX_VX 5.0f
-#define HERO_MAX_VY 26.0f
-#define HERO_ACC 1.56f
-#define HERO_JUMP 400.0f
-#define HERO_GRAVITY 150.0f
+#define HERO_RADIUS @"heroRadius"
+#define HERO_MASS @"heroMass"
+#define HERO_I @"heroI"
+#define HERO_FRIC @"heroFric"
+#define HERO_MAX_VX @"heroMaxVx"
+#define HERO_MAX_VY @"heroMaxVy"
+#define HERO_ACC @"heroAcc"
+#define HERO_JUMP @"heroJump"
+#define HERO_GRAVITY @"heroGravity"
 
 @implementation HeroManager
 @synthesize hero = _hero, heroRadius = _heroRadius, heroMass = _heroMass, heroI = _heroI, heroFric = _heroFric, heroMaxVx = _heroMaxVx, heroMaxVy = _heroMaxVy, heroAcc = _heroAcc, heroJump = _heroJump, heroGravity = _heroGravity;
@@ -33,15 +33,17 @@
 {
     if (self = [super init])
     {
-        self.heroRadius = HERO_RADIUS;
-        self.heroMass = HERO_MASS;
-        self.heroI = HERO_I;
-        self.heroFric = HERO_FRIC;
-        self.heroMaxVx = HERO_MAX_VX;
-        self.heroMaxVy = HERO_MAX_VY;
-        self.heroAcc = HERO_ACC;
-        self.heroJump = HERO_JUMP;
-        self.heroGravity = HERO_GRAVITY;
+        NSDictionary *heroInitData = [[WorldData shared] loadDataWithAttributName:@"hero"];
+        
+        self.heroRadius = [[heroInitData objectForKey:HERO_RADIUS] floatValue];
+        self.heroMass = [[heroInitData objectForKey:HERO_MASS] floatValue];
+        self.heroI = [[heroInitData objectForKey:HERO_I] floatValue];
+        self.heroFric = [[heroInitData objectForKey:HERO_FRIC] floatValue];
+        self.heroMaxVx = [[heroInitData objectForKey:HERO_MAX_VX] floatValue];
+        self.heroMaxVy = [[heroInitData objectForKey:HERO_MAX_VY] floatValue];
+        self.heroAcc = [[heroInitData objectForKey:HERO_ACC] floatValue];
+        self.heroJump = [[heroInitData objectForKey:HERO_JUMP] floatValue];
+        self.heroGravity = [[heroInitData objectForKey:HERO_GRAVITY] floatValue];
         [ANIMATIONMANAGER registerAnimationForName:HEROIDLE];
         [ANIMATIONMANAGER registerAnimationForName:@"H_happy"];
         [ANIMATIONMANAGER registerAnimationForName:@"E_item_reborn_start"];

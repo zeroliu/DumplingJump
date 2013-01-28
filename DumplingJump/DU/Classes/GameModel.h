@@ -16,8 +16,15 @@
 @property (nonatomic, assign) int state;
 @property (nonatomic, assign) float distance;
 @property (nonatomic, assign) float star;
+@property (nonatomic, readonly) float gameSpeed;
+@property (nonatomic, readonly) float gameSpeedIncreaseUnit;
+@property (nonatomic, readonly) float gameSpeedMax;
+@property (nonatomic, readonly) float objectInitialSpeed;
+
 
 @property (nonatomic, retain) NSMutableDictionary *powerUpData;
 
 -(void) loadPowerUpLevelsData;
+-(void) updateGameSpeed;
+-(void) resetGameSpeed;
 @end

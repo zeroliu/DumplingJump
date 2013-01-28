@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>common</key>
+	<dict>
+		<key>objectInitialSpeed</key>
+		<integer>15</integer>
+		<key>gameSpeedIncreaseUnit</key>
+		<real>0.0001</real>
+		<key>gameSpeedMax</key>
+		<integer>2</integer>
+		<key>scoreUnit</key>
+		<real>0.015</real>
+		<key>scrollSpeed</key>
+		<real>-0.5</real>
+		<key>distanceUnit</key>
+		<real>0.015</real>
+	</dict>
+	<key>board</key>
+	<dict>
+		<key>freqL</key>
+		<real>1.1</real>
+		<key>freqM</key>
+		<integer>1</integer>
+		<key>freqR</key>
+		<real>1.1</real>
+		<key>dampL</key>
+		<integer>1</integer>
+		<key>dampM</key>
+		<integer>1</integer>
+		<key>dampR</key>
+		<integer>1</integer>
+	</dict>
+	<key>hero</key>
+	<dict>
+		<key>heroRadius</key>
+		<integer>13</integer>
+		<key>heroMass</key>
+		<integer>15</integer>
+		<key>heroI</key>
+		<integer>1</integer>
+		<key>heroFric</key>
+		<integer>0</integer>
+		<key>heroMaxVx</key>
+		<integer>5</integer>
+		<key>heroMaxVy</key>
+		<integer>26</integer>
+		<key>heroAcc</key>
+		<real>1.56</real>
+		<key>heroJump</key>
+		<integer>400</integer>
+		<key>heroGravity</key>
+		<integer>150</integer>
+	</dict>
+</dict>
+</plist>

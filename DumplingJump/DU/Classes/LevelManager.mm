@@ -219,6 +219,9 @@
 
 -(void) jumpToNextLevel
 {
+    //update game speed
+    [GAMEMODEL updateGameSpeed];
+    
     //current paragraph finished
     currentParagraph = nil;
     

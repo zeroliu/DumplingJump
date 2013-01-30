@@ -60,15 +60,7 @@
 -(void) speedUpWithScale:(int)scale interval:(float)time
 {
     id speedScaleUp = [CCActionTween actionWithDuration:0.5 key:@"scrollSpeedScale" from:1 to:scale];
-//    self.view.scrollSpeedScale = scale;
     id delay = [CCDelayTime actionWithDuration:time];
-    /*
-    id backToNormal = [CCCallBlock actionWithBlock:^
-    {
-        self.view.scrollSpeedScale = 1;
-    }];
-    */
-    
     id speedScaleDown = [CCActionTween actionWithDuration:0.2 key:@"scrollSpeedScale" from:scale to:1];
     id sequence = [CCSequence actions:speedScaleUp, delay, speedScaleDown, nil];
     [self.view runAction:sequence];

@@ -233,7 +233,6 @@
         [[GameUI shared] updateDistance:(int)self.model.distance];
         [[LevelManager shared] dropNextAddthing];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
-        [self.model updateGameSpeed];
     }
 }
 

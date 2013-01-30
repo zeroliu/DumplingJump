@@ -50,7 +50,7 @@
 {
     if (_gameSpeed < _gameSpeedMax)
     {
-        _gameSpeed = MIN(_gameSpeed * (1+_gameSpeedIncreaseUnit), _gameSpeedMax);
+        _gameSpeed = MIN(_gameSpeed +_gameSpeedIncreaseUnit, _gameSpeedMax);
         //DLog(@"game speed: %f", _gameSpeed);
     }
 }

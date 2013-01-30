@@ -624,6 +624,7 @@
 		7FD8210215D87471003AFCB8 /* AddthingFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD8210115D87471003AFCB8 /* AddthingFactory.mm */; };
 		7FD9EBA9161ACBF800E36BB2 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010EB15AFEFFE00495B10 /* AppDelegate.mm */; };
 		7FDFD5AE15B6AE7A00F55257 /* HeroManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */; };
+		7FE0675616B9146900B7E93E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE0675516B9146900B7E93E /* Default@2x.png */; };
 		7FE2B0FF1671CF37009CB539 /* CCScrollPageControlView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FE2B0FE1671CF37009CB539 /* CCScrollPageControlView.mm */; };
 		7FEA39D1165A0AE1005350F2 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3996165A0AE1005350F2 /* CCBAnimationManager.m */; };
 		7FEA39D2165A0AE1005350F2 /* CCBKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA3998165A0AE1005350F2 /* CCBKeyframe.m */; };
@@ -1332,7 +1333,7 @@
 		7F3D725916AB522A008025CA /* sheetUI-3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-3-hd.png"; sourceTree = "<group>"; };
 		7F3D725A16AB522A008025CA /* sheetUI-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-3.plist"; sourceTree = "<group>"; };
 		7F3D725B16AB522A008025CA /* sheetUI-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-3.png"; sourceTree = "<group>"; };
-		7F41434D15AAC659002CFC9A /* DumplingJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DumplingJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F41434D15AAC659002CFC9A /* Castle Rider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Castle Rider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41435115AAC659002CFC9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F41435315AAC659002CFC9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		7F41435515AAC659002CFC9A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1555,6 +1556,7 @@
 		7FD8210115D87471003AFCB8 /* AddthingFactory.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddthingFactory.mm; sourceTree = "<group>"; };
 		7FDFD5AC15B6AE7A00F55257 /* HeroManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroManager.h; sourceTree = "<group>"; };
 		7FDFD5AD15B6AE7A00F55257 /* HeroManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HeroManager.mm; sourceTree = "<group>"; };
+		7FE0675516B9146900B7E93E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7FE2B0FD1671CF37009CB539 /* CCScrollPageControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollPageControlView.h; sourceTree = "<group>"; };
 		7FE2B0FE1671CF37009CB539 /* CCScrollPageControlView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCScrollPageControlView.mm; sourceTree = "<group>"; };
 		7FEA3995165A0AE1005350F2 /* CCBAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBAnimationManager.h; sourceTree = "<group>"; };
@@ -2494,6 +2496,7 @@
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
+				7FE0675516B9146900B7E93E /* Default@2x.png */,
 				7FF5E5DB16351A4D0018B085 /* libxml2.dylib */,
 				7F936B0B161AB08900620E6D /* Default-568h@2x.png */,
 				7F41436115AAC659002CFC9A /* DumplingJump */,
@@ -2503,7 +2506,7 @@
 		7F41434E15AAC659002CFC9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F41434D15AAC659002CFC9A /* DumplingJump.app */,
+				7F41434D15AAC659002CFC9A /* Castle Rider.app */,
 			);
 			name = Products;
 			path = ../..;
@@ -3345,9 +3348,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		7F41434C15AAC659002CFC9A /* DumplingJump */ = {
+		7F41434C15AAC659002CFC9A /* Castle Rider */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "DumplingJump" */;
+			buildConfigurationList = 7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "Castle Rider" */;
 			buildPhases = (
 				7F41434915AAC659002CFC9A /* Sources */,
 				7F41434A15AAC659002CFC9A /* Frameworks */,
@@ -3358,9 +3361,9 @@
 			dependencies = (
 				7FD5283C15B3F02000E50506 /* PBXTargetDependency */,
 			);
-			name = DumplingJump;
+			name = "Castle Rider";
 			productName = DumplingJump;
-			productReference = 7F41434D15AAC659002CFC9A /* DumplingJump.app */;
+			productReference = 7F41434D15AAC659002CFC9A /* Castle Rider.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3384,7 +3387,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7F41434C15AAC659002CFC9A /* DumplingJump */,
+				7F41434C15AAC659002CFC9A /* Castle Rider */,
 				7FD5283715B3EFC300E50506 /* TexturePacker */,
 			);
 		};
@@ -3789,6 +3792,7 @@
 				7F3D725E16AB522A008025CA /* sheetUI-3.plist in Resources */,
 				7F3D725F16AB522A008025CA /* sheetUI-3.png in Resources */,
 				7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */,
+				7FE0675616B9146900B7E93E /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4136,7 +4140,7 @@
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Castle Rider";
 				USER_HEADER_SEARCH_PATHS = "\"DumplingJump/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4146,6 +4150,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: XIYUAN LIU";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: XIYUAN LIU";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = DumplingJump/Prefix.pch;
@@ -4158,7 +4164,9 @@
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Castle Rider";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "\"DumplingJump/libs\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -4225,7 +4233,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "DumplingJump" */ = {
+		7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "Castle Rider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F41453B15AAC65D002CFC9A /* Debug */,

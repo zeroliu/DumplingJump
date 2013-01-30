@@ -14,6 +14,7 @@
 #import "LevelManager.h"
 #import "BackgroundController.h"
 #import "GameModel.h"
+
 @interface GameUI()
 {
     id showMessageAction;
@@ -83,20 +84,31 @@
 {
     for (NSString *buttonName in [self.buttonsDictionary allKeys])
     {
-        [[self.buttonsDictionary objectForKey:buttonName] pauseSchedulerAndActions];
+        [[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:1] pauseSchedulerAndActions];
     }
 }
 -(void) resumeUI
 {
     for (NSString *buttonName in [self.buttonsDictionary allKeys])
     {
-        [[self.buttonsDictionary objectForKey:buttonName] resumeSchedulerAndActions];
+        [[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:1] resumeSchedulerAndActions];
     }
 }
+
+-(void) setButtonsEnabled: (BOOL)enabled
+{
+    for (NSString *buttonName in [self.buttonsDictionary allKeys])
+    {
+        [((CCControlButton *)[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:0]) setEnabled: enabled];
+    }
+    pauseButton.isEnabled = enabled;
+}
+
 -(void) pauseGame:(id)sender
 {
     [GAMELAYER pauseGame];
     [[PauseUI shared] createUI];
+    [self setButtonsEnabled:NO];
 }
 
 //Get called by cocosbuilder
@@ -127,6 +139,7 @@
     [POWERUP_DATA setObject:[NSNumber numberWithInt:(rebornTime - 1)] forKey:@"reborn"];
     
     [self hideRebornButton];
+    [self setButtonsEnabled:YES];
     [[[Hub shared] gameLayer] resumeGame];
     [[[HeroManager shared] getHero] reborn];
 }
@@ -144,6 +157,9 @@
         clearMessage.position = ccp([[CCDirector sharedDirector] winSize].width/2, -100);
         showMessageAction = nil;
     }
+    
+    [self resetAllButtonBar];
+    [self setButtonsEnabled:YES];
 }
 
 -(void) updateDistance:(int)distance
@@ -187,12 +203,16 @@
     id moveDown = [CCMoveTo actionWithDuration:0.5 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];
     id moveDownEase = [CCEaseBackIn actionWithAction:moveDown];
     
-    [clearMessage runAction:[CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil]];
+    showMessageAction = [CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil];
+    
+    [clearMessage runAction:showMessageAction];
 }
 
 -(void) showRebornButton
 {
-    //TODO: Disable all buttons
+    //Disable all buttons
+    [self setButtonsEnabled:NO];
+    
     [UIMask stopAllActions];
     [rebornButtonHolder stopAllActions];
     [rebornBar stopAllActions];
@@ -202,7 +222,6 @@
     [rebornQuantity setString:[NSString stringWithFormat:@"%d",[[POWERUP_DATA objectForKey:@"reborn"] intValue]]];
 //    
     //Reset button
-    //TODO: need to change back to the real number
     rebornBar.scaleX = 1;
     
     //Mask fadein
@@ -255,6 +274,7 @@
 //Reset a certain button bar to full
 -(void) resetButtonBarWithName:(NSString *)buttonName
 {
+    [[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:1] stopAllActions];
     [[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:1] setScale:1];
     [self.buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:buttonName];
 }

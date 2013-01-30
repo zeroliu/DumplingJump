@@ -196,6 +196,7 @@
         _loadingPlaceHolder = nil;
     }
     [[GameUI shared] fadeOut];
+    [[GameUI shared] setButtonsEnabled:YES];
     _loadCompleted = YES;
 }
 
@@ -252,6 +253,7 @@
     [self pauseGame];
     [[DeadUI shared] createUI];
     [[DeadUI shared] updateUIDataWithScore:self.model.distance Star:self.model.star TotalStar:self.model.star Distance:self.model.distance Multiplier:10 IsHighScore:NO];
+    [[GameUI shared] setButtonsEnabled:NO];
 }
 
 -(void) restart
@@ -326,6 +328,7 @@
     [self resumeSchedulerAndActions];
     [BATCHNODE resumeSchedulerAndActions];
     [[GameUI shared] resumeUI];
+    [[GameUI shared] setButtonsEnabled:YES];
 }
 
 -(void) draw

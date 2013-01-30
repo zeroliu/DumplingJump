@@ -8,6 +8,7 @@
 
 #import "Common.h"
 #import "CCBAnimationManager.h"
+#import "CCControlButton.h"
 @interface DUUI : CCNode
 {
     NSString *ccbFileName;

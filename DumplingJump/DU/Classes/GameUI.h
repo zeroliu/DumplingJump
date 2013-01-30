@@ -13,12 +13,13 @@
     CCLabelTTF *UIStarText;
     CCNode *clearMessage;
     CCLabelTTF *distanceNum;
-    CCNode *bombButtonHolder;
+    CCNode *bombButtonHolder; //0->CCControlButton, 1->green, 2->white effect
     CCNode *magnetButtonHolder;
     CCSprite *UIMask;
     CCSprite *rebornBar;
     CCNode *rebornButtonHolder;
     CCLabelTTF *rebornQuantity;
+    CCMenuItem *pauseButton;
 }
 
 +(id) shared;
@@ -30,6 +31,7 @@
 -(void) showRebornButton;
 -(void) pauseUI;
 -(void) resumeUI;
+-(void) setButtonsEnabled: (BOOL)enabled;
 //Reset all the button bars to full
 -(void) resetAllButtonBar;
 //Reset a certain button bar to full

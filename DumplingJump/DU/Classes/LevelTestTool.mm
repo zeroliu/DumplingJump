@@ -91,8 +91,12 @@
     [levelNameDisplay setIsEnabled:NO];
     CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, nil];
     menu.position = CGPointZero;
-    [GAMELAYER addChild:menu];
     
+    NSDictionary *debugData = [[WorldData shared] loadDataWithAttributName:@"debug"];
+    if ([[debugData objectForKey:@"levelEditorEnabled"] boolValue])
+    {
+        [GAMELAYER addChild:menu];
+    }
     myView = [[CCDirector sharedDirector] view];
     myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0,300, 260, 100)];
     myPickerView.delegate = self;

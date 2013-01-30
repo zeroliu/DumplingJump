@@ -183,6 +183,7 @@
     if (showMessageAction != nil)
     {
         [clearMessage stopAction:showMessageAction];
+        [showMessageAction release];
         showMessageAction = nil;
     }
     
@@ -203,7 +204,7 @@
     id moveDown = [CCMoveTo actionWithDuration:0.5 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];
     id moveDownEase = [CCEaseBackIn actionWithAction:moveDown];
     
-    showMessageAction = [CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil];
+    showMessageAction = [[CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil] retain];
     
     [clearMessage runAction:showMessageAction];
 }
@@ -318,6 +319,11 @@
     _buttonsDictionary = nil;
     [_buttonstatusDictionary release];
     _buttonstatusDictionary = nil;
+    if (showMessageAction!=nil)
+    {
+        [showMessageAction release];
+        showMessageAction = nil;
+    }
     [super dealloc];
 }
 

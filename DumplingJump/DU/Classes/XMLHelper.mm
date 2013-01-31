@@ -140,7 +140,7 @@
     }
     for (DDXMLElement *level in nodeResults)
     {
-        if (![[[[level nodesForXPath:@"time" error:&err] objectAtIndex:0] stringValue] isEqualToString:@"1"])
+        if (![[[[level nodesForXPath:@"time" error:&err] objectAtIndex:0] stringValue] isEqualToString:@"0"])
         {
             NSArray *levelArray = [level children];
             float distance = 0;

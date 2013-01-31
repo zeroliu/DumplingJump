@@ -159,7 +159,7 @@
 		<react_type>ice</react_type>
 		<reactimage>H_ice</reactimage>
 		<effectimage>FX_Frozen</effectimage>
-		<statetime>3</statetime>
+		<statetime>2</statetime>
 		<react_hero>freeze</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <stage1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<level>
-		<time>1</time>
+		<time>0</time>
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
 		<slot3>Null</slot3>
@@ -13,8 +13,11 @@
 		<slot9>Null</slot9>
 	</level>
 	<level>
-		<time>2</time>
+		<time>1</time>
 		<slot5>POWDER</slot5>
+	</level>
+	<level>
+		<time>2</time>
 	</level>
 	<level>
 		<time>3</time>
@@ -27,29 +30,29 @@
 	</level>
 	<level>
 		<time>6</time>
-	</level>
-	<level>
-		<time>7</time>
 		<slot5>ICE</slot5>
 	</level>
 	<level>
-		<time>8</time>
+		<time>7</time>
 	</level>
 	<level>
-		<time>9</time>
+		<time>8</time>
 		<slot7>ICE</slot7>
 	</level>
 	<level>
-		<time>10</time>
+		<time>9</time>
 		<slot1>*\</slot1>
 		<slot3>ICE</slot3>
 	</level>
 	<level>
+		<time>10</time>
+	</level>
+	<level>
 		<time>11</time>
+		<slot5>POWDER</slot5>
 	</level>
 	<level>
 		<time>12</time>
-		<slot5>POWDER</slot5>
 	</level>
 	<level>
 		<time>13</time>
@@ -62,29 +65,29 @@
 	</level>
 	<level>
 		<time>16</time>
-	</level>
-	<level>
-		<time>17</time>
 		<slot5>ICE</slot5>
 	</level>
 	<level>
-		<time>18</time>
+		<time>17</time>
 		<slot8>SHELTER</slot8>
 	</level>
 	<level>
-		<time>19</time>
+		<time>18</time>
 		<slot7>ICE</slot7>
 	</level>
 	<level>
-		<time>20</time>
+		<time>19</time>
 		<slot3>ICE</slot3>
 	</level>
 	<level>
+		<time>20</time>
+	</level>
+	<level>
 		<time>21</time>
+		<slot5>POWDER</slot5>
 	</level>
 	<level>
 		<time>22</time>
-		<slot5>POWDER</slot5>
 	</level>
 	<level>
 		<time>23</time>
@@ -97,10 +100,10 @@
 	</level>
 	<level>
 		<time>26</time>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>27</time>
-		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>28</time>
@@ -113,12 +116,12 @@
 	</level>
 	<level>
 		<time>31</time>
-	</level>
-	<level>
-		<time>32</time>
 		<slot3>ICE</slot3>
 		<slot5>POWDER</slot5>
 		<slot7>ICE</slot7>
+	</level>
+	<level>
+		<time>32</time>
 	</level>
 	<level>
 		<time>33</time>
@@ -128,24 +131,21 @@
 	</level>
 	<level>
 		<time>35</time>
-	</level>
-	<level>
-		<time>36</time>
 		<slot5>ICE</slot5>
 	</level>
 	<level>
-		<time>37</time>
+		<time>36</time>
 	</level>
 	<level>
-		<time>38</time>
+		<time>37</time>
 		<slot7>ICE</slot7>
 	</level>
 	<level>
-		<time>39</time>
+		<time>38</time>
 		<slot3>ICE</slot3>
 	</level>
 	<level>
-		<time>40</time>
+		<time>39</time>
 		<slot1>*/</slot1>
 	</level>
 </stage1>

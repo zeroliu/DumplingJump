@@ -24,7 +24,7 @@
 		<mass>10</mass>
 		<res>0.4</res>
 		<fric>2</fric>
-		<gravity>80</gravity>
+		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
 	</Item>
@@ -106,7 +106,7 @@
 		<mass>5</mass>
 		<res>0.1</res>
 		<fric>5</fric>
-		<gravity>80</gravity>
+		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>claw</react_type>
 	</Item>

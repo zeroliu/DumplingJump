@@ -10,17 +10,17 @@
 	<key>common</key>
 	<dict>
 		<key>objectInitialSpeed</key>
-		<integer>15</integer>
+		<integer>18</integer>
 		<key>gameSpeedIncreaseUnit</key>
 		<real>0.5</real>
 		<key>gameSpeedMax</key>
 		<integer>2</integer>
 		<key>scoreUnit</key>
-		<real>0.015</real>
+		<real>0.15</real>
 		<key>scrollSpeed</key>
 		<real>-0.5</real>
 		<key>distanceUnit</key>
-		<real>0.015</real>
+		<real>0.02</real>
 	</dict>
 	<key>board</key>
 	<dict>

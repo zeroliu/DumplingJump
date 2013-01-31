@@ -1333,7 +1333,7 @@
 		7F3D725916AB522A008025CA /* sheetUI-3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-3-hd.png"; sourceTree = "<group>"; };
 		7F3D725A16AB522A008025CA /* sheetUI-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-3.plist"; sourceTree = "<group>"; };
 		7F3D725B16AB522A008025CA /* sheetUI-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-3.png"; sourceTree = "<group>"; };
-		7F41434D15AAC659002CFC9A /* Castle Rider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Castle Rider.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F41434D15AAC659002CFC9A /* CastleRider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastleRider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41435115AAC659002CFC9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F41435315AAC659002CFC9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		7F41435515AAC659002CFC9A /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -2506,7 +2506,7 @@
 		7F41434E15AAC659002CFC9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F41434D15AAC659002CFC9A /* Castle Rider.app */,
+				7F41434D15AAC659002CFC9A /* CastleRider.app */,
 			);
 			name = Products;
 			path = ../..;
@@ -3348,9 +3348,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		7F41434C15AAC659002CFC9A /* Castle Rider */ = {
+		7F41434C15AAC659002CFC9A /* CastleRider */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "Castle Rider" */;
+			buildConfigurationList = 7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "CastleRider" */;
 			buildPhases = (
 				7F41434915AAC659002CFC9A /* Sources */,
 				7F41434A15AAC659002CFC9A /* Frameworks */,
@@ -3361,9 +3361,9 @@
 			dependencies = (
 				7FD5283C15B3F02000E50506 /* PBXTargetDependency */,
 			);
-			name = "Castle Rider";
+			name = CastleRider;
 			productName = DumplingJump;
-			productReference = 7F41434D15AAC659002CFC9A /* Castle Rider.app */;
+			productReference = 7F41434D15AAC659002CFC9A /* CastleRider.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3375,7 +3375,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "CMU ETC";
 			};
-			buildConfigurationList = 7F41434715AAC659002CFC9A /* Build configuration list for PBXProject "DumplingJump" */;
+			buildConfigurationList = 7F41434715AAC659002CFC9A /* Build configuration list for PBXProject "CastleRider" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3387,7 +3387,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7F41434C15AAC659002CFC9A /* Castle Rider */,
+				7F41434C15AAC659002CFC9A /* CastleRider */,
 				7FD5283715B3EFC300E50506 /* TexturePacker */,
 			);
 		};
@@ -4140,7 +4140,7 @@
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "Castle Rider";
+				PRODUCT_NAME = CastleRider;
 				USER_HEADER_SEARCH_PATHS = "\"DumplingJump/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4164,7 +4164,7 @@
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "Castle Rider";
+				PRODUCT_NAME = CastleRider;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "\"DumplingJump/libs\"";
@@ -4224,7 +4224,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7F41434715AAC659002CFC9A /* Build configuration list for PBXProject "DumplingJump" */ = {
+		7F41434715AAC659002CFC9A /* Build configuration list for PBXProject "CastleRider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F41453815AAC65D002CFC9A /* Debug */,
@@ -4233,7 +4233,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "Castle Rider" */ = {
+		7F41453A15AAC65D002CFC9A /* Build configuration list for PBXNativeTarget "CastleRider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7F41453B15AAC65D002CFC9A /* Debug */,

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DumplingJump.xcodeproj">
+      location = "self:CastleRider.xcodeproj">
    </FileRef>
 </Workspace>

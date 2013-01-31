@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7F41434C15AAC659002CFC9A"
                BuildableName = "Castle Rider.app"
-               BlueprintName = "Castle Rider"
-               ReferencedContainer = "container:DumplingJump.xcodeproj">
+               BlueprintName = "CastleRider"
+               ReferencedContainer = "container:CastleRider.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F41434C15AAC659002CFC9A"
             BuildableName = "Castle Rider.app"
-            BlueprintName = "Castle Rider"
-            ReferencedContainer = "container:DumplingJump.xcodeproj">
+            BlueprintName = "CastleRider"
+            ReferencedContainer = "container:CastleRider.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F41434C15AAC659002CFC9A"
             BuildableName = "Castle Rider.app"
-            BlueprintName = "Castle Rider"
-            ReferencedContainer = "container:DumplingJump.xcodeproj">
+            BlueprintName = "CastleRider"
+            ReferencedContainer = "container:CastleRider.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -78,8 +78,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7F41434C15AAC659002CFC9A"
             BuildableName = "Castle Rider.app"
-            BlueprintName = "Castle Rider"
-            ReferencedContainer = "container:DumplingJump.xcodeproj">
+            BlueprintName = "CastleRider"
+            ReferencedContainer = "container:CastleRider.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

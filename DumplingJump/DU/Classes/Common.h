@@ -12,6 +12,8 @@
 #import "EffectManager.h"
 #import "DUParticleManager.h"
 #import "WorldData.h"
+#import "UserData.h"
+#import "AudioManager.h"
 #import "XMLHelper.h"
 
 //#import "GameManager.h"

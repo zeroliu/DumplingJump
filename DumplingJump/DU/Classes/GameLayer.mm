@@ -102,6 +102,7 @@
             [self loadBackendData];
             [self loadUserData];
             [self initGameParam];
+            [self preloadMusic];
             //Load the draw related content on main thread
             [self performSelectorOnMainThread:@selector(loadFrontendData) withObject:self waitUntilDone:YES];
         });
@@ -175,6 +176,12 @@
     [WorldData shared];
 }
 
+
+-(void) preloadMusic
+{
+    [[AudioManager shared] preloadBackgroundMusic:@"Music_Game.mp3"];
+}
+
 -(void) loadFrontendData
 {
     [HeroManager shared];
@@ -241,6 +248,7 @@
 {
     self.model.state = GAME_START;
     [[LevelManager shared] loadCurrentParagraph];
+    [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
@@ -250,6 +258,7 @@
 
 -(void) gameOver
 {
+    [[AudioManager shared] setBackgroundMusicVolume:0.2];
     [self pauseGame];
     [[DeadUI shared] createUI];
     [[DeadUI shared] updateUIDataWithScore:self.model.distance Star:self.model.star TotalStar:self.model.star Distance:self.model.distance Multiplier:10 IsHighScore:NO];
@@ -258,6 +267,10 @@
 
 -(void) restart
 {
+    //Restart background music
+    [[AudioManager shared] setBackgroundMusicVolume:1];
+    [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
+    
     //Clean object dictionary
     [[DUObjectsDictionary sharedDictionary] cleanDictionary];
     

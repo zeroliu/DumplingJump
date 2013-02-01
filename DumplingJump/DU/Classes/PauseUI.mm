@@ -38,6 +38,7 @@
 
 -(void)resumeGame:(id)sender
 {
+    [[AudioManager shared] setBackgroundMusicVolume:1];
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
     id resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(resumeGame)];

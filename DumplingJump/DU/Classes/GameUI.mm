@@ -106,6 +106,7 @@
 
 -(void) pauseGame:(id)sender
 {
+    [[AudioManager shared] setBackgroundMusicVolume:0.2];
     [GAMELAYER pauseGame];
     [[PauseUI shared] createUI];
     [self setButtonsEnabled:NO];

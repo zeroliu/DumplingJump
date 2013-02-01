@@ -51,6 +51,8 @@ typedef enum {
     
     //Disable the achievement scroll view
     achievementScrollView.isTouchEnabled = NO;
+    [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
+    [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
 }
 
 -(void) createEquipmentView
@@ -146,6 +148,7 @@ typedef enum {
     [animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
     NSLog(@"game start");
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
+    [[AudioManager shared] fadeOutBackgroundMusic];
 }
 
 -(void) gotoStore

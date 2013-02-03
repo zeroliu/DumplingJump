@@ -21,6 +21,7 @@ restitution = _restitution,
 friction = _friction,
 gravity = _gravity,
 blood = _blood,
+wait = _wait,
 reactionName = _reactionName,
 animationName = _animationName;
 
@@ -36,6 +37,7 @@ animationName = _animationName;
           friction:(double)theFric
            gravity:(double)theGravity
              blood:(double)theBlood
+              wait:(double)theWait
       reactionName:(NSString *)theReactionName
      animationName:(NSString *)theAnimationName;
 {
@@ -53,6 +55,7 @@ animationName = _animationName;
         _friction = theFric;
         _gravity = theGravity;
         _blood = theBlood;
+        _wait = theWait;
         _reactionName = theReactionName;
         _animationName = theAnimationName;
     }
@@ -76,6 +79,7 @@ animationName = _animationName;
         _friction = 0;
         _gravity = 100;
         _blood = 1;
+        _wait = 0;
         _reactionName = nil;
         _animationName = nil;
     }

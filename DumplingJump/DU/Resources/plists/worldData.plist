@@ -9,6 +9,8 @@
 	</dict>
 	<key>common</key>
 	<dict>
+		<key>starWait</key>
+		<integer>10</integer>
 		<key>objectInitialSpeed</key>
 		<integer>18</integer>
 		<key>gameSpeedIncreaseUnit</key>

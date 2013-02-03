@@ -14,6 +14,7 @@
 		<gravity>受重力比例</gravity>
 		<blood>物體血量</blood>
 		<react_type>反應種類</react_type>
+        <wait>Waiting time after drop</wait>
 	</Item>
 	<Item>
 		<ID>酒桶</ID>
@@ -27,6 +28,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
+        <wait>5</wait>
 	</Item>
 	<Item>
 		<ID>大酒桶</ID>

@@ -108,6 +108,9 @@
                 } else if ([[child name] isEqualToString:@"animation"])
                 {
                     data.animationName = [child stringValue];
+                } else if ([[child name] isEqualToString:@"wait"])
+                {
+                    data.wait = [[child stringValue] doubleValue];
                 }
             }
             data.spriteName = [NSString stringWithFormat:@"A_%@_1", [addthingName lowercaseString]];
@@ -116,7 +119,6 @@
             [result setObject:data forKey:addthingName];
         }
     }
-    
     return result;
 }
 
@@ -482,7 +484,6 @@
         }
     }
     [xmlDoc release];
-    DLog(@"%@", [dict description]);
     
     return dict;
 }

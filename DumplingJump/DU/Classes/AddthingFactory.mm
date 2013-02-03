@@ -105,7 +105,7 @@
         NSString *ID = [NSString stringWithFormat:@"%@_%d",selectedObject.name, self.idCounter];
         
         AddthingObject *newObject;
-        newObject = [[[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName] autorelease];
+        newObject = [[[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName wait:selectedObject.wait] autorelease];
         //[GAMELAYER addChild:newObject];
         NSString *animName = [NSString stringWithFormat:@"A_%@", [selectedObject.name lowercaseString]];
         //[ANIMATIONMANAGER registerAnimationForName: animName];

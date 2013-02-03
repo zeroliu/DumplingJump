@@ -290,12 +290,8 @@
     self.model.star = 0;
     [[GameUI shared] updateStar:self.model.star];
     
-    //Destroy all objects
-    [[LevelManager shared] destroyAllObjects];
-    
-    //Reset Level
-    [[LevelManager shared] stopCurrentParagraph];
-    [[LevelManager shared] resetParagraph];
+    //Restart levelManger
+    [[LevelManager shared] restart];
     
     //Reset Hero
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];

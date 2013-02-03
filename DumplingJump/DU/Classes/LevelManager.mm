@@ -28,10 +28,11 @@
     float sentenceCounter;
     float sentenceTarget;
     Paragraph *currentParagraph;
+    BOOL isWaiting;
+    id waitingAction;
 }
 
 @property (nonatomic, retain) LevelData *levelData;
-//@property (nonatomic, retain) NSMutableArray *paragraphs;
 @property (nonatomic, retain) NSDictionary *paragraphsData;
 @property (nonatomic, retain) NSArray *paragraphsCombination;
 @property (nonatomic, retain) NSArray *paragraphNames; //Array used to save paragraph (level) names
@@ -70,6 +71,7 @@
         //TODO: Create weight look up table for the combinations
         
         currentPhaseIndex = 0;
+        [self clearWaitingAction];
     }
     
     return self;
@@ -79,6 +81,18 @@
 {
     if (_levelData == nil) _levelData = [[LevelData alloc] init];
     return _levelData;
+}
+
+-(void) restart
+{
+    //Destroy all objects
+    [[LevelManager shared] destroyAllObjects];
+    
+    //Reset Level
+    [[LevelManager shared] stopCurrentParagraph];
+    [[LevelManager shared] resetParagraph];
+    
+    [self clearWaitingAction];
 }
 
 -(Level *) selectLevelWithName:(NSString *)levelName
@@ -180,28 +194,33 @@
 
 -(void) dropNextAddthing
 {
-    if (currentParagraph != nil)
+    if (currentParagraph != nil && !isWaiting)
     {
         sentenceCounter += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
         if (sentenceTarget <= sentenceCounter)
         {
             //Trigger a sentence
             Sentence *mySentence = [currentParagraph getSentenceAtIndex:sentenceIndex];
+            double waitingTime = 0;
             for (int i=0; i<SLOTS_NUM; i++)
             {
                 NSString *item = [mySentence.words objectAtIndex:i];
                 if ([item rangeOfString:@"*"].location == 0)
                 {
-                    
                     [[StarManager shared] dropStar:item AtSlot:i];
+                    double starWait = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starWait"] doubleValue];
+                    waitingTime = MAX(waitingTime, starWait);
                 } else
                 {
                     if (item != NOTHING)
                     {
-                        [self dropAddthingWithName:item atSlot:i];
+                        AddthingObject *addthing = [self dropAddthingWithName:item atSlot:i];
+                        waitingTime = MAX(waitingTime, addthing.wait);
                     }
                 }
             }
+            
+            [self stopDroppingForTime:waitingTime];
             
             sentenceIndex ++;
             
@@ -304,6 +323,36 @@
     {
         return @"Wrong index";
     }
+}
+
+-(void) clearWaitingAction
+{
+    [GAMELAYER stopAction:waitingAction];
+    [waitingAction release];
+    waitingAction = nil;
+    isWaiting = NO;
+}
+
+-(void) stopDroppingForTime:(double)waitingTime
+{
+    if (waitingTime <=0)
+        return;
+    
+    [self clearWaitingAction];
+    
+    //Set waiting to YES
+    isWaiting = YES;
+    
+    //Wait for <waitingTime> seconds
+    id waiting = [CCDelayTime actionWithDuration:waitingTime];
+    
+    //Set waiting to NO
+    id endWaiting = [CCCallBlock actionWithBlock:^{
+        isWaiting = NO;
+    }];
+    
+    waitingAction = [[CCSequence actions:waiting, endWaiting, nil] retain];
+    [GAMELAYER runAction:waitingAction];
 }
 
 - (void)dealloc

@@ -20,6 +20,7 @@
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
 
+-(void) restart;
 -(void) jumpToNextLevel;
 -(void) dropNextAddthing;
 -(void) stopCurrentParagraph;

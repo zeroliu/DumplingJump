@@ -25,13 +25,15 @@
 @implementation AddthingObject
 @synthesize reaction = _reaction;
 @synthesize animation = _animation;
+@synthesize wait = _wait;
 
--(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName;
+-(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime
 {
     if (self = [super initWithName:theName file:theFile body:theBody canResize:resize]) {
         _reaction = [[ReactionManager shared] getReactionWithName:reactionName];
         _animation = animationName;
         _isRemoved = NO;
+        _wait = waitTime;
         self.ID = theID;
         [self setContactListener];
         [self setCountdownClean];

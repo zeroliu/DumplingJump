@@ -163,7 +163,7 @@
 {
     [[GameUI shared] createUI];
     [[GameUI shared] updateStar:0];
-    [[GameUI shared] updateDistance:0];
+    [[GameUI shared] updateScore:0];
 }
 
 -(void) loadBackendData
@@ -237,8 +237,8 @@
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];
-        self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
-        [[GameUI shared] updateDistance:(int)self.model.distance];
+        self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
+        [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
         [[LevelManager shared] dropNextAddthing];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
     }
@@ -261,7 +261,7 @@
     [[AudioManager shared] setBackgroundMusicVolume:0.2];
     [self pauseGame];
     [[DeadUI shared] createUI];
-    [[DeadUI shared] updateUIDataWithScore:self.model.distance Star:self.model.star TotalStar:self.model.star Distance:self.model.distance Multiplier:10 IsHighScore:NO];
+    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:self.model.star Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:NO];
     [[GameUI shared] setButtonsEnabled:NO];
 }
 
@@ -283,7 +283,7 @@
     //Reset gameUI
     [[GameUI shared] resetUI];
     
-    //Reset score
+    //Reset distance
     self.model.distance = 0;
     
     //Reset star

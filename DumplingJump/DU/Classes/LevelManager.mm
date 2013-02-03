@@ -196,7 +196,7 @@
 {
     if (currentParagraph != nil && !isWaiting)
     {
-        sentenceCounter += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
+        sentenceCounter += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRate"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
         if (sentenceTarget <= sentenceCounter)
         {
             //Trigger a sentence

@@ -16,5 +16,5 @@
     CCLabelTTF *multiplierText;
 }
 +(id) shared;
--(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(int)multiplier IsHighScore:(BOOL)isHighScore;
+-(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(float)multiplier IsHighScore:(BOOL)isHighScore;
 @end

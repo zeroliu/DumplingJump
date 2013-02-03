@@ -163,11 +163,11 @@
     [self setButtonsEnabled:YES];
 }
 
--(void) updateDistance:(int)distance
+-(void) updateScore:(int)score
 {
     if (UIScoreText != nil)
     {
-        [UIScoreText setString:[NSString stringWithFormat:@"%d", distance]];
+        [UIScoreText setString:[NSString stringWithFormat:@"%d", (int)score]];
     }
 }
 

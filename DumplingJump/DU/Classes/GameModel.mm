@@ -17,7 +17,7 @@
 @synthesize state = _state;
 @synthesize distance = _distance;
 
-@synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed;
+@synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed, multiplier = _multiplier;
 
 -(id) init
 {
@@ -40,6 +40,7 @@
     }
     
     //TODO: load power up from plist file
+    self.multiplier = 5.8f;
     [_powerUpData setObject:[NSNumber numberWithFloat:1] forKey:@"bomb"];
     [_powerUpData setObject:[NSNumber numberWithFloat:2] forKey:@"reborn"];
     [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"rocket"];

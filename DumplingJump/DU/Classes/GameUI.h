@@ -25,7 +25,7 @@
 +(id) shared;
 -(void) fadeOut;
 -(void) resetUI;
--(void) updateDistance:(int)distance;
+-(void) updateScore:(int)score;
 -(void) updateStar:(int)starNum;
 -(void) showStageClearMessageWithDistance;
 -(void) showRebornButton;

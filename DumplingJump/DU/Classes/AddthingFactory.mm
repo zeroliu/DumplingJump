@@ -106,15 +106,18 @@
         
         AddthingObject *newObject;
         newObject = [[[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName wait:selectedObject.wait] autorelease];
-        //[GAMELAYER addChild:newObject];
+        
         NSString *animName = [NSString stringWithFormat:@"A_%@", [selectedObject.name lowercaseString]];
-        //[ANIMATIONMANAGER registerAnimationForName: animName];
+
+        if ([selectedObject.shape isEqualToString: BOX])
+        {
+            newObject.sprite.flipY = YES;
+        }
         
         id animation = [ANIMATIONMANAGER getAnimationWithName:animName];
         
         if(animation != nil)
         {
-            
             id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
             [newObject.sprite runAction:animAction];
         }
@@ -124,6 +127,7 @@
         {
             self.idCounter = 0;
         }
+        
         return newObject;
     } else 
     {

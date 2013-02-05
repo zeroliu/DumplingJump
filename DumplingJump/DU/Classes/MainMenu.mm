@@ -12,6 +12,7 @@
 #import "DUScrollPageView.h"
 #import "DUTableView.h"
 #import "EquipmentData.h"
+#import "EquipmentTableViewController.h"
 typedef enum {
     MainMenuStateHome,
     MainMenuStateMission,
@@ -22,6 +23,8 @@ typedef enum {
 {
     MainMenuState state;
     DUScrollPageView *achievementScrollView;
+    EquipmentTableViewController *equipmentTableViewController;
+    UITableView *equipmentTableView;
     CCSprite *_titleHero;
 }
 @end
@@ -32,7 +35,9 @@ typedef enum {
 {
     //Load EquipmentData if first launch
     [EquipmentData shared];
-    [self createEquipmentView];
+    
+    //Create achievement view
+    [self createAchievementView];
     //[self createTableView];
     animationManager = self.userObject;
     state = MainMenuStateHome;
@@ -51,11 +56,13 @@ typedef enum {
     
     //Disable the achievement scroll view
     achievementScrollView.isTouchEnabled = NO;
+
+    //Start playing music
     [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
 }
 
--(void) createEquipmentView
+-(void) createAchievementView
 {
     achievementScrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
                      {
@@ -65,28 +72,19 @@ typedef enum {
     
     achievementScrollView.position = ccp(0,0);
     [achievementHolder addChild:achievementScrollView];
+    
 }
 
--(void) createTableView
+-(void) createEquipmentTableView
 {
-    
-    CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"UnlockedCell.ccbi"];
-    DUTableView *equipmentView = [[DUTableView alloc] initWithSize:CGSizeMake(sampleNode.boundingBox.size.width, 400) dataSource:((EquipmentData *)[EquipmentData shared]).dataDictionary];
-    //equipmentView.position = ccp(0,0);
-   // equipmentView.anchorPoint = ccp(0, 1);
-    
-    [equipmentBoard addChild:equipmentView];
-    equipmentView.position = ccp(0, 90);
-    /*
-    DUScrollPageView *testview = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
-                             {
-                                 CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
-                                 return sampleNode;
-                             } num:8 padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
-    
-    testview.position = ccp(0,0);
-    [tableViewHolder addChild:testview];
-     */
+    if (equipmentTableView == nil)
+    {
+        equipmentTableViewController = [[EquipmentTableViewController alloc] init];
+        equipmentTableView = [[UITableView alloc] initWithFrame:CGRectMake(50, -300, 300, 400) style:UITableViewStylePlain];
+        equipmentTableView.dataSource = equipmentTableViewController;
+        equipmentTableView.delegate = equipmentTableViewController;
+        [[[[CCDirector sharedDirector] view] window] addSubview:equipmentTableView];
+    }
 }
 
 -(void) createTitleHero
@@ -129,6 +127,9 @@ typedef enum {
 
 -(void) showEquipment
 {
+    //Create equipment table view
+    [self createEquipmentTableView];
+    
     state = MainMenuStateEquipment;
     //Hide all the buttons on main menu
     [self setMainMenuButtonsEnabled:NO];
@@ -258,6 +259,10 @@ typedef enum {
 {
     [achievementHolder removeAllChildrenWithCleanup:YES];
     [achievementScrollView release];
+    [equipmentTableViewController release];
+    equipmentTableViewController = nil;
+    [equipmentTableView release];
+    equipmentTableView = nil;
     [super dealloc];
 }
 @end

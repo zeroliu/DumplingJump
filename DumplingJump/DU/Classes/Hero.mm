@@ -409,7 +409,10 @@
         id rotateStar = [CCRotateBy actionWithDuration:0.5 angle:180];
         id moveToPlayer = [CCCallBlock actionWithBlock:^
                            {
-                               [GAMELAYER addChild:star];
+                               if (star.parent == nil)
+                               {
+                                   [GAMELAYER addChild:star];
+                               }
                                [star schedule:@selector(moveToHeroWithSpeed:) interval:0.01];
                            }];
         /*

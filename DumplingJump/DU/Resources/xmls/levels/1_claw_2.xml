@@ -14,16 +14,17 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot3>SPRING</slot3>
+		<slot2>VAT</slot2>
 	</level>
 	<level>
 		<time>2</time>
-		<slot8>VAT</slot8>
+		<slot1>VAT</slot1>
+		<slot2>VAT</slot2>
+		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>3</time>
 		<slot2>VAT</slot2>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>4</time>
@@ -31,11 +32,12 @@
 	</level>
 	<level>
 		<time>5</time>
-		<slot2>VAT</slot2>
+		<slot2>CLAW</slot2>
+		<slot8>VAT</slot8>
+		<slot9>VAT</slot9>
 	</level>
 	<level>
 		<time>6</time>
-		<slot2>VAT</slot2>
 		<slot8>VAT</slot8>
 	</level>
 	<level>
@@ -44,40 +46,59 @@
 	</level>
 	<level>
 		<time>8</time>
-		<slot1>*/</slot1>
+		<slot1>VAT</slot1>
+		<slot2>VAT</slot2>
+		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>9</time>
-		<slot7>SPRING</slot7>
+		<slot2>VAT</slot2>
 	</level>
 	<level>
 		<time>10</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
+		<slot1>*C</slot1>
 	</level>
 	<level>
 		<time>11</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
+		<slot3>BLIND</slot3>
+		<slot7>SHELTER</slot7>
 	</level>
 	<level>
 		<time>12</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
-		<slot8>VAT</slot8>
+		<slot6>CLAW</slot6>
 	</level>
 	<level>
 		<time>13</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>14</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>15</time>
-		<slot1>*/</slot1>
+		<slot4>CLAW</slot4>
+	</level>
+	<level>
+		<time>16</time>
+	</level>
+	<level>
+		<time>17</time>
+	</level>
+	<level>
+		<time>18</time>
+		<slot6>CLAW</slot6>
+	</level>
+	<level>
+		<time>19</time>
+	</level>
+	<level>
+		<time>20</time>
+	</level>
+	<level>
+		<time>21</time>
+		<slot4>CLAW</slot4>
+	</level>
+	<level>
+		<time>22</time>
+		<slot1>*O</slot1>
 	</level>
 </stage1>

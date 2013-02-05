@@ -42,7 +42,7 @@
 	<key>hero</key>
 	<dict>
 		<key>heroRadius</key>
-		<integer>13</integer>
+		<integer>11</integer>
 		<key>heroMass</key>
 		<integer>15</integer>
 		<key>heroI</key>
@@ -50,7 +50,7 @@
 		<key>heroFric</key>
 		<integer>0</integer>
 		<key>heroMaxVx</key>
-		<integer>6</integer>
+		<integer>9</integer>
 		<key>heroMaxVy</key>
 		<integer>26</integer>
 		<key>heroAcc</key>

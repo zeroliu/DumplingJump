@@ -31,7 +31,7 @@
 		<react_type>arrow</react_type>
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_ArrowBreak</effectimage>
-		<statetime>0.25</statetime>
+		<statetime>0.3</statetime>
 		<react_hero>hurt</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
@@ -45,7 +45,7 @@
 		<react_type>claw</react_type>
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Claw</effectimage>
-		<statetime>0.5</statetime>
+		<statetime>0.3</statetime>
 		<react_hero>hurt</react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_step>1</trigger_clean_step>
@@ -163,7 +163,7 @@
 		<react_type>ice</react_type>
 		<reactimage>H_ice</reactimage>
 		<effectimage>FX_Frozen</effectimage>
-		<statetime>1.4</statetime>
+		<statetime>1</statetime>
 		<react_hero>freeze</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>

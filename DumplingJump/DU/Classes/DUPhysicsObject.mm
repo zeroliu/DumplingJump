@@ -15,7 +15,7 @@
     if (self = [super initWithName:theName file:theFile])
     {
         self.body = theBody;
-        self.sprite = [CCSprite spriteWithSpriteFrameName:theFile];
+        //self.sprite = [CCSprite spriteWithSpriteFrameName:theFile];
         self.body->SetUserData(self);
         
         if (resize)

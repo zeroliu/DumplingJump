@@ -69,8 +69,8 @@
     */
     
     levelSelectorToggle = [[CCMenuItemFont itemWithString:@"Level" target:self selector:@selector(showLevelSelector)] retain];
-    levelSelectorToggle.position = ccp(0,30);
-    levelSelectorToggle.anchorPoint = ccp(0,0);
+    levelSelectorToggle.position = ccp(0,winSize.height - 80);
+    levelSelectorToggle.anchorPoint = ccp(0,1);
     
     levelSelectorConfirm = [[CCMenuItemFont itemWithString:@"OK" target:self selector:@selector(confirmLevel)] retain];
     levelSelectorConfirm.anchorPoint = ccp(0,0);
@@ -86,8 +86,8 @@
     
     [levelNameDisplay removeFromParentAndCleanup:NO];
     levelNameDisplay = [[CCMenuItemFont itemWithString:@"LevelName"] retain];
-    levelNameDisplay.position = ccp(winSize.width, 30);
-    levelNameDisplay.anchorPoint = ccp(1,0);
+    levelNameDisplay.position = ccp(0, winSize.height - 50);
+    levelNameDisplay.anchorPoint = ccp(0,1);
     [levelNameDisplay setIsEnabled:NO];
     CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, nil];
     menu.position = CGPointZero;

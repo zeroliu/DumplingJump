@@ -63,7 +63,9 @@
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
         
         //Save all the paragraph names
-        self.paragraphNames = [self.paragraphsData allKeys];
+        self.paragraphNames = [[self.paragraphsData allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            return [(NSString *)obj1 compare:(NSString *)obj2];
+        }];
         
         //Load combination data from Editor_level.xml
         self.paragraphsCombination = [[XMLHelper shared] loadParagraphCombinationWithXML:@"Editor_level"];

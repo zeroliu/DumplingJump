@@ -132,7 +132,43 @@
     } else 
     {
         DLog(@"Warning! Addthing name <%@> is not found in the dictionary.", objectName);
-        return nil;
+        b2BodyDef objectBodyDef;
+        objectBodyDef.type = b2_dynamicBody; //Need to define whether configurable
+        b2Body *objectBody = WORLD->CreateBody(&objectBodyDef);
+        
+        b2FixtureDef objectFixtureDef;
+        objectFixtureDef.density = 1.0f;
+        objectFixtureDef.friction = 1;
+        objectFixtureDef.restitution = 1;
+        objectFixtureDef.filter.categoryBits = C_ADDTHING;
+        objectFixtureDef.filter.maskBits = EVERYTHING;
+        
+        b2CircleShape objectShape;
+        objectShape.m_radius = 20.0 /RATIO;
+        objectFixtureDef.shape = &objectShape;
+                
+        objectBody->CreateFixture(&objectFixtureDef);
+        
+        objectBody->SetGravityScale(1);
+        
+        b2MassData massData;
+        massData.center = objectBody->GetLocalCenter();
+        massData.mass = 1;
+        massData.I = 1;
+        objectBody->SetMassData(&massData);
+        
+        NSString *ID = [NSString stringWithFormat:@"wrongObject_%d", self.idCounter];
+        
+        AddthingObject *newObject;
+        newObject = [[[AddthingObject alloc] initWithID:ID name: @"wrongObject" file:[NSString stringWithFormat: @"%@.png", @"A_wrongObject"] body:objectBody canResize:YES reaction:nil animation:nil wait:0] autorelease];
+        
+        self.idCounter ++;
+        if (self.idCounter >= INT_MAX)
+        {
+            self.idCounter = 0;
+        }
+        
+        return newObject;
     }
 }
 

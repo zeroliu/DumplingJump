@@ -8,53 +8,78 @@
 	</Combination>
 	<Combination>
 		<phase>0</phase>
-		<step0>0_TUB</step0>
+		<step0>0_tutorial_1</step0>
+		<step1>0_vat_1</step1>
 	</Combination>
 	<Combination>
 		<phase>0</phase>
-		<step0>0_TUB_VAT</step0>
+		<step0>0_tutorial_2</step0>
+		<step1>0_vat_2</step1>
+	</Combination>
+	<Combination>
+		<phase>0</phase>
+		<step0>0_tutorial_3</step0>
+		<step1>0_vat_1</step1>
+	</Combination>
+	<Combination>
+		<phase>0</phase>
+		<step0>0_tutorial_4</step0>
+		<step1>0_vat_2</step1>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
-		<step0>1_ARROW_tub_vat</step0>
-		<step1>1_VAT_stone</step1>
+		<step0>1_arrow_1</step0>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
-		<step0>1_VAT_stone</step0>
-		<step1>1_ARROW_tub_vat</step1>
+		<step0>1_ice_1</step0>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
-		<step0>1_ARROW_powder</step0>
-		<step1>1_VAT_stone</step1>
+		<step0>1_claw_1</step0>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>1_powder_1</step0>
 	</Combination>
 	<Combination>
 		<phase>2</phase>
-		<step0>2_ARROW_stone_powder</step0>
-		<step1>2_IBOX_stone</step1>
-		<step2>2_IBOX_ice</step2>
+		<step0>1_ice_1</step0>
 	</Combination>
 	<Combination>
 		<phase>2</phase>
-		<step0>2_IBOX_stone</step0>
-		<step1>2_IBOX_ice</step1>
-		<step2>2_ARROW_stone_powder</step2>
+		<step0>1_ice_1</step0>
 	</Combination>
 	<Combination>
 		<phase>2</phase>
-		<step0>2_IBOX_ice</step0>
-		<step1>2_IBOX_stone</step1>
-		<step2>2_ARROW_stone_powder</step2>
+		<step0>1_ice_1</step0>
+	</Combination>
+	<Combination>
+		<phase>2</phase>
+		<step0>1_ice_1</step0>
+	</Combination>
+	<Combination>
+		<phase>2</phase>
+		<step0>1_ice_1</step0>
+	</Combination>
+	<Combination>
+		<phase>2</phase>
+		<step0>1_ice_1</step0>
 	</Combination>
 	<Combination>
 		<phase>3</phase>
-		<step0>3_ice_powder</step0>
-		<step1>3_ice_vat</step1>
+		<step0>1_ice_1</step0>
 	</Combination>
 	<Combination>
 		<phase>3</phase>
-		<step0>3_ice_vat</step0>
-		<step1>3_ice_powder</step1>
+		<step0>1_ice_1</step0>
+	</Combination>
+	<Combination>
+		<phase>3</phase>
+		<step0>1_ice_1</step0>
+	</Combination>
+	<Combination>
+		<phase>3</phase>
+		<step0>1_ice_1</step0>
 	</Combination>
 </Levels>

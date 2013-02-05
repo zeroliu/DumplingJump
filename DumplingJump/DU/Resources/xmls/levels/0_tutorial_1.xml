@@ -18,80 +18,60 @@
 	</level>
 	<level>
 		<time>2</time>
-		<slot3>*1</slot3>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>3</time>
+		<slot1>*/</slot1>
 	</level>
 	<level>
 		<time>4</time>
-		<slot7>*1</slot7>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>5</time>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>6</time>
+		<slot3>VAT</slot3>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>7</time>
+		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>8</time>
-		<slot4>TUB</slot4>
-	</level>
-	<level>
-		<time>9</time>
-		<slot6>TUB</slot6>
-	</level>
-	<level>
-		<time>10</time>
-		<slot4>TUB</slot4>
-	</level>
-	<level>
-		<time>11</time>
-		<slot6>TUB</slot6>
-	</level>
-	<level>
-		<time>12</time>
 		<slot5>SPRING</slot5>
 	</level>
 	<level>
-		<time>13</time>
+		<time>9</time>
+		<slot3>*&lt;</slot3>
 	</level>
 	<level>
-		<time>14</time>
-		<slot3>*1</slot3>
-	</level>
-	<level>
-		<time>15</time>
-	</level>
-	<level>
-		<time>16</time>
-	</level>
-	<level>
-		<time>17</time>
+		<time>10</time>
 		<slot6>VAT</slot6>
 	</level>
 	<level>
-		<time>18</time>
+		<time>11</time>
 		<slot3>VAT</slot3>
 		<slot6>VAT</slot6>
 	</level>
 	<level>
-		<time>19</time>
+		<time>12</time>
 	</level>
 	<level>
-		<time>20</time>
+		<time>13</time>
 		<slot4>VAT</slot4>
 	</level>
 	<level>
-		<time>21</time>
+		<time>14</time>
 		<slot4>VAT</slot4>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
-		<time>22</time>
-		<slot8>*1</slot8>
+		<time>15</time>
+		<slot5>*1</slot5>
 	</level>
 </stage1>

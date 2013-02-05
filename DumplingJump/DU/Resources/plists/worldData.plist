@@ -10,19 +10,19 @@
 	<key>common</key>
 	<dict>
 		<key>starWait</key>
-		<integer>0</integer>
+		<real>3.3</real>
 		<key>objectInitialSpeed</key>
-		<integer>18</integer>
+		<integer>17</integer>
 		<key>gameSpeedIncreaseUnit</key>
-		<real>0.5</real>
+		<real>0.8</real>
 		<key>gameSpeedMax</key>
-		<integer>2</integer>
+		<integer>5</integer>
 		<key>distanceUnit</key>
 		<real>0.015</real>
 		<key>scrollSpeed</key>
 		<real>-0.5</real>
 		<key>dropRate</key>
-		<real>0.02</real>
+		<real>0.015</real>
 	</dict>
 	<key>board</key>
 	<dict>
@@ -50,7 +50,7 @@
 		<key>heroFric</key>
 		<integer>0</integer>
 		<key>heroMaxVx</key>
-		<integer>5</integer>
+		<integer>6</integer>
 		<key>heroMaxVy</key>
 		<integer>26</integer>
 		<key>heroAcc</key>

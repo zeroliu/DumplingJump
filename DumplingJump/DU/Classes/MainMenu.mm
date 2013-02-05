@@ -23,7 +23,7 @@ typedef enum {
 {
     MainMenuState state;
     DUScrollPageView *achievementScrollView;
-    EquipmentTableViewController *equipmentTableViewController;
+//    EquipmentTableViewController *equipmentTableViewController;
     UITableView *equipmentTableView;
     CCSprite *_titleHero;
 }

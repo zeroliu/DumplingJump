@@ -16,7 +16,7 @@
 
 @interface GameLayer()
 {
-    CCMenu *_loadingPlaceHolder;
+    CCNode *_loadingPlaceHolder;
     BOOL _loadCompleted;
 }
 @end
@@ -106,17 +106,74 @@
             //Load the draw related content on main thread
             [self performSelectorOnMainThread:@selector(loadFrontendData) withObject:self waitUntilDone:YES];
         });
+        
 	}
 	return self;
 }
 
 -(void) setLoadingScreen
 {
-    CCMenuItemFont *loadingText = [CCMenuItemFont itemWithString:@"loading..."];
-    loadingText.position = CGPointZero;
-    _loadingPlaceHolder = [CCMenu menuWithItems:loadingText, nil];
-    _loadingPlaceHolder.position = ccp(100,100);
+//    CCMenuItemFont *loadingText = [CCMenuItemFont itemWithString:@"loading..."];
+//    loadingText.position = CGPointZero;
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    _loadingPlaceHolder = [[CCNode alloc] init];
+    _loadingPlaceHolder.position = CGPointZero;
     [self addChild:_loadingPlaceHolder];
+    
+    CCSprite *loadingText = [CCSprite spriteWithSpriteFrameName:@"UI_other_loading_1.png"];
+    loadingText.anchorPoint = ccp(1,0.5);
+    loadingText.position = ccp(winSize.width, 20);
+    loadingText.scale = 1.5f;
+
+    //Build loading text animation
+    //Manually create the animation because the animation manager and the plist data
+    //has not being loaded yet
+    NSMutableArray *frameArray = [NSMutableArray array];
+    for (int i=1; i<=4; i++)
+    {
+        NSString *frameName = [NSString stringWithFormat:@"UI_other_loading_%d.png",i];
+        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        [frameArray addObject:frameObject];
+    }
+    
+    id loadingTextAnim = [CCAnimation animationWithSpriteFrames :frameArray delay:0.12];
+    
+    if (loadingTextAnim != nil)
+    {
+        id loadingTextAnimate = [CCAnimate actionWithAnimation:loadingTextAnim];
+        [loadingText stopAllActions];
+        [loadingText runAction:[CCRepeatForever actionWithAction:loadingTextAnimate]];
+    }
+    
+    CCSprite *heroSprite = [CCSprite spriteWithSpriteFrameName:@"H_hero_1.png"];
+    heroSprite.anchorPoint = ccp(1,0.5);
+    heroSprite.position = ccp(winSize.width - loadingText.boundingBox.size.width, 25);
+    
+    //Build loading text animation
+    //Manually create the animation because the animation manager and the plist data
+    //has not being loaded yet
+    NSMutableArray *frameArrayHero = [NSMutableArray array];
+    for (int i=1; i<=12; i++)
+    {
+        NSString *frameName = [NSString stringWithFormat:@"H_hero_%d.png",i];
+        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        [frameArrayHero addObject:frameObject];
+    }
+    
+    id heroAnim = [CCAnimation animationWithSpriteFrames :frameArrayHero delay:0.12];
+    
+    if (heroAnim != nil)
+    {
+        id heroAnimate = [CCAnimate actionWithAnimation:heroAnim];
+        [heroSprite stopAllActions];
+        [heroSprite runAction:[CCRepeatForever actionWithAction:heroAnimate]];
+    }
+    
+    [_loadingPlaceHolder addChild:loadingText z:1];
+    [_loadingPlaceHolder addChild:heroSprite z:1];
+    
+     
 }
 
 -(void) cleanScreen
@@ -174,6 +231,10 @@
     [EffectManager shared];
     [LevelManager shared];
     [WorldData shared];
+    [HeroManager shared];
+    [BoardManager shared];
+    [StarManager shared];
+    
 }
 
 
@@ -184,9 +245,6 @@
 
 -(void) loadFrontendData
 {
-    [HeroManager shared];
-    [BoardManager shared];
-    [StarManager shared];
     [[BackgroundController shared] initParam];
     [self initUI];
     [self initGame];
@@ -199,7 +257,9 @@
     [self startGame];
     if (_loadingPlaceHolder != nil)
     {
-        [_loadingPlaceHolder removeFromParentAndCleanup:YES];
+        [_loadingPlaceHolder removeAllChildrenWithCleanup:NO];
+        [_loadingPlaceHolder removeFromParentAndCleanup:NO];
+        [_loadingPlaceHolder release];
         _loadingPlaceHolder = nil;
     }
     [[GameUI shared] fadeOut];

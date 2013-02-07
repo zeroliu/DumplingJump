@@ -91,10 +91,8 @@ typedef enum {
 
 -(void) createTitleHero
 {
-    if (![[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"sheetObjects.plist"]])
-    {
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sheetObjects.plist"]];
-    }
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sheetObjects.plist"]];
     
     if (_titleHero != nil)
     {

@@ -210,7 +210,8 @@
     //Set hero acceleration
     self.acc = b2Vec2(accX * self.accValue * adjustMove, 0);
     //Set hero speed
-    self.speed = b2Vec2(clampf(self.body->GetLinearVelocity().x + self.acc.x, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
+//    self.speed = b2Vec2(clampf(self.body->GetLinearVelocity().x + self.acc.x, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
+    self.speed = b2Vec2(clampf(self.acc.x, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
     
     self.body->SetLinearVelocity(self.speed);
     self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);

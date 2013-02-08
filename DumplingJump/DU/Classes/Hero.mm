@@ -209,9 +209,11 @@
 {
     //Set hero acceleration
     self.acc = b2Vec2(accX * self.accValue * adjustMove, 0);
+    
     //Set hero speed
-//    self.speed = b2Vec2(clampf(self.body->GetLinearVelocity().x + self.acc.x, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
-    self.speed = b2Vec2(clampf(self.acc.x, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
+    float vX = self.body->GetLinearVelocity().x/5.0 + self.acc.x;
+    
+    self.speed = b2Vec2(clampf(vX, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
     
     self.body->SetLinearVelocity(self.speed);
     self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
@@ -316,8 +318,9 @@
     {
         offset = 1;
     }
-    directionForce = b2Vec2(offset * self.body->GetMass() * 5 * hurtValue, 0);
+    directionForce = b2Vec2(offset * self.body->GetMass() * 10 * hurtValue, 0);
     adjustJump = 0;
+    adjustMove = 0;
     //self.body->ApplyLinearImpulse(directionForce, self.body->GetPosition());
     //self.body->ApplyForce(directionForce, self.body->GetPosition());
     

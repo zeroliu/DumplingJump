@@ -211,7 +211,7 @@
     self.acc = b2Vec2(accX * self.accValue * adjustMove, 0);
     
     //Set hero speed
-    float vX = self.body->GetLinearVelocity().x/5.0 + self.acc.x;
+    float vX = self.body->GetLinearVelocity().x/[[[[WorldData shared] loadDataWithAttributName:@"hero"] objectForKey:@"velocityAccRatio"] floatValue] + self.acc.x;
     
     self.speed = b2Vec2(clampf(vX, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
     
@@ -227,6 +227,7 @@
     {
         [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     }
+    DLog(@"speedx = %g", self.body->GetLinearVelocity().x);
     
 //    DLog(@"speedY = %g", self.speed.y);
 }
@@ -262,7 +263,13 @@
         
         for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
         {
-            f->SetFriction(0.3f);
+            if ([(NSString *)f->GetUserData() isEqualToString:@"heroBody"])
+            {
+                f->SetFriction(self.fric);
+            } else
+            {
+                f->SetFriction(0);
+            }
         }
         for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
         {

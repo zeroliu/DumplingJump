@@ -214,7 +214,7 @@
                     waitingTime = MAX(waitingTime, starWait);
                 } else
                 {
-                    if (item != NOTHING)
+                    if (![item isEqualToString: NOTHING])
                     {
                         AddthingObject *addthing = [self dropAddthingWithName:item atSlot:i];
                         waitingTime = MAX(waitingTime, addthing.wait);

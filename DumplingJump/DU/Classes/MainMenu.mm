@@ -32,7 +32,7 @@ typedef enum {
 {
     //Load EquipmentData if first launch
     [EquipmentData shared];
-    [self createEquipmentView];
+    [self createAchievementView];
     //[self createTableView];
     animationManager = self.userObject;
     state = MainMenuStateHome;
@@ -55,7 +55,15 @@ typedef enum {
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
 }
 
--(void) createEquipmentView
+-(void) createUIView
+{
+    UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(10,10,160,300)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(80,210,160,40);
+    [[[CCDirector sharedDirector] view] addSubview:tableview];
+}
+
+-(void) createAchievementView
 {
     achievementScrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
                      {
@@ -70,23 +78,12 @@ typedef enum {
 -(void) createTableView
 {
     
-    CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"UnlockedCell.ccbi"];
-    DUTableView *equipmentView = [[DUTableView alloc] initWithSize:CGSizeMake(sampleNode.boundingBox.size.width, 400) dataSource:((EquipmentData *)[EquipmentData shared]).dataDictionary];
-    //equipmentView.position = ccp(0,0);
-   // equipmentView.anchorPoint = ccp(0, 1);
+//    CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"UnlockedCell.ccbi"];
+//    DUTableView *equipmentView = [[DUTableView alloc] initWithSize:CGSizeMake(sampleNode.boundingBox.size.width, 400) dataSource:((EquipmentData *)[EquipmentData shared]).dataDictionary];
+//  
+//    [equipmentBoard addChild:equipmentView];
+//    equipmentView.position = ccp(0, 90);
     
-    [equipmentBoard addChild:equipmentView];
-    equipmentView.position = ccp(0, 90);
-    /*
-    DUScrollPageView *testview = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
-                             {
-                                 CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
-                                 return sampleNode;
-                             } num:8 padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
-    
-    testview.position = ccp(0,0);
-    [tableViewHolder addChild:testview];
-     */
 }
 
 -(void) createTitleHero

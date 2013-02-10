@@ -62,6 +62,7 @@ A_star_7.png
 A_stone_1.png
 A_tub_1.png
 A_vat_1.png
+A_wrongObject.png
 E_arrow_1.png
 E_arrow_2.png
 E_arrow_3.png
@@ -248,6 +249,10 @@ O_engine_recover_3.png
 O_engine_recover_4.png
 O_engine_recover_5.png
 O_plate.png
+UI_other_loading_1.png
+UI_other_loading_2.png
+UI_other_loading_3.png
+UI_other_loading_4.png
 A_arrow_1.png
 A_blind_1.png
 A_blind_2.png
@@ -710,4 +715,5 @@ LockedCell.ccbi
 MainMenu.ccbi
 MissionNode.ccbi
 PauseUI.ccbi
+testIphone5.ccbi
 UnlockedCell.ccbi

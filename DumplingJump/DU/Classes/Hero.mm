@@ -248,7 +248,7 @@
 
 -(void) idle
 {
-    if (self.heroState != HEROIDLE)
+    if (![self.heroState isEqualToString: HEROIDLE])
     {
         self.heroState = HEROIDLE;
         id animation = [ANIMATIONMANAGER getAnimationWithName:HEROIDLE];
@@ -335,7 +335,7 @@
 
 -(void) bowEffect:(NSArray *)value
 {
-    if (self.heroState != HEROIDLE)
+    if (![self.heroState isEqualToString: HEROIDLE])
     {
         CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
         float distance = ccpDistance(explosionPos, self.sprite.position);
@@ -587,7 +587,7 @@
 {
     float scale = self.sprite.scale;
     
-    if (self.heroState != HEROREBORN)
+    if (![self.heroState isEqualToString: HEROREBORN])
     {
         //Become idle except for reviving
         [self idle];

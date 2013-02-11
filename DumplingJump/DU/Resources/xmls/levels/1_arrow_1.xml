@@ -19,52 +19,49 @@
 	<level>
 		<time>2</time>
 		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>3</time>
 		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>4</time>
-		<slot5>ARROW</slot5>
+		<slot2>VAT</slot2>
+		<slot6>ARROW</slot6>
+		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>5</time>
-		<slot7>VAT</slot7>
-		<slot8>VAT</slot8>
+		<slot2>VAT</slot2>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>6</time>
 		<slot2>VAT</slot2>
-		<slot7>VAT</slot7>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>7</time>
-		<slot5>ARROW</slot5>
+		<slot2>VAT</slot2>
+		<slot6>ARROW</slot6>
+		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>8</time>
 		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>9</time>
 		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>10</time>
-		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
+		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>11</time>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>12</time>
@@ -91,14 +88,13 @@
 	</level>
 	<level>
 		<time>17</time>
-		<slot2>VAT</slot2>
 		<slot4>ARROW</slot4>
 		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>18</time>
-		<slot2>VAT</slot2>
 		<slot3>ARROW</slot3>
+		<slot5>ARROW</slot5>
 		<slot7>ARROW</slot7>
 	</level>
 	<level>
@@ -110,13 +106,11 @@
 		<time>20</time>
 		<slot3>ARROW</slot3>
 		<slot7>ARROW</slot7>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>21</time>
 		<slot4>ARROW</slot4>
 		<slot6>ARROW</slot6>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>22</time>

@@ -115,23 +115,27 @@
 	</level>
 	<level>
 		<time>18</time>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>19</time>
 		<slot2>ARROW</slot2>
 		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
+		<slot7>ARROW</slot7>
 		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>20</time>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>21</time>
 		<slot2>ARROW</slot2>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
+		<slot3>ARROW</slot3>
 		<slot7>ARROW</slot7>
 		<slot8>ARROW</slot8>
 	</level>

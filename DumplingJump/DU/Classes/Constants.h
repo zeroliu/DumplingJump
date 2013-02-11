@@ -25,6 +25,12 @@
 #define Z_Engine 6
 
 #pragma mark -
+#pragma mark MainMenu Layer Priority
+#define Z_BUTTONS 3
+#define Z_SECONDARY_UI 2
+#define Z_MASK 1
+
+#pragma mark -
 #pragma mark Physics
 #define WORLD [[PhysicsManager sharedPhysicsManager] getWorld]
 #define GROUND [[PhysicsManager sharedPhysicsManager] getGround]
@@ -117,7 +123,7 @@
 #define EFFECTMANAGER [EffectManager shared]
 #define POWERUP_DATA ((GameLayer *) GAMELAYER).model.powerUpData
 #define GAMEMODEL ((GameModel *)((GameLayer *) GAMELAYER).model)
-
+#define VIEW [[CCDirector sharedDirector] view]
 @interface Constants : NSObject
 
 @property (assign, nonatomic) float heroAccelerationXBase;

@@ -11,15 +11,22 @@
 #import "CCBAnimationManager.h"
 @interface MainMenu : CCLayer
 {
+    CGSize winSize;
     CCNode *achievementHolder;
-    CCControlButton *playButton;
-    CCControlButton *achievementButton;
-    CCControlButton *settingButton;
-    CCControlButton *gameCenterButton;
-    CCControlButton *backButton;
     
-    CCControlButton *storeButton;
-    CCControlButton *continueButton;
+    //Main Menu buttons
+    UIButton *playButton;
+    UIButton *achievementButton;
+    UIButton *settingButton;
+    UIButton *gameCenterButton;
+    
+    //Equipment View buttons
+    UIButton *backButton;
+    UIButton *storeButton;
+    UIButton *continueButton;
+    
+    //Mask
+    UIImageView *mask;
     
     CCNode *equipmentViewHolder;
     CCNode *titleHeroHolder;

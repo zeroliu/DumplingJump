@@ -48,6 +48,7 @@
 	</level>
 	<level>
 		<time>9</time>
+		<slot5>BLIND</slot5>
 		<slot7>SPRING</slot7>
 	</level>
 	<level>
@@ -64,7 +65,6 @@
 		<time>12</time>
 		<slot3>VAT</slot3>
 		<slot4>VAT</slot4>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>13</time>

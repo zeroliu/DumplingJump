@@ -31,26 +31,26 @@
 		<react_type>arrow</react_type>
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_ArrowBreak</effectimage>
-		<statetime>0.4</statetime>
+		<statetime>0.25</statetime>
 		<react_hero>hurt</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
 		<MEMO>弓箭</MEMO>
-		<react_hero_param>40</react_hero_param>
+		<react_hero_param>50</react_hero_param>
 	</react>
 	<react>
 		<ID>釘錘</ID>
 		<react_type>claw</react_type>
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Claw</effectimage>
-		<statetime>0.4</statetime>
+		<statetime>0.25</statetime>
 		<react_hero>hurt</react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_step>1</trigger_clean_step>
 		<MEMO>釘錘</MEMO>
-		<react_hero_param>40</react_hero_param>
+		<react_hero_param>50</react_hero_param>
 	</react>
 	<react>
 		<ID>火藥</ID>

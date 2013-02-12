@@ -66,7 +66,7 @@ typedef enum {
     [self createMask];
 
     //Hide mask
-    [self setMaskVisibility:NO];
+    mask.opacity = 0;
     
     //Disable the achievement scroll view
     achievementScrollView.isTouchEnabled = NO;
@@ -81,10 +81,16 @@ typedef enum {
 
 - (void) createMask
 {
-    mask = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UI_other_mask.png"]];
-    mask.center = ccp(winSize.width/2, winSize.height/2);
-    mask.layer.zPosition = Z_MASK;
-    [VIEW addSubview:mask];
+    mask = [[CCSprite spriteWithSpriteFrameName:@"UI_other_mask.png"] retain];
+    mask.anchorPoint = ccp(0.5,0.5);
+    mask.position = ccp(winSize.width/2, winSize.height/2);
+    mask.zOrder = Z_MASK;
+    
+//    mask = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UI_other_mask.png"]];
+//    mask.center = ccp(winSize.width/2, winSize.height/2);
+//    mask.layer.zPosition = Z_MASK;
+//    [VIEW addSubview:mask];
+    [self addChild:mask];
 }
 
 - (void) createMainMenuButtons
@@ -135,6 +141,7 @@ typedef enum {
     
     achievementScrollView.position = ccp(0,BLACK_HEIGHT);
     [achievementHolder addChild:achievementScrollView];
+    achievementHolder.zOrder = Z_SECONDARY_UI;
 }
 
 - (void) createTitleHero
@@ -209,10 +216,10 @@ typedef enum {
     [UIView animateWithDuration:0.1
             animations:^
              {
-                 [self setMaskVisibility:YES];
                  [self setAchievementButtonsEnabled:YES];
              }
     ];
+    [self setMaskVisibility:YES];
 }
 
 - (void) showEquipment
@@ -244,10 +251,10 @@ typedef enum {
     [UIView animateWithDuration:0.1
             animations:^
             {
-                [self setMaskVisibility:YES];
                 [self setEquipmentButtonsEnabled:YES];
             }
      ];
+    [self setMaskVisibility:YES];
 }
 
 - (void) startGame
@@ -259,7 +266,6 @@ typedef enum {
     [backButton removeFromSuperview];
     [storeButton removeFromSuperview];
     [continueButton removeFromSuperview];
-    [mask removeFromSuperview];
     
     //[animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
@@ -392,10 +398,10 @@ typedef enum {
     int opacity = 0;
     if (isVisible)
     {
-        opacity = 1;
+        opacity = 255;
     }
     
-    mask.alpha = opacity;
+    [mask runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
 }
 
 - (void)dealloc

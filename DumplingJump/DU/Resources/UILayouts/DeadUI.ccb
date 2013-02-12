@@ -1782,6 +1782,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -2057,8 +2059,8 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string>test:</string>
-									<integer>2</integer>
+									<string></string>
+									<integer>0</integer>
 									<integer>32</integer>
 								</array>
 							</dict>
@@ -2221,7 +2223,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>103</real>
+									<real>102</real>
 									<real>46</real>
 									<integer>0</integer>
 								</array>

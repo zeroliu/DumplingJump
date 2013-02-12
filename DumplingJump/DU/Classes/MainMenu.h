@@ -26,7 +26,7 @@
     UIButton *continueButton;
     
     //Mask
-    UIImageView *mask;
+    CCSprite *mask;
     
     CCNode *equipmentViewHolder;
     CCNode *titleHeroHolder;

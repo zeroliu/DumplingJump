@@ -9,6 +9,7 @@
 #import "EffectFactory.h"
 #import "DUEffectData.h"
 #import "DUEffectObject.h"
+#import "XMLHelper.h"
 
 @interface EffectFactory()
 
@@ -37,7 +38,7 @@
 
 -(id) createNewObjectWithName:(NSString *)objectName
 {
-    DUEffectObject *myObject;
+    DUEffectObject *myObject = nil;
     
     DUEffectData *objectData = (DUEffectData *)[self.effectsDictionary objectForKey:objectName];
     //DLog(@"%@", ((DUEffectData *)[self.effectsDictionary objectForKey:FX_ARROW_BREAK]).idlePictureName);

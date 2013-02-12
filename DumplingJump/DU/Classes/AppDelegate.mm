@@ -13,6 +13,9 @@
 #import "MainMenu.h"
 #import "GameLayer.h"
 #import "EquipmentData.h"
+#import "Constants.h"
+
+
 
 @implementation AppController
 
@@ -82,6 +85,21 @@
 //	[director_ pushScene: [GameLayer scene]];
 	CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"];
 	[director_ pushScene:scene];
+    
+    if (IS_WIDESCREEN)
+    {
+        UIImageView *topBlack = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,director_.winSize.width, BLACK_HEIGHT)];
+        topBlack.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0];
+        UIImageView *bottomBlack = [[UIImageView alloc] initWithFrame:CGRectMake(0,director_.winSize.height-BLACK_HEIGHT,director_.winSize.width, BLACK_HEIGHT)];
+        bottomBlack.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0];
+        topBlack.layer.zPosition = 100;
+        bottomBlack.layer.zPosition = 100;
+        
+        [director_.view addSubview:topBlack];
+        [director_.view addSubview:bottomBlack];
+        [topBlack release];
+        [bottomBlack release];
+    }
     
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];

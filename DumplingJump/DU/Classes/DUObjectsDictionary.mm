@@ -49,7 +49,7 @@
 
 -(id) getDUObjectbyName:(NSString *)theName
 {
-    id result;
+    id result = nil;
     NSMutableArray *currentArray = [DUDictionary objectForKey:theName];
     if (currentArray != nil && [currentArray count] > 0)
     {

@@ -55,7 +55,28 @@
 - (void) createUI
 {
     [super createUI];
+    [self adjustUIPosition];
     [self initButtonDictionary];
+}
+
+- (void) adjustUIPosition
+{
+    [self adjustUI:UIScoreText offset:BLACK_HEIGHT];
+    [self adjustUI:UIStarText offset:BLACK_HEIGHT];
+    [self adjustUI:starScoreIcon offset:BLACK_HEIGHT];
+    [self adjustUI:bombButtonHolder offset:BLACK_HEIGHT];
+    [self adjustUI:magnetButtonHolder offset:BLACK_HEIGHT];
+    [self adjustUI:pauseButton offset:BLACK_HEIGHT];
+//    DLog(@"%g,%g", pauseButton.position.x, pauseButton.position.y);
+    
+}
+
+- (void) adjustUI:(CCNode *)element offset:(float)theOffset
+{
+    float x = element.position.x;
+    float y = element.position.y;
+    
+    [element setPosition:ccp(x, y + theOffset)];
 }
 
 -(void) initButtonDictionary

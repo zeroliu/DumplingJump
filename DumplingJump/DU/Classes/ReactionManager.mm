@@ -7,7 +7,7 @@
 //
 
 #import "ReactionManager.h"
-
+#import "XMLHelper.h"
 
 @interface ReactionManager()
 

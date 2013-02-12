@@ -11,6 +11,7 @@
 {
     CCLabelTTF *UIScoreText;
     CCLabelTTF *UIStarText;
+    CCSprite *starScoreIcon;
     CCNode *clearMessage;
     CCLabelTTF *distanceNum;
     CCNode *bombButtonHolder; //0->CCControlButton, 1->green, 2->white effect

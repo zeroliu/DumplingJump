@@ -227,9 +227,6 @@
     {
         [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     }
-    DLog(@"speedx = %g", self.body->GetLinearVelocity().x);
-    
-//    DLog(@"speedY = %g", self.speed.y);
 }
 
 -(void) jump

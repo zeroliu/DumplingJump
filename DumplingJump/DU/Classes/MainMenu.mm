@@ -5,7 +5,7 @@
 //  Created by LIU Xiyuan on 12-12-6.
 //  Copyright (c) 2012年 CMU ETC. All rights reserved.
 //
-
+#import "Constants.h"
 #import "MainMenu.h"
 #import "GameLayer.h"
 #import "CCBReader.h"
@@ -87,23 +87,6 @@ typedef enum {
     [VIEW addSubview:mask];
 }
 
-- (void) createEquipmentView
-{
-    backButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40) image:@"UI_other_back.png"] retain];
-    backButton.layer.zPosition = Z_BUTTONS;
-    [VIEW addSubview:backButton];
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    
-    storeButton = [[DUButtonFactory createButtonWithPosition:ccp(backButton.center.x + backButton.frame.size.width+6, winSize.height - 40) image:@"UI_equip_star.png"] retain];
-    storeButton.layer.zPosition = Z_BUTTONS;
-    [VIEW addSubview:storeButton];
-    
-    continueButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 50, winSize.height - 46) image:@"UI_other_play.png"] retain];
-    [VIEW addSubview:continueButton];
-    continueButton.layer.zPosition = Z_BUTTONS;
-    [continueButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
-}
-
 - (void) createMainMenuButtons
 {
     playButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width/2.0, winSize.height/2.0) image:@"UI_title_play.png"] retain];
@@ -116,13 +99,30 @@ typedef enum {
     [VIEW addSubview:achievementButton];
     [achievementButton addTarget:self action:@selector(showAchievement) forControlEvents:UIControlEventTouchUpInside];
     
-    settingButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40) image:@"UI_title_sytem.png"] retain];
+    settingButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_title_sytem.png"] retain];
     settingButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:settingButton];
     
-    gameCenterButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 45, winSize.height - 40) image:@"UI_title_ranking.png"] retain];
+    gameCenterButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_title_ranking.png"] retain];
     gameCenterButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:gameCenterButton];
+}
+
+- (void) createEquipmentView
+{
+    backButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_other_back.png"] retain];
+    backButton.layer.zPosition = Z_BUTTONS;
+    [VIEW addSubview:backButton];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    storeButton = [[DUButtonFactory createButtonWithPosition:ccp(backButton.center.x + backButton.frame.size.width+6, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_equip_star.png"] retain];
+    storeButton.layer.zPosition = Z_BUTTONS;
+    [VIEW addSubview:storeButton];
+    
+    continueButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 50, winSize.height - 46 - BLACK_HEIGHT) image:@"UI_other_play.png"] retain];
+    [VIEW addSubview:continueButton];
+    continueButton.layer.zPosition = Z_BUTTONS;
+    [continueButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) createAchievementView
@@ -133,7 +133,7 @@ typedef enum {
                          return sampleNode;
                      } num:8 padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
     
-    achievementScrollView.position = ccp(0,0);
+    achievementScrollView.position = ccp(0,BLACK_HEIGHT);
     [achievementHolder addChild:achievementScrollView];
 }
 
@@ -252,6 +252,15 @@ typedef enum {
 
 - (void) startGame
 {
+    [playButton removeFromSuperview];
+    [achievementButton removeFromSuperview];
+    [settingButton removeFromSuperview];
+    [gameCenterButton removeFromSuperview];
+    [backButton removeFromSuperview];
+    [storeButton removeFromSuperview];
+    [continueButton removeFromSuperview];
+    [mask removeFromSuperview];
+    
     //[animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
     [[AudioManager shared] fadeOutBackgroundMusic];

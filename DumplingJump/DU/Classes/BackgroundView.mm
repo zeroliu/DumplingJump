@@ -16,6 +16,7 @@
 @interface BackgroundView()
 {
     float dy;
+    CGSize winSize;
 }
 @end
 
@@ -28,6 +29,7 @@
     {
         _scrollSpeedScale = 1;
         dy = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scrollSpeed"] floatValue];
+        winSize = [[CCDirector sharedDirector] winSize];
     }
     
     return self;
@@ -53,9 +55,9 @@
         [anObject getValue:&myLayer];
         
         //Set the sprite position of background sprite and swapSprite
-        myLayer.sprite.position = ccp(W/2,H/2+myLayer.offset);
+        myLayer.sprite.position = ccp(winSize.width/2,winSize.height/2+myLayer.offset);
         [self.bgBatchNode addChild:myLayer.sprite z:myLayer.z];
-        myLayer.swapSprite.position = ccp(W/2,H*3/2+myLayer.offset);
+        myLayer.swapSprite.position = ccp(winSize.width/2,winSize.height/2+myLayer.swapSprite.boundingBox.size.height+myLayer.offset);
         [self.bgBatchNode addChild:myLayer.swapSprite z:myLayer.z];
     }
 }
@@ -71,15 +73,15 @@
         
         myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,y));
         myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,y));
-        if(myLayer.sprite.position.y < -H/2)
+        if(myLayer.sprite.position.y < winSize.height/2-myLayer.sprite.boundingBox.size.height)
         {
             //myLayer.sprite.position = ccp(W/2, H*3/2 + dy* _scrollSpeedScale*myLayer.speedScale);
-            myLayer.sprite.position = ccp(W/2, myLayer.swapSprite.position.y + myLayer.swapSprite.boundingBox.size.height);
+            myLayer.sprite.position = ccp(winSize.width/2, myLayer.swapSprite.position.y + myLayer.swapSprite.boundingBox.size.height);
         }
-        if(myLayer.swapSprite.position.y < -H/2)
+        if(myLayer.swapSprite.position.y < winSize.height/2-myLayer.sprite.boundingBox.size.height)
         {
             //myLayer.swapSprite.position = ccp(W/2, H*3/2 + dy* _scrollSpeedScale*myLayer.speedScale);
-            myLayer.swapSprite.position = ccp(W/2, myLayer.sprite.position.y + myLayer.sprite.boundingBox.size.height);
+            myLayer.swapSprite.position = ccp(winSize.width/2, myLayer.sprite.position.y + myLayer.sprite.boundingBox.size.height);
         }
         //        NSLog(@"sprite pos y = %f, swapsprite pos y = %g", myLayer.sprite.position.y, myLayer.swapSprite.position.y);
     }

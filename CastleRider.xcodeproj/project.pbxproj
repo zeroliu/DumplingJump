@@ -642,6 +642,8 @@
 		7FA7AB22169D45EA00310361 /* sheetUI-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA7AB1E169D45EA00310361 /* sheetUI-2.png */; };
 		7FA80E041677383600C23879 /* Eras Bold ITC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FA80E031677383600C23879 /* Eras Bold ITC.ttf */; };
 		7FAA48D91671744500A8FCA0 /* MainMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA48D81671744500A8FCA0 /* MainMenu.mm */; };
+		7FADF2E316CB79720081C559 /* EquipmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FADF2E216CB79720081C559 /* EquipmentView.xib */; };
+		7FADF2E616CB83490081C559 /* EquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FADF2E516CB83490081C559 /* EquipmentViewController.m */; };
 		7FAFCC5B15D3A3E300F019F7 /* BackgroundView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */; };
 		7FAFCC5F15D3A69E00F019F7 /* BackgroundModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */; };
 		7FB56EBC167721A000C87AAA /* sheetEffects-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FB56EB81677219F00C87AAA /* sheetEffects-hd.plist */; };
@@ -1619,6 +1621,9 @@
 		7FA80E031677383600C23879 /* Eras Bold ITC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eras Bold ITC.ttf"; sourceTree = "<group>"; };
 		7FAA48D71671744500A8FCA0 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		7FAA48D81671744500A8FCA0 /* MainMenu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainMenu.mm; sourceTree = "<group>"; };
+		7FADF2E216CB79720081C559 /* EquipmentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentView.xib; sourceTree = "<group>"; };
+		7FADF2E416CB83490081C559 /* EquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentViewController.h; sourceTree = "<group>"; };
+		7FADF2E516CB83490081C559 /* EquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentViewController.m; sourceTree = "<group>"; };
 		7FAFCC5915D3A3E300F019F7 /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundView.mm; sourceTree = "<group>"; };
 		7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundModel.h; sourceTree = "<group>"; };
@@ -3035,6 +3040,7 @@
 		7F7010F315AFEFFE00495B10 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7FADF2E116CB79460081C559 /* nibs */,
 				7F8C38AA169B1A1100F2E57B /* xmls */,
 				7FF645C916B5D19E00CF7E5C /* plists */,
 				7F25309F167868C0005138A1 /* spectialEffect */,
@@ -3189,8 +3195,18 @@
 				7F5AE4A416740F30006854DF /* DUScrollPageView.mm */,
 				7F10FD1316759E3A00A2EA6F /* DUTableView.h */,
 				7F10FD1416759E3A00A2EA6F /* DUTableView.mm */,
+				7FADF2E416CB83490081C559 /* EquipmentViewController.h */,
+				7FADF2E516CB83490081C559 /* EquipmentViewController.m */,
 			);
 			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		7FADF2E116CB79460081C559 /* nibs */ = {
+			isa = PBXGroup;
+			children = (
+				7FADF2E216CB79720081C559 /* EquipmentView.xib */,
+			);
+			path = nibs;
 			sourceTree = "<group>";
 		};
 		7FC1026F16471DBB00C01219 /* ParamConfigTool */ = {
@@ -4059,6 +4075,7 @@
 				7F12825016CA3C0D00909D1E /* Icon.png in Resources */,
 				7F12825116CA3C2500909D1E /* Icon.png in Resources */,
 				7F12825316CA3C9400909D1E /* Icon@2x.png in Resources */,
+				7FADF2E316CB79720081C559 /* EquipmentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4328,6 +4345,7 @@
 				7F2972AB16BB9FBF00A07569 /* AudioManager.mm in Sources */,
 				7FC4C05D16BBA3C20031CE11 /* UserData.m in Sources */,
 				7F3B5B8C16C879C90010F8E4 /* DUButtonFactory.m in Sources */,
+				7FADF2E616CB83490081C559 /* EquipmentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

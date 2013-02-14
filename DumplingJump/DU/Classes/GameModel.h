@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
 
-#import "Common.h"
+
 #import "Level.h"
 
 @interface GameModel : CCNode

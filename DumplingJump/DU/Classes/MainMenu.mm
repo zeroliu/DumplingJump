@@ -5,7 +5,7 @@
 //  Created by LIU Xiyuan on 12-12-6.
 //  Copyright (c) 2012年 CMU ETC. All rights reserved.
 //
-#import "Constants.h"
+#import "Common.h"
 #import "MainMenu.h"
 #import "GameLayer.h"
 #import "CCBReader.h"
@@ -59,9 +59,6 @@ typedef enum {
     //Create equipment view
     [self createEquipmentView];
     
-    //Hide unused buttons
-    [self setEquipmentButtonsEnabled:NO];
-
     //Create mask
     [self createMask];
 
@@ -116,6 +113,14 @@ typedef enum {
 
 - (void) createEquipmentView
 {
+    equipmentViewController = [[EquipmentViewController alloc] initWithDelegate:self];
+    equipmentView = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentView" owner:equipmentViewController options:nil] objectAtIndex:0];
+    equipmentView.center = ccp(winSize.width/2, winSize.height/2);
+    equipmentView.layer.zPosition = Z_SECONDARY_UI;
+    [equipmentView setHidden:YES];
+    [VIEW addSubview:equipmentView];
+    
+    /*
     backButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_other_back.png"] retain];
     backButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:backButton];
@@ -129,6 +134,7 @@ typedef enum {
     [VIEW addSubview:continueButton];
     continueButton.layer.zPosition = Z_BUTTONS;
     [continueButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
+     */
 }
 
 - (void) createAchievementView
@@ -142,6 +148,14 @@ typedef enum {
     achievementScrollView.position = ccp(0,BLACK_HEIGHT);
     [achievementHolder addChild:achievementScrollView];
     achievementHolder.zOrder = Z_SECONDARY_UI;
+    
+    backButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_other_back.png"] retain];
+    backButton.layer.zPosition = Z_BUTTONS;
+    [VIEW addSubview:backButton];
+    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    [backButton setEnabled:NO];
+    [backButton setAlpha:0];
 }
 
 - (void) createTitleHero
@@ -224,6 +238,9 @@ typedef enum {
 
 - (void) showEquipment
 {
+    [equipmentView setHidden:NO];
+    [equipmentViewController showEquipmentView];
+    
     state = MainMenuStateEquipment;
     [UIView animateWithDuration:0.1
             animations:^
@@ -235,7 +252,7 @@ typedef enum {
             {
                 if (finished)
                 {
-                    [self showEquipmentAnim];
+//                    [self showEquipmentAnim];
                 }
             }
      ];
@@ -245,17 +262,7 @@ typedef enum {
     //[self scheduleOnce:@selector(showEquipmentBody) delay:0.1];
 }
 
-- (void) showEquipmentAnim
-{
-    //Show Equipment buttons
-    [UIView animateWithDuration:0.1
-            animations:^
-            {
-                [self setEquipmentButtonsEnabled:YES];
-            }
-     ];
-    [self setMaskVisibility:YES];
-}
+
 
 - (void) startGame
 {
@@ -264,10 +271,8 @@ typedef enum {
     [settingButton removeFromSuperview];
     [gameCenterButton removeFromSuperview];
     [backButton removeFromSuperview];
-    [storeButton removeFromSuperview];
-    [continueButton removeFromSuperview];
+    [equipmentView removeFromSuperview];
     
-    //[animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
     [[AudioManager shared] fadeOutBackgroundMusic];
 }
@@ -287,7 +292,7 @@ typedef enum {
                 [self setMaskVisibility:NO];
                 if (state == MainMenuStateEquipment)
                 {
-                    [self setEquipmentButtonsEnabled:NO];
+//                    [self setEquipmentButtonsEnabled:NO];
                 }
                 else if (state == MainMenuStateMission)
                 {
@@ -309,11 +314,6 @@ typedef enum {
     ];
 }
 
-- (void) hideEquipmentBody
-{
-    [animationManager runAnimationsForSequenceNamed:@"Hide Equipment"];
-}
-
 - (void) backToMainMenu
 {
     [UIView animateWithDuration:0.1
@@ -322,9 +322,6 @@ typedef enum {
                  [self setMainMenuButtonsEnabled:YES];
              }
     ];
-
-//    [self setMainMenuButtonsEnabled:YES];
-//    [self scheduleOnce:@selector(playTitleScreenAnimation) delay:0.2];
 }
 
 - (void) playTitleScreenAnimation
@@ -356,29 +353,8 @@ typedef enum {
     achievementButton.alpha = opacity;
     settingButton.alpha = opacity;
     gameCenterButton.alpha = opacity;
-    
-//    [playButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
-//    [achievementButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
-//    [settingButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
-//    [gameCenterButton runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
 }
 
-- (void) setEquipmentButtonsEnabled:(BOOL)isEnabled
-{
-    [storeButton setEnabled:isEnabled];
-    [backButton setEnabled:isEnabled];
-    [continueButton setEnabled:isEnabled];
-    
-    int opacity = 0;
-    if (isEnabled)
-    {
-        opacity = 1;
-    }
-    
-    storeButton.alpha = opacity;
-    backButton.alpha = opacity;
-    continueButton.alpha = opacity;
-}
 
 - (void) setAchievementButtonsEnabled:(BOOL)isEnabled
 {
@@ -404,21 +380,32 @@ typedef enum {
     [mask runAction:[CCFadeTo actionWithDuration:0.1 opacity:opacity]];
 }
 
+- (void) didEquipmentViewBack
+{
+    state = MainMenuStateHome;
+    [equipmentView setHidden:YES];
+    [self backToMainMenu];
+}
+
+- (void) didEquipmentViewContinue
+{
+    [equipmentView setHidden:YES];
+    [self startGame];
+}
+
 - (void)dealloc
 {
     [playButton release];
     [achievementButton release];
     [settingButton release];
     [gameCenterButton release];
-    
     [backButton release];
-    [storeButton release];
-    [continueButton release];
-    
     [mask release];
     
     [achievementHolder removeAllChildrenWithCleanup:YES];
     [achievementScrollView release];
+    
+    [equipmentViewController release];
     [super dealloc];
 }
 @end

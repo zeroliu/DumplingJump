@@ -1,7 +1,5 @@
-#import "Common.h"
 #import "GLES-Render.h"
 @class GameModel;
-@class HeroManager;
 
 @interface GameLayer : CCLayer
 {

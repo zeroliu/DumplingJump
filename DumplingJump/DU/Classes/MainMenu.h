@@ -9,7 +9,9 @@
 #import "cocos2d.h"
 #import "CCControlButton.h"
 #import "CCBAnimationManager.h"
-@interface MainMenu : CCLayer
+#import "EquipmentViewController.h"
+
+@interface MainMenu : CCLayer <EquipmentViewControllerDelegate>
 {
     CGSize winSize;
     CCNode *achievementHolder;
@@ -20,10 +22,7 @@
     UIButton *settingButton;
     UIButton *gameCenterButton;
     
-    //Equipment View buttons
     UIButton *backButton;
-    UIButton *storeButton;
-    UIButton *continueButton;
     
     //Mask
     CCSprite *mask;
@@ -35,5 +34,7 @@
     CCLabelTTF *starNum;
     
     CCBAnimationManager *animationManager;
+    EquipmentViewController *equipmentViewController;
+    UIView *equipmentView;
 }
 @end

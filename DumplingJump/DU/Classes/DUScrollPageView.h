@@ -7,7 +7,7 @@
 //
 
 #import "CCScrollPageControlView.h"
-#import "Common.h"
+
 
 @interface DUScrollPageView : CCScrollPageControlView <CCSCrollPageViewDelegate>
 

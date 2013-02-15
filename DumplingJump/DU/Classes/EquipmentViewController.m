@@ -69,6 +69,10 @@
 
 - (void) equipmentViewFlyOutAnimationWithTarget:(id)target selector:(SEL)callback
 {
+    if ([self.delegate respondsToSelector:@selector(didHideEquipmentViewAnimStart)])
+    {
+        [self.delegate performSelector:@selector(didHideEquipmentViewAnimStart)];
+    }
     [UIView animateWithDuration:0.1 delay:0.1 options:(UIViewAnimationOptionCurveLinear) animations:^
      {
          [self setEquipmentButtonsEnabled:NO];

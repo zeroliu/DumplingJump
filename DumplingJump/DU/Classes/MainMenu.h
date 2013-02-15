@@ -21,7 +21,6 @@
     UIButton *achievementButton;
     UIButton *settingButton;
     UIButton *gameCenterButton;
-    
     UIButton *backButton;
     
     //Mask

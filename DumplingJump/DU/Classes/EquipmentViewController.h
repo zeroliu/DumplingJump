@@ -13,6 +13,7 @@
 @protocol EquipmentViewControllerDelegate <NSObject>
 - (void) didEquipmentViewBack;
 - (void) didEquipmentViewContinue;
+- (void) didHideEquipmentViewAnimStart;
 @end
 
 @interface EquipmentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>

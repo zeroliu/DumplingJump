@@ -120,21 +120,7 @@ typedef enum {
     [equipmentView setHidden:YES];
     [VIEW addSubview:equipmentView];
     
-    /*
-    backButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_other_back.png"] retain];
-    backButton.layer.zPosition = Z_BUTTONS;
-    [VIEW addSubview:backButton];
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    
-    storeButton = [[DUButtonFactory createButtonWithPosition:ccp(backButton.center.x + backButton.frame.size.width+6, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_equip_star.png"] retain];
-    storeButton.layer.zPosition = Z_BUTTONS;
-    [VIEW addSubview:storeButton];
-    
-    continueButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 50, winSize.height - 46 - BLACK_HEIGHT) image:@"UI_other_play.png"] retain];
-    [VIEW addSubview:continueButton];
-    continueButton.layer.zPosition = Z_BUTTONS;
-    [continueButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
-     */
+    [equipmentViewController hideEquipmentView];
 }
 
 - (void) createAchievementView
@@ -211,7 +197,7 @@ typedef enum {
                  //Hide all the buttons on main menu
                  [self setMainMenuButtonsEnabled:NO];
              }
-                             completion:^(BOOL finished)
+                completion:^(BOOL finished)
              {
                  if (finished)
                  {
@@ -261,8 +247,6 @@ typedef enum {
     //[self setMainMenuButtonsEnabled:NO];
     //[self scheduleOnce:@selector(showEquipmentBody) delay:0.1];
 }
-
-
 
 - (void) startGame
 {

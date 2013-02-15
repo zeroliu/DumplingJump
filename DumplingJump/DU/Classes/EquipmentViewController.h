@@ -31,6 +31,7 @@
 - (id)initWithDelegate:(id)theDelegate;
 
 - (void) showEquipmentView;
+- (void) hideEquipmentView;
 
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;

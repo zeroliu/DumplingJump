@@ -14,15 +14,15 @@
 	</level>
 	<level>
 		<time>1</time>
-        <slot4>adsfa</slot4>
-	</level>
-	<level>
-		<time>2</time>
 		<slot1>*\</slot1>
 	</level>
 	<level>
-		<time>3</time>
+		<time>2</time>
 		<slot1>*/</slot1>
+	</level>
+	<level>
+		<time>3</time>
+		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>4</time>
@@ -30,48 +30,44 @@
 	</level>
 	<level>
 		<time>5</time>
+		<slot3>VAT</slot3>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>6</time>
 		<slot3>VAT</slot3>
-		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>7</time>
-		<slot3>VAT</slot3>
-	</level>
-	<level>
-		<time>8</time>
 		<slot5>SPRING</slot5>
 	</level>
 	<level>
+		<time>8</time>
+		<slot1>*&lt;</slot1>
+	</level>
+	<level>
 		<time>9</time>
-		<slot3>*&lt;</slot3>
+		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>10</time>
+		<slot3>VAT</slot3>
 		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>11</time>
-		<slot3>VAT</slot3>
-		<slot6>VAT</slot6>
 	</level>
 	<level>
 		<time>12</time>
+		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>13</time>
 		<slot4>VAT</slot4>
-	</level>
-	<level>
-		<time>14</time>
-		<slot4>VAT</slot4>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
-		<time>15</time>
+		<time>14</time>
 		<slot5>*1</slot5>
 	</level>
 </stage1>

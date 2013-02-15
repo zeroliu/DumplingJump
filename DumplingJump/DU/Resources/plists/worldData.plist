@@ -42,7 +42,7 @@
 	<key>hero</key>
 	<dict>
 		<key>velocityAccRatio</key>
-		<integer>2</integer>
+		<real>1.5</real>
 		<key>heroRadius</key>
 		<integer>11</integer>
 		<key>heroMass</key>
@@ -50,13 +50,13 @@
 		<key>heroI</key>
 		<integer>1</integer>
 		<key>heroFric</key>
-		<integer>1</integer>
+		<real>0.3</real>
 		<key>heroMaxVx</key>
-		<integer>40</integer>
+		<integer>35</integer>
 		<key>heroMaxVy</key>
 		<integer>26</integer>
 		<key>heroAcc</key>
-		<integer>13</integer>
+		<integer>8</integer>
 		<key>heroJump</key>
 		<integer>450</integer>
 		<key>heroGravity</key>

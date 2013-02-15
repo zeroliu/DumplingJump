@@ -734,6 +734,7 @@
 		7FF5E5DA163517E60018B085 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5D3163517E60018B085 /* DDXMLNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7FF645C816B5D06A00CF7E5C /* WorldData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF645C716B5D06A00CF7E5C /* WorldData.m */; };
 		7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF645CC16B5D1C500CF7E5C /* worldData.plist */; };
+		7FFAC9B816CE14000046FCBB /* EquipmentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFAC9B716CE14000046FCBB /* EquipmentViewCell.xib */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
@@ -1766,6 +1767,7 @@
 		7FF645C616B5D06A00CF7E5C /* WorldData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldData.h; sourceTree = "<group>"; };
 		7FF645C716B5D06A00CF7E5C /* WorldData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldData.m; sourceTree = "<group>"; };
 		7FF645CC16B5D1C500CF7E5C /* worldData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worldData.plist; sourceTree = "<group>"; };
+		7FFAC9B716CE14000046FCBB /* EquipmentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewCell.xib; sourceTree = "<group>"; };
 		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
@@ -3205,6 +3207,7 @@
 			isa = PBXGroup;
 			children = (
 				7FADF2E216CB79720081C559 /* EquipmentView.xib */,
+				7FFAC9B716CE14000046FCBB /* EquipmentViewCell.xib */,
 			);
 			path = nibs;
 			sourceTree = "<group>";
@@ -4076,6 +4079,7 @@
 				7F12825116CA3C2500909D1E /* Icon.png in Resources */,
 				7F12825316CA3C9400909D1E /* Icon@2x.png in Resources */,
 				7FADF2E316CB79720081C559 /* EquipmentView.xib in Resources */,
+				7FFAC9B816CE14000046FCBB /* EquipmentViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

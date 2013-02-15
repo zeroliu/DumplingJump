@@ -219,10 +219,11 @@ typedef enum {
 
 - (void) showEquipment
 {
+
     [self setMaskVisibility:YES];
     [equipmentView setHidden:NO];
     [equipmentViewController showEquipmentView];
-    
+    [equipmentViewController updateStarNum:200];
     state = MainMenuStateEquipment;
     [UIView animateWithDuration:0.1
             animations:^

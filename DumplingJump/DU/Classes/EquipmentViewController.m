@@ -31,18 +31,50 @@
     return 4;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 83;
+}
+
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
     
     if (cell == nil)
     {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"] autorelease];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentViewCell" owner:self options:nil] objectAtIndex:0];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"test %ld", (long)indexPath.row];
-    
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10.0;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 260, 29)];
+    UIImageView *bgImage = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UI_equip_sort.png"]] autorelease];
+    [bgImage setBounds:CGRectMake(0, 0, 260, 29)];
+    [bgImage setCenter:ccp(130, 14.5)];
+    UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 260, 29)] autorelease];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setTextAlignment:UITextAlignmentCenter];
+    [titleLabel setText:@"test"];
+    [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:25]];
+    [titleLabel setTextColor:[UIColor colorWithRed:242.0/255.0 green:228.0/255.0 blue:133.0/255.0 alpha:1]];
+    [header addSubview:bgImage];
+    [header addSubview:titleLabel];
+    
+    return header;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 36;
 }
 
 - (void) equipmentViewFlyInAnimationWithTarget:(id)target selector:(SEL)callback
@@ -132,6 +164,13 @@
     [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewContinue)];
 }
 
+- (void) updateStarNum:(int)num
+{
+    [starNumLabel setText:[NSString stringWithFormat:@"%d", num]];
+    [starNumLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:25]];
+    [starIcon setCenter:ccp(starNumLabel.frame.origin.x-starIcon.frame.size.width/2.0+5,starNumLabel.center.y)];
+}
+
 - (void)dealloc
 {
     [continueButton release];
@@ -139,7 +178,16 @@
     [backButton release];
     [storeButton release];
     [bottomImage release];
+    [starIcon release];
+    [starNumLabel release];
     [super dealloc];
 }
 
+- (void)viewDidUnload {
+    [starIcon release];
+    starIcon = nil;
+    [starNumLabel release];
+    starNumLabel = nil;
+    [super viewDidUnload];
+}
 @end

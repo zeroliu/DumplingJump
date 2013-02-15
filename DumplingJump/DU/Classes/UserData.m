@@ -27,7 +27,7 @@
 {
     if (self = [super init])
     {
-        _isMusicMuted = YES;
+        _isMusicMuted = NO;
         _isSFXMuted = NO;
     }
     

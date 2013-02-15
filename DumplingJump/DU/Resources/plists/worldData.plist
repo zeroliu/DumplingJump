@@ -50,7 +50,7 @@
 		<key>heroI</key>
 		<integer>1</integer>
 		<key>heroFric</key>
-		<integer>2</integer>
+		<integer>1</integer>
 		<key>heroMaxVx</key>
 		<integer>40</integer>
 		<key>heroMaxVy</key>

@@ -682,6 +682,10 @@
 		7FC7C5D5167099B200E3B82C /* A_vat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC7C5C2167099B200E3B82C /* A_vat_1.png */; };
 		7FC7C5D6167099B200E3B82C /* O_plate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC7C5C3167099B200E3B82C /* O_plate.png */; };
 		7FC85C461638FB12008872E6 /* LevelTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC85C451638FB12008872E6 /* LevelTestTool.mm */; };
+		7FCB630416D4A84C003DC150 /* LockedEquipmentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB630316D4A84C003DC150 /* LockedEquipmentViewCell.xib */; };
+		7FCB630816D4AD5C003DC150 /* DUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */; };
+		7FCB630B16D4B03C003DC150 /* EquipmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB630A16D4B03C003DC150 /* EquipmentTableViewCell.m */; };
+		7FCB630D16D4CD53003DC150 /* EquipmentViewAmountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB630C16D4CD53003DC150 /* EquipmentViewAmountCell.xib */; };
 		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
 		7FD5283415B3EF8400E50506 /* BackgroundController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundController.mm */; };
 		7FD5283615B3EF8400E50506 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283215B3EE1900E50506 /* Common.mm */; };
@@ -734,7 +738,7 @@
 		7FF5E5DA163517E60018B085 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5D3163517E60018B085 /* DDXMLNode.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		7FF645C816B5D06A00CF7E5C /* WorldData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF645C716B5D06A00CF7E5C /* WorldData.m */; };
 		7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF645CC16B5D1C500CF7E5C /* worldData.plist */; };
-		7FFAC9B816CE14000046FCBB /* EquipmentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFAC9B716CE14000046FCBB /* EquipmentViewCell.xib */; };
+		7FFAC9B816CE14000046FCBB /* EquipmentViewLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
@@ -1671,6 +1675,12 @@
 		7FC7C5C3167099B200E3B82C /* O_plate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = O_plate.png; sourceTree = "<group>"; };
 		7FC85C441638FB12008872E6 /* LevelTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTestTool.h; sourceTree = "<group>"; };
 		7FC85C451638FB12008872E6 /* LevelTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelTestTool.mm; sourceTree = "<group>"; };
+		7FCB630316D4A84C003DC150 /* LockedEquipmentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LockedEquipmentViewCell.xib; sourceTree = "<group>"; };
+		7FCB630616D4AD5C003DC150 /* DUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUTableViewCell.h; sourceTree = "<group>"; };
+		7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUTableViewCell.m; sourceTree = "<group>"; };
+		7FCB630916D4B03C003DC150 /* EquipmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentTableViewCell.h; sourceTree = "<group>"; };
+		7FCB630A16D4B03C003DC150 /* EquipmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentTableViewCell.m; sourceTree = "<group>"; };
+		7FCB630C16D4CD53003DC150 /* EquipmentViewAmountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewAmountCell.xib; sourceTree = "<group>"; };
 		7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TexturePackerScript.sh; sourceTree = "<group>"; };
 		7FD5282F15B3EE1900E50506 /* BackgroundController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundController.h; sourceTree = "<group>"; };
 		7FD5283015B3EE1900E50506 /* BackgroundController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundController.mm; sourceTree = "<group>"; };
@@ -1767,7 +1777,7 @@
 		7FF645C616B5D06A00CF7E5C /* WorldData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldData.h; sourceTree = "<group>"; };
 		7FF645C716B5D06A00CF7E5C /* WorldData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldData.m; sourceTree = "<group>"; };
 		7FF645CC16B5D1C500CF7E5C /* worldData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worldData.plist; sourceTree = "<group>"; };
-		7FFAC9B716CE14000046FCBB /* EquipmentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewCell.xib; sourceTree = "<group>"; };
+		7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewLevelCell.xib; sourceTree = "<group>"; };
 		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
@@ -3187,6 +3197,7 @@
 		7FAA48D51671743200A8FCA0 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				7FCB630516D4AD28003DC150 /* TableViewCellControllers */,
 				7FAA48D71671744500A8FCA0 /* MainMenu.h */,
 				7FAA48D81671744500A8FCA0 /* MainMenu.mm */,
 				7FE2B0FD1671CF37009CB539 /* CCScrollPageControlView.h */,
@@ -3206,8 +3217,10 @@
 		7FADF2E116CB79460081C559 /* nibs */ = {
 			isa = PBXGroup;
 			children = (
+				7FCB630C16D4CD53003DC150 /* EquipmentViewAmountCell.xib */,
+				7FCB630316D4A84C003DC150 /* LockedEquipmentViewCell.xib */,
 				7FADF2E216CB79720081C559 /* EquipmentView.xib */,
-				7FFAC9B716CE14000046FCBB /* EquipmentViewCell.xib */,
+				7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */,
 			);
 			path = nibs;
 			sourceTree = "<group>";
@@ -3225,6 +3238,17 @@
 				7F12470A1647A12E000448B4 /* TextInputField.mm */,
 			);
 			name = ParamConfigTool;
+			sourceTree = "<group>";
+		};
+		7FCB630516D4AD28003DC150 /* TableViewCellControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FCB630616D4AD5C003DC150 /* DUTableViewCell.h */,
+				7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */,
+				7FCB630916D4B03C003DC150 /* EquipmentTableViewCell.h */,
+				7FCB630A16D4B03C003DC150 /* EquipmentTableViewCell.m */,
+			);
+			name = TableViewCellControllers;
 			sourceTree = "<group>";
 		};
 		7FD5280D15B3EDE100E50506 /* Assets */ = {
@@ -4079,7 +4103,9 @@
 				7F12825116CA3C2500909D1E /* Icon.png in Resources */,
 				7F12825316CA3C9400909D1E /* Icon@2x.png in Resources */,
 				7FADF2E316CB79720081C559 /* EquipmentView.xib in Resources */,
-				7FFAC9B816CE14000046FCBB /* EquipmentViewCell.xib in Resources */,
+				7FFAC9B816CE14000046FCBB /* EquipmentViewLevelCell.xib in Resources */,
+				7FCB630416D4A84C003DC150 /* LockedEquipmentViewCell.xib in Resources */,
+				7FCB630D16D4CD53003DC150 /* EquipmentViewAmountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4350,6 +4376,8 @@
 				7FC4C05D16BBA3C20031CE11 /* UserData.m in Sources */,
 				7F3B5B8C16C879C90010F8E4 /* DUButtonFactory.m in Sources */,
 				7FADF2E616CB83490081C559 /* EquipmentViewController.m in Sources */,
+				7FCB630816D4AD5C003DC150 /* DUTableViewCell.m in Sources */,
+				7FCB630B16D4B03C003DC150 /* EquipmentTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

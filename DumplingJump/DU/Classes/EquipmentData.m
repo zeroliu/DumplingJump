@@ -27,12 +27,17 @@
     if (self = [super init])
     {
         [self loadEquipmentData];
-        
+        //TODO: Load user data
     }
-    
     return self;
 }
 
+- (void) loadEquipmentData
+{
+    self.dataDictionary = [[XMLHelper shared] loadEquipmentDataWithXML:@"Editor_equipment"];
+}
+
+/*
 -(void) loadEquipmentData
 {
     NSString *errorDesc = nil;
@@ -74,7 +79,7 @@
         [error release];
     }
 }
-
+*/
 - (void)dealloc
 {
     [_dataDictionary release];

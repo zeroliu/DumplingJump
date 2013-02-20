@@ -152,7 +152,7 @@
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [[EquipmentData shared] saveEquipmentData];
+    //[[EquipmentData shared] saveEquipmentData];
 	CC_DIRECTOR_END();
 }
 

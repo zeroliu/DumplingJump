@@ -8,6 +8,16 @@
 
 #import "EquipmentViewController.h"
 #import "Constants.h"
+#import "EquipmentData.h"
+
+#define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).dataDictionary
+
+@interface EquipmentViewController()
+{
+    NSArray *equipmentTypesArray;
+}
+
+@end
 
 @implementation EquipmentViewController
 @synthesize delegate = _delegate;
@@ -17,20 +27,20 @@
     if (self = [super init])
     {
         _delegate = theDelegate;
+        equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"utilities",@"upgrades",@"multipliers", nil];
     }
     return self;
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return [equipmentTypesArray count];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:section]] count];
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -39,13 +49,36 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
+//    
+//    if (cell == nil)
+//    {
+//        cell = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentViewCell" owner:self options:nil] objectAtIndex:0];
+//    }
+//
+    NSDictionary *equipmentData = [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
-    if (cell == nil)
+    //TODO: check if it is multiplier
+    UITableViewCell *cell = nil;
+    BOOL unlocked = [[equipmentData objectForKey:@"unlocked"] boolValue];
+    
+    if (unlocked)
     {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentViewCell" owner:self options:nil] objectAtIndex:0];
+        cell = [tableView dequeueReusableCellWithIdentifier:[equipmentData objectForKey:@"layout"]];
+        if (cell == nil)
+        {
+            cell = [[[NSBundle mainBundle] loadNibNamed:[equipmentData objectForKey:@"layout"] owner:self options:nil] objectAtIndex:0];
+        }
     }
-    
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
+        if (cell == nil)
+        {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"LockedEquipmentViewCell" owner:self options:nil] objectAtIndex:0];
+        }
+    }
+
     return cell;
 }
 
@@ -56,15 +89,15 @@
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 260, 29)];
+    UIView *header = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 260, 29)] autorelease];
     UIImageView *bgImage = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UI_equip_sort.png"]] autorelease];
     [bgImage setBounds:CGRectMake(0, 0, 260, 29)];
     [bgImage setCenter:ccp(130, 14.5)];
     UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 260, 29)] autorelease];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
     [titleLabel setTextAlignment:UITextAlignmentCenter];
-    [titleLabel setText:@"test"];
-    [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:25]];
+    [titleLabel setText:[[equipmentTypesArray objectAtIndex:section] uppercaseString]];
+    [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:20]];
     [titleLabel setTextColor:[UIColor colorWithRed:242.0/255.0 green:228.0/255.0 blue:133.0/255.0 alpha:1]];
     [header addSubview:bgImage];
     [header addSubview:titleLabel];
@@ -173,6 +206,7 @@
 
 - (void)dealloc
 {
+    [equipmentTypesArray release];
     [continueButton release];
     [backgroundView release];
     [backButton release];

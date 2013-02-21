@@ -468,6 +468,7 @@
             {
                 if ([[element name] isEqualToString:@"group"])
                 {
+                    //TODO: link with achievement data
                     if ([[element stringValue] intValue] == 0)
                     {
                         [itemData setObject:[NSNumber numberWithBool:YES] forKey:@"unlocked"];
@@ -493,6 +494,9 @@
                 } else if ([[element name] isEqualToString:@"layout"])
                 {
                     [itemData setObject:[element stringValue] forKey:@"layout"];
+                } else if ([[element name] isEqualToString:@"unit"])
+                {
+                    [itemData setObject:[element stringValue] forKey:@"unit"];
                 } else if ([[element name] rangeOfString:@"level"].location != NSNotFound)
                 {
                     [itemData setObject:[NSNumber numberWithFloat:[[element stringValue] floatValue]] forKey:[element name]];
@@ -503,6 +507,30 @@
     }
     [xmlDoc release];
     
+    return dict;
+}
+
+-(id) loadUserDataWithXML: (NSString *)fileName
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:fileName] retain];
+    NSError *err = nil;
+    
+    //Create Node by finding level
+    DDXMLElement *nodeResult = [[xmlDoc nodesForXPath:@"//userData" error:&err] objectAtIndex:0];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    NSArray *datas = [nodeResult children];
+    
+    for (DDXMLElement *element in datas)
+    {
+        [dict setObject:[element stringValue] forKey:[element name]];
+    }
+    [xmlDoc release];
+    DLog(@"%@",[dict description]);
     return dict;
 }
 @end

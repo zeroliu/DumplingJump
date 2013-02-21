@@ -12,76 +12,85 @@
         <level1>level1</level1>
         <level2>level2</level2>
         <level3>level3</level3>
-	</Item>
-	<Item>
-		<group>0</group>
-		<type>powerups</type>
-        <layout>EquipmentViewLevelCell</layout>
-		<name>shield</name>
-        <description>Protect your hero</description>
-		<multiplier>2.5</multiplier>
-		<base>100</base>
-        <level0>10</level0>
-        <level1>15</level1>
-        <level2>20</level2>
-        <level3>25</level3>
+        <level4>level4</level4>
 	</Item>
 	<Item>
 		<group>0</group>
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>sword</name>
-        <description>Protect your hero</description>
+        <description>Extend duration</description>
+        <unit>sec.</unit>
 		<multiplier>2.5</multiplier>
 		<base>100</base>
         <level0>10</level0>
         <level1>15</level1>
         <level2>20</level2>
         <level3>25</level3>
+        <level4>30</level4>
 	</Item>
 	<Item>
 		<group>0</group>
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>spring</name>
-        <description>Protect your hero</description>
+        <description>Extend duration</description>
+        <unit>sec.</unit>
 		<multiplier>2.5</multiplier>
 		<base>100</base>
         <level0>10</level0>
         <level1>15</level1>
         <level2>20</level2>
         <level3>25</level3>
+        <level4>30</level4>
+	</Item>
+	<Item>
+		<group>0</group>
+		<type>powerups</type>
+        <layout>EquipmentViewLevelCell</layout>
+		<name>megaCoin</name>
+        <description>Increase</description>
+        <unit> star bonus</unit>
+		<multiplier>2.5</multiplier>
+		<base>100</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>1</group>
-		<type>utilities</type>
+		<type>skills</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>bomb</name>
-        <description>Protect your hero</description>
+		<name>shield</name>
+        <description>cooldown:</description>
+        <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
 		<base>300</base>
 	</Item>
 	<Item>
 		<group>2</group>
-		<type>utilities</type>
+		<type>skills</type>
         <layout>EquipmentViewAmountCell</layout>
-		<name>reborn</name>
-        <description>Protect your hero</description>
+		<name>magnet</name>
+        <description>cooldown:</description>
+        <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
 		<base>800</base>
 	</Item>
 	<Item>
 		<group>3</group>
-		<type>utilities</type>
+		<type>items</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>magnet</name>
+		<name>reborn</name>
         <description>Protect your hero</description>
 		<multiplier>1.2</multiplier>
 		<base>200</base>
 	</Item>
 	<Item>
 		<group>4</group>
-		<type>utilities</type>
+		<type>items</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>rocket</name>
         <description>Protect your hero</description>
@@ -89,19 +98,10 @@
 		<base>1000</base>
 	</Item>
 	<Item>
-		<group>5</group>
-		<type>upgrades</type>
-        <layout>EquipmentViewLevelCell</layout>
-		<name>reborn upgrade</name>
-        <description>Protect your hero</description>
-		<multiplier>1.5</multiplier>
-		<base>500</base>
-	</Item>
-	<Item>
 		<group>6</group>
-		<type>upgrades</type>
+		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>coin multiplier</name>
+		<name>coinMultiplier</name>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>

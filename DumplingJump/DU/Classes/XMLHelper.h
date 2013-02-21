@@ -19,4 +19,5 @@
 -(id) loadReactionWithXML: (NSString *)fileName;
 -(id) loadStarDataWithXML: (NSString *)fileName;
 -(id) loadEquipmentDataWithXML: (NSString *)fileName;
+-(id) loadUserDataWithXML: (NSString *)fileName;
 @end

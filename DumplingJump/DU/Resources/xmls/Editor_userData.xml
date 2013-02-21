@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<highscore>1000</highscore>
+	<star>123</star>
+	<sword>4</sword>
+	<spring>1</spring>
+	<megaCoin>0</megaCoin>
+	<shield>0</shield>
+	<magnet>0</magnet>
+	<reborn>0</reborn>
+	<rocket>0</rocket>
+	<coinMultiplier>0</coinMultiplier>
+	<woodMultiplier>0</woodMultiplier>
+	<silverMultiplier>0</silverMultiplier>
+	<goldenMultiplier>0</goldenMultiplier>
+</userData>

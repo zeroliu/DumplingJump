@@ -684,7 +684,7 @@
 		7FC85C461638FB12008872E6 /* LevelTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC85C451638FB12008872E6 /* LevelTestTool.mm */; };
 		7FCB630416D4A84C003DC150 /* LockedEquipmentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB630316D4A84C003DC150 /* LockedEquipmentViewCell.xib */; };
 		7FCB630816D4AD5C003DC150 /* DUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */; };
-		7FCB630B16D4B03C003DC150 /* EquipmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB630A16D4B03C003DC150 /* EquipmentTableViewCell.m */; };
+		7FCB630B16D4B03C003DC150 /* EquipmentViewLevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB630A16D4B03C003DC150 /* EquipmentViewLevelCell.m */; };
 		7FCB630D16D4CD53003DC150 /* EquipmentViewAmountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB630C16D4CD53003DC150 /* EquipmentViewAmountCell.xib */; };
 		7FD5282E15B3EDED00E50506 /* TexturePackerScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */; };
 		7FD5283415B3EF8400E50506 /* BackgroundController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5283015B3EE1900E50506 /* BackgroundController.mm */; };
@@ -729,6 +729,7 @@
 		7FEA39EA165A0AE1005350F2 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA39CD165A0AE1005350F2 /* zip.c */; };
 		7FEA39EB165A0AE1005350F2 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA39D0165A0AE1005350F2 /* SSZipArchive.m */; };
 		7FEA39F8165A1F32005350F2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEA39F7165A1F32005350F2 /* pause.png */; };
+		7FEA452816D60F7D00F5D2A0 /* LockedEquipmentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEA452716D60F7D00F5D2A0 /* LockedEquipmentViewCell.m */; };
 		7FF4978015BBA3C6008EDF37 /* AccelerometerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */; };
 		7FF5E5C4163516E40018B085 /* XMLHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5C3163516E40018B085 /* XMLHelper.mm */; };
 		7FF5E5D6163517E60018B085 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF5E5C9163517E60018B085 /* DDXMLElementAdditions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -1678,8 +1679,8 @@
 		7FCB630316D4A84C003DC150 /* LockedEquipmentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LockedEquipmentViewCell.xib; sourceTree = "<group>"; };
 		7FCB630616D4AD5C003DC150 /* DUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUTableViewCell.h; sourceTree = "<group>"; };
 		7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUTableViewCell.m; sourceTree = "<group>"; };
-		7FCB630916D4B03C003DC150 /* EquipmentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentTableViewCell.h; sourceTree = "<group>"; };
-		7FCB630A16D4B03C003DC150 /* EquipmentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentTableViewCell.m; sourceTree = "<group>"; };
+		7FCB630916D4B03C003DC150 /* EquipmentViewLevelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentViewLevelCell.h; sourceTree = "<group>"; };
+		7FCB630A16D4B03C003DC150 /* EquipmentViewLevelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentViewLevelCell.m; sourceTree = "<group>"; };
 		7FCB630C16D4CD53003DC150 /* EquipmentViewAmountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewAmountCell.xib; sourceTree = "<group>"; };
 		7FD5282D15B3EDED00E50506 /* TexturePackerScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = TexturePackerScript.sh; sourceTree = "<group>"; };
 		7FD5282F15B3EE1900E50506 /* BackgroundController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundController.h; sourceTree = "<group>"; };
@@ -1757,6 +1758,8 @@
 		7FEA39CF165A0AE1005350F2 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		7FEA39D0165A0AE1005350F2 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		7FEA39F7165A1F32005350F2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		7FEA452616D60F7D00F5D2A0 /* LockedEquipmentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockedEquipmentViewCell.h; sourceTree = "<group>"; };
+		7FEA452716D60F7D00F5D2A0 /* LockedEquipmentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockedEquipmentViewCell.m; sourceTree = "<group>"; };
 		7FF4977E15BBA3C6008EDF37 /* AccelerometerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerManager.h; sourceTree = "<group>"; };
 		7FF4977F15BBA3C6008EDF37 /* AccelerometerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerometerManager.mm; sourceTree = "<group>"; };
 		7FF5E5C2163516E40018B085 /* XMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHelper.h; sourceTree = "<group>"; };
@@ -3243,10 +3246,12 @@
 		7FCB630516D4AD28003DC150 /* TableViewCellControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7FEA452616D60F7D00F5D2A0 /* LockedEquipmentViewCell.h */,
+				7FEA452716D60F7D00F5D2A0 /* LockedEquipmentViewCell.m */,
 				7FCB630616D4AD5C003DC150 /* DUTableViewCell.h */,
 				7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */,
-				7FCB630916D4B03C003DC150 /* EquipmentTableViewCell.h */,
-				7FCB630A16D4B03C003DC150 /* EquipmentTableViewCell.m */,
+				7FCB630916D4B03C003DC150 /* EquipmentViewLevelCell.h */,
+				7FCB630A16D4B03C003DC150 /* EquipmentViewLevelCell.m */,
 			);
 			name = TableViewCellControllers;
 			sourceTree = "<group>";
@@ -4377,7 +4382,8 @@
 				7F3B5B8C16C879C90010F8E4 /* DUButtonFactory.m in Sources */,
 				7FADF2E616CB83490081C559 /* EquipmentViewController.m in Sources */,
 				7FCB630816D4AD5C003DC150 /* DUTableViewCell.m in Sources */,
-				7FCB630B16D4B03C003DC150 /* EquipmentTableViewCell.m in Sources */,
+				7FCB630B16D4B03C003DC150 /* EquipmentViewLevelCell.m in Sources */,
+				7FEA452816D60F7D00F5D2A0 /* LockedEquipmentViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

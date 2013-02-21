@@ -15,7 +15,7 @@
 {
     if (self = [super init])
     {
-        self = [[[NSBundle mainBundle] loadNibNamed:xibName owner:self options:nil] objectAtIndex:0];
+        self = (DUTableViewCell *)[[[[NSBundle mainBundle] loadNibNamed:xibName owner:self options:nil] objectAtIndex:0] retain];
     }
     
     return self;

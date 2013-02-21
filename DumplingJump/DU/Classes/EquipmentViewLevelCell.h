@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "DUTableViewCell.h"
 
-@interface EquipmentTableViewCell : DUTableViewCell
+@interface EquipmentViewLevelCell : DUTableViewCell
 {
     IBOutlet UIImageView *unlock0;
     IBOutlet UIImageView *unlock1;

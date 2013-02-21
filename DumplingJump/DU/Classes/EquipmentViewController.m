@@ -9,6 +9,8 @@
 #import "EquipmentViewController.h"
 #import "Constants.h"
 #import "EquipmentData.h"
+#import "EquipmentViewLevelCell.h"
+#import "LockedEquipmentViewCell.h"
 
 #define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).dataDictionary
 
@@ -27,7 +29,7 @@
     if (self = [super init])
     {
         _delegate = theDelegate;
-        equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"utilities",@"upgrades",@"multipliers", nil];
+        equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"skills",@"items",@"multipliers", nil];
     }
     return self;
 }
@@ -59,25 +61,27 @@
     NSDictionary *equipmentData = [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     //TODO: check if it is multiplier
-    UITableViewCell *cell = nil;
+    DUTableViewCell *cell = nil;
     BOOL unlocked = [[equipmentData objectForKey:@"unlocked"] boolValue];
     
     if (unlocked)
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:[equipmentData objectForKey:@"layout"]];
+        cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[equipmentData objectForKey:@"layout"]];
         if (cell == nil)
         {
-            cell = [[[NSBundle mainBundle] loadNibNamed:[equipmentData objectForKey:@"layout"] owner:self options:nil] objectAtIndex:0];
+            cell = [[[EquipmentViewLevelCell alloc] initWithXib:@"EquipmentViewLevelCell"] autorelease];
         }
     }
     else
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
+        cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
         if (cell == nil)
         {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"LockedEquipmentViewCell" owner:self options:nil] objectAtIndex:0];
+            cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
         }
     }
+    
+    [cell setLayoutWithDictionary:equipmentData];
 
     return cell;
 }

@@ -41,6 +41,9 @@ typedef enum {
 
 - (void) didLoadFromCCB
 {
+    //Load UserData
+    [UserData shared];
+    
     //Load EquipmentData if first launch
     [EquipmentData shared];
     

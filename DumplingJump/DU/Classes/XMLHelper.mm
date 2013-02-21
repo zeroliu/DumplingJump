@@ -418,6 +418,17 @@
     
     return dict;
 }
+/*
+ *  dict (dictionary)
+ *  ->  "powerup" (array)
+ *      ->  itemData1 (dictionary)
+ *          ->  group
+ *          ->  type
+ *      ->  itemData2
+ *  ->  "skills" (array)
+ *      ->  itemData1
+ *      ->  itemData2
+ */
 
 -(id) loadEquipmentDataWithXML: (NSString *)fileName
 {
@@ -448,7 +459,11 @@
             NSMutableDictionary *itemData = [NSMutableDictionary dictionary];
             
             NSArray *itemRawDataArray = [item children];
-            [itemData setObject:[NSNumber numberWithInt:0] forKey:@"level"];
+            //Pre-set level ability data to 0
+            for (int i=0; i<4; i++)
+            {
+                [itemData setObject:[NSNumber numberWithFloat:0] forKey:[NSString stringWithFormat:@"level%d", i]];
+            }
             for(DDXMLDocument *element in itemRawDataArray)
             {
                 if ([[element name] isEqualToString:@"group"])
@@ -475,9 +490,12 @@
                 } else if ([[element name] isEqualToString:@"base"])
                 {
                     [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"base"];
-                } else if ([[element name] isEqualToString:@"max"])
+                } else if ([[element name] isEqualToString:@"layout"])
                 {
-                    [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"max"];
+                    [itemData setObject:[element stringValue] forKey:@"layout"];
+                } else if ([[element name] rangeOfString:@"level"].location != NSNotFound)
+                {
+                    [itemData setObject:[NSNumber numberWithFloat:[[element stringValue] floatValue]] forKey:[element name]];
                 }
             }
             [itemArray addObject:itemData];

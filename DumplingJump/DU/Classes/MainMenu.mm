@@ -219,10 +219,12 @@ typedef enum {
 
 - (void) showEquipment
 {
+
     [self setMaskVisibility:YES];
     [equipmentView setHidden:NO];
     [equipmentViewController showEquipmentView];
-    
+    //TODO: get star number from user data
+    [equipmentViewController updateStarNum:200];
     state = MainMenuStateEquipment;
     [UIView animateWithDuration:0.1
             animations:^
@@ -250,8 +252,7 @@ typedef enum {
 - (void) gotoStore
 {
     NSLog(@"goto store");
-    
-    [[EquipmentData shared] saveEquipmentData];
+    //[[EquipmentData shared] saveEquipmentData];
 }
 
 //Back button on the main menu got hit

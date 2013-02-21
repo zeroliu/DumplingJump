@@ -24,8 +24,9 @@
     IBOutlet UIButton *backButton;
     IBOutlet UIButton *storeButton;
     IBOutlet UIImageView *bottomImage;
+    IBOutlet UIImageView *starIcon;
+    IBOutlet UILabel *starNumLabel;
 }
-
 
 @property (nonatomic, retain) id delegate;
 
@@ -33,6 +34,7 @@
 
 - (void) showEquipmentView;
 - (void) hideEquipmentView;
+- (void) updateStarNum:(int)num;
 
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;

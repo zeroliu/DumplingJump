@@ -12,7 +12,7 @@
 
 @interface LockedEquipmentViewCell : DUTableViewCell
 {
-
+    IBOutlet UIImageView *equipmentImageView;
 }
 
 @end

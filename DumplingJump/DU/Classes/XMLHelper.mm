@@ -497,6 +497,9 @@
                 } else if ([[element name] isEqualToString:@"unit"])
                 {
                     [itemData setObject:[element stringValue] forKey:@"unit"];
+                } else if ([[element name] isEqualToString:@"image"])
+                {
+                    [itemData setObject:[element stringValue] forKey:@"image"];
                 } else if ([[element name] rangeOfString:@"level"].location != NSNotFound)
                 {
                     [itemData setObject:[NSNumber numberWithFloat:[[element stringValue] floatValue]] forKey:[element name]];

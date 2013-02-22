@@ -5,6 +5,7 @@
 		<type>type</type>
         <layout>layout</layout>
 		<name>name</name>
+        <image>image</image>
         <description>description</description>
 		<multiplier>multiplier</multiplier>
 		<base>base</base>
@@ -19,6 +20,7 @@
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>sword</name>
+        <image>UI_item_bomb</image>
         <description>Extend duration</description>
         <unit>sec.</unit>
 		<multiplier>2.5</multiplier>
@@ -34,6 +36,7 @@
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>spring</name>
+        <image>UI_item_bomb</image>
         <description>Extend duration</description>
         <unit>sec.</unit>
 		<multiplier>2.5</multiplier>
@@ -49,6 +52,7 @@
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>megaCoin</name>
+        <image>UI_item_megacoins</image>
         <description>Increase</description>
         <unit> star bonus</unit>
 		<multiplier>2.5</multiplier>
@@ -64,6 +68,7 @@
 		<type>skills</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>shield</name>
+        <image>UI_item_bomb</image>
         <description>cooldown:</description>
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
@@ -74,6 +79,7 @@
 		<type>skills</type>
         <layout>EquipmentViewAmountCell</layout>
 		<name>magnet</name>
+        <image>UI_item_magnet</image>
         <description>cooldown:</description>
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
@@ -84,6 +90,7 @@
 		<type>items</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>reborn</name>
+        <image>UI_item_reborn</image>
         <description>Protect your hero</description>
 		<multiplier>1.2</multiplier>
 		<base>200</base>
@@ -93,6 +100,7 @@
 		<type>items</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>rocket</name>
+        <image>UI_item_booster</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>1000</base>
@@ -102,6 +110,7 @@
 		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>coinMultiplier</name>
+        <image>UI_item_coinstar</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
@@ -111,6 +120,7 @@
 		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>bronze score multiplier</name>
+        <image>UI_item_scorex1</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
@@ -120,6 +130,7 @@
 		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>silver score multiplier </name>
+        <image>UI_item_scorex2</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
@@ -128,6 +139,7 @@
 		<group>9</group>
 		<type>multipliers</type>
 		<name>golden score multiplier</name>
+        <image>UI_item_scorex3</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>

@@ -30,9 +30,10 @@
 - (void) setLayoutWithDictionary:(NSDictionary *)content
 {
     [super setLayoutWithDictionary:content];
-    
+    [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_shadow.png",[content objectForKey:@"image"]]]];
 }
 - (void)dealloc {
+    [equipmentImageView release];
     [super dealloc];
 }
 @end

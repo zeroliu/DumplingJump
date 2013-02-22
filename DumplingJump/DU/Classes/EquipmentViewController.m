@@ -11,6 +11,7 @@
 #import "EquipmentData.h"
 #import "EquipmentViewLevelCell.h"
 #import "LockedEquipmentViewCell.h"
+#import "EquipmentViewAmountCell.h"
 
 #define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).dataDictionary
 
@@ -63,18 +64,20 @@
     //TODO: check if it is multiplier
     DUTableViewCell *cell = nil;
     BOOL unlocked = [[equipmentData objectForKey:@"unlocked"] boolValue];
-    
+    Class cellClass = NSClassFromString([equipmentData objectForKey:@"layout"]);
     if (unlocked)
     {
+        
         cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[equipmentData objectForKey:@"layout"]];
         if (cell == nil)
         {
-            cell = [[[EquipmentViewLevelCell alloc] initWithXib:@"EquipmentViewLevelCell"] autorelease];
+            
+            cell = [[[cellClass alloc] initWithXib:[equipmentData objectForKey:@"layout"] ] autorelease];
         }
     }
     else
     {
-        cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
+        cell = (LockedEquipmentViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
         if (cell == nil)
         {
             cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];

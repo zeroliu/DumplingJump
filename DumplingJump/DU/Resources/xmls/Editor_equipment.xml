@@ -77,7 +77,7 @@
 	<Item>
 		<group>2</group>
 		<type>skills</type>
-        <layout>EquipmentViewAmountCell</layout>
+        <layout>EquipmentViewLevelCell</layout>
 		<name>magnet</name>
         <image>UI_item_magnet</image>
         <description>cooldown:</description>
@@ -86,14 +86,19 @@
 		<base>800</base>
 	</Item>
 	<Item>
-		<group>3</group>
+		<group>0</group>
 		<type>items</type>
-        <layout>EquipmentViewLevelCell</layout>
+        <layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
         <image>UI_item_reborn</image>
         <description>Protect your hero</description>
 		<multiplier>1.2</multiplier>
 		<base>200</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>4</group>

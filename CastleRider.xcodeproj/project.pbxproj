@@ -618,6 +618,7 @@
 		7F6E2BAA1673F6F600524CE8 /* DUPageControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F6E2BA91673F6F600524CE8 /* DUPageControl.mm */; };
 		7F7010FD15AFEFFE00495B10 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F015AFEFFE00495B10 /* GameLayer.mm */; };
 		7F7010FE15AFEFFE00495B10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7010F215AFEFFE00495B10 /* RootViewController.m */; };
+		7F79431916D76DFB00F44EFA /* UI_equip_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F79431816D76DFB00F44EFA /* UI_equip_bar.png */; };
 		7F81FC121605936A008AF71F /* DUEffectObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FC111605936A008AF71F /* DUEffectObject.mm */; };
 		7F86CD9C162D26EC00AB1024 /* HeroTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */; };
 		7F86CDA4162D316700AB1024 /* Button1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86CD9E162D316700AB1024 /* Button1.png */; };
@@ -652,6 +653,7 @@
 		7FB56EBF167721A000C87AAA /* sheetEffects.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB56EBB1677219F00C87AAA /* sheetEffects.png */; };
 		7FB56EC31677276600C87AAA /* EquipmentCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB56EC21677276600C87AAA /* EquipmentCategoryCell.m */; };
 		7FB56EC616772D1A00C87AAA /* EquipmentLockedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB56EC516772D1A00C87AAA /* EquipmentLockedCell.m */; };
+		7FB73D3E16D75E880053B91E /* EquipmentViewAmountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB73D3D16D75E880053B91E /* EquipmentViewAmountCell.m */; };
 		7FC1027316471DE000C01219 /* ParamConfigTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC1027216471DE000C01219 /* ParamConfigTool.mm */; };
 		7FC102761647219800C01219 /* ConfigScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FC102751647219800C01219 /* ConfigScene.mm */; };
 		7FC1027C16473C6C00C01219 /* square_border.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC1027B16473C6C00C01219 /* square_border.png */; };
@@ -1595,6 +1597,7 @@
 		7F7010F215AFEFFE00495B10 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7F70110015AFF0D900495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = toBeDeleted; path = ../fonts/toBeDeleted; sourceTree = "<group>"; };
 		7F70110615AFF11400495B10 /* toBeDeleted */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toBeDeleted; sourceTree = "<group>"; };
+		7F79431816D76DFB00F44EFA /* UI_equip_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_bar.png; sourceTree = "<group>"; };
 		7F81FC101605936A008AF71F /* DUEffectObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUEffectObject.h; sourceTree = "<group>"; };
 		7F81FC111605936A008AF71F /* DUEffectObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DUEffectObject.mm; sourceTree = "<group>"; };
 		7F86CD9A162D26EC00AB1024 /* HeroTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroTestTool.h; sourceTree = "<group>"; };
@@ -1643,6 +1646,8 @@
 		7FB56EC21677276600C87AAA /* EquipmentCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentCategoryCell.m; sourceTree = "<group>"; };
 		7FB56EC416772D1A00C87AAA /* EquipmentLockedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentLockedCell.h; sourceTree = "<group>"; };
 		7FB56EC516772D1A00C87AAA /* EquipmentLockedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentLockedCell.m; sourceTree = "<group>"; };
+		7FB73D3C16D75E880053B91E /* EquipmentViewAmountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentViewAmountCell.h; sourceTree = "<group>"; };
+		7FB73D3D16D75E880053B91E /* EquipmentViewAmountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentViewAmountCell.m; sourceTree = "<group>"; };
 		7FC1027116471DE000C01219 /* ParamConfigTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamConfigTool.h; sourceTree = "<group>"; };
 		7FC1027216471DE000C01219 /* ParamConfigTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ParamConfigTool.mm; sourceTree = "<group>"; };
 		7FC102741647219800C01219 /* ConfigScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigScene.h; sourceTree = "<group>"; };
@@ -2598,6 +2603,7 @@
 		7F3B59AB16C86DC10010F8E4 /* sheetUI-1 */ = {
 			isa = PBXGroup;
 			children = (
+				7F79431816D76DFB00F44EFA /* UI_equip_bar.png */,
 				7F3B59AC16C86DC10010F8E4 /* UI_equip_bottom.png */,
 				7F3B59AD16C86DC10010F8E4 /* UI_equip_box_level.png */,
 				7F3B59AE16C86DC10010F8E4 /* UI_equip_box_level_press.png */,
@@ -3253,6 +3259,8 @@
 				7FEA452716D60F7D00F5D2A0 /* LockedEquipmentViewCell.m */,
 				7FCB630616D4AD5C003DC150 /* DUTableViewCell.h */,
 				7FCB630716D4AD5C003DC150 /* DUTableViewCell.m */,
+				7FB73D3C16D75E880053B91E /* EquipmentViewAmountCell.h */,
+				7FB73D3D16D75E880053B91E /* EquipmentViewAmountCell.m */,
 				7FCB630916D4B03C003DC150 /* EquipmentViewLevelCell.h */,
 				7FCB630A16D4B03C003DC150 /* EquipmentViewLevelCell.m */,
 			);
@@ -4115,6 +4123,7 @@
 				7FCB630416D4A84C003DC150 /* LockedEquipmentViewCell.xib in Resources */,
 				7FCB630D16D4CD53003DC150 /* EquipmentViewAmountCell.xib in Resources */,
 				7FD6222D16D627220032DAC3 /* Default.png in Resources */,
+				7F79431916D76DFB00F44EFA /* UI_equip_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4388,6 +4397,7 @@
 				7FCB630816D4AD5C003DC150 /* DUTableViewCell.m in Sources */,
 				7FCB630B16D4B03C003DC150 /* EquipmentViewLevelCell.m in Sources */,
 				7FEA452816D60F7D00F5D2A0 /* LockedEquipmentViewCell.m in Sources */,
+				7FB73D3E16D75E880053B91E /* EquipmentViewAmountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

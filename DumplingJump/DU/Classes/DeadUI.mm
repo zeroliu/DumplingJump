@@ -23,6 +23,38 @@
     return shared;
 }
 
+-(void) createUI
+{
+    [super createUI];
+    [self createEquipmentView];
+}
+
+- (void) createEquipmentView
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    equipmentViewController = [[EquipmentViewController alloc] initWithDelegate:self];
+    equipmentView = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentView" owner:equipmentViewController options:nil] objectAtIndex:0];
+    equipmentView.center = ccp(winSize.width/2, winSize.height/2);
+    equipmentView.layer.zPosition = Z_SECONDARY_UI;
+    [equipmentView setHidden:YES];
+    [VIEW addSubview:equipmentView];
+    
+    [equipmentViewController hideEquipmentView];
+}
+
+- (void) showEquipment
+{
+    [equipmentView setHidden:NO];
+    [equipmentViewController showEquipmentView];
+    //TODO: get star number from user data
+    [equipmentViewController updateStarNum:200];
+}
+
+- (void) didEquipmentViewBack
+{
+    [equipmentView setHidden:YES];
+}
+
 -(id) init
 {
     if (self = [super init])
@@ -52,6 +84,11 @@
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
     id sequence = [CCSequence actions:delay,restartFunc,selfDestruction, nil];
     [node runAction:sequence];
+}
+
+-(void) didArsenalTapped:(id)sender
+{
+    [self showEquipment];
 }
 
 -(void) home:(id)sender

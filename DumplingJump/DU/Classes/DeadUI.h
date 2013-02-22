@@ -7,8 +7,12 @@
 //
 
 #import "DUUI.h"
-@interface DeadUI : DUUI
+#import "EquipmentViewController.h"
+@interface DeadUI : DUUI <EquipmentViewControllerDelegate>
 {
+    EquipmentViewController *equipmentViewController;
+    UIView *equipmentView;
+    
     CCLabelTTF *scoreText;
     CCLabelTTF *starText;
     CCLabelTTF *totalStarText;

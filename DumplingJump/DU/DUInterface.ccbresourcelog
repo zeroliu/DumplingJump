@@ -520,6 +520,7 @@ O_whale_idle_6.png
 O_whale_idle_7.png
 O_whale_idle_8.png
 O_whale_idle_9.png
+UI_equip_bar.png
 UI_equip_bottom.png
 UI_equip_box_level.png
 UI_equip_box_level_press.png
@@ -621,6 +622,12 @@ UI_unlock_canvas.png
 UI_purch_box_normal.png
 UI_purch_box_press.png
 UI_purch_like.png
+UI_purch_reminder.png
+UI_purch_reminder_fliter.png
+UI_purch_reminder_no.png
+UI_purch_reminder_no_press.png
+UI_purch_reminder_yes.png
+UI_purch_reminder_yes_press.png
 UI_purch_stars_lv1.png
 UI_purch_stars_lv2.png
 UI_purch_stars_lv3.png

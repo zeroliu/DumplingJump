@@ -7,7 +7,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>fileType</key>
 	<string>CocosBuilder</string>
 	<key>fileVersion</key>
@@ -147,6 +147,8 @@
 						<integer>255</integer>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>animatedProperties</key>
@@ -217,9 +219,9 @@
 						<key>displayName</key>
 						<string>newRecord</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>highscoreSprite</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1585,9 +1587,9 @@
 						<key>displayName</key>
 						<string>returnButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>retryButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1793,9 +1795,9 @@
 						<key>displayName</key>
 						<string>homeButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>homeButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1806,7 +1808,7 @@
 								<key>value</key>
 								<array>
 									<real>37</real>
-									<real>46</real>
+									<real>45</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2001,9 +2003,9 @@
 						<key>displayName</key>
 						<string>storeButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>equipmentButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -2209,9 +2211,9 @@
 						<key>displayName</key>
 						<string>missionButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>missionButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -2222,7 +2224,7 @@
 								<key>value</key>
 								<array>
 									<real>102</real>
-									<real>46</real>
+									<real>45</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2417,9 +2419,9 @@
 						<key>displayName</key>
 						<string>twitterButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>twitterButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -2625,9 +2627,9 @@
 						<key>displayName</key>
 						<string>facebookButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>facebookButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -2833,9 +2835,9 @@
 						<key>displayName</key>
 						<string>expression</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>newItemSprite</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -2845,8 +2847,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>283</real>
-									<real>91</real>
+									<real>284</real>
+									<real>90</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2901,9 +2903,9 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>rideAgainSprite</string>
 				<key>memberVarAssignmentType</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>properties</key>
 				<array>
 					<dict>
@@ -2967,6 +2969,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>animatedProperties</key>
@@ -3143,7 +3147,7 @@
 						<key>type</key>
 						<string>Byte</string>
 						<key>value</key>
-						<integer>0</integer>
+						<integer>255</integer>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3239,7 +3243,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>0.36666667461395264</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

@@ -38,8 +38,9 @@
     equipmentView.layer.zPosition = Z_SECONDARY_UI;
     [equipmentView setHidden:YES];
     [VIEW addSubview:equipmentView];
-    
+
     [equipmentViewController hideEquipmentView];
+    [equipmentViewController setContinueButtonVisibility:NO];
 }
 
 - (void) showEquipment
@@ -53,6 +54,8 @@
 - (void) didEquipmentViewBack
 {
     [equipmentView setHidden:YES];
+    [self setDeadUIVisible:YES callback:nil];
+    [self setButtonsEnable:YES];
 }
 
 -(id) init
@@ -61,8 +64,8 @@
     {
         ccbFileName = @"DeadUI.ccbi";
         priority = Z_DEADUI;
+        winsize = [[CCDirector sharedDirector] winSize];
     }
-    
     return self;
 }
 
@@ -77,7 +80,6 @@
 
 -(void) retry:(id)sender
 {
-    DLog(@"retry");
     [animationManager runAnimationsForSequenceNamed:@"Fade White"];
     id delay = [CCDelayTime actionWithDuration:0.2f];
     id restartFunc = [CCCallFunc actionWithTarget:[[Hub shared] gameLayer] selector:@selector(restart)];
@@ -88,12 +90,70 @@
 
 -(void) didArsenalTapped:(id)sender
 {
-    [self showEquipment];
+    [self setDeadUIVisible:NO callback:@selector(showEquipment)];
+    [self setButtonsEnable:NO];
+}
+
+-(void) setButtonsEnable:(BOOL)isEnable
+{
+    [homeButton setEnabled:isEnable];
+    [missionButton setEnabled:isEnable];
+    [equipmentButton setEnabled:isEnable];
+    [retryButton setEnabled:isEnable];
+    [facebookButton setEnabled:isEnable];
+    [twitterButton setEnabled:isEnable];
 }
 
 -(void) home:(id)sender
 {
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"]]];
+}
+
+- (void) setDeadUIVisible:(BOOL)isVisible callback:(SEL)selector
+{
+    CGPoint targetPosition;
+    DLog(@"%g,%g",rideAgainSprite.position.x, rideAgainSprite.position.y);
+    if (isVisible)
+    {
+        targetPosition = ccp(winsize.width/2.0, winsize.height/2.0);
+    }
+    else
+    {
+        targetPosition = ccp(winsize.width/2.0, winsize.height*1.5);
+    }
+    
+    id moveToAnim = [CCMoveTo actionWithDuration:0.1 position:targetPosition];
+    //id moveToAnim = [CCEaseInOut actionWithAction:moveToAnimRaw];
+    if (selector != nil)
+    {
+        id callbackFunc = [CCCallFunc actionWithTarget:self selector:selector];
+        [rideAgainSprite runAction:[CCSequence actions:moveToAnim, callbackFunc, nil]];
+    }
+    else
+    {
+        [rideAgainSprite runAction:moveToAnim];
+    }
+}
+
+- (void) dealloc
+{
+    [super dealloc];
+    [homeButton release];
+    [missionButton release];
+    [equipmentButton release];
+    [retryButton release];
+    [facebookButton release];
+    [twitterButton release];
+    [highscoreSprite release];
+    [newItemSprite release];
+    [rideAgainSprite release];
+    
+    [scoreText release];
+    [starText release];
+    [totalStarText release];
+    [distanceText release];
+    [multiplierText release];
+    [equipmentViewController release];
 }
 
 @end

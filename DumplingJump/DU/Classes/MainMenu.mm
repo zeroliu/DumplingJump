@@ -240,14 +240,13 @@ typedef enum {
 
 - (void) startGame
 {
+    [equipmentView removeFromSuperview];
     [playButton removeFromSuperview];
     [achievementButton removeFromSuperview];
     [settingButton removeFromSuperview];
     [gameCenterButton removeFromSuperview];
     [backButton removeFromSuperview];
-    [equipmentView removeFromSuperview];
     [mask removeFromParentAndCleanup:NO];
-    
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GameLayer scene]]];
     [[AudioManager shared] fadeOutBackgroundMusic];
 }
@@ -375,7 +374,6 @@ typedef enum {
     [achievementScrollView release];
     
     [equipmentViewController release];
- 
     [super dealloc];
 }
 @end

@@ -211,6 +211,12 @@
     [starIcon setCenter:ccp(starNumLabel.frame.origin.x-starIcon.frame.size.width/2.0+5,starNumLabel.center.y)];
 }
 
+- (void) setContinueButtonVisibility:(BOOL)isVisible
+{
+    [continueButton setHidden:!isVisible];
+}
+
+
 - (void)dealloc
 {
     [equipmentTypesArray release];

@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol EquipmentViewControllerDelegate <NSObject>
+@optional
 - (void) didEquipmentViewBack;
 - (void) didEquipmentViewContinue;
 - (void) didHideEquipmentViewAnimStart;
@@ -29,8 +30,9 @@
 }
 
 @property (nonatomic, retain) id delegate;
-
 - (id)initWithDelegate:(id)theDelegate;
+
+- (void) setContinueButtonVisibility:(BOOL)isVisible;
 
 - (void) showEquipmentView;
 - (void) hideEquipmentView;

@@ -83,7 +83,7 @@
             cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
         }
     }
-    
+    cell.parentTableView = self;
     [cell setLayoutWithDictionary:equipmentData];
 
     return cell;

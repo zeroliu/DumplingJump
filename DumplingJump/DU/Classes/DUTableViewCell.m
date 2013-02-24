@@ -10,7 +10,7 @@
 
 
 @implementation DUTableViewCell
-
+@synthesize parentTableView = _parentTableView;
 - (id) initWithXib:(NSString *)xibName
 {
     if (self = [super init])

@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) BOOL isMusicMuted;
 @property (nonatomic, assign) BOOL isSFXMuted;
-@property (nonatomic, retain) NSDictionary *dataDictionary;
+@property (nonatomic, retain) NSMutableDictionary *dataDictionary;
 +(id) shared;
 
 @end

@@ -20,6 +20,11 @@
     IBOutlet UILabel *priceLabel;
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;
+    
+    IBOutlet UIButton *currentButton;
+    
+    NSDictionary *myContent;
 }
+- (IBAction)didTapButton:(id)sender;
 
 @end

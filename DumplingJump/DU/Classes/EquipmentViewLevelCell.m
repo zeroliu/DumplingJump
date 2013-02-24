@@ -7,6 +7,7 @@
 //
 
 #import "EquipmentViewLevelCell.h"
+#import "EquipmentViewController.h"
 #import "UserData.h"
 #import "Constants.h"
 
@@ -51,20 +52,66 @@
 - (void) setLayoutWithDictionary:(NSDictionary *)content
 {
     [super setLayoutWithDictionary:content];
-    float base = [[content objectForKey:@"base"] floatValue];
-    float multiplier = [[content objectForKey:@"multiplier"] floatValue];
+    if (myContent != nil)
+    {
+        [myContent release];
+        myContent = nil;
+    }
+    myContent = [content retain];
+    [self updateCellUI];
     
-    int level = [[USERDATA objectForKey:[content objectForKey:@"name"]] intValue];
+}
+
+- (void) updateCellUI
+{
+    float base = [[myContent objectForKey:@"base"] floatValue];
+    float multiplier = [[myContent objectForKey:@"multiplier"] floatValue];
+    
+    int level = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
     
     for (int i=0; i<level; i++)
     {
         [[unlockArray objectAtIndex:i] setHidden:NO];
     }
     
-    [priceLabel setText:[NSString stringWithFormat:@"%d",(int)(base * multiplier)]];
-    [descriptionLabel setText:[NSString stringWithFormat:@"%@ %@%@",[content objectForKey:@"description"], [NSNumber numberWithFloat:15], [content objectForKey:@"unit"]]];
-    [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[content objectForKey:@"image"]]]];
+    if (level >= 4)
+    {
+        [priceLabel setText:@"max"];
+        [self setUserInteractionEnabled:NO];
+    }
+    else
+    {
+        [priceLabel setText:[NSString stringWithFormat:@"%d",(int)(base * multiplier * (level+1))]];
+        [self setUserInteractionEnabled:YES];
+    }
+    
+    [descriptionLabel setText:[NSString stringWithFormat:@"%@ %@%@",[myContent objectForKey:@"description"], [NSNumber numberWithFloat:15], [myContent objectForKey:@"unit"]]];
+    [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[myContent objectForKey:@"image"]]]];
 }
+
+- (IBAction)didTapButton:(id)sender
+{
+    
+    int price = [priceLabel.text intValue];
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    int currentLevel = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
+    
+    if (currentStar >= price)
+    {
+        //Have enough money
+        [USERDATA setObject:[NSNumber numberWithInt:currentLevel+1] forKey: [myContent objectForKey:@"name"]];
+        //TODO: star reducing anim
+        [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
+    }
+    else
+    {
+        //TODO: show IAP
+    }
+    [self updateCellUI];
+    [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
+
+}
+
 - (void)dealloc {
     [unlockArray release];
     [unlock1 release];
@@ -74,6 +121,9 @@
     [priceLabel release];
     [descriptionLabel release];
     [equipmentImageView release];
+    [currentButton release];
+    [myContent release];
     [super dealloc];
 }
+
 @end

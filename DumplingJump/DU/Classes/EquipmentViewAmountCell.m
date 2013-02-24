@@ -53,8 +53,6 @@
     [priceLabel setText:[NSString stringWithFormat:@"%d",(int)(base * multiplier)]];
     [descriptionLabel setText:[NSString stringWithFormat:@"%@ %@%@",[content objectForKey:@"description"], [NSNumber numberWithFloat:15], [content objectForKey:@"unit"]]];
     [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[content objectForKey:@"image"]]]];
-    
-    NSLog(@"%@", amountLabel.text);
 }
 - (void)dealloc {
     [priceLabel release];

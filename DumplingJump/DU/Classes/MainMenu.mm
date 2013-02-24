@@ -227,7 +227,7 @@ typedef enum {
     [equipmentView setHidden:NO];
     [equipmentViewController showEquipmentView];
     //TODO: get star number from user data
-    [equipmentViewController updateStarNum:200];
+    [equipmentViewController updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
     state = MainMenuStateEquipment;
     [UIView animateWithDuration:0.1
             animations:^

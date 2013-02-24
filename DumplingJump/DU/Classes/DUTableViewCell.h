@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DUTableViewCell : UITableViewCell
+@property (assign) id parentTableView;
 
 - (id) initWithXib:(NSString *)xibName;
 - (void) setLayoutWithDictionary:(NSDictionary *)content;

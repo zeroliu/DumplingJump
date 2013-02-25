@@ -115,6 +115,7 @@ typedef enum {
     equipmentView = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentView" owner:equipmentViewController options:nil] objectAtIndex:0];
     equipmentView.center = ccp(winSize.width/2, winSize.height/2);
     equipmentView.layer.zPosition = Z_SECONDARY_UI;
+    
     [equipmentView setHidden:YES];
     [VIEW addSubview:equipmentView];
     

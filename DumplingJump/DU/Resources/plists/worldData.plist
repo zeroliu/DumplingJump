@@ -10,7 +10,7 @@
 	<key>common</key>
 	<dict>
 		<key>starWait</key>
-		<real>3.3</real>
+		<integer>2</integer>
 		<key>objectInitialSpeed</key>
 		<integer>17</integer>
 		<key>gameSpeedIncreaseUnit</key>
@@ -27,24 +27,24 @@
 	<key>board</key>
 	<dict>
 		<key>freqL</key>
-		<real>1.1</real>
+		<real>1.5</real>
 		<key>freqM</key>
-		<integer>1</integer>
+		<real>1.2</real>
 		<key>freqR</key>
-		<real>1.1</real>
+		<real>1.5</real>
 		<key>dampL</key>
-		<real>0.9</real>
+		<integer>1</integer>
 		<key>dampM</key>
 		<integer>1</integer>
 		<key>dampR</key>
-		<real>0.9</real>
+		<integer>1</integer>
 		<key>friction</key>
-		<real>0.6</real>
+		<integer>1</integer>
 	</dict>
 	<key>hero</key>
 	<dict>
 		<key>velocityAccRatio</key>
-		<real>1.5</real>
+		<real>1.3</real>
 		<key>heroRadius</key>
 		<integer>11</integer>
 		<key>heroMass</key>
@@ -52,13 +52,13 @@
 		<key>heroI</key>
 		<integer>1</integer>
 		<key>heroFric</key>
-		<real>0.3</real>
+		<integer>0</integer>
 		<key>heroMaxVx</key>
-		<integer>35</integer>
+		<integer>15</integer>
 		<key>heroMaxVy</key>
 		<integer>26</integer>
 		<key>heroAcc</key>
-		<integer>8</integer>
+		<integer>7</integer>
 		<key>heroJump</key>
 		<integer>450</integer>
 		<key>heroGravity</key>

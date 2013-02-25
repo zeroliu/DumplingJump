@@ -15,7 +15,7 @@
 		<blood>物體血量</blood>
 		<react_type>反應種類</react_type>
 		<wait>Waiting time after drop</wait>
-        <warningTime>Warning time before drop</warningTime>
+		<warningTime>Warning time before drop</warningTime>
 	</Item>
 	<Item>
 		<ID>酒桶</ID>
@@ -34,10 +34,10 @@
 		<ID>大酒桶</ID>
 		<name>VAT</name>
 		<shape>Circle</shape>
-		<radius>50</radius>
-		<I>1</I>
-		<mass>40</mass>
-		<res>0.05</res>
+		<radius>45</radius>
+		<I>10</I>
+		<mass>30</mass>
+		<res>0.01</res>
 		<fric>2</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
@@ -70,6 +70,7 @@
 		<gravity>150</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
+		<warningTime>0.7</warningTime>
 	</Item>
 	<Item>
 		<ID>磚頭</ID>
@@ -98,7 +99,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>arrow</react_type>
-        <warningTime>1</warningTime>
+		<warningTime>0.7</warningTime>
 	</Item>
 	<Item>
 		<ID>刺蝟鐵球</ID>
@@ -112,6 +113,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>claw</react_type>
+		<warningTime>0.7</warningTime>
 	</Item>
 	<Item>
 		<ID>火藥</ID>
@@ -120,9 +122,9 @@
 		<width>80</width>
 		<length>80</length>
 		<I>1</I>
-		<mass>30</mass>
+		<mass>25</mass>
 		<res>0.1</res>
-		<fric>5</fric>
+		<fric>10</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>bow</react_type>
@@ -167,7 +169,7 @@
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>spring</react_type>
-		<wait>2.5</wait>
+		<wait>2</wait>
 	</Item>
 	<Item>
 		<ID>防護罩</ID>
@@ -182,7 +184,7 @@
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>shelter</react_type>
-		<wait>2.5</wait>
+		<wait>2</wait>
 	</Item>
 	<Item>
 		<ID>寶劍</ID>
@@ -197,7 +199,7 @@
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>magic</react_type>
-		<wait>2.5</wait>
+		<wait>2</wait>
 	</Item>
 	<Item>
 		<ID>光束</ID>
@@ -229,8 +231,8 @@
 		<ID>冰雹</ID>
 		<name>ICE</name>
 		<shape>Box</shape>
-		<width>70</width>
-		<length>44</length>
+		<width>80</width>
+		<length>50</length>
 		<I>10</I>
 		<mass>10</mass>
 		<res>0</res>
@@ -238,5 +240,6 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>ice</react_type>
+		<warningTime>0.7</warningTime>
 	</Item>
 </things>

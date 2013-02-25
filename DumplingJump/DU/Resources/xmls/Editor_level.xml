@@ -25,18 +25,42 @@
 	<Combination>
 		<phase>1</phase>
 		<step0>1_arrow_1</step0>
+		<step1>1_powder_1</step1>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>1_arrow_2</step0>
+		<step1>1_ice_2</step1>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
 		<step0>1_ice_1</step0>
+		<step1>1_powder_2</step1>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>1_ice_2</step0>
+		<step1>1_claw_2</step1>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
 		<step0>1_claw_1</step0>
+		<step1>1_ice_1</step1>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>1_claw_2</step0>
+		<step1>1_arrow_2</step1>
 	</Combination>
 	<Combination>
 		<phase>1</phase>
 		<step0>1_powder_1</step0>
+		<step1>1_claw_1</step1>
+	</Combination>
+	<Combination>
+		<phase>1</phase>
+		<step0>1_powder_2</step0>
+		<step1>1_arrow_1</step1>
 	</Combination>
 	<Combination>
 		<phase>2</phase>

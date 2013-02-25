@@ -346,10 +346,12 @@
 
 -(void) bowEffect:(NSArray *)value
 {
+    CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
+
     adjustJump = 0;
     adjustMove = 0;
     //Blow hero
-    CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
+    
     float distance = ccpDistance(explosionPos, self.sprite.position);
     float explosionForce = SHOCK_PRESSURE / 500;
     self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
@@ -369,7 +371,7 @@
         float explosionForce = SHOCK_PRESSURE/5000/distance;
         ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (objectPos.x - explosionPos.x), explosionForce * ob.body->GetMass() * (objectPos.y - explosionPos.y)), ob.body->GetPosition());
     }
-    //[EFFECTMANAGER PlayEffectWithName:FX_ItemBomb position:self.sprite.position z:Z_Hero-1 parent:BATCHNODE];
+
 }
 
 -(void) flat

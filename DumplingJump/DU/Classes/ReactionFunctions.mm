@@ -120,9 +120,11 @@
 {
     CCSprite *target = (CCSprite *)source;
     Reaction *reaction = (Reaction *)data;
-    
-    [[HeroManager shared] heroReactWithReactionName:reaction.name heroAnimName:reaction.heroReactAnimationName reactionLasting:reaction.reactionLasting heroSelectorName:@"bowEffect" heroSelectorParam:[NSValue valueWithCGPoint: target.position]];
-    
+    CGPoint explosionPos = target.position;
+    if (explosionPos.x > 0 && explosionPos.x < [[CCDirector sharedDirector] winSize].width && explosionPos.y < [[CCDirector sharedDirector] winSize].height/2 + 100 && explosionPos.y > 40)
+    {
+        [[HeroManager shared] heroReactWithReactionName:reaction.name heroAnimName:reaction.heroReactAnimationName reactionLasting:reaction.reactionLasting heroSelectorName:@"bowEffect" heroSelectorParam:[NSValue valueWithCGPoint: target.position]];
+    }
     DLog(@"bow reaction %g,%g", target.position.x, target.position.y);
 }
 @end

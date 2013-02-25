@@ -265,8 +265,8 @@
                         supportDef.userData = NULL;
                         pushSupport = WORLD->CreateBody(&supportDef);
                         
-                        float supportWidth = 300/2*SCALE_MULTIPLIER;
-                        float supportHeight = 40/2*SCALE_MULTIPLIER;
+                        float supportWidth = 500/2*SCALE_MULTIPLIER;
+                        float supportHeight = 100/2*SCALE_MULTIPLIER;
                         
                         b2PolygonShape supportShape;
                         supportShape.SetAsBox(supportWidth/2/RATIO, supportHeight/2/RATIO);
@@ -284,7 +284,7 @@
                         //Fix the rotation
                         pushSupport->SetFixedRotation(true);
                         
-                        directionForce = b2Vec2(0, pushSupport->GetMass()*40);
+                        directionForce = b2Vec2(0, pushSupport->GetMass()*20);
                     }];
     
     //Countdown certain amount of time

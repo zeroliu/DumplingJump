@@ -336,9 +336,9 @@ hasGenerated = _hasGenerated;
     }
     
     id switchToNextLevelAction = [CCCallFunc actionWithTarget:self selector:@selector(switchToNextLevelEffect)];
-    id delay1 = [CCDelayTime actionWithDuration:8];
+    id delay1 = [CCDelayTime actionWithDuration:4];
     id loadParagraphAction = [CCCallFunc actionWithTarget:self selector:@selector(loadCurrentParagraph)];
-    id delay2 = [CCDelayTime actionWithDuration:8];
+    id delay2 = [CCDelayTime actionWithDuration:4];
     
     [GAMELAYER runAction:[CCSequence actions:delay1, switchToNextLevelAction, delay2, loadParagraphAction, nil]];
     
@@ -350,10 +350,10 @@ hasGenerated = _hasGenerated;
     [[[BoardManager shared] getBoard] rocketPowerup];
     
     //Speed up scrolling speed
-    [[BackgroundController shared] speedUpWithScale:6 interval:5];
+    [[BackgroundController shared] speedUpWithScale:6 interval:3];
     
     //Play speed line effect
-    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration:5 life:1];
+    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration:2 life:1];
     particleNode.position = CGPointZero;
     
     //Show Stage clear text

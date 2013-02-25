@@ -14,7 +14,7 @@
     CCSprite *starScoreIcon;
     CCNode *clearMessage;
     CCLabelTTF *distanceNum;
-    CCNode *bombButtonHolder; //0->CCControlButton, 1->green, 2->white effect
+    CCNode *shieldButtonHolder; //0->CCControlButton, 1->green, 2->white effect
     CCNode *magnetButtonHolder;
     CCSprite *UIMask;
     CCSprite *rebornBar;

@@ -2508,7 +2508,7 @@
 								<key>value</key>
 								<array>
 									<string>Resources/spriteSheets/sheetUI-2.plist</string>
-									<string>UI_item_bomb.png</string>
+									<string>UI_item_shield.png</string>
 								</array>
 							</dict>
 						</array>
@@ -2575,7 +2575,7 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string>bombClicked:</string>
+									<string>shieldClicked:</string>
 									<integer>2</integer>
 									<integer>32</integer>
 								</array>
@@ -2802,9 +2802,9 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>buttonBombHolder</string>
+				<string>shieldBombHolder</string>
 				<key>memberVarAssignmentName</key>
-				<string>bombButtonHolder</string>
+				<string>shieldButtonHolder</string>
 				<key>memberVarAssignmentType</key>
 				<integer>2</integer>
 				<key>properties</key>
@@ -2911,6 +2911,8 @@
 				<true/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

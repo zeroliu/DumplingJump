@@ -43,6 +43,7 @@
 -(void) rebornPowerup;
 -(void) rocketPowerup;
 -(void) absorbPowerup;
+-(void) sheildPowerup;
 -(void) beforeDie;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

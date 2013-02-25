@@ -64,7 +64,7 @@
     [self adjustUI:UIScoreText offset:BLACK_HEIGHT];
     [self adjustUI:UIStarText offset:BLACK_HEIGHT];
     [self adjustUI:starScoreIcon offset:BLACK_HEIGHT];
-    [self adjustUI:bombButtonHolder offset:BLACK_HEIGHT];
+    [self adjustUI:shieldButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:magnetButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:pauseButton offset:BLACK_HEIGHT];
 //    DLog(@"%g,%g", pauseButton.position.x, pauseButton.position.y);
@@ -95,8 +95,8 @@
     
     _buttonsDictionary = [[NSMutableDictionary alloc] init];
     _buttonstatusDictionary = [[NSMutableDictionary alloc] init];
-    [_buttonsDictionary setValue:bombButtonHolder forKey:@"bomb"];
-    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"bomb"];
+    [_buttonsDictionary setValue:shieldButtonHolder forKey:@"shield"];
+    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"shield"];
     [_buttonsDictionary setValue:magnetButtonHolder forKey:@"magnet"];
     [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"magnet"];
 }
@@ -134,13 +134,13 @@
 }
 
 //Get called by cocosbuilder
--(void) bombClicked:(id)sender
+-(void) shieldClicked:(id)sender
 {
-    if ([[self.buttonstatusDictionary objectForKey:@"bomb"] boolValue])
+    if ([[self.buttonstatusDictionary objectForKey:@"shield"] boolValue])
     {
         //bomb, will blow everything away
-        [[[HeroManager shared] getHero] bombPowerup];
-        [self cooldownButtonBarWithName:@"bomb"];
+        [[[HeroManager shared] getHero] sheildPowerup];
+        [self cooldownButtonBarWithName:@"shield"];
     }
 }
 
@@ -220,7 +220,7 @@
     id moveUp = [CCMoveTo actionWithDuration:0.5 position:ccp([[CCDirector sharedDirector] winSize].width/2, 140)];
     
     //Wait for certain seconds
-    id delay = [CCDelayTime actionWithDuration:3];
+    id delay = [CCDelayTime actionWithDuration:1];
     
     //Move the message down
     id moveDown = [CCMoveTo actionWithDuration:0.5 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];

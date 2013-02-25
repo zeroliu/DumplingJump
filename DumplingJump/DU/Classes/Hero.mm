@@ -413,11 +413,6 @@
 -(void) shelter
 {
     DLog(@"shelter");
-    
-    
-    
-    //shellFixture = self.body->CreateFixture(&shellFixtureDef);
-    
 }
 
 -(void) magic:(NSArray *)value;
@@ -481,7 +476,6 @@
 //        [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
     } else
     {
-        //TODO: increment star number
         ((GameLayer *)GAMELAYER).model.star++;
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
@@ -490,6 +484,7 @@
     //DLog(@"star!!");
 }
 
+//Not being used
 -(void) bombPowerup
 {
     for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
@@ -525,7 +520,6 @@
     self.canReborn = YES;
     [self unschedule:@selector(rebornFinish)];
     [self scheduleOnce:@selector(rebornFinish) delay:10];
-    //TODO: Add hero reborn active animation
 }
 
 -(void) rebornFinish
@@ -672,9 +666,6 @@
 
 -(void) absorbPowerup
 {
-    NSLog(@"absorb power up");
-    
-    
     //Turn on absorb collision detection
     [self turnOnAbsorbCollisionDetection];
     
@@ -710,6 +701,25 @@
     CCSequence *sequence = [CCSequence actions:delay, removeAbsorb, nil];
     
     [self runAction:sequence];
+}
+
+-(void) sheildPowerup
+{
+    self.heroState = @"shelter";
+    [self.sprite stopAllActions];
+    id animation = [ANIMATIONMANAGER getAnimationWithName:@"H_shelter"];
+    
+    if(animation != nil)
+    {
+        id startAnimation = [CCCallBlock actionWithBlock:^{
+            [self.sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]]];
+        }];
+        id waitDelay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"shield"] floatValue]];
+        id becomeIdle = [CCCallFunc actionWithTarget:self selector:@selector(idle)];
+        
+        id sequence = [CCSequence actions:startAnimation,waitDelay,becomeIdle, nil];
+        [self.sprite runAction:sequence];
+    }
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification
@@ -807,7 +817,7 @@
 
 -(void) beforeDie
 {
-    //TODO: detect if has revive
+    //TODO: use user data
     if ([[POWERUP_DATA objectForKey:@"reborn"] intValue] > 0)
     {
         //Pause game

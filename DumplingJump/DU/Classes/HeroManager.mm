@@ -85,7 +85,6 @@
     if (self.hero == nil) return;
     
     [self.hero.sprite stopAllActions];
-    //self.hero.sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_1.png", animName]];
     id animation = [ANIMATIONMANAGER getAnimationWithName:animName];
     
     if(animation != nil)
@@ -124,7 +123,8 @@
             if (theReaction.reactionLasting <= 0)
             {
                 [self playAnimationWithName:theReaction.heroReactAnimationName delay:2];
-            } else
+            }
+            else
             {
                 [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
             }
@@ -133,9 +133,10 @@
         if (theReaction.reactHeroSelectorParam == nil)
         {
             SEL callback = NSSelectorFromString(theReaction.reactHeroSelectorName);
-            
             [self.hero performSelector:callback];
-        } else {
+        }
+        else
+        {
             SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", theReaction.reactHeroSelectorName]);
             [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theReaction.reactHeroSelectorParam, theContactObject, nil]];
         }

@@ -105,7 +105,7 @@
         NSString *ID = [NSString stringWithFormat:@"%@_%d",selectedObject.name, self.idCounter];
         
         AddthingObject *newObject;
-        newObject = [[[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName wait:selectedObject.wait] autorelease];
+        newObject = [[[AddthingObject alloc] initWithID:ID name: selectedObject.name file:[NSString stringWithFormat: @"%@.png", selectedObject.spriteName] body:objectBody canResize:YES reaction:selectedObject.reactionName animation:selectedObject.animationName wait:selectedObject.wait warningTime:selectedObject.warningTime] autorelease];
         
         NSString *animName = [NSString stringWithFormat:@"A_%@", [selectedObject.name lowercaseString]];
 
@@ -160,7 +160,7 @@
         NSString *ID = [NSString stringWithFormat:@"wrongObject_%d", self.idCounter];
         
         AddthingObject *newObject;
-        newObject = [[[AddthingObject alloc] initWithID:ID name: @"wrongObject" file:[NSString stringWithFormat: @"%@.png", @"A_wrongObject"] body:objectBody canResize:YES reaction:nil animation:nil wait:0] autorelease];
+        newObject = [[[AddthingObject alloc] initWithID:ID name: @"wrongObject" file:[NSString stringWithFormat: @"%@.png", @"A_wrongObject"] body:objectBody canResize:YES reaction:nil animation:nil wait:0 warningTime:0] autorelease];
         
         self.idCounter ++;
         if (self.idCounter >= INT_MAX)

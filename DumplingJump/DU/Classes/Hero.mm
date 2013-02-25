@@ -403,7 +403,10 @@
 -(void) fire
 {
     DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(self.sprite.position.x,self.sprite.position.y +5)];
-    slash.body->SetLinearVelocity(b2Vec2(0,24));
+    if (slash != nil)
+    {
+        slash.body->SetLinearVelocity(b2Vec2(0,24));
+    }
 }
 
 -(void) star:(NSArray *)value

@@ -111,8 +111,10 @@
                 } else if ([[child name] isEqualToString:@"wait"])
                 {
                     data.wait = [[child stringValue] doubleValue];
-                }
-            }
+                } else if ([[child name] isEqualToString:@"warningTime"])
+                {
+                    data.warningTime = [[child stringValue] doubleValue];
+                }             }
             data.spriteName = [NSString stringWithFormat:@"A_%@_1", [addthingName lowercaseString]];
             NSString *animName = [NSString stringWithFormat:@"A_%@", [addthingName lowercaseString]];
             [ANIMATIONMANAGER registerAnimationForName: animName];

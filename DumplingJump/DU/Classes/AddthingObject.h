@@ -15,7 +15,8 @@
 @property (nonatomic, retain) Reaction *reaction;
 @property (nonatomic, retain) NSString *animation;
 @property (nonatomic, assign) double wait;
--(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime;
+@property (nonatomic, assign) double warningTime;
+-(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime warningTime:(double)warningTime;
 -(void) removeAddthing;
 
 

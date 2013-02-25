@@ -22,6 +22,7 @@ friction = _friction,
 gravity = _gravity,
 blood = _blood,
 wait = _wait,
+warningTime = _warningTime,
 reactionName = _reactionName,
 animationName = _animationName;
 
@@ -38,6 +39,7 @@ animationName = _animationName;
            gravity:(double)theGravity
              blood:(double)theBlood
               wait:(double)theWait
+       warningTime:(double)theWarningTime
       reactionName:(NSString *)theReactionName
      animationName:(NSString *)theAnimationName;
 {
@@ -56,6 +58,7 @@ animationName = _animationName;
         _gravity = theGravity;
         _blood = theBlood;
         _wait = theWait;
+        _warningTime = theWarningTime;
         _reactionName = theReactionName;
         _animationName = theAnimationName;
     }
@@ -80,6 +83,7 @@ animationName = _animationName;
         _gravity = 100;
         _blood = 1;
         _wait = 0;
+        _warningTime = 0;
         _reactionName = nil;
         _animationName = nil;
     }

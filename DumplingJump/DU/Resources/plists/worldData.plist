@@ -38,6 +38,8 @@
 		<integer>1</integer>
 		<key>dampR</key>
 		<real>0.9</real>
+		<key>friction</key>
+		<real>0.6</real>
 	</dict>
 	<key>hero</key>
 	<dict>
@@ -61,6 +63,8 @@
 		<integer>450</integer>
 		<key>heroGravity</key>
 		<integer>150</integer>
+		<key>freezeSpeed</key>
+		<integer>2</integer>
 	</dict>
 </dict>
 </plist>

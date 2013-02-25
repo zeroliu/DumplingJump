@@ -115,7 +115,7 @@
     
     b2FixtureDef boardFixtureDef;
     
-    boardFixtureDef.friction = 0.6f;
+    boardFixtureDef.friction = [[[[WorldData shared] loadDataWithAttributName:@"board"] objectForKey:@"friction"] floatValue];
     boardFixtureDef.restitution = 0;
     boardFixtureDef.density = 10;
     boardFixtureDef.shape = &boardShape;

@@ -23,12 +23,11 @@
 	<level>
 		<time>3</time>
 		<slot2>VAT</slot2>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>4</time>
 		<slot2>VAT</slot2>
-		<slot6>ARROW</slot6>
-		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>5</time>
@@ -38,17 +37,18 @@
 	<level>
 		<time>6</time>
 		<slot2>VAT</slot2>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>7</time>
 		<slot2>VAT</slot2>
-		<slot6>ARROW</slot6>
-		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>8</time>
 		<slot2>VAT</slot2>
-		<slot7>ARROW</slot7>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>9</time>
@@ -56,12 +56,15 @@
 	</level>
 	<level>
 		<time>10</time>
+		<slot2>VAT</slot2>
 		<slot6>ARROW</slot6>
-		<slot8>ARROW</slot8>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>11</time>
-		<slot7>ARROW</slot7>
+		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>12</time>
@@ -69,48 +72,50 @@
 	</level>
 	<level>
 		<time>13</time>
-		<slot5>SHELTER</slot5>
+		<slot8>SHELTER</slot8>
 	</level>
 	<level>
 		<time>14</time>
 		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
+		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>15</time>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>16</time>
-		<slot3>ARROW</slot3>
-		<slot7>ARROW</slot7>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>17</time>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>18</time>
 		<slot3>ARROW</slot3>
-		<slot5>ARROW</slot5>
+		<slot4>ARROW</slot4>
+		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>19</time>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>20</time>
-		<slot3>ARROW</slot3>
-		<slot7>ARROW</slot7>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>21</time>
+		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
 		<slot6>ARROW</slot6>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>22</time>

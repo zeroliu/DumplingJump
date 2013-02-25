@@ -25,6 +25,7 @@
 @property (nonatomic, assign) double warningTime;
 @property (nonatomic, retain) CCSprite *warningSignSprite;
 @property (nonatomic, assign) double originWarningTime;
+@property (nonatomic, assign) BOOL hasGenerated;
 
 - (id) initWithObjectName:(NSString *)objectName position:(CGPoint)position warningTime:(double)warningTime sprite:(CCSprite *)warningSignSprite;
 @end
@@ -35,7 +36,8 @@ objectName = _objectName,
 position = _position,
 warningTime = _warningTime,
 warningSignSprite = _warningSignSprite,
-originWarningTime = _originWarningTime;
+originWarningTime = _originWarningTime,
+hasGenerated = _hasGenerated;
 
 - (id) initWithObjectName:(NSString *)objectName position:(CGPoint)position warningTime:(double)warningTime sprite:(CCSprite *)warningSignSprite
 {
@@ -46,6 +48,7 @@ originWarningTime = _originWarningTime;
         _warningSignSprite = [warningSignSprite retain];
         _warningTime = warningTime;
         _originWarningTime = warningTime;
+        _hasGenerated = NO;
     }
     
     return self;
@@ -157,6 +160,9 @@ originWarningTime = _originWarningTime;
 {
     CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_retry_expression.png"];
     warningSign.position = ccp(position.x,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT-30);
+    warningSign.scale = 0;
+    id zoomInEffect = [CCScaleTo actionWithDuration:0.3 scale:0.8];
+    [warningSign runAction:zoomInEffect];
     [GAMELAYER addChild:warningSign];
     
     DropInfo *dropInfo = [[DropInfo alloc] initWithObjectName:objectName position:position warningTime:warningTime sprite:warningSign];
@@ -431,6 +437,7 @@ originWarningTime = _originWarningTime;
     isProcessingWarningSign = NO;
     for (DropInfo *info in warningSignArray)
     {
+        [info.warningSignSprite stopAllActions];
         [info.warningSignSprite removeFromParentAndCleanup:NO];
     }
     [warningSignArray removeAllObjects];
@@ -446,15 +453,16 @@ originWarningTime = _originWarningTime;
         for (DropInfo *info in warningSignArray)
         {
             info.warningTime -= unit;
-            if (info.warningTime <= 0)
+            if (info.warningTime <= 0 && !info.hasGenerated)
             {
-                [info.warningSignSprite removeFromParentAndCleanup:NO];
+                info.hasGenerated = YES;
                 [self dropAddthingWithName:info.objectName atPosition:info.position];
-                [objectsToRemove addObject:info];
             }
-            else
+            if (info.warningTime <= -0.5)
             {
-                info.warningSignSprite.scale = (info.originWarningTime - info.warningTime) / info.originWarningTime;
+                [info.warningSignSprite stopAllActions];
+                [info.warningSignSprite removeFromParentAndCleanup:NO];
+                [objectsToRemove addObject:info];
             }
         }
         for (DropInfo *toRemoveInfo in objectsToRemove)

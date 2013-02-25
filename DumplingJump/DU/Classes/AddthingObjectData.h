@@ -22,7 +22,8 @@ restitution,
 friction,
 gravity,
 blood,
-wait;
+wait,
+warningTime;
 
 
 -(id) initWithName:(NSString *)theName 
@@ -38,6 +39,7 @@ wait;
            gravity:(double)theGravity
              blood:(double)theBlood
               wait:(double)theWait
+       warningTime:(double)theWarningTime
       reactionName:(NSString *)theReactionName
      animationName:(NSString *)theAnimationName;
 

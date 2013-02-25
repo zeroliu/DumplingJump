@@ -300,6 +300,7 @@
         self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
         [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
         [[LevelManager shared] dropNextAddthing];
+        [[LevelManager shared] updateWarningSign];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
     }
 }

@@ -20,7 +20,7 @@
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>sword</name>
-        <image>UI_item_bomb</image>
+        <image>UI_item_sword</image>
         <description>Extend duration</description>
         <unit>sec.</unit>
 		<multiplier>2.5</multiplier>
@@ -36,7 +36,7 @@
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>spring</name>
-        <image>UI_item_bomb</image>
+        <image>UI_item_spring</image>
         <description>Extend duration</description>
         <unit>sec.</unit>
 		<multiplier>2.5</multiplier>
@@ -68,7 +68,7 @@
 		<type>skills</type>
         <layout>EquipmentViewLevelCell</layout>
 		<name>shield</name>
-        <image>UI_item_bomb</image>
+        <image>UI_item_shield</image>
         <description>cooldown:</description>
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>

@@ -12,16 +12,55 @@
 #import "BackgroundController.h"
 #import "AddthingFactory.h"
 #import "AddthingObject.h"
+#import "AddthingObjectData.h"
 #import "StarManager.h"
 #import "Paragraph.h"
 #import "GameUI.h"
 #import "LevelTestTool.h"
 #import "GameModel.h"
 
+@interface DropInfo : NSObject
+@property (nonatomic, retain) NSString *objectName;
+@property (nonatomic, assign) CGPoint position;
+@property (nonatomic, assign) double warningTime;
+@property (nonatomic, retain) CCSprite *warningSignSprite;
+@property (nonatomic, assign) double originWarningTime;
+
+- (id) initWithObjectName:(NSString *)objectName position:(CGPoint)position warningTime:(double)warningTime sprite:(CCSprite *)warningSignSprite;
+@end
+
+@implementation DropInfo
+@synthesize
+objectName = _objectName,
+position = _position,
+warningTime = _warningTime,
+warningSignSprite = _warningSignSprite,
+originWarningTime = _originWarningTime;
+
+- (id) initWithObjectName:(NSString *)objectName position:(CGPoint)position warningTime:(double)warningTime sprite:(CCSprite *)warningSignSprite
+{
+    if (self = [super init])
+    {
+        _objectName = [objectName retain];
+        _position = position;
+        _warningSignSprite = [warningSignSprite retain];
+        _warningTime = warningTime;
+        _originWarningTime = warningTime;
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    [_objectName release];
+    [_warningSignSprite release];
+    [super dealloc];
+}
+@end
+
 @interface LevelManager()
 {
-    //int currentParagraphIndex;
-    
     int currentPhaseIndex;
     NSMutableArray *phasePharagraphs;
     int sentenceIndex;
@@ -30,6 +69,8 @@
     Paragraph *currentParagraph;
     BOOL isWaiting;
     id waitingAction;
+    NSMutableArray *warningSignArray;
+    BOOL isProcessingWarningSign;
 }
 
 @property (nonatomic, retain) LevelData *levelData;
@@ -58,7 +99,7 @@
         phasePharagraphs = nil;
         
         _generatedObjects = [[NSMutableArray alloc] init];
-        
+        warningSignArray = [[NSMutableArray alloc] init];
         //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
         
@@ -73,6 +114,7 @@
         //TODO: Create weight look up table for the combinations
         
         currentPhaseIndex = 0;
+        [self clearWarningSign];
         [self clearWaitingAction];
     }
     
@@ -95,11 +137,31 @@
     [[LevelManager shared] resetParagraph];
     
     [self clearWaitingAction];
+    [self clearWarningSign];
 }
 
 -(Level *) selectLevelWithName:(NSString *)levelName
 {
     return [self.levelData getLevelByName:levelName];
+}
+
+-(void) dropAddthingWithName:(NSString *)objectName atSlot:(int)num warning:(double)warningTime
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    float xPosUnit = (winSize.width-5) / (float)SLOTS_NUM;
+    
+    [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT+100) warning:warningTime];
+}
+
+-(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position warning:(double)warningTime
+{
+    CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_retry_expression.png"];
+    warningSign.position = ccp(position.x,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT-30);
+    [GAMELAYER addChild:warningSign];
+    
+    DropInfo *dropInfo = [[DropInfo alloc] initWithObjectName:objectName position:position warningTime:warningTime sprite:warningSign];
+    
+    [warningSignArray addObject:dropInfo];
 }
 
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
@@ -108,7 +170,6 @@
     
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
-    //DLog(@"%@", [self.generatedObjects description]);
     int depth = 3;
     if ([objectName isEqualToString:@"STAR"])
     {
@@ -123,7 +184,7 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     float xPosUnit = (winSize.width-5) / (float)SLOTS_NUM;
     
-    return [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,600)];
+    return [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT+100)];
 }
 
 -(void) loadParagraphWithName:(NSString *)name
@@ -216,8 +277,16 @@
                 {
                     if (![item isEqualToString: NOTHING])
                     {
-                        AddthingObject *addthing = [self dropAddthingWithName:item atSlot:i];
-                        waitingTime = MAX(waitingTime, addthing.wait);
+                        double warningTime = ((AddthingObjectData *)[((AddthingFactory *)[AddthingFactory shared]).addthingDictionary objectForKey:item]).warningTime;
+                        if (warningTime > 0)
+                        {
+                            [self dropAddthingWithName:item atSlot:i warning:warningTime];
+                        }
+                        else
+                        {
+                            AddthingObject *addthing = [self dropAddthingWithName:item atSlot:i];
+                            waitingTime = MAX(waitingTime, addthing.wait);
+                        }
                     }
                 }
             }
@@ -357,17 +426,56 @@
     [GAMELAYER runAction:waitingAction];
 }
 
+- (void) clearWarningSign
+{
+    isProcessingWarningSign = NO;
+    for (DropInfo *info in warningSignArray)
+    {
+        [info.warningSignSprite removeFromParentAndCleanup:NO];
+    }
+    [warningSignArray removeAllObjects];
+}
+
+- (void) updateWarningSign
+{
+    if (!isProcessingWarningSign)
+    {
+        isProcessingWarningSign = YES;
+        NSMutableArray *objectsToRemove = [[NSMutableArray alloc] init];
+        float unit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRate"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
+        for (DropInfo *info in warningSignArray)
+        {
+            info.warningTime -= unit;
+            if (info.warningTime <= 0)
+            {
+                [info.warningSignSprite removeFromParentAndCleanup:NO];
+                [self dropAddthingWithName:info.objectName atPosition:info.position];
+                [objectsToRemove addObject:info];
+            }
+            else
+            {
+                info.warningSignSprite.scale = (info.originWarningTime - info.warningTime) / info.originWarningTime;
+            }
+        }
+        for (DropInfo *toRemoveInfo in objectsToRemove)
+        {
+            [warningSignArray removeObject:toRemoveInfo];
+        }
+        [objectsToRemove removeAllObjects];
+        [objectsToRemove release];
+        isProcessingWarningSign = NO;
+    }
+}
+
 - (void)dealloc
 {
-    if ([phasePharagraphs retainCount] > 0)
-    {
-        [phasePharagraphs release];
-    }
+    [phasePharagraphs release];
     [_levelData release];
     [_paragraphsData release];
     [_paragraphsCombination release];
     [_generatedObjects release];
     [_paragraphNames release];
+    [warningSignArray release];
     [super dealloc];
 }
 @end

@@ -24,6 +24,8 @@
     BOOL isReborning;
     BOOL isAbsorbing;
     CGSize heroSize;
+    int blowAwayTrigger; //-1 left, 0 off, 1 right
+    int freezeTrigger; //-1 left, 0 off, 1 right
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -215,8 +217,19 @@
     
     self.speed = b2Vec2(clampf(vX, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
     
-    self.body->SetLinearVelocity(self.speed);
-    self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
+    if (blowAwayTrigger != 0)
+    {
+        self.body->SetLinearVelocity(b2Vec2(self.maxVx * blowAwayTrigger, self.speed.y));
+    }
+    else if (freezeTrigger != 0)
+    {
+        self.body->SetLinearVelocity(b2Vec2([[[[WorldData shared] loadDataWithAttributName:@"hero"] objectForKey:@"freezeSpeed"] floatValue] * freezeTrigger, self.speed.y));
+    }
+    else
+    {
+        self.body->SetLinearVelocity(self.speed);
+    }
+    //self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
     
     if ([self.heroState isEqualToString:@"spring"] && self.isOnGround)
     {
@@ -277,7 +290,8 @@
         
         adjustJump = 1;
         adjustMove = 1;
-        
+        freezeTrigger = 0;
+        blowAwayTrigger = 0;
         /*
         for (CCSprite *child in [self.sprite children])
         {
@@ -332,15 +346,30 @@
 
 -(void) bowEffect:(NSArray *)value
 {
-    if (![self.heroState isEqualToString: HEROIDLE])
+    adjustJump = 0;
+    adjustMove = 0;
+    //Blow hero
+    CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
+    float distance = ccpDistance(explosionPos, self.sprite.position);
+    float explosionForce = SHOCK_PRESSURE / 500;
+    self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
+    
+    if (self.sprite.position.x < explosionPos.x)
     {
-        CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
-        float distance = ccpDistance(explosionPos, self.sprite.position);
-        float explosionForce = min(SHOCK_PRESSURE / distance / distance, 15)/distance;
-        DLog(@"Force direction: %g,%g", explosionForce * (self.sprite.position.x - explosionPos.x), explosionForce * (self.sprite.position.y - explosionPos.y));
-        //float length = b2Vec2(self.sprite.position.x - explosionPos.x, self.sprite.position.y - explosionPos.y).Normalize();
-        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (explosionPos.x-self.sprite.position.x), explosionForce * self.body->GetMass() * (explosionPos.y - self.sprite.position.y)), self.body->GetPosition());
+        blowAwayTrigger = -1;
+    } else
+    {
+        blowAwayTrigger = 1;
     }
+    //Blow objects
+    for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
+    {
+        CGPoint objectPos = ob.sprite.position;
+        float distance = ccpDistance(objectPos, explosionPos);
+        float explosionForce = SHOCK_PRESSURE/5000/distance;
+        ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (objectPos.x - explosionPos.x), explosionForce * ob.body->GetMass() * (objectPos.y - explosionPos.y)), ob.body->GetPosition());
+    }
+    //[EFFECTMANAGER PlayEffectWithName:FX_ItemBomb position:self.sprite.position z:Z_Hero-1 parent:BATCHNODE];
 }
 
 -(void) flat
@@ -363,7 +392,15 @@
 //    for ( b2Shape* shape = self.body->get)
     adjustJump = 0;
     adjustMove = 0;
-    DLog(@"freeze");
+    
+    if (self.speed.x > 0)
+    {
+        freezeTrigger = 1;
+    }
+    else
+    {
+        freezeTrigger = -1;
+    }
 }
 
 -(void) spring
@@ -403,7 +440,10 @@
 -(void) fire
 {
     DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(self.sprite.position.x,self.sprite.position.y +5)];
-    slash.body->SetLinearVelocity(b2Vec2(0,24));
+    if (slash != nil)
+    {
+        slash.body->SetLinearVelocity(b2Vec2(0,24));
+    }
 }
 
 -(void) star:(NSArray *)value

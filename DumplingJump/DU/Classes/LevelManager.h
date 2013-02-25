@@ -17,8 +17,11 @@
 +(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;
 
+
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
+
+-(void) updateWarningSign;
 
 -(void) restart;
 -(void) jumpToNextLevel;

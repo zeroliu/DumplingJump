@@ -249,7 +249,7 @@
     mask.position = ccp(winSize.width/2, winSize.height/2);
     mask.zOrder = Z_GAME_MASK;
     mask.opacity = 0;
-    [mask runAction:[CCFadeIn actionWithDuration:0.1]];
+    [mask runAction:[CCFadeTo actionWithDuration:0.1 opacity:90]];
     [GAMELAYER addChild:mask];
 }
 
@@ -305,6 +305,7 @@
 
 -(void) beforeGameover
 {
+    [self removeMask];
     [self hideRebornButton];
     [[[Hub shared] gameLayer] gameOver];
 }

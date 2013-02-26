@@ -21,6 +21,7 @@
     CCNode *rebornButtonHolder;
     CCLabelTTF *rebornQuantity;
     CCMenuItem *pauseButton;
+    CCSprite *mask;
 }
 
 +(id) shared;
@@ -32,6 +33,7 @@
 -(void) showRebornButton;
 -(void) pauseUI;
 -(void) resumeUI;
+-(void) removeMask;
 -(void) setButtonsEnabled: (BOOL)enabled;
 //Reset all the button bars to full
 -(void) resetAllButtonBar;

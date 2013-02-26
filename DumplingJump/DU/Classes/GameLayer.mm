@@ -358,6 +358,7 @@
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
     
     //Reset Board
+    //[[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
     [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
     
     //Reset game frame

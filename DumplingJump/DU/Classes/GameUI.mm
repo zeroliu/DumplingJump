@@ -79,6 +79,16 @@
     [element setPosition:ccp(x, y + theOffset)];
 }
 
+-(void) removeMask
+{
+    if (mask != nil)
+    {
+        [mask removeFromParentAndCleanup:NO];
+        [mask release];
+        mask = nil;
+    }
+}
+
 -(void) initButtonDictionary
 {
     if (_buttonsDictionary != nil)
@@ -231,8 +241,22 @@
     [clearMessage runAction:showMessageAction];
 }
 
+- (void) createMask
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    mask = [[CCSprite spriteWithSpriteFrameName:@"UI_other_mask.png"] retain];
+    mask.anchorPoint = ccp(0.5,0.5);
+    mask.position = ccp(winSize.width/2, winSize.height/2);
+    mask.zOrder = Z_GAME_MASK;
+    mask.opacity = 0;
+    [mask runAction:[CCFadeIn actionWithDuration:0.1]];
+    [GAMELAYER addChild:mask];
+}
+
 -(void) showRebornButton
 {
+    [self createMask];
+    
     //Disable all buttons
     [self setButtonsEnabled:NO];
     
@@ -346,6 +370,8 @@
         [showMessageAction release];
         showMessageAction = nil;
     }
+    [mask release];
+    mask = nil;
     [super dealloc];
 }
 

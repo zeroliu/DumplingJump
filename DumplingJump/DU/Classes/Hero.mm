@@ -526,6 +526,12 @@
 {
     [self unschedule:@selector(rebornFinish)];
     
+    //Flash effect
+    [[GameUI shared] fadeOut];
+    
+    //remove mask
+    [[GameUI shared] removeMask];
+    
     //remove wing
     [[self.sprite getChildByTag:REBORN_POWERUP_TAG] removeFromParentAndCleanup:NO];
 
@@ -616,7 +622,7 @@
     [self idle];
 }
 
--(void) rocketPowerup
+-(void) rocketPowerup:(float)duration
 {
     float scale = self.sprite.scale;
     
@@ -642,7 +648,6 @@
     //Set z value
     self.sprite.zOrder = Z_Hero + 10;
     //Countdown certain amount of time
-    float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
     id delay = [CCDelayTime actionWithDuration: duration];
     //Reset the hero collision
     id resetCollision = [CCCallBlock actionWithBlock:^

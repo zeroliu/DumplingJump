@@ -41,7 +41,7 @@
 -(void) updateHeroForce;
 -(void) bombPowerup;
 -(void) rebornPowerup;
--(void) rocketPowerup;
+-(void) rocketPowerup:(float)duration;
 -(void) absorbPowerup;
 -(void) sheildPowerup;
 -(void) beforeDie;

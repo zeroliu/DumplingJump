@@ -239,7 +239,7 @@
     }
 }
 
--(void) rocketPowerup
+-(void) rocketPowerup:(float)duration
 {
     float scaleX = self.sprite.scaleX;
     float scaleY = self.sprite.scaleY;
@@ -288,7 +288,6 @@
                     }];
     
     //Countdown certain amount of time
-    float duration = [[POWERUP_DATA objectForKey:@"rocket"] floatValue];
     id delay = [CCDelayTime actionWithDuration: duration];
     
     //Remove pushing force

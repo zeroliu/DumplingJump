@@ -34,6 +34,7 @@
 -(void) bowEffect:(NSArray *)value;
 -(void) spring;
 -(void) shelter;
+-(void) booster;
 -(void) magic:(NSArray *)value;
 -(void) blind;
 -(void) star:(NSArray *)value;
@@ -44,6 +45,7 @@
 -(void) rocketPowerup:(float)duration;
 -(void) absorbPowerup;
 -(void) sheildPowerup;
+-(void) updateHeroBoosterEffect;
 -(void) beforeDie;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

@@ -120,13 +120,27 @@
         self.hero.heroState = theReaction.name;
         if (theReaction.heroReactAnimationName != nil)
         {
-            if (theReaction.reactionLasting <= 0)
+            if ([theReaction.name isEqualToString:@"booster"])
             {
-                [self playAnimationWithName:theReaction.heroReactAnimationName delay:2];
+                //Play animation without stop for special case, will handle stop time by plist data
+                [self.hero.sprite stopAllActions];
+                id animation = [ANIMATIONMANAGER getAnimationWithName:theReaction.heroReactAnimationName];
+                if(animation != nil)
+                {
+                    id animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
+                    [self.hero.sprite runAction:animAction];
+                }
             }
             else
             {
-                [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
+                if (theReaction.reactionLasting <= 0)
+                {
+                    [self playAnimationWithName:theReaction.heroReactAnimationName delay:2];
+                }
+                else
+                {
+                    [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
+                }
             }
         }
         

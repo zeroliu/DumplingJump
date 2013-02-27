@@ -297,7 +297,10 @@
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];
+        [[[HeroManager shared] getHero] updateHeroBoosterEffect];
+        
         self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
+        [[GameUI shared] updateDistanceSign:(int)self.model.distance];
         [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
         [[LevelManager shared] dropNextAddthing];
         [[LevelManager shared] updateWarningSign];

@@ -43,7 +43,7 @@
     self.multiplier = 5.8f;
     [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"shield"];
     [_powerUpData setObject:[NSNumber numberWithFloat:2] forKey:@"reborn"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:2] forKey:@"rocket"];
+    [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"booster"];
     [_powerUpData setObject:[NSNumber numberWithFloat:10] forKey:@"absorb"];
 }
 

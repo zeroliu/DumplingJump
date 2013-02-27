@@ -201,6 +201,21 @@
 		<react_type>magic</react_type>
 		<wait>2</wait>
 	</Item>
+    <Item>
+		<ID>Booster</ID>
+		<name>BOOSTER</name>
+		<shape>Circle</shape>
+		<radius>25</radius>
+		<width>0</width>
+		<I>1</I>
+		<mass>5</mass>
+		<res>0.1</res>
+		<fric>0.8</fric>
+		<gravity>20</gravity>
+		<blood>1</blood>
+		<react_type>booster</react_type>
+		<wait>2</wait>
+	</Item>
 	<Item>
 		<ID>光束</ID>
 		<name>SLASH</name>

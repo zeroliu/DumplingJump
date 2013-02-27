@@ -12,6 +12,7 @@
 #import "AddthingObject.h"
 #import "BackgroundController.h"
 #import "LevelManager.h"
+#import "BoardManager.h"
 #import "EffectManager.h"
 #import "GameModel.h"
 #import "GameUI.h"
@@ -204,6 +205,50 @@
     }
 }
 
+-(void) updateHeroBoosterEffect
+{
+    //Ready phase, hero slowly moving back
+    if ([self.heroState isEqualToString:@"booster"])
+    {
+        self.body->SetLinearVelocity(b2Vec2(0, -0.5));
+    }
+    
+    if ([self.heroState isEqualToString:@"boosterReady"])
+    {
+        if (self.sprite.position.y > 450)
+        {
+            self.heroState = @"boosterStart";
+            [self boosterStart];
+            return;
+        }
+        
+        self.body->SetLinearVelocity(b2Vec2(self.speed.x, 30));
+    }
+    
+    if ([self.heroState isEqualToString:@"boosterStart"])
+    {
+        //Fake floating effect
+        if (self.sprite.position.y < 330)
+        {
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, -0.015 * self.sprite.position.y + 5.5));
+        }
+        else if (self.sprite.position.y > 380)
+        {
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-1.5, -1)));
+        }
+        
+        //Don't move out of the screen
+        if (self.sprite.position.x < 50)
+        {
+            self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
+        }
+        else if (self.sprite.position.x > 270)
+        {
+            self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark Movement
 
@@ -285,6 +330,8 @@
         {
             contactEdge->contact->ResetFriction();
         }
+        
+        self.body->SetGravityScale((self.gravity)/100.0f);
         
         directionForce = b2Vec2(0,0);
         
@@ -413,6 +460,45 @@
 -(void) shelter
 {
     DLog(@"shelter");
+}
+
+-(void) booster
+{
+    DLog(@"booster");
+    //Ready effect
+    [[BackgroundController shared] speedUpWithScale:0.5 interval:0.5];
+    [self changeCollisionDetection:C_NOTHING];
+    [self scheduleOnce:@selector(boosterReady) delay:1];
+    [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
+}
+
+-(void) boosterBackgroundStart
+{
+    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
+    [[BackgroundController shared] speedUpWithScale:30 interval:interval];
+}
+
+-(void) boosterReady
+{
+    self.heroState = @"boosterReady";
+}
+
+-(void) boosterStart
+{
+    self.heroState = @"boosterStart";
+    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
+    [[[BoardManager shared] getBoard] boosterEffect];
+    
+    
+    self.body->SetGravityScale(0);
+    self.body->SetLinearVelocity(b2Vec2(0,0));
+    [self scheduleOnce:@selector(boosterEnd) delay:interval];
+}
+
+-(void) boosterEnd
+{
+    [self resetCollisionDetection];
+    [self idle];
 }
 
 -(void) magic:(NSArray *)value;

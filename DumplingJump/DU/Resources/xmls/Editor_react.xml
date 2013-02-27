@@ -111,6 +111,19 @@
 		<sort>3</sort>
 		<MEMO>防護罩</MEMO>
 	</react>
+    <react>
+		<ID>Booster</ID>
+		<react_type>booster</react_type>
+		<reactimage>H_booster</reactimage>
+		<effectimage>FX_Powerup</effectimage>
+		<statetime>8</statetime>
+		<react_hero>booster</react_hero>
+		<trigger_clean_hero>1</trigger_clean_hero>
+		<trigger_clean_board>1</trigger_clean_board>
+		<trigger_clean_time>4</trigger_clean_time>
+		<sort>3</sort>
+		<MEMO>Booster</MEMO>
+	</react>
 	<react>
 		<ID>扁平</ID>
 		<react_type>flat</react_type>

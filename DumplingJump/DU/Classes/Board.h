@@ -19,4 +19,5 @@
 -(void) updateBoardForce;
 -(void) updateEnginePosition;
 -(void) cleanEngine;
+-(void) boosterEffect;
 @end

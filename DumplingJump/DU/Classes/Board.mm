@@ -387,6 +387,17 @@
     }
 }
 
+-(void) boosterEffect
+{
+    [self changeCollisionDetection:C_NOTHING];
+    [self scheduleOnce:@selector(boosterEnd) delay:[[POWERUP_DATA objectForKey:@"booster"] floatValue]];
+}
+
+-(void) boosterEnd
+{
+    [self resetCollisionDetection];
+}
+
 -(void) remove
 {
     [self cleanEngine];

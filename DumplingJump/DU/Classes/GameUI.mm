@@ -227,13 +227,13 @@
     [distanceNum setString:[NSString stringWithFormat:@"%dm", displayDistance]];
     
     //Move the message up to the bottom of the screen
-    id moveUp = [CCMoveTo actionWithDuration:0.5 position:ccp([[CCDirector sharedDirector] winSize].width/2, 140)];
+    id moveUp = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, 100)];
     
     //Wait for certain seconds
-    id delay = [CCDelayTime actionWithDuration:1];
+    id delay = [CCDelayTime actionWithDuration:1.5];
     
     //Move the message down
-    id moveDown = [CCMoveTo actionWithDuration:0.5 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];
+    id moveDown = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];
     id moveDownEase = [CCEaseBackIn actionWithAction:moveDown];
     
     showMessageAction = [[CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil] retain];
@@ -359,6 +359,15 @@
     
     [myButton runAction:[CCSequence actions:cooldownAnimation, finishAnimation,finishAnimationWait, recoverAnimation, recoverAnimationWait, cooldownFinishAction, nil]];
 }
+
+-(void) updateDistanceSign:(int)distance
+{
+    if (distance>0 && distance % 250 == 0)
+    {
+        [self showStageClearMessageWithDistance];
+    }
+}
+
 
 - (void)dealloc
 {

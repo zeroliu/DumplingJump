@@ -41,4 +41,5 @@
 -(void) resetButtonBarWithName:(NSString *)buttonName;
 //Cool down a button
 -(void) cooldownButtonBarWithName:(NSString *)buttonName;
+-(void) updateDistanceSign:(int)distance;
 @end

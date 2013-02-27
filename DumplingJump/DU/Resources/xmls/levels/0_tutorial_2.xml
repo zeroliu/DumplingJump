@@ -37,8 +37,4 @@
 		<slot7>VAT</slot7>
 		<slot8>VAT</slot8>
 	</level>
-	<level>
-		<time>6</time>
-		<slot8>*1</slot8>
-	</level>
 </stage1>

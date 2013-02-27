@@ -14,34 +14,51 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot1>*\</slot1>
+		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>2</time>
-		<slot1>*/</slot1>
+		<slot3>ICE</slot3>
+		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>3</time>
-		<slot3>VAT</slot3>
 		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
 	</level>
 	<level>
 		<time>4</time>
-		<slot2>VAT</slot2>
+		<slot5>ICE</slot5>
 		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
 	</level>
 	<level>
 		<time>5</time>
-		<slot3>VAT</slot3>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot6>MAGIC</slot6>
 	</level>
 	<level>
 		<time>6</time>
 		<slot2>VAT</slot2>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot7>ICE</slot7>
+	</level>
+	<level>
+		<time>7</time>
+		<slot2>VAT</slot2>
+	</level>
+	<level>
+		<time>8</time>
+		<slot2>VAT</slot2>
+		<slot5>ICE</slot5>
+	</level>
+	<level>
+		<time>9</time>
+		<slot2>VAT</slot2>
+	</level>
+	<level>
+		<time>10</time>
+		<slot2>VAT</slot2>
+		<slot4>ICE</slot4>
+	</level>
+	<level>
+		<time>11</time>
+		<slot1>*\</slot1>
 	</level>
 </stage1>

@@ -45,12 +45,4 @@
 		<slot7>VAT</slot7>
 		<slot8>VAT</slot8>
 	</level>
-	<level>
-		<time>8</time>
-		<slot5>SPRING</slot5>
-	</level>
-	<level>
-		<time>9</time>
-		<slot8>*1</slot8>
-	</level>
 </stage1>

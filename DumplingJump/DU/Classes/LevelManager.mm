@@ -335,12 +335,15 @@ hasGenerated = _hasGenerated;
         DLog(@"Phase ends, now loading phase No.%d", currentPhaseIndex);
     }
     
+    /*
     id switchToNextLevelAction = [CCCallFunc actionWithTarget:self selector:@selector(switchToNextLevelEffect)];
     id delay1 = [CCDelayTime actionWithDuration:4];
     id loadParagraphAction = [CCCallFunc actionWithTarget:self selector:@selector(loadCurrentParagraph)];
     id delay2 = [CCDelayTime actionWithDuration:4];
     
     [GAMELAYER runAction:[CCSequence actions:delay1, switchToNextLevelAction, delay2, loadParagraphAction, nil]];
+     */
+    [self loadCurrentParagraph];
     
 }
 

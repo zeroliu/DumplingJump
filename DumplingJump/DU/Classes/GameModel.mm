@@ -7,9 +7,14 @@
 //
 #import "WorldData.h"
 #import "GameModel.h"
+#import "cocos2d.h"
+#import "Constants.h"
+#import "Hub.h"
 
 @interface GameModel()
-
+{
+    float currentGameSpeed;
+}
 @end
 
 @implementation GameModel
@@ -52,7 +57,22 @@
     if (_gameSpeed < _gameSpeedMax)
     {
         _gameSpeed = MIN(_gameSpeed +_gameSpeedIncreaseUnit, _gameSpeedMax);
-        //DLog(@"game speed: %f", _gameSpeed);
+    }
+}
+
+-(void) boostGameSpeed:(float)interval
+{
+    if (currentGameSpeed == 0)
+    {
+        currentGameSpeed = _gameSpeed;
+        _gameSpeed = max(_gameSpeed * 2, _gameSpeedMax);
+        id delay = [CCDelayTime actionWithDuration:interval];
+        id resetBack = [CCCallBlock actionWithBlock:^
+        {
+            _gameSpeed = currentGameSpeed;
+            currentGameSpeed = 0;
+        }];
+        [GAMELAYER runAction:[CCSequence actions:delay, resetBack, nil]];
     }
 }
 

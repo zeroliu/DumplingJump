@@ -28,4 +28,5 @@
 -(void) loadPowerUpLevelsData;
 -(void) updateGameSpeed;
 -(void) resetGameSpeed;
+-(void) boostGameSpeed:(float)interval;
 @end

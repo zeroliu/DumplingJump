@@ -475,7 +475,8 @@
 -(void) boosterBackgroundStart
 {
     float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
-    [[BackgroundController shared] speedUpWithScale:30 interval:interval];
+    [[BackgroundController shared] speedUpWithScale:5 interval:interval];
+    [GAMEMODEL boostGameSpeed:interval];
 }
 
 -(void) boosterReady

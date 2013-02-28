@@ -343,8 +343,9 @@ hasGenerated = _hasGenerated;
     
     [GAMELAYER runAction:[CCSequence actions:delay1, switchToNextLevelAction, delay2, loadParagraphAction, nil]];
      */
-    [self loadCurrentParagraph];
-    
+    id delay1 = [CCDelayTime actionWithDuration:[[[WorldData shared] loadDataWithAttributName:@"levelTransitionDelay"] floatValue]];
+    id loadParagraphAction = [CCCallFunc actionWithTarget:self selector:@selector(loadCurrentParagraph)];
+    [GAMELAYER runAction:[CCSequence actions:delay1, loadParagraphAction, nil]];
 }
 
 -(void) switchToNextLevelEffect

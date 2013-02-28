@@ -319,15 +319,13 @@
     [[LevelManager shared] loadCurrentParagraph];
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
-    if ([[POWERUP_DATA objectForKey:@"headstart"] intValue] > 0)
+    //TODO: switch back to using headstart object number to detect
+    //if ([[POWERUP_DATA objectForKey:@"headstart"] intValue] > 0)
+    if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"hasHeadStart"] boolValue])
     {
         //TODO: decrease headstart number
         [[[HeroManager shared] getHero] headStart];
         [[[BoardManager shared] getBoard] hideBoard];
-    }
-    else
-    {
-        
     }
 }
 

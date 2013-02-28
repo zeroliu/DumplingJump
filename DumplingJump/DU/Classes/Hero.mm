@@ -462,6 +462,16 @@
     DLog(@"shelter");
 }
 
+-(void) headStart
+{
+    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"H_booster"]];
+    [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
+    self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
+    [self changeCollisionDetection:C_NOTHING];
+    [self boosterReady];
+    [self boosterBackgroundStart];
+}
+
 -(void) booster
 {
     DLog(@"booster");
@@ -481,7 +491,11 @@
 
 -(void) boosterReady
 {
+    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
     self.heroState = @"boosterReady";
+    //Play speed line effect
+    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
+    particleNode.position = CGPointZero;
 }
 
 -(void) boosterStart
@@ -499,6 +513,7 @@
 -(void) boosterEnd
 {
     [self resetCollisionDetection];
+    [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
     [self idle];
 }
 

@@ -48,7 +48,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
     {
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-        self.dataDictionary = (NSDictionary *) [NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
+        self.dataDictionary = (NSMutableDictionary *) [NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
     } else
     {
         self.dataDictionary = [[XMLHelper shared] loadUserDataWithXML:@"Editor_userData"];

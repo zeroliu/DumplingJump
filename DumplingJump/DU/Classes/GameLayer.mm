@@ -285,6 +285,11 @@
     //Set the corresponding background
     [[BackgroundController shared] setBackgroundWithName:self.model.currentLevel.backgroundName];
     [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,150*SCALE_MULTIPLIER)];
+    [self generateHero];
+}
+
+-(void) generateHero
+{
     [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
 }
 
@@ -312,7 +317,16 @@
 {
     self.model.state = GAME_START;
     [[LevelManager shared] loadCurrentParagraph];
+    [[AudioManager shared] setBackgroundMusicVolume:1];
     [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
+    //TODO: switch back to using headstart object number to detect
+    //if ([[POWERUP_DATA objectForKey:@"headstart"] intValue] > 0)
+    if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"hasHeadStart"] boolValue])
+    {
+        //TODO: decrease headstart number
+        [[[HeroManager shared] getHero] headStart];
+        [[[BoardManager shared] getBoard] hideBoard];
+    }
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
@@ -331,10 +345,6 @@
 
 -(void) restart
 {
-    //Restart background music
-    [[AudioManager shared] setBackgroundMusicVolume:1];
-    [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
-    
     //Clean object dictionary
     [[DUObjectsDictionary sharedDictionary] cleanDictionary];
     
@@ -358,7 +368,7 @@
     [[LevelManager shared] restart];
     
     //Reset Hero
-    [[HeroManager shared] createHeroWithPosition:ccp(150,200)];
+    [self generateHero];
     
     //Reset Board
     //[[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
@@ -370,14 +380,14 @@
     //Show Fade out animation
     [[GameUI shared] fadeOut];
     
-    //Start loading level
-    [[LevelManager shared] loadCurrentParagraph];
-    
     //Reset game speed
     [self.model resetGameSpeed];
     
     //Resume game
     [self resumeGame];
+    
+    //Start
+    [self startGame];
 }
 
 -(void) pauseGame

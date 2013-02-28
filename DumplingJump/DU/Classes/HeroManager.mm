@@ -1,6 +1,7 @@
 #import "HeroManager.h"
 #import "ReactionFunctions.h"
 #import "DUObjectsDictionary.h"
+#import "GameModel.h"
 
 #define HERO_RADIUS @"heroRadius"
 #define HERO_MASS @"heroMass"
@@ -61,6 +62,7 @@
         self.hero = nil;
 //        [[DUObjectsDictionary sharedDictionary] cleanObjectByName:HERO];
     }
+    
     self.hero = [[Hero alloc] initHeroWithName:HERO position:thePosition radius:self.heroRadius mass:self.heroMass I:self.heroI fric:self.heroFric maxVx:self.heroMaxVx maxVy:self.heroMaxVy accValue:self.heroAcc jumpValue:self.heroJump gravityValue:self.heroGravity];
     //Add hero sprite to BATCHNODE
     [self.hero addChildTo:BATCHNODE z:Z_Hero];

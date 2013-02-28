@@ -26,6 +26,7 @@
 -(void) updateHeroChildrenPosition;
 -(void) jump;
 -(void) idle;
+-(void) headStart;
 //Called from AddthingObject
 -(void) flat;
 -(void) dizzy;

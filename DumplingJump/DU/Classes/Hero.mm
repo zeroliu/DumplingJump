@@ -462,6 +462,16 @@
     DLog(@"shelter");
 }
 
+-(void) headStart
+{
+    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"H_booster"]];
+    [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
+    self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
+    [self changeCollisionDetection:C_NOTHING];
+    [self boosterReady];
+    [self boosterBackgroundStart];
+}
+
 -(void) booster
 {
     DLog(@"booster");

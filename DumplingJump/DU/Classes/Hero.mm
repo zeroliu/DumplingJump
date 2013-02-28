@@ -481,7 +481,11 @@
 
 -(void) boosterReady
 {
+    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
     self.heroState = @"boosterReady";
+    //Play speed line effect
+    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
+    particleNode.position = CGPointZero;
 }
 
 -(void) boosterStart
@@ -499,6 +503,7 @@
 -(void) boosterEnd
 {
     [self resetCollisionDetection];
+    [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
     [self idle];
 }
 

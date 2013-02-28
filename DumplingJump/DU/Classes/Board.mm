@@ -356,8 +356,11 @@
     if (self.engineLeft != nil && self.engineRight != nil)
     {
         boardWidth = self.sprite.contentSize.width * self.sprite.scaleX;
-        float boardPx = self.body->GetPosition().x * RATIO;
-        float boardPy = self.body->GetPosition().y * RATIO;
+        
+        //float boardPx = self.body->GetPosition().x * RATIO;
+        float boardPx = self.sprite.position.x;
+        //float boardPy = self.body->GetPosition().y * RATIO;
+        float boardPy = self.sprite.position.y;
         float boardAngle = self.body->GetAngle();
         
         float zOffset = -40;
@@ -390,7 +393,13 @@
 -(void) boosterEffect
 {
     [self changeCollisionDetection:C_NOTHING];
-    [self scheduleOnce:@selector(boosterEnd) delay:[[POWERUP_DATA objectForKey:@"booster"] floatValue]];
+    [self.sprite runAction: [CCMoveTo actionWithDuration:0.3 position:ccp([CCDirector sharedDirector].winSize.width/2.0, -100)]];
+    
+    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"booster"] floatValue]-0.5];
+    id flyInAnimation = [CCMoveTo actionWithDuration:0.3 position:ccp(self.body->GetPosition().x * RATIO, self.body->GetPosition().y * RATIO)];
+    id callEndFunc = [CCCallFunc actionWithTarget:self selector:@selector(boosterEnd)];
+//    [self scheduleOnce:@selector(boosterBeforeEnd) delay:[[POWERUP_DATA objectForKey:@"booster"] floatValue]];
+    [self.sprite runAction:[CCSequence actions:delay, flyInAnimation, callEndFunc, nil]];
 }
 
 -(void) boosterEnd

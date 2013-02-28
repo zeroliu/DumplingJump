@@ -115,13 +115,14 @@
             DUPhysicsObject *physicsObject = (DUPhysicsObject *)b->GetUserData();
             
             CCSprite* sprite = ((DUPhysicsObject *)b->GetUserData()).sprite;
-            sprite.position = ccp(b->GetPosition().x * RATIO,
-                                  b->GetPosition().y * RATIO);
-            physicsObject.position = ccp(b->GetPosition().x * RATIO,
-                                         b->GetPosition().y * RATIO);
+            if (!([physicsObject.name isEqualToString: BOARD] && ([((Hero *)[[HeroManager shared] getHero]).heroState isEqualToString: @"boosterStart"] || [((Hero *)[[HeroManager shared] getHero]).heroState isEqualToString: @"boosterReady"])))
+            {
+                sprite.position = ccp(b->GetPosition().x * RATIO,
+                                      b->GetPosition().y * RATIO);
+                physicsObject.position = ccp(b->GetPosition().x * RATIO,
+                                             b->GetPosition().y * RATIO);
+            }
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
-            
-            
             if (physicsObject.sprite.position.y < -600 || physicsObject.sprite.position.y > 2000)
             {
                 if([physicsObject isMemberOfClass:[Hero class]] && physicsObject.body->IsActive())

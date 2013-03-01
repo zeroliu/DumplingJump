@@ -153,7 +153,7 @@
         //If addthing needs to trigger an effect after touching the hero
         
         //TODO: CHANGE IT BACK, DO NOT HARD CODE IT
-        if ([self.name isEqualToString:@"STAR"])
+        if ([self.name isEqualToString:@"STAR"] || [self.name isEqualToString:@"MEGA"])
         {
             CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_coinstarGet.ccbi" parent:GAMELAYER z:20];
             particleNode.position = self.sprite.position;

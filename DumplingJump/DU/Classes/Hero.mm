@@ -562,28 +562,24 @@
                                }
                                [star schedule:@selector(moveToHeroWithSpeed:) interval:0.01];
                            }];
-        /*
-        id delay = [CCDelayTime actionWithDuration:0.4];
-        id removeStar = [CCCallBlock actionWithBlock:^
-                         {
-                             [star unschedule:@selector(moveToHeroWithSpeed:)];
-                             ((GameLayer *)GAMELAYER).model.star++;
-                             [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
-                             [star removeFromParentAndCleanup:YES];
-                             [star removeAddthing];
-                         }];
-        */
         [star.sprite runAction:rotateStar];
         [star.sprite runAction:moveToPlayer];
-//        [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
     } else
     {
         ((GameLayer *)GAMELAYER).model.star++;
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
     }
+}
+
+-(void) megastar:(NSArray *)value
+{
+    AddthingObject *megastar = [value objectAtIndex:1];
+    self.heroState = @"_megastar";
     
-    //DLog(@"star!!");
+    ((GameLayer *)GAMELAYER).model.star += [[POWERUP_DATA objectForKey:@"megastar"] intValue];
+    [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
+    [megastar removeAddthing];
 }
 
 //Not being used

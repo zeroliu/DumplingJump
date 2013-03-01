@@ -39,6 +39,7 @@
 -(void) magic:(NSArray *)value;
 -(void) blind;
 -(void) star:(NSArray *)value;
+-(void) megastar:(NSArray *)value;
 -(void) reborn;
 -(void) updateHeroForce;
 -(void) bombPowerup;

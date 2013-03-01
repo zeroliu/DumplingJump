@@ -242,6 +242,19 @@
 		<blood>1</blood>
 		<react_type>star</react_type>
 	</Item>
+    <Item>
+		<ID>mega星星</ID>
+		<name>MEGA</name>
+		<shape>Circle</shape>
+		<radius>35</radius>
+		<I>1</I>
+		<mass>0</mass>
+		<res>0.1</res>
+		<fric>2</fric>
+		<gravity>14</gravity>
+		<blood>1</blood>
+		<react_type>megastar</react_type>
+	</Item>
 	<Item>
 		<ID>冰雹</ID>
 		<name>ICE</name>

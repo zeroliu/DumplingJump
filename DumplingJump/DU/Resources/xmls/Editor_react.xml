@@ -165,6 +165,19 @@
 		<MEMO>星星</MEMO>
 		<react_hero_param>1</react_hero_param>
 	</react>
+    <react>
+		<ID>mega星星</ID>
+		<react_type>megastar</react_type>
+		<reactimage>H_happy</reactimage>
+		<effectimage>FX_Star</effectimage>
+		<statetime>0</statetime>
+		<react_hero>megastar</react_hero>
+		<trigger_react_hero>1</trigger_react_hero>
+		<trigger_clean_board>1</trigger_clean_board>
+		<trigger_clean_item>1</trigger_clean_item>
+		<MEMO>mega星星</MEMO>
+		<react_hero_param>1</react_hero_param>
+	</react>
 	<react>
 		<ID>光束劍</ID>
 		<react_type>slash</react_type>

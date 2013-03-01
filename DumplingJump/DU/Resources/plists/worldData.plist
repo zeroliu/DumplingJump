@@ -7,7 +7,7 @@
 		<key>levelEditorEnabled</key>
 		<true/>
 		<key>hasHeadStart</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>common</key>
 	<dict>

@@ -749,6 +749,7 @@
 		7FF645C816B5D06A00CF7E5C /* WorldData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF645C716B5D06A00CF7E5C /* WorldData.m */; };
 		7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF645CC16B5D1C500CF7E5C /* worldData.plist */; };
 		7FFAC9B816CE14000046FCBB /* EquipmentViewLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */; };
+		7FFCB8C216E3492500700381 /* PowderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCB8C116E3492500700381 /* PowderInfo.m */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
@@ -1800,6 +1801,8 @@
 		7FF645C716B5D06A00CF7E5C /* WorldData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldData.m; sourceTree = "<group>"; };
 		7FF645CC16B5D1C500CF7E5C /* worldData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worldData.plist; sourceTree = "<group>"; };
 		7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewLevelCell.xib; sourceTree = "<group>"; };
+		7FFCB8C016E3492500700381 /* PowderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowderInfo.h; sourceTree = "<group>"; };
+		7FFCB8C116E3492500700381 /* PowderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowderInfo.m; sourceTree = "<group>"; };
 		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
@@ -3387,6 +3390,8 @@
 				7FD8210115D87471003AFCB8 /* AddthingFactory.mm */,
 				7F307C8B16038111004D5203 /* AddthingObject.h */,
 				7F307C8C16038111004D5203 /* AddthingObject.mm */,
+				7FFCB8C016E3492500700381 /* PowderInfo.h */,
+				7FFCB8C116E3492500700381 /* PowderInfo.m */,
 			);
 			name = Addthings;
 			sourceTree = "<group>";
@@ -4422,6 +4427,7 @@
 				7FCB630B16D4B03C003DC150 /* EquipmentViewLevelCell.m in Sources */,
 				7FEA452816D60F7D00F5D2A0 /* LockedEquipmentViewCell.m in Sources */,
 				7FB73D3E16D75E880053B91E /* EquipmentViewAmountCell.m in Sources */,
+				7FFCB8C216E3492500700381 /* PowderInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

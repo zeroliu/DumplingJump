@@ -130,18 +130,7 @@
                     DLog(@"Hero before die will be called");
                     //When hero hits bottom
                     [[[HeroManager shared] getHero] beforeDie];
-                    
-                    /*
-                    if (((Hero *)[[HeroManager shared] getHero]).canReborn)
-                    {
-                        [[[HeroManager shared] getHero] reborn];
-                    } else
-                    {
-                        
-                        //[[[Hub shared]gameLayer] gameOver];
-                        //[[[HeroManager shared] getHero] reborn];
-                    }
-                     */
+
                 } else
                 {
                     if ([((LevelManager *)[LevelManager shared]).generatedObjects containsObject:physicsObject])

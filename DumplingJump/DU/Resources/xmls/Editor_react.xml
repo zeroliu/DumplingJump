@@ -81,8 +81,8 @@
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Powder</effectimage>
 		<react_time>bow</react_time>
-		<trigger_react_time>2.5</trigger_react_time>
-		<trigger_clean_time>2.5</trigger_clean_time>
+		<trigger_react_time>5</trigger_react_time>
+		<trigger_clean_time>5</trigger_clean_time>
 		<MEMO>对人炸弹</MEMO>
 	</react>
 	<react>

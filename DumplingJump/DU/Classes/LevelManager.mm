@@ -18,6 +18,7 @@
 #import "GameUI.h"
 #import "LevelTestTool.h"
 #import "GameModel.h"
+#import "PowderInfo.h"
 
 @interface DropInfo : NSObject
 @property (nonatomic, retain) NSString *objectName;
@@ -74,6 +75,7 @@ hasGenerated = _hasGenerated;
     id waitingAction;
     NSMutableArray *warningSignArray;
     BOOL isProcessingWarningSign;
+    BOOL isUpdatingPowderCountdown;
 }
 
 @property (nonatomic, retain) LevelData *levelData;
@@ -83,7 +85,14 @@ hasGenerated = _hasGenerated;
 @end
 
 @implementation LevelManager
-@synthesize levelData = _levelData, generatedObjects = _generatedObjects, paragraphsData = _paragraphsData, paragraphsCombination = _paragraphsCombination, paragraphNames = _paragraphNames;
+@synthesize
+levelData = _levelData,
+generatedObjects = _generatedObjects,
+paragraphsData = _paragraphsData,
+paragraphsCombination = _paragraphsCombination,
+paragraphNames = _paragraphNames,
+powderDictionary = _powderDictionary,
+toRemovePowderArray = _toRemovePowderArray;
 
 +(id) shared
 {
@@ -103,6 +112,7 @@ hasGenerated = _hasGenerated;
         
         _generatedObjects = [[NSMutableArray alloc] init];
         warningSignArray = [[NSMutableArray alloc] init];
+        _toRemovePowderArray = [[NSMutableArray alloc] init];
         //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
         
@@ -117,8 +127,10 @@ hasGenerated = _hasGenerated;
         //TODO: Create weight look up table for the combinations
         
         currentPhaseIndex = 0;
+        _powderDictionary = [[NSMutableDictionary alloc] init];
         [self clearWarningSign];
         [self clearWaitingAction];
+        [self clearPowderCountdownDictionary];
     }
     
     return self;
@@ -141,6 +153,7 @@ hasGenerated = _hasGenerated;
     
     [self clearWaitingAction];
     [self clearWarningSign];
+    [self clearPowderCountdownDictionary];
 }
 
 -(Level *) selectLevelWithName:(NSString *)levelName
@@ -172,8 +185,7 @@ hasGenerated = _hasGenerated;
 
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
 {
-    DUPhysicsObject *addthing = [[[AddthingFactory shared] createWithName:objectName] retain];
-    
+    AddthingObject *addthing = [[[AddthingFactory shared] createWithName:objectName] retain];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
     int depth = 3;
@@ -182,6 +194,15 @@ hasGenerated = _hasGenerated;
         depth = 1;
     }
     [addthing addChildTo:BATCHNODE z:depth];
+    
+    if ([objectName isEqualToString:@"POWDER"])
+    {
+        float countdown = addthing.reaction.reactTime;
+        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fontName:@"Eras Bold ITC" fontSize:20];
+        [GAMELAYER addChild:label z:Z_BATCHNODE+1];
+        PowderInfo *powderInfo = [[[PowderInfo alloc] initWithAddthing:addthing label:label countdown:countdown] autorelease];
+        [_powderDictionary setObject:powderInfo forKey:addthing.ID];
+    }
     return addthing;
 }
 
@@ -208,8 +229,6 @@ hasGenerated = _hasGenerated;
     {
         [[LevelTestTool shared] updateLevelName:name];
     }
-    //currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:index];
-    //currentParagraphIndex = index;
 }
 
 -(void) loadCurrentParagraph
@@ -251,7 +270,6 @@ hasGenerated = _hasGenerated;
         //Set the array to nil
         [phasePharagraphs release];
         phasePharagraphs = nil;
-    //currentParagraph = [[self.paragraphs objectAtIndex:0] objectAtIndex:currentParagraphIndex];
     }
     
 }
@@ -452,6 +470,18 @@ hasGenerated = _hasGenerated;
     [warningSignArray removeAllObjects];
 }
 
+- (void) clearPowderCountdownDictionary
+{
+    isUpdatingPowderCountdown = NO;
+    for (PowderInfo *info in _powderDictionary)
+    {
+        [info.countdownLabel removeFromParentAndCleanup:NO];
+    }
+    [_powderDictionary removeAllObjects];
+    [_toRemovePowderArray removeAllObjects];
+    
+}
+
 - (void) updateWarningSign
 {
     if (!isProcessingWarningSign)
@@ -484,6 +514,28 @@ hasGenerated = _hasGenerated;
     }
 }
 
+- (void) updatePowderCountdown:(ccTime)deltaTime
+{
+    if (!isUpdatingPowderCountdown)
+    {
+        isUpdatingPowderCountdown = YES;
+        for (NSString *toRemoveAddthingID in _toRemovePowderArray)
+        {
+            [((PowderInfo *)[_powderDictionary objectForKey:toRemoveAddthingID]).countdownLabel removeFromParentAndCleanup:NO];
+            [_powderDictionary removeObjectForKey:toRemoveAddthingID];
+        }
+        for (NSString *addthingID in [_powderDictionary allKeys])
+        {
+            PowderInfo *info = [_powderDictionary objectForKey:addthingID];
+            info.countdown -= deltaTime;
+            [info.countdownLabel setString:[NSString stringWithFormat:@"%d",(int)info.countdown]];
+            info.countdownLabel.rotation = ((AddthingObject *)info.addthing).sprite.rotation;
+            info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(15 * sin(info.countdownLabel.rotation * M_PI / 180),15 * cos(info.countdownLabel.rotation * M_PI / 180)));
+        }
+        isUpdatingPowderCountdown = NO;
+    }
+}
+
 - (void)dealloc
 {
     [phasePharagraphs release];
@@ -493,6 +545,8 @@ hasGenerated = _hasGenerated;
     [_generatedObjects release];
     [_paragraphNames release];
     [warningSignArray release];
+    [_powderDictionary release];
+    [_toRemovePowderArray release];
     [super dealloc];
 }
 @end

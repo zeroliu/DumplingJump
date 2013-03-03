@@ -209,7 +209,7 @@
     self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"sheetObjects.png"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetObjects.plist"];
     
-    [self addChild:self.batchNode z:10];
+    [self addChild:self.batchNode z:Z_BATCHNODE];
 }
 
 -(void) initGameParam
@@ -236,7 +236,6 @@
     [HeroManager shared];
     [BoardManager shared];
     [StarManager shared];
-    
 }
 
 
@@ -312,6 +311,7 @@
         [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
         [[LevelManager shared] dropNextAddthing];
         [[LevelManager shared] updateWarningSign];
+        [[LevelManager shared] updatePowderCountdown:deltaTime];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
     }
 }

@@ -13,7 +13,8 @@
 
 //Save all the addthingObject in this array
 @property (nonatomic, retain) NSMutableArray *generatedObjects;
-
+@property (nonatomic, retain) NSMutableDictionary *powderDictionary;
+@property (nonatomic, retain) NSMutableArray *toRemovePowderArray;
 +(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;
 
@@ -22,6 +23,7 @@
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
 
 -(void) updateWarningSign;
+-(void) updatePowderCountdown:(ccTime)deltaTime;
 
 -(void) restart;
 -(void) jumpToNextLevel;

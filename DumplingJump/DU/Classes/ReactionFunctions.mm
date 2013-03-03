@@ -11,6 +11,7 @@
 #import "BoardManager.h"
 #import "AddthingObject.h"
 #import "HeroManager.h"
+#import "GameUI.h"
 @implementation ReactionFunctions
 
 +(id) shared
@@ -125,6 +126,6 @@
     {
         [[HeroManager shared] heroReactWithReactionName:reaction.name heroAnimName:reaction.heroReactAnimationName reactionLasting:reaction.reactionLasting heroSelectorName:@"bowEffect" heroSelectorParam:[NSValue valueWithCGPoint: target.position]];
     }
-    DLog(@"bow reaction %g,%g", target.position.x, target.position.y);
+    [[GameUI shared] fadeOut];
 }
 @end

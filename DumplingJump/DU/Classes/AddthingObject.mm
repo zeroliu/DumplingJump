@@ -213,6 +213,15 @@
     [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
 }
 
+-(void) archive
+{
+    if ([self.name isEqualToString:@"POWDER"])
+    {
+        [((LevelManager *)[LevelManager shared]).toRemovePowderArray addObject:self.ID];
+    }
+    [super archive];
+}
+
 -(void) activate
 {
     if (_animation != nil)

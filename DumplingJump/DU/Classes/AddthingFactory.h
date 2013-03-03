@@ -11,4 +11,5 @@
 @interface AddthingFactory : DUFactory
 @property (nonatomic, retain) NSDictionary *addthingDictionary;
 +(id) shared;
+- (NSString *) getCustomDataByName:(NSString *)objectName;
 @end

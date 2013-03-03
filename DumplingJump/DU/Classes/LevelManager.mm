@@ -183,19 +183,32 @@ toRemovePowderArray = _toRemovePowderArray;
     [warningSignArray addObject:dropInfo];
 }
 
+-(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num
+{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    float xPosUnit = (winSize.width-5) / (float)SLOTS_NUM;
+    
+    return [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT+100)];
+}
+
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
 {
-    AddthingObject *addthing = [[[AddthingFactory shared] createWithName:objectName] retain];
+    NSString *dropObjectName = objectName;
+    if ([objectName rangeOfString:@"RANDOM"].location != NSNotFound)
+    {
+        dropObjectName = [self treatRandomObject:[[AddthingFactory shared] getCustomDataByName:objectName]];
+    }
+    AddthingObject *addthing = [[[AddthingFactory shared] createWithName:dropObjectName] retain];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
     int depth = 3;
-    if ([objectName isEqualToString:@"STAR"])
+    if ([dropObjectName isEqualToString:@"STAR"])
     {
         depth = 1;
     }
     [addthing addChildTo:BATCHNODE z:depth];
     
-    if ([objectName isEqualToString:@"POWDER"])
+    if ([dropObjectName isEqualToString:@"POWDER"])
     {
         float countdown = addthing.reaction.reactTime;
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fontName:@"Eras Bold ITC" fontSize:20];
@@ -206,12 +219,40 @@ toRemovePowderArray = _toRemovePowderArray;
     return addthing;
 }
 
--(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num
+- (NSString *) treatRandomObject:(NSString *)randomInfo
 {
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    float xPosUnit = (winSize.width-5) / (float)SLOTS_NUM;
+    NSArray *combinationArray = [randomInfo componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@";"]];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithCapacity:[combinationArray count]];
+    NSMutableArray *weights = [[NSMutableArray alloc] initWithCapacity:[combinationArray count]];
+    NSString *result = nil;
+    int sum = 0;
     
-    return [self dropAddthingWithName:objectName atPosition:ccp(xPosUnit * num + 5 + xPosUnit/2,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT+100)];
+    for (NSString *combination in combinationArray)
+    {
+        NSArray *data = [combination componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
+        [objects addObject: [data objectAtIndex:0]];
+        
+        int weight = sum + [[data objectAtIndex:1] intValue];
+        sum = weight;
+        
+        [weights addObject:[NSNumber numberWithInt:weight]];
+    }
+    
+    int randomNum = randomInt(1, sum);
+    
+    for (int i=0; i<[combinationArray count]; i++)
+    {
+        int currentWeight = [[weights objectAtIndex:i] intValue];
+        if (currentWeight >= randomNum)
+        {
+            result = [objects objectAtIndex:i];
+            break;
+        }
+    }
+    
+    [objects release];
+    [weights release];
+    return result;
 }
 
 -(void) loadParagraphWithName:(NSString *)name

@@ -189,4 +189,9 @@
     return nil;
 }
 
+- (NSString *) getCustomDataByName:(NSString *)objectName
+{
+    return ((AddthingObjectData *)[self.addthingDictionary objectForKey:objectName]).customData;
+}
+
 @end

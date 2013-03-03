@@ -24,7 +24,8 @@ blood = _blood,
 wait = _wait,
 warningTime = _warningTime,
 reactionName = _reactionName,
-animationName = _animationName;
+animationName = _animationName,
+customData = _customData;
 
 -(id) initWithName:(NSString *)theName 
              shape:(NSString *)theShape 
@@ -41,7 +42,8 @@ animationName = _animationName;
               wait:(double)theWait
        warningTime:(double)theWarningTime
       reactionName:(NSString *)theReactionName
-     animationName:(NSString *)theAnimationName;
+     animationName:(NSString *)theAnimationName
+        customData:(NSString *)theCustomData
 {
     if (self = [super init])
     {
@@ -61,6 +63,7 @@ animationName = _animationName;
         _warningTime = theWarningTime;
         _reactionName = theReactionName;
         _animationName = theAnimationName;
+        _customData = theCustomData;
     }
     
     return self;
@@ -86,8 +89,19 @@ animationName = _animationName;
         _warningTime = 0;
         _reactionName = nil;
         _animationName = nil;
+        _customData = nil;
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    [_name release];
+    [_spriteName release];
+    [_reactionName release];
+    [_animationName release];
+    [_customData release];
+    [super dealloc];
 }
 @end

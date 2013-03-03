@@ -11,7 +11,7 @@
 @interface AddthingObjectData : CCNode
 
 @property (nonatomic, retain)
-NSString *name,*shape,*spriteName, *reactionName, *animationName;
+NSString *name,*shape,*spriteName, *reactionName, *animationName, *customData;
 @property (nonatomic, assign)
 double radius, //Used for circle
 width, //Used for Box
@@ -41,7 +41,8 @@ warningTime;
               wait:(double)theWait
        warningTime:(double)theWarningTime
       reactionName:(NSString *)theReactionName
-     animationName:(NSString *)theAnimationName;
+     animationName:(NSString *)theAnimationName
+        customData:(NSString *)theCustomData;
 
 -(id) initEmptyData;
 @end

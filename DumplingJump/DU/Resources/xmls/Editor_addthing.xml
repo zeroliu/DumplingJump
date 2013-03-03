@@ -16,6 +16,7 @@
 		<react_type>反應種類</react_type>
 		<wait>Waiting time after drop</wait>
 		<warningTime>Warning time before drop</warningTime>
+        <customData>Custom Data</customData>
 	</Item>
 	<Item>
 		<ID>酒桶</ID>
@@ -270,4 +271,19 @@
 		<react_type>ice</react_type>
 		<warningTime>0.7</warningTime>
 	</Item>
+    <Item>
+        <ID>Random1</ID>
+        <name>RANDOM1</name>
+		<shape>Box</shape>
+		<width>80</width>
+		<length>50</length>
+		<I>10</I>
+		<mass>10</mass>
+		<res>0</res>
+		<fric>5</fric>
+		<gravity>100</gravity>
+		<blood>1</blood>
+        <react_type>Null</react_type>
+        <customData>BOOSTER,20;MAGIC,30;MEGA,40</customData>
+    </Item>
 </things>

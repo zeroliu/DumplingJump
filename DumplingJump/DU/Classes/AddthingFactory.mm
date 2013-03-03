@@ -65,7 +65,14 @@
         {
             objectFixtureDef.filter.categoryBits = C_SLASH;
             objectFixtureDef.filter.maskBits = C_ADDTHING | C_STAR;
-        } else if ([objectName isEqualToString:@"STAR"])
+        } else if ([objectName isEqualToString:@"STAR"] || [objectName isEqualToString:@"MEGA"])
+        {
+            objectFixtureDef.filter.categoryBits = C_STAR;
+            objectFixtureDef.filter.maskBits = C_HERO | C_SLASH | C_ABSORB;
+        } else if ([objectName isEqualToString:@"SPRING"] ||
+                   [objectName isEqualToString:@"SHELTER"] ||
+                   [objectName isEqualToString:@"MAGIC"] ||
+                   [objectName isEqualToString:@"BOOSTER"])
         {
             objectFixtureDef.filter.categoryBits = C_STAR;
             objectFixtureDef.filter.maskBits = C_HERO | C_SLASH | C_ABSORB;

@@ -651,6 +651,9 @@
         //destroy objects on the screen
         [[LevelManager shared] destroyAllObjects];
         
+        //stop dropping stuff for 4 sec
+        [[LevelManager shared] stopDroppingForTime:4];
+        
         //reset to the idle state
         [self idle];
         

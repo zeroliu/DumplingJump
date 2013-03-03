@@ -34,5 +34,6 @@
 -(void) removeObjectFromList:(DUObject *)myObject;
 -(void) destroyAllObjects;
 -(void) switchToNextLevelEffect;
+-(void) stopDroppingForTime:(double)waitingTime;
 -(NSString *) getParagraphNameByIndex:(int)index;
 @end

@@ -52,6 +52,8 @@
     [_powerUpData setObject:[NSNumber numberWithFloat:10] forKey:@"absorb"];
     [_powerUpData setObject:[NSNumber numberWithFloat:2] forKey:@"headstart"];
     [_powerUpData setObject:[NSNumber numberWithInt:20] forKey:@"megastar"];
+    [_powerUpData setObject:[NSNumber numberWithFloat:0.4] forKey:@"magic"];
+    
 }
 
 -(void) updateGameSpeed

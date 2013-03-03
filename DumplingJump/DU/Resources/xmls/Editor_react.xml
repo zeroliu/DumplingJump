@@ -181,8 +181,9 @@
 	<react>
 		<ID>光束劍</ID>
 		<react_type>slash</react_type>
-		<effectimage>FX_Del</effectimage>
+		<effectimage>NULL</effectimage>
 		<trigger_clean_item>1</trigger_clean_item>
+        <trigger_clean_time>0.4</trigger_clean_time>
 	</react>
 	<react>
 		<ID>冰塊</ID>

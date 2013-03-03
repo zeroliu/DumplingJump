@@ -537,7 +537,7 @@
 -(void) magic:(NSArray *)value;
 {
     DLog(@"magic - %@", value);
-    [self schedule:@selector(fire) interval:0.8f];
+    [self schedule:@selector(fire) interval:[[POWERUP_DATA objectForKey:@"magic"] floatValue]];
 }
 
 -(void) blind
@@ -556,9 +556,13 @@
 -(void) fire
 {
     DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(self.sprite.position.x,self.sprite.position.y +5)];
+    
+    id delay = [CCDelayTime actionWithDuration:0.2];
+    id fadeOut = [CCFadeOut actionWithDuration:0.2];
+    [slash.sprite runAction:[CCSequence actions:delay, fadeOut, nil]];
     if (slash != nil)
     {
-        slash.body->SetLinearVelocity(b2Vec2(0,24));
+        slash.body->SetLinearVelocity(b2Vec2(0,17));
     }
 }
 

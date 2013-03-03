@@ -174,7 +174,7 @@
         } else if ([self.reaction.effectName isEqualToString:@"FX_Powder"])
         {
             [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position z:Z_Engine+1 parent:BATCHNODE];
-        } else if (self.reaction.effectName != nil)
+        } else if (![self.reaction.effectName isEqualToString:@"NULL"] && self.reaction.effectName != nil)
         {
             [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
         }

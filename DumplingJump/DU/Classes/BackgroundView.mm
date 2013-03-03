@@ -41,9 +41,11 @@
     
     //Set the batchNode
     self.bgBatchNode = [CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"%@.png",bgName]];
-    
-    [GAMELAYER addChild:self];
-    [GAMELAYER addChild:self.bgBatchNode];
+    if (![[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"physicsDebug"] boolValue])
+    {
+        [GAMELAYER addChild:self];
+        [GAMELAYER addChild:self.bgBatchNode];
+    }
 }
 
 -(void) setBackgroundWithBGArray:(NSMutableArray *)theArray;

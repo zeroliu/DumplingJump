@@ -21,6 +21,7 @@
 {
     float adjustMove, adjustJump;
     b2Vec2 directionForce;
+    b2Vec2 lastVelocity;
     float origHeight;
     BOOL isReborning;
     BOOL isAbsorbing;
@@ -205,6 +206,18 @@
     }
 }
 
+-(void) updateJumpState
+{
+    if (lastVelocity.y > 0 && self.body->GetLinearVelocity().y < 0)
+    {
+        if ([self.heroState isEqualToString:@"springBoost"])
+        {
+            self.heroState = @"spring";
+        }
+    }
+    lastVelocity = self.body->GetLinearVelocity();
+}
+
 -(void) updateHeroBoosterEffect
 {
     //Ready phase, hero slowly moving back
@@ -274,12 +287,6 @@
     {
         self.body->SetLinearVelocity(self.speed);
     }
-    //self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
-    
-    if ([self.heroState isEqualToString:@"spring"] && self.isOnGround)
-    {
-        [self springJump];
-    }
     
     if (maskNode != NULL)
     {
@@ -290,15 +297,25 @@
 -(void) jump
 {
     [self checkIfOnGround];
+    if ([self.heroState isEqualToString:@"spring"])
+    {
+        self.heroState = @"springBoost";
+        [self springJump];
+    }
+    else
+    {
+        [self normalJump];
+    }
+}
+
+-(void) normalJump
+{
     if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
-    
 }
 
 -(void) springJump
 {
-    [self checkIfOnGround];
-    if (self.isOnGround && self.sprite.position.y < 500) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
-    
+    if (self.isOnGround && self.sprite.position.y < [CCDirector sharedDirector].winSize.height/2) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
 }
 
 -(void) idle

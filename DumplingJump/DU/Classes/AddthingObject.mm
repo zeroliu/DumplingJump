@@ -85,6 +85,19 @@
 
     if ([targetObject.name isEqualToString: HERO])
     {
+        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])
+        {
+            if (self.sprite.position.y > targetObject.sprite.position.y)
+            {
+                for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+                {
+                    contactEdge->contact->SetEnabled(false);
+                }
+                [self removeAddthingWithDel];
+                return;
+            }
+        }
+        
         //DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
         if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
         {
@@ -94,7 +107,8 @@
             }
             [self removeAddthingWithDel];
             
-        } else
+        }
+        else
         {
             if (self.reaction != nil)
             {

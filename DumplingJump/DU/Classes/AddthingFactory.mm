@@ -85,7 +85,7 @@
         if ([selectedObject.shape isEqualToString: CIRCLE])
         {
             b2CircleShape objectShape;
-            objectShape.m_radius = (selectedObject.radius) /RATIO; 
+            objectShape.m_radius = (selectedObject.radius) /RATIO;
             //Maybe use the sprite size as a reference
             //EX: sprite.contentSize.x/2 - 7
             
@@ -93,7 +93,7 @@
         } else if ([selectedObject.shape isEqualToString: BOX])
         {
             b2PolygonShape objectShape;
-            objectShape.SetAsBox(selectedObject.width/2/RATIO, selectedObject.length/2/RATIO);            
+            objectShape.SetAsBox(selectedObject.width/2/RATIO, selectedObject.length/2/RATIO);
             objectFixtureDef.shape = &objectShape;
         }
         

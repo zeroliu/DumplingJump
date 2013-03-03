@@ -48,6 +48,7 @@
 -(void) absorbPowerup;
 -(void) sheildPowerup;
 -(void) updateHeroBoosterEffect;
+-(void) updateJumpState;
 -(void) beforeDie;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

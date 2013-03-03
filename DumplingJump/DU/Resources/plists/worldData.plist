@@ -8,6 +8,8 @@
 		<true/>
 		<key>hasHeadStart</key>
 		<false/>
+		<key>physicsDebug</key>
+		<true/>
 	</dict>
 	<key>common</key>
 	<dict>

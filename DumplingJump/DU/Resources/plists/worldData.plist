@@ -16,7 +16,7 @@
 		<key>objectInitialSpeed</key>
 		<integer>17</integer>
 		<key>gameSpeedIncreaseUnit</key>
-		<real>0.6</real>
+		<real>0.5</real>
 		<key>gameSpeedMax</key>
 		<integer>5</integer>
 		<key>distanceUnit</key>
@@ -26,7 +26,7 @@
 		<key>dropRate</key>
 		<real>0.015</real>
 		<key>levelTransitionDelay</key>
-		<integer>2</integer>
+		<integer>5</integer>
 	</dict>
 	<key>board</key>
 	<dict>
@@ -56,7 +56,7 @@
 		<key>heroI</key>
 		<integer>1</integer>
 		<key>heroFric</key>
-		<integer>0</integer>
+		<real>0.5</real>
 		<key>heroMaxVx</key>
 		<integer>15</integer>
 		<key>heroMaxVy</key>

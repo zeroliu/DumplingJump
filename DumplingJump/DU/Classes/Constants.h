@@ -120,6 +120,7 @@
 #define C_SLASH 0x0008
 #define C_STAR 0x0010
 #define C_ABSORB 0x0020
+#define C_HEAD 0x0040
 #define EVERYTHING C_SLASH | C_HERO | C_BOARD | C_ADDTHING | C_STAR
 
 #pragma mark -

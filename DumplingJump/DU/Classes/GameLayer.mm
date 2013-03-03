@@ -190,16 +190,18 @@
     
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
     
-    m_debugDraw = new GLESDebugDraw(RATIO);
-    world->SetDebugDraw(m_debugDraw);
-    uint32 flags = 0;
-    flags += b2Draw::e_shapeBit;
-    flags += b2Draw::e_jointBit;
-    flags += b2Draw::e_aabbBit;
-    flags += b2Draw::e_pairBit;
-    flags += b2Draw::e_centerOfMassBit;
-    m_debugDraw->SetFlags(flags);
-    
+    if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"physicsDebug"] boolValue])
+    {
+        m_debugDraw = new GLESDebugDraw(RATIO);
+        world->SetDebugDraw(m_debugDraw);
+        uint32 flags = 0;
+        flags += b2Draw::e_shapeBit;
+        flags += b2Draw::e_jointBit;
+        flags += b2Draw::e_aabbBit;
+        flags += b2Draw::e_pairBit;
+        flags += b2Draw::e_centerOfMassBit;
+        m_debugDraw->SetFlags(flags);
+    }
 }
 
 -(void) initBatchNode
@@ -303,6 +305,7 @@
         [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];
         [[[HeroManager shared] getHero] updateHeroBoosterEffect];
+        [[[HeroManager shared] getHero] updateJumpState];
         
         self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
         [[GameUI shared] updateDistanceSign:(int)self.model.distance];
@@ -417,19 +420,20 @@
 
 -(void) draw
 {
-    /*
-    if (_loadCompleted)
+    if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"physicsDebug"] boolValue])
     {
-        [super draw];
-        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-        
-        kmGLPushMatrix();
-        
-        world->DrawDebugData();
-        
-        kmGLPopMatrix();
+        if (_loadCompleted)
+        {
+            [super draw];
+            ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+            
+            kmGLPushMatrix();
+            
+            world->DrawDebugData();
+            
+            kmGLPopMatrix();
+        }
     }
-     */
 }
 
 #pragma mark -

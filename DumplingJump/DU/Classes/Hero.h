@@ -39,6 +39,7 @@
 -(void) magic:(NSArray *)value;
 -(void) blind;
 -(void) star:(NSArray *)value;
+-(void) megastar:(NSArray *)value;
 -(void) reborn;
 -(void) updateHeroForce;
 -(void) bombPowerup;
@@ -47,6 +48,7 @@
 -(void) absorbPowerup;
 -(void) sheildPowerup;
 -(void) updateHeroBoosterEffect;
+-(void) updateJumpState;
 -(void) beforeDie;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

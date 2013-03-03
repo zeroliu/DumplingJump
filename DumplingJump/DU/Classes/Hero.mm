@@ -21,6 +21,7 @@
 {
     float adjustMove, adjustJump;
     b2Vec2 directionForce;
+    b2Vec2 lastVelocity;
     float origHeight;
     BOOL isReborning;
     BOOL isAbsorbing;
@@ -205,6 +206,18 @@
     }
 }
 
+-(void) updateJumpState
+{
+    if (lastVelocity.y > 0 && self.body->GetLinearVelocity().y < 0)
+    {
+        if ([self.heroState isEqualToString:@"springBoost"])
+        {
+            self.heroState = @"spring";
+        }
+    }
+    lastVelocity = self.body->GetLinearVelocity();
+}
+
 -(void) updateHeroBoosterEffect
 {
     //Ready phase, hero slowly moving back
@@ -274,12 +287,6 @@
     {
         self.body->SetLinearVelocity(self.speed);
     }
-    //self.speed = b2Vec2(self.speed.x * SPEED_INERTIA, self.speed.y);
-    
-    if ([self.heroState isEqualToString:@"spring"] && self.isOnGround)
-    {
-        [self springJump];
-    }
     
     if (maskNode != NULL)
     {
@@ -290,15 +297,25 @@
 -(void) jump
 {
     [self checkIfOnGround];
+    if ([self.heroState isEqualToString:@"spring"])
+    {
+        self.heroState = @"springBoost";
+        [self springJump];
+    }
+    else
+    {
+        [self normalJump];
+    }
+}
+
+-(void) normalJump
+{
     if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
-    
 }
 
 -(void) springJump
 {
-    [self checkIfOnGround];
-    if (self.isOnGround && self.sprite.position.y < 500) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
-    
+    if (self.isOnGround && self.sprite.position.y < [CCDirector sharedDirector].winSize.height/2) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
 }
 
 -(void) idle
@@ -520,7 +537,7 @@
 -(void) magic:(NSArray *)value;
 {
     DLog(@"magic - %@", value);
-    [self schedule:@selector(fire) interval:0.8f];
+    [self schedule:@selector(fire) interval:[[POWERUP_DATA objectForKey:@"magic"] floatValue]];
 }
 
 -(void) blind
@@ -539,9 +556,13 @@
 -(void) fire
 {
     DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(self.sprite.position.x,self.sprite.position.y +5)];
+    
+    id delay = [CCDelayTime actionWithDuration:0.2];
+    id fadeOut = [CCFadeOut actionWithDuration:0.2];
+    [slash.sprite runAction:[CCSequence actions:delay, fadeOut, nil]];
     if (slash != nil)
     {
-        slash.body->SetLinearVelocity(b2Vec2(0,24));
+        slash.body->SetLinearVelocity(b2Vec2(0,17));
     }
 }
 
@@ -562,28 +583,24 @@
                                }
                                [star schedule:@selector(moveToHeroWithSpeed:) interval:0.01];
                            }];
-        /*
-        id delay = [CCDelayTime actionWithDuration:0.4];
-        id removeStar = [CCCallBlock actionWithBlock:^
-                         {
-                             [star unschedule:@selector(moveToHeroWithSpeed:)];
-                             ((GameLayer *)GAMELAYER).model.star++;
-                             [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
-                             [star removeFromParentAndCleanup:YES];
-                             [star removeAddthing];
-                         }];
-        */
         [star.sprite runAction:rotateStar];
         [star.sprite runAction:moveToPlayer];
-//        [star.sprite runAction:[CCSequence actions:moveToPlayer, delay, removeStar, nil]];
     } else
     {
         ((GameLayer *)GAMELAYER).model.star++;
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
     }
+}
+
+-(void) megastar:(NSArray *)value
+{
+    AddthingObject *megastar = [value objectAtIndex:1];
+    self.heroState = @"_megastar";
     
-    //DLog(@"star!!");
+    ((GameLayer *)GAMELAYER).model.star += [[POWERUP_DATA objectForKey:@"megastar"] intValue];
+    [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
+    [megastar removeAddthing];
 }
 
 //Not being used
@@ -654,6 +671,9 @@
         
         //destroy objects on the screen
         [[LevelManager shared] destroyAllObjects];
+        
+        //stop dropping stuff for 4 sec
+        [[LevelManager shared] stopDroppingForTime:4];
         
         //reset to the idle state
         [self idle];

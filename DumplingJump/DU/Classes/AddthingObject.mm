@@ -85,6 +85,19 @@
 
     if ([targetObject.name isEqualToString: HERO])
     {
+        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])
+        {
+            if (self.sprite.position.y > targetObject.sprite.position.y)
+            {
+                for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+                {
+                    contactEdge->contact->SetEnabled(false);
+                }
+                [self removeAddthingWithDel];
+                return;
+            }
+        }
+        
         //DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
         if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
         {
@@ -94,7 +107,8 @@
             }
             [self removeAddthingWithDel];
             
-        } else
+        }
+        else
         {
             if (self.reaction != nil)
             {
@@ -153,14 +167,14 @@
         //If addthing needs to trigger an effect after touching the hero
         
         //TODO: CHANGE IT BACK, DO NOT HARD CODE IT
-        if ([self.name isEqualToString:@"STAR"])
+        if ([self.name isEqualToString:@"STAR"] || [self.name isEqualToString:@"MEGA"])
         {
             CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_coinstarGet.ccbi" parent:GAMELAYER z:20];
             particleNode.position = self.sprite.position;
         } else if ([self.reaction.effectName isEqualToString:@"FX_Powder"])
         {
             [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position z:Z_Engine+1 parent:BATCHNODE];
-        } else if (self.reaction.effectName != nil)
+        } else if (![self.reaction.effectName isEqualToString:@"NULL"] && self.reaction.effectName != nil)
         {
             [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
         }

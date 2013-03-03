@@ -15,7 +15,9 @@
 	<level>
 		<time>1</time>
 		<slot1>*\</slot1>
-        <slot2>MAGIC</slot2>
+		<slot2>MAGIC</slot2>
+		<slot4>BOOSTER</slot4>
+		<slot7>SPRING</slot7>
 	</level>
 	<level>
 		<time>2</time>

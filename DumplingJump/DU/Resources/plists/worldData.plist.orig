@@ -33,42 +33,42 @@
 		<key>freqR</key>
 		<real>1.1</real>
 		<key>dampL</key>
-		<real>0.9</real>
+		<integer>1</integer>
 		<key>dampM</key>
 		<integer>1</integer>
 		<key>dampR</key>
+<<<<<<< HEAD
+		<integer>1</integer>
+=======
 		<real>0.9</real>
+		<key>friction</key>
+		<real>0.6</real>
+>>>>>>> 4963ffb1ba3fe4c95df0f3b11da335a46dc0d14b
 	</dict>
 	<key>hero</key>
 	<dict>
 		<key>velocityAccRatio</key>
-		<integer>1</integer>
+		<real>1.3</real>
 		<key>heroRadius</key>
 		<integer>11</integer>
 		<key>heroMass</key>
-		<integer>20</integer>
+		<integer>15</integer>
 		<key>heroI</key>
 		<integer>1</integer>
 		<key>heroFric</key>
-		<real>0.01</real>
+		<integer>0</integer>
 		<key>heroMaxVx</key>
-<<<<<<< HEAD
-		<integer>5</integer>
+		<integer>30</integer>
 		<key>heroMaxVy</key>
 		<integer>26</integer>
 		<key>heroAcc</key>
-		<real>1.56</real>
-=======
-		<integer>40</integer>
-		<key>heroMaxVy</key>
-		<integer>26</integer>
-		<key>heroAcc</key>
-		<integer>13</integer>
->>>>>>> 36ad0034c7dda7b0739a4a94019bc1f925d19c8b
+		<integer>8</integer>
 		<key>heroJump</key>
 		<integer>450</integer>
 		<key>heroGravity</key>
 		<integer>150</integer>
+		<key>freezeSpeed</key>
+		<integer>2</integer>
 	</dict>
 </dict>
 </plist>

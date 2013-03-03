@@ -228,7 +228,7 @@
     
     if ([self.heroState isEqualToString:@"boosterReady"])
     {
-        if (self.sprite.position.y > 450)
+        if (self.sprite.position.y > 550)
         {
             self.heroState = @"boosterStart";
             [self boosterStart];

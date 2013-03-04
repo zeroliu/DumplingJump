@@ -52,13 +52,6 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
-//    
-//    if (cell == nil)
-//    {
-//        cell = [[[NSBundle mainBundle] loadNibNamed:@"EquipmentViewCell" owner:self options:nil] objectAtIndex:0];
-//    }
-//
     NSDictionary *equipmentData = [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     //TODO: check if it is multiplier

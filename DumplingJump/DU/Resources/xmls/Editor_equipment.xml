@@ -103,9 +103,9 @@
 	<Item>
 		<group>4</group>
 		<type>items</type>
-        <layout>EquipmentViewLevelCell</layout>
-		<name>rocket</name>
-        <image>UI_item_booster</image>
+        <layout>EquipmentViewAmountCell</layout>
+		<name>headStart</name>
+        <image>UI_item_headstart</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>1000</base>

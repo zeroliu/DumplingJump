@@ -211,7 +211,8 @@ toRemovePowderArray = _toRemovePowderArray;
     if ([dropObjectName isEqualToString:@"POWDER"])
     {
         float countdown = addthing.reaction.reactTime;
-        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fontName:@"Eras Bold ITC" fontSize:20];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fontName:@"Eras Bold ITC" fontSize:40];
+        [label setColor:ccc3(255,0,0)];
         [GAMELAYER addChild:label z:Z_BATCHNODE+1];
         PowderInfo *powderInfo = [[[PowderInfo alloc] initWithAddthing:addthing label:label countdown:countdown] autorelease];
         [_powderDictionary setObject:powderInfo forKey:addthing.ID];
@@ -513,14 +514,15 @@ toRemovePowderArray = _toRemovePowderArray;
 
 - (void) clearPowderCountdownDictionary
 {
-    isUpdatingPowderCountdown = NO;
-    for (PowderInfo *info in _powderDictionary)
+    
+    for (NSString *addthingID in [_powderDictionary allKeys])
     {
+        PowderInfo *info = [_powderDictionary objectForKey:addthingID];
         [info.countdownLabel removeFromParentAndCleanup:NO];
     }
     [_powderDictionary removeAllObjects];
     [_toRemovePowderArray removeAllObjects];
-    
+    isUpdatingPowderCountdown = NO;
 }
 
 - (void) updateWarningSign
@@ -570,8 +572,9 @@ toRemovePowderArray = _toRemovePowderArray;
             PowderInfo *info = [_powderDictionary objectForKey:addthingID];
             info.countdown -= deltaTime;
             [info.countdownLabel setString:[NSString stringWithFormat:@"%d",(int)info.countdown]];
-            info.countdownLabel.rotation = ((AddthingObject *)info.addthing).sprite.rotation;
-            info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(15 * sin(info.countdownLabel.rotation * M_PI / 180),15 * cos(info.countdownLabel.rotation * M_PI / 180)));
+//            info.countdownLabel.rotation = ((AddthingObject *)info.addthing).sprite.rotation;
+//            info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(15 * sin(info.countdownLabel.rotation * M_PI / 180),15 * cos(info.countdownLabel.rotation * M_PI / 180)));
+            info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(0,55));
         }
         isUpdatingPowderCountdown = NO;
     }

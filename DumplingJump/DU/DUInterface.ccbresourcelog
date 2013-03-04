@@ -23,6 +23,10 @@ A_blind_5.png
 A_blind_6.png
 A_blind_7.png
 A_blind_8.png
+A_booster_1.png
+A_booster_2.png
+A_booster_3.png
+A_booster_4.png
 A_bow_1.png
 A_bow_2.png
 A_bow_3.png
@@ -115,6 +119,12 @@ E_item_coinstar_6.png
 E_item_coinstar_7.png
 E_item_coinstar_8.png
 E_item_coinstar_9.png
+E_item_headstart_trail_1.png
+E_item_headstart_trail_2.png
+E_item_headstart_trail_3.png
+E_item_headstart_wave_1.png
+E_item_headstart_wave_2.png
+E_item_headstart_wave_3.png
 E_item_reborn_end_1.png
 E_item_reborn_end_2.png
 E_item_reborn_end_3.png
@@ -132,6 +142,9 @@ E_item_reborn_start_6.png
 E_item_reborn_start_7.png
 E_item_reborn_start_8.png
 E_item_reborn_start_9.png
+E_item_spring_1.png
+E_item_spring_2.png
+E_item_spring_3.png
 E_powder_1.png
 E_powder_2.png
 E_powder_3.png
@@ -235,6 +248,12 @@ H_spring_3.png
 H_spring_4.png
 H_spring_5.png
 H_spring_6.png
+H_spring_jump_1.png
+H_spring_jump_2.png
+H_spring_jump_3.png
+H_spring_jump_4.png
+H_spring_jump_5.png
+H_spring_jump_6.png
 O_engine_1.png
 O_engine_2.png
 O_engine_3.png
@@ -248,6 +267,10 @@ O_engine_recover_2.png
 O_engine_recover_3.png
 O_engine_recover_4.png
 O_engine_recover_5.png
+O_headstart_1.png
+O_headstart_2.png
+O_headstart_3.png
+O_headstart_4.png
 O_plate.png
 UI_other_loading_1.png
 UI_other_loading_2.png
@@ -579,6 +602,8 @@ UI_item_booster.png
 UI_item_booster_shadow.png
 UI_item_coinstar.png
 UI_item_coinstar_shadow.png
+UI_item_headstart.png
+UI_item_headstart_shadow.png
 UI_item_magnet.png
 UI_item_magnet_shadow.png
 UI_item_megacoins.png

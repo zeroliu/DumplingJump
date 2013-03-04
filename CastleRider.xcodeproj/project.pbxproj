@@ -750,6 +750,8 @@
 		7FF645CD16B5D1C500CF7E5C /* worldData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF645CC16B5D1C500CF7E5C /* worldData.plist */; };
 		7FFAC9B816CE14000046FCBB /* EquipmentViewLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */; };
 		7FFCB8C216E3492500700381 /* PowderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCB8C116E3492500700381 /* PowderInfo.m */; };
+		7FFCB8C516E42FC700700381 /* UI_item_headstart_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFCB8C316E42FC600700381 /* UI_item_headstart_shadow.png */; };
+		7FFCB8C616E42FC700700381 /* UI_item_headstart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFCB8C416E42FC700700381 /* UI_item_headstart.png */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 /* End PBXBuildFile section */
@@ -1803,6 +1805,8 @@
 		7FFAC9B716CE14000046FCBB /* EquipmentViewLevelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipmentViewLevelCell.xib; sourceTree = "<group>"; };
 		7FFCB8C016E3492500700381 /* PowderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowderInfo.h; sourceTree = "<group>"; };
 		7FFCB8C116E3492500700381 /* PowderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowderInfo.m; sourceTree = "<group>"; };
+		7FFCB8C316E42FC600700381 /* UI_item_headstart_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_item_headstart_shadow.png; sourceTree = "<group>"; };
+		7FFCB8C416E42FC700700381 /* UI_item_headstart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_item_headstart.png; sourceTree = "<group>"; };
 		7FFD8E8D160526B200C460F0 /* ReactionFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactionFunctions.h; sourceTree = "<group>"; };
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
@@ -2679,6 +2683,8 @@
 		7F3B59E016C86DC20010F8E4 /* sheetUI-2 */ = {
 			isa = PBXGroup;
 			children = (
+				7FFCB8C316E42FC600700381 /* UI_item_headstart_shadow.png */,
+				7FFCB8C416E42FC700700381 /* UI_item_headstart.png */,
 				7F6277E016DAFAF800EB2BD8 /* UI_item_shield_shadow.png */,
 				7F6277E116DAFAF800EB2BD8 /* UI_item_shield.png */,
 				7F6277E216DAFAF800EB2BD8 /* UI_item_spring_shadow.png */,
@@ -4153,6 +4159,8 @@
 				7F6277E916DAFAF800EB2BD8 /* UI_item_spring.png in Resources */,
 				7F6277EA16DAFAF800EB2BD8 /* UI_item_sword_shadow.png in Resources */,
 				7F6277EB16DAFAF800EB2BD8 /* UI_item_sword.png in Resources */,
+				7FFCB8C516E42FC700700381 /* UI_item_headstart_shadow.png in Resources */,
+				7FFCB8C616E42FC700700381 /* UI_item_headstart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

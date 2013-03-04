@@ -125,7 +125,7 @@
 		<I>1</I>
 		<mass>25</mass>
 		<res>0.1</res>
-		<fric>10</fric>
+		<fric>5</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>bow</react_type>
@@ -147,12 +147,12 @@
 		<ID>瞎掉</ID>
 		<name>BLIND</name>
 		<shape>Circle</shape>
-		<radius>25</radius>
+		<radius>30</radius>
 		<width>0</width>
 		<I>1</I>
 		<mass>5</mass>
 		<res>0.1</res>
-		<fric>0.8</fric>
+		<fric>0.7</fric>
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>blind</react_type>
@@ -161,12 +161,12 @@
 		<ID>彈簧腳</ID>
 		<name>SPRING</name>
 		<shape>Circle</shape>
-		<radius>25</radius>
+		<radius>30</radius>
 		<width>0</width>
 		<I>1</I>
 		<mass>5</mass>
 		<res>0.1</res>
-		<fric>0.8</fric>
+		<fric>0.7</fric>
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>spring</react_type>
@@ -176,12 +176,12 @@
 		<ID>防護罩</ID>
 		<name>SHELTER</name>
 		<shape>Circle</shape>
-		<radius>25</radius>
+		<radius>30</radius>
 		<width>0</width>
 		<I>1</I>
 		<mass>5</mass>
 		<res>0.1</res>
-		<fric>0.8</fric>
+		<fric>0.7</fric>
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>shelter</react_type>
@@ -191,12 +191,12 @@
 		<ID>寶劍</ID>
 		<name>MAGIC</name>
 		<shape>Circle</shape>
-		<radius>25</radius>
+		<radius>30</radius>
 		<width>0</width>
 		<I>1</I>
 		<mass>5</mass>
 		<res>0.1</res>
-		<fric>0.8</fric>
+		<fric>0.7</fric>
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>magic</react_type>
@@ -206,12 +206,12 @@
 		<ID>Booster</ID>
 		<name>BOOSTER</name>
 		<shape>Circle</shape>
-		<radius>25</radius>
+		<radius>30</radius>
 		<width>0</width>
 		<I>1</I>
 		<mass>5</mass>
 		<res>0.1</res>
-		<fric>0.8</fric>
+		<fric>0.7</fric>
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>booster</react_type>
@@ -255,6 +255,7 @@
 		<gravity>14</gravity>
 		<blood>1</blood>
 		<react_type>megastar</react_type>
+		<wait>2</wait>
 	</Item>
 	<Item>
 		<ID>冰雹</ID>
@@ -272,8 +273,8 @@
 		<warningTime>0.7</warningTime>
 	</Item>
 	<Item>
-		<ID>Random1</ID>
-		<name>RANDOM1</name>
+		<ID>itemsLv1</ID>
+		<name>RANDOM_1</name>
 		<shape>Box</shape>
 		<width>80</width>
 		<length>50</length>
@@ -284,6 +285,36 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
-		<customData>BOOSTER,25;MAGIC,25;MEGA,25;SPRING,25</customData>
+		<customData>BOOSTER,60;MEGA,40</customData>
+	</Item>
+	<Item>
+		<ID>itemsLv2</ID>
+		<name>RANDOM_2</name>
+		<shape>Box</shape>
+		<width>80</width>
+		<length>50</length>
+		<I>10</I>
+		<mass>10</mass>
+		<res>0</res>
+		<fric>5</fric>
+		<gravity>100</gravity>
+		<blood>1</blood>
+		<react_type>Null</react_type>
+		<customData>BOOSTER,10;MAGIC,25;MEGA,25;SPRING,25;BLIND,15</customData>
+	</Item>
+	<Item>
+		<ID>itemsLv2</ID>
+		<name>RANDOM_3</name>
+		<shape>Box</shape>
+		<width>80</width>
+		<length>50</length>
+		<I>10</I>
+		<mass>10</mass>
+		<res>0</res>
+		<fric>5</fric>
+		<gravity>100</gravity>
+		<blood>1</blood>
+		<react_type>Null</react_type>
+		<customData>BOOSTER,15;MAGIC,15;MEGA,15;SPRING,15;BLIND,40</customData>
 	</Item>
 </things>

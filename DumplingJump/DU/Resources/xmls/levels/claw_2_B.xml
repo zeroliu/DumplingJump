@@ -14,91 +14,90 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot2>VAT</slot2>
+		<slot8>*1</slot8>
 	</level>
 	<level>
 		<time>2</time>
+		<slot2>VAT</slot2>
+	</level>
+	<level>
+		<time>3</time>
 		<slot1>VAT</slot1>
 		<slot2>VAT</slot2>
 		<slot7>CLAW</slot7>
 	</level>
 	<level>
-		<time>3</time>
+		<time>4</time>
 		<slot2>VAT</slot2>
 	</level>
 	<level>
-		<time>4</time>
+		<time>5</time>
 		<slot8>VAT</slot8>
 	</level>
 	<level>
-		<time>5</time>
+		<time>6</time>
 		<slot2>CLAW</slot2>
 		<slot8>VAT</slot8>
 		<slot9>VAT</slot9>
 	</level>
 	<level>
-		<time>6</time>
+		<time>7</time>
 		<slot8>VAT</slot8>
 	</level>
 	<level>
-		<time>7</time>
+		<time>8</time>
 		<slot2>VAT</slot2>
 	</level>
 	<level>
-		<time>8</time>
+		<time>9</time>
 		<slot1>VAT</slot1>
 		<slot2>VAT</slot2>
 		<slot7>CLAW</slot7>
 	</level>
 	<level>
-		<time>9</time>
+		<time>10</time>
 		<slot2>VAT</slot2>
 	</level>
 	<level>
-		<time>10</time>
-		<slot1>*C</slot1>
-	</level>
-	<level>
 		<time>11</time>
-		<slot3>BLIND</slot3>
-		<slot7>SHELTER</slot7>
+		<slot1>*O</slot1>
 	</level>
 	<level>
 		<time>12</time>
-		<slot6>CLAW</slot6>
+		<slot3>RANDOM_2</slot3>
 	</level>
 	<level>
 		<time>13</time>
+		<slot6>CLAW</slot6>
 	</level>
 	<level>
 		<time>14</time>
 	</level>
 	<level>
 		<time>15</time>
-		<slot4>CLAW</slot4>
 	</level>
 	<level>
 		<time>16</time>
+		<slot4>CLAW</slot4>
 	</level>
 	<level>
 		<time>17</time>
 	</level>
 	<level>
 		<time>18</time>
-		<slot6>CLAW</slot6>
 	</level>
 	<level>
 		<time>19</time>
+		<slot6>CLAW</slot6>
 	</level>
 	<level>
 		<time>20</time>
 	</level>
 	<level>
 		<time>21</time>
-		<slot4>CLAW</slot4>
 	</level>
 	<level>
 		<time>22</time>
-		<slot1>*O</slot1>
+		<slot4>CLAW</slot4>
 	</level>
 </stage1>

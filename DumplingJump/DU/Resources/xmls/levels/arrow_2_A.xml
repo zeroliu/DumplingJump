@@ -14,111 +14,111 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot5>ARROW</slot5>
+		<slot1>*O</slot1>
 	</level>
 	<level>
 		<time>2</time>
-		<slot2>VAT</slot2>
+		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>3</time>
 		<slot2>VAT</slot2>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>4</time>
 		<slot2>VAT</slot2>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>5</time>
 		<slot2>VAT</slot2>
-		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>6</time>
 		<slot2>VAT</slot2>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>7</time>
 		<slot2>VAT</slot2>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>8</time>
-		<slot2>VAT</slot2>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
+		<slot3>RANDOM_2</slot3>
 	</level>
 	<level>
 		<time>9</time>
 		<slot2>VAT</slot2>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>10</time>
+		<slot2>VAT</slot2>
+	</level>
+	<level>
+		<time>11</time>
 		<slot2>VAT</slot2>
 		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
 	</level>
 	<level>
-		<time>11</time>
+		<time>12</time>
 		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
 		<slot5>ARROW</slot5>
-	</level>
-	<level>
-		<time>12</time>
-		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>13</time>
-		<slot8>SHELTER</slot8>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>14</time>
-		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
-		<slot7>ARROW</slot7>
+		<slot8>RANDOM_2</slot8>
 	</level>
 	<level>
 		<time>15</time>
+		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
+		<slot6>ARROW</slot6>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>16</time>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>17</time>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>18</time>
-		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
-		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>19</time>
+		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
+		<slot6>ARROW</slot6>
+		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>20</time>
+	</level>
+	<level>
+		<time>21</time>
 		<slot4>ARROW</slot4>
 		<slot5>ARROW</slot5>
 		<slot6>ARROW</slot6>
 	</level>
 	<level>
-		<time>21</time>
+		<time>22</time>
 		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
 		<slot5>ARROW</slot5>
 		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
-	</level>
-	<level>
-		<time>22</time>
-		<slot1>*O</slot1>
 	</level>
 </stage1>

@@ -14,25 +14,22 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot2>ARROW</slot2>
+		<slot1>*&lt;</slot1>
 	</level>
 	<level>
 		<time>2</time>
 		<slot2>ARROW</slot2>
-		<slot3>ARROW</slot3>
 	</level>
 	<level>
 		<time>3</time>
 		<slot2>ARROW</slot2>
 		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
 	</level>
 	<level>
 		<time>4</time>
 		<slot2>ARROW</slot2>
 		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
 	</level>
 	<level>
 		<time>5</time>
@@ -40,34 +37,33 @@
 		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
 		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>6</time>
-		<slot8>ARROW</slot8>
+		<slot2>ARROW</slot2>
+		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>7</time>
-		<slot7>ARROW</slot7>
 		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>8</time>
+		<slot7>ARROW</slot7>
+		<slot8>ARROW</slot8>
+	</level>
+	<level>
+		<time>9</time>
 		<slot2>VAT</slot2>
 		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
 		<slot8>ARROW</slot8>
 	</level>
 	<level>
-		<time>9</time>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
-		<slot7>ARROW</slot7>
-		<slot8>ARROW</slot8>
-	</level>
-	<level>
 		<time>10</time>
-		<slot4>ARROW</slot4>
 		<slot5>ARROW</slot5>
 		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
@@ -75,69 +71,62 @@
 	</level>
 	<level>
 		<time>11</time>
-		<slot1>*\</slot1>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
+		<slot7>ARROW</slot7>
+		<slot8>ARROW</slot8>
 	</level>
 	<level>
 		<time>12</time>
-		<slot7>SHELTER</slot7>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>13</time>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
+		<slot7>RANDOM_2</slot7>
 	</level>
 	<level>
 		<time>14</time>
-		<slot1>ARROW</slot1>
-		<slot2>ARROW</slot2>
-		<slot3>ARROW</slot3>
-		<slot7>ARROW</slot7>
-		<slot8>ARROW</slot8>
-		<slot9>ARROW</slot9>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>15</time>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
+		<slot1>ARROW</slot1>
+		<slot2>ARROW</slot2>
+		<slot3>ARROW</slot3>
+		<slot7>ARROW</slot7>
+		<slot8>ARROW</slot8>
+		<slot9>ARROW</slot9>
 	</level>
 	<level>
 		<time>16</time>
-		<slot1>ARROW</slot1>
-		<slot2>ARROW</slot2>
-		<slot3>ARROW</slot3>
-		<slot7>ARROW</slot7>
-		<slot8>ARROW</slot8>
-		<slot9>ARROW</slot9>
+		<slot4>ARROW</slot4>
+		<slot5>ARROW</slot5>
+		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>17</time>
+		<slot1>ARROW</slot1>
+		<slot2>ARROW</slot2>
+		<slot3>ARROW</slot3>
+		<slot7>ARROW</slot7>
+		<slot8>ARROW</slot8>
+		<slot9>ARROW</slot9>
 	</level>
 	<level>
 		<time>18</time>
-		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
-		<slot6>ARROW</slot6>
-		<slot7>ARROW</slot7>
 	</level>
 	<level>
 		<time>19</time>
-		<slot1>ARROW</slot1>
-		<slot2>ARROW</slot2>
-		<slot5>ARROW</slot5>
-		<slot8>ARROW</slot8>
-		<slot9>ARROW</slot9>
-	</level>
-	<level>
-		<time>20</time>
 		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
 		<slot6>ARROW</slot6>
 		<slot7>ARROW</slot7>
 	</level>
 	<level>
-		<time>21</time>
+		<time>20</time>
 		<slot1>ARROW</slot1>
 		<slot2>ARROW</slot2>
 		<slot5>ARROW</slot5>
@@ -145,7 +134,18 @@
 		<slot9>ARROW</slot9>
 	</level>
 	<level>
+		<time>21</time>
+		<slot3>ARROW</slot3>
+		<slot4>ARROW</slot4>
+		<slot6>ARROW</slot6>
+		<slot7>ARROW</slot7>
+	</level>
+	<level>
 		<time>22</time>
-		<slot1>*O</slot1>
+		<slot1>ARROW</slot1>
+		<slot2>ARROW</slot2>
+		<slot5>ARROW</slot5>
+		<slot8>ARROW</slot8>
+		<slot9>ARROW</slot9>
 	</level>
 </stage1>

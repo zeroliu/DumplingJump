@@ -16,7 +16,7 @@
 		<react_type>反應種類</react_type>
 		<wait>Waiting time after drop</wait>
 		<warningTime>Warning time before drop</warningTime>
-        <customData>Custom Data</customData>
+		<customData>Custom Data</customData>
 	</Item>
 	<Item>
 		<ID>酒桶</ID>
@@ -202,7 +202,7 @@
 		<react_type>magic</react_type>
 		<wait>2</wait>
 	</Item>
-    <Item>
+	<Item>
 		<ID>Booster</ID>
 		<name>BOOSTER</name>
 		<shape>Circle</shape>
@@ -243,11 +243,11 @@
 		<blood>1</blood>
 		<react_type>star</react_type>
 	</Item>
-    <Item>
+	<Item>
 		<ID>mega星星</ID>
 		<name>MEGA</name>
 		<shape>Circle</shape>
-		<radius>35</radius>
+		<radius>40</radius>
 		<I>1</I>
 		<mass>0</mass>
 		<res>0.1</res>
@@ -271,9 +271,9 @@
 		<react_type>ice</react_type>
 		<warningTime>0.7</warningTime>
 	</Item>
-    <Item>
-        <ID>Random1</ID>
-        <name>RANDOM1</name>
+	<Item>
+		<ID>Random1</ID>
+		<name>RANDOM1</name>
 		<shape>Box</shape>
 		<width>80</width>
 		<length>50</length>
@@ -283,7 +283,7 @@
 		<fric>5</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
-        <react_type>Null</react_type>
-        <customData>BOOSTER,20;MAGIC,30;MEGA,40</customData>
-    </Item>
+		<react_type>Null</react_type>
+		<customData>BOOSTER,25;MAGIC,25;MEGA,25;SPRING,25</customData>
+	</Item>
 </things>

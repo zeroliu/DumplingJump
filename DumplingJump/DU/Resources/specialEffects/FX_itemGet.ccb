@@ -53,8 +53,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>3</real>
+							<real>3</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -117,8 +117,8 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.10000000149011612</real>
+							<real>0.25</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -355,7 +355,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>50</real>
+						<real>70</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -380,7 +380,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>0.69999998807907104</real>
 							<real>0.10000000149011612</real>
 						</array>
 					</dict>
@@ -424,7 +424,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>30</real>
+							<real>60</real>
 							<real>60</real>
 						</array>
 					</dict>
@@ -643,7 +643,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>0.20000000298023224</real>
 							<real>0.10000000149011612</real>
 						</array>
 					</dict>
@@ -654,7 +654,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>50</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -665,7 +665,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>50</real>
+							<real>200</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -710,9 +710,9 @@
 						<key>value</key>
 						<array>
 							<array>
-								<real>0.9966016411781311</real>
-								<real>0.97720044851303101</real>
-								<real>0.69132649898529053</real>
+								<real>0.93274837732315063</real>
+								<real>1</real>
+								<real>0.93467271327972412</real>
 								<real>1</real>
 							</array>
 							<array>
@@ -808,8 +808,6 @@
 						<string>Assets/sheetEffects/E_itemGet_star.png</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -901,7 +899,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.60000002384185791</real>
+			<real>4.7666668891906738</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

@@ -9,7 +9,7 @@
 		<key>hasHeadStart</key>
 		<false/>
 		<key>physicsDebug</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>common</key>
 	<dict>

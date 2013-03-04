@@ -14,16 +14,16 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot3>VAT</slot3>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>2</time>
 		<slot3>VAT</slot3>
-		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>3</time>
 		<slot3>VAT</slot3>
+		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>4</time>
@@ -40,11 +40,11 @@
 	<level>
 		<time>7</time>
 		<slot3>VAT</slot3>
-		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>8</time>
 		<slot3>VAT</slot3>
+		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>9</time>
@@ -64,15 +64,15 @@
 	</level>
 	<level>
 		<time>13</time>
-		<slot7>VAT</slot7>
+		<slot8>RANDOM_2</slot8>
 	</level>
 	<level>
 		<time>14</time>
-		<slot3>CLAW</slot3>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>15</time>
+		<slot3>CLAW</slot3>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
@@ -85,11 +85,11 @@
 	</level>
 	<level>
 		<time>18</time>
-		<slot3>CLAW</slot3>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
 		<time>19</time>
+		<slot3>CLAW</slot3>
 		<slot7>VAT</slot7>
 	</level>
 	<level>
@@ -102,6 +102,6 @@
 	</level>
 	<level>
 		<time>22</time>
-		<slot1>*O</slot1>
+		<slot7>VAT</slot7>
 	</level>
 </stage1>

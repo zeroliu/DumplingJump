@@ -14,15 +14,11 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot1>*\</slot1>
-		<slot2>MAGIC</slot2>
-		<slot4>BOOSTER</slot4>
-		<slot7>SPRING</slot7>
+		<slot1>*/</slot1>
 	</level>
 	<level>
 		<time>2</time>
-		<slot1>*/</slot1>
-		<slot5>MEGA</slot5>
+		<slot1>*\</slot1>
 	</level>
 	<level>
 		<time>3</time>

@@ -53,16 +53,6 @@
 		<react_hero_param>19</react_hero_param>
 	</react>
 	<react>
-		<ID>火藥</ID>
-		<react_type>powder</react_type>
-		<effectimage>FX_Powder</effectimage>
-		<statetime>7.5</statetime>
-		<react_time>explode</react_time>
-		<trigger_react_time>3</trigger_react_time>
-		<trigger_clean_time>3</trigger_clean_time>
-		<MEMO>火藥</MEMO>
-	</react>
-	<react>
 		<ID>偽裝蝙蝠</ID>
 		<react_type>blind</react_type>
 		<reactimage>H_blind</reactimage>
@@ -76,13 +66,13 @@
 		<MEMO>偽裝蝙蝠</MEMO>
 	</react>
 	<react>
-		<ID>对人炸弹</ID>
+		<ID>倒數炸彈</ID>
 		<react_type>bow</react_type>
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Powder</effectimage>
 		<react_time>bow</react_time>
-		<trigger_react_time>5</trigger_react_time>
-		<trigger_clean_time>5</trigger_clean_time>
+		<trigger_react_time>6</trigger_react_time>
+		<trigger_clean_time>6</trigger_clean_time>
 		<MEMO>对人炸弹</MEMO>
 	</react>
 	<react>
@@ -111,7 +101,7 @@
 		<sort>3</sort>
 		<MEMO>防護罩</MEMO>
 	</react>
-    <react>
+	<react>
 		<ID>Booster</ID>
 		<react_type>booster</react_type>
 		<reactimage>H_booster</reactimage>
@@ -165,7 +155,7 @@
 		<MEMO>星星</MEMO>
 		<react_hero_param>1</react_hero_param>
 	</react>
-    <react>
+	<react>
 		<ID>mega星星</ID>
 		<react_type>megastar</react_type>
 		<reactimage>H_happy</reactimage>
@@ -183,7 +173,16 @@
 		<react_type>slash</react_type>
 		<effectimage>NULL</effectimage>
 		<trigger_clean_item>1</trigger_clean_item>
-        <trigger_clean_time>0.4</trigger_clean_time>
+		<trigger_clean_time>0.4</trigger_clean_time>
+	</react>
+	<react>
+		<ID>火藥</ID>
+		<react_type>powder</react_type>
+		<effectimage>FX_Powder</effectimage>
+		<react_time>explode</react_time>
+		<trigger_react_time>3</trigger_react_time>
+		<trigger_clean_time>3</trigger_clean_time>
+		<MEMO>火藥</MEMO>
 	</react>
 	<react>
 		<ID>冰塊</ID>

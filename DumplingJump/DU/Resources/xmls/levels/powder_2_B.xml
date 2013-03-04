@@ -14,23 +14,26 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot7>POWDER</slot7>
+		<slot1>*O</slot1>
 	</level>
 	<level>
 		<time>2</time>
+		<slot7>POWDER</slot7>
 	</level>
 	<level>
 		<time>3</time>
+		<slot6>POWDER</slot6>
 	</level>
 	<level>
 		<time>4</time>
-		<slot3>POWDER</slot3>
 	</level>
 	<level>
 		<time>5</time>
+		<slot2>POWDER</slot2>
 	</level>
 	<level>
 		<time>6</time>
+		<slot3>POWDER</slot3>
 	</level>
 	<level>
 		<time>7</time>
@@ -38,29 +41,32 @@
 	</level>
 	<level>
 		<time>8</time>
+		<slot6>POWDER</slot6>
 	</level>
 	<level>
 		<time>9</time>
+		<slot1>*&gt;</slot1>
 	</level>
 	<level>
 		<time>10</time>
+		<slot7>RANDOM_2</slot7>
+	</level>
+	<level>
+		<time>11</time>
 		<slot3>POWDER</slot3>
 		<slot5>POWDER</slot5>
 	</level>
 	<level>
-		<time>11</time>
-	</level>
-	<level>
 		<time>12</time>
-		<slot1>*&gt;</slot1>
 	</level>
 	<level>
 		<time>13</time>
 	</level>
 	<level>
 		<time>14</time>
-		<slot3>POWDER</slot3>
-		<slot5>VAT</slot5>
+		<slot2>POWDER</slot2>
+		<slot4>POWDER</slot4>
+		<slot6>POWDER</slot6>
 	</level>
 	<level>
 		<time>15</time>
@@ -70,28 +76,8 @@
 	</level>
 	<level>
 		<time>17</time>
-	</level>
-	<level>
-		<time>18</time>
-		<slot5>VAT</slot5>
+		<slot3>POWDER</slot3>
+		<slot5>POWDER</slot5>
 		<slot7>POWDER</slot7>
-	</level>
-	<level>
-		<time>19</time>
-	</level>
-	<level>
-		<time>20</time>
-	</level>
-	<level>
-		<time>21</time>
-		<slot4>POWDER</slot4>
-		<slot6>POWDER</slot6>
-	</level>
-	<level>
-		<time>22</time>
-	</level>
-	<level>
-		<time>23</time>
-		<slot1>*O</slot1>
 	</level>
 </stage1>

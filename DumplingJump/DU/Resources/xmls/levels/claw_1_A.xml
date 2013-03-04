@@ -14,6 +14,7 @@
 	</level>
 	<level>
 		<time>1</time>
+		<slot1>*O</slot1>
 	</level>
 	<level>
 		<time>2</time>
@@ -31,6 +32,7 @@
 	</level>
 	<level>
 		<time>6</time>
+		<slot4>RANDOM_1</slot4>
 	</level>
 	<level>
 		<time>7</time>
@@ -45,9 +47,5 @@
 	<level>
 		<time>10</time>
 		<slot3>VAT</slot3>
-	</level>
-	<level>
-		<time>11</time>
-		<slot1>*O</slot1>
 	</level>
 </stage1>

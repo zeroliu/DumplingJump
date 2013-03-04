@@ -49,6 +49,8 @@
         [ANIMATIONMANAGER registerAnimationForName:@"H_happy"];
         [ANIMATIONMANAGER registerAnimationForName:@"E_item_reborn_start"];
         [ANIMATIONMANAGER registerAnimationForName:@"E_item_coinstar"];
+        [ANIMATIONMANAGER registerAnimationForName:SPRINGJUMP];
+        [ANIMATIONMANAGER registerAnimationForName:SPRINGBOOSTEFFECT];
     }
     return self;
 }

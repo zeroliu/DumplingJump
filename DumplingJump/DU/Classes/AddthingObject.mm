@@ -87,15 +87,12 @@
     {
         if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])
         {
-            if (self.sprite.position.y > targetObject.sprite.position.y)
+            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
             {
-                for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
-                {
-                    contactEdge->contact->SetEnabled(false);
-                }
-                [self removeAddthingWithDel];
-                return;
+                contactEdge->contact->SetEnabled(false);
             }
+            [self removeAddthingWithDel];
+            return;
         }
         
         //DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);

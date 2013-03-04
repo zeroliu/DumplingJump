@@ -142,7 +142,6 @@
 -(void) initSpeed
 {
     self.speed = self.body->GetLinearVelocity(); 
-    //    NSLog(@"speedY = %f",body->GetLinearVelocity().y);
 }
 
 
@@ -200,8 +199,7 @@
             } else
             {
                 child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
-            }
-            
+            }            
         }
     }
 }
@@ -212,6 +210,14 @@
     {
         if ([self.heroState isEqualToString:@"springBoost"])
         {
+            [self removeHeroSpringEffect];
+            id animation = [ANIMATIONMANAGER getAnimationWithName:HEROSPRING];
+            if(animation != nil)
+            {
+                [self.sprite stopAllActions];
+                id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+                [self.sprite runAction:animAction];
+            }
             self.heroState = @"spring";
         }
     }
@@ -299,7 +305,6 @@
     [self checkIfOnGround];
     if ([self.heroState isEqualToString:@"spring"])
     {
-        self.heroState = @"springBoost";
         [self springJump];
     }
     else
@@ -315,7 +320,48 @@
 
 -(void) springJump
 {
-    if (self.isOnGround && self.sprite.position.y < [CCDirector sharedDirector].winSize.height/2) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
+    
+    if (self.isOnGround && self.sprite.position.y < [CCDirector sharedDirector].winSize.height/2)
+    {
+        self.heroState = @"springBoost";
+        CCSprite *springBoostEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_spring_1.png"];
+        springBoostEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        id boostAnimation = [ANIMATIONMANAGER getAnimationWithName:SPRINGBOOSTEFFECT];
+        if(boostAnimation != nil)
+        {
+            [springBoostEffect stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:boostAnimation]];
+            [springBoostEffect runAction:animAction];
+        }
+        
+        if ([self.sprite getChildByTag:TAG_SPRING_BOOST] != nil)
+        {
+            [[self.sprite getChildByTag:TAG_SPRING_BOOST] removeFromParentAndCleanup:NO];
+        }
+        [self.sprite addChild:springBoostEffect z:-1 tag:TAG_SPRING_BOOST];
+        
+        id animation = [ANIMATIONMANAGER getAnimationWithName:SPRINGJUMP];
+        if(animation != nil)
+        {
+            [self.sprite stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [self.sprite runAction:animAction];
+        }
+        
+        self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
+    }
+}
+
+- (void) removeHeroSpringEffect
+{
+    if ([self.sprite getChildByTag:TAG_SPRING_BOOST] != nil)
+    {
+        id fadeOutAnim = [CCFadeOut actionWithDuration:0.3];
+        id destroyFunction = [CCCallBlock actionWithBlock:^{
+            [[self.sprite getChildByTag:TAG_SPRING_BOOST] removeFromParentAndCleanup:NO];
+        }];
+        [[self.sprite getChildByTag:TAG_SPRING_BOOST] runAction:[CCSequence actions:fadeOutAnim, destroyFunction, nil]];
+    }
 }
 
 -(void) idle
@@ -356,19 +402,7 @@
         adjustMove = 1;
         freezeTrigger = 0;
         blowAwayTrigger = 0;
-        /*
-        for (CCSprite *child in [self.sprite children])
-        {
-            NSLog(@"idle: %g,%g", self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
-            child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
-        }
-        
-        if (shellFixture != NULL)
-        {
-            self.body->DestroyFixture(shellFixture);
-            shellFixture = NULL;
-        }
-        */
+
         [self unschedule:@selector(fire)];
         
         if (maskNode != nil)
@@ -378,6 +412,7 @@
             maskNode = nil;
         }
         
+        [self removeHeroSpringEffect];
     }
 }
 

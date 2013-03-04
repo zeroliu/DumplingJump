@@ -38,6 +38,9 @@
 #define Z_SECONDARY_UI 2
 #define Z_MASK 1
 
+#pragma mark -
+#pragma mark TAG
+#define TAG_SPRING_BOOST 999
 
 #pragma mark -
 #pragma mark Physics
@@ -105,6 +108,9 @@
 #pragma mark Hero animations/Hero state
 #define HEROIDLE @"H_hero"
 #define HEROREBORN @"H_heroReborn"
+#define SPRINGJUMP @"H_spring_jump"
+#define HEROSPRING @"H_spring"
+#define SPRINGBOOSTEFFECT @"E_item_spring"
 
 #pragma mark -
 #pragma mark Other animations

@@ -51,6 +51,10 @@
         [ANIMATIONMANAGER registerAnimationForName:@"E_item_coinstar"];
         [ANIMATIONMANAGER registerAnimationForName:SPRINGJUMP];
         [ANIMATIONMANAGER registerAnimationForName:SPRINGBOOSTEFFECT];
+        [ANIMATIONMANAGER registerAnimationForName:HEADSTART_BOOST];
+        [ANIMATIONMANAGER registerAnimationForName:HEADSTART_TRAIL];
+        [ANIMATIONMANAGER registerAnimationForName:HEADSTART_SUPPORT];
+        
     }
     return self;
 }

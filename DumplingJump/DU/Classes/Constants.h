@@ -41,6 +41,9 @@
 #pragma mark -
 #pragma mark TAG
 #define TAG_SPRING_BOOST 999
+#define TAG_HEADSTART_BOOST 998
+#define TAG_HEADSTART_TRAIL 997
+#define TAG_HEADSTART_SUPPORT 996
 
 #pragma mark -
 #pragma mark Physics
@@ -111,6 +114,9 @@
 #define SPRINGJUMP @"H_spring_jump"
 #define HEROSPRING @"H_spring"
 #define SPRINGBOOSTEFFECT @"E_item_spring"
+#define HEADSTART_BOOST @"E_item_headstart_wave"
+#define HEADSTART_TRAIL @"E_item_headstart_trail"
+#define HEADSTART_SUPPORT @"O_headstart"
 
 #pragma mark -
 #pragma mark Other animations

@@ -28,6 +28,7 @@
     CGSize heroSize;
     int blowAwayTrigger; //-1 left, 0 off, 1 right
     int freezeTrigger; //-1 left, 0 off, 1 right
+    BOOL isHeadStart;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -82,6 +83,7 @@
     self.heroState = nil;
     isReborning = NO;
     isAbsorbing = NO;
+    isHeadStart = NO;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -196,7 +198,8 @@
             if (child.tag == REBORN_POWERUP_TAG)
             {
                 child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2+3);
-            } else
+            }
+            else if (child.tag != TAG_HEADSTART_SUPPORT)
             {
                 child.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
             }            
@@ -516,9 +519,66 @@
 
 -(void) headStart
 {
-    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"H_booster"]];
+    isHeadStart = YES;
+    
+    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"H_happy"]];
     [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
     self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
+    
+    //Create support
+    CCSprite *headStartSupport = [CCSprite spriteWithSpriteFrameName:@"O_headstart_1.png"];
+    headStartSupport.anchorPoint = ccp(0.5,1);
+    headStartSupport.position = ccp(self.sprite.contentSize.width/2,8 );
+    id supportAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_SUPPORT];
+    if(supportAnimation != nil)
+    {
+        [headStartSupport stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:supportAnimation]];
+        [headStartSupport runAction:animAction];
+    }
+    
+    if ([self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] != nil)
+    {
+        [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] removeFromParentAndCleanup:NO];
+    }
+    [self.sprite addChild:headStartSupport z:-1 tag:TAG_HEADSTART_SUPPORT];
+    
+    //Create aurora
+    CCSprite *headStartBoostEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_wave_1.png"];
+    headStartBoostEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+    id boostAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_BOOST];
+    if(boostAnimation != nil)
+    {
+        [headStartBoostEffect stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:boostAnimation]];
+        [headStartBoostEffect runAction:animAction];
+    }
+    
+    if ([self.sprite getChildByTag:TAG_HEADSTART_BOOST] != nil)
+    {
+        [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] removeFromParentAndCleanup:NO];
+    }
+    [self.sprite addChild:headStartBoostEffect z:-2 tag:TAG_HEADSTART_BOOST];
+    
+    //Create trail
+    CCSprite *headStartTrail = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_trail_1.png"];
+    headStartTrail.scaleY = 20;
+    headStartTrail.anchorPoint = ccp(0.5,1);
+    headStartTrail.position = ccp(self.sprite.contentSize.width/2,0);
+    id trailAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_TRAIL];
+    if(trailAnimation != nil)
+    {
+        [headStartTrail stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:trailAnimation]];
+        [headStartTrail runAction:animAction];
+    }
+    
+    if ([self.sprite getChildByTag:TAG_HEADSTART_TRAIL] != nil)
+    {
+        [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] removeFromParentAndCleanup:NO];
+    }
+    [self.sprite addChild:headStartTrail z:-3 tag:TAG_HEADSTART_TRAIL];
+    
     [self changeCollisionDetection:C_NOTHING];
     [self boosterReady];
     [self boosterBackgroundStart];
@@ -567,6 +627,25 @@
     [self resetCollisionDetection];
     [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
     [self idle];
+    
+    if (isHeadStart)
+    {
+        isHeadStart = NO;
+        id fadeOutAnim = [CCFadeOut actionWithDuration:0.3];
+        id removeBoostFunc = [CCCallBlock actionWithBlock:^{
+            [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] removeFromParentAndCleanup:NO];
+        }];
+        id removeTrailFunc = [CCCallBlock actionWithBlock:^{
+            [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] removeFromParentAndCleanup:NO];
+        }];
+        id removeSupportFunc = [CCCallBlock actionWithBlock:^{
+            [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] removeFromParentAndCleanup:NO];
+        }];
+        
+        [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] runAction:[CCSequence actions:fadeOutAnim, removeBoostFunc, nil]];
+        [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] runAction:[CCSequence actions:fadeOutAnim, removeTrailFunc, nil]];
+        [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] runAction:[CCSequence actions:fadeOutAnim, removeSupportFunc, nil]];
+    }
 }
 
 -(void) magic:(NSArray *)value;

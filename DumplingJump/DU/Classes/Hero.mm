@@ -237,7 +237,7 @@
     
     if ([self.heroState isEqualToString:@"boosterReady"])
     {
-        if (self.sprite.position.y > 550)
+        if (self.sprite.position.y > 650)
         {
             self.heroState = @"boosterStart";
             [self boosterStart];
@@ -252,7 +252,7 @@
         //Fake floating effect
         if (self.sprite.position.y < 330)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, -0.015 * self.sprite.position.y + 5.5));
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, -0.03 * self.sprite.position.y + 5.5));
         }
         else if (self.sprite.position.y > 380)
         {
@@ -562,7 +562,7 @@
     
     //Create trail
     CCSprite *headStartTrail = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_trail_1.png"];
-    headStartTrail.scaleY = 20;
+    headStartTrail.scaleY = 25;
     headStartTrail.anchorPoint = ccp(0.5,1);
     headStartTrail.position = ccp(self.sprite.contentSize.width/2,0);
     id trailAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_TRAIL];

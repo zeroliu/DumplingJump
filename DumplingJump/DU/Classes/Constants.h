@@ -146,7 +146,7 @@
 #define POWERUP_DATA ((GameLayer *) GAMELAYER).model.powerUpData
 #define GAMEMODEL ((GameModel *)((GameLayer *) GAMELAYER).model)
 #define VIEW [[CCDirector sharedDirector] view]
-#define USERDATA ((UserData *)[UserData shared]).dataDictionary
+#define USERDATA ((UserData *)[UserData shared]).userDataDictionary
 @interface Constants : NSObject
 
 @property (assign, nonatomic) float heroAccelerationXBase;

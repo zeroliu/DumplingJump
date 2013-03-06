@@ -424,17 +424,7 @@
     
     return dict;
 }
-/*
- *  dict (dictionary)
- *  ->  "powerup" (array)
- *      ->  itemData1 (dictionary)
- *          ->  group
- *          ->  type
- *      ->  itemData2
- *  ->  "skills" (array)
- *      ->  itemData1
- *      ->  itemData2
- */
+
 
 -(id) loadEquipmentDataWithXML: (NSString *)fileName
 {
@@ -451,6 +441,19 @@
     
     for (DDXMLElement *item in nodeResults)
     {
+        NSString *itemName = [[[item nodesForXPath:@"name" error:&err] objectAtIndex:0] stringValue];
+        //Skip the header
+        if (! [itemName isEqualToString:@"name"])
+        {
+            NSMutableDictionary *itemDictionary = [NSMutableDictionary dictionary];
+            NSArray *itemRawDataArray = [item children];
+            for(DDXMLDocument *element in itemRawDataArray)
+            {
+                [itemDictionary setObject:[element stringValue] forKey:[element name]];
+            }
+            [dict setObject:itemDictionary forKey:itemName];
+        }
+        /*
         NSString *typeName = [[[item nodesForXPath:@"type" error:&err] objectAtIndex:0] stringValue];
         //Skip the header
         if (! [typeName isEqualToString:@"type"])
@@ -513,6 +516,7 @@
             }
             [itemArray addObject:itemData];
         }
+         */
     }
     [xmlDoc release];
     
@@ -526,7 +530,7 @@
     NSError *err = nil;
     
     //Create Node by finding level
-    DDXMLElement *nodeResult = [[xmlDoc nodesForXPath:@"//userData" error:&err] objectAtIndex:0];
+    DDXMLElement *nodeResult = [[xmlDoc nodesForXPath:@"//data" error:&err] objectAtIndex:1];
     if (err)
     {
         NSLog(@"%@",[err localizedDescription]);

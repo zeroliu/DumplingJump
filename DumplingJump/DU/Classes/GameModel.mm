@@ -7,9 +7,11 @@
 //
 #import "WorldData.h"
 #import "GameModel.h"
-#import "cocos2d.h"
+
 #import "Constants.h"
 #import "Hub.h"
+#import "EquipmentData.h"
+#import "UserData.h"
 
 @interface GameModel()
 {
@@ -44,15 +46,34 @@
         _powerUpData = [[NSMutableDictionary alloc] init];
     }
     
-    //TODO: load power up from plist file
+    NSDictionary *equipmentDictionary = ((EquipmentData *)[EquipmentData shared]).dataDictionary;
+    
+    for (NSString *key in [equipmentDictionary allKeys])
+    {
+        NSDictionary *itemData = [equipmentDictionary objectForKey:key];
+        
+        NSString *itemName = [itemData objectForKey:@"name"];
+        
+        if ([[itemData objectForKey:@"layout"] isEqualToString:@"EquipmentViewLevelCell"])
+        {
+            int itemLevel = [[USERDATA objectForKey:itemName] intValue];
+            if (itemLevel < 0)
+            {
+                [_powerUpData setObject:[NSNumber numberWithFloat:-1] forKey: itemName];
+            }
+            else
+            {
+                float value = [[itemData objectForKey:[NSString stringWithFormat:@"level%d", itemLevel]] floatValue];
+                [_powerUpData setObject:[NSNumber numberWithFloat:value] forKey: itemName];
+            }
+        }
+        else if ([[itemData objectForKey:@"layout"] isEqualToString:@"EquipmentViewAmountCell"])
+        {
+            [_powerUpData setObject:[NSNumber numberWithFloat:[[USERDATA objectForKey:itemName] intValue]] forKey: itemName];
+        }
+    }
+    
     self.multiplier = 5.8f;
-    [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"shield"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:2] forKey:@"reborn"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:5] forKey:@"booster"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:10] forKey:@"absorb"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:2] forKey:@"headstart"];
-    [_powerUpData setObject:[NSNumber numberWithInt:20] forKey:@"megastar"];
-    [_powerUpData setObject:[NSNumber numberWithFloat:0.4] forKey:@"magic"];
     
 }
 

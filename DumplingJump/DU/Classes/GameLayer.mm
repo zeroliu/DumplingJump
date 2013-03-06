@@ -348,6 +348,9 @@
 
 -(void) restart
 {
+    //Reload powerup data
+    [self.model loadPowerUpLevelsData];
+    
     //Clean object dictionary
     [[DUObjectsDictionary sharedDictionary] cleanDictionary];
     

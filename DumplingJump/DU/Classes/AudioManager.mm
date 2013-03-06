@@ -9,6 +9,7 @@
 #import "AudioManager.h"
 #import "SimpleAudioEngine.h"
 #import "UserData.h"
+#import "Constants.h"
 @implementation AudioManager
 
 +(id) shared
@@ -44,7 +45,7 @@
 
 -(void) playBackgroundMusic:(NSString *)musicName loop:(BOOL)isLoop
 {
-    if (!((UserData *)[UserData shared]).isMusicMuted)
+    if ([[USERDATA objectForKey:@"music"] boolValue])
     {
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:musicName loop:isLoop];
     }
@@ -57,7 +58,7 @@
 
 -(void) playSFX:(NSString *)SFXName
 {
-    if (!((UserData *)[UserData shared]).isSFXMuted)
+    if ([[USERDATA objectForKey:@"sfx"] boolValue])
     {
         [[SimpleAudioEngine sharedEngine] playEffect:SFXName];
     }

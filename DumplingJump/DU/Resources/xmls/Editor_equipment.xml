@@ -51,7 +51,7 @@
 		<group>0</group>
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>megaCoin</name>
+		<name>megastar</name>
         <image>UI_item_megacoins</image>
         <description>Increase</description>
         <unit> star bonus</unit>
@@ -73,6 +73,11 @@
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
 		<base>300</base>
+        <level0>2</level0>
+        <level1>20</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>2</group>
@@ -84,6 +89,11 @@
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
 		<base>800</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>0</group>
@@ -104,7 +114,7 @@
 		<group>4</group>
 		<type>items</type>
         <layout>EquipmentViewAmountCell</layout>
-		<name>headStart</name>
+		<name>headstart</name>
         <image>UI_item_headstart</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
@@ -114,39 +124,60 @@
 		<group>6</group>
 		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>coinMultiplier</name>
+		<name>coinmultiplier</name>
         <image>UI_item_coinstar</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>7</group>
 		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>bronze score multiplier</name>
+		<name>woodmultiplier</name>
         <image>UI_item_scorex1</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>8</group>
 		<type>multipliers</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>silver score multiplier </name>
+		<name>silvermultiplier</name>
         <image>UI_item_scorex2</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 	<Item>
 		<group>9</group>
 		<type>multipliers</type>
-		<name>golden score multiplier</name>
+        <layout>EquipmentViewLevelCell</layout>
+		<name>goldenmultiplier</name>
         <image>UI_item_scorex3</image>
         <description>Protect your hero</description>
 		<multiplier>1.5</multiplier>
 		<base>500</base>
+        <level0>40</level0>
+        <level1>80</level1>
+        <level2>150</level2>
+        <level3>300</level3>
+        <level4>450</level4>
 	</Item>
 </Equipments>

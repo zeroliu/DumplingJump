@@ -10,9 +10,7 @@
 #import "XMLHelper.h"
 @implementation UserData
 @synthesize
-    isMusicMuted = _isMusicMuted,
-    isSFXMuted = _isSFXMuted,
-    dataDictionary = _dataDictionary;
+    userDataDictionary = _userDataDictionary;
 
 + (id) shared
 {
@@ -31,8 +29,6 @@
     if (self = [super init])
     {
         [self loadUserData];
-        _isMusicMuted = NO;
-        _isSFXMuted = NO;
     }
     
     return self;
@@ -48,13 +44,13 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
     {
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-        self.dataDictionary = (NSMutableDictionary *) [NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
+        self.userDataDictionary = (NSMutableDictionary *) [NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
     } else
     {
-        self.dataDictionary = [[XMLHelper shared] loadUserDataWithXML:@"Editor_userData"];
+        self.userDataDictionary = [[XMLHelper shared] loadUserDataWithXML:@"Editor_userData"];
     }
     
-    if (!self.dataDictionary)
+    if (!self.userDataDictionary)
     {
         NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
     } else
@@ -68,11 +64,11 @@
     NSString *error;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"UserData.plist"];
-    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:self.dataDictionary format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:self.userDataDictionary format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
     if (plistData)
     {
         [plistData writeToFile:plistPath atomically:YES];
-        NSLog(@"writting successfully: \n %@", self.dataDictionary);
+        NSLog(@"writting successfully: \n %@", self.userDataDictionary);
     } else
     {
         NSLog(@"%@",error);

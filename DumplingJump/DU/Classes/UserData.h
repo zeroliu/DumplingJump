@@ -10,9 +10,6 @@
 
 @interface UserData : CCNode
 
-@property (nonatomic, assign) BOOL isMusicMuted;
-@property (nonatomic, assign) BOOL isSFXMuted;
-@property (nonatomic, retain) NSMutableDictionary *dataDictionary;
+@property (nonatomic, retain) NSMutableDictionary *userDataDictionary;
 +(id) shared;
-
 @end

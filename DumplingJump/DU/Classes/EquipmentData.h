@@ -10,6 +10,7 @@
 
 @interface EquipmentData : CCNode
 @property (nonatomic, retain) NSDictionary *dataDictionary;
+@property (nonatomic, retain) NSMutableDictionary *structedDictionary;
 +(id) shared;
 //-(void) saveEquipmentData;
 

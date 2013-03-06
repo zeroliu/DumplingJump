@@ -930,7 +930,7 @@
     isAbsorbing = YES;
     
     //Wait for a certain amount of time
-    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"absorb"] floatValue]];
+    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"magnet"] floatValue]];
     //Remove effect
     id removeAbsorb = [CCCallBlock actionWithBlock:^
                        {

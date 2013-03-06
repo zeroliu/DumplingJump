@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<highscore>1000</highscore>
-	<star>2000</star>
-	<sword>4</sword>
-	<spring>1</spring>
-	<megaCoin>0</megaCoin>
-	<shield>0</shield>
-	<magnet>0</magnet>
-	<reborn>0</reborn>
-	<rocket>0</rocket>
-	<coinMultiplier>0</coinMultiplier>
-	<woodMultiplier>0</woodMultiplier>
-	<silverMultiplier>0</silverMultiplier>
-	<goldenMultiplier>0</goldenMultiplier>
+    <data>
+        <music>is music enable</music>
+        <sfx>is sfx enable</sfx>
+        <highscore>highscore</highscore>
+        <star>star</star>
+        <sword>sword level</sword>
+        <spring>spring level</spring>
+        <megastar>mega star level</megastar>
+        <shield>shield level</shield>
+        <magnet>magnet level</magnet>
+        <booster>booster level</booster>
+        <reborn>reborn number</reborn>
+        <headstart>headstart number</headstart>
+        <coinmultiplier>coin multiplier level</coinmultiplier>
+        <woodmultiplier>wood multiplier level</woodmultiplier>
+        <silvermultiplier>silver multiplier level</silvermultiplier>
+        <goldenmultiplier>golden multiplier level</goldenmultiplier>
+    </data>
+    
+    <data>
+        <music>1</music>
+        <sfx>1</sfx>
+        <highscore>1000</highscore>
+        <star>2000</star>
+        <sword>4</sword>
+        <spring>1</spring>
+        <megastar>-1</megastar>
+        <shield>0</shield>
+        <magnet>-1</magnet>
+        <booster>-1</booster>
+        <reborn>-1</reborn>
+        <headstart>-1</headstart>
+        <coinmultiplier>-1</coinmultiplier>
+        <woodmultiplier>-1</woodmultiplier>
+        <silvermultiplier>-1</silvermultiplier>
+        <goldenmultiplier>-1</goldenmultiplier>
+    </data>
+    
 </userData>

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
 
-
+#import "cocos2d.h"
 #import "Level.h"
 
 @interface GameModel : CCNode

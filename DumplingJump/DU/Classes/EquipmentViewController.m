@@ -12,8 +12,9 @@
 #import "EquipmentViewLevelCell.h"
 #import "LockedEquipmentViewCell.h"
 #import "EquipmentViewAmountCell.h"
+#import "UserData.h"
 
-#define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).dataDictionary
+#define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).structedDictionary
 
 @interface EquipmentViewController()
 {
@@ -54,17 +55,22 @@
 {
     NSDictionary *equipmentData = [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
+    NSString *equipmentName = [equipmentData objectForKey:@"name"];
+    
     //TODO: check if it is multiplier
     DUTableViewCell *cell = nil;
-    BOOL unlocked = [[equipmentData objectForKey:@"unlocked"] boolValue];
+    BOOL unlocked = YES;
+    if ([[USERDATA objectForKey:equipmentName] intValue] < 0)
+    {
+        unlocked = NO;
+    }
+    
     Class cellClass = NSClassFromString([equipmentData objectForKey:@"layout"]);
     if (unlocked)
     {
-        
         cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[equipmentData objectForKey:@"layout"]];
         if (cell == nil)
         {
-            
             cell = [[[cellClass alloc] initWithXib:[equipmentData objectForKey:@"layout"] ] autorelease];
         }
     }

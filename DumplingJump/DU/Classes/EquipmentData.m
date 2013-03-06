@@ -10,7 +10,7 @@
 #import "XMLHelper.h"
 @implementation EquipmentData
 @synthesize dataDictionary = _dataDictionary;
-
+@synthesize structedDictionary = _structedDictionary;
 +(id) shared
 {
     static id shared = nil;
@@ -27,7 +27,6 @@
     if (self = [super init])
     {
         [self loadEquipmentData];
-        //TODO: Load user data
     }
     return self;
 }
@@ -35,6 +34,35 @@
 - (void) loadEquipmentData
 {
     self.dataDictionary = [[XMLHelper shared] loadEquipmentDataWithXML:@"Editor_equipment"];
+    
+    /*
+     *  dict (dictionary)
+     *  ->  "powerups" (array)
+     *      ->  itemData1 (dictionary)
+     *          ->  group
+     *          ->  type
+     *      ->  itemData2
+     *  ->  "skills" (array)
+     *      ->  itemData1
+     *      ->  itemData2
+     */
+    _structedDictionary = [[NSMutableDictionary alloc] init];
+    
+    for (NSString *key in [self.dataDictionary allKeys])
+    {
+        NSDictionary *item = [self.dataDictionary objectForKey:key];
+        NSString *typeName = [item objectForKey:@"type"];
+        
+        NSMutableArray *itemArray = [self.structedDictionary objectForKey:typeName];
+        //If there is no array existed for a certain type
+        if (itemArray == nil)
+        {
+            itemArray = [NSMutableArray array];
+            [self.structedDictionary setObject:itemArray forKey:typeName];
+        }
+        [itemArray addObject:item];
+    }
+NSLog(@"%@", [self.structedDictionary description]);
 }
 
 - (void)dealloc

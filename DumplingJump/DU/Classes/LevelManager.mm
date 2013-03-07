@@ -204,6 +204,13 @@ toRemovePowderArray = _toRemovePowderArray;
     {
         return nil;
     }
+    
+    //The equipment hasnot unlocked yet
+    if ([[USERDATA objectForKey:dropObjectName] intValue] < 0)
+    {
+        return nil;
+    }
+    
     AddthingObject *addthing = [[[AddthingFactory shared] createWithName:dropObjectName] retain];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];

@@ -19,7 +19,7 @@
 		<group>0</group>
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>sword</name>
+		<name>MAGIC</name>
         <image>UI_item_sword</image>
         <description>Extend duration</description>
         <unit>sec.</unit>
@@ -35,7 +35,7 @@
 		<group>0</group>
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>spring</name>
+		<name>SPRING</name>
         <image>UI_item_spring</image>
         <description>Extend duration</description>
         <unit>sec.</unit>
@@ -51,7 +51,7 @@
 		<group>0</group>
 		<type>powerups</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>megastar</name>
+		<name>MEGA</name>
         <image>UI_item_megacoins</image>
         <description>Increase</description>
         <unit> star bonus</unit>
@@ -63,37 +63,53 @@
         <level3>300</level3>
         <level4>450</level4>
 	</Item>
+    <Item>
+		<group>0</group>
+		<type>powerups</type>
+        <layout>EquipmentViewLevelCell</layout>
+		<name>BOOSTER</name>
+        <image>UI_item_booster</image>
+        <description>Increase</description>
+        <unit> star bonus</unit>
+		<multiplier>2.5</multiplier>
+		<base>100</base>
+        <level0>4</level0>
+        <level1>5</level1>
+        <level2>6</level2>
+        <level3>7</level3>
+        <level4>8</level4>
+	</Item>
 	<Item>
 		<group>1</group>
 		<type>skills</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>shield</name>
+		<name>SHELTER</name>
         <image>UI_item_shield</image>
         <description>cooldown:</description>
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
 		<base>300</base>
-        <level0>2</level0>
-        <level1>20</level1>
-        <level2>150</level2>
-        <level3>300</level3>
-        <level4>450</level4>
+        <level0>5</level0>
+        <level1>6</level1>
+        <level2>7</level2>
+        <level3>8</level3>
+        <level4>9</level4>
 	</Item>
 	<Item>
 		<group>2</group>
 		<type>skills</type>
         <layout>EquipmentViewLevelCell</layout>
-		<name>magnet</name>
+		<name>MAGNET</name>
         <image>UI_item_magnet</image>
         <description>cooldown:</description>
         <unit>sec.</unit>
 		<multiplier>1.5</multiplier>
 		<base>800</base>
-        <level0>40</level0>
-        <level1>80</level1>
-        <level2>150</level2>
-        <level3>300</level3>
-        <level4>450</level4>
+        <level0>4</level0>
+        <level1>5</level1>
+        <level2>6</level2>
+        <level3>7</level3>
+        <level4>8</level4>
 	</Item>
 	<Item>
 		<group>0</group>

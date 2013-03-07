@@ -395,21 +395,19 @@
     [self changeCollisionDetection:C_NOTHING];
     [self.sprite runAction: [CCMoveTo actionWithDuration:0.3 position:ccp([CCDirector sharedDirector].winSize.width/2.0, -100)]];
     
-    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"booster"] floatValue]-0.5];
+}
+
+-(void) boosterEnd
+{
+//    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"booster"] floatValue]-0.5];
     id showBoardFunc = [CCCallBlock actionWithBlock:^{
         self.sprite.opacity = 255;
         self.engineLeft.opacity = 255;
         self.engineRight.opacity = 255;
     }];
-    id flyInAnimation = [CCMoveTo actionWithDuration:0.3 position:ccp(self.body->GetPosition().x * RATIO, self.body->GetPosition().y * RATIO)];
-    id callEndFunc = [CCCallFunc actionWithTarget:self selector:@selector(boosterEnd)];
-//    [self scheduleOnce:@selector(boosterBeforeEnd) delay:[[POWERUP_DATA objectForKey:@"booster"] floatValue]];
-    [self.sprite runAction:[CCSequence actions:delay,showBoardFunc, flyInAnimation, callEndFunc, nil]];
-}
-
--(void) boosterEnd
-{
-    [self resetCollisionDetection];
+    id flyInAnimation = [CCMoveTo actionWithDuration:0.5 position:ccp(self.body->GetPosition().x * RATIO, self.body->GetPosition().y * RATIO)];
+    id callEndFunc = [CCCallFunc actionWithTarget:self selector:@selector(resetCollisionDetection)];
+    [self.sprite runAction:[CCSequence actions:showBoardFunc, flyInAnimation, callEndFunc, nil]];
 }
 
 -(void) hideBoard

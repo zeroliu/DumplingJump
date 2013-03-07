@@ -20,5 +20,6 @@
 -(void) updateEnginePosition;
 -(void) cleanEngine;
 -(void) boosterEffect;
+-(void) boosterEnd;
 -(void) hideBoard;
 @end

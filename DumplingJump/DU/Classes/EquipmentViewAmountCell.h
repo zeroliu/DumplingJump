@@ -17,11 +17,11 @@
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;
     IBOutlet UILabel *amountLabel;
-    
-//    IBOutlet UILabel *priceLabel;
-//    IBOutlet UILabel *descriptionLabel;
-//    IBOutlet UILabel *amountLabel;
-//    IBOutlet UIImageView *equipmentImageView;
+
+    NSDictionary *myContent;
 }
+
+- (IBAction)didTapButton:(id)sender;
+
 
 @end

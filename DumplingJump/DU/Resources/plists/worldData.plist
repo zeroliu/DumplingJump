@@ -6,6 +6,8 @@
 	<dict>
 		<key>levelEditorEnabled</key>
 		<true/>
+		<key>forceReloadUserData</key>
+		<true/>
 		<key>hasHeadStart</key>
 		<false/>
 		<key>physicsDebug</key>
@@ -15,6 +17,8 @@
 	<dict>
 		<key>starWait</key>
 		<integer>2</integer>
+		<key>headstartDuration</key>
+		<integer>5</integer>
 		<key>objectInitialSpeed</key>
 		<integer>17</integer>
 		<key>gameSpeedIncreaseUnit</key>

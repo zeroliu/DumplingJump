@@ -67,10 +67,6 @@
                 [_powerUpData setObject:[NSNumber numberWithFloat:value] forKey: itemName];
             }
         }
-        else if ([[itemData objectForKey:@"layout"] isEqualToString:@"EquipmentViewAmountCell"])
-        {
-            [_powerUpData setObject:[NSNumber numberWithFloat:[[USERDATA objectForKey:itemName] intValue]] forKey: itemName];
-        }
     }
     
     self.multiplier = 5.8f;

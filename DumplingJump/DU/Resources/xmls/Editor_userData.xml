@@ -5,12 +5,12 @@
         <sfx>is sfx enable</sfx>
         <highscore>highscore</highscore>
         <star>star</star>
-        <sword>sword level</sword>
-        <spring>spring level</spring>
-        <megastar>mega star level</megastar>
-        <shield>shield level</shield>
-        <magnet>magnet level</magnet>
-        <booster>booster level</booster>
+        <MAGIC>sword level</MAGIC>
+        <SPRING>spring level</SPRING>
+        <MEGA>mega star level</MEGA>
+        <SHELTER>shield level</SHELTER>
+        <BOOSTER>booster level</BOOSTER>
+        <MAGNET>magnet level</MAGNET>
         <reborn>reborn number</reborn>
         <headstart>headstart number</headstart>
         <coinmultiplier>coin multiplier level</coinmultiplier>
@@ -24,14 +24,14 @@
         <sfx>1</sfx>
         <highscore>1000</highscore>
         <star>2000</star>
-        <sword>4</sword>
-        <spring>1</spring>
-        <megastar>-1</megastar>
-        <shield>0</shield>
-        <magnet>-1</magnet>
-        <booster>-1</booster>
-        <reborn>-1</reborn>
-        <headstart>-1</headstart>
+        <MAGIC>4</MAGIC>
+        <SPRING>1</SPRING>
+        <MEGA>-1</MEGA>
+        <SHELTER>0</SHELTER>
+        <BOOSTER>1</BOOSTER>
+        <MAGNET>1</MAGNET>
+        <reborn>2</reborn>
+        <headstart>0</headstart>
         <coinmultiplier>-1</coinmultiplier>
         <woodmultiplier>-1</woodmultiplier>
         <silvermultiplier>-1</silvermultiplier>

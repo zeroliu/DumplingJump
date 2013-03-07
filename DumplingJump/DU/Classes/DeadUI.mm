@@ -47,7 +47,6 @@
 {
     [equipmentView setHidden:NO];
     [equipmentViewController showEquipmentView];
-    //TODO: get star number from user data
     [equipmentViewController updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
 }
 
@@ -76,6 +75,14 @@
     [totalStarText setString:[NSString stringWithFormat:@"%d",totalStar]];
     [distanceText setString:[NSString stringWithFormat:@"%d",distance]];
     [multiplierText setString:[NSString stringWithFormat:@"%gx",multiplier]];
+    if (isHighScore)
+    {
+        [highscoreSprite setOpacity:255];
+    }
+    else
+    {
+        [highscoreSprite setOpacity:0];
+    }
 }
 
 -(void) retry:(id)sender

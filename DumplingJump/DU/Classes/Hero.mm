@@ -252,11 +252,11 @@
         //Fake floating effect
         if (self.sprite.position.y < 330)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, -0.03 * self.sprite.position.y + 5.5));
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(1, 2)));
         }
         else if (self.sprite.position.y > 380)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-1.5, -1)));
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-2, -1)));
         }
         
         //Don't move out of the screen
@@ -584,6 +584,18 @@
     [self boosterBackgroundStart];
 }
 
+-(float) getBoosterInterval
+{
+    if (isHeadStart)
+    {
+        return [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"headstartDuration"] floatValue];
+    }
+    else
+    {
+        return [[POWERUP_DATA objectForKey:@"BOOSTER"] floatValue];
+    }
+}
+
 -(void) booster
 {
     DLog(@"booster");
@@ -596,14 +608,14 @@
 
 -(void) boosterBackgroundStart
 {
-    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
+    float interval = [self getBoosterInterval];
     [[BackgroundController shared] speedUpWithScale:5 interval:interval];
     [GAMEMODEL boostGameSpeed:interval];
 }
 
 -(void) boosterReady
 {
-    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
+    float interval = [self getBoosterInterval];
     self.heroState = @"boosterReady";
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
@@ -613,7 +625,7 @@
 -(void) boosterStart
 {
     self.heroState = @"boosterStart";
-    float interval = [[POWERUP_DATA objectForKey:@"booster"] floatValue];
+    float interval = [self getBoosterInterval];
     [[[BoardManager shared] getBoard] boosterEffect];
     
     
@@ -624,6 +636,8 @@
 
 -(void) boosterEnd
 {
+    [[[BoardManager shared] getBoard] boosterEnd];
+    
     [self resetCollisionDetection];
     [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
     [self idle];
@@ -930,7 +944,7 @@
     isAbsorbing = YES;
     
     //Wait for a certain amount of time
-    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"magnet"] floatValue]];
+    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"MAGNET"] floatValue]];
     //Remove effect
     id removeAbsorb = [CCCallBlock actionWithBlock:^
                        {
@@ -955,7 +969,7 @@
         id startAnimation = [CCCallBlock actionWithBlock:^{
             [self.sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]]];
         }];
-        id waitDelay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"shield"] floatValue]];
+        id waitDelay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"SHELTER"] floatValue]];
         id becomeIdle = [CCCallFunc actionWithTarget:self selector:@selector(idle)];
         
         id sequence = [CCSequence actions:startAnimation,waitDelay,becomeIdle, nil];
@@ -1059,7 +1073,7 @@
 -(void) beforeDie
 {
     //TODO: use user data
-    if ([[POWERUP_DATA objectForKey:@"reborn"] intValue] > 0)
+    if ([[USERDATA objectForKey:@"reborn"] intValue] > 0)
     {
         //Pause game
         [[[Hub shared] gameLayer] pauseGame];

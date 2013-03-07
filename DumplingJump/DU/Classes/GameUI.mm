@@ -67,6 +67,28 @@
     [self adjustUI:shieldButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:magnetButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:pauseButton offset:BLACK_HEIGHT];
+    
+    int buttonOffset = 0;
+    
+    if ([[USERDATA objectForKey:@"MAGNET"] intValue] >= 0)
+    {
+        [magnetButtonHolder setPosition:ccp(288 - 64 * buttonOffset, 30)];
+        buttonOffset ++;
+    }
+    else
+    {
+        [magnetButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, 30)];
+    }
+    
+    if ([[USERDATA objectForKey:@"SHELTER"] intValue] >= 0)
+    {
+        [shieldButtonHolder setPosition:ccp(288 - 64 * buttonOffset, 30)];
+        buttonOffset ++;
+    }
+    else
+    {
+        [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, 30)];
+    }
 //    DLog(@"%g,%g", pauseButton.position.x, pauseButton.position.y);
     
 }
@@ -167,8 +189,8 @@
 {
     DLog(@"reborn button clicked");
     
-    int rebornTime = [[POWERUP_DATA objectForKey:@"reborn"] intValue];
-    [POWERUP_DATA setObject:[NSNumber numberWithInt:(rebornTime - 1)] forKey:@"reborn"];
+    int rebornTime = [[USERDATA objectForKey:@"reborn"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:(rebornTime - 1)] forKey:@"reborn"];
     
     [self hideRebornButton];
     [self setButtonsEnabled:YES];
@@ -266,7 +288,7 @@
     
     //Update reborn quantity number
     
-    [rebornQuantity setString:[NSString stringWithFormat:@"%d",[[POWERUP_DATA objectForKey:@"reborn"] intValue]]];
+    [rebornQuantity setString:[NSString stringWithFormat:@"%d",[[USERDATA objectForKey:@"reborn"] intValue]]];
 //    
     //Reset button
     rebornBar.scaleX = 1;

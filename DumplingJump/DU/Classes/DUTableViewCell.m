@@ -8,7 +8,6 @@
 
 #import "DUTableViewCell.h"
 
-
 @implementation DUTableViewCell
 @synthesize parentTableView = _parentTableView;
 - (id) initWithXib:(NSString *)xibName

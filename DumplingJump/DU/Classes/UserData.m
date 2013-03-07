@@ -8,6 +8,8 @@
 
 #import "UserData.h"
 #import "XMLHelper.h"
+#import "WorldData.h"
+#import "Constants.h"
 @implementation UserData
 @synthesize
     userDataDictionary = _userDataDictionary;
@@ -41,7 +43,7 @@
     NSString *plistPath;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     plistPath = [rootPath stringByAppendingPathComponent:@"UserData.plist"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath])
+    if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath] && ![[[((WorldData *)[WorldData shared]) loadDataWithAttributName:@"debug"] objectForKey:@"forceReloadUserData"] boolValue])
     {
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
         self.userDataDictionary = (NSMutableDictionary *) [NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];

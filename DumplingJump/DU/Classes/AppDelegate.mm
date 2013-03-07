@@ -14,6 +14,7 @@
 #import "GameLayer.h"
 #import "EquipmentData.h"
 #import "Constants.h"
+#import "UserData.h"
 
 
 
@@ -139,6 +140,7 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
+    [[UserData shared] saveUserData];
 	if( [navController_ visibleViewController] == director_ )
 		[director_ stopAnimation];
 }
@@ -152,7 +154,7 @@
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    //[[EquipmentData shared] saveEquipmentData];
+    [[UserData shared] saveUserData];
 	CC_DIRECTOR_END();
 }
 

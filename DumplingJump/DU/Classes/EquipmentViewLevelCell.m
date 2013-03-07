@@ -7,9 +7,9 @@
 //
 
 #import "EquipmentViewLevelCell.h"
-#import "EquipmentViewController.h"
 #import "UserData.h"
 #import "Constants.h"
+#import "EquipmentViewController.h"
 
 @interface EquipmentViewLevelCell()
 {
@@ -91,7 +91,6 @@
 
 - (IBAction)didTapButton:(id)sender
 {
-    
     int price = [priceLabel.text intValue];
     int currentStar = [[USERDATA objectForKey:@"star"] intValue];
     int currentLevel = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];

@@ -322,11 +322,11 @@
     [[LevelManager shared] loadCurrentParagraph];
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
-    //TODO: switch back to using headstart object number to detect
-    //if ([[POWERUP_DATA objectForKey:@"headstart"] intValue] > 0)
-    if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"hasHeadStart"] boolValue])
+    
+    int headStartCount = [[USERDATA objectForKey:@"headstart"] intValue];
+    if (headStartCount > 0)
     {
-        //TODO: decrease headstart number
+        [USERDATA setObject:[NSNumber numberWithInt:headStartCount -1] forKey:@"headstart"];
         [[[HeroManager shared] getHero] headStart];
         [[[BoardManager shared] getBoard] hideBoard];
     }
@@ -339,11 +339,35 @@
 
 -(void) gameOver
 {
+    BOOL isHighScore = [self isHighScore]; //WARNING! isHighScore method must be called before updateGame Data
+    [self updateGameData];
+    [[UserData shared] saveUserData];
+    
     [[AudioManager shared] setBackgroundMusicVolume:0.2];
     [self pauseGame];
     [[DeadUI shared] createUI];
-    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:self.model.star Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:NO];
+    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:isHighScore];
     [[GameUI shared] setButtonsEnabled:NO];
+    
+}
+
+-(BOOL) isHighScore
+{
+    int currentHighscore = [[USERDATA objectForKey:@"highscore"] intValue];
+    int myScore = (int)(self.model.distance*self.model.multiplier);
+    return (myScore > currentHighscore);
+}
+
+-(void) updateGameData
+{
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentStar + self.model.star] forKey:@"star"];
+    int currentHighscore = [[USERDATA objectForKey:@"highscore"] intValue];
+    int myScore = (int)(self.model.distance*self.model.multiplier);
+    if (myScore > currentHighscore)
+    {
+        [USERDATA setObject:[NSNumber numberWithInt:myScore] forKey:@"highscore"];
+    }
 }
 
 -(void) restart

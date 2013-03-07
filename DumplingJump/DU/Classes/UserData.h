@@ -12,4 +12,6 @@
 
 @property (nonatomic, retain) NSMutableDictionary *userDataDictionary;
 +(id) shared;
+
+-(void) saveUserData;
 @end

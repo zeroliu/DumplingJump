@@ -399,7 +399,6 @@
 
 -(void) boosterEnd
 {
-//    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"booster"] floatValue]-0.5];
     id showBoardFunc = [CCCallBlock actionWithBlock:^{
         self.sprite.opacity = 255;
         self.engineLeft.opacity = 255;

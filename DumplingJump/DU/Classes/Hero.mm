@@ -665,7 +665,7 @@
 -(void) magic:(NSArray *)value;
 {
     DLog(@"magic - %@", value);
-    [self schedule:@selector(fire) interval:[[POWERUP_DATA objectForKey:@"magic"] floatValue]];
+    [self schedule:@selector(fire) interval:[[POWERUP_DATA objectForKey:@"MAGIC"] floatValue]];
 }
 
 -(void) blind
@@ -726,7 +726,7 @@
     AddthingObject *megastar = [value objectAtIndex:1];
     self.heroState = @"_megastar";
     
-    ((GameLayer *)GAMELAYER).model.star += [[POWERUP_DATA objectForKey:@"megastar"] intValue];
+    ((GameLayer *)GAMELAYER).model.star += [[POWERUP_DATA objectForKey:@"MEGA"] intValue];
     [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
     [megastar removeAddthing];
 }

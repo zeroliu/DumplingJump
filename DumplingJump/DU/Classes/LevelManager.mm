@@ -193,10 +193,16 @@ toRemovePowderArray = _toRemovePowderArray;
 
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
 {
+    
     NSString *dropObjectName = objectName;
     if ([objectName rangeOfString:@"RANDOM"].location != NSNotFound)
     {
         dropObjectName = [self treatRandomObject:[[AddthingFactory shared] getCustomDataByName:objectName]];
+    }
+    
+    if ([dropObjectName isEqualToString:@"NOTHING"])
+    {
+        return nil;
     }
     AddthingObject *addthing = [[[AddthingFactory shared] createWithName:dropObjectName] retain];
     addthing.sprite.position = position;

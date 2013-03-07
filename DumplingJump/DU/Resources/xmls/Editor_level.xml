@@ -80,54 +80,46 @@
 	</Combination>
 	<Combination>
 		<phase>3</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_3_A</step0>
 	</Combination>
 	<Combination>
 		<phase>3</phase>
-		<step0>3_ice_powder</step0>
+		<step0>claw_3_A</step0>
 	</Combination>
 	<Combination>
 		<phase>3</phase>
-		<step0>3_ice_powder</step0>
+		<step0>powder_3_A</step0>
 	</Combination>
 	<Combination>
 		<phase>3</phase>
-		<step0>3_ice_powder</step0>
-	</Combination>
-	<Combination>
-		<phase>3</phase>
-		<step0>3_ice_powder</step0>
-	</Combination>
-	<Combination>
-		<phase>3</phase>
-		<step0>3_ice_powder</step0>
+		<step0>ice_1_A</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 	<Combination>
 		<phase>5</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 	<Combination>
 		<phase>5</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 	<Combination>
 		<phase>5</phase>
-		<step0>3_ice_powder</step0>
+		<step0>arrow_2_B</step0>
 	</Combination>
 </Levels>

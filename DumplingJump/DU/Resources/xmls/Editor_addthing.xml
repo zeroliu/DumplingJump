@@ -62,10 +62,10 @@
 		<ID>大鐵箱</ID>
 		<name>IBOX</name>
 		<shape>Box</shape>
-		<width>100</width>
-		<length>100</length>
+		<width>120</width>
+		<length>120</length>
 		<I>1</I>
-		<mass>50</mass>
+		<mass>100</mass>
 		<res>0.1</res>
 		<fric>2</fric>
 		<gravity>150</gravity>
@@ -138,10 +138,23 @@
 		<I>1</I>
 		<mass>10</mass>
 		<res>0.99</res>
-		<fric>5</fric>
+		<fric>3</fric>
 		<gravity>50</gravity>
 		<blood>1</blood>
 		<react_type>bow</react_type>
+	</Item>
+	<Item>
+		<ID>對人炸彈</ID>
+		<name>BOW_2</name>
+		<shape>Circle</shape>
+		<radius>40</radius>
+		<I>1</I>
+		<mass>10</mass>
+		<res>0.99</res>
+		<fric>3</fric>
+		<gravity>50</gravity>
+		<blood>1</blood>
+		<react_type>bow_2</react_type>
 	</Item>
 	<Item>
 		<ID>瞎掉</ID>
@@ -156,6 +169,7 @@
 		<gravity>20</gravity>
 		<blood>1</blood>
 		<react_type>blind</react_type>
+		<wait>2</wait>
 	</Item>
 	<Item>
 		<ID>彈簧腳</ID>

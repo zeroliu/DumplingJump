@@ -1,41 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <data>
-        <music>is music enable</music>
-        <sfx>is sfx enable</sfx>
-        <highscore>highscore</highscore>
-        <star>star</star>
-        <MAGIC>sword level</MAGIC>
-        <SPRING>spring level</SPRING>
-        <MEGA>mega star level</MEGA>
-        <SHELTER>shield level</SHELTER>
-        <BOOSTER>booster level</BOOSTER>
-        <MAGNET>magnet level</MAGNET>
-        <reborn>reborn number</reborn>
-        <headstart>headstart number</headstart>
-        <coinmultiplier>coin multiplier level</coinmultiplier>
-        <woodmultiplier>wood multiplier level</woodmultiplier>
-        <silvermultiplier>silver multiplier level</silvermultiplier>
-        <goldenmultiplier>golden multiplier level</goldenmultiplier>
-    </data>
-    
-    <data>
-        <music>1</music>
-        <sfx>1</sfx>
-        <highscore>1000</highscore>
-        <star>2000</star>
-        <MAGIC>4</MAGIC>
-        <SPRING>1</SPRING>
-        <MEGA>-1</MEGA>
-        <SHELTER>0</SHELTER>
-        <BOOSTER>1</BOOSTER>
-        <MAGNET>1</MAGNET>
-        <reborn>2</reborn>
-        <headstart>0</headstart>
-        <coinmultiplier>-1</coinmultiplier>
-        <woodmultiplier>-1</woodmultiplier>
-        <silvermultiplier>-1</silvermultiplier>
-        <goldenmultiplier>-1</goldenmultiplier>
-    </data>
-    
+	<data>
+		<music>is music enable</music>
+		<sfx>is sfx enable</sfx>
+		<highscore>highscore</highscore>
+		<star>star</star>
+		<MAGIC>sword level</MAGIC>
+		<SPRING>spring level</SPRING>
+		<MEGA>mega star level</MEGA>
+		<SHELTER>shield level</SHELTER>
+		<BOOSTER>booster level</BOOSTER>
+		<MAGNET>magnet level</MAGNET>
+		<reborn>reborn number</reborn>
+		<headstart>headstart number</headstart>
+		<coinmultiplier>coin multiplier level</coinmultiplier>
+		<woodmultiplier>wood multiplier level</woodmultiplier>
+		<silvermultiplier>silver multiplier level</silvermultiplier>
+		<goldenmultiplier>golden multiplier level</goldenmultiplier>
+	</data>
+	<data>
+		<music>1</music>
+		<sfx>1</sfx>
+		<highscore>1000</highscore>
+		<star>2000</star>
+		<MAGIC>0</MAGIC>
+		<SPRING>0</SPRING>
+		<MEGA>0</MEGA>
+		<SHELTER>0</SHELTER>
+		<BOOSTER>0</BOOSTER>
+		<MAGNET>0</MAGNET>
+		<reborn>0</reborn>
+		<headstart>0</headstart>
+		<coinmultiplier>-1</coinmultiplier>
+		<woodmultiplier>-1</woodmultiplier>
+		<silvermultiplier>-1</silvermultiplier>
+		<goldenmultiplier>-1</goldenmultiplier>
+	</data>
 </userData>

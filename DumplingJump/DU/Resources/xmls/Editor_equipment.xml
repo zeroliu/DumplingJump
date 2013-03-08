@@ -97,7 +97,7 @@
 		<image>UI_item_headstart</image>
 		<description>boost ahead</description>
 		<multiplier>1.30</multiplier>
-		<base>1,000</base>
+		<base>1000</base>
 	</Item>
 	<Item>
 		<group>1</group>

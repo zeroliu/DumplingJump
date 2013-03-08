@@ -64,10 +64,16 @@
 
 - (void) updateCellUI
 {
+    [self setUserInteractionEnabled:YES];
     float base = [[myContent objectForKey:@"base"] floatValue];
     float multiplier = [[myContent objectForKey:@"multiplier"] floatValue];
     
     int level = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
+    
+    for (int i=0; i<4; i++)
+    {
+        [[unlockArray objectAtIndex:i] setHidden:YES];
+    }
     
     for (int i=0; i<level; i++)
     {
@@ -81,11 +87,23 @@
     }
     else
     {
-        [priceLabel setText:[NSString stringWithFormat:@"%d",(int)(base * multiplier * (level+1))]];
+        int price = 0;
+        if (level == 0)
+        {
+            price = base;
+        }
+        else
+        {
+            price = base * multiplier * level;
+        }
+        
+        [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
         [self setUserInteractionEnabled:YES];
     }
     
-    [descriptionLabel setText:[NSString stringWithFormat:@"%@ %@%@",[myContent objectForKey:@"description"], [NSNumber numberWithFloat:15], [myContent objectForKey:@"unit"]]];
+    float effectValue = [[myContent objectForKey:[NSString stringWithFormat:@"level%d", level]] floatValue];
+    
+    [descriptionLabel setText:[NSString stringWithFormat:@"%@ %@%@",[myContent objectForKey:@"description"], [NSNumber numberWithFloat:effectValue], [myContent objectForKey:@"unit"]]];
     [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[myContent objectForKey:@"image"]]]];
 }
 

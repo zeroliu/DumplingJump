@@ -54,14 +54,35 @@
 
 - (void) updateCellUI
 {
+    [self setUserInteractionEnabled:YES];
     float base = [[myContent objectForKey:@"base"] floatValue];
     float multiplier = [[myContent objectForKey:@"multiplier"] floatValue];
     
     int amount = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
     
     [amountLabel setText:[NSString stringWithFormat:@"%d", amount]];
-    [priceLabel setText:[NSString stringWithFormat:@"%d",(int)(base * multiplier * amount)]];
-    [descriptionLabel setText:[NSString stringWithFormat:@"%@ %@%@",[myContent objectForKey:@"description"], [NSNumber numberWithFloat:15], [myContent objectForKey:@"unit"]]];
+
+    if (amount >= 9)
+    {
+        [priceLabel setText:@"max"];
+        [self setUserInteractionEnabled:NO];
+    }
+    else
+    {
+        int price = 0;
+        if (amount == 0)
+        {
+            price = base;
+        }
+        else
+        {
+            price = base * multiplier * amount;
+        }
+        
+        [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
+    }
+    
+    [descriptionLabel setText:[NSString stringWithFormat:@"%@",[myContent objectForKey:@"description"]]];
     [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",[myContent objectForKey:@"image"]]]];
 }
 

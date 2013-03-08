@@ -207,7 +207,8 @@
 {
     [starNumLabel setText:[NSString stringWithFormat:@"%d", num]];
     [starNumLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:25]];
-    [starIcon setCenter:ccp(starNumLabel.frame.origin.x-starIcon.frame.size.width/2.0+5,starNumLabel.center.y)];
+    [starIcon setCenter:ccp(starNumLabel.frame.origin.x-starIcon.frame.size.width/2.0 - 5,starNumLabel.center.y)];
+    [starNumLabel sizeToFit];
 }
 
 - (void) setContinueButtonVisibility:(BOOL)isVisible

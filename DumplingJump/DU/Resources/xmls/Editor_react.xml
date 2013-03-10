@@ -76,6 +76,16 @@
 		<MEMO>对人炸弹</MEMO>
 	</react>
 	<react>
+		<ID>倒數炸彈</ID>
+		<react_type>bow_2</react_type>
+		<reactimage>H_hurt</reactimage>
+		<effectimage>FX_Powder</effectimage>
+		<react_time>bow</react_time>
+		<trigger_react_time>4</trigger_react_time>
+		<trigger_clean_time>4</trigger_clean_time>
+		<MEMO>对人炸弹</MEMO>
+	</react>
+	<react>
 		<ID>彈簧腳</ID>
 		<react_type>spring</react_type>
 		<reactimage>H_spring</reactimage>
@@ -197,15 +207,5 @@
 		<trigger_react_step>1</trigger_react_step>
 		<trigger_clean_step>1</trigger_clean_step>
 		<trigger_clean_board>1</trigger_clean_board>
-	</react>
-	<react>
-		<ID>倒數炸彈</ID>
-		<react_type>bow_2</react_type>
-		<reactimage>H_hurt</reactimage>
-		<effectimage>FX_Powder</effectimage>
-		<react_time>bow</react_time>
-		<trigger_react_time>6</trigger_react_time>
-		<trigger_clean_time>4</trigger_clean_time>
-		<MEMO>对人炸弹</MEMO>
 	</react>
 </reactlist>

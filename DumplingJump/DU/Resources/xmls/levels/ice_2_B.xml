@@ -18,99 +18,50 @@
 	</level>
 	<level>
 		<time>2</time>
-		<slot2>ICE</slot2>
-		<slot3>ICE</slot3>
-		<slot7>ICE</slot7>
-		<slot8>ICE</slot8>
+		<slot6>RANDOM_2</slot6>
 	</level>
 	<level>
 		<time>3</time>
+		<slot2>ICE</slot2>
+		<slot3>ICE</slot3>
+		<slot7>ICE</slot7>
+		<slot8>ICE</slot8>
 	</level>
 	<level>
 		<time>4</time>
-		<slot5>ICE</slot5>
 	</level>
 	<level>
 		<time>5</time>
+		<slot5>ICE</slot5>
 	</level>
 	<level>
 		<time>6</time>
+	</level>
+	<level>
+		<time>7</time>
 		<slot4>ICE</slot4>
 		<slot6>ICE</slot6>
 	</level>
 	<level>
-		<time>7</time>
+		<time>8</time>
 	</level>
 	<level>
-		<time>8</time>
+		<time>9</time>
 		<slot6>ICE</slot6>
 		<slot7>ICE</slot7>
 		<slot8>ICE</slot8>
 	</level>
 	<level>
-		<time>9</time>
+		<time>10</time>
 	</level>
 	<level>
-		<time>10</time>
+		<time>11</time>
 		<slot2>ICE</slot2>
 		<slot3>ICE</slot3>
 		<slot4>ICE</slot4>
 	</level>
 	<level>
-		<time>11</time>
-		<slot5>ICE</slot5>
-	</level>
-	<level>
 		<time>12</time>
-		<slot1>*&gt;</slot1>
-	</level>
-	<level>
-		<time>13</time>
-		<slot4>RANDOM_2</slot4>
-	</level>
-	<level>
-		<time>14</time>
-		<slot8>VAT</slot8>
-	</level>
-	<level>
-		<time>15</time>
-		<slot3>ICE</slot3>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>16</time>
-		<slot8>VAT</slot8>
-	</level>
-	<level>
-		<time>17</time>
 		<slot5>ICE</slot5>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>18</time>
-		<slot8>VAT</slot8>
-	</level>
-	<level>
-		<time>19</time>
-		<slot3>ICE</slot3>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>20</time>
-		<slot8>VAT</slot8>
-	</level>
-	<level>
-		<time>21</time>
-		<slot5>ICE</slot5>
-		<slot7>VAT</slot7>
-	</level>
-	<level>
-		<time>22</time>
-		<slot8>VAT</slot8>
-	</level>
-	<level>
-		<time>23</time>
-		<slot3>ICE</slot3>
-		<slot7>VAT</slot7>
 	</level>
 </stage1>

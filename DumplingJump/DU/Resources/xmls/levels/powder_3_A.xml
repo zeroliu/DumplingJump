@@ -18,37 +18,38 @@
 	</level>
 	<level>
 		<time>2</time>
-		<slot5>POWDER_2</slot5>
+		<slot2>RANDOM_3</slot2>
 	</level>
 	<level>
 		<time>3</time>
+		<slot3>BOMB</slot3>
 	</level>
 	<level>
 		<time>4</time>
-		<slot3>POWDER_2</slot3>
-		<slot7>POWDER_2</slot7>
 	</level>
 	<level>
 		<time>5</time>
-		<slot3>RANDOM_3</slot3>
+		<slot7>BOMB</slot7>
 	</level>
 	<level>
 		<time>6</time>
-		<slot5>POWDER_2</slot5>
 	</level>
 	<level>
 		<time>7</time>
+		<slot3>BOMB</slot3>
 	</level>
 	<level>
 		<time>8</time>
-		<slot3>POWDER_2</slot3>
-		<slot7>POWDER_2</slot7>
 	</level>
 	<level>
 		<time>9</time>
+		<slot7>BOMB</slot7>
 	</level>
 	<level>
 		<time>10</time>
-		<slot5>POWDER_2</slot5>
+	</level>
+	<level>
+		<time>11</time>
+		<slot3>BOMB</slot3>
 	</level>
 </stage1>

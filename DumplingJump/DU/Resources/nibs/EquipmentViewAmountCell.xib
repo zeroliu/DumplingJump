@@ -86,6 +86,7 @@
 								<string key="NSFrame">{{200, 42}, {42, 21}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -143,7 +144,7 @@
 							<object class="IBUIImageView" id="733846229">
 								<reference key="NSNextResponder" ref="171672305"/>
 								<int key="NSvFlags">293</int>
-								<string key="NSFrame">{{24.5, 17}, {40, 40}}</string>
+								<string key="NSFrame">{{22, 14}, {45, 45}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="810967230"/>
@@ -389,7 +390,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="UI_equip_box_quanti.png">{508, 150}</string>
-			<string key="UI_item_magnet.png">{62, 60}</string>
+			<string key="UI_item_magnet.png">{80, 80}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

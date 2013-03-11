@@ -46,6 +46,7 @@
 								<int key="NSvFlags">295</int>
 								<string key="NSFrame">{{2, 0}, {250, 75}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="505511591"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -87,8 +88,10 @@
 									<object class="IBUIImageView" id="65392887">
 										<reference key="NSNextResponder" ref="505511591"/>
 										<int key="NSvFlags">301</int>
-										<string key="NSFrameSize">{40, 40}</string>
+										<string key="NSFrameSize">{45, 45}</string>
 										<reference key="NSSuperview" ref="505511591"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -98,8 +101,9 @@
 										</object>
 									</object>
 								</array>
-								<string key="NSFrame">{{25, 17}, {40, 40}}</string>
+								<string key="NSFrame">{{22, 14}, {45, 45}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="65392887"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="660290682">
@@ -111,6 +115,7 @@
 						</array>
 						<string key="NSFrameSize">{254, 74}</string>
 						<reference key="NSSuperview" ref="734300500"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="443097978"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="660290682"/>
@@ -123,6 +128,7 @@
 				</array>
 				<string key="NSFrameSize">{254, 75}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="171672305"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="660290682"/>
@@ -322,7 +328,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="UI_equip_box_locked.png">{508, 150}</string>
-			<string key="UI_item_bomb_shadow.png">{71, 67}</string>
+			<string key="UI_item_bomb_shadow.png">{80, 80}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

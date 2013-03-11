@@ -137,6 +137,7 @@
 								<string key="NSFrame">{{200, 42}, {42, 21}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -194,7 +195,7 @@
 							<object class="IBUIImageView" id="411802563">
 								<reference key="NSNextResponder" ref="171672305"/>
 								<int key="NSvFlags">293</int>
-								<string key="NSFrame">{{24.5, 17}, {40, 40}}</string>
+								<string key="NSFrame">{{22, 14}, {45, 45}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1065978628"/>
@@ -203,7 +204,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">UI_item_magnet.png</string>
+									<string key="NSResourceName">UI_item_reborn.png</string>
 								</object>
 							</object>
 						</array>
@@ -335,13 +336,13 @@
 						<reference key="object" ref="734300500"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="443097978"/>
-							<reference ref="411802563"/>
 							<reference ref="707331371"/>
 							<reference ref="1002729004"/>
 							<reference ref="883569319"/>
 							<reference ref="461955168"/>
 							<reference ref="281689530"/>
 							<reference ref="1065978628"/>
+							<reference ref="411802563"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -491,7 +492,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="UI_equip_box_level.png">{508, 150}</string>
 			<string key="UI_equip_box_lv.png">{37, 51}</string>
-			<string key="UI_item_magnet.png">{62, 60}</string>
+			<string key="UI_item_reborn.png">{80, 80}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

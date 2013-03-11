@@ -23,7 +23,7 @@
 		<react_time>時間到的反應</react_time>
 		<trigger_react_time>時間到的秒數</trigger_react_time>
 		<trigger_clean_time>出現幾秒後消失</trigger_clean_time>
-		<sort>反應排序</sort>
+		<type>Type</type>
 		<MEMO>備註</MEMO>
 	</react>
 	<react>
@@ -37,6 +37,7 @@
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
+        <type>main</type>
 		<MEMO>弓箭</MEMO>
 		<react_hero_param>19</react_hero_param>
 	</react>
@@ -49,6 +50,7 @@
 		<react_hero>hurt</react_hero>
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_step>1</trigger_clean_step>
+        <type>main</type>
 		<MEMO>釘錘</MEMO>
 		<react_hero_param>19</react_hero_param>
 	</react>
@@ -63,6 +65,7 @@
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
 		<trigger_clean_time>5</trigger_clean_time>
+        <type>overlay</type>
 		<MEMO>偽裝蝙蝠</MEMO>
 	</react>
 	<react>
@@ -73,6 +76,7 @@
 		<react_time>bow</react_time>
 		<trigger_react_time>6</trigger_react_time>
 		<trigger_clean_time>6</trigger_clean_time>
+        <type>main</type>
 		<MEMO>对人炸弹</MEMO>
 	</react>
 	<react>
@@ -85,7 +89,7 @@
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_time>4</trigger_clean_time>
-		<sort>3</sort>
+        <type>main</type>
 		<MEMO>彈簧腳</MEMO>
 	</react>
 	<react>
@@ -98,7 +102,7 @@
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_time>4</trigger_clean_time>
-		<sort>3</sort>
+        <type>overlay</type>
 		<MEMO>防護罩</MEMO>
 	</react>
 	<react>
@@ -111,7 +115,7 @@
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_time>4</trigger_clean_time>
-		<sort>3</sort>
+        <type>main</type>
 		<MEMO>Booster</MEMO>
 	</react>
 	<react>
@@ -124,7 +128,7 @@
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
-		<sort>2</sort>
+        <type>main</type>
 		<MEMO>扁平</MEMO>
 	</react>
 	<react>
@@ -138,7 +142,7 @@
 		<trigger_clean_hero>1</trigger_clean_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_time>4</trigger_clean_time>
-		<sort>3</sort>
+        <type>main</type>
 		<MEMO>法師</MEMO>
 		<react_hero_param>slash</react_hero_param>
 	</react>
@@ -152,6 +156,7 @@
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
+        <type>main</type>
 		<MEMO>星星</MEMO>
 		<react_hero_param>1</react_hero_param>
 	</react>
@@ -165,6 +170,7 @@
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_board>1</trigger_clean_board>
 		<trigger_clean_item>1</trigger_clean_item>
+        <type>main</type>
 		<MEMO>mega星星</MEMO>
 		<react_hero_param>1</react_hero_param>
 	</react>
@@ -182,6 +188,7 @@
 		<react_time>explode</react_time>
 		<trigger_react_time>3</trigger_react_time>
 		<trigger_clean_time>3</trigger_clean_time>
+        <type>main</type>
 		<MEMO>火藥</MEMO>
 	</react>
 	<react>
@@ -197,6 +204,7 @@
 		<trigger_react_step>1</trigger_react_step>
 		<trigger_clean_step>1</trigger_clean_step>
 		<trigger_clean_board>1</trigger_clean_board>
+        <type>main</type>
 	</react>
 	<react>
 		<ID>倒數炸彈</ID>
@@ -206,6 +214,7 @@
 		<react_time>bow</react_time>
 		<trigger_react_time>6</trigger_react_time>
 		<trigger_clean_time>4</trigger_clean_time>
+        <type>main</type>
 		<MEMO>对人炸弹</MEMO>
 	</react>
 </reactlist>

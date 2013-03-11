@@ -20,4 +20,5 @@
 -(id) loadStarDataWithXML: (NSString *)fileName;
 -(id) loadEquipmentDataWithXML: (NSString *)fileName;
 -(id) loadUserDataWithXML: (NSString *)fileName;
+-(id) loadCollisionDataWithXML: (NSString *)fileName;
 @end

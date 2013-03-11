@@ -16,13 +16,11 @@
 }
 
 @property (nonatomic, retain) NSString *heroState;
-@property (nonatomic, retain) NSString *powerup;
-@property (nonatomic, assign) float powerupCountdown;
+@property (nonatomic, retain) NSMutableArray *overlayHeroStateArray;
 @property (nonatomic, assign) BOOL canReborn;
 
 -(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue gravityValue:(float)theGravity;
 -(void) updateHeroPositionWithAccX:(float)accX;
--(void) updateHeroPowerupCountDown:(ccTime)dt;
 -(void) updateHeroChildrenPosition;
 -(void) jump;
 -(void) idle;

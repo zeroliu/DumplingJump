@@ -242,7 +242,6 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     NSString *path = [[NSBundle mainBundle] resourcePath];
     NSString *xmlsPath = [path stringByAppendingPathComponent:folderName];
-    DLog(@"path = %@", xmlsPath);
     
     NSError *error;
     NSArray *xmlfiles = [manager contentsOfDirectoryAtPath:xmlsPath error:&error];
@@ -260,7 +259,6 @@
         {
             NSString *content = [NSString stringWithContentsOfFile:[xmlsPath stringByAppendingPathComponent:file] encoding:NSUTF8StringEncoding error:&error];
             DDXMLDocument *xmlDoc = [[DDXMLDocument alloc] initWithXMLString:content options:0 error:&error];
-            DLog(@"%@", [file stringByDeletingPathExtension]);
             Paragraph *currentParagraph = [self loadParagraphWithXMLDoc:xmlDoc];
             [dict setObject:currentParagraph forKey:[file stringByDeletingPathExtension]];
             [xmlDoc release];
@@ -453,70 +451,6 @@
             }
             [dict setObject:itemDictionary forKey:itemName];
         }
-        /*
-        NSString *typeName = [[[item nodesForXPath:@"type" error:&err] objectAtIndex:0] stringValue];
-        //Skip the header
-        if (! [typeName isEqualToString:@"type"])
-        {
-            NSMutableArray *itemArray = [dict objectForKey:typeName];
-            //If there is no array existed for a certain type
-            if (itemArray == nil)
-            {
-                itemArray = [NSMutableArray array];
-                [dict setObject:itemArray forKey:typeName];
-            }
-            NSMutableDictionary *itemData = [NSMutableDictionary dictionary];
-            
-            NSArray *itemRawDataArray = [item children];
-            //Pre-set level ability data to 0
-            for (int i=0; i<4; i++)
-            {
-                [itemData setObject:[NSNumber numberWithFloat:0] forKey:[NSString stringWithFormat:@"level%d", i]];
-            }
-            for(DDXMLDocument *element in itemRawDataArray)
-            {
-                if ([[element name] isEqualToString:@"group"])
-                {
-                    //TODO: link with achievement data
-                    if ([[element stringValue] intValue] == 0)
-                    {
-                        [itemData setObject:[NSNumber numberWithBool:YES] forKey:@"unlocked"];
-                        [itemData setObject:[NSNumber numberWithInt:4] forKey:@"progress"];
-                    } else
-                    {
-                        [itemData setObject:[NSNumber numberWithBool:NO] forKey:@"unlocked"];
-                        [itemData setObject:[NSNumber numberWithInt:0] forKey:@"progress"];
-                    }
-                    [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"group"];
-                } else if ([[element name] isEqualToString:@"description"])
-                {
-                    [itemData setObject:[element stringValue] forKey:@"description"];
-                } else if ([[element name] isEqualToString:@"name"])
-                {
-                    [itemData setObject:[element stringValue] forKey:@"name"];
-                } else if ([[element name] isEqualToString:@"multiplier"])
-                {
-                    [itemData setObject:[NSNumber numberWithFloat:[[element stringValue] floatValue]] forKey:@"multiplier"];
-                } else if ([[element name] isEqualToString:@"base"])
-                {
-                    [itemData setObject:[NSNumber numberWithInt:[[element stringValue] intValue]] forKey:@"base"];
-                } else if ([[element name] isEqualToString:@"layout"])
-                {
-                    [itemData setObject:[element stringValue] forKey:@"layout"];
-                } else if ([[element name] isEqualToString:@"unit"])
-                {
-                    [itemData setObject:[element stringValue] forKey:@"unit"];
-                } else if ([[element name] isEqualToString:@"image"])
-                {
-                    [itemData setObject:[element stringValue] forKey:@"image"];
-                } else if ([[element name] rangeOfString:@"level"].location != NSNotFound)
-                {
-                    [itemData setObject:[NSNumber numberWithFloat:[[element stringValue] floatValue]] forKey:[element name]];
-                }
-            }
-            [itemArray addObject:itemData];
-        }
-         */
     }
     [xmlDoc release];
     
@@ -543,7 +477,41 @@
         [dict setObject:[element stringValue] forKey:[element name]];
     }
     [xmlDoc release];
-    DLog(@"%@",[dict description]);
     return dict;
 }
+
+-(id) loadCollisionDataWithXML: (NSString *)fileName
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:fileName] retain];
+    NSError *err = nil;
+    
+    NSArray *collisionDatas = [xmlDoc nodesForXPath:@"//data" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLDocument *collisionElement in collisionDatas)
+    {
+        NSString *name = [[[collisionElement nodesForXPath:@"name" error:&err] objectAtIndex:0] stringValue];
+        if (![name isEqualToString:@"current status"])
+        {
+            NSArray *datas = [collisionElement children];
+            NSMutableDictionary *reactionDictionary = [NSMutableDictionary dictionaryWithCapacity:[datas count]];
+            for (DDXMLElement *element in datas)
+            {
+                if (![[element name] isEqualToString:@"name"])
+                {
+                    [reactionDictionary setObject:[element stringValue] forKey:[element name]];
+                }
+            }
+            [dict setObject:reactionDictionary forKey:name];
+            
+        }
+    }
+    [xmlDoc release];
+    return dict;
+}
+
 @end

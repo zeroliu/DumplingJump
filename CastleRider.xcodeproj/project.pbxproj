@@ -754,6 +754,7 @@
 		7FFCB8C616E42FC700700381 /* UI_item_headstart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFCB8C416E42FC700700381 /* UI_item_headstart.png */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
+		9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1811,6 +1812,8 @@
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
 		7FFD8E921605637900C460F0 /* EffectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectManager.mm; sourceTree = "<group>"; };
+		9F1F066E16EBC32C000E81E5 /* InterReactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterReactionManager.h; sourceTree = "<group>"; };
+		9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterReactionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3045,6 +3048,8 @@
 		7F5CC1DD1602B06600E45EDD /* Reactions */ = {
 			isa = PBXGroup;
 			children = (
+				9F1F066E16EBC32C000E81E5 /* InterReactionManager.h */,
+				9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */,
 				7F5CC1DE1602B07F00E45EDD /* Reaction.h */,
 				7F5CC1DF1602B07F00E45EDD /* Reaction.mm */,
 				7F307C87160373F1004D5203 /* ReactionManager.h */,
@@ -4436,6 +4441,7 @@
 				7FEA452816D60F7D00F5D2A0 /* LockedEquipmentViewCell.m in Sources */,
 				7FB73D3E16D75E880053B91E /* EquipmentViewAmountCell.m in Sources */,
 				7FFCB8C216E3492500700381 /* PowderInfo.m in Sources */,
+				9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

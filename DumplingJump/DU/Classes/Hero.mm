@@ -45,7 +45,7 @@
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, powerup = _powerup, powerupCountdown = _powerupCountdown, canReborn = _canReborn;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateArray = _overlayHeroStateArray;
 
 #pragma mark -
 #pragma Initialization
@@ -63,7 +63,7 @@
         self.jumpValue = theJumpValue;
         self.gravity = theGravity;
         
-        self.powerup = nil;
+        _overlayHeroStateArray = [[NSMutableArray alloc] init];
         
         [self initHeroParam];
         [self initHeroSpriteWithFile:@"H_hero_1.png" position:thePosition];
@@ -171,19 +171,6 @@
     if (directionForce.x != 0 || directionForce.y != 0)
     {
         self.body->ApplyForce(directionForce, self.body->GetPosition());
-    }
-}
-
--(void) updateHeroPowerupCountDown:(ccTime)dt
-{
-    if (self.powerupCountdown > 0)
-    {
-        self.powerupCountdown = self.powerupCountdown - dt;
-        if (self.powerupCountdown < 0)
-        {
-            self.powerupCountdown = 0;
-            self.powerup = nil;
-        }
     }
 }
 
@@ -1104,8 +1091,10 @@
 
 -(void) dealloc
 {
-    //    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-    
+    [_heroState release];
+    _heroState = nil;
+    [_overlayHeroStateArray release];
+    _overlayHeroStateArray = nil;
     [super dealloc];
 }
 

@@ -15,6 +15,7 @@
 #import "LevelManager.h"
 #import "CCBReader.h"
 #import "CCParticleSystemQuad.h"
+#import "InterReactionManager.h"
 
 @interface AddthingObject()
 {
@@ -82,7 +83,8 @@
 -(void) BeginContact:(NSNotification *)notification
 {
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
-
+    
+    
     if ([targetObject.name isEqualToString: HERO])
     {
         if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])

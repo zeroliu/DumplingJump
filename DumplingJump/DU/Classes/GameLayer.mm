@@ -5,6 +5,7 @@
 #import "BoardManager.h"
 #import "HeroManager.h"
 #import "StarManager.h"
+#import "InterReactionManager.h"
 #import "AddthingFactory.h"
 
 #import "AddthingTestTool.h"
@@ -236,6 +237,7 @@
     [HeroManager shared];
     [BoardManager shared];
     [StarManager shared];
+    [InterReactionManager shared];
 }
 
 
@@ -301,7 +303,6 @@
         [[BackgroundController shared] updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
-        [[[HeroManager shared] getHero] updateHeroPowerupCountDown:deltaTime];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];
         [[[HeroManager shared] getHero] updateHeroBoosterEffect];
         [[[HeroManager shared] getHero] updateJumpState];

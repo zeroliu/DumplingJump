@@ -162,12 +162,6 @@
             SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", theReaction.reactHeroSelectorName]);
             [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theReaction.reactHeroSelectorParam, theContactObject, nil]];
         }
-        
-        if ([theReaction.name isEqualToString:@"SHELTER"] || [theReaction.name isEqualToString:@"MAGIC"] || [theReaction.name isEqualToString:@"SPRING"])
-        {
-            self.hero.powerup = theReaction.name;
-            self.hero.powerupCountdown = theReaction.reactionLasting - 0.1f;
-        }
     }
 }
 

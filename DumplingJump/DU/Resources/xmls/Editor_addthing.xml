@@ -125,10 +125,24 @@
 		<I>1</I>
 		<mass>25</mass>
 		<res>0.1</res>
-		<fric>5</fric>
+		<fric>3</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>bow</react_type>
+	</Item>
+	<Item>
+		<ID>強力火藥</ID>
+		<name>BOMB</name>
+		<shape>Box</shape>
+		<width>80</width>
+		<length>80</length>
+		<I>1</I>
+		<mass>25</mass>
+		<res>0.1</res>
+		<fric>3</fric>
+		<gravity>100</gravity>
+		<blood>1</blood>
+		<react_type>bow_2</react_type>
 	</Item>
 	<Item>
 		<ID>對人炸彈</ID>
@@ -142,19 +156,6 @@
 		<gravity>50</gravity>
 		<blood>1</blood>
 		<react_type>bow</react_type>
-	</Item>
-	<Item>
-		<ID>對人炸彈</ID>
-		<name>BOW_2</name>
-		<shape>Circle</shape>
-		<radius>40</radius>
-		<I>1</I>
-		<mass>10</mass>
-		<res>0.99</res>
-		<fric>3</fric>
-		<gravity>50</gravity>
-		<blood>1</blood>
-		<react_type>bow_2</react_type>
 	</Item>
 	<Item>
 		<ID>瞎掉</ID>
@@ -314,7 +315,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
-		<customData>BOOSTER,10;MAGIC,25;MEGA,25;SPRING,25;BLIND,15</customData>
+		<customData>NOTHING,30;BOOSTER,10;MAGIC,25;MEGA,25;SPRING,25;BLIND,15</customData>
 	</Item>
 	<Item>
 		<ID>itemsLv2</ID>

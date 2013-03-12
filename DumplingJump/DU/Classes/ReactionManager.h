@@ -14,5 +14,6 @@
 
 +(id) shared;
 -(Reaction *) getReactionWithName:(NSString *)reactionName;
-
+-(NSString *) getReactionType:(NSString *)reactionName;
+-(NSString *) getHeroReactAnimationName:(NSString *)reactionName;
 @end

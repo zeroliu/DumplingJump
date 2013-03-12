@@ -43,6 +43,11 @@
     self.interReactionDictionary = [[XMLHelper shared] loadCollisionDataWithXML:@"Editor_interReactionData"];
 }
 
+- (NSString *) getInterReactionByAddthingName:(NSString *)addthingName forHeroStatus:(NSString *)statusName
+{
+    return [[self.interReactionDictionary objectForKey:statusName] objectForKey:addthingName];
+}
+
 - (void)dealloc
 {
     [_interReactionDictionary release];

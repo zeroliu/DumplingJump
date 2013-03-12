@@ -171,7 +171,7 @@
     if ([[self.buttonstatusDictionary objectForKey:@"shield"] boolValue])
     {
         //bomb, will blow everything away
-        [[[HeroManager shared] getHero] sheildPowerup];
+        [[[HeroManager shared] getHero] shieldPowerup];
         [self cooldownButtonBarWithName:@"shield"];
     }
 }

@@ -1,5 +1,6 @@
 #import "Common.h"
 #import "Hero.h"
+#import "AddthingObject.h"
 
 @interface HeroManager : NSObject
 
@@ -19,7 +20,7 @@
 -(id)getHero;
 -(void) updateHeroPosition;
 //This function is used by addthingObject->contact
--(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(DUPhysicsObject *)theContactObject;
+-(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(AddthingObject *)theContactObject;
 //This function is used by reactionFuctions
 -(void) heroReactWithReactionName:(NSString *)theName heroAnimName:(NSString *)animName reactionLasting:(float)duration heroSelectorName:(NSString *)selectorName heroSelectorParam:(id) param;
 

@@ -5,7 +5,7 @@
 //  Created by LIU Xiyuan on 12-9-14.
 //  Copyright (c) 2012 CMU ETC. All rights reserved.
 //
-
+#import "Reaction.h"
 #import "ReactionManager.h"
 #import "XMLHelper.h"
 
@@ -47,6 +47,16 @@
 -(Reaction *) getReactionWithName:(NSString *)reactionName
 {
     return [self.reactionDictionary objectForKey:reactionName];
+}
+
+-(NSString *) getReactionType:(NSString *)reactionName
+{
+    return ((Reaction *)[self.reactionDictionary objectForKey:reactionName]).type;
+}
+
+-(NSString *) getHeroReactAnimationName:(NSString *)reactionName
+{
+    return ((Reaction *)[self.reactionDictionary objectForKey:reactionName]).heroReactAnimationName;
 }
 
 @end

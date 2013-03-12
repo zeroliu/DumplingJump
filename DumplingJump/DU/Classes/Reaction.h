@@ -20,7 +20,8 @@ NSString *name, //Reaction name
 *reactHeroStepOnSelectorParam, 
 *reactWorldSelectorName, //The selector will be called if addthings touch anything else
 *reactWorldSelectorParam,
-*reactTimeSelectorName; //The selector will be called if time is up
+*reactTimeSelectorName, //The selector will be called if time is up
+*type;
 
 @property (assign, nonatomic)
 double reactionLasting, //How long does it last
@@ -32,24 +33,24 @@ triggerCleanHeroStepOn, //1 => Addthing get removed after hero steps on it
 triggerCleanWorld,
 triggerCleanBoard;
 
--(id) initWithName              :(NSString *)theName 
-heroReactAnimationName          :(NSString *)theHeroReactAnimationName 
-effectName                      :(NSString *)theAnimationName 
-reactHeroSelectorName           :(NSString *)theReactHeroSelectorName
-reactHeroSelectorParam          :(NSString *)theReactHeroSelectorParam
-reactHeroStepOnSelectorName     :(NSString *)theReactHeroStepOnSelectorName
-reactHeroStepOnSelectorParam    :(NSString *)theReactHeroStepOnSelectorParam
-reactWorldSelectorName          :(NSString *)theReactWorldSelectorName
-reactWorldSelectorParam         :(NSString *)theReactWorldSelectorParam
-reactTimeSelectorName           :(NSString *)theReactTimeSelectorName
-reactionLasting                 :(double) theReactionLasting
-reactTime                       :(double) theReactTime
-cleanTime                       :(double) theCleanTime
-triggerCleanHero                :(int) theTriggerCleanHero
-triggerCleanHeroStepOn          :(int) theTriggerCleanHeroStepOn
-triggerCleanWorld               :(int)
-theTriggerCleanWorld
-triggerCleanBoard               :(int) theTriggerCleanBoard;
+//-(id) initWithName              :(NSString *)theName 
+//heroReactAnimationName          :(NSString *)theHeroReactAnimationName 
+//effectName                      :(NSString *)theAnimationName 
+//reactHeroSelectorName           :(NSString *)theReactHeroSelectorName
+//reactHeroSelectorParam          :(NSString *)theReactHeroSelectorParam
+//reactHeroStepOnSelectorName     :(NSString *)theReactHeroStepOnSelectorName
+//reactHeroStepOnSelectorParam    :(NSString *)theReactHeroStepOnSelectorParam
+//reactWorldSelectorName          :(NSString *)theReactWorldSelectorName
+//reactWorldSelectorParam         :(NSString *)theReactWorldSelectorParam
+//reactTimeSelectorName           :(NSString *)theReactTimeSelectorName
+//reactionLasting                 :(double) theReactionLasting
+//reactTime                       :(double) theReactTime
+//cleanTime                       :(double) theCleanTime
+//triggerCleanHero                :(int) theTriggerCleanHero
+//triggerCleanHeroStepOn          :(int) theTriggerCleanHeroStepOn
+//triggerCleanWorld               :(int)
+//theTriggerCleanWorld
+//triggerCleanBoard               :(int) theTriggerCleanBoard;
 
 -(id) initEmptyData;
 @end

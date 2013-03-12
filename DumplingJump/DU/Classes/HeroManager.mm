@@ -2,6 +2,8 @@
 #import "ReactionFunctions.h"
 #import "DUObjectsDictionary.h"
 #import "GameModel.h"
+#import "InterReactionManager.h"
+#import "AddthingObject.h"
 
 #define HERO_RADIUS @"heroRadius"
 #define HERO_MASS @"heroMass"
@@ -54,7 +56,7 @@
         [ANIMATIONMANAGER registerAnimationForName:HEADSTART_BOOST];
         [ANIMATIONMANAGER registerAnimationForName:HEADSTART_TRAIL];
         [ANIMATIONMANAGER registerAnimationForName:HEADSTART_SUPPORT];
-        
+        [ANIMATIONMANAGER registerAnimationForName:@"E_item_shield"];
     }
     return self;
 }
@@ -121,41 +123,49 @@
     [self.hero updateHeroPositionWithAccX:[[AccelerometerManager shared] accX]];
 }
 
--(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(DUPhysicsObject *)theContactObject
+-(void) heroReactWithReaction:(Reaction *)theReaction contactObject:(AddthingObject *)theContactObject
 {
-    if (self.hero.heroState != theReaction.name && theReaction.reactHeroSelectorName != nil)
+    //check main state
+
+    //check overlay state
+    
+    if (theReaction.reactHeroSelectorName != nil)
     {
-        self.hero.heroState = theReaction.name;
-        if (theReaction.heroReactAnimationName != nil)
-        {
-            if ([theReaction.name isEqualToString:@"booster"])
-            {
-                //Play animation without stop for special case, will handle stop time by plist data
-                [self.hero.sprite stopAllActions];
-                id animation = [ANIMATIONMANAGER getAnimationWithName:theReaction.heroReactAnimationName];
-                if(animation != nil)
-                {
-                    id animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
-                    [self.hero.sprite runAction:animAction];
-                }
-            }
-            else
-            {
-                if (theReaction.reactionLasting <= 0)
-                {
-                    [self playAnimationWithName:theReaction.heroReactAnimationName delay:2];
-                }
-                else
-                {
-                    [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
-                }
-            }
-        }
+//        self.hero.heroState = theReaction.name;
+//        if (theReaction.heroReactAnimationName != nil)
+//        {
+//            if ([theReaction.name isEqualToString:@"booster"])
+//            {
+//                //Play animation without stop for special case, will handle stop time by plist data
+//                [self.hero.sprite stopAllActions];
+//                id animation = [ANIMATIONMANAGER getAnimationWithName:theReaction.heroReactAnimationName];
+//                if(animation != nil)
+//                {
+//                    id animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
+//                    [self.hero.sprite runAction:animAction];
+//                }
+//                
+//                [self playAnimationForever:self data:theReaction.heroReactAnimationName];
+//            }
+//            else
+//            {
+//                if (theReaction.reactionLasting <= 0)
+//                {
+//                    [self playAnimationWithName:theReaction.heroReactAnimationName delay:2];
+//                }
+//                else
+//                {
+//                    [self playAnimationWithName:theReaction.heroReactAnimationName delay:theReaction.reactionLasting];
+//                }
+//            }
+//        }
         
         if (theReaction.reactHeroSelectorParam == nil)
         {
-            SEL callback = NSSelectorFromString(theReaction.reactHeroSelectorName);
-            [self.hero performSelector:callback];
+//            SEL callback = NSSelectorFromString(theReaction.reactHeroSelectorName);
+//            [self.hero performSelector:callback];
+            SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", theReaction.reactHeroSelectorName]);
+            [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:theContactObject, nil]];
         }
         else
         {

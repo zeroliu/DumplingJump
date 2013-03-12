@@ -87,32 +87,40 @@
     
     if ([targetObject.name isEqualToString: HERO])
     {
-        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])
-        {
-            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
-            {
-                contactEdge->contact->SetEnabled(false);
-            }
-            [self removeAddthingWithDel];
-            return;
-        }
+//        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])
+//        {
+//            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+//            {
+//                contactEdge->contact->SetEnabled(false);
+//            }
+//            [self removeAddthingWithDel];
+//            return;
+//        }
         
-        //DLog(@"heroState = %@", ((Hero *)[HEROMANAGER getHero]).heroState);
-        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
+//        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
+//        {
+//            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+//            {
+//                contactEdge->contact->SetEnabled(false);
+//            }
+//            [self removeAddthingWithDel];
+//            
+//        }
+        
+        //check destroy case
+        
+        if ([((Hero *)[HEROMANAGER getHero]) isShelterOn] || ((Hero *)[HEROMANAGER getHero]).isSpringBoost)
         {
-            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+            if (![self.name isEqualToString:@"STAR"] && ![self.name isEqualToString:@"MEGA"])
             {
-                contactEdge->contact->SetEnabled(false);
+                for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+                {
+                    contactEdge->contact->SetEnabled(false);
+                }
+                [self removeAddthingWithDel];
             }
-            [self removeAddthingWithDel];
-            
-        }
-        else
-        {
-            if (self.reaction != nil)
+            else
             {
-                //If addthing touch hero
-                //Hero reacts
                 [HEROMANAGER heroReactWithReaction:self.reaction contactObject:self];
                 
                 //If addthing will disappear after touch the hero
@@ -122,7 +130,24 @@
                     [self removeAddthing];
                 }
             }
+            
+            return;
         }
+
+        if (self.reaction != nil)
+        {
+            //If addthing touch hero
+            //Hero reacts
+            [HEROMANAGER heroReactWithReaction:self.reaction contactObject:self];
+            
+            //If addthing will disappear after touch the hero
+            if (self.reaction.triggerCleanHero == 1)
+            {
+                //DLog(@"My ID is %@", self.ID);
+                [self removeAddthing];
+            }
+        }
+        
         //            DLog(@"%@ Touch Hero",self.name);
     } else if ([targetObject.name isEqualToString: BOARD])
     {

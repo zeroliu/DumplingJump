@@ -161,7 +161,7 @@
 		<react_type>star</react_type>
 		<reactimage>H_happy</reactimage>
 		<effectimage>FX_Star</effectimage>
-		<statetime>0</statetime>
+		<statetime>2</statetime>
 		<react_hero>star</react_hero>
 		<trigger_react_hero>1</trigger_react_hero>
 		<trigger_clean_board>1</trigger_clean_board>

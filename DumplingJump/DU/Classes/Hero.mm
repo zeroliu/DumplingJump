@@ -52,7 +52,7 @@
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateDictionary = _overlayHeroStateDictionary, isSpringBoost = _isSpringBoost;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateDictionary = _overlayHeroStateDictionary, isSpringBoost = _isSpringBoost, boostStatus;
 
 #pragma mark -
 #pragma Initialization
@@ -668,19 +668,24 @@
 
     adjustJump = 0;
     adjustMove = 0;
+
     //Blow hero
-    
-    float distance = ccpDistance(explosionPos, self.sprite.position);
-    float explosionForce = SHOCK_PRESSURE / 500;
-    self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
-    
-    if (self.sprite.position.x < explosionPos.x)
+    if (![self.heroState isEqualToString:@"booster"])
     {
-        blowAwayTrigger = -1;
-    } else
-    {
-        blowAwayTrigger = 1;
+        [self changeCollisionDetection:C_NOTHING];
+        float distance = ccpDistance(explosionPos, self.sprite.position);
+        float explosionForce = SHOCK_PRESSURE / 500;
+        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
+        
+        if (self.sprite.position.x < explosionPos.x)
+        {
+            blowAwayTrigger = -1;
+        } else
+        {
+            blowAwayTrigger = 1;
+        }
     }
+
     //Blow objects
     for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
     {
@@ -689,7 +694,6 @@
         float explosionForce = SHOCK_PRESSURE/5000/distance;
         ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (objectPos.x - explosionPos.x), explosionForce * ob.body->GetMass() * (objectPos.y - explosionPos.y)), ob.body->GetPosition());
     }
-
 }
 
 -(void) flat:(NSArray *)value
@@ -890,6 +894,7 @@
     self.body->SetGravityScale(0);
     self.body->SetLinearVelocity(b2Vec2(0,0));
     [self scheduleOnce:@selector(boosterFin) delay:interval];
+    [[[BoardManager shared] getBoard] scheduleOnce:@selector(boosterEnd) delay:interval-0.5];
 }
 
 -(void) boosterFin
@@ -901,8 +906,6 @@
     adjustJump = 1;
     adjustMove = 1;
     boostStatus = 0;
-    
-    [[[BoardManager shared] getBoard] boosterEnd];
     
     [self resetCollisionDetection];
     [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];

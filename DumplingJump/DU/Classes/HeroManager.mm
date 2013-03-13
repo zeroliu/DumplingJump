@@ -65,6 +65,7 @@
 {
     if (self.hero != nil)
     {
+        [self.hero resetHero];
         [self.hero removeFromParentAndCleanup:NO];
         [self.hero archive];
         self.hero = nil;
@@ -76,7 +77,7 @@
     [self.hero addChildTo:BATCHNODE z:Z_Hero];
     //Add hero object to GameLayer
     [GAMELAYER addChild:self.hero];
-    [self.hero idle];
+    [self.hero resetHero];
     
     return self.hero;
 }

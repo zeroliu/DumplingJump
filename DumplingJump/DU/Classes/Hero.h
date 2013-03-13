@@ -24,6 +24,7 @@
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) updateHeroChildrenPosition;
 -(void) jump;
+- (void) resetHero;
 -(void) idle;
 -(void) headStart;
 //Called from AddthingObject

@@ -8,6 +8,7 @@
 #define ABSORB_POWERUP_TAG 10
 #define REBORN_POWERUP_TAG 20
 #define SHIELD_POWERUP_TAG 30
+#define BLIND_EFFECT_TAG 35
 #define HERO_FOREVER_ANIMATION_TAG 40
 
 #import "Hero.h"
@@ -291,7 +292,7 @@
         self.body->SetLinearVelocity(self.speed);
     }
     
-    if (maskNode != NULL)
+    if (maskNode != nil)
     {
         [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     }
@@ -439,6 +440,21 @@
     
     //Change hero state back to idle
     self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
+}
+
+-(void) blindFin
+{
+    [self stopActionByTag:BLIND_EFFECT_TAG];
+    //Remove blind mask
+    if (maskNode != nil)
+    {
+        [maskNode removeMask];
+        [maskNode release];
+        maskNode = nil;
+    }
+    
+    [self.overlayHeroStateDictionary removeObjectForKey:@"blind"];
     [self playCurrentFacialAnimation];
 }
 
@@ -681,6 +697,12 @@
 
 -(void) freeze:(NSArray *)value
 {
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
     AddthingObject *contactObject = [value lastObject];
     
     [self playAnimation:@"H_ice" duration:contactObject.reaction.reactionLasting callback:^{
@@ -719,6 +741,11 @@
     {
         SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
         [self performSelector:stopReactionSelector];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+    {
+        [self performSelector:@selector(blindFin)];
     }
     
     [self playAnimation:@"H_spring" duration:[[POWERUP_DATA objectForKey:@"SPRING"] floatValue] callback:^{
@@ -809,6 +836,11 @@
 
 -(void) booster:(NSArray *)value;
 {
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+    {
+        [self performSelector:@selector(blindFin)];
+    }
+    
     DLog(@"booster");
     //Ready effect
     [[BackgroundController shared] speedUpWithScale:0.5 interval:0.5];
@@ -882,6 +914,11 @@
         [self performSelector:stopReactionSelector];
     }
     
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+    {
+        [self performSelector:@selector(blindFin)];
+    }
+    
     [self playAnimation:@"H_magic" duration:[[POWERUP_DATA objectForKey:@"MAGIC"] floatValue] callback:^{
         [self performSelector:@selector(magicFin)];
     }];
@@ -893,15 +930,46 @@
 
 -(void) blind:(NSArray *)value
 {
-    DLog(@"blind");
-    CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
-    CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
+    AddthingObject *contactObject = [value lastObject];
     
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    maskNode = [[CircleMask alloc] initWithTexture:[blackBg retain] Mask:[mask retain]];
-    CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
-    final.position = ccp(winSize.width/2,winSize.height/2);
-    [GAMELAYER addChild:final z:10];
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] == nil)
+    {
+        [self playAnimationForever:@"H_blind"];
+        
+                
+        CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
+        CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
+        
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        maskNode = [[CircleMask alloc] initWithTexture:[blackBg retain] Mask:[mask retain]];
+        CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
+        final.position = ccp(winSize.width/2,winSize.height/2);
+        [GAMELAYER addChild:final z:10];
+    }
+    else
+    {
+        //Already blind
+        
+    }
+    
+    [self stopActionByTag:BLIND_EFFECT_TAG];
+    id delay = [CCDelayTime actionWithDuration:contactObject.reaction.reactionLasting];
+    id callback = [CCCallBlock actionWithBlock:^{
+        [self performSelector:@selector(blindFin)];
+    }];
+    CCSequence *sequence = [CCSequence actions:delay, callback, nil];
+    sequence.tag = BLIND_EFFECT_TAG;
+    [self runAction:sequence];
+
+    [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey:@"blind"];
+    
 }
 
 -(void) fire
@@ -1262,7 +1330,6 @@
 {
     self.isOnGround = NO;
     [self checkIfOnGround];
-//    DLog(@"Land off");
 }
 
 -(void)checkIfOnGround
@@ -1277,7 +1344,6 @@
             contactEdge->contact->GetWorldManifold(&manifold);
             if (manifold.points[0].y < self.sprite.position.y)
             {
-                //DLog(@"%@", ((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetUserData()).name);
                 res = YES;
                 break;
             }
@@ -1384,8 +1450,6 @@
         [self.sprite runAction:animAction];
     }
 }
-
-
 
 -(void) playAnimation:(NSString *)animName duration:(float)time callback:(void(^)())block
 {

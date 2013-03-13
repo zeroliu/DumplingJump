@@ -35,6 +35,7 @@
     int blowAwayTrigger; //-1 left, 0 off, 1 right
     int freezeTrigger; //-1 left, 0 off, 1 right
     BOOL isHeadStart;
+    int boostStatus; //0 none, 1 ready, 2 start
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -78,7 +79,6 @@
         [self initGestureHandler];
         [self initContactListener];
         [self resetHero];
-        self.heroState = @"idle";
     }
     
     return self;
@@ -227,41 +227,42 @@
     //Ready phase, hero slowly moving back
     if ([self.heroState isEqualToString:@"booster"])
     {
-        self.body->SetLinearVelocity(b2Vec2(0, -0.5));
-    }
-    
-    if ([self.heroState isEqualToString:@"boosterReady"])
-    {
-        if (self.sprite.position.y > 650)
+        if (boostStatus == 0)
         {
-            self.heroState = @"boosterStart";
-            [self boosterStart];
-            return;
+            self.body->SetLinearVelocity(b2Vec2(0, -0.5));
         }
-        
-        self.body->SetLinearVelocity(b2Vec2(self.speed.x, 30));
-    }
-    
-    if ([self.heroState isEqualToString:@"boosterStart"])
-    {
-        //Fake floating effect
-        if (self.sprite.position.y < 330)
+        else if (boostStatus == 1)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(1, 2)));
+            if (self.sprite.position.y > 650)
+            {
+                boostStatus = 2;
+                [self boosterStart];
+                return;
+            }
+            
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, 30));
         }
-        else if (self.sprite.position.y > 380)
+        else if (boostStatus == 2)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-2, -1)));
-        }
-        
-        //Don't move out of the screen
-        if (self.sprite.position.x < 50)
-        {
-            self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
-        }
-        else if (self.sprite.position.x > 270)
-        {
-            self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
+            //Fake floating effect
+            if (self.sprite.position.y < 330)
+            {
+                self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
+            }
+            else if (self.sprite.position.y > 380)
+            {
+                self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-5, -1)));
+            }
+            
+            //Don't move out of the screen
+            if (self.sprite.position.x < 50)
+            {
+                self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
+            }
+            else if (self.sprite.position.x > 270)
+            {
+                self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
+            }
         }
     }
 }
@@ -547,6 +548,7 @@
     adjustMove = 1;
     freezeTrigger = 0;
     blowAwayTrigger = 0;
+    boostStatus = 0;
     
     //Unschedule fire
     [self unschedule:@selector(fire)];
@@ -759,9 +761,11 @@
 {
     isHeadStart = YES;
     
-    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"H_happy"]];
-    [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
     self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
+    [self playAnimationForever:@"H_happy"];
+    
+    boostStatus = 0;
+    self.heroState = @"booster";
     
     //Create support
     CCSprite *headStartSupport = [CCSprite spriteWithSpriteFrameName:@"O_headstart_1.png"];
@@ -817,7 +821,7 @@
     }
     [self.sprite addChild:headStartTrail z:-3 tag:TAG_HEADSTART_TRAIL];
     
-    [self changeCollisionDetection:C_NOTHING];
+    [self changeCollisionDetection:C_STAR];
     [self boosterReady];
     [self boosterBackgroundStart];
 }
@@ -836,17 +840,28 @@
 
 -(void) booster:(NSArray *)value;
 {
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
     if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
     {
         [self performSelector:@selector(blindFin)];
     }
     
-    DLog(@"booster");
+    [self playAnimationForever:@"H_booster"];
+    
     //Ready effect
     [[BackgroundController shared] speedUpWithScale:0.5 interval:0.5];
-    [self changeCollisionDetection:C_NOTHING];
+    [self changeCollisionDetection:C_STAR];
     [self scheduleOnce:@selector(boosterReady) delay:1];
     [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
+    
+    boostStatus = 0;
+    self.heroState = @"booster";
 }
 
 -(void) boosterBackgroundStart
@@ -859,7 +874,7 @@
 -(void) boosterReady
 {
     float interval = [self getBoosterInterval];
-    self.heroState = @"boosterReady";
+    boostStatus = 1;
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
     particleNode.position = CGPointZero;
@@ -867,18 +882,26 @@
 
 -(void) boosterStart
 {
-    self.heroState = @"boosterStart";
+    boostStatus = 2;
     float interval = [self getBoosterInterval];
     [[[BoardManager shared] getBoard] boosterEffect];
     
     
     self.body->SetGravityScale(0);
     self.body->SetLinearVelocity(b2Vec2(0,0));
-    [self scheduleOnce:@selector(boosterEnd) delay:interval];
+    [self scheduleOnce:@selector(boosterFin) delay:interval];
 }
 
--(void) boosterEnd
+-(void) boosterFin
 {
+    //Reset hero gravity
+    self.body->SetGravityScale((self.gravity)/100.0f);
+    
+    //Reset hero movement control
+    adjustJump = 1;
+    adjustMove = 1;
+    boostStatus = 0;
+    
     [[[BoardManager shared] getBoard] boosterEnd];
     
     [self resetCollisionDetection];
@@ -903,6 +926,10 @@
         [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] runAction:[CCSequence actions:fadeOutAnim, removeTrailFunc, nil]];
         [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] runAction:[CCSequence actions:fadeOutAnim, removeSupportFunc, nil]];
     }
+    
+    //Change hero state back to idle
+    self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
 }
 
 -(void) magic:(NSArray *)value;
@@ -1175,6 +1202,7 @@
     [self idle];
 }
 
+//Warning: This function is not being used
 -(void) rocketPowerup:(float)duration
 {
     float scale = self.sprite.scale;

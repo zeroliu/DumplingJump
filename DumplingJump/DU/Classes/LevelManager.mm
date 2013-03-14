@@ -344,12 +344,23 @@ toRemovePowderArray = _toRemovePowderArray;
             //Trigger a sentence
             Sentence *mySentence = [currentParagraph getSentenceAtIndex:sentenceIndex];
             double waitingTime = 0;
+            int mirrorRate = randomInt(0, 2);
+            BOOL isMirror = NO;
+            if (mirrorRate > 0)
+            {
+                isMirror = YES;
+            }
             for (int i=0; i<SLOTS_NUM; i++)
             {
+                int dropSlot = i;
+                if (isMirror)
+                {
+                    dropSlot = SLOTS_NUM - i - 1;
+                }
                 NSString *item = [mySentence.words objectAtIndex:i];
                 if ([item rangeOfString:@"*"].location == 0)
                 {
-                    [[StarManager shared] dropStar:item AtSlot:i];
+                    [[StarManager shared] dropStar:item AtSlot:dropSlot];
                     double starWait = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starWait"] doubleValue];
                     waitingTime = MAX(waitingTime, starWait);
                 } else
@@ -359,11 +370,11 @@ toRemovePowderArray = _toRemovePowderArray;
                         double warningTime = ((AddthingObjectData *)[((AddthingFactory *)[AddthingFactory shared]).addthingDictionary objectForKey:item]).warningTime;
                         if (warningTime > 0)
                         {
-                            [self dropAddthingWithName:item atSlot:i warning:warningTime];
+                            [self dropAddthingWithName:item atSlot:dropSlot warning:warningTime];
                         }
                         else
                         {
-                            AddthingObject *addthing = [self dropAddthingWithName:item atSlot:i];
+                            AddthingObject *addthing = [self dropAddthingWithName:item atSlot:dropSlot];
                             waitingTime = MAX(waitingTime, addthing.wait);
                         }
                     }

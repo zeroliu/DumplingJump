@@ -87,7 +87,7 @@
 									<object class="IBUIImageView" id="65392887">
 										<reference key="NSNextResponder" ref="505511591"/>
 										<int key="NSvFlags">301</int>
-										<string key="NSFrameSize">{40, 40}</string>
+										<string key="NSFrameSize">{45, 45}</string>
 										<reference key="NSSuperview" ref="505511591"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -98,7 +98,7 @@
 										</object>
 									</object>
 								</array>
-								<string key="NSFrame">{{25, 17}, {40, 40}}</string>
+								<string key="NSFrame">{{22, 14}, {45, 45}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSNextKeyView" ref="65392887"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -216,113 +216,14 @@
 			<nil key="sourceID"/>
 			<int key="maxID">11</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">DUTableViewCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/DUTableViewCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">EquipmentViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="didBackButtonClicked:">id</string>
-						<string key="didContinueButtonClicked:">id</string>
-						<string key="didStoreButtonClicked:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="didBackButtonClicked:">
-							<string key="name">didBackButtonClicked:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="didContinueButtonClicked:">
-							<string key="name">didContinueButtonClicked:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="didStoreButtonClicked:">
-							<string key="name">didStoreButtonClicked:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="backButton">UIButton</string>
-						<string key="backgroundView">UIView</string>
-						<string key="bottomImage">UIImageView</string>
-						<string key="continueButton">UIButton</string>
-						<string key="starIcon">UIImageView</string>
-						<string key="starNumLabel">UILabel</string>
-						<string key="storeButton">UIButton</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="backButton">
-							<string key="name">backButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="backgroundView">
-							<string key="name">backgroundView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="bottomImage">
-							<string key="name">bottomImage</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="continueButton">
-							<string key="name">continueButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="starIcon">
-							<string key="name">starIcon</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="starNumLabel">
-							<string key="name">starNumLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="storeButton">
-							<string key="name">storeButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/EquipmentViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">LockedEquipmentViewCell</string>
-					<string key="superclassName">DUTableViewCell</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="equipmentImageView">UIImageView</string>
-						<string key="parentView">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="equipmentImageView">
-							<string key="name">equipmentImageView</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="parentView">
-							<string key="name">parentView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/LockedEquipmentViewCell.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="UI_equip_box_locked.png">{508, 150}</string>
-			<string key="UI_item_bomb_shadow.png">{71, 67}</string>
+			<string key="UI_item_bomb_shadow.png">{80, 80}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

@@ -27,54 +27,55 @@ cleanTime = _cleanTime, //How long does it take to make the addthing disappear b
 triggerCleanHero = _triggerCleanHero, //1 => Addthing get removed after touch the hero. Any other numbers => nothing happens
 triggerCleanHeroStepOn = _triggerCleanHeroStepOn, //1 => Addthing get removed after hero steps on it
 triggerCleanWorld = _triggerCleanWorld,
-triggerCleanBoard = _triggerCleanBoard;
+triggerCleanBoard = _triggerCleanBoard,
+type = _type;
 
--(id) initWithName              :(NSString *)theName 
-heroReactAnimationName          :(NSString *)theHeroReactAnimationName 
-effectName                      :(NSString *)theEffectName 
-reactHeroSelectorName           :(NSString *)theReactHeroSelectorName
-reactHeroSelectorParam          :(NSString *)theReactHeroSelectorParam
-reactHeroStepOnSelectorName     :(NSString *)theReactHeroStepOnSelectorName
-reactHeroStepOnSelectorParam    :(NSString *)theReactHeroStepOnSelectorParam
-reactWorldSelectorName          :(NSString *)theReactWorldSelectorName
-reactWorldSelectorParam         :(NSString *)theReactWorldSelectorParam
-reactTimeSelectorName           :(NSString *)theReactTimeSelectorName
-reactionLasting                 :(double) theReactionLasting
-reactTime                       :(double) theReactTime
-cleanTime                       :(double) theCleanTime
-triggerCleanHero                :(int) theTriggerCleanHero
-triggerCleanHeroStepOn          :(int) theTriggerCleanHeroStepOn
-triggerCleanWorld               :(int)theTriggerCleanWorld
-triggerCleanBoard               :(int)theTriggerCleanBoard
-{
-    if (self = [super init])
-    {
-        _name = theName;
-        _heroReactAnimationName = theHeroReactAnimationName;
-        _effectName = theEffectName;
-        _reactHeroSelectorName = theReactHeroSelectorName;
-        _reactHeroSelectorParam = theReactHeroSelectorParam;
-        _reactHeroStepOnSelectorName = theReactHeroStepOnSelectorName;
-        _reactHeroStepOnSelectorParam = theReactHeroStepOnSelectorParam;
-        _reactWorldSelectorName = theReactWorldSelectorName;
-        _reactWorldSelectorParam = theReactWorldSelectorParam;
-        _reactTimeSelectorName = theReactTimeSelectorName;
-        _reactionLasting = theReactionLasting;
-        _reactTime = theReactTime;
-        _cleanTime = theCleanTime;
-        _triggerCleanHero = theTriggerCleanHero;
-        _triggerCleanHeroStepOn = theTriggerCleanHeroStepOn;
-        _triggerCleanWorld = theTriggerCleanWorld;
-        _triggerCleanBoard = theTriggerCleanBoard;
-        
-        if (_heroReactAnimationName != nil)
-        {
-            [ANIMATIONMANAGER registerAnimationForName:_heroReactAnimationName];
-        }
-    }
-    
-    return self;
-}
+//-(id) initWithName              :(NSString *)theName 
+//heroReactAnimationName          :(NSString *)theHeroReactAnimationName 
+//effectName                      :(NSString *)theEffectName 
+//reactHeroSelectorName           :(NSString *)theReactHeroSelectorName
+//reactHeroSelectorParam          :(NSString *)theReactHeroSelectorParam
+//reactHeroStepOnSelectorName     :(NSString *)theReactHeroStepOnSelectorName
+//reactHeroStepOnSelectorParam    :(NSString *)theReactHeroStepOnSelectorParam
+//reactWorldSelectorName          :(NSString *)theReactWorldSelectorName
+//reactWorldSelectorParam         :(NSString *)theReactWorldSelectorParam
+//reactTimeSelectorName           :(NSString *)theReactTimeSelectorName
+//reactionLasting                 :(double) theReactionLasting
+//reactTime                       :(double) theReactTime
+//cleanTime                       :(double) theCleanTime
+//triggerCleanHero                :(int) theTriggerCleanHero
+//triggerCleanHeroStepOn          :(int) theTriggerCleanHeroStepOn
+//triggerCleanWorld               :(int)theTriggerCleanWorld
+//triggerCleanBoard               :(int)theTriggerCleanBoard
+//{
+//    if (self = [super init])
+//    {
+//        _name = theName;
+//        _heroReactAnimationName = theHeroReactAnimationName;
+//        _effectName = theEffectName;
+//        _reactHeroSelectorName = theReactHeroSelectorName;
+//        _reactHeroSelectorParam = theReactHeroSelectorParam;
+//        _reactHeroStepOnSelectorName = theReactHeroStepOnSelectorName;
+//        _reactHeroStepOnSelectorParam = theReactHeroStepOnSelectorParam;
+//        _reactWorldSelectorName = theReactWorldSelectorName;
+//        _reactWorldSelectorParam = theReactWorldSelectorParam;
+//        _reactTimeSelectorName = theReactTimeSelectorName;
+//        _reactionLasting = theReactionLasting;
+//        _reactTime = theReactTime;
+//        _cleanTime = theCleanTime;
+//        _triggerCleanHero = theTriggerCleanHero;
+//        _triggerCleanHeroStepOn = theTriggerCleanHeroStepOn;
+//        _triggerCleanWorld = theTriggerCleanWorld;
+//        _triggerCleanBoard = theTriggerCleanBoard;
+//        
+//        if (_heroReactAnimationName != nil)
+//        {
+//            [ANIMATIONMANAGER registerAnimationForName:_heroReactAnimationName];
+//        }
+//    }
+//    
+//    return self;
+//}
 
 -(id) initEmptyData
 {
@@ -97,6 +98,7 @@ triggerCleanBoard               :(int)theTriggerCleanBoard
         _triggerCleanHeroStepOn = -1;
         _triggerCleanWorld = -1;
         _triggerCleanBoard = -1;
+        _type = nil;
     }
     
     return self;

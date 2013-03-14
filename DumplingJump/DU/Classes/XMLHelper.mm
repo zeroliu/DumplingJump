@@ -364,6 +364,9 @@
                 } else if ([[child name] isEqualToString:@"trigger_clean_time"])
                 {
                     theReaction.cleanTime = [[child stringValue] doubleValue];
+                } else if ([[child name] isEqualToString:@"type"])
+                {
+                    theReaction.type = [child stringValue];
                 }
             }
             [dict setObject:theReaction forKey:theReaction.name];

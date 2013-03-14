@@ -64,7 +64,7 @@
         if ([objectName isEqualToString:@"SLASH"])
         {
             objectFixtureDef.filter.categoryBits = C_SLASH;
-            objectFixtureDef.filter.maskBits = C_ADDTHING | C_STAR;
+            objectFixtureDef.filter.maskBits = C_ADDTHING;
         } else if ([objectName isEqualToString:@"STAR"] || [objectName isEqualToString:@"MEGA"])
         {
             objectFixtureDef.filter.categoryBits = C_STAR;

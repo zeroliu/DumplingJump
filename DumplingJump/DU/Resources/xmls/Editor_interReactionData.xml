@@ -13,7 +13,7 @@
         <CLAW>CLAW</CLAW>
 	</data>
 	<data>
-		<name>ARROW</name>
+		<name>arrow</name>
 		<ARROW>covered</ARROW>
 		<BLIND>overlay</BLIND>
 		<ICE>covered</ICE>
@@ -25,7 +25,7 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>BLIND</name>
+		<name>blind</name>
 		<ARROW>overlay</ARROW>
 		<BLIND>covered</BLIND>
 		<ICE>overlay</ICE>
@@ -37,7 +37,7 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>ICE</name>
+		<name>ice</name>
 		<ARROW>covered</ARROW>
 		<BLIND>covered</BLIND>
 		<ICE>covered</ICE>
@@ -49,7 +49,7 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>SPRING</name>
+		<name>spring</name>
 		<ARROW>covered</ARROW>
 		<BLIND>covered</BLIND>
 		<ICE>covered</ICE>
@@ -61,7 +61,7 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>SPRING_BOOST</name>
+		<name>springBoost</name>
 		<ARROW>destroy</ARROW>
 		<BLIND>destroy</BLIND>
 		<ICE>destroy</ICE>
@@ -73,7 +73,7 @@
         <CLAW>destroy</CLAW>
 	</data>
     <data>
-		<name>SHELTER</name>
+		<name>shelter</name>
 		<ARROW>destroy</ARROW>
 		<BLIND>destroy</BLIND>
 		<ICE>destroy</ICE>
@@ -85,7 +85,7 @@
         <CLAW>destroy</CLAW>
 	</data>
     <data>
-		<name>BOOSTER</name>
+		<name>booster</name>
 		<ARROW>pass</ARROW>
 		<BLIND>pass</BLIND>
 		<ICE>pass</ICE>
@@ -97,7 +97,7 @@
         <CLAW>pass</CLAW>
 	</data>
     <data>
-		<name>MAGIC</name>
+		<name>magic</name>
 		<ARROW>covered</ARROW>
 		<BLIND>covered</BLIND>
 		<ICE>covered</ICE>
@@ -109,7 +109,7 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>STAR</name>
+		<name>star</name>
 		<ARROW>covered</ARROW>
 		<BLIND>covered</BLIND>
 		<ICE>covered</ICE>
@@ -121,7 +121,7 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>ABSORB</name>
+		<name>absorb</name>
 		<ARROW>overlay</ARROW>
 		<BLIND>overlay</BLIND>
 		<ICE>overlay</ICE>
@@ -133,13 +133,25 @@
         <CLAW>covered</CLAW>
 	</data>
     <data>
-		<name>CLAW</name>
+		<name>claw</name>
 		<ARROW>covered</ARROW>
 		<BLIND>overlay</BLIND>
 		<ICE>covered</ICE>
 		<SPRING>covered</SPRING>
 		<MAGIC>covered</MAGIC>
 		<SHELTER>covered</SHELTER>
+		<STAR>noExpression</STAR>
+		<ABSORB>overlay</ABSORB>
+        <CLAW>covered</CLAW>
+	</data>
+    <data>
+		<name>idle</name>
+		<ARROW>covered</ARROW>
+		<BLIND>overlay</BLIND>
+		<ICE>covered</ICE>
+		<SPRING>covered</SPRING>
+		<MAGIC>covered</MAGIC>
+		<SHELTER>overlay</SHELTER>
 		<STAR>noExpression</STAR>
 		<ABSORB>overlay</ABSORB>
         <CLAW>covered</CLAW>

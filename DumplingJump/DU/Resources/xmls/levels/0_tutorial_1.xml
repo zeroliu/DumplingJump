@@ -14,11 +14,11 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot1>*/</slot1>
+		<slot5>POWDER</slot5>
 	</level>
 	<level>
 		<time>2</time>
-		<slot1>*\</slot1>
+		<slot1>SPRING</slot1>
 	</level>
 	<level>
 		<time>3</time>

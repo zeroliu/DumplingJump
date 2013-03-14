@@ -7,6 +7,9 @@
 //
 #define ABSORB_POWERUP_TAG 10
 #define REBORN_POWERUP_TAG 20
+#define SHIELD_POWERUP_TAG 30
+#define BLIND_EFFECT_TAG 35
+#define HERO_FOREVER_ANIMATION_TAG 40
 
 #import "Hero.h"
 #import "AddthingObject.h"
@@ -17,6 +20,9 @@
 #import "GameModel.h"
 #import "GameUI.h"
 #import "DUEffectObject.h"
+#import "InterReactionManager.h"
+#import <Foundation/Foundation.h>
+
 @interface Hero()
 {
     float adjustMove, adjustJump;
@@ -29,6 +35,7 @@
     int blowAwayTrigger; //-1 left, 0 off, 1 right
     int freezeTrigger; //-1 left, 0 off, 1 right
     BOOL isHeadStart;
+    int boostStatus; //0 none, 1 ready, 2 start
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -45,7 +52,7 @@
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateArray = _overlayHeroStateArray;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateDictionary = _overlayHeroStateDictionary, isSpringBoost = _isSpringBoost, boostStatus;
 
 #pragma mark -
 #pragma Initialization
@@ -63,7 +70,7 @@
         self.jumpValue = theJumpValue;
         self.gravity = theGravity;
         
-        _overlayHeroStateArray = [[NSMutableArray alloc] init];
+        _overlayHeroStateDictionary = [[NSMutableDictionary alloc] init];
         
         [self initHeroParam];
         [self initHeroSpriteWithFile:@"H_hero_1.png" position:thePosition];
@@ -71,7 +78,7 @@
         [self initSpeed];
         [self initGestureHandler];
         [self initContactListener];
-        [self idle];
+        [self resetHero];
     }
     
     return self;
@@ -84,6 +91,7 @@
     isReborning = NO;
     isAbsorbing = NO;
     isHeadStart = NO;
+    _isSpringBoost = NO;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -106,7 +114,6 @@
     
     b2CircleShape heroShape;
     
-//    heroShape.m_radius = (self.sprite.contentSize.height/2-10) /RATIO;
     heroShape.m_radius = self.radius / RATIO * SCALE_MULTIPLIER;
     self.sprite.scale = (heroShape.m_radius * RATIO + 20) * 2 / origHeight;
     b2FixtureDef heroFixtureDef;
@@ -198,17 +205,18 @@
 {
     if (lastVelocity.y > 0 && self.body->GetLinearVelocity().y < 0)
     {
-        if ([self.heroState isEqualToString:@"springBoost"])
+        if (_isSpringBoost)
         {
             [self removeHeroSpringEffect];
             id animation = [ANIMATIONMANAGER getAnimationWithName:HEROSPRING];
             if(animation != nil)
             {
-                [self.sprite stopAllActions];
-                id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+                [self.sprite stopActionByTag:HERO_FOREVER_ANIMATION_TAG];
+                CCRepeatForever *animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+                animAction.tag = HERO_FOREVER_ANIMATION_TAG;
                 [self.sprite runAction:animAction];
             }
-            self.heroState = @"spring";
+            _isSpringBoost = NO;
         }
     }
     lastVelocity = self.body->GetLinearVelocity();
@@ -219,41 +227,42 @@
     //Ready phase, hero slowly moving back
     if ([self.heroState isEqualToString:@"booster"])
     {
-        self.body->SetLinearVelocity(b2Vec2(0, -0.5));
-    }
-    
-    if ([self.heroState isEqualToString:@"boosterReady"])
-    {
-        if (self.sprite.position.y > 650)
+        if (boostStatus == 0)
         {
-            self.heroState = @"boosterStart";
-            [self boosterStart];
-            return;
+            self.body->SetLinearVelocity(b2Vec2(0, -0.5));
         }
-        
-        self.body->SetLinearVelocity(b2Vec2(self.speed.x, 30));
-    }
-    
-    if ([self.heroState isEqualToString:@"boosterStart"])
-    {
-        //Fake floating effect
-        if (self.sprite.position.y < 330)
+        else if (boostStatus == 1)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(1, 2)));
+            if (self.sprite.position.y > 650)
+            {
+                boostStatus = 2;
+                [self boosterStart];
+                return;
+            }
+            
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, 30));
         }
-        else if (self.sprite.position.y > 380)
+        else if (boostStatus == 2)
         {
-            self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-2, -1)));
-        }
-        
-        //Don't move out of the screen
-        if (self.sprite.position.x < 50)
-        {
-            self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
-        }
-        else if (self.sprite.position.x > 270)
-        {
-            self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
+            //Fake floating effect
+            if (self.sprite.position.y < 330)
+            {
+                self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
+            }
+            else if (self.sprite.position.y > 380)
+            {
+                self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-5, -1)));
+            }
+            
+            //Don't move out of the screen
+            if (self.sprite.position.x < 50)
+            {
+                self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
+            }
+            else if (self.sprite.position.x > 270)
+            {
+                self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
+            }
         }
     }
 }
@@ -284,7 +293,7 @@
         self.body->SetLinearVelocity(self.speed);
     }
     
-    if (maskNode != NULL)
+    if (maskNode != nil)
     {
         [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     }
@@ -310,10 +319,9 @@
 
 -(void) springJump
 {
-    
     if (self.isOnGround && self.sprite.position.y < [CCDirector sharedDirector].winSize.height/2)
     {
-        self.heroState = @"springBoost";
+        _isSpringBoost = YES;
         CCSprite *springBoostEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_spring_1.png"];
         springBoostEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
         id boostAnimation = [ANIMATIONMANAGER getAnimationWithName:SPRINGBOOSTEFFECT];
@@ -333,8 +341,9 @@
         id animation = [ANIMATIONMANAGER getAnimationWithName:SPRINGJUMP];
         if(animation != nil)
         {
-            [self.sprite stopAllActions];
-            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            [self.sprite stopActionByTag:HERO_FOREVER_ANIMATION_TAG];
+            CCRepeatForever *animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+            animAction.tag = HERO_FOREVER_ANIMATION_TAG;
             [self.sprite runAction:animAction];
         }
         
@@ -354,69 +363,292 @@
     }
 }
 
--(void) idle
+-(void) shelterFin
 {
-    if (![self.heroState isEqualToString: HEROIDLE])
-    {
-        self.heroState = HEROIDLE;
-        id animation = [ANIMATIONMANAGER getAnimationWithName:HEROIDLE];
-        
-        if(animation != nil)
-        {
-            [self.sprite stopAllActions];
-            //self.sprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@_1.png", HEROIDLE]];
-            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
-            [self.sprite runAction:animAction];
-        }
-        
-        for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
-        {
-            if ([(NSString *)f->GetUserData() isEqualToString:@"heroBody"])
-            {
-                f->SetFriction(self.fric);
-            } else
-            {
-                f->SetFriction(0);
-            }
-        }
-        for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
-        {
-            contactEdge->contact->ResetFriction();
-        }
-        
-        self.body->SetGravityScale((self.gravity)/100.0f);
-        
-        directionForce = b2Vec2(0,0);
-        
-        adjustJump = 1;
-        adjustMove = 1;
-        freezeTrigger = 0;
-        blowAwayTrigger = 0;
-
-        [self unschedule:@selector(fire)];
-        
-        if (maskNode != nil)
-        {
-            [maskNode removeMask];
-            [maskNode release];
-            maskNode = nil;
-        }
-        
-        [self removeHeroSpringEffect];
-    }
+    //Remove shield effect
+    [self.sprite removeChildByTag:SHIELD_POWERUP_TAG cleanup:NO];
+    
+    //Remove shelter state
+    [self.overlayHeroStateDictionary removeObjectForKey:@"shelter"];
+    [self playCurrentFacialAnimation];
 }
 
--(void) dizzy
+-(void) absorbFin
 {
-    //TODO: change the hero status
+    //Remove absorb effect
+    [self removeAbsorbCollisionDetection];
+    isAbsorbing = NO;
+    [self.sprite removeChildByTag:ABSORB_POWERUP_TAG cleanup:NO];
     
+    //Remove absorb state
+    [self.overlayHeroStateDictionary removeObjectForKey:@"absorb"];
+    [self playCurrentFacialAnimation];
+}
+
+-(void) hurtFin
+{
+    //Remove hurt effect
+    directionForce = b2Vec2(0,0);
+    adjustJump = 1;
+    adjustMove = 1;
     
+    //Change hero state back to idle
+    self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
+}
+
+-(void) iceFin
+{
+    //Remove ice effect
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if ([(NSString *)f->GetUserData() isEqualToString:@"heroBody"])
+        {
+            f->SetFriction(self.fric);
+        } else
+        {
+            f->SetFriction(0);
+        }
+    }
+    for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+    {
+        contactEdge->contact->ResetFriction();
+    }
+    adjustJump = 1;
+    adjustMove = 1;
+    freezeTrigger = 0;
+    
+    //Change hero state back to idle
+    self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
+}
+
+-(void) springFin
+{
+    //Remove spring effect
+    _isSpringBoost = NO;
+    [self removeHeroSpringEffect];
+    
+    //Change hero state back to idle
+    self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
+}
+
+-(void) magicFin
+{
+    //Remove magic effect
+    [self unschedule:@selector(fire)];
+    
+    //Change hero state back to idle
+    self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
+}
+
+-(void) blindFin
+{
+    [self stopActionByTag:BLIND_EFFECT_TAG];
+    //Remove blind mask
+    if (maskNode != nil)
+    {
+        [maskNode removeMask];
+        [maskNode release];
+        maskNode = nil;
+    }
+    
+    [self.overlayHeroStateDictionary removeObjectForKey:@"blind"];
+    [self playCurrentFacialAnimation];
+}
+
+-(void) playCurrentFacialAnimation
+{
+    NSString *animationToPlay = nil;
+    //If has main reaction
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        animationToPlay = [[ReactionManager shared] getHeroReactAnimationName:self.heroState];
+    }
+    else
+    {
+        //if only has overlay reaction
+        if ([self.overlayHeroStateDictionary count] > 0)
+        {
+            if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+            {
+                animationToPlay = @"H_blind";
+            }
+            else
+            {
+                animationToPlay = @"H_happy";
+            }
+        }
+    }
+    
+    //If hero has no reaction
+    if (animationToPlay == nil)
+    {
+        animationToPlay = @"H_hero";
+    }
+    
+    id animation = [ANIMATIONMANAGER getAnimationWithName:animationToPlay];
+    id animAction = nil;
+    if (animation != nil)
+    {
+        animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+    }
+    else
+    {
+        animation = [ANIMATIONMANAGER getAnimationWithName:[[ReactionManager shared] getHeroReactAnimationName:HEROIDLE]];
+        animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+    }
+    [self.sprite stopAllActions];
+    [self.sprite runAction:animAction];
+}
+
+- (void) resetHero
+{
+    self.heroState = @"idle";
+    [self.overlayHeroStateDictionary removeAllObjects];
+    
+    [self.sprite stopAllActions];
+    [self stopAllActions];
+    
+    //Play idle animation
+    id animation = [ANIMATIONMANAGER getAnimationWithName:HEROIDLE];
+    if(animation != nil)
+    {
+        [self.sprite stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+        [self.sprite runAction:animAction];
+    }
+    
+    //Reset hero friction
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if ([(NSString *)f->GetUserData() isEqualToString:@"heroBody"])
+        {
+            f->SetFriction(self.fric);
+        } else
+        {
+            f->SetFriction(0);
+        }
+    }
+    for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+    {
+        contactEdge->contact->ResetFriction();
+    }
+    
+    //Reset hero gravity
+    self.body->SetGravityScale((self.gravity)/100.0f);
+    
+    //Reset the force on hero
+    directionForce = b2Vec2(0,0);
+    
+    //Reset hero movement control
+    adjustJump = 1;
+    adjustMove = 1;
+    freezeTrigger = 0;
+    blowAwayTrigger = 0;
+    boostStatus = 0;
+    
+    //Unschedule fire
+    [self unschedule:@selector(fire)];
+    
+    //Remove blind mask
+    if (maskNode != nil)
+    {
+        [maskNode removeMask];
+        [maskNode release];
+        maskNode = nil;
+    }
+    
+    [[self.sprite getChildByTag:TAG_SPRING_BOOST] removeFromParentAndCleanup:NO];
+    [[self.sprite getChildByTag:ABSORB_POWERUP_TAG] removeFromParentAndCleanup:NO];
+    [[self.sprite getChildByTag:SHIELD_POWERUP_TAG] removeFromParentAndCleanup:NO];
+}
+
+- (void) idle
+{
+    self.heroState = @"idle";
+    /*
+    id animation = [ANIMATIONMANAGER getAnimationWithName:HEROIDLE];
+    
+    if(animation != nil)
+    {
+        [self.sprite stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
+        [self.sprite runAction:animAction];
+    }
+    
+    for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if ([(NSString *)f->GetUserData() isEqualToString:@"heroBody"])
+        {
+            f->SetFriction(self.fric);
+        } else
+        {
+            f->SetFriction(0);
+        }
+    }
+    for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
+    {
+        contactEdge->contact->ResetFriction();
+    }
+    
+    self.body->SetGravityScale((self.gravity)/100.0f);
+    
+    directionForce = b2Vec2(0,0);
+    
+    adjustJump = 1;
+    adjustMove = 1;
+    freezeTrigger = 0;
+    blowAwayTrigger = 0;
+
+    [self unschedule:@selector(fire)];
+    
+    if (maskNode != nil)
+    {
+        [maskNode removeMask];
+        [maskNode release];
+        maskNode = nil;
+    }
+    
+    [self removeHeroSpringEffect];
+*/
 }
 
 -(void) hurt:(NSArray *)value
 {
     int hurtValue = [[value objectAtIndex:0] intValue];
-    DUPhysicsObject *contactObject = [value objectAtIndex:1];
+    AddthingObject *contactObject = [value objectAtIndex:1];
+    
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    //If hero is not blind
+    if (![self.overlayHeroStateDictionary objectForKey:@"blind"])
+    {
+        //Play hurt animation
+        [self playAnimation:@"H_hurt" duration:contactObject.reaction.reactionLasting callback:^{
+            [self performSelector:@selector(hurtFin)];
+        }];
+    }
+    else
+    {
+        //If hero is blind
+        //Just remove the reaction after the reactionLasting
+        id delay = [CCDelayTime actionWithDuration:contactObject.reaction.reactionLasting];
+        id callback = [CCCallBlock actionWithBlock:^{
+            [self performSelector:@selector(hurtFin)];
+        }];
+        [self.sprite runAction:[CCSequence actions:delay, callback, nil]];
+    }
+    
+    self.heroState = @"hurt";
+    
     int offset = 0;
     if (contactObject.sprite.position.x > self.sprite.position.x)
     {
@@ -428,9 +660,6 @@
     directionForce = b2Vec2(offset * self.body->GetMass() * 10 * hurtValue, 0);
     adjustJump = 0;
     adjustMove = 0;
-    //self.body->ApplyLinearImpulse(directionForce, self.body->GetPosition());
-    //self.body->ApplyForce(directionForce, self.body->GetPosition());
-    
 }
 
 -(void) bowEffect:(NSArray *)value
@@ -439,19 +668,24 @@
 
     adjustJump = 0;
     adjustMove = 0;
+
     //Blow hero
-    
-    float distance = ccpDistance(explosionPos, self.sprite.position);
-    float explosionForce = SHOCK_PRESSURE / 500;
-    self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
-    
-    if (self.sprite.position.x < explosionPos.x)
+    if (![self.heroState isEqualToString:@"booster"])
     {
-        blowAwayTrigger = -1;
-    } else
-    {
-        blowAwayTrigger = 1;
+        [self changeCollisionDetection:C_NOTHING];
+        float distance = ccpDistance(explosionPos, self.sprite.position);
+        float explosionForce = SHOCK_PRESSURE / 500;
+        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
+        
+        if (self.sprite.position.x < explosionPos.x)
+        {
+            blowAwayTrigger = -1;
+        } else
+        {
+            blowAwayTrigger = 1;
+        }
     }
+
     //Blow objects
     for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
     {
@@ -460,17 +694,29 @@
         float explosionForce = SHOCK_PRESSURE/5000/distance;
         ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (objectPos.x - explosionPos.x), explosionForce * ob.body->GetMass() * (objectPos.y - explosionPos.y)), ob.body->GetPosition());
     }
-
 }
 
--(void) flat
+-(void) flat:(NSArray *)value
 {
     adjustJump = 0;
 }
 
--(void) freeze
+-(void) freeze:(NSArray *)value
 {
-//    self.body->GetFixtureList()->SetFriction(0);
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    AddthingObject *contactObject = [value lastObject];
+    
+    [self playAnimation:@"H_ice" duration:contactObject.reaction.reactionLasting callback:^{
+        [self performSelector:@selector(iceFin)];
+    }];
+    
+    self.heroState = @"ice";
+    
     for ( b2Fixture* bodyFixture = self.body->GetFixtureList(); bodyFixture; bodyFixture = bodyFixture->GetNext())
     {
         bodyFixture->SetFriction(0);
@@ -480,7 +726,7 @@
     {
         contactEdge->contact->ResetFriction();
     }
-//    for ( b2Shape* shape = self.body->get)
+
     adjustJump = 0;
     adjustMove = 0;
     
@@ -494,23 +740,36 @@
     }
 }
 
--(void) spring
+-(void) spring:(NSArray *)value
 {
-    DLog(@"spring");
-}
-
--(void) shelter
-{
-    DLog(@"shelter");
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+    {
+        [self performSelector:@selector(blindFin)];
+    }
+    
+    [self playAnimation:@"H_spring" duration:[[POWERUP_DATA objectForKey:@"SPRING"] floatValue] callback:^{
+        [self performSelector:@selector(springFin)];
+    }];
+    
+    self.heroState = @"spring";
 }
 
 -(void) headStart
 {
     isHeadStart = YES;
     
-    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"H_happy"]];
-    [self.sprite runAction:[CCRepeatForever actionWithAction:animate]];
     self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
+    [self playAnimationForever:@"H_happy"];
+    
+    boostStatus = 0;
+    self.heroState = @"booster";
     
     //Create support
     CCSprite *headStartSupport = [CCSprite spriteWithSpriteFrameName:@"O_headstart_1.png"];
@@ -566,7 +825,7 @@
     }
     [self.sprite addChild:headStartTrail z:-3 tag:TAG_HEADSTART_TRAIL];
     
-    [self changeCollisionDetection:C_NOTHING];
+    [self changeCollisionDetection:C_STAR];
     [self boosterReady];
     [self boosterBackgroundStart];
 }
@@ -583,14 +842,30 @@
     }
 }
 
--(void) booster
+-(void) booster:(NSArray *)value;
 {
-    DLog(@"booster");
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+    {
+        [self performSelector:@selector(blindFin)];
+    }
+    
+    [self playAnimationForever:@"H_booster"];
+    
     //Ready effect
     [[BackgroundController shared] speedUpWithScale:0.5 interval:0.5];
-    [self changeCollisionDetection:C_NOTHING];
+    [self changeCollisionDetection:C_STAR];
     [self scheduleOnce:@selector(boosterReady) delay:1];
     [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
+    
+    boostStatus = 0;
+    self.heroState = @"booster";
 }
 
 -(void) boosterBackgroundStart
@@ -603,7 +878,7 @@
 -(void) boosterReady
 {
     float interval = [self getBoosterInterval];
-    self.heroState = @"boosterReady";
+    boostStatus = 1;
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
     particleNode.position = CGPointZero;
@@ -611,19 +886,26 @@
 
 -(void) boosterStart
 {
-    self.heroState = @"boosterStart";
+    boostStatus = 2;
     float interval = [self getBoosterInterval];
     [[[BoardManager shared] getBoard] boosterEffect];
     
     
     self.body->SetGravityScale(0);
     self.body->SetLinearVelocity(b2Vec2(0,0));
-    [self scheduleOnce:@selector(boosterEnd) delay:interval];
+    [self scheduleOnce:@selector(boosterFin) delay:interval];
+    [[[BoardManager shared] getBoard] scheduleOnce:@selector(boosterEnd) delay:interval-0.5];
 }
 
--(void) boosterEnd
+-(void) boosterFin
 {
-    [[[BoardManager shared] getBoard] boosterEnd];
+    //Reset hero gravity
+    self.body->SetGravityScale((self.gravity)/100.0f);
+    
+    //Reset hero movement control
+    adjustJump = 1;
+    adjustMove = 1;
+    boostStatus = 0;
     
     [self resetCollisionDetection];
     [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
@@ -647,25 +929,77 @@
         [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] runAction:[CCSequence actions:fadeOutAnim, removeTrailFunc, nil]];
         [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] runAction:[CCSequence actions:fadeOutAnim, removeSupportFunc, nil]];
     }
+    
+    //Change hero state back to idle
+    self.heroState = @"idle";
+    [self playCurrentFacialAnimation];
 }
 
 -(void) magic:(NSArray *)value;
 {
-    DLog(@"magic - %@", value);
-    [self schedule:@selector(fire) interval:[[POWERUP_DATA objectForKey:@"MAGIC"] floatValue]];
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] != nil)
+    {
+        [self performSelector:@selector(blindFin)];
+    }
+    
+    [self playAnimation:@"H_magic" duration:[[POWERUP_DATA objectForKey:@"MAGIC"] floatValue] callback:^{
+        [self performSelector:@selector(magicFin)];
+    }];
+    
+    [self schedule:@selector(fire) interval:[[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"magicFrequence"] floatValue]];
+    
+    self.heroState = @"magic";
 }
 
--(void) blind
+-(void) blind:(NSArray *)value
 {
-    DLog(@"blind");
-    CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
-    CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
+    AddthingObject *contactObject = [value lastObject];
     
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    maskNode = [[CircleMask alloc] initWithTexture:[blackBg retain] Mask:[mask retain]];
-    CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
-    final.position = ccp(winSize.width/2,winSize.height/2);
-    [GAMELAYER addChild:final z:10];
+    //If hero is not idle, stop and become idle
+    if (![self.heroState isEqualToString:@"idle"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"blind"] == nil)
+    {
+        [self playAnimationForever:@"H_blind"];
+        
+                
+        CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
+        CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
+        
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        maskNode = [[CircleMask alloc] initWithTexture:[blackBg retain] Mask:[mask retain]];
+        CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
+        final.position = ccp(winSize.width/2,winSize.height/2);
+        [GAMELAYER addChild:final z:10];
+    }
+    else
+    {
+        //Already blind
+        
+    }
+    
+    [self stopActionByTag:BLIND_EFFECT_TAG];
+    id delay = [CCDelayTime actionWithDuration:contactObject.reaction.reactionLasting];
+    id callback = [CCCallBlock actionWithBlock:^{
+        [self performSelector:@selector(blindFin)];
+    }];
+    CCSequence *sequence = [CCSequence actions:delay, callback, nil];
+    sequence.tag = BLIND_EFFECT_TAG;
+    [self runAction:sequence];
+
+    [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey:@"blind"];
+    
 }
 
 -(void) fire
@@ -684,7 +1018,6 @@
 -(void) star:(NSArray *)value
 {
     AddthingObject *star = [value objectAtIndex:1];
-    self.heroState = @"_star";
     
     if (isAbsorbing)
     {
@@ -702,6 +1035,13 @@
         [star.sprite runAction:moveToPlayer];
     } else
     {
+        if ([self.heroState isEqualToString:@"idle"] && [self.overlayHeroStateDictionary count] == 0)
+        {
+            [self playAnimation:@"H_happy" duration:1 callback:^{
+                [self playCurrentFacialAnimation];
+            }];
+        }
+        
         ((GameLayer *)GAMELAYER).model.star++;
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
@@ -710,8 +1050,14 @@
 
 -(void) megastar:(NSArray *)value
 {
+    if ([self.heroState isEqualToString:@"idle"] && [self.overlayHeroStateDictionary count] == 0)
+    {
+        [self playAnimation:@"H_happy" duration:1 callback:^{
+            [self playCurrentFacialAnimation];
+        }];
+    }
+    
     AddthingObject *megastar = [value objectAtIndex:1];
-    self.heroState = @"_megastar";
     
     ((GameLayer *)GAMELAYER).model.star += [[POWERUP_DATA objectForKey:@"MEGA"] intValue];
     [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
@@ -859,6 +1205,7 @@
     [self idle];
 }
 
+//Warning: This function is not being used
 -(void) rocketPowerup:(float)duration
 {
     float scale = self.sprite.scale;
@@ -908,6 +1255,23 @@
 
 -(void) absorbPowerup
 {
+    if (![self.heroState isEqualToString:@"idle"] && [[[InterReactionManager shared] getInterReactionByAddthingName:@"ABSORB" forHeroStatus:self.heroState] isEqualToString:@"covered"])
+    {
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+        [self playAnimationForever:@"H_happy"];
+    }
+    else if ([self.heroState isEqualToString:@"idle"] && [self.overlayHeroStateDictionary count] == 0)
+    {
+        [self playAnimationForever:@"H_happy"];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"absorb"] != nil)
+    {
+        [self performSelector:@selector(absorbFin)];
+    }
+    [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey: @"absorb"];
+    
     //Turn on absorb collision detection
     [self turnOnAbsorbCollisionDetection];
     
@@ -931,37 +1295,57 @@
     isAbsorbing = YES;
     
     //Wait for a certain amount of time
-    id delay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"MAGNET"] floatValue]];
+    id delay = [CCDelayTime actionWithDuration:[[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"absorbDuration"] floatValue]];
     //Remove effect
     id removeAbsorb = [CCCallBlock actionWithBlock:^
                        {
-                           [[self.sprite getChildByTag:ABSORB_POWERUP_TAG] removeFromParentAndCleanup:NO];
-                           //Remove absorb collision detection
-                           [self removeAbsorbCollisionDetection];
-                           isAbsorbing = NO;
+                           [self absorbFin];
                        }];
     CCSequence *sequence = [CCSequence actions:delay, removeAbsorb, nil];
     
     [self runAction:sequence];
 }
 
--(void) sheildPowerup
+-(void) shieldPowerup
 {
-    self.heroState = @"shelter";
-    [self.sprite stopAllActions];
-    id animation = [ANIMATIONMANAGER getAnimationWithName:@"H_shelter"];
-    
-    if(animation != nil)
+    //if hero has main reaction
+    if (![self.heroState isEqualToString:@"idle"] && [[[InterReactionManager shared] getInterReactionByAddthingName:@"SHELTER" forHeroStatus:self.heroState] isEqualToString:@"covered"])
     {
-        id startAnimation = [CCCallBlock actionWithBlock:^{
-            [self.sprite runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]]];
-        }];
-        id waitDelay = [CCDelayTime actionWithDuration:[[POWERUP_DATA objectForKey:@"SHELTER"] floatValue]];
-        id becomeIdle = [CCCallFunc actionWithTarget:self selector:@selector(idle)];
-        
-        id sequence = [CCSequence actions:startAnimation,waitDelay,becomeIdle, nil];
-        [self.sprite runAction:sequence];
+        SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
+        [self performSelector:stopReactionSelector];
+        [self playAnimationForever:@"H_happy"];
     }
+    else if ([self.heroState isEqualToString:@"idle"] && [self.overlayHeroStateDictionary count] == 0)
+    {
+        [self playAnimationForever:@"H_happy"];
+    }
+    
+    if ([self.overlayHeroStateDictionary objectForKey:@"shelter"] != nil)
+    {
+        [self performSelector:@selector(shelterFin)];
+    }
+    [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey: @"shelter"];
+    
+    //Create shield effect
+    CCSprite *shieldEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_shield_1.png"];
+    shieldEffect.tag = SHIELD_POWERUP_TAG;
+    shieldEffect.scale = 1.2;
+    shieldEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+    id animationShield = [ANIMATIONMANAGER getAnimationWithName:@"E_item_shield"];
+    if(animationShield != nil)
+    {
+        [shieldEffect stopAllActions];
+        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animationShield]];
+        [shieldEffect runAction:animAction];
+    }
+    [self.sprite addChild:shieldEffect z:1];
+    
+    id waitDelay = [CCDelayTime actionWithDuration:[[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"shieldDuration"] floatValue]];
+    id removeSheild = [CCCallFunc actionWithTarget:self selector:@selector(shelterFin)];
+    
+    CCSequence *sequence = [CCSequence actions:waitDelay, removeSheild, nil];
+    
+    [self runAction:sequence];
 }
 
 -(void)heroLandOnObject:(NSNotification *)notification
@@ -977,7 +1361,6 @@
 {
     self.isOnGround = NO;
     [self checkIfOnGround];
-//    DLog(@"Land off");
 }
 
 -(void)checkIfOnGround
@@ -992,7 +1375,6 @@
             contactEdge->contact->GetWorldManifold(&manifold);
             if (manifold.points[0].y < self.sprite.position.y)
             {
-                //DLog(@"%@", ((DUPhysicsObject *)contactEdge->contact->GetFixtureA()->GetUserData()).name);
                 res = YES;
                 break;
             }
@@ -1074,6 +1456,40 @@
     }
 }
 
+-(BOOL) isShelterOn
+{
+    BOOL result = NO;
+    for (NSString *status in _overlayHeroStateDictionary)
+    {
+        if ([status isEqualToString:@"shelter"])
+        {
+            result = YES;
+            break;
+        }
+    }
+    return result;
+}
+
+-(void) playAnimationForever:(NSString *)animName
+{
+    id animation = [ANIMATIONMANAGER getAnimationWithName:animName];
+    if(animation != nil)
+    {
+        CCRepeatForever *animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
+        animAction.tag = HERO_FOREVER_ANIMATION_TAG;
+        [self.sprite stopAllActions];
+        [self.sprite runAction:animAction];
+    }
+}
+
+-(void) playAnimation:(NSString *)animName duration:(float)time callback:(void(^)())block
+{
+    [self playAnimationForever:animName];
+    id delay = [CCDelayTime actionWithDuration:time];
+    id callbackFunc = [CCCallBlock actionWithBlock:block];
+    [self.sprite runAction:[CCSequence actions:delay, callbackFunc, nil]];
+}
+
 #pragma mark -
 #pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer
@@ -1093,8 +1509,8 @@
 {
     [_heroState release];
     _heroState = nil;
-    [_overlayHeroStateArray release];
-    _overlayHeroStateArray = nil;
+    [_overlayHeroStateDictionary release];
+    _overlayHeroStateDictionary = nil;
     [super dealloc];
 }
 

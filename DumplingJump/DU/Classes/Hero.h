@@ -16,26 +16,27 @@
 }
 
 @property (nonatomic, retain) NSString *heroState;
-@property (nonatomic, retain) NSMutableArray *overlayHeroStateArray;
+@property (nonatomic, retain) NSMutableDictionary *overlayHeroStateDictionary;
 @property (nonatomic, assign) BOOL canReborn;
+@property (nonatomic, assign) BOOL isSpringBoost;
+@property (nonatomic, assign) int boostStatus;
 
 -(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue gravityValue:(float)theGravity;
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) updateHeroChildrenPosition;
 -(void) jump;
+- (void) resetHero;
 -(void) idle;
 -(void) headStart;
 //Called from AddthingObject
--(void) flat;
--(void) dizzy;
+-(void) flat:(NSArray *)value;
 -(void) hurt:(NSArray *)value;
--(void) freeze;
+-(void) freeze:(NSArray *)value;
 -(void) bowEffect:(NSArray *)value;
--(void) spring;
--(void) shelter;
--(void) booster;
+-(void) spring:(NSArray *)value;
+-(void) booster:(NSArray *)value;
 -(void) magic:(NSArray *)value;
--(void) blind;
+-(void) blind:(NSArray *)value;
 -(void) star:(NSArray *)value;
 -(void) megastar:(NSArray *)value;
 -(void) reborn;
@@ -44,9 +45,10 @@
 -(void) rebornPowerup;
 -(void) rocketPowerup:(float)duration;
 -(void) absorbPowerup;
--(void) sheildPowerup;
+-(void) shieldPowerup;
 -(void) updateHeroBoosterEffect;
 -(void) updateJumpState;
 -(void) beforeDie;
+-(BOOL) isShelterOn;
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

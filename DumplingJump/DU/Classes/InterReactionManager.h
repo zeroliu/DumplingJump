@@ -11,5 +11,5 @@
 @interface InterReactionManager : NSObject
 
 + (id) shared;
-
+- (NSString *) getInterReactionByAddthingName:(NSString *)addthingName forHeroStatus:(NSString *)statusName;
 @end

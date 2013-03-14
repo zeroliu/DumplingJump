@@ -15,10 +15,16 @@
 	</dict>
 	<key>common</key>
 	<dict>
+		<key>magicFrequence</key>
+		<real>0.3</real>
 		<key>starWait</key>
 		<integer>2</integer>
 		<key>headstartDuration</key>
 		<integer>5</integer>
+		<key>shieldDuration</key>
+		<integer>10</integer>
+		<key>absorbDuration</key>
+		<integer>10</integer>
 		<key>objectInitialSpeed</key>
 		<integer>17</integer>
 		<key>gameSpeedIncreaseUnit</key>

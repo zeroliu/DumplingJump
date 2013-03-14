@@ -30,7 +30,7 @@
 		<key>gameSpeedIncreaseUnit</key>
 		<real>0.4</real>
 		<key>gameSpeedMax</key>
-		<integer>4</integer>
+		<real>3.5</real>
 		<key>distanceUnit</key>
 		<real>0.015</real>
 		<key>scrollSpeed</key>
@@ -38,7 +38,7 @@
 		<key>dropRate</key>
 		<real>0.015</real>
 		<key>levelTransitionDelay</key>
-		<integer>5</integer>
+		<integer>0</integer>
 	</dict>
 	<key>board</key>
 	<dict>

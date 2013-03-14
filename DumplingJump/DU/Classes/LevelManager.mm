@@ -221,7 +221,7 @@ toRemovePowderArray = _toRemovePowderArray;
     }
     [addthing addChildTo:BATCHNODE z:depth];
     
-    if ([dropObjectName isEqualToString:@"POWDER"])
+    if ([dropObjectName isEqualToString:@"POWDER"] || [dropObjectName isEqualToString:@"BOMB"])
     {
         float countdown = addthing.reaction.reactTime;
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fontName:@"Eras Bold ITC" fontSize:40];

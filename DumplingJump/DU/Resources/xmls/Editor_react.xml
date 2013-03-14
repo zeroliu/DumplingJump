@@ -222,7 +222,7 @@
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Powder</effectimage>
 		<react_time>bow</react_time>
-		<trigger_react_time>6</trigger_react_time>
+		<trigger_react_time>4</trigger_react_time>
 		<trigger_clean_time>4</trigger_clean_time>
         <type>main</type>
 		<MEMO>对人炸弹</MEMO>

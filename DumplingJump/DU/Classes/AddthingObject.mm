@@ -245,7 +245,7 @@
 
 -(void) archive
 {
-    if ([self.name isEqualToString:@"POWDER"])
+    if ([self.name isEqualToString:@"POWDER"] || [self.name isEqualToString:@"BOMB"])
     {
         [((LevelManager *)[LevelManager shared]).toRemovePowderArray addObject:self.ID];
     }

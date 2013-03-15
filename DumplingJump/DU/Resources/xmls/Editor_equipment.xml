@@ -6,6 +6,7 @@
 		<layout>layout</layout>
 		<name>name</name>
 		<image>image</image>
+        <order>order</order>
 		<description>description</description>
 		<multiplier>multiplier</multiplier>
 		<base>base</base>
@@ -21,6 +22,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>BOOSTER</name>
 		<image>UI_item_booster</image>
+        <order>2</order>
 		<description>boost ahead</description>
 		<multiplier>2.00</multiplier>
 		<base>400</base>
@@ -37,6 +39,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SPRING</name>
 		<image>UI_item_spring</image>
+        <order>0</order>
 		<description>extend duration</description>
 		<multiplier>2.00</multiplier>
 		<base>200</base>
@@ -53,6 +56,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGIC</name>
 		<image>UI_item_sword</image>
+        <order>1</order>
 		<description>extend duration</description>
 		<multiplier>2.00</multiplier>
 		<base>300</base>
@@ -69,6 +73,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MEGA</name>
 		<image>UI_item_megacoins</image>
+        <order>3</order>
 		<description>increase</description>
 		<multiplier>2.00</multiplier>
 		<base>600</base>
@@ -85,6 +90,7 @@
 		<layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
 		<image>UI_item_reborn</image>
+        <order>1</order>
 		<description>revive once</description>
 		<multiplier>1.80</multiplier>
 		<base>800</base>
@@ -95,6 +101,7 @@
 		<layout>EquipmentViewAmountCell</layout>
 		<name>headstart</name>
 		<image>UI_item_headstart</image>
+        <order>0</order>
 		<description>boost ahead</description>
 		<multiplier>1.30</multiplier>
 		<base>1000</base>
@@ -105,6 +112,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SHELTER</name>
 		<image>UI_item_shield</image>
+        <order>0</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
 		<base>100</base>
@@ -121,6 +129,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGNET</name>
 		<image>UI_item_magnet</image>
+        <order>1</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
 		<base>200</base>
@@ -137,6 +146,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>coinmultiplier</name>
 		<image>UI_item_coinstar</image>
+        <order>0</order>
 		<description>wood multiplier x</description>
 		<multiplier>1.50</multiplier>
 		<base>100</base>
@@ -152,6 +162,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>woodmultiplier</name>
 		<image>UI_item_scorex1</image>
+        <order>1</order>
 		<description>silver multiplier x</description>
 		<multiplier>1.50</multiplier>
 		<base>100</base>
@@ -167,6 +178,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>silvermultiplier</name>
 		<image>UI_item_scorex2</image>
+        <order>2</order>
 		<description>golden multiplier x</description>
 		<multiplier>1.50</multiplier>
 		<base>100</base>
@@ -182,6 +194,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>goldenmultiplier</name>
 		<image>UI_item_scorex3</image>
+        <order>3</order>
 		<description>Protect your hero</description>
 		<multiplier>1</multiplier>
 		<base>1</base>

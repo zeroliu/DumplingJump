@@ -173,16 +173,18 @@ toRemovePowderArray = _toRemovePowderArray;
 
 -(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position warning:(double)warningTime
 {
-    CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_retry_expression.png"];
+    CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_play_warning.png"];
     warningSign.position = ccp(position.x,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT-30);
     warningSign.scale = 0;
     id zoomInEffect = [CCScaleTo actionWithDuration:0.3 scale:0.8];
     [warningSign runAction:zoomInEffect];
-    [GAMELAYER addChild:warningSign];
+    [GAMELAYER addChild:warningSign z:Z_WarningSign];
     
     DropInfo *dropInfo = [[DropInfo alloc] initWithObjectName:objectName position:position warningTime:warningTime sprite:warningSign];
     
     [warningSignArray addObject:dropInfo];
+    
+    [dropInfo release];
 }
 
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num
@@ -628,8 +630,6 @@ toRemovePowderArray = _toRemovePowderArray;
             PowderInfo *info = [_powderDictionary objectForKey:addthingID];
             info.countdown -= deltaTime;
             [info.countdownLabel setString:[NSString stringWithFormat:@"%d",(int)info.countdown]];
-//            info.countdownLabel.rotation = ((AddthingObject *)info.addthing).sprite.rotation;
-//            info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(15 * sin(info.countdownLabel.rotation * M_PI / 180),15 * cos(info.countdownLabel.rotation * M_PI / 180)));
             info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(0,55));
         }
         isUpdatingPowderCountdown = NO;

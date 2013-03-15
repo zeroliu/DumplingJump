@@ -30,6 +30,7 @@
 #define Z_GAME_MASK 9
 #define Z_Board 10
 #define Z_Engine 11
+#define Z_WarningSign 100
 
 #pragma mark -
 #pragma mark MainMenu Layer Priority

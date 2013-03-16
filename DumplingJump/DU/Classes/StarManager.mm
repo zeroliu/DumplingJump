@@ -64,7 +64,12 @@
             }
         }
     }
-    
 }
 
+-(void) dropRandomStar
+{
+    NSArray *starNameArray = [self.starDictionary allKeys];
+    int randomIndex = randomInt(0, [starNameArray count]);
+    [self dropStar:[starNameArray objectAtIndex:randomIndex] AtSlot:0];
+}
 @end

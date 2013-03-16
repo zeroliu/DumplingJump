@@ -76,6 +76,7 @@ hasGenerated = _hasGenerated;
     NSMutableArray *warningSignArray;
     BOOL isProcessingWarningSign;
     BOOL isUpdatingPowderCountdown;
+    BOOL isMirror;
 }
 
 @property (nonatomic, retain) LevelData *levelData;
@@ -113,6 +114,7 @@ toRemovePowderArray = _toRemovePowderArray;
         _generatedObjects = [[NSMutableArray alloc] init];
         warningSignArray = [[NSMutableArray alloc] init];
         _toRemovePowderArray = [[NSMutableArray alloc] init];
+        isMirror = NO;
         //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
         
@@ -171,16 +173,18 @@ toRemovePowderArray = _toRemovePowderArray;
 
 -(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position warning:(double)warningTime
 {
-    CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_retry_expression.png"];
+    CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_play_warning.png"];
     warningSign.position = ccp(position.x,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT-30);
     warningSign.scale = 0;
     id zoomInEffect = [CCScaleTo actionWithDuration:0.3 scale:0.8];
     [warningSign runAction:zoomInEffect];
-    [GAMELAYER addChild:warningSign];
+    [GAMELAYER addChild:warningSign z:Z_WarningSign];
     
     DropInfo *dropInfo = [[DropInfo alloc] initWithObjectName:objectName position:position warningTime:warningTime sprite:warningSign];
     
     [warningSignArray addObject:dropInfo];
+    
+    [dropInfo release];
 }
 
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num
@@ -277,6 +281,21 @@ toRemovePowderArray = _toRemovePowderArray;
     
     currentParagraph = [_paragraphsData objectForKey:name];
     
+    if ([name rangeOfString:@"*"].location != NSNotFound)
+    {
+        //the paragraph is not reversible
+        isMirror = NO;
+    }
+    else
+    {
+        int mirrorRate = randomInt(0, 2);
+        isMirror = NO;
+        if (mirrorRate > 0)
+        {
+            isMirror = YES;
+        }
+    }
+    
     if (currentParagraph == nil)
     {
         [[LevelTestTool shared] updateLevelName:@"error: No such level"];
@@ -302,6 +321,21 @@ toRemovePowderArray = _toRemovePowderArray;
     
     //Get the first one in the array
     NSString *currentParagraphName = [phasePharagraphs objectAtIndex:0];
+    
+    if ([currentParagraphName rangeOfString:@"*"].location != NSNotFound)
+    {
+        //the paragraph is not reversible
+        isMirror = NO;
+    }
+    else
+    {
+        int mirrorRate = randomInt(0, 2);
+        isMirror = NO;
+        if (mirrorRate > 0)
+        {
+            isMirror = YES;
+        }
+    }
     
     //Load the paragraph data of this name
     currentParagraph = [_paragraphsData objectForKey:currentParagraphName];
@@ -344,12 +378,6 @@ toRemovePowderArray = _toRemovePowderArray;
             //Trigger a sentence
             Sentence *mySentence = [currentParagraph getSentenceAtIndex:sentenceIndex];
             double waitingTime = 0;
-            int mirrorRate = randomInt(0, 2);
-            BOOL isMirror = NO;
-            if (mirrorRate > 0)
-            {
-                isMirror = YES;
-            }
             for (int i=0; i<SLOTS_NUM; i++)
             {
                 int dropSlot = i;
@@ -358,7 +386,13 @@ toRemovePowderArray = _toRemovePowderArray;
                     dropSlot = SLOTS_NUM - i - 1;
                 }
                 NSString *item = [mySentence.words objectAtIndex:i];
-                if ([item rangeOfString:@"*"].location == 0)
+                if ([item rangeOfString:@"(*)"].location != NSNotFound)
+                {
+                    [[StarManager shared] dropRandomStar];
+                    double starWait = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starWait"] doubleValue];
+                    waitingTime = MAX(waitingTime, starWait);
+                }
+                else if ([item rangeOfString:@"*"].location == 0)
                 {
                     [[StarManager shared] dropStar:item AtSlot:dropSlot];
                     double starWait = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starWait"] doubleValue];
@@ -596,8 +630,6 @@ toRemovePowderArray = _toRemovePowderArray;
             PowderInfo *info = [_powderDictionary objectForKey:addthingID];
             info.countdown -= deltaTime;
             [info.countdownLabel setString:[NSString stringWithFormat:@"%d",(int)info.countdown]];
-//            info.countdownLabel.rotation = ((AddthingObject *)info.addthing).sprite.rotation;
-//            info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(15 * sin(info.countdownLabel.rotation * M_PI / 180),15 * cos(info.countdownLabel.rotation * M_PI / 180)));
             info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(0,55));
         }
         isUpdatingPowderCountdown = NO;

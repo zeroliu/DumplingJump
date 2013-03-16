@@ -14,4 +14,5 @@
 
 -(void) addStar:(Star *)star;
 -(void) dropStar:(NSString *)starName AtSlot:(int)slot;
+-(void) dropRandomStar;
 @end

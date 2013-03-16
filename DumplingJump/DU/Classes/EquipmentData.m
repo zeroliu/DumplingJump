@@ -62,7 +62,18 @@
         }
         [itemArray addObject:item];
     }
-NSLog(@"%@", [self.structedDictionary description]);
+    
+    for (NSString *type in [self.structedDictionary allKeys])
+    {
+        NSArray *unsortedArray = [self.structedDictionary objectForKey:type];
+        NSArray *sortedArray;
+        sortedArray = [unsortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            NSNumber *first = [NSNumber numberWithInt:[[obj1 objectForKey:@"order"] intValue]];
+            NSNumber *second = [NSNumber numberWithInt:[[obj2 objectForKey:@"order"] intValue]];
+            return [first compare:second];
+        }];
+        [self.structedDictionary setObject:sortedArray forKey:type];
+    }
 }
 
 - (void)dealloc

@@ -755,6 +755,7 @@
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 		9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */; };
+		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1814,6 +1815,7 @@
 		7FFD8E921605637900C460F0 /* EffectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectManager.mm; sourceTree = "<group>"; };
 		9F1F066E16EBC32C000E81E5 /* InterReactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterReactionManager.h; sourceTree = "<group>"; };
 		9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterReactionManager.m; sourceTree = "<group>"; };
+		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2625,6 +2627,7 @@
 		7F3B59AB16C86DC10010F8E4 /* sheetUI-1 */ = {
 			isa = PBXGroup;
 			children = (
+				9FF6493E16F308F500778BD9 /* UI_play_warning.png */,
 				7F79431816D76DFB00F44EFA /* UI_equip_bar.png */,
 				7F3B59AC16C86DC10010F8E4 /* UI_equip_bottom.png */,
 				7F3B59AD16C86DC10010F8E4 /* UI_equip_box_level.png */,
@@ -4166,6 +4169,7 @@
 				7F6277EB16DAFAF800EB2BD8 /* UI_item_sword.png in Resources */,
 				7FFCB8C516E42FC700700381 /* UI_item_headstart_shadow.png in Resources */,
 				7FFCB8C616E42FC700700381 /* UI_item_headstart.png in Resources */,
+				9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

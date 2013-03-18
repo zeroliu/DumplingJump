@@ -6,7 +6,7 @@
 		<layout>layout</layout>
 		<name>name</name>
 		<image>image</image>
-        <order>order</order>
+		<order>order</order>
 		<description>description</description>
 		<multiplier>multiplier</multiplier>
 		<base>base</base>
@@ -17,12 +17,12 @@
 		<level4>level4</level4>
 	</Item>
 	<Item>
-		<group>0</group>
+		<group>1</group>
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>BOOSTER</name>
 		<image>UI_item_booster</image>
-        <order>2</order>
+		<order>2</order>
 		<description>boost ahead</description>
 		<multiplier>2.00</multiplier>
 		<base>400</base>
@@ -34,29 +34,12 @@
 		<unit>sec.</unit>
 	</Item>
 	<Item>
-		<group>0</group>
-		<type>powerups</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>SPRING</name>
-		<image>UI_item_spring</image>
-        <order>0</order>
-		<description>extend duration</description>
-		<multiplier>2.00</multiplier>
-		<base>200</base>
-		<level0>4</level0>
-		<level1>5</level1>
-		<level2>6</level2>
-		<level3>7</level3>
-		<level4>8</level4>
-		<unit>sec.</unit>
-	</Item>
-	<Item>
-		<group>0</group>
+		<group>2</group>
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGIC</name>
 		<image>UI_item_sword</image>
-        <order>1</order>
+		<order>1</order>
 		<description>extend duration</description>
 		<multiplier>2.00</multiplier>
 		<base>300</base>
@@ -68,12 +51,29 @@
 		<unit>sec.</unit>
 	</Item>
 	<Item>
-		<group>0</group>
+		<group>3</group>
+		<type>powerups</type>
+		<layout>EquipmentViewLevelCell</layout>
+		<name>SPRING</name>
+		<image>UI_item_spring</image>
+		<order>0</order>
+		<description>extend duration</description>
+		<multiplier>2.00</multiplier>
+		<base>200</base>
+		<level0>4</level0>
+		<level1>5</level1>
+		<level2>6</level2>
+		<level3>7</level3>
+		<level4>8</level4>
+		<unit>sec.</unit>
+	</Item>
+	<Item>
+		<group>4</group>
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MEGA</name>
 		<image>UI_item_megacoins</image>
-        <order>3</order>
+		<order>3</order>
 		<description>increase</description>
 		<multiplier>2.00</multiplier>
 		<base>600</base>
@@ -85,51 +85,34 @@
 		<unit>star bonus</unit>
 	</Item>
 	<Item>
-		<group>0</group>
+		<group>5</group>
 		<type>items</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
 		<image>UI_item_reborn</image>
-        <order>1</order>
+		<order>1</order>
 		<description>revive once</description>
 		<multiplier>1.80</multiplier>
 		<base>800</base>
 	</Item>
 	<Item>
-		<group>4</group>
+		<group>6</group>
 		<type>items</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>headstart</name>
 		<image>UI_item_headstart</image>
-        <order>0</order>
+		<order>0</order>
 		<description>boost ahead</description>
 		<multiplier>1.30</multiplier>
 		<base>1000</base>
 	</Item>
 	<Item>
-		<group>1</group>
-		<type>skills</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>SHELTER</name>
-		<image>UI_item_shield</image>
-        <order>0</order>
-		<description>cooldown:</description>
-		<multiplier>2.00</multiplier>
-		<base>100</base>
-		<level0>60</level0>
-		<level1>50</level1>
-		<level2>40</level2>
-		<level3>30</level3>
-		<level4>25</level4>
-		<unit>sec.</unit>
-	</Item>
-	<Item>
-		<group>2</group>
+		<group>7</group>
 		<type>skills</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGNET</name>
 		<image>UI_item_magnet</image>
-        <order>1</order>
+		<order>1</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
 		<base>200</base>
@@ -141,52 +124,21 @@
 		<unit>sec.</unit>
 	</Item>
 	<Item>
-		<group>6</group>
-		<type>multipliers</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>coinmultiplier</name>
-		<image>UI_item_coinstar</image>
-        <order>0</order>
-		<description>wood multiplier x</description>
-		<multiplier>1.50</multiplier>
-		<base>100</base>
-		<level0>2</level0>
-		<level1>3</level1>
-		<level2>4</level2>
-		<level3>5</level3>
-		<level4>6</level4>
-	</Item>
-	<Item>
-		<group>7</group>
-		<type>multipliers</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>woodmultiplier</name>
-		<image>UI_item_scorex1</image>
-        <order>1</order>
-		<description>silver multiplier x</description>
-		<multiplier>1.50</multiplier>
-		<base>100</base>
-		<level0>3</level0>
-		<level1>5</level1>
-		<level2>3</level2>
-		<level3>5</level3>
-		<level4>7</level4>
-	</Item>
-	<Item>
 		<group>8</group>
-		<type>multipliers</type>
+		<type>skills</type>
 		<layout>EquipmentViewLevelCell</layout>
-		<name>silvermultiplier</name>
-		<image>UI_item_scorex2</image>
-        <order>2</order>
-		<description>golden multiplier x</description>
-		<multiplier>1.50</multiplier>
+		<name>SHELTER</name>
+		<image>UI_item_shield</image>
+		<order>0</order>
+		<description>cooldown:</description>
+		<multiplier>2.00</multiplier>
 		<base>100</base>
-		<level0>4</level0>
-		<level1>7</level1>
-		<level2>4</level2>
-		<level3>7</level3>
-		<level4>10</level4>
+		<level0>60</level0>
+		<level1>50</level1>
+		<level2>40</level2>
+		<level3>30</level3>
+		<level4>25</level4>
+		<unit>sec.</unit>
 	</Item>
 	<Item>
 		<group>9</group>
@@ -194,7 +146,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>goldenmultiplier</name>
 		<image>UI_item_scorex3</image>
-        <order>3</order>
+		<order>3</order>
 		<description>Protect your hero</description>
 		<multiplier>1</multiplier>
 		<base>1</base>

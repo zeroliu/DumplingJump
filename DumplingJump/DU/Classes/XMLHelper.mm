@@ -517,4 +517,37 @@
     return dict;
 }
 
+-(id) loadAchievementData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:@"Editor_achievement"] retain];
+    NSError *err = nil;
+    
+    NSArray *achievementsDatas = [xmlDoc nodesForXPath:@"//Achievement" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLDocument *achievementElement in achievementsDatas)
+    {
+        NSString *achievementID = [[[achievementElement nodesForXPath:@"id" error:&err] objectAtIndex:0] stringValue];
+        NSString *groupID = [[[achievementElement nodesForXPath:@"group" error:&err] objectAtIndex:0] stringValue];
+        
+        if (![achievementID isEqualToString:@"id"] && ![groupID isEqualToString:@"group"])
+        {
+            NSArray *datas = [achievementElement children];
+            NSMutableDictionary *achievementDictionary = [NSMutableDictionary dictionaryWithCapacity:[datas count]];
+            for (DDXMLElement *element in datas)
+            {
+                [achievementDictionary setObject:[element stringValue] forKey:[element name]];
+            }
+            [dict setObject:achievementDictionary forKey:[NSString stringWithFormat:@"%@-%@", groupID, achievementID]];
+        }
+    }
+    [xmlDoc release];
+    DLog(@"%@", [dict description]);
+    return dict;
+}
+
 @end

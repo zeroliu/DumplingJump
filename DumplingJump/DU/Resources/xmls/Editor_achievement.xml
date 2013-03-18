@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Achievements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Achievement>
+		<group>group</group>
+		<id>id</id>
+		<name>name</name>
+		<points>points</points>
+		<type>type</type>
+		<description1>description1</description1>
+		<number>number</number>
+		<description2>description2</description2>
+		<restriction>restriction</restriction>
+		<useEnglish>use English</useEnglish>
+	</Achievement>
+	<Achievement>
+		<group>1</group>
+		<id>1</id>
+		<name>Oops!</name>
+		<points>5</points>
+		<type>actionDie</type>
+		<description1>Die in</description1>
+		<number>5</number>
+		<description2>sec.</description2>
+	</Achievement>
+    <Achievement>
+		<group>1</group>
+		<id>2</id>
+		<name>Hopper</name>
+		<points>5</points>
+		<type>actionJump</type>
+		<description1>Jump</description1>
+		<number>10</number>
+		<description2>times in one ride</description2>
+	</Achievement>
+    <Achievement>
+		<group>1</group>
+		<id>3</id>
+		<name>Pocket Change</name>
+		<points>5</points>
+		<type>coin</type>
+		<description1>Collect</description1>
+		<number>30</number>
+		<description2>stars</description2>
+	</Achievement>
+    <Achievement>
+		<group>1</group>
+		<id>4</id>
+		<name>Steady Walker</name>
+		<points>5</points>
+		<type>distance</type>
+		<description1>Ride</description1>
+		<number>100</number>
+		<description2>meters</description2>
+	</Achievement>
+    <Achievement>
+		<group>2</group>
+		<id>1</id>
+		<name>Piggy Bank</name>
+		<points>10</points>
+		<type>coin</type>
+		<description1>Collect</description1>
+		<number>50</number>
+		<description2>stars, no jump</description2>
+		<restriction>jump</restriction>
+	</Achievement>
+    <Achievement>
+		<group>2</group>
+		<id>2</id>
+		<name>Novice Walker</name>
+		<points>10</points>
+		<type>distance</type>
+		<description1>Ride</description1>
+		<number>200</number>
+		<description2>meters</description2>
+	</Achievement>
+    <Achievement>
+		<group>2</group>
+		<id>3</id>
+		<name>Nice try!</name>
+		<points>10</points>
+		<type>lifeDie</type>
+		<description1>Die</description1>
+		<number>10</number>
+		<description2>times</description2>
+	</Achievement>
+    <Achievement>
+		<group>2</group>
+		<id>4</id>
+		<name>Rocketeer</name>
+		<points>10</points>
+		<type>powerBoost</type>
+		<description1>Collect</description1>
+		<number>1</number>
+		<description2>Booster in one ride</description2>
+	</Achievement>
+	
+</Achievements>

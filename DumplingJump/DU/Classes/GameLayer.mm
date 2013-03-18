@@ -6,6 +6,7 @@
 #import "HeroManager.h"
 #import "StarManager.h"
 #import "InterReactionManager.h"
+#import "AchievementData.h"
 #import "AddthingFactory.h"
 
 #import "AddthingTestTool.h"
@@ -238,6 +239,9 @@
     [BoardManager shared];
     [StarManager shared];
     [InterReactionManager shared];
+    [AchievementData shared];
+    
+
 }
 
 

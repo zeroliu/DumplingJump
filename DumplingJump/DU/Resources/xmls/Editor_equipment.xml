@@ -22,7 +22,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>BOOSTER</name>
 		<image>UI_item_booster</image>
-		<order>2</order>
+		<order>0</order>
 		<description>boost ahead</description>
 		<multiplier>2.00</multiplier>
 		<base>400</base>
@@ -56,7 +56,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SPRING</name>
 		<image>UI_item_spring</image>
-		<order>0</order>
+		<order>2</order>
 		<description>extend duration</description>
 		<multiplier>2.00</multiplier>
 		<base>200</base>
@@ -90,7 +90,7 @@
 		<layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
 		<image>UI_item_reborn</image>
-		<order>1</order>
+		<order>0</order>
 		<description>revive once</description>
 		<multiplier>1.80</multiplier>
 		<base>800</base>
@@ -101,7 +101,7 @@
 		<layout>EquipmentViewAmountCell</layout>
 		<name>headstart</name>
 		<image>UI_item_headstart</image>
-		<order>0</order>
+		<order>1</order>
 		<description>boost ahead</description>
 		<multiplier>1.30</multiplier>
 		<base>1000</base>
@@ -112,7 +112,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGNET</name>
 		<image>UI_item_magnet</image>
-		<order>1</order>
+		<order>0</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
 		<base>200</base>
@@ -129,7 +129,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SHELTER</name>
 		<image>UI_item_shield</image>
-		<order>0</order>
+		<order>1</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
 		<base>100</base>
@@ -146,7 +146,7 @@
 		<layout>EquipmentViewLevelCell</layout>
 		<name>goldenmultiplier</name>
 		<image>UI_item_scorex3</image>
-		<order>3</order>
+		<order>0</order>
 		<description>Protect your hero</description>
 		<multiplier>1</multiplier>
 		<base>1</base>

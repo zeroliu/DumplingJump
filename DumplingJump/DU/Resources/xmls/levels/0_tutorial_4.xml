@@ -14,11 +14,7 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot8>*1</slot8>
-	</level>
-	<level>
-		<time>2</time>
-		<slot1>*1</slot1>
+		<slot8>(*)</slot8>
 	</level>
 	<level>
 		<time>3</time>

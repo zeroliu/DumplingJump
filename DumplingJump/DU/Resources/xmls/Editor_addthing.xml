@@ -300,7 +300,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
-		<customData>BOOSTER,60;MEGA,40</customData>
+		<customData>BOOSTER,50;MEGA,30;NOTHING,20</customData>
 	</Item>
 	<Item>
 		<ID>itemsLv2</ID>
@@ -315,7 +315,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
-		<customData>NOTHING,30;BOOSTER,10;MAGIC,25;MEGA,25;SPRING,25;BLIND,15</customData>
+		<customData>BOOSTER,10;MAGIC,25;MEGA,25;SPRING,25;BLIND,15</customData>
 	</Item>
 	<Item>
 		<ID>itemsLv2</ID>

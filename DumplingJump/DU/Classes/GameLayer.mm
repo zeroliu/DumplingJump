@@ -8,7 +8,7 @@
 #import "InterReactionManager.h"
 #import "AchievementData.h"
 #import "AddthingFactory.h"
-
+#import "AchievementManager.h"
 #import "AddthingTestTool.h"
 #import "HeroTestTool.h"
 #import "LevelTestTool.h"
@@ -241,6 +241,7 @@
     [InterReactionManager shared];
     [AchievementData shared];
     
+    [self registerAchievementNotification];
 
 }
 
@@ -312,8 +313,10 @@
         [[[HeroManager shared] getHero] updateJumpState];
         
         self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
+        [MESSAGECENTER postNotificationName:NOTIFICATION_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.model.distance] forKey:@"num"]];
         [[GameUI shared] updateDistanceSign:(int)self.model.distance];
         [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
+        [MESSAGECENTER postNotificationName:NOTIFICATION_SCORE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(int)(self.model.distance*self.model.multiplier)] forKey:@"num"]];
         [[LevelManager shared] dropNextAddthing];
         [[LevelManager shared] updateWarningSign];
         [[LevelManager shared] updatePowderCountdown:deltaTime];
@@ -335,6 +338,7 @@
         [[[HeroManager shared] getHero] headStart];
         [[[BoardManager shared] getBoard] hideBoard];
     }
+    [self.model resetGameData];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
@@ -377,6 +381,9 @@
 
 -(void) restart
 {
+    //Re-register available achievement
+    [self registerAchievementNotification];
+    
     //Reload powerup data
     [self.model loadPowerUpLevelsData];
     
@@ -392,11 +399,10 @@
     //Reset gameUI
     [[GameUI shared] resetUI];
     
-    //Reset distance
-    self.model.distance = 0;
+    //Reset gameData
+    [self.model resetGameData];
     
     //Reset star
-    self.model.star = 0;
     [[GameUI shared] updateStar:self.model.star];
     
     //Restart levelManger
@@ -448,6 +454,21 @@
     [BATCHNODE resumeSchedulerAndActions];
     [[GameUI shared] resumeUI];
     [[GameUI shared] setButtonsEnabled:YES];
+}
+
+-(void) registerAchievementNotification
+{
+    [[AchievementManager shared] removeAllNotification];
+    
+    //Search for the available achievements
+    NSArray *availableAchievement = [[[AchievementData shared] getAvailableAchievementsByGroupID:[[USERDATA objectForKey:@"achievementGroup"] intValue]] retain];
+    
+    for (NSDictionary *achievementData in availableAchievement)
+    {
+        [[AchievementManager shared] registerAchievement:achievementData];
+    }
+    
+    [availableAchievement release];
 }
 
 -(void) draw

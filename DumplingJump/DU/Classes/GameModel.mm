@@ -26,6 +26,17 @@
 
 @synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed, multiplier = _multiplier;
 
+@synthesize
+jumpCount = _jumpCount,
+useBoosterCount = _useBoosterCount,
+useSpringCount = _useSpringCount,
+useMagicCount = _useMagicCount,
+useRebornCount = _useRebornCount,
+useShieldCount = _useShieldCount,
+useMagnetCount = _useMagnetCount,
+useHeadstartCount = _useHeadstartCount,
+eatMegaStarCount = _eatMegaStarCount;
+
 -(id) init
 {
     if (self = [super init])
@@ -100,6 +111,21 @@
 -(void) resetGameSpeed
 {
     _gameSpeed = 1;
+}
+
+-(void) resetGameData
+{
+    _star = 0;
+    _distance = 0;
+    _jumpCount = 0;
+    _useMagnetCount = 0;
+    _useMagicCount = 0;
+    _useBoosterCount = 0;
+    _useSpringCount = 0;
+    _useRebornCount = 0;
+    _useShieldCount = 0;
+    _useHeadstartCount = 0;
+    _eatMegaStarCount = 0;
 }
 
 - (void)dealloc

@@ -756,6 +756,7 @@
 		9FAEC66E16F6D907009112EB /* UI_option_tutorial_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC66416F6D907009112EB /* UI_option_tutorial_on.png */; };
 		9FAEC66F16F6D907009112EB /* UI_option_tutorial_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */; };
 		9FAEC67216F6F865009112EB /* AchievementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC67116F6F865009112EB /* AchievementData.m */; };
+		9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.m */; };
 		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
 /* End PBXBuildFile section */
 
@@ -1818,6 +1819,8 @@
 		9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_option_tutorial_press.png; sourceTree = "<group>"; };
 		9FAEC67016F6F865009112EB /* AchievementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementData.h; sourceTree = "<group>"; };
 		9FAEC67116F6F865009112EB /* AchievementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementData.m; sourceTree = "<group>"; };
+		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
+		9FEEB08016F7FF88008A1D02 /* AchievementManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementManager.m; sourceTree = "<group>"; };
 		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3071,6 +3074,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9FEEB07E16F7FF64008A1D02 /* Achievement */,
 				7FF645C416B5D05300CF7E5C /* Data */,
 				7FF0822215B2355200E093E1 /* System */,
 				7F32887F1662D87800DF86FC /* UI */,
@@ -3637,6 +3641,15 @@
 				9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */,
 			);
 			path = "sheetUI-4";
+			sourceTree = "<group>";
+		};
+		9FEEB07E16F7FF64008A1D02 /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */,
+				9FEEB08016F7FF88008A1D02 /* AchievementManager.m */,
+			);
+			name = Achievement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4460,6 +4473,7 @@
 				7FFCB8C216E3492500700381 /* PowderInfo.m in Sources */,
 				9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */,
 				9FAEC67216F6F865009112EB /* AchievementData.m in Sources */,
+				9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

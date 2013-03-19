@@ -517,6 +517,34 @@
     return dict;
 }
 
+-(id) loadUserAchievementData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:@"Editor_userAchievementData"] retain];
+    NSError *err = nil;
+    
+    NSArray *achievementsDatas = [xmlDoc nodesForXPath:@"//data" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLDocument *achievementElement in achievementsDatas)
+    {
+        NSString *achievementID = [[[achievementElement nodesForXPath:@"achievementID" error:&err] objectAtIndex:0] stringValue];
+        NSString *groupID = [[[achievementElement nodesForXPath:@"groupID" error:&err] objectAtIndex:0] stringValue];
+        NSString *status = [[[achievementElement nodesForXPath:@"hasPassed" error:&err] objectAtIndex:0] stringValue];
+        
+        
+        if (![achievementID isEqualToString:@"AchievementID"] && ![groupID isEqualToString:@"GroupID"])
+        {
+            [dict setObject:status forKey:[NSString stringWithFormat:@"%@-%@", groupID, achievementID]];
+        }
+    }
+    [xmlDoc release];
+    return dict;
+}
+
 -(id) loadAchievementData
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -546,7 +574,6 @@
         }
     }
     [xmlDoc release];
-    DLog(@"%@", [dict description]);
     return dict;
 }
 

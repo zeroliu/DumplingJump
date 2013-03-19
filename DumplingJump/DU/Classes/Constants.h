@@ -40,6 +40,22 @@
 #define Z_MASK 1
 
 #pragma mark -
+#pragma mark Achievement Notification
+#define NOTIFICATION_JUMP @"actionJump"
+#define NOTIFICATION_DIE @"actionDie"
+#define NOTIFICATION_SPRING @"powerSpring"
+#define NOTIFICATION_MAGIC @"powerSword"
+#define NOTIFICATION_BOOSTER @"powerBoost"
+#define NOTIFICATION_REBORN @"itemReborn"
+#define NOTIFICATION_SHIELD @"skillShield"
+#define NOTIFICATION_MAGNET @"skillMagnet"
+#define NOTIFICATION_HEADSTART @"itemHeadStart"
+#define NOTIFICATION_STAR @"star"
+#define NOTIFICATION_DISTANCE @"distance"
+#define NOTIFICATION_SCORE @"score"
+#define NOTIFICATION_MEGASTAR @"powerMega"
+
+#pragma mark -
 #pragma mark TAG
 #define TAG_SPRING_BOOST 999
 #define TAG_HEADSTART_BOOST 998

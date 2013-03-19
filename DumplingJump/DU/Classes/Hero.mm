@@ -302,13 +302,19 @@
 -(void) jump
 {
     [self checkIfOnGround];
-    if ([self.heroState isEqualToString:@"spring"])
+    if (self.isOnGround)
     {
-        [self springJump];
-    }
-    else
-    {
-        [self normalJump];
+        GAMEMODEL.jumpCount ++;
+        [MESSAGECENTER postNotificationName:NOTIFICATION_JUMP object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.jumpCount] forKey:@"num"]];
+        
+        if ([self.heroState isEqualToString:@"spring"])
+        {
+            [self springJump];
+        }
+        else
+        {
+            [self normalJump];
+        }
     }
 }
 
@@ -742,6 +748,9 @@
 
 -(void) spring:(NSArray *)value
 {
+    GAMEMODEL.useSpringCount ++;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_SPRING object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useSpringCount] forKey:@"num"]];
+    
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
     {
@@ -763,6 +772,9 @@
 
 -(void) headStart
 {
+    GAMEMODEL.useHeadstartCount ++;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_HEADSTART object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useHeadstartCount] forKey:@"num"]];
+    
     isHeadStart = YES;
     
     self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
@@ -844,6 +856,9 @@
 
 -(void) booster:(NSArray *)value;
 {
+    GAMEMODEL.useBoosterCount ++;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_BOOSTER object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useBoosterCount] forKey:@"num"]];
+    
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
     {
@@ -937,6 +952,9 @@
 
 -(void) magic:(NSArray *)value;
 {
+    GAMEMODEL.useMagicCount ++;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_MAGIC object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useMagicCount] forKey:@"num"]];
+    
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
     {
@@ -1042,7 +1060,9 @@
             }];
         }
         
-        ((GameLayer *)GAMELAYER).model.star++;
+        GAMEMODEL.star++;
+        [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
+        
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
     }
@@ -1058,8 +1078,12 @@
     }
     
     AddthingObject *megastar = [value objectAtIndex:1];
+    GAMEMODEL.eatMegaStarCount ++;
+    GAMEMODEL.star += [[POWERUP_DATA objectForKey:@"MEGA"] intValue];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_MEGASTAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.eatMegaStarCount] forKey:@"num"]];
     
-    ((GameLayer *)GAMELAYER).model.star += [[POWERUP_DATA objectForKey:@"MEGA"] intValue];
+    
     [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
     [megastar removeAddthing];
 }
@@ -1124,6 +1148,9 @@
 {
     if (!isReborning)
     {
+        GAMEMODEL.useRebornCount ++;
+        [MESSAGECENTER postNotificationName:NOTIFICATION_REBORN object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useRebornCount] forKey:@"num"]];
+        
         //This line is added for the new reborn feature and rebornpowerup shouldn't
         //be called anywhere else
         [self rebornPowerup];
@@ -1255,6 +1282,9 @@
 
 -(void) absorbPowerup
 {
+    GAMEMODEL.useMagnetCount ++;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_MAGNET object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useMagnetCount] forKey:@"num"]];
+    
     if (![self.heroState isEqualToString:@"idle"] && [[[InterReactionManager shared] getInterReactionByAddthingName:@"ABSORB" forHeroStatus:self.heroState] isEqualToString:@"covered"])
     {
         SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
@@ -1308,6 +1338,9 @@
 
 -(void) shieldPowerup
 {
+    GAMEMODEL.useShieldCount ++;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_SHIELD object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useShieldCount] forKey:@"num"]];
+    
     //if hero has main reaction
     if (![self.heroState isEqualToString:@"idle"] && [[[InterReactionManager shared] getInterReactionByAddthingName:@"SHELTER" forHeroStatus:self.heroState] isEqualToString:@"covered"])
     {

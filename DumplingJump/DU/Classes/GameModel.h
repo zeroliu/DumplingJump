@@ -22,6 +22,17 @@
 @property (nonatomic, readonly) float gameSpeedMax;
 @property (nonatomic, readonly) float objectInitialSpeed;
 
+//Achievement related
+@property (nonatomic, assign) int jumpCount;
+@property (nonatomic, assign) int useBoosterCount;
+@property (nonatomic, assign) int useSpringCount;
+@property (nonatomic, assign) int useMagicCount;
+@property (nonatomic, assign) int useRebornCount;
+@property (nonatomic, assign) int useShieldCount;
+@property (nonatomic, assign) int useMagnetCount;
+@property (nonatomic, assign) int useHeadstartCount;
+@property (nonatomic, assign) int eatMegaStarCount;
+
 
 @property (nonatomic, retain) NSMutableDictionary *powerUpData;
 
@@ -29,4 +40,5 @@
 -(void) updateGameSpeed;
 -(void) resetGameSpeed;
 -(void) boostGameSpeed:(float)interval;
+-(void) resetGameData;
 @end

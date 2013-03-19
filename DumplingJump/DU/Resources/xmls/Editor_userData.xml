@@ -17,6 +17,10 @@
 		<woodmultiplier>wood multiplier level</woodmultiplier>
 		<silvermultiplier>silver multiplier level</silvermultiplier>
 		<goldenmultiplier>golden multiplier level</goldenmultiplier>
+        <achievementGroup>achievement group</achievementGroup>
+        <die>die times</die>
+        <totalScore>total score</totalScore>
+        <totalJump>total jump</totalJump>
 	</data>
 	<data>
 		<music>1</music>
@@ -35,5 +39,9 @@
 		<woodmultiplier>-1</woodmultiplier>
 		<silvermultiplier>-1</silvermultiplier>
 		<goldenmultiplier>-1</goldenmultiplier>
+        <achievementGroup>1</achievementGroup>
+        <die>0</die>
+        <totalScore>0</totalScore>
+        <totalJump>0</totalJump>
 	</data>
 </userData>

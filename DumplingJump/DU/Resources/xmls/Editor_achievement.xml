@@ -37,7 +37,7 @@
 		<id>3</id>
 		<name>Pocket Change</name>
 		<points>5</points>
-		<type>coin</type>
+		<type>star</type>
 		<description1>Collect</description1>
 		<number>30</number>
 		<description2>stars</description2>
@@ -57,7 +57,7 @@
 		<id>1</id>
 		<name>Piggy Bank</name>
 		<points>10</points>
-		<type>coin</type>
+		<type>star</type>
 		<description1>Collect</description1>
 		<number>50</number>
 		<description2>stars, no jump</description2>

@@ -11,6 +11,7 @@
 @interface UserData : CCNode
 
 @property (nonatomic, retain) NSMutableDictionary *userDataDictionary;
+@property (nonatomic, retain) NSMutableDictionary *userAchievementDataDictionary;
 +(id) shared;
 
 -(void) saveUserData;

@@ -14,4 +14,5 @@
 
 + (id) shared;
 - (id) getAchievementDataById:(int)theID group:(int)groupID;
+- (NSArray *) getAvailableAchievementsByGroupID:(int)groupID;
 @end

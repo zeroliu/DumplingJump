@@ -21,5 +21,6 @@
 -(id) loadEquipmentDataWithXML: (NSString *)fileName;
 -(id) loadUserDataWithXML: (NSString *)fileName;
 -(id) loadCollisionDataWithXML: (NSString *)fileName;
+-(id) loadUserAchievementData;
 -(id) loadAchievementData;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AchievementData.h"
+#import "UserData.h"
 #import "XMLHelper.h"
 
 @interface AchievementData()
@@ -43,6 +44,20 @@
 {
     NSString *combinedID = [NSString stringWithFormat:@"%d-%d", groupID, theID];
     return [self.achievementDictionary objectForKey:combinedID];
+}
+
+- (NSArray *) getAvailableAchievementsByGroupID:(int)groupID
+{
+    NSMutableArray *availableAchievements = [NSMutableArray array];
+    for (int i=1; i<=4; i++)
+    {
+        NSString *key = [NSString stringWithFormat:@"%d-%d", groupID, i];
+        if ([[((UserData *)[UserData shared]).userAchievementDataDictionary objectForKey:key] isEqualToString:@"NO"])
+        {
+            [availableAchievements addObject:[self.achievementDictionary objectForKey:key]];
+        }
+    }
+    return availableAchievements;
 }
 
 @end

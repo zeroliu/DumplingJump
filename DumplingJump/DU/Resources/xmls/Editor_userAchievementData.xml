@@ -8,7 +8,7 @@
 	<data>
 		<achievementID>1</achievementID>
         <groupID>1</groupID>
-        <hasPassed>YES</hasPassed>
+        <hasPassed>NO</hasPassed>
 	</data>
     <data>
 		<achievementID>2</achievementID>

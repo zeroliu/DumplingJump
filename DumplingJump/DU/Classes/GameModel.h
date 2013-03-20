@@ -32,7 +32,8 @@
 @property (nonatomic, assign) int useMagnetCount;
 @property (nonatomic, assign) int useHeadstartCount;
 @property (nonatomic, assign) int eatMegaStarCount;
-
+@property (nonatomic, assign) int powerCollectCount;
+@property (nonatomic, assign) float gameTime;
 
 @property (nonatomic, retain) NSMutableDictionary *powerUpData;
 

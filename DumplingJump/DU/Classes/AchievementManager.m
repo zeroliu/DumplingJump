@@ -46,21 +46,33 @@ unlockedEvent       =   _unlockedEvent;
 {
     NSString *notificationName = [achievementData objectForKey:@"type"];
     [_registeredEvent setObject:achievementData forKey:notificationName];
-    [MESSAGECENTER addObserver:self selector:@selector(checkRegularAchievement:) name:notificationName object:nil];
+    if ([notificationName isEqualToString:NOTIFICATION_BOOSTER_UNDER])
+    {
+        //booster under achievement
+        [MESSAGECENTER addObserver:self selector:@selector(getBoosterUnder:) name:notificationName object:nil];
+    }
+    else if ([notificationName isEqualToString:NOTIFICATION_DIE_TIME])
+    {
+        [MESSAGECENTER addObserver:self selector:@selector(checkDieTime:) name:notificationName object:nil];
+    }
+    else
+    {
+        [MESSAGECENTER addObserver:self selector:@selector(checkRegularAchievement:) name:notificationName object:nil];
+    }
 }
 
 - (void) removeAllNotification
 {
     for (NSString *notificationName in [_registeredEvent allKeys])
     {
-        [MESSAGECENTER removeObserver:notificationName];
+        [MESSAGECENTER removeObserver:self name:notificationName object:nil];
     }
     [_registeredEvent removeAllObjects];
 }
 
 - (void) removeNotificationByName:(NSString *)name
 {
-    [MESSAGECENTER removeObserver:name];
+    [MESSAGECENTER removeObserver:self name:name object:nil];
     [_registeredEvent removeObjectForKey:name];
 }
 
@@ -84,6 +96,34 @@ unlockedEvent       =   _unlockedEvent;
     }
 }
 
+- (void) getBoosterUnder:(NSNotification *)notification
+{
+    NSString *key = notification.name;
+    NSDictionary *achievementData = [_registeredEvent objectForKey:key];
+    if (achievementData != nil)
+    {
+        [self unlockAchievement:achievementData];
+    }
+}
+
+- (void) checkDieTime:(NSNotification *)notification
+{
+    NSString *key = notification.name;
+    NSDictionary *achievementData = [_registeredEvent objectForKey:key];
+    if (achievementData != nil)
+    {
+        float updatedNum = [[notification.userInfo objectForKey:@"num"] floatValue];
+        if (achievementData != nil)
+        {
+            if (updatedNum <= [[achievementData objectForKey:@"number"] floatValue])
+            {
+                [self unlockAchievement:achievementData];
+            }
+        }
+    }
+}
+
+
 #pragma mark -
 #pragma mark private
 - (void) unlockAchievement:(NSDictionary *)achievementData
@@ -93,6 +133,7 @@ unlockedEvent       =   _unlockedEvent;
     [((UserData *)[UserData shared]).userAchievementDataDictionary setObject:@"YES" forKey:[NSString stringWithFormat:@"%@-%@", groupID, achievementID]];
     [_unlockedEvent addObject:achievementData];
     [self removeNotificationByName:[achievementData objectForKey:@"type"]];
+    
 }
 
 - (void)dealloc

@@ -307,6 +307,11 @@
         GAMEMODEL.jumpCount ++;
         [MESSAGECENTER postNotificationName:NOTIFICATION_JUMP object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.jumpCount] forKey:@"num"]];
         
+        //Increase life jump count
+        int currentJumpNum = [[USERDATA objectForKey:@"totalJump"] intValue];
+        [USERDATA setObject:[NSNumber numberWithInt:currentJumpNum+1] forKey: @"totalJump"];
+        [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_JUMP object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalJump"] intValue]] forKey:@"num"]];
+        
         if ([self.heroState isEqualToString:@"spring"])
         {
             [self springJump];
@@ -749,7 +754,9 @@
 -(void) spring:(NSArray *)value
 {
     GAMEMODEL.useSpringCount ++;
+    GAMEMODEL.powerCollectCount ++;
     [MESSAGECENTER postNotificationName:NOTIFICATION_SPRING object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useSpringCount] forKey:@"num"]];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_POWER_COLLECT object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.powerCollectCount] forKey:@"num"]];
     
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
@@ -857,7 +864,14 @@
 -(void) booster:(NSArray *)value;
 {
     GAMEMODEL.useBoosterCount ++;
+    GAMEMODEL.powerCollectCount ++;
     [MESSAGECENTER postNotificationName:NOTIFICATION_BOOSTER object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useBoosterCount] forKey:@"num"]];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_POWER_COLLECT object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.powerCollectCount] forKey:@"num"]];
+    
+    if (self.sprite.position.y < ((Board *)[[BoardManager shared] getBoard]).sprite.position.y)
+    {
+        [MESSAGECENTER postNotificationName:NOTIFICATION_BOOSTER_UNDER object:self];
+    }
     
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
@@ -953,7 +967,9 @@
 -(void) magic:(NSArray *)value;
 {
     GAMEMODEL.useMagicCount ++;
+    GAMEMODEL.powerCollectCount ++;
     [MESSAGECENTER postNotificationName:NOTIFICATION_MAGIC object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useMagicCount] forKey:@"num"]];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_POWER_COLLECT object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.powerCollectCount] forKey:@"num"]];
     
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
@@ -1082,6 +1098,10 @@
     GAMEMODEL.star += [[POWERUP_DATA objectForKey:@"MEGA"] intValue];
     [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
     [MESSAGECENTER postNotificationName:NOTIFICATION_MEGASTAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.eatMegaStarCount] forKey:@"num"]];
+    
+    int currentTotalStar = [[USERDATA objectForKey:@"totalStar"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+1] forKey:@"totalStar"];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalStar"] intValue]] forKey:@"num"]];
     
     
     [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];

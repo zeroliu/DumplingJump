@@ -54,6 +54,17 @@
 #define NOTIFICATION_DISTANCE @"distance"
 #define NOTIFICATION_SCORE @"score"
 #define NOTIFICATION_MEGASTAR @"powerMega"
+#define NOTIFICATION_LIFE_DIE @"lifeDie"
+#define NOTIFICATION_LIFE_GAME @"lifeGames"
+#define NOTIFICATION_LIFE_JUMP @"lifeJump"
+#define NOTIFICATION_LIFE_DISTANCE @"lifeDistance"
+#define NOTIFICATION_LIFE_STAR @"lifeStar"
+#define NOTIFICATION_POWER_COLLECT @"powerCollect"
+#define NOTIFICATION_POWERUP_LEVEL @"powerLevel"
+#define NOTIFICATION_SKILL_LEVEL @"skillLevel"
+#define NOTIFICATION_BOOSTER_UNDER @"actionBoosterUnder"
+#define NOTIFICATION_DIE_TIME @"actionDie"
+
 
 #pragma mark -
 #pragma mark TAG

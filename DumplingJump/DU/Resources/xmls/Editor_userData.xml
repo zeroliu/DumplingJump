@@ -21,6 +21,9 @@
         <die>die times</die>
         <totalScore>total score</totalScore>
         <totalJump>total jump</totalJump>
+        <totalGame>total game</totalGame>
+        <totalStar>total star</totalStar>
+        <totalDistance>total distance</totalDistance>
 	</data>
 	<data>
 		<music>1</music>
@@ -43,5 +46,8 @@
         <die>0</die>
         <totalScore>0</totalScore>
         <totalJump>0</totalJump>
+        <totalGame>0</totalGame>
+        <totalStar>0</totalStar>
+        <totalDistance>0</totalDistance>
 	</data>
 </userData>

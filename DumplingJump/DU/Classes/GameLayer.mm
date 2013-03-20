@@ -305,6 +305,7 @@
 {
     if (self.model.state == GAME_START)
     {
+        self.model.gameTime += deltaTime;
         [[BackgroundController shared] updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
@@ -312,8 +313,15 @@
         [[[HeroManager shared] getHero] updateHeroBoosterEffect];
         [[[HeroManager shared] getHero] updateJumpState];
         
-        self.model.distance += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
+        float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
+        self.model.distance += distanceIncrease;
+        
         [MESSAGECENTER postNotificationName:NOTIFICATION_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.model.distance] forKey:@"num"]];
+        //Increase life distance
+        float currentLifeDistance = [[USERDATA objectForKey:@"totalDistance"] floatValue];
+        [USERDATA setObject:[NSNumber numberWithFloat:currentLifeDistance+distanceIncrease] forKey: @"totalDistance"];
+        [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:[[USERDATA objectForKey:@"totalDistance"] floatValue]] forKey:@"num"]];
+        
         [[GameUI shared] updateDistanceSign:(int)self.model.distance];
         [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
         [MESSAGECENTER postNotificationName:NOTIFICATION_SCORE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(int)(self.model.distance*self.model.multiplier)] forKey:@"num"]];
@@ -326,6 +334,11 @@
 
 -(void) startGame
 {
+    //Increase life game count
+    int currentGameNum = [[USERDATA objectForKey:@"totalGame"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentGameNum+1] forKey: @"totalGame"];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_GAME object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalGame"] intValue]] forKey:@"num"]];
+    
     self.model.state = GAME_START;
     [[LevelManager shared] loadCurrentParagraph];
     [[AudioManager shared] setBackgroundMusicVolume:1];
@@ -348,6 +361,13 @@
 
 -(void) gameOver
 {
+    [MESSAGECENTER postNotificationName:NOTIFICATION_DIE_TIME object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:self.model.gameTime] forKey:@"num"]];
+    
+    //Increase life die count
+    int currentDieNum = [[USERDATA objectForKey:@"die"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentDieNum+1] forKey: @"die"];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DIE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"die"] intValue]] forKey:@"num"]];
+    
     BOOL isHighScore = [self isHighScore]; //WARNING! isHighScore method must be called before updateGame Data
     [self updateGameData];
     [[UserData shared] saveUserData];
@@ -357,6 +377,17 @@
     [[DeadUI shared] createUI];
     [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:isHighScore];
     [[GameUI shared] setButtonsEnabled:NO];
+    
+    //Check power-ups level achievement
+    int minLevel = [[USERDATA objectForKey:@"BOOSTER"] intValue];
+    minLevel = MIN(minLevel, [[USERDATA objectForKey:@"SPRING"] intValue]);
+    minLevel = MIN(minLevel, [[USERDATA objectForKey:@"MAGIC"] intValue]);
+    [MESSAGECENTER postNotificationName:NOTIFICATION_POWERUP_LEVEL object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:minLevel] forKey:@"num"]];
+    
+    //Check skills level achievement
+    minLevel = [[USERDATA objectForKey:@"SHELTER"] intValue];
+    minLevel = MIN(minLevel, [[USERDATA objectForKey:@"MAGNET"] intValue]);
+    [MESSAGECENTER postNotificationName:NOTIFICATION_SKILL_LEVEL object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:minLevel] forKey:@"num"]];
     
 }
 

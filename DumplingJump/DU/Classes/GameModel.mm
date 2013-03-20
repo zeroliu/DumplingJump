@@ -27,15 +27,17 @@
 @synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed, multiplier = _multiplier;
 
 @synthesize
-jumpCount = _jumpCount,
-useBoosterCount = _useBoosterCount,
-useSpringCount = _useSpringCount,
-useMagicCount = _useMagicCount,
-useRebornCount = _useRebornCount,
-useShieldCount = _useShieldCount,
-useMagnetCount = _useMagnetCount,
-useHeadstartCount = _useHeadstartCount,
-eatMegaStarCount = _eatMegaStarCount;
+jumpCount           = _jumpCount,
+useBoosterCount     = _useBoosterCount,
+useSpringCount      = _useSpringCount,
+useMagicCount       = _useMagicCount,
+useRebornCount      = _useRebornCount,
+useShieldCount      = _useShieldCount,
+useMagnetCount      = _useMagnetCount,
+useHeadstartCount   = _useHeadstartCount,
+eatMegaStarCount    = _eatMegaStarCount,
+powerCollectCount   = _powerCollectCount,
+gameTime            = _gameTime;
 
 -(id) init
 {
@@ -126,6 +128,8 @@ eatMegaStarCount = _eatMegaStarCount;
     _useShieldCount = 0;
     _useHeadstartCount = 0;
     _eatMegaStarCount = 0;
+    _powerCollectCount = 0;
+    _gameTime = 0;
 }
 
 - (void)dealloc

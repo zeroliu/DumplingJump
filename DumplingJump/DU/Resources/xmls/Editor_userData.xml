@@ -17,7 +17,7 @@
 		<woodmultiplier>wood multiplier level</woodmultiplier>
 		<silvermultiplier>silver multiplier level</silvermultiplier>
 		<goldenmultiplier>golden multiplier level</goldenmultiplier>
-        <achievementGroup>achievement group</achievementGroup>
+        <achievementGroup>current achievement group</achievementGroup>
         <die>die times</die>
         <totalScore>total score</totalScore>
         <totalJump>total jump</totalJump>

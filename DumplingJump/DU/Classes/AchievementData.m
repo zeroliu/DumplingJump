@@ -60,4 +60,28 @@
     return availableAchievements;
 }
 
+- (NSArray *) getAllAchievementsByGroupID:(int)groupID
+{
+    NSMutableArray *availableAchievements = [NSMutableArray array];
+    for (int i=1; i<=4; i++)
+    {
+        NSString *key = [NSString stringWithFormat:@"%d-%d", groupID, i];
+        [availableAchievements addObject:[self.achievementDictionary objectForKey:key]];
+        
+    }
+    return availableAchievements;
+}
+
+- (NSInteger) getMaxGroupNumber
+{
+    int maxNum = 1;
+    for (NSString *key in [self.achievementDictionary allKeys])
+    {
+        int currentGroupNum = [[[self.achievementDictionary objectForKey:key] objectForKey:@"group"] intValue];
+        maxNum = MAX(maxNum, currentGroupNum);
+    }
+    
+    return maxNum;
+}
+
 @end

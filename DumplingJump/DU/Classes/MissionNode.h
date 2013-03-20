@@ -20,4 +20,7 @@
 }
 
 @property (nonatomic, retain) NSArray *missionArray;
+
+- (void) drawWithAchievementDataWithGroupID:(int)groupID;
+- (void) drawWithUnknown:(int)groupID;
 @end

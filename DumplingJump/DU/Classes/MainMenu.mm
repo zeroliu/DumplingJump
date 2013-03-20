@@ -13,6 +13,8 @@
 #import "DUTableView.h"
 #import "EquipmentData.h"
 #import "DUButtonFactory.h"
+#import "MissionNode.h"
+#import "AchievementData.h"
 #import <UIKit/UIKit.h>
 typedef enum {
     MainMenuStateHome,
@@ -124,11 +126,20 @@ typedef enum {
 
 - (void) createAchievementView
 {
-    achievementScrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^
+    achievementScrollView = [[DUScrollPageView alloc] initWithViewSize:[[CCDirector sharedDirector]winSize] viewBlock:^(int num)
                      {
-                         CCNode *sampleNode = [CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
-                         return sampleNode;
-                     } num:8 padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
+                         MissionNode *sampleNode = (MissionNode *)[CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
+                         
+                         if (num+1 <= [[USERDATA objectForKey:@"achievementGroup"] intValue])
+                         {
+                             [sampleNode drawWithAchievementDataWithGroupID:num+1];
+                         }
+                         else
+                         {
+                             [sampleNode drawWithUnknown:num+1];
+                         }
+                         return (CCNode *)sampleNode;
+                     } num:[[AchievementData shared] getMaxGroupNumber] padding:0 bulletNormalSprite:@"UI_mission_pages_off.png" bulletSelectedSprite:@"UI_mission_pages_on.png"];
     
     achievementScrollView.position = ccp(0,BLACK_HEIGHT);
     [achievementHolder addChild:achievementScrollView];

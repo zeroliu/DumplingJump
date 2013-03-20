@@ -8,6 +8,7 @@
 
 #import "DUScrollPageView.h"
 #import "DUPageControl.h"
+
 @interface DUScrollPageView()
 @property (nonatomic, retain) DUPageControl *pageControl;
 
@@ -15,7 +16,7 @@
 
 @implementation DUScrollPageView
 @synthesize pageControl = _pageControl;
--(id) initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)())block num:(int)viewNum padding:(float)thePadding bulletNormalSprite:(NSString *)normalSprite bulletSelectedSprite:(NSString *)selectedSprite
+-(id) initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)(int))block num:(int)viewNum padding:(float)thePadding bulletNormalSprite:(NSString *)normalSprite bulletSelectedSprite:(NSString *)selectedSprite
 {
     if (self = [super initWithViewSize:size viewBlock:block num:viewNum padding:thePadding])
     {

@@ -22,7 +22,7 @@
 @implementation CCScrollPageControlView
 @synthesize viewArray = _viewArray, pageDelegate = _pageDelegate;
 
--(id)initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)())block num:(int)viewNum padding:(float)thePadding
+-(id)initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)(int))block num:(int)viewNum padding:(float)thePadding
 {
     if (self = [super initWithViewSize:size])
     {
@@ -31,8 +31,6 @@
         //Retain content container to the container property
         self.container = [self createContentContainerWithBlock:block num:viewNum padding:thePadding];
         
-        //self.container = [CCBReader nodeGraphFromFile:@"MissionNode.ccbi"];
-        //[self addChild:container_];
         minScale_ = maxScale_ = 1.0f;
         
         //Set delegate
@@ -99,12 +97,12 @@
     _isAnimating = YES;
 }
 
--(CCNode *)createContentContainerWithBlock:(CCNode *(^)())block num:(int)viewNum padding:(float)thePadding
+-(CCNode *)createContentContainerWithBlock:(CCNode *(^)(int))block num:(int)viewNum padding:(float)thePadding
 {
     _viewArray = [[NSMutableArray alloc] initWithCapacity:viewNum];
     
     CCNode *contentContainer = [CCNode node];
-    CCNode *tmpNode = block();
+    CCNode *tmpNode = block(0);
     //- Store the size of the container
     float nodeWidth = tmpNode.boundingBox.size.width;
     //- Calculate the offset (Set instance variable)
@@ -113,7 +111,7 @@
     //- Add contents into contentContainer
     for(int i=0; i<viewNum; i++)
     {
-        CCNode *tmpNode = block();
+        CCNode *tmpNode = block(i);
         [_viewArray addObject:tmpNode];
         tmpNode.position = ccp(i * _nodeOffset,0);
         [contentContainer addChild:tmpNode];

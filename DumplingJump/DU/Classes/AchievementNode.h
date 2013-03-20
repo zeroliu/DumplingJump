@@ -12,8 +12,9 @@
 {
     CCLabelTTF *missionName;
     CCLabelTTF *descriptionText;
+    CCSprite *unlockIcon;
 }
 @property (nonatomic, retain) CCLabelTTF *MissionName;
 @property (nonatomic, retain) CCLabelTTF *DescriptionText;
-
+@property (nonatomic, retain) CCSprite *UnlockIcon;
 @end

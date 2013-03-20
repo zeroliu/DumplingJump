@@ -8,6 +8,7 @@
 
 #import "PauseUI.h"
 #import "AchievementNode.h"
+
 @implementation PauseUI
 +(id) shared
 {
@@ -33,7 +34,7 @@
 -(void) createUI
 {
     [super createUI];
-    [((AchievementNode *)[missionNode.missionArray objectAtIndex:0]).MissionName setString:@"test"];
+    [missionNode drawWithAchievementDataWithGroupID:[[USERDATA objectForKey:@"achievementGroup"] intValue]];
 }
 
 -(void)resumeGame:(id)sender
@@ -56,5 +57,11 @@
     id sequence = [CCSequence actions:delay, restartGameFunc, selfDestruction, nil];
     
     [node runAction:sequence];
+}
+
+- (void)dealloc
+{
+    [missionNode release];
+    [super dealloc];
 }
 @end

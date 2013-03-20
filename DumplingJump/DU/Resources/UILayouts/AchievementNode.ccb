@@ -102,9 +102,9 @@
 				<key>displayName</key>
 				<string>star</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>unlockIcon</string>
 				<key>memberVarAssignmentType</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>properties</key>
 				<array>
 					<dict>

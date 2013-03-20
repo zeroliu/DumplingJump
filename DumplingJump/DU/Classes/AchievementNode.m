@@ -9,7 +9,14 @@
 #import "AchievementNode.h"
 
 @implementation AchievementNode
-@synthesize MissionName = missionName, DescriptionText = descriptionText;
+@synthesize MissionName = missionName, DescriptionText = descriptionText, UnlockIcon = unlockIcon;
 
+- (void)dealloc
+{
+    [missionName release];
+    [descriptionText release];
+    [unlockIcon release];
+    [super dealloc];
+}
 
 @end

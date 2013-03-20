@@ -11,6 +11,6 @@
 
 @interface DUScrollPageView : CCScrollPageControlView <CCSCrollPageViewDelegate>
 
--(id) initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)())block num:(int)viewNum padding:(float)thePadding bulletNormalSprite:(NSString *)normalSprite bulletSelectedSprite:(NSString *)selectedSprite;
+-(id) initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)(int))block num:(int)viewNum padding:(float)thePadding bulletNormalSprite:(NSString *)normalSprite bulletSelectedSprite:(NSString *)selectedSprite;
 
 @end

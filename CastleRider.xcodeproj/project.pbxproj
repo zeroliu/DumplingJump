@@ -27,14 +27,11 @@
 		7F1632F9162BE8F900C132B1 /* sheetBackground1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */; };
 		7F1632FA162BE8F900C132B1 /* sheetBackground1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F1632F8162BE8F900C132B1 /* sheetBackground1.png */; };
 		7F25309616786686005138A1 /* AchievementNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308D16786686005138A1 /* AchievementNode.ccbi */; };
-		7F25309716786686005138A1 /* CategoryCell.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308E16786686005138A1 /* CategoryCell.ccbi */; };
 		7F25309816786686005138A1 /* DeadUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25308F16786686005138A1 /* DeadUI.ccbi */; };
 		7F25309916786686005138A1 /* GameUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25309016786686005138A1 /* GameUI.ccbi */; };
-		7F25309A16786686005138A1 /* LockedCell.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25309116786686005138A1 /* LockedCell.ccbi */; };
 		7F25309B16786686005138A1 /* MainMenu.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25309216786686005138A1 /* MainMenu.ccbi */; };
 		7F25309C16786686005138A1 /* MissionNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25309316786686005138A1 /* MissionNode.ccbi */; };
 		7F25309D16786686005138A1 /* PauseUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25309416786686005138A1 /* PauseUI.ccbi */; };
-		7F25309E16786686005138A1 /* UnlockedCell.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F25309516786686005138A1 /* UnlockedCell.ccbi */; };
 		7F2530A5167868D5005138A1 /* FX_itemGet.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530A0167868D5005138A1 /* FX_itemGet.ccbi */; };
 		7F2530A6167868D5005138A1 /* FX_revive.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530A1167868D5005138A1 /* FX_revive.ccbi */; };
 		7F2530A7167868D5005138A1 /* FX_powderExplosion.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 7F2530A2167868D5005138A1 /* FX_powderExplosion.ccbi */; };
@@ -796,14 +793,11 @@
 		7F1632F7162BE8F900C132B1 /* sheetBackground1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetBackground1-hd.png"; sourceTree = "<group>"; };
 		7F1632F8162BE8F900C132B1 /* sheetBackground1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheetBackground1.png; sourceTree = "<group>"; };
 		7F25308D16786686005138A1 /* AchievementNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementNode.ccbi; path = UILayouts/AchievementNode.ccbi; sourceTree = "<group>"; };
-		7F25308E16786686005138A1 /* CategoryCell.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = CategoryCell.ccbi; path = UILayouts/CategoryCell.ccbi; sourceTree = "<group>"; };
 		7F25308F16786686005138A1 /* DeadUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = DeadUI.ccbi; path = UILayouts/DeadUI.ccbi; sourceTree = "<group>"; };
 		7F25309016786686005138A1 /* GameUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameUI.ccbi; path = UILayouts/GameUI.ccbi; sourceTree = "<group>"; };
-		7F25309116786686005138A1 /* LockedCell.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = LockedCell.ccbi; path = UILayouts/LockedCell.ccbi; sourceTree = "<group>"; };
 		7F25309216786686005138A1 /* MainMenu.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = MainMenu.ccbi; path = UILayouts/MainMenu.ccbi; sourceTree = "<group>"; };
 		7F25309316786686005138A1 /* MissionNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = MissionNode.ccbi; path = UILayouts/MissionNode.ccbi; sourceTree = "<group>"; };
 		7F25309416786686005138A1 /* PauseUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = PauseUI.ccbi; path = UILayouts/PauseUI.ccbi; sourceTree = "<group>"; };
-		7F25309516786686005138A1 /* UnlockedCell.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = UnlockedCell.ccbi; path = UILayouts/UnlockedCell.ccbi; sourceTree = "<group>"; };
 		7F2530A0167868D5005138A1 /* FX_itemGet.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = FX_itemGet.ccbi; path = specialEffects/FX_itemGet.ccbi; sourceTree = "<group>"; };
 		7F2530A1167868D5005138A1 /* FX_revive.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = FX_revive.ccbi; path = specialEffects/FX_revive.ccbi; sourceTree = "<group>"; };
 		7F2530A2167868D5005138A1 /* FX_powderExplosion.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = FX_powderExplosion.ccbi; path = specialEffects/FX_powderExplosion.ccbi; sourceTree = "<group>"; };
@@ -3536,14 +3530,11 @@
 			isa = PBXGroup;
 			children = (
 				7F25308D16786686005138A1 /* AchievementNode.ccbi */,
-				7F25308E16786686005138A1 /* CategoryCell.ccbi */,
 				7F25308F16786686005138A1 /* DeadUI.ccbi */,
 				7F25309016786686005138A1 /* GameUI.ccbi */,
-				7F25309116786686005138A1 /* LockedCell.ccbi */,
 				7F25309216786686005138A1 /* MainMenu.ccbi */,
 				7F25309316786686005138A1 /* MissionNode.ccbi */,
 				7F25309416786686005138A1 /* PauseUI.ccbi */,
-				7F25309516786686005138A1 /* UnlockedCell.ccbi */,
 			);
 			name = UILayouts;
 			sourceTree = "<group>";
@@ -3789,14 +3780,11 @@
 				7FB56EBF167721A000C87AAA /* sheetEffects.png in Resources */,
 				7FA80E041677383600C23879 /* Eras Bold ITC.ttf in Resources */,
 				7F25309616786686005138A1 /* AchievementNode.ccbi in Resources */,
-				7F25309716786686005138A1 /* CategoryCell.ccbi in Resources */,
 				7F25309816786686005138A1 /* DeadUI.ccbi in Resources */,
 				7F25309916786686005138A1 /* GameUI.ccbi in Resources */,
-				7F25309A16786686005138A1 /* LockedCell.ccbi in Resources */,
 				7F25309B16786686005138A1 /* MainMenu.ccbi in Resources */,
 				7F25309C16786686005138A1 /* MissionNode.ccbi in Resources */,
 				7F25309D16786686005138A1 /* PauseUI.ccbi in Resources */,
-				7F25309E16786686005138A1 /* UnlockedCell.ccbi in Resources */,
 				7F2530A5167868D5005138A1 /* FX_itemGet.ccbi in Resources */,
 				7F2530A6167868D5005138A1 /* FX_revive.ccbi in Resources */,
 				7F2530A7167868D5005138A1 /* FX_powderExplosion.ccbi in Resources */,

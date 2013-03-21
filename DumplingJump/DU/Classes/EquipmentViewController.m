@@ -31,7 +31,7 @@
     if (self = [super init])
     {
         _delegate = theDelegate;
-        equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"skills",@"items",@"multipliers", nil];
+        equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"items",@"skills",@"multipliers", nil];
     }
     return self;
 }

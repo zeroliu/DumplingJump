@@ -42,12 +42,15 @@
     for (NSDictionary *achievement in unlockedEvents)
     {
         int achievementID = [[achievement objectForKey:@"id"] intValue];
-        CCSprite *unlockIcon = ((AchievementNode *)[missionNode.missionArray objectAtIndex:achievementID-1]).UnlockIcon;
+        AchievementNode *achievementNode = ((AchievementNode *)[missionNode.missionArray objectAtIndex:achievementID-1]);
+        CCSprite *unlockIcon = achievementNode.UnlockIcon;
         [unlockIcon setOpacity:0];
         unlockIcon.scale = 5;
+        unlockIcon.zOrder = 100;
         id callbackBlock = [CCCallBlock actionWithBlock:^{
-            id actionFadeIn = [CCFadeIn actionWithDuration:0.3];
+            id actionFadeIn = [CCFadeIn actionWithDuration:0.05];
             id actionScaleDown = [CCScaleTo actionWithDuration:0.3 scale:1];
+            achievementNode.zOrder = 100;
             [unlockIcon runAction:actionFadeIn];
             [unlockIcon runAction:actionScaleDown];
         }];
@@ -63,6 +66,7 @@
     //Check if unlock the item
     //if yes
     //show the item unlock screen
+    
     
     //Show the forward button
     id showForwardButton = [CCCallBlock actionWithBlock:^{

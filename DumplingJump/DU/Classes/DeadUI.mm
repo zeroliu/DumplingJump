@@ -10,6 +10,7 @@
 #import "LevelManager.h"
 #import "HeroManager.h"
 #import "BoardManager.h"
+#import "DeadAchievementUI.h"
 #import "CCBReader.h"
 
 @implementation DeadUI
@@ -43,6 +44,17 @@
     [equipmentViewController setContinueButtonVisibility:NO];
 }
 
+- (void) didAchievementTapped:(id)sender
+{
+    [self setDeadUIVisible:NO callback:@selector(showAchievement)];
+    [self setButtonsEnable:NO];
+}
+
+- (void) showAchievement
+{
+    [[DeadAchievementUI shared] createUI];
+}
+
 - (void) showEquipment
 {
     [equipmentView setHidden:NO];
@@ -53,6 +65,11 @@
 - (void) didEquipmentViewBack
 {
     [equipmentView setHidden:YES];
+    [self showDeadUI];
+}
+
+- (void) showDeadUI
+{
     [self setDeadUIVisible:YES callback:nil];
     [self setButtonsEnable:YES];
 }

@@ -76,6 +76,16 @@ unlockedEvent       =   _unlockedEvent;
     [_registeredEvent removeObjectForKey:name];
 }
 
+- (id) getUnlockedEvents
+{
+    return self.unlockedEvent;
+}
+
+- (void) removeAllUnlockedEvent
+{
+    [self.unlockedEvent removeAllObjects];
+}
+
 #pragma mark -
 #pragma mark Notification selector
 //Regular achievement means can simply compare the number
@@ -133,7 +143,6 @@ unlockedEvent       =   _unlockedEvent;
     [((UserData *)[UserData shared]).userAchievementDataDictionary setObject:@"YES" forKey:[NSString stringWithFormat:@"%@-%@", groupID, achievementID]];
     [_unlockedEvent addObject:achievementData];
     [self removeNotificationByName:[achievementData objectForKey:@"type"]];
-    
 }
 
 - (void)dealloc

@@ -753,6 +753,10 @@
 		9FAEC66E16F6D907009112EB /* UI_option_tutorial_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC66416F6D907009112EB /* UI_option_tutorial_on.png */; };
 		9FAEC66F16F6D907009112EB /* UI_option_tutorial_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */; };
 		9FAEC67216F6F865009112EB /* AchievementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC67116F6F865009112EB /* AchievementData.m */; };
+		9FC2D18216FA96D80020AF59 /* AchievementUnlockUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9FC2D18016FA96D80020AF59 /* AchievementUnlockUI.ccbi */; };
+		9FC2D18316FA96D80020AF59 /* DeadAchievementUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9FC2D18116FA96D80020AF59 /* DeadAchievementUI.ccbi */; };
+		9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */; };
+		9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */; };
 		9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.m */; };
 		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
 /* End PBXBuildFile section */
@@ -1813,6 +1817,12 @@
 		9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_option_tutorial_press.png; sourceTree = "<group>"; };
 		9FAEC67016F6F865009112EB /* AchievementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementData.h; sourceTree = "<group>"; };
 		9FAEC67116F6F865009112EB /* AchievementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementData.m; sourceTree = "<group>"; };
+		9FC2D18016FA96D80020AF59 /* AchievementUnlockUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementUnlockUI.ccbi; path = UILayouts/AchievementUnlockUI.ccbi; sourceTree = "<group>"; };
+		9FC2D18116FA96D80020AF59 /* DeadAchievementUI.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = DeadAchievementUI.ccbi; path = UILayouts/DeadAchievementUI.ccbi; sourceTree = "<group>"; };
+		9FC2D18416FA97300020AF59 /* DeadAchievementUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadAchievementUI.h; sourceTree = "<group>"; };
+		9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeadAchievementUI.mm; sourceTree = "<group>"; };
+		9FC2D18716FAA27C0020AF59 /* AchievementUnlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementUnlockUI.h; sourceTree = "<group>"; };
+		9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementUnlockUI.mm; sourceTree = "<group>"; };
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
 		9FEEB08016F7FF88008A1D02 /* AchievementManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementManager.m; sourceTree = "<group>"; };
 		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
@@ -1933,8 +1943,12 @@
 				7F3288961663416B00DF86FC /* SubCCB */,
 				7F3288811662D89200DF86FC /* GameUI.h */,
 				7F3288821662D89200DF86FC /* GameUI.mm */,
+				9FC2D18716FAA27C0020AF59 /* AchievementUnlockUI.h */,
+				9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */,
 				7F3288841662E5D800DF86FC /* DeadUI.h */,
 				7F3288851662E5D800DF86FC /* DeadUI.mm */,
+				9FC2D18416FA97300020AF59 /* DeadAchievementUI.h */,
+				9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */,
 				7F32888C166331AC00DF86FC /* DUUI.h */,
 				7F32888D166331AC00DF86FC /* DUUI.mm */,
 				7F3288931663385C00DF86FC /* PauseUI.h */,
@@ -3529,6 +3543,8 @@
 		7FEA39EC165A10D3005350F2 /* UILayouts */ = {
 			isa = PBXGroup;
 			children = (
+				9FC2D18016FA96D80020AF59 /* AchievementUnlockUI.ccbi */,
+				9FC2D18116FA96D80020AF59 /* DeadAchievementUI.ccbi */,
 				7F25308D16786686005138A1 /* AchievementNode.ccbi */,
 				7F25308F16786686005138A1 /* DeadUI.ccbi */,
 				7F25309016786686005138A1 /* GameUI.ccbi */,
@@ -4184,6 +4200,8 @@
 				9FAEC66D16F6D907009112EB /* UI_option_tutorial_off.png in Resources */,
 				9FAEC66E16F6D907009112EB /* UI_option_tutorial_on.png in Resources */,
 				9FAEC66F16F6D907009112EB /* UI_option_tutorial_press.png in Resources */,
+				9FC2D18216FA96D80020AF59 /* AchievementUnlockUI.ccbi in Resources */,
+				9FC2D18316FA96D80020AF59 /* DeadAchievementUI.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4462,6 +4480,8 @@
 				9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */,
 				9FAEC67216F6F865009112EB /* AchievementData.m in Sources */,
 				9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */,
+				9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */,
+				9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

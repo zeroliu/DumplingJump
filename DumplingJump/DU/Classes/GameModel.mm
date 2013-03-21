@@ -24,7 +24,7 @@
 @synthesize state = _state;
 @synthesize distance = _distance;
 
-@synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed, multiplier = _multiplier;
+@synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed, multiplier = _multiplier, isHighScore = _isHighScore;
 
 @synthesize
 jumpCount           = _jumpCount,
@@ -130,6 +130,7 @@ gameTime            = _gameTime;
     _eatMegaStarCount = 0;
     _powerCollectCount = 0;
     _gameTime = 0;
+    _isHighScore = NO;
 }
 
 - (void)dealloc

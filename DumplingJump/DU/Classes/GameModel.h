@@ -21,6 +21,7 @@
 @property (nonatomic, readonly) float gameSpeedIncreaseUnit;
 @property (nonatomic, readonly) float gameSpeedMax;
 @property (nonatomic, readonly) float objectInitialSpeed;
+@property (nonatomic, assign) BOOL isHighScore;
 
 //Achievement related
 @property (nonatomic, assign) int jumpCount;

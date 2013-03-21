@@ -12,4 +12,6 @@
 + (id) shared;
 - (void) registerAchievement:(NSDictionary *)achievementData;
 - (void) removeAllNotification;
+- (id) getUnlockedEvents;
+- (void) removeAllUnlockedEvent;
 @end

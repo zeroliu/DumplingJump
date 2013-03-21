@@ -763,6 +763,8 @@ sheetUI-3-hd.png
 sheetUI-3.plist
 sheetUI-3.png
 AchievementNode.ccbi
+AchievementUnlockUI.ccbi
+DeadAchievementUI.ccbi
 DeadUI.ccbi
 GameUI.ccbi
 MainMenu.ccbi

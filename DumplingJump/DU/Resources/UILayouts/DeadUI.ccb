@@ -2223,7 +2223,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>102</real>
+									<real>101</real>
 									<real>45</real>
 									<integer>0</integer>
 								</array>
@@ -2267,8 +2267,8 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string></string>
-									<integer>0</integer>
+									<string>didAchievementTapped:</string>
+									<integer>2</integer>
 									<integer>32</integer>
 								</array>
 							</dict>

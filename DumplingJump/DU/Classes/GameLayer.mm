@@ -14,6 +14,7 @@
 #import "LevelTestTool.h"
 #import "ParamConfigTool.h"
 #import "GameUI.h"
+#import "AchievementUnlockUI.h"
 #import "DeadUI.h"
 
 @interface GameLayer()
@@ -242,9 +243,7 @@
     [AchievementData shared];
     
     [self registerAchievementNotification];
-
 }
-
 
 -(void) preloadMusic
 {
@@ -361,23 +360,6 @@
 
 -(void) gameOver
 {
-    [MESSAGECENTER postNotificationName:NOTIFICATION_DIE_TIME object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:self.model.gameTime] forKey:@"num"]];
-    
-    //Increase life die count
-    int currentDieNum = [[USERDATA objectForKey:@"die"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentDieNum+1] forKey: @"die"];
-    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DIE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"die"] intValue]] forKey:@"num"]];
-    
-    BOOL isHighScore = [self isHighScore]; //WARNING! isHighScore method must be called before updateGame Data
-    [self updateGameData];
-    [[UserData shared] saveUserData];
-    
-    [[AudioManager shared] setBackgroundMusicVolume:0.2];
-    [self pauseGame];
-    [[DeadUI shared] createUI];
-    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:isHighScore];
-    [[GameUI shared] setButtonsEnabled:NO];
-    
     //Check power-ups level achievement
     int minLevel = [[USERDATA objectForKey:@"BOOSTER"] intValue];
     minLevel = MIN(minLevel, [[USERDATA objectForKey:@"SPRING"] intValue]);
@@ -389,6 +371,37 @@
     minLevel = MIN(minLevel, [[USERDATA objectForKey:@"MAGNET"] intValue]);
     [MESSAGECENTER postNotificationName:NOTIFICATION_SKILL_LEVEL object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:minLevel] forKey:@"num"]];
     
+    [MESSAGECENTER postNotificationName:NOTIFICATION_DIE_TIME object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:self.model.gameTime] forKey:@"num"]];
+    
+    //Increase life die count
+    int currentDieNum = [[USERDATA objectForKey:@"die"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentDieNum+1] forKey: @"die"];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DIE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"die"] intValue]] forKey:@"num"]];
+    
+    [[AudioManager shared] setBackgroundMusicVolume:0.2];
+    [self pauseGame];
+    
+    self.model.isHighScore = [self isHighScore]; //WARNING! isHighScore method must be called before updateGame Data
+    [self updateGameData];
+    [[UserData shared] saveUserData];
+    
+    if ([[[AchievementManager shared] getUnlockedEvents] count] > 0)
+    {
+        [[AchievementUnlockUI shared] createUI];
+    }
+    else
+    {
+        [self showDeadUI];
+    }
+    
+    [[GameUI shared] setButtonsEnabled:NO];
+    
+}
+
+- (void) showDeadUI
+{
+    [[DeadUI shared] createUI];
+    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:self.model.isHighScore];
 }
 
 -(BOOL) isHighScore
@@ -412,6 +425,9 @@
 
 -(void) restart
 {
+    //Clear all unlocked
+    [[AchievementManager shared] removeAllUnlockedEvent];
+    
     //Re-register available achievement
     [self registerAchievementNotification];
     

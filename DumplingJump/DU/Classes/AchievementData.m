@@ -84,4 +84,20 @@
     return maxNum;
 }
 
+- (BOOL) hasUnlockedAllAchievementsByGroup:(int)groupID
+{
+    BOOL res = YES;
+    for (int i=1; i<=4; i++)
+    {
+        NSString *key = [NSString stringWithFormat:@"%d-%d", groupID, i];
+        if ([[((UserData *)[UserData shared]).userAchievementDataDictionary objectForKey:key] isEqualToString:@"NO"])
+        {
+            res = NO;
+            break;
+        }
+    }
+
+    return res;
+}
+
 @end

@@ -76,9 +76,24 @@
     }
 }
 
+-(NSDictionary *) findEquipmentWithGroupID:(int)groupID
+{
+    for (NSString *key in [self.dataDictionary allKeys])
+    {
+        NSDictionary *equipment = [self.dataDictionary objectForKey:key];
+        if ([[equipment objectForKey:@"group"] intValue] == groupID)
+        {
+            return equipment;
+        }
+    }
+    
+    return nil;
+}
+
 - (void)dealloc
 {
     [_dataDictionary release];
+    [_structedDictionary release];
     [super dealloc];
 }
 

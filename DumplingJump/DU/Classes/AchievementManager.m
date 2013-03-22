@@ -96,7 +96,7 @@ unlockedEvent       =   _unlockedEvent;
     int updatedNum = [[notification.userInfo objectForKey:@"num"] intValue];
     if (achievementData != nil)
     {
-        if ([achievementData objectForKey:@"restriction"] == nil)
+//        if ([achievementData objectForKey:@"restriction"] == nil)
         {
             if (updatedNum >= [[achievementData objectForKey:@"number"] intValue])
             {

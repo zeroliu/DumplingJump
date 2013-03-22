@@ -5,6 +5,7 @@
 		<type>type</type>
 		<layout>layout</layout>
 		<name>name</name>
+        <displayName>display name</displayName>
 		<image>image</image>
 		<order>order</order>
 		<description>description</description>
@@ -21,6 +22,7 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>BOOSTER</name>
+        <displayName>BOOSTER</displayName>
 		<image>UI_item_booster</image>
 		<order>0</order>
 		<description>boost ahead</description>
@@ -38,6 +40,7 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGIC</name>
+        <displayName>SWORD</displayName>
 		<image>UI_item_sword</image>
 		<order>1</order>
 		<description>extend duration</description>
@@ -55,6 +58,7 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SPRING</name>
+        <displayName>SPRING</displayName>
 		<image>UI_item_spring</image>
 		<order>2</order>
 		<description>extend duration</description>
@@ -72,6 +76,7 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MEGA</name>
+        <displayName>MEGA STAR</displayName>
 		<image>UI_item_megacoins</image>
 		<order>3</order>
 		<description>increase</description>
@@ -89,6 +94,7 @@
 		<type>items</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
+        <displayName>REBORN</displayName>
 		<image>UI_item_reborn</image>
 		<order>0</order>
 		<description>revive once</description>
@@ -100,6 +106,7 @@
 		<type>items</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>headstart</name>
+        <displayName>HEAD START</displayName>
 		<image>UI_item_headstart</image>
 		<order>1</order>
 		<description>boost ahead</description>
@@ -111,6 +118,7 @@
 		<type>skills</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGNET</name>
+        <displayName>MAGNET</displayName>
 		<image>UI_item_magnet</image>
 		<order>0</order>
 		<description>cooldown:</description>
@@ -128,6 +136,7 @@
 		<type>skills</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SHELTER</name>
+        <displayName>SHIELD</displayName>
 		<image>UI_item_shield</image>
 		<order>1</order>
 		<description>cooldown:</description>
@@ -145,6 +154,7 @@
 		<type>multipliers</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>goldenmultiplier</name>
+        <displayName>DOUBLE</displayName>
 		<image>UI_item_scorex3</image>
 		<order>0</order>
 		<description>Protect your hero</description>

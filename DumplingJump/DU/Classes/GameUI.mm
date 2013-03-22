@@ -127,10 +127,10 @@
     
     _buttonsDictionary = [[NSMutableDictionary alloc] init];
     _buttonstatusDictionary = [[NSMutableDictionary alloc] init];
-    [_buttonsDictionary setValue:shieldButtonHolder forKey:@"shield"];
-    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"shield"];
-    [_buttonsDictionary setValue:magnetButtonHolder forKey:@"magnet"];
-    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"magnet"];
+    [_buttonsDictionary setValue:shieldButtonHolder forKey:@"SHELTER"];
+    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"SHELTER"];
+    [_buttonsDictionary setValue:magnetButtonHolder forKey:@"MAGNET"];
+    [_buttonstatusDictionary setValue:[NSNumber numberWithBool:YES] forKey:@"MAGNET"];
 }
 
 -(void) pauseUI
@@ -168,20 +168,20 @@
 //Get called by cocosbuilder
 -(void) shieldClicked:(id)sender
 {
-    if ([[self.buttonstatusDictionary objectForKey:@"shield"] boolValue])
+    if ([[self.buttonstatusDictionary objectForKey:@"SHELTER"] boolValue])
     {
         //bomb, will blow everything away
         [[[HeroManager shared] getHero] shieldPowerup];
-        [self cooldownButtonBarWithName:@"shield"];
+        [self cooldownButtonBarWithName:@"SHELTER"];
     }
 }
 
 -(void) magnetClicked:(id)sender
 {
-    if ([[self.buttonstatusDictionary objectForKey:@"magnet"] boolValue])
+    if ([[self.buttonstatusDictionary objectForKey:@"MAGNET"] boolValue])
     {
         [[[HeroManager shared] getHero] absorbPowerup];
-        [self cooldownButtonBarWithName:@"magnet"];
+        [self cooldownButtonBarWithName:@"MAGNET"];
     }
 }
 
@@ -359,8 +359,7 @@
     //Change scale to 0
     [myButton setScaleY:0];
     //Slowly increase the scale to 1
-    //TODO: change time to button specific time
-    id cooldownAnimation = [CCScaleTo actionWithDuration:20 scale:1];
+    id cooldownAnimation = [CCScaleTo actionWithDuration:[[POWERUP_DATA objectForKey:buttonName] floatValue] scale:1];
     //when finish, play finish animation
     id finishAnimation = [CCCallBlock actionWithBlock:^{
         CCSprite *whiteEffect = (CCSprite *)[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:2];

@@ -657,6 +657,7 @@ UI_tutorial_tap_7.png
 UI_tutorial_tap_8.png
 UI_tutorial_tap_9.png
 UI_unlock_canvas.png
+UI_unlock_multiplier.png
 UI_purch_box_normal.png
 UI_purch_box_press.png
 UI_purch_like.png
@@ -694,7 +695,7 @@ ccbParticleSnow.png
 ccbParticleStars.png
 comic andy.ttf
 Eras Bold ITC.ttf
-ERASDEMI.TTF
+Eras Demi ITC.ttf
 ERASLGHT.TTF
 ERASMD.TTF
 A_arrow_1.png
@@ -767,6 +768,7 @@ AchievementUnlockUI.ccbi
 DeadAchievementUI.ccbi
 DeadUI.ccbi
 GameUI.ccbi
+ItemGetUI.ccbi
 MainMenu.ccbi
 MissionNode.ccbi
 PauseUI.ccbi

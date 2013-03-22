@@ -360,6 +360,15 @@
 
 -(void) gameOver
 {
+    //Clear warning sign
+    [[LevelManager shared] restart];
+    
+    //Clean object dictionary
+    [[DUObjectsDictionary sharedDictionary] cleanDictionary];
+    
+    //Clean particles
+    [[DUParticleManager shared] cleanParticlesInGame];
+    
     //Check power-ups level achievement
     int minLevel = [[USERDATA objectForKey:@"BOOSTER"] intValue];
     minLevel = MIN(minLevel, [[USERDATA objectForKey:@"SPRING"] intValue]);

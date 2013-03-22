@@ -17,4 +17,5 @@
 - (NSArray *) getAvailableAchievementsByGroupID:(int)groupID;
 - (NSArray *) getAllAchievementsByGroupID:(int)groupID;
 - (NSInteger) getMaxGroupNumber;
+- (BOOL) hasUnlockedAllAchievementsByGroup:(int)groupID;
 @end

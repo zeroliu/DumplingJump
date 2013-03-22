@@ -82,7 +82,7 @@ gameTime            = _gameTime;
         }
     }
     
-    self.multiplier = 5.8f;
+    self.multiplier = [[USERDATA objectForKey:@"multiplier"] intValue];
     
 }
 

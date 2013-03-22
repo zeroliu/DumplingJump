@@ -10,6 +10,7 @@
 #import "AchievementData.h"
 #import "Constants.h"
 #import "UserData.h"
+#import "EquipmentData.h"
 
 @implementation MissionNode
 @synthesize missionArray;
@@ -18,6 +19,15 @@
 -(void)didLoadFromCCB
 {
     missionArray = [NSArray arrayWithObjects:mission0, mission1, mission2, mission3, nil];
+}
+
+- (void) drawlockedItemSpriteWithGroupID:(int)groupID
+{
+    NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:groupID];
+
+    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+    CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
+    [unlockItemSprite setDisplayFrame:unlockedItemframe];
 }
 
 - (void) drawWithUnknown:(int)groupID
@@ -35,6 +45,7 @@
         //update description
         [node.DescriptionText setString:@"??????"];
     }
+    [self drawlockedItemSpriteWithGroupID:groupID];
 }
 
 - (void) drawWithAchievementDataWithGroupID:(int)groupID
@@ -66,5 +77,21 @@
     }
     
     [availableAchievement release];
+    [self drawlockedItemSpriteWithGroupID:groupID];
+}
+
+- (void)dealloc
+{
+    [mission0 release];
+    [mission1 release];
+    [mission2 release];
+    [mission3 release];
+    
+    [missionArray release];
+    [unlockItemSprite release];
+    [unlockItemName release];
+    [unlockItemDescription release];
+    
+    [super dealloc];
 }
 @end

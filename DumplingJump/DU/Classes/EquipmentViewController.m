@@ -57,7 +57,6 @@
     
     NSString *equipmentName = [equipmentData objectForKey:@"name"];
     
-    //TODO: check if it is multiplier
     DUTableViewCell *cell = nil;
     BOOL unlocked = YES;
     if ([[USERDATA objectForKey:equipmentName] intValue] < 0)

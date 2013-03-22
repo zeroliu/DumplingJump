@@ -91,7 +91,7 @@
     [starText setString:[NSString stringWithFormat:@"%d",star]];
     [totalStarText setString:[NSString stringWithFormat:@"%d",totalStar]];
     [distanceText setString:[NSString stringWithFormat:@"%d",distance]];
-    [multiplierText setString:[NSString stringWithFormat:@"%gx",multiplier]];
+    [multiplierText setString:[NSString stringWithFormat:@"%dx",[[USERDATA objectForKey:@"multiplier"] intValue]]];
     if (isHighScore)
     {
         [highscoreSprite setOpacity:255];

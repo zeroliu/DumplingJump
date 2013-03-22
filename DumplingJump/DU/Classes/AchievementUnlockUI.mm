@@ -8,10 +8,12 @@
 
 #import "AchievementUnlockUI.h"
 #import "AchievementManager.h"
+#import "AchievementData.h"
 #import "AchievementNode.h"
 #import "DeadUI.h"
 #import "CCBReader.h"
 #import "UserData.h"
+#import "ItemUnlockUI.h"
 
 @implementation AchievementUnlockUI
 +(id) shared
@@ -49,7 +51,7 @@
         unlockIcon.zOrder = 100;
         id callbackBlock = [CCCallBlock actionWithBlock:^{
             id actionFadeIn = [CCFadeIn actionWithDuration:0.05];
-            id actionScaleDown = [CCScaleTo actionWithDuration:0.3 scale:1];
+            id actionScaleDown = [CCScaleTo actionWithDuration:0.15 scale:1];
             achievementNode.zOrder = 100;
             [unlockIcon runAction:actionFadeIn];
             [unlockIcon runAction:actionScaleDown];
@@ -62,11 +64,6 @@
     //Play animation
     id delay = [CCDelayTime actionWithDuration:0.5];
     id animationSequence = [CCSequence actionWithArray:animationArray];
-    
-    //Check if unlock the item
-    //if yes
-    //show the item unlock screen
-    
     
     //Show the forward button
     id showForwardButton = [CCCallBlock actionWithBlock:^{
@@ -95,7 +92,19 @@
 {
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
-    id resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(showDeadUI)];
+    
+    //Check if unlock the item
+    //if yes
+    //show the item unlock screen
+    id resumeGameFunc = nil;
+    if (![[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
+    {
+        resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(showDeadUI)];
+    }
+    else
+    {
+        resumeGameFunc = [CCCallFunc actionWithTarget:[ItemUnlockUI shared] selector:@selector(createUI)];
+    }
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
     id sequence = [CCSequence actions:delay, resumeGameFunc, selfDestruction, nil];
     

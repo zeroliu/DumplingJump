@@ -12,6 +12,7 @@
 @property (nonatomic, retain) NSDictionary *dataDictionary;
 @property (nonatomic, retain) NSMutableDictionary *structedDictionary;
 +(id) shared;
+-(NSDictionary *) findEquipmentWithGroupID:(int)groupID;
 //-(void) saveEquipmentData;
 
 @end

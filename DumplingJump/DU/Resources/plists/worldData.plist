@@ -5,9 +5,9 @@
 	<key>debug</key>
 	<dict>
 		<key>levelEditorEnabled</key>
-		<true/>
+		<false/>
 		<key>forceReloadUserData</key>
-		<true/>
+		<false/>
 		<key>hasHeadStart</key>
 		<false/>
 		<key>physicsDebug</key>

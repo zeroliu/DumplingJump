@@ -33,6 +33,7 @@
 -(void) scrollToPage:(int)index
 {
     [_pageControl moveToIndex:index];
+    [super scrollToIndex:index];
 }
 
 - (void)dealloc

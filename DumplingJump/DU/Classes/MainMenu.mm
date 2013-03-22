@@ -144,7 +144,7 @@ typedef enum {
     achievementScrollView.position = ccp(0,BLACK_HEIGHT);
     [achievementHolder addChild:achievementScrollView];
     achievementHolder.zOrder = Z_SECONDARY_UI;
-    
+    [achievementScrollView scrollToPage:[[USERDATA objectForKey:@"achievementGroup"] intValue] -1];
     backButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_other_back.png"] retain];
     backButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:backButton];

@@ -19,4 +19,5 @@
 @property (nonatomic, retain) id pageDelegate;
 //Init with the scroll view size, the node needed to be repeated and the number of repetition
 -(id)initWithViewSize:(CGSize)size viewBlock:(CCNode *(^)(int))block num:(int)viewNum padding:(float)thePadding;
+-(void) scrollToIndex:(int) index;
 @end

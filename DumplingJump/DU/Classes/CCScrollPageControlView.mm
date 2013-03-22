@@ -77,8 +77,13 @@
         {
             [_pageDelegate scrollToPage:_currentPageIndex];
         }
-        [self setContentOffset:CGPointMake(-_currentPageIndex*_nodeOffset, 0) animated:YES];
+        
     }
+}
+
+-(void) scrollToIndex:(int) index
+{
+    [self setContentOffset:CGPointMake(-index*_nodeOffset, 0) animated:YES];
 }
 
 -(void) calculatePageFromNodeOffset

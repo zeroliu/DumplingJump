@@ -5,7 +5,7 @@
 		<type>type</type>
 		<layout>layout</layout>
 		<name>name</name>
-        <displayName>display name</displayName>
+		<displayName>display name</displayName>
 		<image>image</image>
 		<order>order</order>
 		<description>description</description>
@@ -22,12 +22,12 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>BOOSTER</name>
-        <displayName>BOOSTER</displayName>
+		<displayName>BOOSTER</displayName>
 		<image>UI_item_booster</image>
 		<order>0</order>
 		<description>boost ahead</description>
-		<multiplier>2.00</multiplier>
-		<base>400</base>
+		<multiplier>1.80</multiplier>
+		<base>200</base>
 		<level0>3</level0>
 		<level1>4</level1>
 		<level2>5</level2>
@@ -40,12 +40,12 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGIC</name>
-        <displayName>SWORD</displayName>
+		<displayName>SWORD</displayName>
 		<image>UI_item_sword</image>
 		<order>1</order>
 		<description>extend duration</description>
-		<multiplier>2.00</multiplier>
-		<base>300</base>
+		<multiplier>1.80</multiplier>
+		<base>100</base>
 		<level0>4</level0>
 		<level1>5</level1>
 		<level2>6</level2>
@@ -58,12 +58,12 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SPRING</name>
-        <displayName>SPRING</displayName>
+		<displayName>SPRING</displayName>
 		<image>UI_item_spring</image>
 		<order>2</order>
 		<description>extend duration</description>
-		<multiplier>2.00</multiplier>
-		<base>200</base>
+		<multiplier>1.80</multiplier>
+		<base>150</base>
 		<level0>4</level0>
 		<level1>5</level1>
 		<level2>6</level2>
@@ -76,12 +76,12 @@
 		<type>powerups</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MEGA</name>
-        <displayName>MEGA STAR</displayName>
+		<displayName>MEGA STAR</displayName>
 		<image>UI_item_megacoins</image>
 		<order>3</order>
 		<description>increase</description>
-		<multiplier>2.00</multiplier>
-		<base>600</base>
+		<multiplier>1.80</multiplier>
+		<base>300</base>
 		<level0>40</level0>
 		<level1>80</level1>
 		<level2>150</level2>
@@ -94,36 +94,36 @@
 		<type>items</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
-        <displayName>REBORN</displayName>
+		<displayName>REBORN</displayName>
 		<image>UI_item_reborn</image>
 		<order>0</order>
 		<description>revive once</description>
-		<multiplier>1.80</multiplier>
-		<base>800</base>
+		<multiplier>2.00</multiplier>
+		<base>400</base>
 	</Item>
 	<Item>
 		<group>6</group>
 		<type>items</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>headstart</name>
-        <displayName>HEAD START</displayName>
+		<displayName>HEAD START</displayName>
 		<image>UI_item_headstart</image>
 		<order>1</order>
 		<description>boost ahead</description>
-		<multiplier>1.30</multiplier>
-		<base>1000</base>
+		<multiplier>1.00</multiplier>
+		<base>300</base>
 	</Item>
 	<Item>
 		<group>7</group>
 		<type>skills</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGNET</name>
-        <displayName>MAGNET</displayName>
+		<displayName>MAGNET</displayName>
 		<image>UI_item_magnet</image>
 		<order>0</order>
 		<description>cooldown:</description>
-		<multiplier>2.00</multiplier>
-		<base>200</base>
+		<multiplier>3.00</multiplier>
+		<base>100</base>
 		<level0>60</level0>
 		<level1>50</level1>
 		<level2>40</level2>
@@ -136,12 +136,12 @@
 		<type>skills</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SHELTER</name>
-        <displayName>SHIELD</displayName>
+		<displayName>SHIELD</displayName>
 		<image>UI_item_shield</image>
 		<order>1</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
-		<base>100</base>
+		<base>200</base>
 		<level0>60</level0>
 		<level1>50</level1>
 		<level2>40</level2>
@@ -154,12 +154,12 @@
 		<type>multipliers</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>goldenmultiplier</name>
-        <displayName>DOUBLE</displayName>
+		<displayName>DOUBLE</displayName>
 		<image>UI_item_scorex3</image>
 		<order>0</order>
 		<description>Protect your hero</description>
-		<multiplier>1</multiplier>
-		<base>1</base>
+		<multiplier>2.00</multiplier>
+		<base>500</base>
 		<level0>1</level0>
 		<level1>1</level1>
 		<level2>1</level2>

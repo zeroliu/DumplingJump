@@ -14,20 +14,20 @@
 		<reborn>reborn number</reborn>
 		<headstart>headstart number</headstart>
 		<goldenmultiplier>coin multiplier level</goldenmultiplier>
-        <achievementGroup>current achievement group</achievementGroup>
-        <multiplier>multiplier</multiplier>
-        <die>die times</die>
-        <totalScore>total score</totalScore>
-        <totalJump>total jump</totalJump>
-        <totalGame>total game</totalGame>
-        <totalStar>total star</totalStar>
-        <totalDistance>total distance</totalDistance>
+		<achievementGroup>current achievement group</achievementGroup>
+		<multiplier>multiplier</multiplier>
+		<die>die times</die>
+		<totalScore>total score</totalScore>
+		<totalJump>total jump</totalJump>
+		<totalGame>total game</totalGame>
+		<totalStar>total star</totalStar>
+		<totalDistance>total distance</totalDistance>
 	</data>
 	<data>
 		<music>1</music>
 		<sfx>1</sfx>
 		<highscore>0</highscore>
-		<star>200</star>
+		<star>1000</star>
 		<MAGIC>-1</MAGIC>
 		<SPRING>-1</SPRING>
 		<MEGA>-1</MEGA>
@@ -37,13 +37,13 @@
 		<reborn>-1</reborn>
 		<headstart>-1</headstart>
 		<goldenmultiplier>-1</goldenmultiplier>
-        <achievementGroup>1</achievementGroup>
-        <multiplier>1</multiplier>
-        <die>0</die>
-        <totalScore>0</totalScore>
-        <totalJump>0</totalJump>
-        <totalGame>0</totalGame>
-        <totalStar>0</totalStar>
-        <totalDistance>0</totalDistance>
+		<achievementGroup>1</achievementGroup>
+		<multiplier>1</multiplier>
+		<die>0</die>
+		<totalScore>0</totalScore>
+		<totalJump>0</totalJump>
+		<totalGame>0</totalGame>
+		<totalStar>0</totalStar>
+		<totalDistance>0</totalDistance>
 	</data>
 </userData>

@@ -57,7 +57,7 @@
 		<type>distance</type>
 		<description1>Ride</description1>
 		<number>200</number>
-		<description2>meters, no star</description2>
+		<description2>meters</description2>
 		<restriction>star</restriction>
 	</Achievement>
 	<Achievement>
@@ -78,7 +78,7 @@
 		<type>distance</type>
 		<description1>Ride</description1>
 		<number>400</number>
-		<description2>meters, no power-ups</description2>
+		<description2>meters</description2>
 		<restriction>powerup</restriction>
 	</Achievement>
 	<Achievement>
@@ -89,7 +89,7 @@
 		<type>distance</type>
 		<description1>Ride</description1>
 		<number>600</number>
-		<description2>meters, no reborn, no head start</description2>
+		<description2>meters</description2>
 		<restriction>item</restriction>
 	</Achievement>
 	<Achievement>
@@ -200,7 +200,7 @@
 		<type>powerBoost</type>
 		<description1>Collect</description1>
 		<number>1</number>
-		<description2>Booster in one ride</description2>
+		<description2>Booster</description2>
 	</Achievement>
 	<Achievement>
 		<group>6</group>
@@ -263,7 +263,7 @@
 	<Achievement>
 		<group>4</group>
 		<id>4</id>
-		<name>Score 80000</name>
+		<name>Score 800</name>
 		<points>30</points>
 		<type>score</type>
 		<description1>Score</description1>
@@ -272,7 +272,7 @@
 	<Achievement>
 		<group>6</group>
 		<id>4</id>
-		<name>Score 10000</name>
+		<name>Score 2400</name>
 		<points>75</points>
 		<type>score</type>
 		<description1>Score</description1>
@@ -281,7 +281,7 @@
 	<Achievement>
 		<group>7</group>
 		<id>4</id>
-		<name>Score 20000</name>
+		<name>Score 3500</name>
 		<points>5</points>
 		<type>score</type>
 		<description1>Score</description1>
@@ -290,7 +290,7 @@
 	<Achievement>
 		<group>8</group>
 		<id>3</id>
-		<name>Score 40000</name>
+		<name>Score 4000</name>
 		<points>50</points>
 		<type>score</type>
 		<description1>Score</description1>
@@ -299,7 +299,7 @@
 	<Achievement>
 		<group>9</group>
 		<id>3</id>
-		<name>Score 100000</name>
+		<name>Score 5400</name>
 		<points>30</points>
 		<type>score</type>
 		<description1>Score</description1>
@@ -308,7 +308,7 @@
 	<Achievement>
 		<group>10</group>
 		<id>3</id>
-		<name>Score 200000</name>
+		<name>Score 7000</name>
 		<points>100</points>
 		<type>score</type>
 		<description1>Score</description1>
@@ -361,7 +361,7 @@
 		<type>star</type>
 		<description1>Collect</description1>
 		<number>30</number>
-		<description2>stars, no jump</description2>
+		<description2>stars</description2>
 		<restriction>jump</restriction>
 		<useEnglish>300000</useEnglish>
 	</Achievement>
@@ -393,7 +393,7 @@
 		<type>star</type>
 		<description1>Collect</description1>
 		<number>100</number>
-		<description2>stars, no power-ups</description2>
+		<description2>stars</description2>
 		<restriction>powerup</restriction>
 	</Achievement>
 	<Achievement>

@@ -83,6 +83,7 @@
 
 -(void) scrollToIndex:(int) index
 {
+    _currentPageIndex = index;
     [self setContentOffset:CGPointMake(-index*_nodeOffset, 0) animated:YES];
 }
 

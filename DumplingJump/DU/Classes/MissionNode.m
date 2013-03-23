@@ -73,7 +73,12 @@
         [node.MissionName setString:[data objectForKey:@"name"]];
         
         //update description
-        [node.DescriptionText setString:[NSString stringWithFormat:@"%@ %d %@", [data objectForKey:@"description1"], [[data objectForKey:@"number"] intValue], [data objectForKey:@"description2"]]];
+        NSString *description2 = [data objectForKey:@"description2"];
+        if (description2 == nil)
+        {
+            description2 = @"";
+        }
+        [node.DescriptionText setString:[NSString stringWithFormat:@"%@ %d %@", [data objectForKey:@"description1"], [[data objectForKey:@"number"] intValue], description2]];
     }
     
     [availableAchievement release];

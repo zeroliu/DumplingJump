@@ -15,8 +15,7 @@
 #import "EquipmentData.h"
 #import "Constants.h"
 #import "UserData.h"
-
-
+#define TESTING 1
 
 @implementation AppController
 
@@ -24,6 +23,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#ifdef TESTING
+        [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+        [TestFlight takeOff:@"e3bba9d3-ab3e-4592-8115-71c743fe7ede"];
+#endif
+    
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	

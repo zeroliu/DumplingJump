@@ -747,6 +747,10 @@
 		9F1DEB0016FBEB2C00354C49 /* PauseUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEAF716FBEB2C00354C49 /* PauseUI.ccbi */; };
 		9F1DEB0216FC08F700354C49 /* Eras Demi ITC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEB0116FC08F700354C49 /* Eras Demi ITC.ttf */; };
 		9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */; };
+		9F71F95E16FF7E5A00B24D15 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71F95A16FF7E5A00B24D15 /* libTestFlight.a */; };
+		9F71F95F16FF7E5A00B24D15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95B16FF7E5A00B24D15 /* README.md */; };
+		9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95C16FF7E5A00B24D15 /* release_notes.md */; };
+		9F71F96216FF7EA800B24D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71F96116FF7EA800B24D15 /* libz.dylib */; };
 		9FAEC66616F6D907009112EB /* UI_option_credit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC65C16F6D907009112EB /* UI_option_credit.png */; };
 		9FAEC66716F6D907009112EB /* UI_option_music_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC65D16F6D907009112EB /* UI_option_music_off.png */; };
 		9FAEC66816F6D907009112EB /* UI_option_music_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC65E16F6D907009112EB /* UI_option_music_on.png */; };
@@ -1814,6 +1818,11 @@
 		9F1DEB0116FC08F700354C49 /* Eras Demi ITC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eras Demi ITC.ttf"; sourceTree = "<group>"; };
 		9F1F066E16EBC32C000E81E5 /* InterReactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterReactionManager.h; sourceTree = "<group>"; };
 		9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterReactionManager.m; sourceTree = "<group>"; };
+		9F71F95A16FF7E5A00B24D15 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		9F71F95B16FF7E5A00B24D15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		9F71F95C16FF7E5A00B24D15 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		9F71F95D16FF7E5A00B24D15 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		9F71F96116FF7EA800B24D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9FAEC65C16F6D907009112EB /* UI_option_credit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_option_credit.png; sourceTree = "<group>"; };
 		9FAEC65D16F6D907009112EB /* UI_option_music_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_option_music_off.png; sourceTree = "<group>"; };
 		9FAEC65E16F6D907009112EB /* UI_option_music_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_option_music_on.png; sourceTree = "<group>"; };
@@ -1840,6 +1849,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F71F96216FF7EA800B24D15 /* libz.dylib in Frameworks */,
 				7F57279E163521570023B985 /* libxml2.dylib in Frameworks */,
 				7F41435215AAC659002CFC9A /* QuartzCore.framework in Frameworks */,
 				7F41435415AAC659002CFC9A /* OpenGLES.framework in Frameworks */,
@@ -1849,6 +1859,7 @@
 				7F41435C15AAC659002CFC9A /* UIKit.framework in Frameworks */,
 				7F41435E15AAC659002CFC9A /* Foundation.framework in Frameworks */,
 				7F41436015AAC659002CFC9A /* CoreGraphics.framework in Frameworks */,
+				9F71F95E16FF7E5A00B24D15 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2790,6 +2801,7 @@
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
+				9F71F96116FF7EA800B24D15 /* libz.dylib */,
 				7FD6222C16D627220032DAC3 /* Default.png */,
 				7F12825216CA3C9400909D1E /* Icon@2x.png */,
 				7F12824F16CA3C0D00909D1E /* Icon.png */,
@@ -2858,6 +2870,7 @@
 		7F41437615AAC659002CFC9A /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				9F71F95916FF7E5A00B24D15 /* TestFlightSDK */,
 				7FEA3992165A0AD4005350F2 /* CocosBuilder */,
 				7FF5E5C6163517E60018B085 /* KissXML */,
 				7F3A0E66161C152500DC0DDF /* Box2D */,
@@ -3644,6 +3657,17 @@
 			path = plists;
 			sourceTree = "<group>";
 		};
+		9F71F95916FF7E5A00B24D15 /* TestFlightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9F71F95A16FF7E5A00B24D15 /* libTestFlight.a */,
+				9F71F95B16FF7E5A00B24D15 /* README.md */,
+				9F71F95C16FF7E5A00B24D15 /* release_notes.md */,
+				9F71F95D16FF7E5A00B24D15 /* TestFlight.h */,
+			);
+			path = TestFlightSDK;
+			sourceTree = "<group>";
+		};
 		9FAEC65B16F6D907009112EB /* sheetUI-4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4215,6 +4239,8 @@
 				9F1DEAFF16FBEB2C00354C49 /* MissionNode.ccbi in Resources */,
 				9F1DEB0016FBEB2C00354C49 /* PauseUI.ccbi in Resources */,
 				9F1DEB0216FC08F700354C49 /* Eras Demi ITC.ttf in Resources */,
+				9F71F95F16FF7E5A00B24D15 /* README.md in Resources */,
+				9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4589,6 +4615,11 @@
 					"\"DumplingJump/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zero.liu/Downloads/TestFlightSDK1.2.4,
+					"\"$(SRCROOT)/DumplingJump/TestFlightSDK\"",
+				);
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = CastleRider;
@@ -4615,6 +4646,11 @@
 					"\"DumplingJump/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zero.liu/Downloads/TestFlightSDK1.2.4,
+					"\"$(SRCROOT)/DumplingJump/TestFlightSDK\"",
+				);
 				New_Setting = "";
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = CastleRider;

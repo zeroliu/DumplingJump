@@ -28,7 +28,7 @@
 		<key>objectInitialSpeed</key>
 		<integer>17</integer>
 		<key>gameSpeedIncreaseUnit</key>
-		<real>0.2</real>
+		<real>0.25</real>
 		<key>gameSpeedMax</key>
 		<integer>3</integer>
 		<key>distanceUnit</key>

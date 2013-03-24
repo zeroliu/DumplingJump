@@ -278,6 +278,7 @@
 		<slot1>O</slot1>
 		<slot2>O</slot2>
 	</Line>
+	<Line/>
 	<Line name="*\">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -321,6 +322,7 @@
 		<slot8>O</slot8>
 		<slot9>O</slot9>
 	</Line>
+	<Line/>
 	<Line name="*&lt;">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -468,6 +470,8 @@
 		<slot5>O</slot5>
 		<slot7>O</slot7>
 	</Line>
+	<Line/>
+	<Line/>
 	<Line name="*D1">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -509,6 +513,9 @@
 		<slot2>O</slot2>
 		<slot3>O</slot3>
 	</Line>
+	<Line/>
+	<Line/>
+	<Line/>
 	<Line name="*D2">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -550,6 +557,9 @@
 		<slot5>O</slot5>
 		<slot6>O</slot6>
 	</Line>
+	<Line/>
+	<Line/>
+	<Line/>
 	<Line name="*D3">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -591,6 +601,9 @@
 		<slot8>O</slot8>
 		<slot9>O</slot9>
 	</Line>
+	<Line/>
+	<Line/>
+	<Line/>
 	<Line name="*S">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -694,6 +707,10 @@
 	<Line>
 		<slot5>O</slot5>
 	</Line>
+	<Line/>
+	<Line/>
+	<Line/>
+	<Line/>
 	<Line name="*V2">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>
@@ -733,4 +750,8 @@
 		<slot8>O</slot8>
 		<slot9>O</slot9>
 	</Line>
+	<Line/>
+	<Line/>
+	<Line/>
+	<Line/>
 </Stars>

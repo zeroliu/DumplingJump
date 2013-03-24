@@ -157,20 +157,20 @@
 		<id>3</id>
 		<name>Castle Rider</name>
 		<points>20</points>
-		<type>lifeGames</type>
-		<description1>Play over</description1>
-		<number>20</number>
-		<description2>games</description2>
+		<type>lifeStars</type>
+		<description1>Collect over</description1>
+		<number>1500</number>
+		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
 		<group>5</group>
 		<id>2</id>
 		<name>Pro Castle Rider</name>
 		<points>40</points>
-		<type>lifeGames</type>
-		<description1>Play over</description1>
-		<number>50</number>
-		<description2>games</description2>
+		<type>lifeStars</type>
+		<description1>Collect over</description1>
+		<number>3500</number>
+		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
 		<group>8</group>

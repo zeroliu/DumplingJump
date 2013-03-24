@@ -602,8 +602,8 @@
 		<slot8>Null</slot8>
 		<slot9>Null</slot9>
 	</Line>
+	<Line/>
 	<Line>
-		<slot1>O</slot1>
 		<slot2>O</slot2>
 		<slot3>O</slot3>
 		<slot4>O</slot4>
@@ -611,10 +611,41 @@
 		<slot6>O</slot6>
 		<slot7>O</slot7>
 		<slot8>O</slot8>
-		<slot9>O</slot9>
 	</Line>
 	<Line>
-		<slot1>O</slot1>
+		<slot2>O</slot2>
+		<slot3>O</slot3>
+		<slot7>O</slot7>
+		<slot8>O</slot8>
+	</Line>
+	<Line>
+		<slot2>O</slot2>
+		<slot4>O</slot4>
+		<slot5>O</slot5>
+		<slot6>O</slot6>
+		<slot8>O</slot8>
+	</Line>
+	<Line>
+		<slot2>O</slot2>
+		<slot4>O</slot4>
+		<slot5>O</slot5>
+		<slot6>O</slot6>
+		<slot8>O</slot8>
+	</Line>
+	<Line>
+		<slot2>O</slot2>
+		<slot4>O</slot4>
+		<slot5>O</slot5>
+		<slot6>O</slot6>
+		<slot8>O</slot8>
+	</Line>
+	<Line>
+		<slot2>O</slot2>
+		<slot3>O</slot3>
+		<slot7>O</slot7>
+		<slot8>O</slot8>
+	</Line>
+	<Line>
 		<slot2>O</slot2>
 		<slot3>O</slot3>
 		<slot4>O</slot4>
@@ -622,69 +653,8 @@
 		<slot6>O</slot6>
 		<slot7>O</slot7>
 		<slot8>O</slot8>
-		<slot9>O</slot9>
 	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot4>O</slot4>
-		<slot5>O</slot5>
-		<slot6>O</slot6>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot4>O</slot4>
-		<slot5>O</slot5>
-		<slot6>O</slot6>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot4>O</slot4>
-		<slot5>O</slot5>
-		<slot6>O</slot6>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot3>O</slot3>
-		<slot4>O</slot4>
-		<slot5>O</slot5>
-		<slot6>O</slot6>
-		<slot7>O</slot7>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
-	<Line>
-		<slot1>O</slot1>
-		<slot2>O</slot2>
-		<slot3>O</slot3>
-		<slot4>O</slot4>
-		<slot5>O</slot5>
-		<slot6>O</slot6>
-		<slot7>O</slot7>
-		<slot8>O</slot8>
-		<slot9>O</slot9>
-	</Line>
+	<Line/>
 	<Line name="*V1">
 		<slot1>Null</slot1>
 		<slot2>Null</slot2>

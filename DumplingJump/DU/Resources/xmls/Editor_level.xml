@@ -132,30 +132,18 @@
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>arrow_2_B</step0>
+		<step0>arrow_4_A</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>arrow_2_B</step0>
+		<step0>claw_4_A</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>arrow_2_B</step0>
+		<step0>powder_4_A</step0>
 	</Combination>
 	<Combination>
 		<phase>4</phase>
-		<step0>arrow_2_B</step0>
-	</Combination>
-	<Combination>
-		<phase>5</phase>
-		<step0>arrow_2_B</step0>
-	</Combination>
-	<Combination>
-		<phase>5</phase>
-		<step0>arrow_2_B</step0>
-	</Combination>
-	<Combination>
-		<phase>5</phase>
-		<step0>arrow_2_B</step0>
+		<step0>ice_4_A</step0>
 	</Combination>
 </Levels>

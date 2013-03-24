@@ -74,8 +74,8 @@
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Powder</effectimage>
 		<react_time>bow</react_time>
-		<trigger_react_time>6</trigger_react_time>
-		<trigger_clean_time>6</trigger_clean_time>
+		<trigger_react_time>5</trigger_react_time>
+		<trigger_clean_time>5</trigger_clean_time>
 		<type>main</type>
 		<MEMO>对人炸弹</MEMO>
 	</react>
@@ -85,8 +85,8 @@
 		<reactimage>H_hurt</reactimage>
 		<effectimage>FX_Powder</effectimage>
 		<react_time>bow</react_time>
-		<trigger_react_time>4</trigger_react_time>
-		<trigger_clean_time>4</trigger_clean_time>
+		<trigger_react_time>3.5</trigger_react_time>
+		<trigger_clean_time>3.5</trigger_clean_time>
 		<MEMO>对人炸弹</MEMO>
 	</react>
 	<react>
@@ -213,7 +213,7 @@
 		<react_step>ice</react_step>
 		<trigger_react_step>1</trigger_react_step>
 		<trigger_clean_step>1</trigger_clean_step>
-		<trigger_clean_board>1</trigger_clean_board>
+		<trigger_clean_time>1.5</trigger_clean_time>
 		<type>main</type>
 	</react>
 </reactlist>

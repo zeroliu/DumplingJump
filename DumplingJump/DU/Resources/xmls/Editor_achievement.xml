@@ -159,7 +159,7 @@
 		<points>20</points>
 		<type>lifeGames</type>
 		<description1>Play over</description1>
-		<number>40</number>
+		<number>20</number>
 		<description2>games</description2>
 	</Achievement>
 	<Achievement>
@@ -169,7 +169,7 @@
 		<points>40</points>
 		<type>lifeGames</type>
 		<description1>Play over</description1>
-		<number>170</number>
+		<number>50</number>
 		<description2>games</description2>
 	</Achievement>
 	<Achievement>
@@ -219,7 +219,7 @@
 		<points>40</points>
 		<type>powerLevel</type>
 		<description1>All power-ups reach Level</description1>
-		<number>3</number>
+		<number>2</number>
 	</Achievement>
 	<Achievement>
 		<group>9</group>
@@ -363,7 +363,6 @@
 		<number>30</number>
 		<description2>stars</description2>
 		<restriction>jump</restriction>
-		<useEnglish>300000</useEnglish>
 	</Achievement>
 	<Achievement>
 		<group>3</group>

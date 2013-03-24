@@ -72,24 +72,23 @@
     
     if ([[USERDATA objectForKey:@"MAGNET"] intValue] >= 0)
     {
-        [magnetButtonHolder setPosition:ccp(288 - 64 * buttonOffset, 30)];
+        [magnetButtonHolder setPosition:ccp(288 - 64 * buttonOffset, magnetButtonHolder.position.y)];
         buttonOffset ++;
     }
     else
     {
-        [magnetButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, 30)];
+        [magnetButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, magnetButtonHolder.position.y)];
     }
     
     if ([[USERDATA objectForKey:@"SHELTER"] intValue] >= 0)
     {
-        [shieldButtonHolder setPosition:ccp(288 - 64 * buttonOffset, 30)];
+        [shieldButtonHolder setPosition:ccp(288 - 64 * buttonOffset, shieldButtonHolder.position.y)];
         buttonOffset ++;
     }
     else
     {
-        [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, 30)];
+        [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, shieldButtonHolder.position.y)];
     }
-//    DLog(@"%g,%g", pauseButton.position.x, pauseButton.position.y);
     
 }
 

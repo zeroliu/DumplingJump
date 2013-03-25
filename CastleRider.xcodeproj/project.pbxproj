@@ -766,6 +766,9 @@
 		9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */; };
 		9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.m */; };
 		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
+		9FF6924E16FFE5EE00B3FEA1 /* UI_equip_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */; };
+		9FF6924F16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924C16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png */; };
+		9FF6925016FFE5EE00B3FEA1 /* UI_equip_box_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924D16FFE5EE00B3FEA1 /* UI_equip_box_level.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1842,6 +1845,9 @@
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
 		9FEEB08016F7FF88008A1D02 /* AchievementManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementManager.m; sourceTree = "<group>"; };
 		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
+		9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_bottom.png; sourceTree = "<group>"; };
+		9FF6924C16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_level_press.png; sourceTree = "<group>"; };
+		9FF6924D16FFE5EE00B3FEA1 /* UI_equip_box_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_level.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2661,6 +2667,9 @@
 		7F3B59AB16C86DC10010F8E4 /* sheetUI-1 */ = {
 			isa = PBXGroup;
 			children = (
+				9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */,
+				9FF6924C16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png */,
+				9FF6924D16FFE5EE00B3FEA1 /* UI_equip_box_level.png */,
 				9FF6493E16F308F500778BD9 /* UI_play_warning.png */,
 				7F79431816D76DFB00F44EFA /* UI_equip_bar.png */,
 				7F3B59AF16C86DC10010F8E4 /* UI_equip_box_locked.png */,
@@ -4241,6 +4250,9 @@
 				9F1DEB0216FC08F700354C49 /* Eras Demi ITC.ttf in Resources */,
 				9F71F95F16FF7E5A00B24D15 /* README.md in Resources */,
 				9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */,
+				9FF6924E16FFE5EE00B3FEA1 /* UI_equip_bottom.png in Resources */,
+				9FF6924F16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png in Resources */,
+				9FF6925016FFE5EE00B3FEA1 /* UI_equip_box_level.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

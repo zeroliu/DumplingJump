@@ -159,7 +159,7 @@
 		<points>20</points>
 		<type>lifeStars</type>
 		<description1>Collect over</description1>
-		<number>1500</number>
+		<number>500</number>
 		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
@@ -169,7 +169,7 @@
 		<points>40</points>
 		<type>lifeStars</type>
 		<description1>Collect over</description1>
-		<number>3500</number>
+		<number>1000</number>
 		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
@@ -189,7 +189,7 @@
 		<points>30</points>
 		<type>lifeStars</type>
 		<description1>Collect over</description1>
-		<number>40000</number>
+		<number>20000</number>
 		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>

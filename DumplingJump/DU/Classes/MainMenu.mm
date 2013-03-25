@@ -77,18 +77,18 @@ typedef enum {
     [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
     
-    UIButton *crashButton = [[UIButton alloc] initWithFrame:CGRectMake(20.0, 20.0, 280.0, 44.0)];
-    [crashButton setTitle:@"Crash" forState:UIControlStateNormal];
-    [crashButton setBackgroundColor:[UIColor blueColor]];
-    [crashButton addTarget:self action:@selector(crash:) forControlEvents:UIControlEventTouchUpInside];
-    [VIEW addSubview:crashButton];
+//    UIButton *crashButton = [[UIButton alloc] initWithFrame:CGRectMake(20.0, 20.0, 280.0, 44.0)];
+//    [crashButton setTitle:@"Crash" forState:UIControlStateNormal];
+//    [crashButton setBackgroundColor:[UIColor blueColor]];
+//    [crashButton addTarget:self action:@selector(crash:) forControlEvents:UIControlEventTouchUpInside];
+//    [VIEW addSubview:crashButton];
 }
 
-- (void)crash:(id)sender
-{
-    NSArray *array = @[@"one"];
-    NSLog(@"%@", [array objectAtIndex:1]);
-}
+//- (void)crash:(id)sender
+//{
+//    NSArray *array = @[@"one"];
+//    NSLog(@"%@", [array objectAtIndex:1]);
+//}
 
 #pragma mark -
 #pragma Creation

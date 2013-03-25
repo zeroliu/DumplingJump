@@ -194,9 +194,12 @@
         default: {
             // using a memcpy since the compiler isn't
             // doing the float ptr math correctly on device.
-            float * pF = (float*)(bytes+currentByte);
-            float f = 0;
-            memcpy(&f, pF, sizeof(float));
+            float f;
+//            float * pF = (float*)(bytes+currentByte);
+//            float f = 0;
+//            memcpy(&f, pF, sizeof(float));
+            unsigned char* pData = ( bytes + currentByte );
+            memcpy( &f, pData, sizeof( float ) );
             currentByte+=4;
             return f;
         }
@@ -984,10 +987,15 @@
 
 - (BOOL) readHeader
 {
-	// if no bytes loaded, don't crash about it.
+	// i no bytes loaded, don't crash about it.
 	if( bytes == nil) return NO;
     // Read magic
-    int magic = *((int*)(bytes+currentByte));
+//    int magic = *((int*)(bytes+currentByte));
+    
+    int magic;
+    unsigned char* pData = ( bytes + currentByte );
+    memcpy( &magic, pData, sizeof( int ) );
+    
     currentByte+=4;
     if (magic != 'ccbi') return NO;
     

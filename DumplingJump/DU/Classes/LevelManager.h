@@ -35,6 +35,7 @@
 -(int) paragraphsCount; //Used in Debug tool
 -(void) removeObjectFromList:(DUObject *)myObject;
 -(void) destroyAllObjects;
+-(void) destroyAllObjectsWithoutAnimation;
 -(void) switchToNextLevelEffect;
 -(void) stopDroppingForTime:(double)waitingTime;
 -(NSString *) getParagraphNameByIndex:(int)index;

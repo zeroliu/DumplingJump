@@ -100,7 +100,6 @@
         dispatch_queue_t loadingQueue = dispatch_queue_create("loadingQueue", NULL);
         dispatch_async(loadingQueue, ^
         {
-            [[LevelManager shared] destroyAllObjects];
             [self initBatchNode];
             [self loadBackendData];
             [self loadUserData];

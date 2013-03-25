@@ -5,7 +5,7 @@
 	<key>debug</key>
 	<dict>
 		<key>levelEditorEnabled</key>
-		<true/>
+		<false/>
 		<key>forceReloadUserData</key>
 		<false/>
 		<key>hasHeadStart</key>

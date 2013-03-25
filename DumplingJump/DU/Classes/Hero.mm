@@ -1249,7 +1249,7 @@
     [self rebornFinish];
     
     //become idle again
-    [self idle];
+    [self resetHero];
 }
 
 //Warning: This function is not being used

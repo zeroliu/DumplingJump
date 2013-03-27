@@ -209,7 +209,6 @@
             [EFFECTMANAGER PlayEffectWithName:self.reaction.effectName position:self.sprite.position];
         }
     }
-    
 }
 
 -(void) moveToHeroWithSpeed:(int)theSpeed

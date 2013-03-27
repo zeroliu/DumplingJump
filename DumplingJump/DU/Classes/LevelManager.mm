@@ -147,7 +147,7 @@ toRemovePowderArray = _toRemovePowderArray;
 -(void) restart
 {
     //Destroy all objects
-    [[LevelManager shared] destroyAllObjects];
+    [[LevelManager shared] destroyAllObjectsWithoutAnimation];
     
     //Reset Level
     [[LevelManager shared] stopCurrentParagraph];
@@ -511,6 +511,16 @@ toRemovePowderArray = _toRemovePowderArray;
     for (AddthingObject *ob in array)
     {
         [ob removeAddthing];
+    }
+    [array release];
+}
+
+-(void) destroyAllObjectsWithoutAnimation
+{
+    NSArray *array = [self.generatedObjects copy];
+    for (AddthingObject *ob in array)
+    {
+        [ob removeAddthingWithDel];
     }
     [array release];
 }

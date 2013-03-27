@@ -90,7 +90,6 @@
    
     while ([physicsToRemove count] > 0)
     {
-        //DLog(@"%@",physicsToRemove);
         DUPhysicsObject *myObject = [physicsToRemove lastObject];
         [physicsToRemove removeLastObject];
         if ([((LevelManager *)[LevelManager shared]).generatedObjects containsObject:myObject])

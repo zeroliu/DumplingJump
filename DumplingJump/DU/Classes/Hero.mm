@@ -79,9 +79,21 @@
         [self initGestureHandler];
         [self initContactListener];
         [self resetHero];
+        [self invulnerable];
     }
     
     return self;
+}
+
+-(void) invulnerable
+{
+    if (![[self.overlayHeroStateDictionary objectForKey:@"shelter"] boolValue])
+    {
+        [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey: @"shelter"];
+    }
+    id duration = [CCDelayTime actionWithDuration:1];
+    id callback = [CCCallFunc actionWithTarget:self selector:@selector(resetHero)];
+    [self.sprite runAction:[CCSequence actions:duration, callback, nil]];
 }
 
 -(void) initHeroParam
@@ -1184,7 +1196,7 @@
         [[LevelManager shared] stopDroppingForTime:4];
         
         //reset to the idle state
-        [self idle];
+        [self resetHero];
         
         //change state to reborn
         self.heroState = HEROREBORN;
@@ -1260,7 +1272,7 @@
     if (![self.heroState isEqualToString: HEROREBORN])
     {
         //Become idle except for reviving
-        [self idle];
+        [self resetHero];
     
         //Hero becomes happy
         id animation = [ANIMATIONMANAGER getAnimationWithName:@"H_happy"];
@@ -1292,7 +1304,7 @@
                      }];
     
     //hero back to Idle
-    id heroIdle = [CCCallFunc actionWithTarget:self selector:@selector(idle)];
+    id heroIdle = [CCCallFunc actionWithTarget:self selector:@selector(resetHero)];
     
     //Scale down Hero to normal;
     id scaleDown = [CCScaleTo actionWithDuration:0.3 scale:scale];
@@ -1551,7 +1563,7 @@
 
 -(void) deactivate
 {
-    [self idle];
+    [self resetHero];
     [self removeAllChildrenWithCleanup:NO];
     [self stopAllActions];
     [self removeContactListner];

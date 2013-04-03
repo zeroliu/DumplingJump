@@ -84,29 +84,8 @@
 {
     DUPhysicsObject *targetObject = (DUPhysicsObject *)([notification.userInfo objectForKey:@"object"]);
     
-    
     if ([targetObject.name isEqualToString: HERO])
     {
-//        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"springBoost"])
-//        {
-//            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
-//            {
-//                contactEdge->contact->SetEnabled(false);
-//            }
-//            [self removeAddthingWithDel];
-//            return;
-//        }
-        
-//        if ([((Hero *)[HEROMANAGER getHero]).heroState isEqualToString: @"shelter"])
-//        {
-//            for ( b2ContactEdge* contactEdge = self.body->GetContactList(); contactEdge; contactEdge = contactEdge->next )
-//            {
-//                contactEdge->contact->SetEnabled(false);
-//            }
-//            [self removeAddthingWithDel];
-//            
-//        }
-        
         //check destroy case
         
         if ([((Hero *)[HEROMANAGER getHero]) isShelterOn] || ((Hero *)[HEROMANAGER getHero]).isSpringBoost)
@@ -172,6 +151,12 @@
             }
         }
     }
+}
+
+-(void) removeAddthingWithoutAnimation
+{
+    [[LevelManager shared] removeObjectFromList:self];
+    [PHYSICSMANAGER addToArchiveList:self];
 }
 
 -(void) removeAddthingWithDel

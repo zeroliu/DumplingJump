@@ -38,5 +38,6 @@
 -(void) destroyAllObjectsWithoutAnimation;
 -(void) switchToNextLevelEffect;
 -(void) stopDroppingForTime:(double)waitingTime;
+- (id) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination;
 -(NSString *) getParagraphNameByIndex:(int)index;
 @end

@@ -34,6 +34,7 @@
     CGSize heroSize;
     int blowAwayTrigger; //-1 left, 0 off, 1 right
     int freezeTrigger; //-1 left, 0 off, 1 right
+    BOOL hurtTrigger;
     BOOL isHeadStart;
     int boostStatus; //0 none, 1 ready, 2 start
 }
@@ -91,7 +92,7 @@
     {
         [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey: @"shelter"];
     }
-    id duration = [CCDelayTime actionWithDuration:1];
+    id duration = [CCDelayTime actionWithDuration:3];
     id callback = [CCCallFunc actionWithTarget:self selector:@selector(resetHero)];
     [self.sprite runAction:[CCSequence actions:duration, callback, nil]];
 }
@@ -289,7 +290,10 @@
     
     //Set hero speed
     float vX = self.body->GetLinearVelocity().x/[[[[WorldData shared] loadDataWithAttributName:@"hero"] objectForKey:@"velocityAccRatio"] floatValue] + self.acc.x;
-    
+    if (!hurtTrigger)
+    {
+        vX = [self calibrateVelocity:vX position:self.sprite.position.x];
+    }
     self.speed = b2Vec2(clampf(vX, -self.maxVx, self.maxVx),clampf(self.body->GetLinearVelocity().y + self.acc.y, -self.maxVy, self.maxVy));
     
     if (blowAwayTrigger != 0)
@@ -309,6 +313,32 @@
     {
         [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     }
+}
+
+-(float) calibrateVelocity:(float)originalVelocity position:(float)posX
+{
+    float center = [[CCDirector sharedDirector] winSize].width/2;
+    float ratio = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"velocityCalibrationRatio"] floatValue];
+    float minVelocity = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"minCalibrationVelocity"] floatValue];
+    
+    if ((originalVelocity > 0 && posX < center + center*(1-ratio)) ||
+        (originalVelocity < 0 && posX > center - center*(1-ratio)))
+    {
+        return originalVelocity;
+    }
+    else if (originalVelocity > 0)
+    {
+        float x = 2 * center - center * ratio;
+        float calibRatio = (minVelocity-1) / (center * ratio) / (center * ratio) * (posX - x) * (posX - x) + 1;
+        return originalVelocity * MAX(calibRatio, minVelocity);
+    }
+    else if (originalVelocity < 0)
+    {
+        float calibRatio = (minVelocity-1) / (center * ratio) / (center * ratio) * (posX - center * ratio) * (posX - center * ratio) + 1;
+        return originalVelocity * MAX(calibRatio, minVelocity);
+    }
+    
+    return originalVelocity;
 }
 
 -(void) jump
@@ -414,7 +444,7 @@
     directionForce = b2Vec2(0,0);
     adjustJump = 1;
     adjustMove = 1;
-    
+    hurtTrigger = NO;
     //Change hero state back to idle
     self.heroState = @"idle";
     [self playCurrentFacialAnimation];
@@ -572,6 +602,7 @@
     freezeTrigger = 0;
     blowAwayTrigger = 0;
     boostStatus = 0;
+    hurtTrigger = NO;
     
     //Unschedule fire
     [self unschedule:@selector(fire)];
@@ -683,6 +714,8 @@
     directionForce = b2Vec2(offset * self.body->GetMass() * 10 * hurtValue, 0);
     adjustJump = 0;
     adjustMove = 0;
+    
+    hurtTrigger = YES;
 }
 
 -(void) bowEffect:(NSArray *)value
@@ -1093,6 +1126,7 @@
         
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
+        [[LevelManager shared] generateFlyingStarAtPosition:star.sprite.position destination: [[GameUI shared] getStarDestination]];
     }
 }
 

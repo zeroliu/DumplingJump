@@ -42,4 +42,6 @@
 //Cool down a button
 -(void) cooldownButtonBarWithName:(NSString *)buttonName;
 -(void) updateDistanceSign:(int)distance;
+-(CGPoint) getStarDestination;
+-(void) scaleStarUI;
 @end

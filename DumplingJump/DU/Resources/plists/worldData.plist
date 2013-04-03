@@ -17,6 +17,10 @@
 	<dict>
 		<key>magicFrequence</key>
 		<real>0.3</real>
+		<key>velocityCalibrationRatio</key>
+		<real>0.7</real>
+		<key>minCalibrationVelocity</key>
+		<real>0.3</real>
 		<key>starWait</key>
 		<integer>2</integer>
 		<key>headstartDuration</key>

@@ -55,6 +55,7 @@
 - (void) createUI
 {
     [super createUI];
+    
     [self adjustUIPosition];
     [self initButtonDictionary];
 }
@@ -386,6 +387,19 @@
     {
         [self showStageClearMessageWithDistance];
     }
+}
+
+-(CGPoint) getStarDestination
+{
+    return starScoreIcon.position;
+}
+
+-(void) scaleStarUI
+{
+    [starScoreIcon stopAllActions];
+    id increaseSize = [CCScaleTo actionWithDuration:0.05 scale:1.4];
+    id reduceSize = [CCScaleTo actionWithDuration:0.2 scale:1];
+    [starScoreIcon runAction:[CCSequence actions:increaseSize, reduceSize, nil]];
 }
 
 

@@ -197,7 +197,6 @@ toRemovePowderArray = _toRemovePowderArray;
 
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position
 {
-    
     NSString *dropObjectName = objectName;
     if ([objectName rangeOfString:@"RANDOM"].location != NSNotFound)
     {
@@ -235,6 +234,25 @@ toRemovePowderArray = _toRemovePowderArray;
         [_powderDictionary setObject:powderInfo forKey:addthing.ID];
     }
     return addthing;
+}
+
+- (id) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination
+{
+    DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
+    flyingStar.sprite.position = position;
+    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"A_star"]];
+    [flyingStar.sprite runAction:[CCRepeatForever actionWithAction:animate]];
+    id rotateStar = [CCRotateBy actionWithDuration:0.5+randomFloat(0, 0.5) angle:360];
+    id moveToDestination = [CCMoveTo actionWithDuration:0.5 position:destination];
+    id remove = [CCCallBlock actionWithBlock:^{
+        [[GameUI shared] scaleStarUI];
+        [flyingStar archive];
+    }];
+    [flyingStar.sprite runAction:rotateStar];
+    [flyingStar.sprite runAction:[CCSequence actions:moveToDestination, remove, nil]];
+    
+    [flyingStar addChildTo:BATCHNODE z:1];
+    return flyingStar;
 }
 
 - (NSString *) treatRandomObject:(NSString *)randomInfo
@@ -520,7 +538,7 @@ toRemovePowderArray = _toRemovePowderArray;
     NSArray *array = [self.generatedObjects copy];
     for (AddthingObject *ob in array)
     {
-        [ob removeAddthingWithDel];
+        [ob removeAddthingWithoutAnimation];
     }
     [array release];
 }

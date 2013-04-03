@@ -14,27 +14,27 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot1>(*)</slot1>
+		<slot1>*2</slot1>
 	</level>
 	<level>
 		<time>2</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot3>BOX</slot3>
+		<slot4>BOX</slot4>
+		<slot8>BOX</slot8>
+		<slot9>BOX</slot9>
 	</level>
 	<level>
 		<time>3</time>
-		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
-		<slot7>VAT</slot7>
-		<slot8>VAT</slot8>
+		<slot2>BOX</slot2>
+		<slot3>BOX</slot3>
+		<slot7>BOX</slot7>
+		<slot8>BOX</slot8>
 	</level>
 	<level>
 		<time>4</time>
-		<slot3>VAT</slot3>
-		<slot4>VAT</slot4>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot3>BOX</slot3>
+		<slot4>BOX</slot4>
+		<slot8>BOX</slot8>
+		<slot9>BOX</slot9>
 	</level>
 </stage1>

@@ -19,5 +19,6 @@
 -(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime warningTime:(double)warningTime;
 -(void) removeAddthing;
 -(void) removeAddthingWithDel;
+-(void) removeAddthingWithoutAnimation;
 
 @end

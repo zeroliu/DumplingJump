@@ -3,6 +3,7 @@
 #import "HeroManager.h"
 #import "BoardManager.h"
 #import "LevelManager.h"
+#import "GameUI.h"
 
 @interface PhysicsManager()
 {

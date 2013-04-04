@@ -242,13 +242,11 @@ toRemovePowderArray = _toRemovePowderArray;
     flyingStar.sprite.position = position;
     id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"A_star"]];
     [flyingStar.sprite runAction:[CCRepeatForever actionWithAction:animate]];
-    id rotateStar = [CCRotateBy actionWithDuration:0.5+randomFloat(0, 0.5) angle:360];
-    id moveToDestination = [CCMoveTo actionWithDuration:0.5 position:destination];
+    id moveToDestination = [CCMoveTo actionWithDuration:0.4 position:destination];
     id remove = [CCCallBlock actionWithBlock:^{
         [[GameUI shared] scaleStarUI];
         [flyingStar archive];
     }];
-    [flyingStar.sprite runAction:rotateStar];
     [flyingStar.sprite runAction:[CCSequence actions:moveToDestination, remove, nil]];
     
     [flyingStar addChildTo:BATCHNODE z:1];

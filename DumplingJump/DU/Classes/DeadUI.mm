@@ -123,39 +123,45 @@
 {
 
     NSMutableArray *actions = [NSMutableArray array];
-    id changeToRed = [CCCallBlock actionWithBlock:^{
-        CCSpriteFrame *warningRed = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_play_warning.png"];
-        [newItemSprite setDisplayFrame:warningRed];
-    }];
-    [actions addObject:changeToRed];
-    int direction = 1;
-    for (int i=0; i<50; i++)
-    {
-        float angle;
-        if (direction > 0)
-        {
-            angle = randomFloat(5.0, 25.0);
-        }
-        else
-        {
-            angle = randomFloat(-25.0, -5.0);
-        }
-        direction = direction * -1;
-        
-        id rotate = [CCRotateTo actionWithDuration:0.05 angle:angle];
-        [actions addObject:rotate];
-    }
-    id changeToNormal = [CCCallBlock actionWithBlock:^{
-        CCSpriteFrame *warningNormal = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_retry_expression.png"];
-        [newItemSprite setDisplayFrame:warningNormal];
-        [newItemSprite setRotation:0];
-    }];
-    [actions addObject:changeToNormal];
-    id delay = [CCDelayTime actionWithDuration:2];
+    
+//    id changeToRed = [CCCallBlock actionWithBlock:^{
+//        CCSpriteFrame *warningRed = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_play_warning.png"];
+//        [newItemSprite setDisplayFrame:warningRed];
+//    }];
+//    [actions addObject:changeToRed];
+//    int direction = 1;
+//    for (int i=0; i<50; i++)
+//    {
+//        float angle;
+//        if (direction > 0)
+//        {
+//            angle = randomFloat(5.0, 25.0);
+//        }
+//        else
+//        {
+//            angle = randomFloat(-25.0, -5.0);
+//        }
+//        direction = direction * -1;
+//        
+//        id rotate = [CCRotateTo actionWithDuration:0.05 angle:angle];
+//        [actions addObject:rotate];
+//    }
+//    id changeToNormal = [CCCallBlock actionWithBlock:^{
+//        CCSpriteFrame *warningNormal = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_retry_expression.png"];
+//        [newItemSprite setDisplayFrame:warningNormal];
+//        [newItemSprite setRotation:0];
+//    }];
+//    [actions addObject:changeToNormal];
+//    id delay = [CCDelayTime actionWithDuration:2];
+//    id restart = [CCCallFunc actionWithTarget:self selector:@selector(animateExclamationSign)];
+//    [actions addObject:delay];
+//    [actions addObject:restart];
+    [newItemSprite stopAllActions];
+    id scaleUp = [CCScaleTo actionWithDuration:0.1 scale:1.2];
+    id scaleDown = [CCScaleTo actionWithDuration:0.4 scale:1];
     id restart = [CCCallFunc actionWithTarget:self selector:@selector(animateExclamationSign)];
-    [actions addObject:delay];
-    [actions addObject:restart];
-    [newItemSprite runAction:[CCSequence actionWithArray:actions]];
+    
+    [newItemSprite runAction:[CCSequence actions:scaleUp, scaleDown, restart,nil]];
 }
 
 -(void) retry:(id)sender

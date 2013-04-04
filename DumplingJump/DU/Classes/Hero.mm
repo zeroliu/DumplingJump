@@ -264,7 +264,7 @@
             }
             else if (self.sprite.position.y > 380)
             {
-                self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-5, -1)));
+                self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-5.0, -1.0)));
             }
             
             //Don't move out of the screen

@@ -8,6 +8,9 @@
 
 #import "EquipmentData.h"
 #import "XMLHelper.h"
+#import "Constants.h"
+#import "UserData.h"
+
 @implementation EquipmentData
 @synthesize dataDictionary = _dataDictionary;
 @synthesize structedDictionary = _structedDictionary;
@@ -88,6 +91,47 @@
     }
     
     return nil;
+}
+
+-(BOOL) isAffordable:(int)starNum
+{
+    BOOL res = NO;
+    
+    for (NSString *key in [self.dataDictionary allKeys])
+    {
+        NSDictionary *item = [self.dataDictionary objectForKey:key];
+        int amount = 0;
+        amount = [[USERDATA objectForKey:[item objectForKey:@"name"]] intValue];
+        float multiplier = [[item objectForKey:@"multiplier"] floatValue];
+        float base = [[item objectForKey:@"base"] floatValue];
+        if (amount >= 0)
+        {
+            int price = 0;
+            if (amount == 0)
+            {
+                price = base;
+            }
+            else
+            {
+                price = base * multiplier * amount;
+            }
+             NSLog([NSString stringWithFormat:@"check %@ with price:%d", key, price]);
+            
+            if (price <= starNum)
+            {
+                res = YES;
+                break;
+            }
+        
+        }
+        else
+        {
+            
+        }
+       
+    }
+    
+    return res;
 }
 
 - (void)dealloc

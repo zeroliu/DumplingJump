@@ -12,6 +12,7 @@
 #import "BoardManager.h"
 #import "DeadAchievementUI.h"
 #import "CCBReader.h"
+#import "EquipmentData.h"
 
 @implementation DeadUI
 +(id) shared
@@ -72,6 +73,7 @@
 {
     [self setDeadUIVisible:YES callback:nil];
     [self setButtonsEnable:YES];
+    [self updateNewItemSign];
 }
 
 -(id) init
@@ -101,8 +103,12 @@
         [highscoreSprite setOpacity:0];
     }
     
-    //TODO: Ask equpiment data if there is something to buy
-    if (1)
+    [self updateNewItemSign];
+}
+
+-(void) updateNewItemSign
+{
+    if ([[EquipmentData shared] isAffordable:[[USERDATA objectForKey:@"star"] intValue]])
     {
         [newItemSprite setVisible:YES];
         [self animateExclamationSign];

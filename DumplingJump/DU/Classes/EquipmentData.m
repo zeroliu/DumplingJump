@@ -115,7 +115,6 @@
             {
                 price = base * multiplier * amount;
             }
-             NSLog([NSString stringWithFormat:@"check %@ with price:%d", key, price]);
             
             if (price <= starNum)
             {

@@ -101,7 +101,7 @@
         
         objectBody->SetGravityScale((selectedObject.gravity)/100.0f);
         
-        objectBody->SetLinearVelocity(b2Vec2(0,-GAMEMODEL.objectInitialSpeed*(GAMEMODEL.gameSpeed-1)/GAMEMODEL.gameSpeedMax));
+        objectBody->SetLinearVelocity(b2Vec2(0,-GAMEMODEL.objectInitialSpeed*GAMEMODEL.objectInitialIncrease));
         
         b2MassData massData;
         massData.center = objectBody->GetLocalCenter();

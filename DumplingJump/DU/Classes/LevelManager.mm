@@ -240,8 +240,6 @@ toRemovePowderArray = _toRemovePowderArray;
 {
     DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
     flyingStar.sprite.position = position;
-    id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:@"A_star"]];
-    [flyingStar.sprite runAction:[CCRepeatForever actionWithAction:animate]];
     id moveToDestination = [CCMoveTo actionWithDuration:0.4 position:destination];
     id remove = [CCCallBlock actionWithBlock:^{
         [[GameUI shared] scaleStarUI];
@@ -388,7 +386,7 @@ toRemovePowderArray = _toRemovePowderArray;
 {
     if (currentParagraph != nil && !isWaiting)
     {
-        sentenceCounter += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRate"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
+        sentenceCounter += [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRate"] floatValue] * GAMEMODEL.dropRateIncrease;
         if (sentenceTarget <= sentenceCounter)
         {
             //Trigger a sentence
@@ -615,7 +613,7 @@ toRemovePowderArray = _toRemovePowderArray;
     {
         isProcessingWarningSign = YES;
         NSMutableArray *objectsToRemove = [[NSMutableArray alloc] init];
-        float unit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRate"] floatValue] * ((GAMEMODEL.gameSpeed-1)/2+1);
+        float unit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRate"] floatValue] * GAMEMODEL.dropRateIncrease;
         for (DropInfo *info in warningSignArray)
         {
             info.warningTime -= unit;

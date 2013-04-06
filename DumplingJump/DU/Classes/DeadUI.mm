@@ -122,7 +122,7 @@
 -(void) animateExclamationSign
 {
 
-    NSMutableArray *actions = [NSMutableArray array];
+//    NSMutableArray *actions = [NSMutableArray array];
     
 //    id changeToRed = [CCCallBlock actionWithBlock:^{
 //        CCSpriteFrame *warningRed = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_play_warning.png"];

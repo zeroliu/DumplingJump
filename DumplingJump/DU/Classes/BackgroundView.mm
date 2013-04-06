@@ -12,6 +12,7 @@
 #import "BackgroundController.h"
 #import "HeroManager.h"
 #import "GameModel.h"
+#import "GamespeedTestTool.h"
 
 @interface BackgroundView()
 {
@@ -71,7 +72,7 @@
         BgLayer myLayer;
         [anObject getValue:&myLayer];
         
-        float y = dy * GAMEMODEL.gameSpeed * _scrollSpeedScale * (myLayer.speedScale + ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y * ((120-myLayer.depth))/120);
+        float y = dy * GAMEMODEL.scrollSpeedIncrease * _scrollSpeedScale * (myLayer.speedScale + ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y * ((120-myLayer.depth))/120);
         
         myLayer.sprite.position = ccpAdd(myLayer.sprite.position, ccp(0,y));
         myLayer.swapSprite.position = ccpAdd(myLayer.swapSprite.position, ccp(0,y));

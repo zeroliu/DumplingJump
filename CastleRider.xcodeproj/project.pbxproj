@@ -735,6 +735,7 @@
 		7FFCB8C616E42FC700700381 /* UI_item_headstart.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FFCB8C416E42FC700700381 /* UI_item_headstart.png */; };
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
+		9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F06214E170F98FD002D883F /* GamespeedTestTool.mm */; };
 		9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DEAED16FBEA9500354C49 /* ItemUnlockUI.mm */; };
 		9F1DEAF816FBEB2C00354C49 /* AchievementNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEAEF16FBEB2C00354C49 /* AchievementNode.ccbi */; };
 		9F1DEAF916FBEB2C00354C49 /* AchievementUnlockUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEAF016FBEB2C00354C49 /* AchievementUnlockUI.ccbi */; };
@@ -1807,6 +1808,8 @@
 		7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ReactionFunctions.mm; sourceTree = "<group>"; };
 		7FFD8E911605637900C460F0 /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
 		7FFD8E921605637900C460F0 /* EffectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectManager.mm; sourceTree = "<group>"; };
+		9F06214D170F98FD002D883F /* GamespeedTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamespeedTestTool.h; sourceTree = "<group>"; };
+		9F06214E170F98FD002D883F /* GamespeedTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamespeedTestTool.mm; sourceTree = "<group>"; };
 		9F1DEAEC16FBEA9500354C49 /* ItemUnlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemUnlockUI.h; sourceTree = "<group>"; };
 		9F1DEAED16FBEA9500354C49 /* ItemUnlockUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemUnlockUI.mm; sourceTree = "<group>"; };
 		9F1DEAEF16FBEB2C00354C49 /* AchievementNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementNode.ccbi; path = UILayouts/AchievementNode.ccbi; sourceTree = "<group>"; };
@@ -1900,6 +1903,8 @@
 				7F86CD9B162D26EC00AB1024 /* HeroTestTool.mm */,
 				7FC85C441638FB12008872E6 /* LevelTestTool.h */,
 				7FC85C451638FB12008872E6 /* LevelTestTool.mm */,
+				9F06214D170F98FD002D883F /* GamespeedTestTool.h */,
+				9F06214E170F98FD002D883F /* GamespeedTestTool.mm */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -4534,6 +4539,7 @@
 				9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */,
 				9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */,
 				9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */,
+				9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

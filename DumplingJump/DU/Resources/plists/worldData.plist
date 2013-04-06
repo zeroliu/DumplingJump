@@ -6,6 +6,8 @@
 	<dict>
 		<key>levelEditorEnabled</key>
 		<false/>
+		<key>gameSpeedEditorEnabled</key>
+		<false/>
 		<key>forceReloadUserData</key>
 		<false/>
 		<key>hasHeadStart</key>
@@ -30,19 +32,27 @@
 		<key>absorbDuration</key>
 		<integer>10</integer>
 		<key>objectInitialSpeed</key>
-		<integer>17</integer>
-		<key>gameSpeedIncreaseUnit</key>
-		<real>0.25</real>
-		<key>gameSpeedMax</key>
 		<integer>3</integer>
-		<key>distanceUnit</key>
-		<real>0.015</real>
+		<key>objectInitialSpeedIncreaseUnit</key>
+		<real>0.25</real>
+		<key>objectInitialSpeedIncreaseMax</key>
+		<integer>3</integer>
 		<key>scrollSpeed</key>
 		<real>-0.3</real>
+		<key>scrollSpeedIncreaseUnit</key>
+		<real>0.25</real>
+		<key>scrollSpeedIncreaseMax</key>
+		<integer>3</integer>
 		<key>dropRate</key>
 		<real>0.015</real>
+		<key>dropRateIncreaseUnit</key>
+		<real>0.25</real>
+		<key>dropRateIncreaseMax</key>
+		<real>1.5</real>
 		<key>levelTransitionDelay</key>
 		<integer>0</integer>
+		<key>scoreUnit</key>
+		<real>0.015</real>
 	</dict>
 	<key>board</key>
 	<dict>

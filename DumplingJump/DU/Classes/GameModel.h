@@ -17,10 +17,22 @@
 @property (nonatomic, assign) float distance;
 @property (nonatomic, assign) float multiplier;
 @property (nonatomic, assign) float star;
-@property (nonatomic, readonly) float gameSpeed;
-@property (nonatomic, readonly) float gameSpeedIncreaseUnit;
-@property (nonatomic, readonly) float gameSpeedMax;
+//@property (nonatomic, readonly) float gameSpeed;
+//@property (nonatomic, readonly) float gameSpeedIncreaseUnit;
+//@property (nonatomic, readonly) float gameSpeedMax;
+
+@property (nonatomic, readonly) float scrollSpeedIncrease;
+@property (nonatomic, readonly) float scrollSpeedIncreaseUnit;
+@property (nonatomic, readonly) float scrollSpeedIncreaseMax;
+
+@property (nonatomic, readonly) float dropRateIncrease;
+@property (nonatomic, readonly) float dropRateIncreaseUnit;
+@property (nonatomic, readonly) float dropRateIncreaseMax;
+
 @property (nonatomic, readonly) float objectInitialSpeed;
+@property (nonatomic, readonly) float objectInitialIncrease;
+@property (nonatomic, readonly) float objectInitialIncreaseUnit;
+@property (nonatomic, readonly) float objectInitialIncreaseMax;
 @property (nonatomic, assign) BOOL isHighScore;
 
 //Achievement related

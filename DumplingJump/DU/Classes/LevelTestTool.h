@@ -19,4 +19,5 @@
 +(id) shared;
 -(void) reload;
 -(void) updateLevelName:(NSString *)theLevelName;
+-(void) setEnable:(BOOL)isEnabled;
 @end

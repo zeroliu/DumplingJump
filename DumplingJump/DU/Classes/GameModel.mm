@@ -15,7 +15,10 @@
 
 @interface GameModel()
 {
-    float currentGameSpeed;
+    BOOL isUsingBoosterData;
+    float currentObjectInitialSpeedIncrease;
+    float currentScrollSpeedIncrease;
+    float currentDroprateIncrease;
 }
 @end
 
@@ -24,7 +27,23 @@
 @synthesize state = _state;
 @synthesize distance = _distance;
 
-@synthesize powerUpData = _powerUpData, gameSpeed = _gameSpeed, gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit, gameSpeedMax = _gameSpeedMax, objectInitialSpeed = _objectInitialSpeed, multiplier = _multiplier, isHighScore = _isHighScore;
+@synthesize
+powerUpData = _powerUpData,
+//gameSpeed = _gameSpeed,
+//gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit,
+//gameSpeedMax = _gameSpeedMax,
+objectInitialSpeed = _objectInitialSpeed,
+multiplier = _multiplier,
+isHighScore = _isHighScore,
+scrollSpeedIncrease = _scrollSpeedIncrease,
+scrollSpeedIncreaseMax = _scrollSpeedIncreaseMax,
+scrollSpeedIncreaseUnit = _scrollSpeedIncreaseUnit,
+objectInitialIncrease = _objectInitialIncrease,
+objectInitialIncreaseUnit = _objectInitialIncreaseUnit,
+objectInitialIncreaseMax = _objectInitialIncreaseMax,
+dropRateIncrease = _dropRateIncrease,
+dropRateIncreaseUnit = _dropRateIncreaseUnit,
+dropRateIncreaseMax = _dropRateIncreaseMax;
 
 @synthesize
 jumpCount           = _jumpCount,
@@ -43,10 +62,29 @@ gameTime            = _gameTime;
 {
     if (self = [super init])
     {
-        _gameSpeed = 1;
-        _gameSpeedIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedIncreaseUnit"] floatValue];
-        _gameSpeedMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedMax"] floatValue];
+        isUsingBoosterData = NO;
+        
+        //Reset increases
+        _dropRateIncrease = 1;
+        _objectInitialIncrease = 1;
+        _scrollSpeedIncrease = 1;
+        
+        //load increase unit
+        _dropRateIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRateIncreaseUnit"] floatValue];
+        _objectInitialIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"objectInitialSpeedIncreaseUnit"] floatValue];
+        _scrollSpeedIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scrollSpeedIncreaseUnit"] floatValue];
+
+        //load increase max
+        _dropRateIncreaseMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"dropRateIncreaseMax"] floatValue];
+        _objectInitialIncreaseMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"objectInitialSpeedIncreaseMax"] floatValue];
+        _scrollSpeedIncreaseMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scrollSpeedIncreaseMax"] floatValue];
+        
+        //preload initial data so that we don't need to search into the dictionary everytime
         _objectInitialSpeed = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"objectInitialSpeed"] floatValue];
+        
+        //        _gameSpeed = 1;
+        //        _gameSpeedIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedIncreaseUnit"] floatValue];
+        //        _gameSpeedMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedMax"] floatValue];
     }
     
     return self;
@@ -88,23 +126,42 @@ gameTime            = _gameTime;
 
 -(void) updateGameSpeed
 {
-    if (_gameSpeed < _gameSpeedMax)
+    if (_scrollSpeedIncrease < _scrollSpeedIncreaseMax)
     {
-        _gameSpeed = MIN(_gameSpeed +_gameSpeedIncreaseUnit, _gameSpeedMax);
+        _scrollSpeedIncrease = MIN(_scrollSpeedIncrease +_scrollSpeedIncreaseUnit, _scrollSpeedIncreaseMax);
+    }
+    
+    if (_objectInitialIncrease < _objectInitialIncreaseMax)
+    {
+        _objectInitialIncrease = MIN(_objectInitialIncrease + _objectInitialIncreaseUnit, _objectInitialIncreaseMax);
+    }
+    
+    if (_dropRateIncrease < _dropRateIncreaseMax)
+    {
+        _dropRateIncrease = MIN(_dropRateIncrease +_dropRateIncreaseUnit, _dropRateIncreaseMax);
     }
 }
 
 -(void) boostGameSpeed:(float)interval
 {
-    if (currentGameSpeed == 0)
+    if (!isUsingBoosterData)
     {
-        currentGameSpeed = _gameSpeed;
-        _gameSpeed = max(_gameSpeed * 2, _gameSpeedMax);
+        isUsingBoosterData = YES;
+        currentDroprateIncrease = _dropRateIncrease;
+        currentObjectInitialSpeedIncrease = _objectInitialIncrease;
+        currentScrollSpeedIncrease = _scrollSpeedIncrease;
+
+        _dropRateIncrease = _dropRateIncreaseMax * 2;
+        _objectInitialIncrease = _objectInitialIncreaseMax * 2;
+        _scrollSpeedIncrease = _scrollSpeedIncreaseMax * 2;
+        
         id delay = [CCDelayTime actionWithDuration:interval];
         id resetBack = [CCCallBlock actionWithBlock:^
         {
-            _gameSpeed = currentGameSpeed;
-            currentGameSpeed = 0;
+            _dropRateIncrease = currentDroprateIncrease;
+            _objectInitialIncrease = currentObjectInitialSpeedIncrease;
+            _scrollSpeedIncrease = currentScrollSpeedIncrease;
+            isUsingBoosterData = NO;
         }];
         [GAMELAYER runAction:[CCSequence actions:delay, resetBack, nil]];
     }
@@ -112,7 +169,10 @@ gameTime            = _gameTime;
 
 -(void) resetGameSpeed
 {
-    _gameSpeed = 1;
+    isUsingBoosterData = NO;
+    _dropRateIncrease = 1;
+    _objectInitialIncrease = 1;
+    _scrollSpeedIncrease = 1;
 }
 
 -(void) resetGameData

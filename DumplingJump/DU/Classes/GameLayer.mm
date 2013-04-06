@@ -16,6 +16,7 @@
 #import "GameUI.h"
 #import "AchievementUnlockUI.h"
 #import "DeadUI.h"
+#import "GamespeedTestTool.h"
 
 @interface GameLayer()
 {
@@ -187,7 +188,18 @@
 {
     //[[AddthingTestTool shared] reset];
     //[[HeroTestTool shared] reset];
-    [[LevelTestTool shared] reload];
+    
+    NSDictionary *debugData = [[WorldData shared] loadDataWithAttributName:@"debug"];
+    if ([[debugData objectForKey:@"levelEditorEnabled"] boolValue])
+    {
+        [[LevelTestTool shared] setEnable:YES];
+        [[LevelTestTool shared] reload];
+    }
+    if ([[debugData objectForKey:@"gameSpeedEditorEnabled"] boolValue])
+    {
+        [[GamespeedTestTool shared] setEnable:YES];
+        [[GamespeedTestTool shared] reset];
+    }
     //[[ParamConfigTool shared] reset];
     
     world = [[PhysicsManager sharedPhysicsManager] getWorld];
@@ -311,7 +323,7 @@
         [[[HeroManager shared] getHero] updateHeroBoosterEffect];
         [[[HeroManager shared] getHero] updateJumpState];
         
-        float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"distanceUnit"] floatValue] * 10;
+        float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
         self.model.distance += distanceIncrease;
         
         [MESSAGECENTER postNotificationName:NOTIFICATION_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.model.distance] forKey:@"num"]];
@@ -327,6 +339,8 @@
         [[LevelManager shared] updateWarningSign];
         [[LevelManager shared] updatePowderCountdown:deltaTime];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
+        
+        [[GamespeedTestTool shared] updateUI];
     }
 }
 

@@ -11,6 +11,7 @@
 		<description>description</description>
 		<multiplier>multiplier</multiplier>
 		<base>base</base>
+        <unlockPrice>unlockPrice</unlockPrice>
 		<level0>level0</level0>
 		<level1>level1</level1>
 		<level2>level2</level2>
@@ -25,8 +26,9 @@
 		<displayName>BOOSTER</displayName>
 		<image>UI_item_booster</image>
 		<order>0</order>
-		<description>boost ahead</description>
+        <description>boost ahead</description>
 		<multiplier>1.80</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>200</base>
 		<level0>3</level0>
 		<level1>4</level1>
@@ -45,6 +47,7 @@
 		<order>1</order>
 		<description>extend duration</description>
 		<multiplier>1.80</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>100</base>
 		<level0>4</level0>
 		<level1>5</level1>
@@ -63,6 +66,7 @@
 		<order>2</order>
 		<description>extend duration</description>
 		<multiplier>1.80</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>150</base>
 		<level0>4</level0>
 		<level1>5</level1>
@@ -81,6 +85,7 @@
 		<order>3</order>
 		<description>increase</description>
 		<multiplier>1.80</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>300</base>
 		<level0>40</level0>
 		<level1>80</level1>
@@ -99,6 +104,7 @@
 		<order>0</order>
 		<description>revive once</description>
 		<multiplier>2.00</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>400</base>
 	</Item>
 	<Item>
@@ -111,6 +117,7 @@
 		<order>1</order>
 		<description>boost ahead</description>
 		<multiplier>1.00</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>300</base>
 	</Item>
 	<Item>
@@ -123,6 +130,7 @@
 		<order>0</order>
 		<description>cooldown:</description>
 		<multiplier>3.00</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>100</base>
 		<level0>60</level0>
 		<level1>50</level1>
@@ -141,6 +149,7 @@
 		<order>1</order>
 		<description>cooldown:</description>
 		<multiplier>2.00</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>200</base>
 		<level0>60</level0>
 		<level1>50</level1>
@@ -159,6 +168,7 @@
 		<order>0</order>
 		<description>Protect your hero</description>
 		<multiplier>2.00</multiplier>
+        <unlockPrice>1000</unlockPrice>
 		<base>500</base>
 		<level0>1</level0>
 		<level1>1</level1>

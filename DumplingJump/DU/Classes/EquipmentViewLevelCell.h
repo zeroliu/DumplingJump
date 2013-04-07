@@ -16,13 +16,13 @@
     IBOutlet UIImageView *unlock1;
     IBOutlet UIImageView *unlock2;
     IBOutlet UIImageView *unlock3;
+    IBOutlet UIImageView *unlock4;
     
     IBOutlet UILabel *priceLabel;
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;
     
     IBOutlet UIButton *currentButton;
-    
     NSDictionary *myContent;
 }
 - (IBAction)didTapButton:(id)sender;

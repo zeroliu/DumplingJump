@@ -12,7 +12,7 @@
 
 @interface EquipmentViewAmountCell : DUTableViewCell
 {
-    
+    IBOutlet UIButton *cellButton;
     IBOutlet UILabel *priceLabel;
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;

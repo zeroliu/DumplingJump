@@ -20,7 +20,9 @@
 - (id) initWithXib:(NSString *)xibName
 {
     if (self = [super initWithXib:xibName])
-    {        
+    {
+        [cellButton setImage:[UIImage imageNamed:@"UI_equip_box_normal_press.png"] forState:UIControlStateHighlighted];
+ 
         [descriptionLabel setBackgroundColor:[UIColor clearColor]];
         [descriptionLabel setTextAlignment:UITextAlignmentLeft];
         [descriptionLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:13]];
@@ -107,6 +109,7 @@
 }
 
 - (void)dealloc {
+    [cellButton release];
     [priceLabel release];
     [descriptionLabel release];
     [equipmentImageView release];

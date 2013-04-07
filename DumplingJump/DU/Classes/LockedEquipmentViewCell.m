@@ -21,7 +21,11 @@
 {
     if (self = [super initWithXib:xibName])
     {
-
+        [cellButton setImage:[UIImage imageNamed:@"UI_equip_box_locked_press.png"] forState:UIControlStateHighlighted];
+        [priceLabel setBackgroundColor:[UIColor clearColor]];
+        [priceLabel setTextAlignment:UITextAlignmentCenter];
+        [priceLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:11]];
+        [priceLabel setTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
     }
     
     return self;
@@ -32,6 +36,8 @@
     [super setLayoutWithDictionary:content];
     [equipmentImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_shadow.png",[content objectForKey:@"image"]]]];
     equipmentImageView.hidden = YES;
+    
+    [priceLabel setText:[NSString stringWithFormat:@"%d", [[content objectForKey:@"unlockPrice"] intValue]]];
     
     if (overlay != nil)
     {
@@ -47,10 +53,13 @@
     [overlay setBackgroundColor:[UIColor blackColor]];
     [parentView addSubview:overlay];
 }
+
 - (void)dealloc {
+    [cellButton release];
     [overlay release];
     [equipmentImageView release];
     [parentView release];
+    [priceLabel release];
     [super dealloc];
 }
 @end

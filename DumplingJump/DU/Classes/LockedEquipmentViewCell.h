@@ -15,6 +15,8 @@
     IBOutlet UIView *parentView;
     IBOutlet UIImageView *equipmentImageView;
     
+    IBOutlet UILabel *priceLabel;
+    IBOutlet UIButton *cellButton;
     UIView *overlay;
 }
 

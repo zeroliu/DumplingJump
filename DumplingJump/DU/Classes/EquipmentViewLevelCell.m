@@ -24,11 +24,14 @@
 {
     if (self = [super initWithXib:xibName])
     {
-        unlockArray = [[NSMutableArray alloc] initWithCapacity:4];
+        [currentButton setImage:[UIImage imageNamed:@"UI_equip_box_normal_press.png"] forState:UIControlStateHighlighted];
+        
+        unlockArray = [[NSMutableArray alloc] initWithCapacity:5];
         [unlockArray insertObject:unlock0 atIndex:0];
         [unlockArray insertObject:unlock1 atIndex:1];
         [unlockArray insertObject:unlock2 atIndex:2];
         [unlockArray insertObject:unlock3 atIndex:3];
+        [unlockArray insertObject:unlock4 atIndex:4];
         
         [descriptionLabel setBackgroundColor:[UIColor clearColor]];
         [descriptionLabel setTextAlignment:UITextAlignmentLeft];
@@ -42,7 +45,7 @@
         
         for (UIImageView *view in unlockArray)
         {
-            [view setHidden:YES];
+            [view setHighlighted:NO];
         }
     }
     
@@ -70,17 +73,19 @@
     
     int level = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
     
-    for (int i=0; i<4; i++)
+    for (int i=0; i<5; i++)
     {
-        [[unlockArray objectAtIndex:i] setHidden:YES];
+        if (i<level)
+        {
+            [[unlockArray objectAtIndex:i] setHighlighted:YES];
+        }
+        else
+        {
+            [[unlockArray objectAtIndex:i] setHighlighted:NO];
+        }
     }
     
-    for (int i=0; i<level; i++)
-    {
-        [[unlockArray objectAtIndex:i] setHidden:NO];
-    }
-    
-    if (level >= 4)
+    if (level >= 5)
     {
         [priceLabel setText:@"max"];
         [self setUserInteractionEnabled:NO];
@@ -134,6 +139,7 @@
     [unlock1 release];
     [unlock2 release];
     [unlock3 release];
+    [unlock4 release];
     [unlock0 release];
     [priceLabel release];
     [descriptionLabel release];

@@ -14,10 +14,14 @@
 {
     IBOutlet UIView *parentView;
     IBOutlet UIImageView *equipmentImageView;
-    
     IBOutlet UILabel *priceLabel;
+    IBOutlet UILabel *titleLabel;
     IBOutlet UIButton *cellButton;
+    
     UIView *overlay;
 }
+
+@property (nonatomic, retain) NSIndexPath *path;
+- (IBAction)didTapButton:(id)sender;
 
 @end

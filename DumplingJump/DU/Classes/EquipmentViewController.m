@@ -79,6 +79,7 @@
         if (cell == nil)
         {
             cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
+            ((LockedEquipmentViewCell *)cell).path = indexPath;
         }
     }
     cell.parentTableView = self;
@@ -215,9 +216,14 @@
     [continueButton setHidden:!isVisible];
 }
 
+- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths
+{
+    [tableview reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+}
 
 - (void)dealloc
 {
+    [tableview release];
     [equipmentTypesArray release];
     [continueButton release];
     [backgroundView release];

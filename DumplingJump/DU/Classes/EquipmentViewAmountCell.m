@@ -12,6 +12,9 @@
 #import "EquipmentViewController.h"
 
 @interface EquipmentViewAmountCell()
+{
+    NSDictionary *myContent;
+}
 
 @end
 

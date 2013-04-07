@@ -1,3 +1,25 @@
+UI_mission_achieve_lifetime.png
+UI_mission_achieve_lock.png
+UI_mission_canvas.png
+UI_mission_item_lock.png
+UI_mission_item_transition_1.png
+UI_mission_item_transition_2.png
+UI_mission_item_transition_3.png
+UI_mission_item_transition_4.png
+UI_mission_item_transition_5.png
+UI_mission_item_unlock.png
+UI_mission_medal.png
+UI_mission_medal_shadow.png
+UI_play_pushbonus_1.png
+UI_play_pushbonus_2.png
+UI_play_pushbonus_3.png
+UI_play_pushbonus_4.png
+UI_play_pushbonus_5.png
+UI_play_pushbonus_6.png
+UI_retry_equip_new.png
+UI_retry_mission_new.png
+UI_unlock_canvas.png
+UI_unlock_star.png
 CA_background_1.png
 CA_background_2.png
 CA_background_3.png
@@ -560,10 +582,17 @@ O_whale_idle_7.png
 O_whale_idle_8.png
 O_whale_idle_9.png
 UI_equip_bar.png
+UI_equip_bottom.png
+UI_equip_box_label_lv.png
+UI_equip_box_label_new.png
 UI_equip_box_locked.png
+UI_equip_box_locked_press.png
 UI_equip_box_lv.png
-UI_equip_box_quanti.png
-UI_equip_box_quanti_press.png
+UI_equip_box_lv_on.png
+UI_equip_box_normal.png
+UI_equip_box_normal_press.png
+UI_equip_box_price.png
+UI_equip_box_quantity.png
 UI_equip_canvas.png
 UI_equip_green.png
 UI_equip_sort.png
@@ -582,6 +611,8 @@ UI_other_play.png
 UI_other_star.png
 UI_other_whiteCircle.png
 UI_pause_retry.png
+UI_play_achievement_unlocked.png
+UI_play_bonus_star.png
 UI_play_item_box.png
 UI_play_item_box_green.png
 UI_play_item_box_green_whiteversion.png
@@ -695,7 +726,7 @@ ccbParticleSnow.png
 ccbParticleStars.png
 comic andy.ttf
 Eras Bold ITC.ttf
-Eras Demi ITC.ttf
+Eras Demi ITC.TTF
 ERASLGHT.TTF
 ERASMD.TTF
 A_arrow_1.png

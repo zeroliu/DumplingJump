@@ -19,7 +19,7 @@
 
 @interface EquipmentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    //Equipment View buttons
+    IBOutlet UITableView *tableview;
     IBOutlet UIView *backgroundView;
     IBOutlet UIButton *continueButton;
     IBOutlet UIButton *backButton;
@@ -37,6 +37,7 @@
 - (void) showEquipmentView;
 - (void) hideEquipmentView;
 - (void) updateStarNum:(int)num;
+- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths;
 
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;

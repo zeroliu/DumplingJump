@@ -19,13 +19,14 @@
 @end
 
 @implementation LockedEquipmentViewCell
-@synthesize path = _path;
+
 
 - (id) initWithXib:(NSString *)xibName
 {
     if (self = [super initWithXib:xibName])
     {
         [cellButton setImage:[UIImage imageNamed:@"UI_equip_box_locked_press.png"] forState:UIControlStateHighlighted];
+        [cellButton setImage:[UIImage imageNamed:@"UI_equip_box_locked_press.png"] forState:UIControlStateSelected];
         [priceLabel setBackgroundColor:[UIColor clearColor]];
         [priceLabel setTextAlignment:UITextAlignmentCenter];
         [priceLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:11]];
@@ -47,6 +48,17 @@
     
     [priceLabel setText:[NSString stringWithFormat:@"%d", [[content objectForKey:@"unlockPrice"] intValue]]];
     [titleLabel setText:[NSString stringWithFormat:@"Unlock %@", [content objectForKey:@"displayName"]]];
+    
+    //update band
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    if (currentStar >= [[content objectForKey:@"unlockPrice"] intValue])
+    {
+        [band setHidden:NO];
+    }
+    else
+    {
+        [band setHidden:YES];
+    }
     
     if (overlay != nil)
     {
@@ -75,22 +87,24 @@
         //Have enough money
         [USERDATA setObject:[NSNumber numberWithInt:1] forKey: [myContent objectForKey:@"name"]];
         [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
+        [self showUnlockAnimation];
+        [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
     }
     else
     {
         //TODO: show IAP
     }
-    [self showUnlockAnimation];
-    [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
 }
 
 - (void) showUnlockAnimation
 {
-    [self.parentTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:_path]];
+    [self.parentTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.path] withRowAnimation:UITableViewRowAnimationLeft];
+    [self.parentTableView performSelector:@selector(reloadTableview) withObject:nil afterDelay:0.3];
 }
 
 - (void)dealloc {
-    [_path release];
+    
+    [band release];
     [cellButton release];
     [overlay release];
     [equipmentImageView release];

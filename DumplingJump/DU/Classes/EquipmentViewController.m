@@ -79,9 +79,9 @@
         if (cell == nil)
         {
             cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
-            ((LockedEquipmentViewCell *)cell).path = indexPath;
         }
     }
+    cell.path = indexPath;
     cell.parentTableView = self;
     [cell setLayoutWithDictionary:equipmentData];
 
@@ -216,9 +216,14 @@
     [continueButton setHidden:!isVisible];
 }
 
-- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths
+- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
-    [tableview reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+    [tableview reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
+- (void) reloadTableview
+{
+    [tableview reloadData];
 }
 
 - (void)dealloc

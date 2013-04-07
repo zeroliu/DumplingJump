@@ -25,6 +25,7 @@
     if (self = [super initWithXib:xibName])
     {
         [currentButton setImage:[UIImage imageNamed:@"UI_equip_box_normal_press.png"] forState:UIControlStateHighlighted];
+        [currentButton setImage:[UIImage imageNamed:@"UI_equip_box_normal_press.png"] forState:UIControlStateSelected];
         
         unlockArray = [[NSMutableArray alloc] initWithCapacity:5];
         [unlockArray insertObject:unlock0 atIndex:0];
@@ -85,6 +86,7 @@
         }
     }
     
+    int price = 0;
     if (level >= 5)
     {
         [priceLabel setText:@"max"];
@@ -92,7 +94,6 @@
     }
     else
     {
-        int price = 0;
         if (level == 0)
         {
             price = base;
@@ -104,6 +105,17 @@
         
         [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
         [self setUserInteractionEnabled:YES];
+    }
+    
+    //update band
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    if (level < 5 && currentStar >= price)
+    {
+        [band setHidden:NO];
+    }
+    else
+    {
+        [band setHidden:YES];
     }
     
     float effectValue = [[myContent objectForKey:[NSString stringWithFormat:@"level%d", level]] floatValue];
@@ -124,12 +136,13 @@
         [USERDATA setObject:[NSNumber numberWithInt:currentLevel+1] forKey: [myContent objectForKey:@"name"]];
         //TODO: star reducing anim
         [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
+        [self.parentTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.path] withRowAnimation:UITableViewRowAnimationFade];
+        [self.parentTableView performSelector:@selector(reloadTableview) withObject:nil afterDelay:0.2];
     }
     else
     {
         //TODO: show IAP
     }
-    [self updateCellUI];
     [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
 
 }
@@ -146,6 +159,7 @@
     [equipmentImageView release];
     [currentButton release];
     [myContent release];
+    [band release];
     [super dealloc];
 }
 

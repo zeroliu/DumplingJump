@@ -37,8 +37,8 @@
 - (void) showEquipmentView;
 - (void) hideEquipmentView;
 - (void) updateStarNum:(int)num;
-- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths;
-
+- (void) reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
+- (void) reloadTableview;
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;
 - (IBAction)didContinueButtonClicked:(id)sender;

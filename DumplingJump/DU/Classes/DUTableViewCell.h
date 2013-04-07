@@ -12,7 +12,7 @@
 
 @interface DUTableViewCell : UITableViewCell
 @property (assign) id parentTableView;
-
+@property (nonatomic, retain) NSIndexPath *path;
 - (id) initWithXib:(NSString *)xibName;
 - (void) setLayoutWithDictionary:(NSDictionary *)content;
 

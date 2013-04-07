@@ -17,11 +17,11 @@
     IBOutlet UILabel *priceLabel;
     IBOutlet UILabel *titleLabel;
     IBOutlet UIButton *cellButton;
-    
+    IBOutlet UIImageView *band;
     UIView *overlay;
 }
 
-@property (nonatomic, retain) NSIndexPath *path;
+
 - (IBAction)didTapButton:(id)sender;
 
 @end

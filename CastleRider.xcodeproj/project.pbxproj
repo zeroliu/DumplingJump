@@ -765,7 +765,7 @@
 		9FAEC67216F6F865009112EB /* AchievementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC67116F6F865009112EB /* AchievementData.m */; };
 		9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */; };
 		9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */; };
-		9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.m */; };
+		9FEEB08116F7FF88008A1D02 /* AchievementManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */; };
 		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
 		9FF6924E16FFE5EE00B3FEA1 /* UI_equip_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */; };
 		9FF6924F16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924C16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png */; };
@@ -1846,7 +1846,7 @@
 		9FC2D18716FAA27C0020AF59 /* AchievementUnlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementUnlockUI.h; sourceTree = "<group>"; };
 		9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementUnlockUI.mm; sourceTree = "<group>"; };
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
-		9FEEB08016F7FF88008A1D02 /* AchievementManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementManager.m; sourceTree = "<group>"; };
+		9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementManager.mm; sourceTree = "<group>"; };
 		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
 		9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_bottom.png; sourceTree = "<group>"; };
 		9FF6924C16FFE5EE00B3FEA1 /* UI_equip_box_level_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_level_press.png; sourceTree = "<group>"; };
@@ -3703,7 +3703,7 @@
 			isa = PBXGroup;
 			children = (
 				9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */,
-				9FEEB08016F7FF88008A1D02 /* AchievementManager.m */,
+				9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */,
 			);
 			name = Achievement;
 			sourceTree = "<group>";
@@ -4535,7 +4535,7 @@
 				7FFCB8C216E3492500700381 /* PowderInfo.m in Sources */,
 				9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */,
 				9FAEC67216F6F865009112EB /* AchievementData.m in Sources */,
-				9FEEB08116F7FF88008A1D02 /* AchievementManager.m in Sources */,
+				9FEEB08116F7FF88008A1D02 /* AchievementManager.mm in Sources */,
 				9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */,
 				9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */,
 				9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */,

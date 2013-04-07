@@ -9,6 +9,9 @@
 #import "AchievementManager.h"
 #import "Constants.h"
 #import "UserData.h"
+#import "GameModel.h"
+#import "GameLayer.h"
+#import "Hub.h"
 
 @interface AchievementManager()
 @property (nonatomic, retain) NSMutableDictionary *registeredEvent;
@@ -96,7 +99,9 @@ unlockedEvent       =   _unlockedEvent;
     int updatedNum = [[notification.userInfo objectForKey:@"num"] intValue];
     if (achievementData != nil)
     {
-//        if ([achievementData objectForKey:@"restriction"] == nil)
+        NSString *restrictType = [achievementData objectForKey:@"restriction"];
+        
+        if ([self checkRestrinction:restrictType])
         {
             if (updatedNum >= [[achievementData objectForKey:@"number"] intValue])
             {
@@ -112,7 +117,10 @@ unlockedEvent       =   _unlockedEvent;
     NSDictionary *achievementData = [_registeredEvent objectForKey:key];
     if (achievementData != nil)
     {
-        [self unlockAchievement:achievementData];
+        if ([self checkRestrinction:[achievementData objectForKey:@"restriction"]])
+        {
+            [self unlockAchievement:achievementData];
+        }
     }
 }
 
@@ -122,12 +130,15 @@ unlockedEvent       =   _unlockedEvent;
     NSDictionary *achievementData = [_registeredEvent objectForKey:key];
     if (achievementData != nil)
     {
-        float updatedNum = [[notification.userInfo objectForKey:@"num"] floatValue];
-        if (achievementData != nil)
+        if ([self checkRestrinction:[achievementData objectForKey:@"restriction"]])
         {
-            if (updatedNum <= [[achievementData objectForKey:@"number"] floatValue])
+            float updatedNum = [[notification.userInfo objectForKey:@"num"] floatValue];
+            if (achievementData != nil)
             {
-                [self unlockAchievement:achievementData];
+                if (updatedNum <= [[achievementData objectForKey:@"number"] floatValue])
+                {
+                    [self unlockAchievement:achievementData];
+                }
             }
         }
     }
@@ -136,6 +147,83 @@ unlockedEvent       =   _unlockedEvent;
 
 #pragma mark -
 #pragma mark private
+- (BOOL) checkRestrinction:(NSString *)restrictType
+{
+    BOOL restrictionSatisfied = YES;
+    
+    if (restrictType != nil)
+    {
+        if ([restrictType isEqualToString:@"star"])
+        {
+            if (GAMEMODEL.star > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"jump"])
+        {
+            if (GAMEMODEL.jumpCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"powerup"])
+        {
+            if (GAMEMODEL.useBoosterCount > 0 ||
+                GAMEMODEL.useSpringCount > 0 ||
+                GAMEMODEL.useMagicCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"booster"])
+        {
+            if (GAMEMODEL.useBoosterCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"spring"])
+        {
+            if (GAMEMODEL.useSpringCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"sword"])
+        {
+            if (GAMEMODEL.useMagicCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"item"])
+        {
+            if (GAMEMODEL.useRebornCount > 0 ||
+                GAMEMODEL.useHeadstartCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"reborn"])
+        {
+            if (GAMEMODEL.useRebornCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+        else if ([restrictType isEqualToString:@"headstart"])
+        {
+            if (GAMEMODEL.useHeadstartCount > 0)
+            {
+                restrictionSatisfied = NO;
+            }
+        }
+    }
+    
+    return restrictionSatisfied;
+}
+
 - (void) unlockAchievement:(NSDictionary *)achievementData
 {
     NSString *groupID = [achievementData objectForKey:@"group"];

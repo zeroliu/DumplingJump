@@ -76,7 +76,7 @@
     
     for (int i=0; i<5; i++)
     {
-        if (i<level)
+        if (i<=level)
         {
             [[unlockArray objectAtIndex:i] setHighlighted:YES];
         }
@@ -87,7 +87,7 @@
     }
     
     int price = 0;
-    if (level >= 5)
+    if (level >= 4)
     {
         [priceLabel setText:@"max"];
         [self setUserInteractionEnabled:NO];
@@ -109,7 +109,7 @@
     
     //update band
     int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-    if (level < 5 && currentStar >= price)
+    if (level < 4 && currentStar >= price)
     {
         [band setHidden:NO];
     }

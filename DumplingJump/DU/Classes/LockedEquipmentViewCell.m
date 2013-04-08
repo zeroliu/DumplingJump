@@ -3,7 +3,7 @@
 //  CastleRider
 //
 //  Created by LIU Xiyuan on 13-2-19.
-//  Copyright 2013年 CMU ETC. All rights reserved.
+//  Copyright 2013 CMU ETC. All rights reserved.
 //
 
 #import "LockedEquipmentViewCell.h"
@@ -85,7 +85,7 @@
     if (currentStar >= price)
     {
         //Have enough money
-        [USERDATA setObject:[NSNumber numberWithInt:1] forKey: [myContent objectForKey:@"name"]];
+        [USERDATA setObject:[NSNumber numberWithInt:0] forKey: [myContent objectForKey:@"name"]];
         [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
         [self showUnlockAnimation];
         [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];

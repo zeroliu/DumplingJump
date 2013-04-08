@@ -108,14 +108,18 @@
 
 -(void) updateNewItemSign
 {
-    if ([[EquipmentData shared] isAffordable:[[USERDATA objectForKey:@"star"] intValue]])
+    int unlockItemNum = [[EquipmentData shared] isAffordable:[[USERDATA objectForKey:@"star"] intValue]];
+    if (unlockItemNum > 0)
     {
         [newItemSprite setVisible:YES];
+        [newItemText setVisible:YES];
+        [newItemText setString:[NSString stringWithFormat:@"%d",unlockItemNum]];
         [self animateExclamationSign];
     }
     else
     {
         [newItemSprite setVisible:NO];
+        [newItemText setVisible:NO];
     }
 }
 
@@ -156,6 +160,7 @@
 //    id restart = [CCCallFunc actionWithTarget:self selector:@selector(animateExclamationSign)];
 //    [actions addObject:delay];
 //    [actions addObject:restart];
+    
     [newItemSprite stopAllActions];
     id scaleUp = [CCScaleTo actionWithDuration:0.1 scale:1.2];
     id scaleDown = [CCScaleTo actionWithDuration:0.4 scale:1];
@@ -239,6 +244,7 @@
     [totalStarText release];
     [distanceText release];
     [multiplierText release];
+    [newItemText release];
     [equipmentViewController release];
 }
 

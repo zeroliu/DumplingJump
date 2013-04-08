@@ -93,9 +93,9 @@
     return nil;
 }
 
--(BOOL) isAffordable:(int)starNum
+-(int) isAffordable:(int)starNum
 {
-    BOOL res = NO;
+    int res = 0;
     
     for (NSString *key in [self.dataDictionary allKeys])
     {
@@ -104,6 +104,8 @@
         amount = [[USERDATA objectForKey:[item objectForKey:@"name"]] intValue];
         float multiplier = [[item objectForKey:@"multiplier"] floatValue];
         float base = [[item objectForKey:@"base"] floatValue];
+        int unlockPrice = [[item objectForKey:@"unlockPrice"] intValue];
+        
         if (amount >= 0)
         {
             int price = 0;
@@ -118,16 +120,17 @@
             
             if (price <= starNum)
             {
-                res = YES;
-                break;
+                res ++;
             }
         
         }
         else
         {
-            
+            if (unlockPrice <= starNum)
+            {
+                res ++;
+            }
         }
-       
     }
     
     return res;

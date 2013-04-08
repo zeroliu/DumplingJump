@@ -49,6 +49,9 @@ typedef enum {
     //Load EquipmentData if first launch
     [EquipmentData shared];
     
+    //Load world data
+    [WorldData shared];
+    
     animationManager = self.userObject;
     state = MainMenuStateHome;
     
@@ -66,7 +69,7 @@ typedef enum {
     
     //Create mask
     [self createMask];
-
+    
     //Hide mask
     mask.opacity = 0;
     
@@ -77,21 +80,29 @@ typedef enum {
     [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
     
-//    UIButton *crashButton = [[UIButton alloc] initWithFrame:CGRectMake(20.0, 20.0, 280.0, 44.0)];
-//    [crashButton setTitle:@"Crash" forState:UIControlStateNormal];
-//    [crashButton setBackgroundColor:[UIColor blueColor]];
-//    [crashButton addTarget:self action:@selector(crash:) forControlEvents:UIControlEventTouchUpInside];
-//    [VIEW addSubview:crashButton];
+    //DEBUG
+    if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"showMeTheMoneyEnabled"] boolValue])
+    {
+        [self createShowMeTheMoneyButton];
+    }
+    
 }
 
-//- (void)crash:(id)sender
-//{
-//    NSArray *array = @[@"one"];
-//    NSLog(@"%@", [array objectAtIndex:1]);
-//}
 
 #pragma mark -
 #pragma Creation
+
+- (void) createShowMeTheMoneyButton
+{
+    CCMenuItemFont *button = [CCMenuItemFont itemWithString:@"Add money" block:^(id sender) {
+        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+        [USERDATA setObject:[NSNumber numberWithInt:currentStar+1000] forKey:@"star"];
+    }];
+    button.position = ccp(200, [CCDirector sharedDirector].winSize.height - 50 - BLACK_HEIGHT);
+    CCMenu *menu = [CCMenu menuWithItems:button, nil];
+    menu.position = CGPointZero;
+    [self addChild:menu];
+}
 
 - (void) createMask
 {

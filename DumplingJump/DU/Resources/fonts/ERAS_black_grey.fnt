@@ -1,0 +1,15 @@
+info face="Eras Bold ITC" size=50 bold=0 italic=0 charset="" unicode=0 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=0,0
+common lineHeight=64 base=54 scaleW=192 scaleH=128 pages=1 packed=0
+page id=0 file="ERAS_black_grey.png"
+chars count=11
+char id=32 x=1 y=87 width=0 height=0 xoffset=0 yoffset=45 xadvance=12 page=0 chnl=0
+char id=48 x=37 y=1 width=36 height=42 xoffset=2 yoffset=11 xadvance=33 page=0 chnl=0
+char id=49 x=74 y=84 width=24 height=40 xoffset=8 yoffset=12 xadvance=33 page=0 chnl=0
+char id=50 x=146 y=1 width=35 height=41 xoffset=2 yoffset=11 xadvance=33 page=0 chnl=0
+char id=51 x=1 y=44 width=34 height=42 xoffset=3 yoffset=11 xadvance=33 page=0 chnl=0
+char id=52 x=74 y=43 width=36 height=40 xoffset=2 yoffset=12 xadvance=33 page=0 chnl=0
+char id=53 x=111 y=1 width=34 height=41 xoffset=3 yoffset=12 xadvance=33 page=0 chnl=0
+char id=54 x=74 y=1 width=36 height=41 xoffset=2 yoffset=12 xadvance=33 page=0 chnl=0
+char id=55 x=37 y=86 width=34 height=40 xoffset=3 yoffset=12 xadvance=33 page=0 chnl=0
+char id=56 x=1 y=1 width=35 height=42 xoffset=2 yoffset=11 xadvance=33 page=0 chnl=0
+char id=57 x=37 y=44 width=36 height=41 xoffset=2 yoffset=11 xadvance=33 page=0 chnl=0

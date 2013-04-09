@@ -198,10 +198,10 @@
 {
 }
 
-- (IBAction)didContinueButtonClicked:(id)sender
-{
-    [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewContinue)];
-}
+//- (IBAction)didContinueButtonClicked:(id)sender
+//{
+//    [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewContinue)];
+//}
 
 - (void) updateStarNum:(int)num
 {
@@ -211,10 +211,10 @@
     [starNumLabel sizeToFit];
 }
 
-- (void) setContinueButtonVisibility:(BOOL)isVisible
-{
-    [continueButton setHidden:!isVisible];
-}
+//- (void) setContinueButtonVisibility:(BOOL)isVisible
+//{
+//    [continueButton setHidden:!isVisible];
+//}
 
 - (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
@@ -230,7 +230,7 @@
 {
     [tableview release];
     [equipmentTypesArray release];
-    [continueButton release];
+//    [continueButton release];
     [backgroundView release];
     [backButton release];
     [storeButton release];

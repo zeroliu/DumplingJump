@@ -15,7 +15,7 @@ countdownLabel = _countdownLabel,
 countdown = _countdown,
 addthing = _addthing;
 
-- (id) initWithAddthing: (id)addthing label:(CCLabelTTF *)label countdown:(float)countdown;
+- (id) initWithAddthing: (id)addthing label:(CCLabelBMFont *)label countdown:(float)countdown;
 {
     if (self = [super init])
     {

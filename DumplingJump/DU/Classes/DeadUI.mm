@@ -42,7 +42,6 @@
     [VIEW addSubview:equipmentView];
 
     [equipmentViewController hideEquipmentView];
-    [equipmentViewController setContinueButtonVisibility:NO];
 }
 
 - (void) didAchievementTapped:(id)sender

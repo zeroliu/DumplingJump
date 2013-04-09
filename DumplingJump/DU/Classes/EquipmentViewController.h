@@ -13,7 +13,6 @@
 @protocol EquipmentViewControllerDelegate <NSObject>
 @optional
 - (void) didEquipmentViewBack;
-- (void) didEquipmentViewContinue;
 - (void) didHideEquipmentViewAnimStart;
 @end
 
@@ -41,6 +40,6 @@
 - (void) reloadTableview;
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;
-- (IBAction)didContinueButtonClicked:(id)sender;
+//- (IBAction)didContinueButtonClicked:(id)sender;
 
 @end

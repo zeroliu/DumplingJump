@@ -754,6 +754,7 @@
 		9FAEC66E16F6D907009112EB /* UI_option_tutorial_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC66416F6D907009112EB /* UI_option_tutorial_on.png */; };
 		9FAEC66F16F6D907009112EB /* UI_option_tutorial_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */; };
 		9FAEC67216F6F865009112EB /* AchievementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC67116F6F865009112EB /* AchievementData.m */; };
+		9FBCB5B11714CF5700786A59 /* OutlineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBCB5B01714CF5700786A59 /* OutlineLabel.m */; };
 		9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */; };
 		9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */; };
 		9FC650531713EB2D00A4E294 /* ERAS_white_black_small-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9FC650511713EB2C00A4E294 /* ERAS_white_black_small-hd.fnt */; };
@@ -1829,6 +1830,8 @@
 		9FAEC66516F6D907009112EB /* UI_option_tutorial_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_option_tutorial_press.png; sourceTree = "<group>"; };
 		9FAEC67016F6F865009112EB /* AchievementData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementData.h; sourceTree = "<group>"; };
 		9FAEC67116F6F865009112EB /* AchievementData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementData.m; sourceTree = "<group>"; };
+		9FBCB5AF1714CF5700786A59 /* OutlineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutlineLabel.h; sourceTree = "<group>"; };
+		9FBCB5B01714CF5700786A59 /* OutlineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlineLabel.m; sourceTree = "<group>"; };
 		9FC2D18416FA97300020AF59 /* DeadAchievementUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeadAchievementUI.h; sourceTree = "<group>"; };
 		9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeadAchievementUI.mm; sourceTree = "<group>"; };
 		9FC2D18716FAA27C0020AF59 /* AchievementUnlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementUnlockUI.h; sourceTree = "<group>"; };
@@ -1978,6 +1981,8 @@
 				9F1DEAED16FBEA9500354C49 /* ItemUnlockUI.mm */,
 				7F3288931663385C00DF86FC /* PauseUI.h */,
 				7F3288941663385C00DF86FC /* PauseUI.mm */,
+				9FBCB5AF1714CF5700786A59 /* OutlineLabel.h */,
+				9FBCB5B01714CF5700786A59 /* OutlineLabel.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -4528,6 +4533,7 @@
 				9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */,
 				9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */,
 				9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */,
+				9FBCB5B11714CF5700786A59 /* OutlineLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

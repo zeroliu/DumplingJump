@@ -205,10 +205,19 @@
 
 - (void) updateStarNum:(int)num
 {
-    [starNumLabel setText:[NSString stringWithFormat:@"%d", num]];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", num]];
+    [string addAttributes:@{NSStrokeWidthAttributeName:@(-25),
+                           NSStrokeColorAttributeName:[UIColor blackColor],
+                           NSForegroundColorAttributeName:[UIColor whiteColor]
+     } range:NSMakeRange(0, [string length])];
+    
     [starNumLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:25]];
     [starIcon setCenter:ccp(starNumLabel.frame.origin.x-starIcon.frame.size.width/2.0 - 5,starNumLabel.center.y)];
+    [starNumLabel setAttributedText:string];
     [starNumLabel sizeToFit];
+    //Increase the size of the starNumLabel frame in order to see the last part of the stroke
+    starNumLabel.frame = CGRectMake(starNumLabel.frame.origin.x, starNumLabel.frame.origin.y,starNumLabel.frame.size.width+5, starNumLabel.frame.size.height);
+    [string release];
 }
 
 //- (void) setContinueButtonVisibility:(BOOL)isVisible

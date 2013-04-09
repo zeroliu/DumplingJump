@@ -7,7 +7,7 @@
 		<key>levelEditorEnabled</key>
 		<false/>
 		<key>gameSpeedEditorEnabled</key>
-		<false/>
+		<true/>
 		<key>forceReloadUserData</key>
 		<true/>
 		<key>hasHeadStart</key>

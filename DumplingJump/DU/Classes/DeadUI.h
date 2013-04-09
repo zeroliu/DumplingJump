@@ -24,11 +24,12 @@
     CCSprite *highscoreSprite;
     CCSprite *newItemSprite;
     
-    CCLabelTTF *scoreText;
-    CCLabelTTF *starText;
-    CCLabelTTF *totalStarText;
-    CCLabelTTF *distanceText;
-    CCLabelTTF *multiplierText;
+    CCLabelBMFont *scoreText;
+    CCLabelBMFont *starText;
+    CCLabelBMFont *totalStarText;
+    CCLabelBMFont *distanceText;
+    CCLabelBMFont *multiplierText;
+    CCLabelBMFont *newItemText;
     
     CGSize winsize;
 }

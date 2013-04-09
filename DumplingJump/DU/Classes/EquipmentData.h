@@ -13,7 +13,7 @@
 @property (nonatomic, retain) NSMutableDictionary *structedDictionary;
 +(id) shared;
 -(NSDictionary *) findEquipmentWithGroupID:(int)groupID;
--(BOOL) isAffordable:(int)starNum; //Check if player can buy anything with the starNum
+-(int) isAffordable:(int)starNum; //Check if player can buy anything with the starNum
 //-(void) saveEquipmentData;
 
 @end

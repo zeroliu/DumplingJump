@@ -11,8 +11,8 @@
 
 @interface PowderInfo : CCNode
 
-@property (nonatomic, retain) CCLabelTTF *countdownLabel;
+@property (nonatomic, retain) CCLabelBMFont *countdownLabel;
 @property (nonatomic, assign) float countdown;
 @property (nonatomic, retain) id addthing;
-- (id) initWithAddthing: (id)addthing label:(CCLabelTTF *)label countdown:(float)countdown;
+- (id) initWithAddthing: (id)addthing label:(CCLabelBMFont *)label countdown:(float)countdown;
 @end

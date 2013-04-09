@@ -19,6 +19,7 @@
 #import "LevelTestTool.h"
 #import "GameModel.h"
 #import "PowderInfo.h"
+#import "Constants.h"
 
 @interface DropInfo : NSObject
 @property (nonatomic, retain) NSString *objectName;
@@ -227,8 +228,7 @@ toRemovePowderArray = _toRemovePowderArray;
     if ([dropObjectName isEqualToString:@"POWDER"] || [dropObjectName isEqualToString:@"BOMB"])
     {
         float countdown = addthing.reaction.reactTime;
-        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fontName:@"Eras Bold ITC" fontSize:40];
-        [label setColor:ccc3(255,0,0)];
+        CCLabelBMFont *label = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d", (int)countdown] fntFile:@"ERAS_red_black.fnt"];
         [GAMELAYER addChild:label z:Z_BATCHNODE+1];
         PowderInfo *powderInfo = [[[PowderInfo alloc] initWithAddthing:addthing label:label countdown:countdown] autorelease];
         [_powderDictionary setObject:powderInfo forKey:addthing.ID];
@@ -483,9 +483,6 @@ toRemovePowderArray = _toRemovePowderArray;
 -(void) switchToNextLevelEffect
 {
     [self rocketEffectWithDuration:3];
-    
-    //Show Stage clear text
-    [[GameUI shared] showStageClearMessageWithDistance];
 }
 
 -(void) rocketEffectWithDuration:(float)interval

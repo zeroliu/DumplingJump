@@ -9,6 +9,7 @@
 #import "DUTableView.h"
 #import "CCBReader.h"
 @implementation DUTableView
+
 -(id) initWithSize:(CGSize)viewSize dataSource:(NSDictionary *)dataSource
 {
     if (self = [super initWithViewSize:viewSize])
@@ -62,4 +63,8 @@
     self.container = containerContent;
 }
 
+- (void)dealloc
+{
+    [super dealloc];
+}
 @end

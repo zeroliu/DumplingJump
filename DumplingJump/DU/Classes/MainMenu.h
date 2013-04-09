@@ -18,10 +18,11 @@
     
     //Main Menu buttons
     UIButton *playButton;
-    UIButton *achievementButton;
+    UIButton *storeButton;
     UIButton *settingButton;
     UIButton *gameCenterButton;
     UIButton *backButton;
+    UIButton *continueButton;
     
     //Mask
     CCSprite *mask;

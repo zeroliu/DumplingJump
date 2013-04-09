@@ -10,6 +10,8 @@
 
 @implementation DUTableViewCell
 @synthesize parentTableView = _parentTableView;
+@synthesize path = _path;
+
 - (id) initWithXib:(NSString *)xibName
 {
     if (self = [super init])
@@ -25,4 +27,9 @@
     
 }
 
+- (void)dealloc
+{
+    [_path release];
+    [super dealloc];
+}
 @end

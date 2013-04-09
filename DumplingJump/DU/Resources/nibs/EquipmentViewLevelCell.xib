@@ -241,11 +241,26 @@
 									<string key="NSResourceName">UI_item_reborn.png</string>
 								</object>
 							</object>
+							<object class="IBUIImageView" id="739570617">
+								<reference key="NSNextResponder" ref="171672305"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{1, -9}, {58, 67}}</string>
+								<reference key="NSSuperview" ref="171672305"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="443097978"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">UI_equip_box_label_lv.png</string>
+								</object>
+							</object>
 						</array>
 						<string key="NSFrameSize">{254, 74}</string>
 						<reference key="NSSuperview" ref="734300500"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="443097978"/>
+						<reference key="NSNextKeyView" ref="739570617"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="660290682">
 							<int key="NSColorSpace">3</int>
@@ -353,6 +368,14 @@
 					</object>
 					<int key="connectionID">51</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">band</string>
+						<reference key="source" ref="734300500"/>
+						<reference key="destination" ref="739570617"/>
+					</object>
+					<int key="connectionID">53</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -387,6 +410,7 @@
 							<reference ref="1065978628"/>
 							<reference ref="269683442"/>
 							<reference ref="763819445"/>
+							<reference ref="739570617"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -440,6 +464,11 @@
 						<reference key="object" ref="269683442"/>
 						<reference key="parent" ref="734300500"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">52</int>
+						<reference key="object" ref="739570617"/>
+						<reference key="parent" ref="734300500"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -457,6 +486,7 @@
 				<string key="5.CustomClassName">EquipmentViewLevelCell</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -464,7 +494,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">51</int>
+			<int key="maxID">53</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -491,6 +521,7 @@
 						</object>
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="band">UIImageView</string>
 						<string key="currentButton">UIButton</string>
 						<string key="descriptionLabel">UILabel</string>
 						<string key="equipmentImageView">UIImageView</string>
@@ -502,6 +533,10 @@
 						<string key="unlock4">UIImageView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="band">
+							<string key="name">band</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="currentButton">
 							<string key="name">currentButton</string>
 							<string key="candidateClassName">UIButton</string>
@@ -551,6 +586,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="UI_equip_box_label_lv.png">{117, 134}</string>
 			<string key="UI_equip_box_lv.png">{37, 51}</string>
 			<string key="UI_equip_box_lv_on.png">{31, 43}</string>
 			<string key="UI_equip_box_normal.png">{508, 150}</string>

@@ -14,10 +14,14 @@
 {
     IBOutlet UIView *parentView;
     IBOutlet UIImageView *equipmentImageView;
-    
     IBOutlet UILabel *priceLabel;
+    IBOutlet UILabel *titleLabel;
     IBOutlet UIButton *cellButton;
+    IBOutlet UIImageView *band;
     UIView *overlay;
 }
+
+
+- (IBAction)didTapButton:(id)sender;
 
 @end

@@ -21,6 +21,7 @@
     IBOutlet UILabel *priceLabel;
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;
+    IBOutlet UIImageView *band;
     
     IBOutlet UIButton *currentButton;
     NSDictionary *myContent;

@@ -18,7 +18,6 @@
 		<description1>Die in</description1>
 		<number>5</number>
 		<description2>sec.</description2>
-        <restriction>jump</restriction>
 	</Achievement>
 	<Achievement>
 		<group>1</group>
@@ -29,7 +28,6 @@
 		<description1>Jump</description1>
 		<number>10</number>
 		<description2>times</description2>
-        <restriction>star</restriction>
 	</Achievement>
 	<Achievement>
 		<group>1</group>

@@ -81,6 +81,7 @@
             cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
         }
     }
+    cell.path = indexPath;
     cell.parentTableView = self;
     [cell setLayoutWithDictionary:equipmentData];
 
@@ -197,10 +198,10 @@
 {
 }
 
-- (IBAction)didContinueButtonClicked:(id)sender
-{
-    [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewContinue)];
-}
+//- (IBAction)didContinueButtonClicked:(id)sender
+//{
+//    [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewContinue)];
+//}
 
 - (void) updateStarNum:(int)num
 {
@@ -210,16 +211,26 @@
     [starNumLabel sizeToFit];
 }
 
-- (void) setContinueButtonVisibility:(BOOL)isVisible
+//- (void) setContinueButtonVisibility:(BOOL)isVisible
+//{
+//    [continueButton setHidden:!isVisible];
+//}
+
+- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
-    [continueButton setHidden:!isVisible];
+    [tableview reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
 
+- (void) reloadTableview
+{
+    [tableview reloadData];
+}
 
 - (void)dealloc
 {
+    [tableview release];
     [equipmentTypesArray release];
-    [continueButton release];
+//    [continueButton release];
     [backgroundView release];
     [backButton release];
     [storeButton release];

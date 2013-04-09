@@ -17,8 +17,6 @@
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;
     IBOutlet UILabel *amountLabel;
-
-    NSDictionary *myContent;
 }
 
 - (IBAction)didTapButton:(id)sender;

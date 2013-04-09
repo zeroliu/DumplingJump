@@ -14,11 +14,17 @@
 #import "LevelManager.h"
 #import "BackgroundController.h"
 #import "GameModel.h"
+#import "Constants.h"
+
+NSString *const distancePopup = @"DistancePopup";
+NSString *const achievementPopup = @"achievementPopup";
 
 @interface GameUI()
 {
     id showMessageAction;
     BOOL _isShowingRebornButton;
+    BOOL _isShowingDisplayQueue;
+    NSMutableArray *displayQueue;
 }
 
 //Dictionary used to match the button names with button green bars
@@ -47,6 +53,8 @@
         ccbFileName = @"GameUI.ccbi";
         priority = Z_GAMEUI;
         _isShowingRebornButton = NO;
+        _isShowingDisplayQueue = NO;
+        displayQueue = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -205,12 +213,16 @@
 
 -(void) resetUI
 {
-    if (showMessageAction != nil)
-    {
-        [GAMELAYER stopAction:showMessageAction];
-        clearMessage.position = ccp([[CCDirector sharedDirector] winSize].width/2, -100);
-        showMessageAction = nil;
-    }
+    _isShowingDisplayQueue = NO;
+    _isShowingRebornButton = NO;
+    
+    [clearMessage stopAllActions];
+    clearMessage.position = ccp([[CCDirector sharedDirector] winSize].width/2, -100);
+    [achievementUnlockHolder stopAllActions];
+    achievementUnlockHolder.position = ccp([[CCDirector sharedDirector] winSize].width/2, -100);
+    showMessageAction = nil;
+    
+    [displayQueue removeAllObjects];
     
     [self resetAllButtonBar];
     [self setButtonsEnabled:YES];
@@ -232,7 +244,49 @@
     }
 }
 
--(void) showStageClearMessageWithDistance
+-(void) addAchievementUnlockMessageWithName:(NSString *)name
+{
+    [displayQueue addObject:[NSString stringWithFormat:@"%@;%@", achievementPopup, name]];
+    [self dequeue];
+}
+
+-(void) addStageClearMessageWithDistance:(int) distance;
+{
+    [displayQueue addObject:[NSString stringWithFormat:@"%@;%d", distancePopup, distance]];
+    [self dequeue];
+}
+
+-(void) showAchievementUnlockMessageWithName:(NSString *)name
+{
+    if (showMessageAction != nil)
+    {
+        [clearMessage stopAction:showMessageAction];
+        [showMessageAction release];
+        showMessageAction = nil;
+    }
+
+    //Update achievement name label
+    [unlockAchievementName setString:name];
+    
+    //Move the message up to the bottom of the screen
+    id moveUp = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, 100)];
+    
+    //Wait for certain seconds
+    id delay = [CCDelayTime actionWithDuration:2.5];
+    
+    //Move the message down
+    id moveDown = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];
+    id moveDownEase = [CCEaseBackIn actionWithAction:moveDown];
+    id endFunction = [CCCallBlock actionWithBlock:^{
+        _isShowingDisplayQueue = NO;
+        [self dequeue];
+    }];
+    showMessageAction = [[CCSequence actions:moveUp, delay, moveDownEase, endFunction, nil] retain];
+    
+    [achievementUnlockHolder runAction:showMessageAction];
+}
+
+-(void) showStageClearMessageWithDistance:(int) distance
 {
     if (showMessageAction != nil)
     {
@@ -241,12 +295,8 @@
         showMessageAction = nil;
     }
     
-    //Delay the animation for sync with board pushing animation
-    id delayBeforeStart = [CCDelayTime actionWithDuration:1];
-    
     //Update distance text
-    int displayDistance = (int)((GameLayer *)GAMELAYER).model.distance / 10 * 10;
-    [distanceNum setString:[NSString stringWithFormat:@"%dm", displayDistance]];
+    [distanceNum setString:[NSString stringWithFormat:@"%dm", distance]];
     
     //Move the message up to the bottom of the screen
     id moveUp = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, 100)];
@@ -257,10 +307,37 @@
     //Move the message down
     id moveDown = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, -100)];
     id moveDownEase = [CCEaseBackIn actionWithAction:moveDown];
-    
-    showMessageAction = [[CCSequence actions:delayBeforeStart, moveUp, delay, moveDownEase, nil] retain];
+    id endFunction = [CCCallBlock actionWithBlock:^{
+        _isShowingDisplayQueue = NO;
+        [self dequeue];
+    }];
+    showMessageAction = [[CCSequence actions:moveUp, delay, moveDownEase, endFunction, nil] retain];
     
     [clearMessage runAction:showMessageAction];
+}
+
+-(void) dequeue
+{
+    if (!_isShowingDisplayQueue && [displayQueue count] > 0)
+    {
+        _isShowingDisplayQueue = YES;
+        NSString *command = [[displayQueue objectAtIndex:0] retain];
+        [displayQueue removeObjectAtIndex:0];
+        
+        if ([command rangeOfString:distancePopup].location != NSNotFound)
+        {
+            NSArray *instructions = [command componentsSeparatedByString:@";"];
+            int distance = [[instructions objectAtIndex:1] intValue];
+            [self showStageClearMessageWithDistance:distance];
+        }
+        else if ([command rangeOfString:achievementPopup].location != NSNotFound)
+        {
+            NSArray *instructions = [command componentsSeparatedByString:@";"];
+            NSString *name = [instructions objectAtIndex:1];
+            [self showAchievementUnlockMessageWithName:name];
+        }
+        [command release];
+    }
 }
 
 - (void) createMask
@@ -289,12 +366,9 @@
     //Update reborn quantity number
     
     [rebornQuantity setString:[NSString stringWithFormat:@"%d",[[USERDATA objectForKey:@"reborn"] intValue]]];
-//    
+    
     //Reset button
     rebornBar.scaleX = 1;
-    
-    //Mask fadein
-    //id showMask = [CCFadeTo actionWithDuration:0.2 opacity:255];
     
     //Reborn button fly in from the bottom
     id rebornFlyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2)];
@@ -383,10 +457,7 @@
 
 -(void) updateDistanceSign:(int)distance
 {
-    if (distance>0 && distance % 250 == 0)
-    {
-        [self showStageClearMessageWithDistance];
-    }
+    [self addStageClearMessageWithDistance:GAMEMODEL.distance / 10 * 10];
 }
 
 -(CGPoint) getStarDestination
@@ -405,6 +476,7 @@
 
 - (void)dealloc
 {
+    [displayQueue release];
     [_buttonsDictionary release];
     _buttonsDictionary = nil;
     [_buttonstatusDictionary release];

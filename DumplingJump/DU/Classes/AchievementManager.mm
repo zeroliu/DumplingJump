@@ -12,6 +12,7 @@
 #import "GameModel.h"
 #import "GameLayer.h"
 #import "Hub.h"
+#import "GameUI.h"
 
 @interface AchievementManager()
 @property (nonatomic, retain) NSMutableDictionary *registeredEvent;
@@ -231,6 +232,7 @@ unlockedEvent       =   _unlockedEvent;
     [((UserData *)[UserData shared]).userAchievementDataDictionary setObject:@"YES" forKey:[NSString stringWithFormat:@"%@-%@", groupID, achievementID]];
     [_unlockedEvent addObject:achievementData];
     [self removeNotificationByName:[achievementData objectForKey:@"type"]];
+    [[GameUI shared] addAchievementUnlockMessageWithName:[achievementData objectForKey:@"name"]];
 }
 
 - (void)dealloc

@@ -332,7 +332,12 @@
         [USERDATA setObject:[NSNumber numberWithFloat:currentLifeDistance+distanceIncrease] forKey: @"totalDistance"];
         [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:[[USERDATA objectForKey:@"totalDistance"] floatValue]] forKey:@"num"]];
         
-        [[GameUI shared] updateDistanceSign:(int)self.model.distance];
+        int distance = (int)self.model.distance;
+        if (distance>0 && distance % 250 == 0)
+        {
+            [[GameUI shared] updateDistanceSign:distance];
+            self.model.distance = self.model.distance + 1;
+        }
         [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
         [MESSAGECENTER postNotificationName:NOTIFICATION_SCORE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(int)(self.model.distance*self.model.multiplier)] forKey:@"num"]];
         [[LevelManager shared] dropNextAddthing];

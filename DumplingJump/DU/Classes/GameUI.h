@@ -9,11 +9,13 @@
 #import "DUUI.h"
 @interface GameUI : DUUI
 {
-    CCLabelTTF *UIScoreText;
-    CCLabelTTF *UIStarText;
+    CCLabelBMFont *UIScoreText;
+    CCLabelBMFont *UIStarText;
     CCSprite *starScoreIcon;
+    
     CCNode *clearMessage;
-    CCLabelTTF *distanceNum;
+    CCLabelBMFont *distanceNum;
+    
     CCNode *shieldButtonHolder; //0->CCControlButton, 1->green, 2->white effect
     CCNode *magnetButtonHolder;
     CCSprite *UIMask;
@@ -22,6 +24,9 @@
     CCLabelTTF *rebornQuantity;
     CCMenuItem *pauseButton;
     CCSprite *mask;
+    
+    CCLabelTTF *unlockAchievementName;
+    CCNode *achievementUnlockHolder;
 }
 
 +(id) shared;
@@ -29,7 +34,8 @@
 -(void) resetUI;
 -(void) updateScore:(int)score;
 -(void) updateStar:(int)starNum;
--(void) showStageClearMessageWithDistance;
+-(void) addStageClearMessageWithDistance:(int) distance;
+-(void) addAchievementUnlockMessageWithName:(NSString *)name;
 -(void) showRebornButton;
 -(void) pauseUI;
 -(void) resumeUI;

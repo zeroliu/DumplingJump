@@ -19,6 +19,7 @@
 #import "LevelTestTool.h"
 #import "GameModel.h"
 #import "PowderInfo.h"
+#import "Constants.h"
 
 @interface DropInfo : NSObject
 @property (nonatomic, retain) NSString *objectName;
@@ -483,9 +484,6 @@ toRemovePowderArray = _toRemovePowderArray;
 -(void) switchToNextLevelEffect
 {
     [self rocketEffectWithDuration:3];
-    
-    //Show Stage clear text
-    [[GameUI shared] showStageClearMessageWithDistance];
 }
 
 -(void) rocketEffectWithDuration:(float)interval

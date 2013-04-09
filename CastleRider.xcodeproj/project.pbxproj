@@ -718,6 +718,10 @@
 		9F71F95F16FF7E5A00B24D15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95B16FF7E5A00B24D15 /* README.md */; };
 		9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95C16FF7E5A00B24D15 /* release_notes.md */; };
 		9F71F96216FF7EA800B24D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71F96116FF7EA800B24D15 /* libz.dylib */; };
+		9F90D5E31713AD7A0042E87D /* ERAS_white_black_small.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F90D5DF1713AD7A0042E87D /* ERAS_white_black_small.fnt */; };
+		9F90D5E41713AD7A0042E87D /* ERAS_white_black_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90D5E01713AD7A0042E87D /* ERAS_white_black_small.png */; };
+		9F90D5E51713AD7A0042E87D /* ERAS_white_black-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9F90D5E11713AD7A0042E87D /* ERAS_white_black-hd.fnt */; };
+		9F90D5E61713AD7A0042E87D /* ERAS_white_black-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90D5E21713AD7A0042E87D /* ERAS_white_black-hd.png */; };
 		9F996F0F17121EE100AC7A4E /* worldData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F996F0E17121EE100AC7A4E /* worldData.plist */; };
 		9F996F1217122D5800AC7A4E /* UI_equip_box_label_lv.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F996F1017122D5800AC7A4E /* UI_equip_box_label_lv.png */; };
 		9F996F1317122D5800AC7A4E /* UI_equip_box_label_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F996F1117122D5800AC7A4E /* UI_equip_box_label_new.png */; };
@@ -752,6 +756,8 @@
 		9FAEC67216F6F865009112EB /* AchievementData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC67116F6F865009112EB /* AchievementData.m */; };
 		9FC2D18616FA97300020AF59 /* DeadAchievementUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */; };
 		9FC2D18916FAA27D0020AF59 /* AchievementUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */; };
+		9FC650531713EB2D00A4E294 /* ERAS_white_black_small-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 9FC650511713EB2C00A4E294 /* ERAS_white_black_small-hd.fnt */; };
+		9FC650541713EB2D00A4E294 /* ERAS_white_black_small-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC650521713EB2C00A4E294 /* ERAS_white_black_small-hd.png */; };
 		9FEEB08116F7FF88008A1D02 /* AchievementManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */; };
 		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
 		9FF6924E16FFE5EE00B3FEA1 /* UI_equip_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */; };
@@ -1780,6 +1786,10 @@
 		9F71F95C16FF7E5A00B24D15 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		9F71F95D16FF7E5A00B24D15 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9F71F96116FF7EA800B24D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9F90D5DF1713AD7A0042E87D /* ERAS_white_black_small.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ERAS_white_black_small.fnt; sourceTree = "<group>"; };
+		9F90D5E01713AD7A0042E87D /* ERAS_white_black_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ERAS_white_black_small.png; sourceTree = "<group>"; };
+		9F90D5E11713AD7A0042E87D /* ERAS_white_black-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ERAS_white_black-hd.fnt"; sourceTree = "<group>"; };
+		9F90D5E21713AD7A0042E87D /* ERAS_white_black-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ERAS_white_black-hd.png"; sourceTree = "<group>"; };
 		9F996F0E17121EE100AC7A4E /* worldData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worldData.plist; sourceTree = "<group>"; };
 		9F996F1017122D5800AC7A4E /* UI_equip_box_label_lv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_label_lv.png; sourceTree = "<group>"; };
 		9F996F1117122D5800AC7A4E /* UI_equip_box_label_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_label_new.png; sourceTree = "<group>"; };
@@ -1817,6 +1827,8 @@
 		9FC2D18516FA97300020AF59 /* DeadAchievementUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeadAchievementUI.mm; sourceTree = "<group>"; };
 		9FC2D18716FAA27C0020AF59 /* AchievementUnlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementUnlockUI.h; sourceTree = "<group>"; };
 		9FC2D18816FAA27C0020AF59 /* AchievementUnlockUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementUnlockUI.mm; sourceTree = "<group>"; };
+		9FC650511713EB2C00A4E294 /* ERAS_white_black_small-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ERAS_white_black_small-hd.fnt"; sourceTree = "<group>"; };
+		9FC650521713EB2C00A4E294 /* ERAS_white_black_small-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ERAS_white_black_small-hd.png"; sourceTree = "<group>"; };
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
 		9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementManager.mm; sourceTree = "<group>"; };
 		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
@@ -3132,6 +3144,12 @@
 		7F7010F415AFEFFE00495B10 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9F90D5DF1713AD7A0042E87D /* ERAS_white_black_small.fnt */,
+				9F90D5E01713AD7A0042E87D /* ERAS_white_black_small.png */,
+				9FC650511713EB2C00A4E294 /* ERAS_white_black_small-hd.fnt */,
+				9FC650521713EB2C00A4E294 /* ERAS_white_black_small-hd.png */,
+				9F90D5E11713AD7A0042E87D /* ERAS_white_black-hd.fnt */,
+				9F90D5E21713AD7A0042E87D /* ERAS_white_black-hd.png */,
 				9F996F241712A1C200AC7A4E /* ERAS_black_grey_small-hd.fnt */,
 				9F996F251712A1C200AC7A4E /* ERAS_black_grey_small-hd.png */,
 				9F996F261712A1C200AC7A4E /* ERAS_black_grey_small.fnt */,
@@ -4198,6 +4216,12 @@
 				9F996F291712A1C300AC7A4E /* ERAS_black_grey_small-hd.png in Resources */,
 				9F996F2A1712A1C300AC7A4E /* ERAS_black_grey_small.fnt in Resources */,
 				9F996F2B1712A1C300AC7A4E /* ERAS_black_grey_small.png in Resources */,
+				9F90D5E31713AD7A0042E87D /* ERAS_white_black_small.fnt in Resources */,
+				9F90D5E41713AD7A0042E87D /* ERAS_white_black_small.png in Resources */,
+				9F90D5E51713AD7A0042E87D /* ERAS_white_black-hd.fnt in Resources */,
+				9F90D5E61713AD7A0042E87D /* ERAS_white_black-hd.png in Resources */,
+				9FC650531713EB2D00A4E294 /* ERAS_white_black_small-hd.fnt in Resources */,
+				9FC650541713EB2D00A4E294 /* ERAS_white_black_small-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4573,6 +4597,7 @@
 					"\"DumplingJump/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zero.liu/Downloads/TestFlightSDK1.2.4,
@@ -4583,6 +4608,7 @@
 				PRODUCT_NAME = CastleRider;
 				PROVISIONING_PROFILE = "852A52CA-598B-4331-9514-316F8EC4F9DA";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "852A52CA-598B-4331-9514-316F8EC4F9DA";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"DumplingJump/libs\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4604,6 +4630,7 @@
 					"\"DumplingJump/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = DumplingJump/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/zero.liu/Downloads/TestFlightSDK1.2.4,
@@ -4614,6 +4641,7 @@
 				PRODUCT_NAME = CastleRider;
 				PROVISIONING_PROFILE = "833C7394-A21F-4573-8F16-0268803CF666";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "833C7394-A21F-4573-8F16-0268803CF666";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"DumplingJump/libs\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

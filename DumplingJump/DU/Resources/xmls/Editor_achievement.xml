@@ -115,7 +115,7 @@
 		<type>star</type>
 		<description1>Collect</description1>
 		<number>30</number>
-		<description2>stars</description2>
+		<description2>stars, no jump</description2>
 		<restriction>jump</restriction>
 	</Achievement>
 	<Achievement>

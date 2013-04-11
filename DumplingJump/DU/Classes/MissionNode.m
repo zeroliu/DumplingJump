@@ -16,7 +16,6 @@
 @implementation MissionNode
 @synthesize missionArray;
 
-
 -(void)didLoadFromCCB
 {
     missionArray = [NSArray arrayWithObjects:mission0, mission1, mission2, mission3, nil];
@@ -45,6 +44,8 @@
         
         //update description
         [node.DescriptionText setString:@"??????"];
+        
+        [node.Bar setScaleY:0];
     }
     [self drawlockedItemSpriteWithGroupID:groupID];
 }
@@ -105,6 +106,8 @@
     [unlockBG release];
     [unlockedBG release];
     [unlockItemDescription release];
+    [starNumLabel release];
+    [multiplierIconNum release];
     
     [super dealloc];
 }

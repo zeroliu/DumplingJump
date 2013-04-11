@@ -90,6 +90,36 @@ unlockedEvent       =   _unlockedEvent;
     [self.unlockedEvent removeAllObjects];
 }
 
+- (float) getFinishPercentageWithType:(NSString *)type target:(float)target
+{
+    float resultPercentage = 0;
+    float current = 0;
+    if ([type isEqualToString:@"lifeDie"])
+    {
+        current = [[USERDATA objectForKey:@"die"] floatValue];
+        
+    }
+    else if ([type isEqualToString:@"lifeDistance"])
+    {
+        current = [[USERDATA objectForKey:@"totalDistance"] floatValue];
+    }
+    else if ([type isEqualToString:@"lifeStars"])
+    {
+        current = [[USERDATA objectForKey:@"totalStar"] floatValue];
+    }
+    else if ([type isEqualToString:@"lifeJump"])
+    {
+        current = [[USERDATA objectForKey:@"totalJump"] floatValue];
+    }
+    else if ([type isEqualToString:@"lifeJump"])
+    {
+        current = [[USERDATA objectForKey:@"totalJump"] floatValue];
+    }
+    
+    resultPercentage = MIN(1, current / target);
+    return resultPercentage;
+}
+
 #pragma mark -
 #pragma mark Notification selector
 //Regular achievement means can simply compare the number

@@ -14,4 +14,5 @@
 - (void) removeAllNotification;
 - (id) getUnlockedEvents;
 - (void) removeAllUnlockedEvent;
+- (float) getFinishPercentageWithType:(NSString *)type target:(float)target;
 @end

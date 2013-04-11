@@ -2640,7 +2640,7 @@
 						<key>displayName</key>
 						<string>multiplierText</string>
 						<key>memberVarAssignmentName</key>
-						<string>distanceText</string>
+						<string>multiplierText</string>
 						<key>memberVarAssignmentType</key>
 						<integer>2</integer>
 						<key>properties</key>

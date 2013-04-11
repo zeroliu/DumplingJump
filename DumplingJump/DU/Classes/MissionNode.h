@@ -20,6 +20,7 @@
     CCSprite *unlockBG;
     CCSprite *unlockedBG;
     
+    CCLabelTTF *multiplierIconNum;
     CCLabelTTF *unlockItemName;
     CCLabelTTF *unlockItemDescription;
 }

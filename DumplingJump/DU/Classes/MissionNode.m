@@ -8,6 +8,7 @@
 
 #import "MissionNode.h"
 #import "AchievementData.h"
+#import "AchievementManager.h"
 #import "Constants.h"
 #import "UserData.h"
 #import "EquipmentData.h"
@@ -79,8 +80,13 @@
             description2 = @"";
         }
         [node.DescriptionText setString:[NSString stringWithFormat:@"%@ %d %@", [data objectForKey:@"description1"], [[data objectForKey:@"number"] intValue], description2]];
+        
+        //percentage of how much you have finished (for life type)
+        float percentage = [[AchievementManager shared] getFinishPercentageWithType:[data objectForKey:@"type"] target:[[data objectForKey:@"number"] floatValue]];
+
+        [node.Bar setScaleY:percentage];
     }
-    
+
     [availableAchievement release];
     [self drawlockedItemSpriteWithGroupID:groupID];
 }
@@ -93,8 +99,11 @@
     [mission3 release];
     
     [missionArray release];
-    [unlockItemSprite release];
     [unlockItemName release];
+    [unlockItemSprite release];
+    [unlockedItemSprite release];
+    [unlockBG release];
+    [unlockedBG release];
     [unlockItemDescription release];
     
     [super dealloc];

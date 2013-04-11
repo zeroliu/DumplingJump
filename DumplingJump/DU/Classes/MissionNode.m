@@ -44,6 +44,8 @@
         
         //update description
         [node.DescriptionText setString:@"??????"];
+        
+        [node.Bar setScaleY:0];
     }
     [self drawlockedItemSpriteWithGroupID:groupID];
 }

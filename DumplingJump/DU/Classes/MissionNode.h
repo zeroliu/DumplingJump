@@ -16,6 +16,9 @@
     AchievementNode *mission3;
     
     CCSprite *unlockItemSprite;
+    CCSprite *unlockedItemSprite;
+    CCSprite *unlockBG;
+    CCSprite *unlockedBG;
     
     CCLabelTTF *unlockItemName;
     CCLabelTTF *unlockItemDescription;

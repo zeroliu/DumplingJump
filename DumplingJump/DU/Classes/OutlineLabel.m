@@ -7,6 +7,7 @@
 //
 
 #import "OutlineLabel.h"
+#import "Constants.h"
 
 @implementation OutlineLabel
 
@@ -30,6 +31,12 @@
 
 - (void)drawTextInRect:(CGRect)rect
 {
+    if (SYSTEM_VERSION_LESS_THAN(@"6.0"))
+    {
+        [super drawTextInRect:rect];
+        return;
+    }
+    
     // We rely on stroke being set on the attributed text, if it isn't just render
     // this as usual.
     if (![[self attributedText] length])

@@ -88,11 +88,8 @@
 
 -(void) invulnerable
 {
-    if (![[self.overlayHeroStateDictionary objectForKey:@"shelter"] boolValue])
-    {
-        [self.overlayHeroStateDictionary setObject:[NSNumber numberWithBool:YES] forKey: @"shelter"];
-    }
-    id duration = [CCDelayTime actionWithDuration:3];
+    [self changeCollisionDetection:C_BOARD];
+    id duration = [CCDelayTime actionWithDuration:0.5];
     id callback = [CCCallFunc actionWithTarget:self selector:@selector(resetHero)];
     [self.sprite runAction:[CCSequence actions:duration, callback, nil]];
 }
@@ -565,6 +562,8 @@
     [self.sprite stopAllActions];
     [self stopAllActions];
     
+    [self resetCollisionDetection];
+    
     //Play idle animation
     id animation = [ANIMATIONMANAGER getAnimationWithName:HEROIDLE];
     if(animation != nil)
@@ -720,14 +719,13 @@
 
 -(void) bowEffect:(NSArray *)value
 {
-    CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
-
-    adjustJump = 0;
-    adjustMove = 0;
-
     //Blow hero
     if (![self.heroState isEqualToString:@"booster"])
     {
+        CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
+        
+        adjustJump = 0;
+        adjustMove = 0;
         [self changeCollisionDetection:C_NOTHING];
         float distance = ccpDistance(explosionPos, self.sprite.position);
         float explosionForce = SHOCK_PRESSURE / 500;
@@ -740,15 +738,16 @@
         {
             blowAwayTrigger = 1;
         }
-    }
+    
 
-    //Blow objects
-    for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
-    {
-        CGPoint objectPos = ob.sprite.position;
-        float distance = ccpDistance(objectPos, explosionPos);
-        float explosionForce = SHOCK_PRESSURE/5000/distance;
-        ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (objectPos.x - explosionPos.x), explosionForce * ob.body->GetMass() * (objectPos.y - explosionPos.y)), ob.body->GetPosition());
+        //Blow objects
+        for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)
+        {
+            CGPoint objectPos = ob.sprite.position;
+            float distance = ccpDistance(objectPos, explosionPos);
+            float explosionForce = SHOCK_PRESSURE/5000/distance;
+            ob.body->ApplyLinearImpulse(b2Vec2(explosionForce * ob.body->GetMass() * (objectPos.x - explosionPos.x), explosionForce * ob.body->GetMass() * (objectPos.y - explosionPos.y)), ob.body->GetPosition());
+        }
     }
 }
 
@@ -1484,6 +1483,7 @@
 
 -(void) changeCollisionDetection:(uint)maskBits
 {
+    DLog(@"changeCollision to %d", maskBits);
     for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
     {
         if ([((NSString *)f->GetUserData()) isEqualToString:@"heroBody"])
@@ -1526,6 +1526,7 @@
 
 -(void) resetCollisionDetection
 {
+    DLog(@"reset collision");
     for (b2Fixture* f = self.body->GetFixtureList(); f; f = f->GetNext())
     {
         if ([((NSString *)f->GetUserData()) isEqualToString:@"heroBody"])
@@ -1597,7 +1598,7 @@
 
 -(void) deactivate
 {
-    [self resetHero];
+//    [self resetHero];
     [self removeAllChildrenWithCleanup:NO];
     [self stopAllActions];
     [self removeContactListner];

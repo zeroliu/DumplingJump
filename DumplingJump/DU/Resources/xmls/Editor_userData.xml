@@ -27,15 +27,15 @@
 		<music>1</music>
 		<sfx>1</sfx>
 		<highscore>0</highscore>
-		<star>1000</star>
+		<star>150</star>
 		<MAGIC>0</MAGIC>
 		<SPRING>0</SPRING>
 		<MEGA>-1</MEGA>
-		<SHELTER>0</SHELTER>
+		<SHELTER>-1</SHELTER>
 		<BOOSTER>0</BOOSTER>
 		<MAGNET>-1</MAGNET>
-		<reborn>0</reborn>
-		<headstart>0</headstart>
+		<reborn>-1</reborn>
+		<headstart>-1</headstart>
 		<goldenmultiplier>-1</goldenmultiplier>
 		<achievementGroup>1</achievementGroup>
 		<multiplier>1</multiplier>

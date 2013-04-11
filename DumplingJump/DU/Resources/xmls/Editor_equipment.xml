@@ -11,69 +11,12 @@
 		<description>description</description>
 		<multiplier>multiplier</multiplier>
 		<base>base</base>
-        <unlockPrice>unlockPrice</unlockPrice>
+		<unlockPrice>unlockPrice</unlockPrice>
 		<level0>level0</level0>
 		<level1>level1</level1>
 		<level2>level2</level2>
 		<level3>level3</level3>
 		<level4>level4</level4>
-	</Item>
-	<Item>
-		<group>1</group>
-		<type>powerups</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>BOOSTER</name>
-		<displayName>BOOSTER</displayName>
-		<image>UI_item_booster</image>
-		<order>0</order>
-        <description>boost ahead</description>
-		<multiplier>1.80</multiplier>
-        <unlockPrice>1000</unlockPrice>
-		<base>200</base>
-		<level0>3</level0>
-		<level1>4</level1>
-		<level2>5</level2>
-		<level3>6</level3>
-		<level4>7</level4>
-		<unit>sec.</unit>
-	</Item>
-	<Item>
-		<group>2</group>
-		<type>powerups</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>MAGIC</name>
-		<displayName>SWORD</displayName>
-		<image>UI_item_sword</image>
-		<order>1</order>
-		<description>extend duration</description>
-		<multiplier>1.80</multiplier>
-        <unlockPrice>1000</unlockPrice>
-		<base>100</base>
-		<level0>4</level0>
-		<level1>5</level1>
-		<level2>6</level2>
-		<level3>7</level3>
-		<level4>8</level4>
-		<unit>sec.</unit>
-	</Item>
-	<Item>
-		<group>3</group>
-		<type>powerups</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>SPRING</name>
-		<displayName>SPRING</displayName>
-		<image>UI_item_spring</image>
-		<order>2</order>
-		<description>extend duration</description>
-		<multiplier>1.80</multiplier>
-        <unlockPrice>1000</unlockPrice>
-		<base>150</base>
-		<level0>4</level0>
-		<level1>5</level1>
-		<level2>6</level2>
-		<level3>7</level3>
-		<level4>8</level4>
-		<unit>sec.</unit>
 	</Item>
 	<Item>
 		<group>4</group>
@@ -82,17 +25,74 @@
 		<name>MEGA</name>
 		<displayName>MEGA STAR</displayName>
 		<image>UI_item_megacoins</image>
-		<order>3</order>
-		<description>increase</description>
+		<order>1</order>
+		<description>Increase MEGASTAR to </description>
 		<multiplier>1.80</multiplier>
-        <unlockPrice>1000</unlockPrice>
 		<base>300</base>
+		<unlockPrice>300</unlockPrice>
 		<level0>40</level0>
 		<level1>80</level1>
 		<level2>150</level2>
 		<level3>300</level3>
 		<level4>400</level4>
 		<unit>star bonus</unit>
+	</Item>
+	<Item>
+		<group>1</group>
+		<type>powerups</type>
+		<layout>EquipmentViewLevelCell</layout>
+		<name>BOOSTER</name>
+		<displayName>BOOSTER</displayName>
+		<image>UI_item_booster</image>
+		<order>2</order>
+		<description>Increase BOOSTER duration to </description>
+		<multiplier>1.80</multiplier>
+		<base>200</base>
+		<unlockPrice>0</unlockPrice>
+		<level0>3</level0>
+		<level1>4</level1>
+		<level2>5</level2>
+		<level3>6</level3>
+		<level4>7</level4>
+		<unit>s</unit>
+	</Item>
+	<Item>
+		<group>2</group>
+		<type>powerups</type>
+		<layout>EquipmentViewLevelCell</layout>
+		<name>MAGIC</name>
+		<displayName>SWORD</displayName>
+		<image>UI_item_sword</image>
+		<order>3</order>
+		<description>Increase SWORD duration to </description>
+		<multiplier>1.80</multiplier>
+		<base>100</base>
+		<unlockPrice>0</unlockPrice>
+		<level0>4</level0>
+		<level1>5</level1>
+		<level2>6</level2>
+		<level3>7</level3>
+		<level4>8</level4>
+		<unit>s</unit>
+	</Item>
+	<Item>
+		<group>3</group>
+		<type>powerups</type>
+		<layout>EquipmentViewLevelCell</layout>
+		<name>SPRING</name>
+		<displayName>SPRING</displayName>
+		<image>UI_item_spring</image>
+		<order>4</order>
+		<description>Increase SPRING duration to </description>
+		<multiplier>1.80</multiplier>
+		<base>150</base>
+		<unlockPrice>0</unlockPrice>
+		<level0>4</level0>
+		<level1>5</level1>
+		<level2>6</level2>
+		<level3>7</level3>
+		<level4>8</level4>
+		<unit>s</unit>
 	</Item>
 	<Item>
 		<group>5</group>
@@ -102,10 +102,10 @@
 		<displayName>REBORN</displayName>
 		<image>UI_item_reborn</image>
 		<order>0</order>
-		<description>revive once</description>
+		<description>Revive once</description>
 		<multiplier>2.00</multiplier>
-        <unlockPrice>1000</unlockPrice>
 		<base>400</base>
+		<unlockPrice>800</unlockPrice>
 	</Item>
 	<Item>
 		<group>6</group>
@@ -115,10 +115,10 @@
 		<displayName>HEAD START</displayName>
 		<image>UI_item_headstart</image>
 		<order>1</order>
-		<description>boost ahead</description>
+		<description>Boost ahead 1000m at the start of the game </description>
 		<multiplier>1.00</multiplier>
-        <unlockPrice>1000</unlockPrice>
 		<base>300</base>
+		<unlockPrice>800</unlockPrice>
 	</Item>
 	<Item>
 		<group>7</group>
@@ -128,16 +128,16 @@
 		<displayName>MAGNET</displayName>
 		<image>UI_item_magnet</image>
 		<order>0</order>
-		<description>cooldown:</description>
+		<description>Decrease MAGNET cooldown time to</description>
 		<multiplier>3.00</multiplier>
-        <unlockPrice>1000</unlockPrice>
 		<base>100</base>
+		<unlockPrice>1000</unlockPrice>
 		<level0>60</level0>
 		<level1>50</level1>
 		<level2>40</level2>
 		<level3>30</level3>
 		<level4>25</level4>
-		<unit>sec.</unit>
+		<unit>s</unit>
 	</Item>
 	<Item>
 		<group>8</group>
@@ -147,16 +147,16 @@
 		<displayName>SHIELD</displayName>
 		<image>UI_item_shield</image>
 		<order>1</order>
-		<description>cooldown:</description>
+		<description>Decrease SHIELD cooldown time to</description>
 		<multiplier>2.00</multiplier>
-        <unlockPrice>1000</unlockPrice>
 		<base>200</base>
+		<unlockPrice>1000</unlockPrice>
 		<level0>60</level0>
 		<level1>50</level1>
 		<level2>40</level2>
 		<level3>30</level3>
 		<level4>25</level4>
-		<unit>sec.</unit>
+		<unit>s</unit>
 	</Item>
 	<Item>
 		<group>9</group>
@@ -166,10 +166,10 @@
 		<displayName>DOUBLE</displayName>
 		<image>UI_item_scorex3</image>
 		<order>0</order>
-		<description>Protect your hero</description>
+		<description>none</description>
 		<multiplier>2.00</multiplier>
-        <unlockPrice>1000</unlockPrice>
 		<base>500</base>
+		<unlockPrice>9999</unlockPrice>
 		<level0>1</level0>
 		<level1>1</level1>
 		<level2>1</level2>

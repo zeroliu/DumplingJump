@@ -93,9 +93,9 @@
 		<name>Nice try!</name>
 		<points>10</points>
 		<type>lifeStars</type>
-		<description1>Die</description1>
+		<description1>Collect over</description1>
 		<number>200</number>
-		<description2>stars</description2>
+		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
 		<group>2</group>

@@ -716,7 +716,7 @@
 								<key>value</key>
 								<array>
 									<real>243</real>
-									<real>99</real>
+									<real>98</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1333,6 +1333,14 @@
 							</dict>
 							<dict>
 								<key>name</key>
+								<string>visible</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
 								<string>displayFrame</string>
 								<key>type</key>
 								<string>SpriteFrame</string>
@@ -1398,6 +1406,14 @@
 							<dict>
 								<key>name</key>
 								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>visible</string>
 								<key>type</key>
 								<string>Check</string>
 								<key>value</key>
@@ -1471,8 +1487,6 @@
 								<string>20x</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

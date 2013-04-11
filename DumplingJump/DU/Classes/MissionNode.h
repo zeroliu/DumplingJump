@@ -23,6 +23,8 @@
     CCLabelTTF *multiplierIconNum;
     CCLabelTTF *unlockItemName;
     CCLabelTTF *unlockItemDescription;
+    CCLabelTTF *starNumLabel;
+    CCLabelTTF *multiplierNumLabel;
 }
 
 @property (nonatomic, retain) NSArray *missionArray;

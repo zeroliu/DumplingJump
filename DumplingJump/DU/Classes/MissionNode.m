@@ -16,7 +16,6 @@
 @implementation MissionNode
 @synthesize missionArray;
 
-
 -(void)didLoadFromCCB
 {
     missionArray = [NSArray arrayWithObjects:mission0, mission1, mission2, mission3, nil];
@@ -105,6 +104,8 @@
     [unlockBG release];
     [unlockedBG release];
     [unlockItemDescription release];
+    [starNumLabel release];
+    [multiplierIconNum release];
     
     [super dealloc];
 }

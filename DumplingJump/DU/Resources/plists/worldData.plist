@@ -5,11 +5,11 @@
 	<key>debug</key>
 	<dict>
 		<key>showMeTheMoneyEnabled</key>
-		<true/>
+		<false/>
 		<key>levelEditorEnabled</key>
-		<true/>
+		<false/>
 		<key>gameSpeedEditorEnabled</key>
-		<true/>
+		<false/>
 		<key>forceReloadUserData</key>
 		<true/>
 		<key>hasHeadStart</key>

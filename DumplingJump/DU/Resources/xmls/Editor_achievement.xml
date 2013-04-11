@@ -92,10 +92,10 @@
 		<id>3</id>
 		<name>Nice try!</name>
 		<points>10</points>
-		<type>lifeDie</type>
-		<description1>Die</description1>
-		<number>10</number>
-		<description2>times</description2>
+		<type>lifeStars</type>
+		<description1>Collect over</description1>
+		<number>200</number>
+		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
 		<group>2</group>
@@ -105,7 +105,7 @@
 		<type>powerBoost</type>
 		<description1>Collect</description1>
 		<number>1</number>
-		<description2>Booster</description2>
+		<description2>booster</description2>
 	</Achievement>
 	<Achievement>
 		<group>2</group>
@@ -115,7 +115,7 @@
 		<type>star</type>
 		<description1>Collect</description1>
 		<number>30</number>
-		<description2>stars</description2>
+		<description2>stars, no jump</description2>
 		<restriction>jump</restriction>
 	</Achievement>
 	<Achievement>

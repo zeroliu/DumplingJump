@@ -14,34 +14,34 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot5>BLIND</slot5>
+		<slot1>(*)</slot1>
 	</level>
 	<level>
 		<time>2</time>
-		<slot5>BOOSTER</slot5>
+		<slot1>RANDOM_1</slot1>
 	</level>
 	<level>
 		<time>3</time>
-		<slot3>BOX</slot3>
-		<slot8>BOX</slot8>
-		<slot9>BOX</slot9>
+		<slot3>VAT</slot3>
+		<slot8>VAT</slot8>
+		<slot9>VAT</slot9>
 	</level>
 	<level>
 		<time>4</time>
-		<slot2>BOX</slot2>
-		<slot8>BOX</slot8>
-		<slot9>BOX</slot9>
+		<slot2>VAT</slot2>
+		<slot8>VAT</slot8>
+		<slot9>VAT</slot9>
 	</level>
 	<level>
 		<time>5</time>
-		<slot3>BOX</slot3>
-		<slot8>BOX</slot8>
-		<slot9>BOX</slot9>
+		<slot3>VAT</slot3>
+		<slot8>VAT</slot8>
+		<slot9>VAT</slot9>
 	</level>
 	<level>
 		<time>6</time>
-		<slot2>BOX</slot2>
-		<slot8>BOX</slot8>
-		<slot9>BOX</slot9>
+		<slot2>VAT</slot2>
+		<slot8>VAT</slot8>
+		<slot9>VAT</slot9>
 	</level>
 </stage1>

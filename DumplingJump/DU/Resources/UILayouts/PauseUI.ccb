@@ -175,7 +175,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>Resources/spriteSheets/sheetUI-1.plist</string>
+							<string>Resources/spriteSheets/sheetUI-achievement.plist</string>
 							<string>UI_other_mask.png</string>
 						</array>
 					</dict>

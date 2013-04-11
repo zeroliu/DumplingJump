@@ -132,7 +132,7 @@
 						<string>SpriteFrame</string>
 						<key>value</key>
 						<array>
-							<string>Resources/spriteSheets/sheetUI-1.plist</string>
+							<string>Resources/spriteSheets/sheetUI-achievement.plist</string>
 							<string>UI_other_mask.png</string>
 						</array>
 					</dict>
@@ -2013,8 +2013,6 @@
 								<string>998544</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -2642,7 +2640,7 @@
 						<key>displayName</key>
 						<string>multiplierText</string>
 						<key>memberVarAssignmentName</key>
-						<string>distanceText</string>
+						<string>multiplierText</string>
 						<key>memberVarAssignmentType</key>
 						<integer>2</integer>
 						<key>properties</key>

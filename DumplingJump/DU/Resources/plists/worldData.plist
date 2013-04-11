@@ -7,7 +7,7 @@
 		<key>showMeTheMoneyEnabled</key>
 		<true/>
 		<key>levelEditorEnabled</key>
-		<false/>
+		<true/>
 		<key>gameSpeedEditorEnabled</key>
 		<true/>
 		<key>forceReloadUserData</key>

@@ -77,7 +77,7 @@
     [self.hero addChildTo:BATCHNODE z:Z_Hero];
     //Add hero object to GameLayer
     [GAMELAYER addChild:self.hero];
-    [self.hero resetHero];
+//    [self.hero resetHero];
     
     return self.hero;
 }
@@ -178,29 +178,25 @@
 
 -(void) heroReactWithReactionName:(NSString *)theName heroAnimName:(NSString *)animName reactionLasting:(float)duration heroSelectorName:(NSString *)selectorName heroSelectorParam:(id) param
 {
-    if (self.hero.heroState != theName && selectorName != nil)
+//    if (animName != nil)
+//    {
+//        if (duration <= 0)
+//        {
+//            [self playAnimationWithName:animName delay:2];
+//        } else
+//        {
+//            [self playAnimationWithName:animName delay:duration];
+//        }
+//    }
+    
+    if (param == nil)
     {
-        self.hero.heroState = theName;
-        if (animName != nil)
-        {
-            if (duration <= 0)
-            {
-                [self playAnimationWithName:animName delay:2];
-            } else
-            {
-                [self playAnimationWithName:animName delay:duration];
-            }
-        }
+        SEL callback = NSSelectorFromString(selectorName);
         
-        if (param == nil)
-        {
-            SEL callback = NSSelectorFromString(selectorName);
-            
-            [self.hero performSelector:callback];
-        } else {
-            SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", selectorName]);
-            [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:param, nil]];
-        }
+        [self.hero performSelector:callback];
+    } else {
+        SEL callback = NSSelectorFromString([NSString stringWithFormat:@"%@:", selectorName]);
+        [self.hero performSelector:callback withObject: [NSArray arrayWithObjects:param, nil]];
     }
 }
 

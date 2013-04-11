@@ -397,7 +397,7 @@
             [self.sprite runAction:animAction];
         }
         
-        self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.35f/RATIO * adjustJump));
+        self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue * 1.15f/RATIO * adjustJump));
     }
 }
 
@@ -1051,7 +1051,6 @@
     {
         [self playAnimationForever:@"H_blind"];
         
-                
         CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
         CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
         

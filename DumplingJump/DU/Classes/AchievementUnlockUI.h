@@ -15,6 +15,7 @@
     MissionNode *missionNode;
     CCControlButton *forwardButton;
     CGSize winsize;
+    CCSprite *whiteMask;
 }
 +(id) shared;
 

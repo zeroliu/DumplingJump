@@ -87,8 +87,6 @@
     }
 
     id animObject = [CCAnimation animationWithSpriteFrames :frameArray delay:theDelay];
-//    id animAction = [CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
-//    [animDict setObject:animAction forKey:theName];
     [[CCAnimationCache sharedAnimationCache] addAnimation:animObject name:theName];
 }
 

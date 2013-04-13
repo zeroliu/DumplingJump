@@ -14,7 +14,10 @@
 #import "CCBReader.h"
 #import "UserData.h"
 #import "ItemUnlockUI.h"
+#import "GameUI.h"
+#import "Constants.h"
 
+#define TRANSITION_ANIM @"UI_mission_item_transition"
 @implementation AchievementUnlockUI
 +(id) shared
 {
@@ -22,8 +25,36 @@
     if (shared == nil)
     {
         shared = [[AchievementUnlockUI alloc] init];
+        
     }
     return shared;
+}
+
+-(id) init
+{
+    if (self = [super init])
+    {
+        ccbFileName = @"AchievementUnlockUI.ccbi";
+        priority = Z_DEADUI+1;
+        winsize = [[CCDirector sharedDirector] winSize];
+        [self registerAnimationForName:TRANSITION_ANIM];
+    }
+    
+    return self;
+}
+
+-(void) registerAnimationForName:(NSString *)name
+{
+    NSMutableArray *frameArray = [NSMutableArray array];
+    for (int i=1; i<=5; i++)
+    {
+        NSString *frameName = [NSString stringWithFormat:@"%@_%d.png",TRANSITION_ANIM,i];
+        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        [frameArray addObject:frameObject];
+    }
+    
+    id animObject = [CCAnimation animationWithSpriteFrames :frameArray delay:ANIMATION_DELAY_INBETWEEN];
+    [[CCAnimationCache sharedAnimationCache] addAnimation:animObject name:TRANSITION_ANIM];
 }
 
 -(void) createUI
@@ -60,51 +91,67 @@
         [animationArray addObject:callbackBlock];
         [animationArray addObject:delay];
     }
+    [[AchievementManager shared] removeAllUnlockedEvent];
     
     //Play animation
     id delay = [CCDelayTime actionWithDuration:0.5];
     id animationSequence = [CCSequence actionWithArray:animationArray];
     
-    //Show the forward button
-    id showForwardButton = [CCCallBlock actionWithBlock:^{
-        [forwardButton runAction:[CCFadeIn actionWithDuration:0.3]];
-        [forwardButton setEnabled:YES];
-    }];
-    
-    [node runAction:[CCSequence actions:delay, animationSequence, showForwardButton, nil]];
-    
-    [[AchievementManager shared] removeAllUnlockedEvent];
-}
-
--(id) init
-{
-    if (self = [super init])
+    //If unlocked all the four achievements
+    //show the transitiion animation and automatically switch to itemGet
+    if ([[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
     {
-        ccbFileName = @"AchievementUnlockUI.ccbi";
-        priority = Z_DEADUI+1;
-        winsize = [[CCDirector sharedDirector] winSize];
+        id aShortWait = [CCDelayTime actionWithDuration:0.8];
+        id transitionSpriteFadeIn = [CCCallBlock actionWithBlock:^{
+            [missionNode.TransitionAnim runAction:[CCFadeIn actionWithDuration:0.4]];
+        }];
+        
+        id delay2 = [CCDelayTime actionWithDuration:0.2];
+        
+        id transitionAnim = [CCCallBlock actionWithBlock:^{
+            id animate = [CCAnimate actionWithAnimation:[ANIMATIONMANAGER getAnimationWithName:TRANSITION_ANIM]];
+            [missionNode.TransitionAnim runAction:animate];
+        }];
+        
+        id showWhiteEffect = [CCCallBlock actionWithBlock:^{
+            id whiteEffectDelay = [CCDelayTime actionWithDuration:0.2];
+            id whiteEffectFadeIn = [CCFadeIn actionWithDuration:0.2];
+            id switchToItemGet = [CCCallBlock actionWithBlock:^{
+                [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
+                id delay = [CCDelayTime actionWithDuration:0.3];
+                id resumeGameFunc = [CCCallFunc actionWithTarget:[ItemUnlockUI shared] selector:@selector(createUI)];
+                id whiteEffectFadeOut = [CCCallBlock actionWithBlock:^{
+                    [whiteMask runAction:[CCFadeOut actionWithDuration:0.4]];
+                }];
+                id waitForFadeOut = [CCDelayTime actionWithDuration:0.4];
+                id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
+                id sequence = [CCSequence actions:delay, resumeGameFunc, whiteEffectFadeOut, waitForFadeOut, selfDestruction, nil];
+                [node runAction:sequence];
+            }];
+
+            [whiteMask runAction:[CCSequence actions:whiteEffectDelay, whiteEffectFadeIn, switchToItemGet, nil]];
+        }];
+        
+                
+        [node runAction:[CCSequence actions:delay, animationSequence, aShortWait, transitionSpriteFadeIn, delay2, transitionAnim, showWhiteEffect,  nil]];
     }
-    
-    return self;
+    else
+    {
+        //If not, show the forward button and switch to dead ui
+        id showForwardButton = [CCCallBlock actionWithBlock:^{
+            [forwardButton runAction:[CCFadeIn actionWithDuration:0.3]];
+            [forwardButton setEnabled:YES];
+        }];
+        
+        [node runAction:[CCSequence actions:delay, animationSequence, showForwardButton, nil]];
+    }
 }
 
 -(void)didTapFoward:(id)sender
 {
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
-    
-    //Check if unlock the item
-    //if yes
-    //show the item unlock screen
-    id resumeGameFunc = nil;
-    if (![[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
-    {
-        resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(showDeadUI)];
-    }
-    else
-    {
-        resumeGameFunc = [CCCallFunc actionWithTarget:[ItemUnlockUI shared] selector:@selector(createUI)];
-    }
+    id resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(showDeadUI)];
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
     id sequence = [CCSequence actions:delay, resumeGameFunc, selfDestruction, nil];
     
@@ -115,6 +162,7 @@
 {
     [missionNode release];
     [forwardButton release];
+    [whiteMask release];
     [super dealloc];
 }
 

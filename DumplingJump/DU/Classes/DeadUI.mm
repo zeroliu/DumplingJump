@@ -125,6 +125,9 @@
 -(void) animateExclamationSign
 {
 
+//===========================================
+//===========UNUSED SHAKE EFFECT=============
+//===========================================
 //    NSMutableArray *actions = [NSMutableArray array];
     
 //    id changeToRed = [CCCallBlock actionWithBlock:^{

@@ -19,6 +19,7 @@
     CCSprite *unlockedItemSprite;
     CCSprite *unlockBG;
     CCSprite *unlockedBG;
+    CCSprite *transitionAnim;
     
     CCLabelTTF *multiplierIconNum;
     CCLabelTTF *unlockItemName;
@@ -28,6 +29,7 @@
 }
 
 @property (nonatomic, retain) NSArray *missionArray;
+@property (nonatomic, retain) CCSprite *TransitionAnim;
 
 - (void) drawWithAchievementDataWithGroupID:(int)groupID;
 - (void) drawWithUnknown:(int)groupID;

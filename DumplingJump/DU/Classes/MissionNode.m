@@ -15,6 +15,7 @@
 
 @implementation MissionNode
 @synthesize missionArray;
+@synthesize TransitionAnim = transitionAnim;
 
 -(void)didLoadFromCCB
 {
@@ -24,7 +25,7 @@
 - (void) drawlockedItemSpriteWithGroupID:(int)groupID
 {
     NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:groupID];
-
+    
     CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
     CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
     [unlockItemSprite setDisplayFrame:unlockedItemframe];
@@ -108,6 +109,7 @@
     [unlockItemDescription release];
     [starNumLabel release];
     [multiplierIconNum release];
+    [transitionAnim release];
     
     [super dealloc];
 }

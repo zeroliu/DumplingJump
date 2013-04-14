@@ -45,6 +45,7 @@
     [onMedalMultiplierText setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
     [multiplierNum setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
     
+    starNum = 0;
     targetStarNum = 1000;
     id delay = [CCDelayTime actionWithDuration:3.6];
     id tweenNum = [CCActionTween actionWithDuration:1 key:@"starNum" from: 0 to: targetStarNum];

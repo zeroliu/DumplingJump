@@ -429,6 +429,7 @@
 {
     [[DeadUI shared] createUI];
     [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:self.model.isHighScore];
+    [[DeadUI shared] updateNextMission:[[AchievementData shared] getNextMission:[[USERDATA objectForKey:@"achievementGroup"] intValue]]];
 }
 
 -(BOOL) isHighScore

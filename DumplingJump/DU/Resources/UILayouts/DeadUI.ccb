@@ -303,8 +303,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>150</real>
-									<real>305</real>
+									<real>148</real>
+									<real>312</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -375,8 +375,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>150</real>
-									<real>275</real>
+									<real>148</real>
+									<real>282</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -447,8 +447,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>163</real>
-									<real>112</real>
+									<real>178</real>
+									<real>54</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -470,9 +470,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
-									<false/>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
+									<true/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -864,7 +864,7 @@
 								<key>value</key>
 								<array>
 									<real>260</real>
-									<real>54</real>
+									<real>51</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -886,9 +886,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
-									<false/>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
+									<true/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1280,7 +1280,7 @@
 								<key>value</key>
 								<array>
 									<real>247</real>
-									<real>233</real>
+									<real>238</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1488,7 +1488,7 @@
 								<key>value</key>
 								<array>
 									<real>247</real>
-									<real>284</real>
+									<real>290</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1804,8 +1804,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>287</real>
-									<real>82</real>
+									<real>286</real>
+									<real>77</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -1949,7 +1949,7 @@
 								<key>value</key>
 								<array>
 									<real>161</real>
-									<real>351</real>
+									<real>358</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2036,8 +2036,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>97.5</real>
-									<real>305</real>
+									<real>95.5</real>
+									<real>312</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2124,8 +2124,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>107</real>
-									<real>275</real>
+									<real>105</real>
+									<real>282</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2212,8 +2212,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>116</real>
-									<real>245</real>
+									<real>114</real>
+									<real>252</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2300,8 +2300,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>110</real>
-									<real>215</real>
+									<real>108</real>
+									<real>222</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2388,8 +2388,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>170</real>
-									<real>305</real>
+									<real>168</real>
+									<real>312</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2476,8 +2476,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>170</real>
-									<real>275</real>
+									<real>168</real>
+									<real>282</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2564,8 +2564,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>170</real>
-									<real>245</real>
+									<real>168</real>
+									<real>252</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2652,8 +2652,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>170</real>
-									<real>215</real>
+									<real>168</real>
+									<real>222</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2715,6 +2715,56 @@
 								<string>Text</string>
 								<key>value</key>
 								<string>10x</string>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCBFile</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>AchievementNode</string>
+						<key>memberVarAssignmentName</key>
+						<string>nextMission</string>
+						<key>memberVarAssignmentType</key>
+						<integer>2</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>49</real>
+									<real>89</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
+									<true/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccbFile</string>
+								<key>type</key>
+								<string>CCBFile</string>
+								<key>value</key>
+								<string>Resources/UILayouts/AchievementNode.ccb</string>
 							</dict>
 						</array>
 					</dict>

@@ -13,6 +13,8 @@
 #import "DeadAchievementUI.h"
 #import "CCBReader.h"
 #import "EquipmentData.h"
+#import "AchievementNode.h"
+#import "AchievementManager.h"
 
 @implementation DeadUI
 +(id) shared
@@ -103,6 +105,27 @@
     }
     
     [self updateNewItemSign];
+}
+
+-(void) updateNextMission:(NSDictionary *)nextMissionData
+{
+    [nextMission.UnlockIcon setVisible:NO];
+    
+    //update title
+    [nextMission.MissionName setString:[nextMissionData objectForKey:@"name"]];
+    
+    //update description
+    NSString *description2 = [nextMissionData objectForKey:@"description2"];
+    if (description2 == nil)
+    {
+        description2 = @"";
+    }
+    [nextMission.DescriptionText setString:[NSString stringWithFormat:@"%@ %d %@", [nextMissionData objectForKey:@"description1"], [[nextMissionData objectForKey:@"number"] intValue], description2]];
+    
+    //percentage of how much you have finished (for life type)
+    float percentage = [[AchievementManager shared] getFinishPercentageWithType:[nextMissionData objectForKey:@"type"] target:[[nextMissionData objectForKey:@"number"] floatValue]];
+    
+    [nextMission.Bar setScaleY:percentage];
 }
 
 -(void) updateNewItemSign
@@ -248,6 +271,8 @@
     [multiplierText release];
     [newItemText release];
     [equipmentViewController release];
+    
+    [nextMission release];
 }
 
 @end

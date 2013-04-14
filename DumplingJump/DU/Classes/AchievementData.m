@@ -100,4 +100,20 @@
     return res;
 }
 
+- (NSDictionary *) getNextMission:(int)groupID
+{
+    NSDictionary *result = nil;
+    for (int i=1; i<=4; i++)
+    {
+        NSString *key = [NSString stringWithFormat:@"%d-%d", groupID, i];
+        if ([[((UserData *)[UserData shared]).userAchievementDataDictionary objectForKey:key] isEqualToString:@"NO"])
+        {
+            result = [self.achievementDictionary objectForKey:key];
+            break;
+        }
+    }
+    
+    return result;
+}
+
 @end

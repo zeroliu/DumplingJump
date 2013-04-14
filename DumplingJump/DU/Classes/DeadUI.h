@@ -8,6 +8,8 @@
 
 #import "DUUI.h"
 #import "EquipmentViewController.h"
+@class AchievementNode;
+
 @interface DeadUI : DUUI <EquipmentViewControllerDelegate>
 {
     EquipmentViewController *equipmentViewController;
@@ -31,8 +33,11 @@
     CCLabelBMFont *multiplierText;
     CCLabelBMFont *newItemText;
     
+    AchievementNode *nextMission;
+    
     CGSize winsize;
 }
 +(id) shared;
 -(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(float)multiplier IsHighScore:(BOOL)isHighScore;
+-(void) updateNextMission:(NSDictionary *)nextMissionData;
 @end

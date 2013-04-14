@@ -81,15 +81,24 @@
         unlockIcon.scale = 5;
         unlockIcon.zOrder = 100;
         id callbackBlock = [CCCallBlock actionWithBlock:^{
-            id actionFadeIn = [CCFadeIn actionWithDuration:0.05];
-            id actionScaleDown = [CCScaleTo actionWithDuration:0.15 scale:1];
+            id actionFadeIn = [CCFadeIn actionWithDuration:0.1];
+            id actionScaleDown = [CCScaleTo actionWithDuration:0.3 scale:1];
             achievementNode.zOrder = 100;
-            [unlockIcon runAction:actionFadeIn];
-            [unlockIcon runAction:actionScaleDown];
+            [unlockIcon runAction:[CCEaseExponentialIn actionWithAction: actionFadeIn]];
+            [unlockIcon runAction:[CCEaseExponentialIn actionWithAction: actionScaleDown]];
         }];
-        id delay = [CCDelayTime actionWithDuration:0.2];
+        id delay = [CCDelayTime actionWithDuration:0.3];
+        id hitEffect = [CCCallBlock actionWithBlock:^{
+            CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_coinstarGet.ccbi" parent:unlockIcon.parent z:unlockIcon.zOrder+1];
+            particleNode.position = unlockIcon.position;
+            id shakeStep1 = [CCMoveTo actionWithDuration:0.01 position:ccp(nodeHolder.position.x+5, nodeHolder.position.y-5)];
+            id wait = [CCDelayTime actionWithDuration:0.1];
+            id shakeStep2 = [CCMoveTo actionWithDuration:0.01 position:ccp(nodeHolder.position.x, nodeHolder.position.y)];
+            [nodeHolder runAction:[CCSequence actions:shakeStep1, wait, shakeStep2, nil]];
+        }];
+        id delayAgain = [CCDelayTime actionWithDuration:0.2];
         [animationArray addObject:callbackBlock];
-        [animationArray addObject:delay];
+        [animationArray addObject:[CCSequence actions:delay, hitEffect, delayAgain, nil]];
     }
     [[AchievementManager shared] removeAllUnlockedEvent];
     
@@ -126,7 +135,7 @@
                 id waitForFadeOut = [CCDelayTime actionWithDuration:0.4];
                 id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];
                 id sequence = [CCSequence actions:delay, resumeGameFunc, whiteEffectFadeOut, waitForFadeOut, selfDestruction, nil];
-                [node runAction:sequence];
+                [nodeHolder runAction:sequence];
             }];
 
             [whiteMask runAction:[CCSequence actions:whiteEffectDelay, whiteEffectFadeIn, switchToItemGet, nil]];
@@ -160,6 +169,7 @@
 
 - (void) dealloc
 {
+    [nodeHolder release];
     [missionNode release];
     [forwardButton release];
     [whiteMask release];

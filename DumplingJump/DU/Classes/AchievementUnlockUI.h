@@ -16,6 +16,7 @@
     CCControlButton *forwardButton;
     CGSize winsize;
     CCSprite *whiteMask;
+    CCNode *nodeHolder;
 }
 +(id) shared;
 

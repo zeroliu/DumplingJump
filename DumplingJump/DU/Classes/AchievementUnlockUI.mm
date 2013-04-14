@@ -114,7 +114,7 @@
         }];
         
         id showWhiteEffect = [CCCallBlock actionWithBlock:^{
-            id whiteEffectDelay = [CCDelayTime actionWithDuration:0.2];
+            id whiteEffectDelay = [CCDelayTime actionWithDuration:0.6];
             id whiteEffectFadeIn = [CCFadeIn actionWithDuration:0.2];
             id switchToItemGet = [CCCallBlock actionWithBlock:^{
                 [animationManager runAnimationsForSequenceNamed:@"Fly Up"];

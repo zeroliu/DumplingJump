@@ -13,12 +13,19 @@
 {
     CGSize winsize;
     
-    CCLabelTTF *itemTitle;
     CCLabelTTF *multiplierNum;
-    CCSprite *unlockedItemSprite;
-    CCSprite *lockedItemSprite;
-    CCSprite *nextItemSprite;
+    CCLabelTTF *onMedalMultiplierText;
+    CCLabelTTF *starText;
+    CCSprite *starIcon;
+    CCNode *nodeHolder;
+    
+    CGFloat _starNum;
+    CGFloat targetStarNum;
+//    CCSprite *unlockedItemSprite;
+//    CCSprite *lockedItemSprite;
+//    CCSprite *nextItemSprite;
 }
+@property (nonatomic, assign) CGFloat starNum;
 +(id) shared;
 
 @end

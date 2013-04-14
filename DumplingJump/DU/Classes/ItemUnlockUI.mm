@@ -13,6 +13,7 @@
 #import "EquipmentData.h"
 
 @implementation ItemUnlockUI
+@synthesize starNum = _starNum;
 +(id) shared
 {
     static id shared = nil;
@@ -22,6 +23,8 @@
     }
     return shared;
 }
+
+
 
 -(void) createUI
 {
@@ -39,27 +42,49 @@
     int currentGroup = [[USERDATA objectForKey:@"achievementGroup"] intValue];
     [USERDATA setObject:[NSNumber numberWithInt:currentGroup + 1] forKey:@"achievementGroup"];
     
+    [onMedalMultiplierText setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
+    [multiplierNum setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
+    
+    targetStarNum = 1000;
+    id delay = [CCDelayTime actionWithDuration:3.6];
+    id tweenNum = [CCActionTween actionWithDuration:1 key:@"starNum" from: 0 to: targetStarNum];
+    id showParticle = [CCCallBlock actionWithBlock:^{
+        CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_itemGet.ccbi" parent:nodeHolder z:starIcon.zOrder+10];
+        particleNode.position = starIcon.position;
+    }];
+    [self runAction:[CCSequence actions:delay, tweenNum, showParticle, nil]];
+    
+    [self performSelector:@selector(updateStarNum)];
+    
     //update UI
-    NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:currentGroup];
-    NSDictionary *nextEquipment = [[EquipmentData shared] findEquipmentWithGroupID:currentGroup+1];
-    
-    [USERDATA setObject:[NSNumber numberWithInt:0] forKey:[currentEquipment objectForKey:@"name"]];
-    
-    [itemTitle setString:[currentEquipment objectForKey:@"displayName"]];
-    
-    float scale = 150 / itemTitle.boundingBox.size.width;
-    itemTitle.scale = MIN(1, scale);
+//    NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:currentGroup];
+//    NSDictionary *nextEquipment = [[EquipmentData shared] findEquipmentWithGroupID:currentGroup+1];
+//    
+//    [USERDATA setObject:[NSNumber numberWithInt:0] forKey:[currentEquipment objectForKey:@"name"]];
+//    
+//    [itemTitle setString:[currentEquipment objectForKey:@"displayName"]];
+//    
+//    float scale = 150 / itemTitle.boundingBox.size.width;
+//    itemTitle.scale = MIN(1, scale);
+//    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+//    CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@.png",[currentEquipment objectForKey:@"image"]]];
+//    [unlockedItemSprite setDisplayFrame:unlockedItemframe];
+//    CCSpriteFrame *lockedItemFrame = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
+//    [lockedItemSprite setDisplayFrame:lockedItemFrame];
+//    CCSpriteFrame *nextItemFrame = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[nextEquipment objectForKey:@"image"]]];
+//    [nextItemSprite setDisplayFrame:nextItemFrame];
+}
 
-    NSString *multiplierString = [NSString stringWithFormat:@"%@x",[USERDATA objectForKey:@"multiplier"]];
-    [multiplierNum setString: multiplierString];
-    
-    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-    CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@.png",[currentEquipment objectForKey:@"image"]]];
-    [unlockedItemSprite setDisplayFrame:unlockedItemframe];
-    CCSpriteFrame *lockedItemFrame = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
-    [lockedItemSprite setDisplayFrame:lockedItemFrame];
-    CCSpriteFrame *nextItemFrame = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[nextEquipment objectForKey:@"image"]]];
-    [nextItemSprite setDisplayFrame:nextItemFrame];
+-(void) updateStarNum
+{
+    if (_starNum <= targetStarNum)
+    {
+        [starText setString:[NSString stringWithFormat:@"+%d", (int)_starNum]];
+        if (_starNum < targetStarNum)
+        {
+            [self performSelector:@selector(updateStarNum) withObject:nil afterDelay:0.01];
+        }
+    }
 }
 
 -(id) init
@@ -87,11 +112,13 @@
 
 - (void) dealloc
 {
-    [itemTitle release];
     [multiplierNum release];
-    [unlockedItemSprite release];
-    [lockedItemSprite release];
-    [nextItemSprite release];
+    [onMedalMultiplierText release];
+    [starText release];
+    [starIcon release];
+//    [unlockedItemSprite release];
+//    [lockedItemSprite release];
+//    [nextItemSprite release];
     [super dealloc];
 }
 

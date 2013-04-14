@@ -11,8 +11,6 @@ UI_play_pushbonus_4.png
 UI_play_pushbonus_5.png
 UI_play_pushbonus_6.png
 UI_retry_canvas.png
-UI_unlock_canvas.png
-UI_unlock_star.png
 CA_background_1.png
 CA_background_2.png
 CA_background_3.png
@@ -678,6 +676,7 @@ UI_tutorial_tap_8.png
 UI_tutorial_tap_9.png
 UI_unlock_canvas.png
 UI_unlock_multiplier.png
+UI_unlock_star.png
 UI_purch_box_normal.png
 UI_purch_box_press.png
 UI_purch_like.png

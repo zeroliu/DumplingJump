@@ -108,7 +108,7 @@
     
     //If unlocked all the four achievements
     //show the transitiion animation and automatically switch to itemGet
-    if (![[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
+    if ([[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
     {
         id aShortWait = [CCDelayTime actionWithDuration:0.8];
         id transitionSpriteFadeIn = [CCCallBlock actionWithBlock:^{

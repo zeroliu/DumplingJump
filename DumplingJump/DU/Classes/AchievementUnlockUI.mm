@@ -108,7 +108,7 @@
     
     //If unlocked all the four achievements
     //show the transitiion animation and automatically switch to itemGet
-    if ([[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
+    if (![[AchievementData shared] hasUnlockedAllAchievementsByGroup:[[USERDATA objectForKey:@"achievementGroup"] intValue]])
     {
         id aShortWait = [CCDelayTime actionWithDuration:0.8];
         id transitionSpriteFadeIn = [CCCallBlock actionWithBlock:^{
@@ -123,7 +123,7 @@
         }];
         
         id showWhiteEffect = [CCCallBlock actionWithBlock:^{
-            id whiteEffectDelay = [CCDelayTime actionWithDuration:0.6];
+            id whiteEffectDelay = [CCDelayTime actionWithDuration:0.3];
             id whiteEffectFadeIn = [CCFadeIn actionWithDuration:0.2];
             id switchToItemGet = [CCCallBlock actionWithBlock:^{
                 [animationManager runAnimationsForSequenceNamed:@"Fly Up"];

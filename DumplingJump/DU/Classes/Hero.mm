@@ -1119,12 +1119,13 @@
             }];
         }
         
-        GAMEMODEL.star++;
+        float addStarNum = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue];
+        GAMEMODEL.star += addStarNum;
         [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         
         int currentTotalStar = [[USERDATA objectForKey:@"totalStar"] intValue];
-        [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+1] forKey:@"totalStar"];
+        [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+addStarNum] forKey:@"totalStar"];
         [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalStar"] intValue]] forKey:@"num"]];
         
         [star removeAddthing];

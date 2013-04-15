@@ -12,6 +12,7 @@
 #import "EffectManager.h"
 #import "DUParticleManager.h"
 #import "WorldData.h"
+#import "StarRewardData.h"
 #import "UserData.h"
 #import "AudioManager.h"
 #import "XMLHelper.h"

@@ -12,30 +12,59 @@
 #import "Constants.h"
 #import "UserData.h"
 #import "EquipmentData.h"
+#import "StarRewardData.h"
 
 @implementation MissionNode
-@synthesize missionArray;
+@synthesize missionArray = _missionArray;
 @synthesize TransitionAnim = transitionAnim;
 
 -(void)didLoadFromCCB
 {
-    missionArray = [NSArray arrayWithObjects:mission0, mission1, mission2, mission3, nil];
+    self.missionArray = [NSArray arrayWithObjects:mission0, mission1, mission2, mission3, nil];
 }
 
 - (void) drawlockedItemSpriteWithGroupID:(int)groupID
 {
-    NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:groupID];
+//    NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:groupID];
+//    
+//    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+//    CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
+//    [unlockItemSprite setDisplayFrame:unlockedItemframe];
     
-    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-    CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
-    [unlockItemSprite setDisplayFrame:unlockedItemframe];
+    if ([[AchievementData shared] hasUnlockedAllAchievementsByGroup:groupID] && [[USERDATA objectForKey:@"achievementGroup"] intValue] != groupID)
+    {
+        [unlockedBG setVisible:YES];
+        [unlockBG setVisible:NO];
+        [unlockItemSprite setVisible:NO];
+        [unlockedItemSprite setVisible:YES];
+        [multiplierIconNum setVisible:YES];
+        [multiplierIconNum setString:[NSString stringWithFormat:@"%dx", groupID+1]];
+        
+        [unlockItemName setColor:ccc3(0, 0, 0)];
+        [multiplierNumLabel setColor:ccc3(0, 0, 0)];
+        [multiplierDescription setColor:ccc3(0, 0, 0)];
+        [starNumLabel setColor:ccc3(0, 0, 0)];
+        [smallStarIcon setColor:ccc3(0, 0, 0)];
+    }
+    else
+    {
+        [unlockedBG setVisible:NO];
+        [unlockBG setVisible:YES];
+        [unlockItemSprite setVisible:YES];
+        [unlockedItemSprite setVisible:NO];
+        [multiplierIconNum setVisible:NO];
+    }
+    
+    [multiplierNumLabel setString:[NSString stringWithFormat:@"%d", groupID+1]];
+    [starNumLabel setString:[NSString stringWithFormat:@"+%d", [[StarRewardData shared] loadRewardStarNumWithGroupID:groupID]]];
+    
 }
 
 - (void) drawWithUnknown:(int)groupID
 {
     for (int i=0; i<4; i++)
     {
-        AchievementNode *node = [missionArray objectAtIndex:i];
+        AchievementNode *node = [_missionArray objectAtIndex:i];
         
         //check if unlocked
         [node.UnlockIcon setVisible:NO];
@@ -58,7 +87,7 @@
     for (int i=0; i<4; i++)
     {
         NSDictionary *data = [availableAchievement objectAtIndex:i];
-        AchievementNode *node = [missionArray objectAtIndex:i];
+        AchievementNode *node = [_missionArray objectAtIndex:i];
         int achievementID = [[data objectForKey:@"id"] intValue];
         NSString *key = [NSString stringWithFormat:@"%d-%d", groupID, achievementID];
         
@@ -95,21 +124,21 @@
 
 - (void)dealloc
 {
-    [mission0 release];
-    [mission1 release];
-    [mission2 release];
-    [mission3 release];
-    
-    [missionArray release];
-    [unlockItemName release];
-    [unlockItemSprite release];
-    [unlockedItemSprite release];
-    [unlockBG release];
-    [unlockedBG release];
-    [unlockItemDescription release];
-    [starNumLabel release];
-    [multiplierIconNum release];
-    [transitionAnim release];
+//    [mission0 release];
+//    [mission1 release];
+//    [mission2 release];
+//    [mission3 release];
+//    
+    [_missionArray release];
+//    [unlockItemName release];
+//    [unlockItemSprite release];
+//    [unlockedItemSprite release];
+//    [unlockBG release];
+//    [unlockedBG release];
+//    [unlockItemDescription release];
+//    [starNumLabel release];
+//    [multiplierIconNum release];
+//    [transitionAnim release];
     
     [super dealloc];
 }

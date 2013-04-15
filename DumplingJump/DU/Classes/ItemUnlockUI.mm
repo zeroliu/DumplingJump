@@ -46,7 +46,10 @@
     [multiplierNum setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
     
     _starNum = 0;
-    targetStarNum = 1000;
+    targetStarNum = [[StarRewardData shared] loadRewardStarNumWithGroupID:currentGroup];
+    float totalStar = [[USERDATA objectForKey:@"star"] floatValue];
+    [USERDATA setObject:[NSNumber numberWithFloat:totalStar + targetStarNum] forKey:@"star"];
+    
     id delay = [CCDelayTime actionWithDuration:3.6];
     id tweenNum = [CCActionTween actionWithDuration:1 key:@"starNum" from: 0 to: targetStarNum];
     id showParticle = [CCCallBlock actionWithBlock:^{
@@ -102,6 +105,9 @@
 
 -(void)didTapForward:(id)sender
 {
+    //Show dead UI achievement exclamation sign
+    ((DeadUI *)[DeadUI shared]).isNew = YES;
+    
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
     id resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(showDeadUI)];
@@ -113,13 +119,11 @@
 
 - (void) dealloc
 {
-    [multiplierNum release];
-    [onMedalMultiplierText release];
-    [starText release];
-    [starIcon release];
-//    [unlockedItemSprite release];
-//    [lockedItemSprite release];
-//    [nextItemSprite release];
+//    [multiplierNum release];
+//    [onMedalMultiplierText release];
+//    [starText release];
+//    [starIcon release];
+
     [super dealloc];
 }
 

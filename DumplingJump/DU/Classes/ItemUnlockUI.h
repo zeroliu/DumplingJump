@@ -21,9 +21,6 @@
     
     CGFloat _starNum;
     CGFloat targetStarNum;
-//    CCSprite *unlockedItemSprite;
-//    CCSprite *lockedItemSprite;
-//    CCSprite *nextItemSprite;
 }
 @property (nonatomic, assign) CGFloat starNum;
 +(id) shared;

@@ -65,7 +65,7 @@ typedef enum {
     [self createAchievementView];
     
     //Create equipment view
-    [self createEquipmentView];
+//    [self createEquipmentView];
     
     //Create mask
     [self createMask];
@@ -118,13 +118,13 @@ typedef enum {
     playButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width/2.0, winSize.height/2.0) image:@"UI_title_play.png"] retain];
     playButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:playButton];
-    [playButton addTarget:self action:@selector(showAchievement) forControlEvents:UIControlEventTouchUpInside];
+    [playButton addTarget:self action:@selector(startGame) forControlEvents:UIControlEventTouchUpInside];
     
-    storeButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width/2.0, playButton.frame.origin.y + playButton.frame.size.height + 50) image:@"UI_title_store.png"] retain];
-    storeButton.frame.size = CGSizeMake(80, 74);
-    storeButton.layer.zPosition = Z_BUTTONS;
-    [VIEW addSubview:storeButton];
-    [storeButton addTarget:self action:@selector(showEquipment) forControlEvents:UIControlEventTouchUpInside];
+    achievementButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width/2.0, playButton.frame.origin.y + playButton.frame.size.height + 50) image:@"UI_title_mission.png"] retain];
+    achievementButton.frame.size = CGSizeMake(80, 74);
+    achievementButton.layer.zPosition = Z_BUTTONS;
+    [VIEW addSubview:achievementButton];
+    [achievementButton addTarget:self action:@selector(showAchievement) forControlEvents:UIControlEventTouchUpInside];
     
     settingButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_title_sytem.png"] retain];
     settingButton.layer.zPosition = Z_BUTTONS;
@@ -177,13 +177,13 @@ typedef enum {
     [backButton setEnabled:NO];
     [backButton setAlpha:0];
     
-    continueButton = [[DUButtonFactory createButtonWithPosition:ccp(265, winSize.height - 46 - BLACK_HEIGHT) image:@"UI_other_play.png"] retain];
-    continueButton.layer.zPosition = Z_BUTTONS;
-    [VIEW addSubview:continueButton];
-    [continueButton addTarget:self action:@selector(didTapContinueButton) forControlEvents:UIControlEventTouchUpInside];
-    
-    [continueButton setEnabled:NO];
-    [continueButton setAlpha:0];
+//    continueButton = [[DUButtonFactory createButtonWithPosition:ccp(265, winSize.height - 46 - BLACK_HEIGHT) image:@"UI_other_play.png"] retain];
+//    continueButton.layer.zPosition = Z_BUTTONS;
+//    [VIEW addSubview:continueButton];
+//    [continueButton addTarget:self action:@selector(didTapContinueButton) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    [continueButton setEnabled:NO];
+//    [continueButton setAlpha:0];
     
 }
 
@@ -285,7 +285,7 @@ typedef enum {
 {
     [equipmentView removeFromSuperview];
     [playButton removeFromSuperview];
-    [storeButton removeFromSuperview];
+    [achievementButton removeFromSuperview];
     [settingButton removeFromSuperview];
     [gameCenterButton removeFromSuperview];
     [backButton removeFromSuperview];
@@ -368,7 +368,7 @@ typedef enum {
 - (void) setMainMenuButtonsEnabled:(BOOL)isEnabled
 {
     [playButton setEnabled:isEnabled];
-    [storeButton setEnabled:isEnabled];
+    [achievementButton setEnabled:isEnabled];
     [settingButton setEnabled:isEnabled];
     [gameCenterButton setEnabled:isEnabled];
     
@@ -379,7 +379,7 @@ typedef enum {
     }
 
     playButton.alpha = opacity;
-    storeButton.alpha = opacity;
+    achievementButton.alpha = opacity;
     settingButton.alpha = opacity;
     gameCenterButton.alpha = opacity;
 }
@@ -425,7 +425,7 @@ typedef enum {
 - (void)dealloc
 {
     [playButton release];
-    [storeButton release];
+    [achievementButton release];
     [settingButton release];
     [gameCenterButton release];
     [backButton release];

@@ -236,11 +236,11 @@ NSString *const achievementPopup = @"achievementPopup";
     }
 }
 
--(void) updateStar:(int)starNum
+-(void) updateStar:(float)starNum
 {
     if (UIStarText != nil)
     {
-        [UIStarText setString:[NSString stringWithFormat:@"%d", starNum]];
+        [UIStarText setString:[NSString stringWithFormat:@"%d", (int)starNum]];
     }
 }
 

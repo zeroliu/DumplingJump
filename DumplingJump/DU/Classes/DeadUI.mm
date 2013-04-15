@@ -17,6 +17,7 @@
 #import "AchievementManager.h"
 
 @implementation DeadUI
+@synthesize isNew = _isNew;
 +(id) shared
 {
     static id shared = nil;
@@ -27,10 +28,23 @@
     return shared;
 }
 
+-(id) init
+{
+    if (self = [super init])
+    {
+        ccbFileName = @"DeadUI.ccbi";
+        priority = Z_DEADUI;
+        winsize = [[CCDirector sharedDirector] winSize];
+        _isNew = NO;
+    }
+    return self;
+}
+
 -(void) createUI
 {
     [super createUI];
     [self createEquipmentView];
+    [self updateNewAchievementSign];
 }
 
 - (void) createEquipmentView
@@ -54,6 +68,7 @@
 
 - (void) showAchievement
 {
+    _isNew = NO;
     [[DeadAchievementUI shared] createUI];
 }
 
@@ -75,17 +90,19 @@
     [self setDeadUIVisible:YES callback:nil];
     [self setButtonsEnable:YES];
     [self updateNewItemSign];
+    [self updateNewAchievementSign];
 }
 
--(id) init
+- (void) updateNewAchievementSign
 {
-    if (self = [super init])
+    if (_isNew)
     {
-        ccbFileName = @"DeadUI.ccbi";
-        priority = Z_DEADUI;
-        winsize = [[CCDirector sharedDirector] winSize];
+        [newAchievement setVisible:YES];
     }
-    return self;
+    else
+    {
+        [newAchievement setVisible:NO];
+    }
 }
 
 -(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(float)multiplier IsHighScore:(BOOL)isHighScore
@@ -253,26 +270,26 @@
 
 - (void) dealloc
 {
-    [super dealloc];
-    [homeButton release];
-    [missionButton release];
-    [equipmentButton release];
-    [retryButton release];
-    [facebookButton release];
-    [twitterButton release];
-    [highscoreSprite release];
-    [newItemSprite release];
-    [rideAgainSprite release];
-    
-    [scoreText release];
-    [starText release];
-    [totalStarText release];
-    [distanceText release];
-    [multiplierText release];
-    [newItemText release];
+//    [homeButton release];
+//    [missionButton release];
+//    [equipmentButton release];
+//    [retryButton release];
+//    [facebookButton release];
+//    [twitterButton release];
+//    [highscoreSprite release];
+//    [newItemSprite release];
+//    [rideAgainSprite release];
+//    
+//    [scoreText release];
+//    [starText release];
+//    [totalStarText release];
+//    [distanceText release];
+//    [multiplierText release];
+//    [newItemText release];
+//    [nextMission release];
+//    
     [equipmentViewController release];
-    
-    [nextMission release];
+    [super dealloc];
 }
 
 @end

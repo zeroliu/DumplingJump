@@ -695,6 +695,8 @@
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 		9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F06214E170F98FD002D883F /* GamespeedTestTool.mm */; };
+		9F1455F8171BE02C006FCB45 /* achievementUnlockStarReward.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F1455F7171BE02C006FCB45 /* achievementUnlockStarReward.plist */; };
+		9F1455FB171BE0FD006FCB45 /* StarRewardData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1455FA171BE0FD006FCB45 /* StarRewardData.m */; };
 		9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DEAED16FBEA9500354C49 /* ItemUnlockUI.mm */; };
 		9F1DEAF816FBEB2C00354C49 /* AchievementNode.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEAEF16FBEB2C00354C49 /* AchievementNode.ccbi */; };
 		9F1DEAF916FBEB2C00354C49 /* AchievementUnlockUI.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEAF016FBEB2C00354C49 /* AchievementUnlockUI.ccbi */; };
@@ -1775,6 +1777,9 @@
 		7FFD8E921605637900C460F0 /* EffectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectManager.mm; sourceTree = "<group>"; };
 		9F06214D170F98FD002D883F /* GamespeedTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamespeedTestTool.h; sourceTree = "<group>"; };
 		9F06214E170F98FD002D883F /* GamespeedTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamespeedTestTool.mm; sourceTree = "<group>"; };
+		9F1455F7171BE02C006FCB45 /* achievementUnlockStarReward.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = achievementUnlockStarReward.plist; sourceTree = "<group>"; };
+		9F1455F9171BE0FD006FCB45 /* StarRewardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRewardData.h; sourceTree = "<group>"; };
+		9F1455FA171BE0FD006FCB45 /* StarRewardData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRewardData.m; sourceTree = "<group>"; };
 		9F1DEAEC16FBEA9500354C49 /* ItemUnlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemUnlockUI.h; sourceTree = "<group>"; };
 		9F1DEAED16FBEA9500354C49 /* ItemUnlockUI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ItemUnlockUI.mm; sourceTree = "<group>"; };
 		9F1DEAEF16FBEB2C00354C49 /* AchievementNode.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = AchievementNode.ccbi; path = UILayouts/AchievementNode.ccbi; sourceTree = "<group>"; };
@@ -3673,6 +3678,8 @@
 				7FC4C05C16BBA3C20031CE11 /* UserData.m */,
 				9FAEC67016F6F865009112EB /* AchievementData.h */,
 				9FAEC67116F6F865009112EB /* AchievementData.m */,
+				9F1455F9171BE0FD006FCB45 /* StarRewardData.h */,
+				9F1455FA171BE0FD006FCB45 /* StarRewardData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -3681,6 +3688,7 @@
 			isa = PBXGroup;
 			children = (
 				9F996F0E17121EE100AC7A4E /* worldData.plist */,
+				9F1455F7171BE02C006FCB45 /* achievementUnlockStarReward.plist */,
 			);
 			path = plists;
 			sourceTree = "<group>";
@@ -4283,6 +4291,7 @@
 				9F55BD3F171551B5002A75BC /* UI_retry_mission_new.png in Resources */,
 				9F55BD411715530D002A75BC /* UI_other_mask.png in Resources */,
 				9F47FA2D17168B4D00ABFFAB /* mask.png in Resources */,
+				9F1455F8171BE02C006FCB45 /* achievementUnlockStarReward.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4566,6 +4575,7 @@
 				9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */,
 				9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */,
 				9FBCB5B11714CF5700786A59 /* OutlineLabel.m in Sources */,
+				9F1455FB171BE0FD006FCB45 /* StarRewardData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

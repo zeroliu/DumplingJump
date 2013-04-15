@@ -169,10 +169,10 @@
 
 - (void) dealloc
 {
-    [nodeHolder release];
-    [missionNode release];
-    [forwardButton release];
-    [whiteMask release];
+//    [nodeHolder release];
+//    [missionNode release];
+//    [forwardButton release];
+//    [whiteMask release];
     [super dealloc];
 }
 

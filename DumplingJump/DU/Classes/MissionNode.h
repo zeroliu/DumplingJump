@@ -20,12 +20,14 @@
     CCSprite *unlockBG;
     CCSprite *unlockedBG;
     CCSprite *transitionAnim;
+    CCSprite *smallStarIcon;
     
     CCLabelTTF *multiplierIconNum;
     CCLabelTTF *unlockItemName;
     CCLabelTTF *unlockItemDescription;
     CCLabelTTF *starNumLabel;
     CCLabelTTF *multiplierNumLabel;
+    CCLabelTTF *multiplierDescription;
 }
 
 @property (nonatomic, retain) NSArray *missionArray;

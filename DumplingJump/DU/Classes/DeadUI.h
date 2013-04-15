@@ -25,6 +25,7 @@
     CCControlButton *twitterButton;
     CCSprite *highscoreSprite;
     CCSprite *newItemSprite;
+    CCSprite *newAchievement;
     
     CCLabelBMFont *scoreText;
     CCLabelBMFont *starText;
@@ -36,8 +37,12 @@
     AchievementNode *nextMission;
     
     CGSize winsize;
+    BOOL _isNew;
 }
+@property (nonatomic, assign) BOOL isNew;
+
 +(id) shared;
 -(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(float)multiplier IsHighScore:(BOOL)isHighScore;
 -(void) updateNextMission:(NSDictionary *)nextMissionData;
+
 @end

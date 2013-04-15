@@ -1864,9 +1864,9 @@
 						<key>displayName</key>
 						<string>missionSign</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>newAchievement</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1876,7 +1876,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>85</real>
+									<real>84</real>
 									<real>72</real>
 									<integer>0</integer>
 								</array>

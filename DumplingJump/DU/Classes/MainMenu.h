@@ -18,7 +18,7 @@
     
     //Main Menu buttons
     UIButton *playButton;
-    UIButton *storeButton;
+    UIButton *achievementButton;
     UIButton *settingButton;
     UIButton *gameCenterButton;
     UIButton *backButton;

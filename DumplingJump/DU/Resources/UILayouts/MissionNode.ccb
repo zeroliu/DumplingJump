@@ -831,9 +831,9 @@
 						<key>displayName</key>
 						<string>multiplierDescription</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>multiplierDescription</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1121,9 +1121,9 @@
 						<key>displayName</key>
 						<string>starIcon</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>smallStarIcon</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>1</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -1193,8 +1193,8 @@
 								<string>Color3</string>
 								<key>value</key>
 								<array>
+									<integer>252</integer>
 									<integer>254</integer>
-									<integer>255</integer>
 									<integer>255</integer>
 								</array>
 							</dict>
@@ -1612,8 +1612,6 @@
 						<integer>0</integer>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

@@ -33,7 +33,7 @@
 -(void) fadeOut;
 -(void) resetUI;
 -(void) updateScore:(int)score;
--(void) updateStar:(int)starNum;
+-(void) updateStar:(float)starNum;
 -(void) addStageClearMessageWithDistance:(int) distance;
 -(void) addAchievementUnlockMessageWithName:(NSString *)name;
 -(void) showRebornButton;

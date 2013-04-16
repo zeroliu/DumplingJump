@@ -256,7 +256,7 @@ toRemovePowderArray = _toRemovePowderArray;
     [flyingStar addChildTo:BATCHNODE z:1];
 }
 
-- (id) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination
+- (void) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination
 {
     DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
     flyingStar.sprite.position = position;
@@ -269,7 +269,32 @@ toRemovePowderArray = _toRemovePowderArray;
     [flyingStar.sprite runAction:scaleDown];
     [flyingStar.sprite runAction:[CCSequence actions:moveToDestination, remove, nil]];
     [flyingStar addChildTo:BATCHNODE z:1];
-    return flyingStar;
+}
+
+- (void) generateMegaFlyingStarAtPosition:(CGPoint)position
+{
+    for (int i=0; i<10; i++)
+    {
+        float currentAngle = 36.0*i * M_PI / 180.0;
+        CGPoint floatTarget = ccp(position.x+60*sin(currentAngle), position.y+60*cos(currentAngle));
+        DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
+        flyingStar.sprite.position = position;
+        id rotateStar = [CCRotateBy actionWithDuration:0.5 angle:90];
+        id moveUp = [CCEaseExponentialOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:floatTarget]];
+        id fadeStar = [CCFadeTo actionWithDuration:0.5 opacity:200];
+        id delay = [CCDelayTime actionWithDuration:0.05*i];
+        id wait = [CCDelayTime actionWithDuration:0.05*(10-i)];
+        id moveToDestination = [CCMoveTo actionWithDuration:0.2 position:[[GameUI shared] getStarDestination]];
+        id scaleDown = [CCScaleTo actionWithDuration:0.2 scale:0.6];
+        id remove = [CCCallBlock actionWithBlock:^{
+            [[GameUI shared] scaleStarUI];
+            [flyingStar archive];
+        }];
+        [flyingStar.sprite runAction:rotateStar];
+        [flyingStar.sprite runAction:[CCSequence actions:delay, moveUp, wait, scaleDown, nil]];
+        [flyingStar.sprite runAction:[CCSequence actions:delay, fadeStar, wait, moveToDestination, remove, nil]];
+        [flyingStar addChildTo:BATCHNODE z:1];
+    }
 }
 
 - (NSString *) treatRandomObject:(NSString *)randomInfo

@@ -1155,6 +1155,7 @@
     
     [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
     [megastar removeAddthing];
+    [[LevelManager shared] generateMegaFlyingStarAtPosition:megastar.sprite.position];
 }
 
 

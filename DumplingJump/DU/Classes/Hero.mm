@@ -259,9 +259,9 @@
             {
                 self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
             }
-            else if (self.sprite.position.y > 380)
+            else if (self.sprite.position.y > 340)
             {
-                self.body->SetLinearVelocity(b2Vec2(self.speed.x, randomFloat(-5.0, -1.0)));
+                self.body->SetLinearVelocity(b2Vec2(self.speed.x, -10));
             }
             
             //Don't move out of the screen
@@ -933,7 +933,7 @@
     
     //Ready effect
     [[BackgroundController shared] speedUpWithScale:0.5 interval:0.5];
-    [self changeCollisionDetection:C_STAR];
+    [self changeCollisionDetection:C_STAR | C_ADDTHING];
     [self scheduleOnce:@selector(boosterReady) delay:1];
     [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
     
@@ -1120,14 +1120,8 @@
         }
         
         float addStarNum = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue];
-        GAMEMODEL.star += addStarNum;
-        [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
+        [GAMEMODEL addStarWithNum:addStarNum];
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
-        
-        int currentTotalStar = [[USERDATA objectForKey:@"totalStar"] intValue];
-        [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+addStarNum] forKey:@"totalStar"];
-        [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalStar"] intValue]] forKey:@"num"]];
-        
         [star removeAddthing];
         [[LevelManager shared] generateFlyingStarAtPosition:star.sprite.position destination: [[GameUI shared] getStarDestination]];
     }
@@ -1144,18 +1138,14 @@
     
     AddthingObject *megastar = [value objectAtIndex:1];
     GAMEMODEL.eatMegaStarCount ++;
-    GAMEMODEL.star += [[POWERUP_DATA objectForKey:@"MEGA"] intValue];
-    [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
+    [GAMEMODEL addStarWithNum:[[POWERUP_DATA objectForKey:@"MEGA"] intValue]];
     [MESSAGECENTER postNotificationName:NOTIFICATION_MEGASTAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.eatMegaStarCount] forKey:@"num"]];
-    
-    int currentTotalStar = [[USERDATA objectForKey:@"totalStar"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+[[POWERUP_DATA objectForKey:@"MEGA"] intValue]] forKey:@"totalStar"];
-    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalStar"] intValue]] forKey:@"num"]];
-    
     
     [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
     [megastar removeAddthing];
 }
+
+
 
 //Not being used
 -(void) bombPowerup
@@ -1572,6 +1562,11 @@
         }
     }
     return result;
+}
+
+-(BOOL) isBoosterOn
+{
+    return [self.heroState isEqualToString:@"booster"];
 }
 
 -(void) playAnimationForever:(NSString *)animName

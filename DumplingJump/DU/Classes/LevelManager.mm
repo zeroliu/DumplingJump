@@ -236,17 +236,38 @@ toRemovePowderArray = _toRemovePowderArray;
     return addthing;
 }
 
+- (void) generateFloatingStar:(CGPoint)position
+{
+    DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
+    flyingStar.sprite.scale = 1.5;
+    flyingStar.sprite.position = position;
+    id rotateStar = [CCRotateBy actionWithDuration:0.3 angle:90];
+    id moveUp = [CCMoveTo actionWithDuration:0.3 position:ccp(position.x, position.y+40)];
+    id fadeStar = [CCFadeTo actionWithDuration:0.3 opacity:200];
+    id moveToDestination = [CCMoveTo actionWithDuration:0.2 position:[[GameUI shared] getStarDestination]];
+    id scaleDown = [CCScaleTo actionWithDuration:0.2 scale:0.6];
+    id remove = [CCCallBlock actionWithBlock:^{
+        [[GameUI shared] scaleStarUI];
+        [flyingStar archive];
+    }];
+    [flyingStar.sprite runAction:rotateStar];
+    [flyingStar.sprite runAction:[CCSequence actions:moveUp, scaleDown, nil]];
+    [flyingStar.sprite runAction:[CCSequence actions:fadeStar, moveToDestination, remove, nil]];
+    [flyingStar addChildTo:BATCHNODE z:1];
+}
+
 - (id) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination
 {
     DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
     flyingStar.sprite.position = position;
     id moveToDestination = [CCMoveTo actionWithDuration:0.4 position:destination];
+    id scaleDown = [CCScaleTo actionWithDuration:0.4 scale:0.6];
     id remove = [CCCallBlock actionWithBlock:^{
         [[GameUI shared] scaleStarUI];
         [flyingStar archive];
     }];
+    [flyingStar.sprite runAction:scaleDown];
     [flyingStar.sprite runAction:[CCSequence actions:moveToDestination, remove, nil]];
-    
     [flyingStar addChildTo:BATCHNODE z:1];
     return flyingStar;
 }

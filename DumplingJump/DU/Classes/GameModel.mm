@@ -7,7 +7,7 @@
 //
 #import "WorldData.h"
 #import "GameModel.h"
-
+#import "GameUI.h"
 #import "Constants.h"
 #import "Hub.h"
 #import "EquipmentData.h"
@@ -191,6 +191,15 @@ gameTime            = _gameTime;
     _powerCollectCount = 0;
     _gameTime = 0;
     _isHighScore = NO;
+}
+
+- (void) addStarWithNum:(int)num
+{
+    GAMEMODEL.star += num;
+    [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
+    int currentTotalStar = [[USERDATA objectForKey:@"totalStar"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+num] forKey:@"totalStar"];
+    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalStar"] intValue]] forKey:@"num"]];
 }
 
 - (void)dealloc

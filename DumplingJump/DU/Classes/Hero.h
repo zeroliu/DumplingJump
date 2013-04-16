@@ -50,5 +50,7 @@
 -(void) updateJumpState;
 -(void) beforeDie;
 -(BOOL) isShelterOn;
+-(BOOL) isBoosterOn;
+
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

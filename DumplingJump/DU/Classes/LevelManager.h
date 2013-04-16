@@ -39,5 +39,6 @@
 -(void) switchToNextLevelEffect;
 -(void) stopDroppingForTime:(double)waitingTime;
 - (id) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination;
+- (void) generateFloatingStar:(CGPoint)position;
 -(NSString *) getParagraphNameByIndex:(int)index;
 @end

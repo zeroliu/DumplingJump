@@ -16,6 +16,7 @@
 #import "CCBReader.h"
 #import "CCParticleSystemQuad.h"
 #import "InterReactionManager.h"
+#import "LevelManager.h"
 
 @interface AddthingObject()
 {
@@ -88,7 +89,7 @@
     {
         //check destroy case
         
-        if ([((Hero *)[HEROMANAGER getHero]) isShelterOn] || ((Hero *)[HEROMANAGER getHero]).isSpringBoost)
+        if ([((Hero *)[HEROMANAGER getHero]) isShelterOn] || ((Hero *)[HEROMANAGER getHero]).isSpringBoost || [((Hero *)[HEROMANAGER getHero]) isBoosterOn])
         {
             if (![self.name isEqualToString:@"STAR"] && ![self.name isEqualToString:@"MEGA"])
             {
@@ -97,6 +98,10 @@
                     contactEdge->contact->SetEnabled(false);
                 }
                 [self removeAddthingWithDel];
+                
+                [GAMEMODEL addStarWithNum:[[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue]];
+                [[GameUI shared] updateStar:GAMEMODEL.star];
+                [[LevelManager shared] generateFloatingStar:self.sprite.position];
             }
             else
             {
@@ -105,7 +110,6 @@
                 //If addthing will disappear after touch the hero
                 if (self.reaction.triggerCleanHero == 1)
                 {
-                    //DLog(@"My ID is %@", self.ID);
                     [self removeAddthing];
                 }
             }
@@ -140,6 +144,9 @@
         //            DLog(@"%@ Touch Board",self.name);
     } else if ([targetObject.name isEqualToString:@"SLASH"])
     {
+        [GAMEMODEL addStarWithNum:[[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue]];
+        [[LevelManager shared] generateFloatingStar:self.sprite.position];
+        [[GameUI shared] updateStar:GAMEMODEL.star];
         [self removeAddthingWithDel];
     } else
     {

@@ -55,4 +55,5 @@
 -(void) resetGameSpeed;
 -(void) boostGameSpeed:(float)interval;
 -(void) resetGameData;
+-(void) addStarWithNum:(int)num;
 @end

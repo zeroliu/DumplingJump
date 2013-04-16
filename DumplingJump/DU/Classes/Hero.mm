@@ -602,6 +602,7 @@
     blowAwayTrigger = 0;
     boostStatus = 0;
     hurtTrigger = NO;
+    isAbsorbing = NO;
     
     //Unschedule fire
     [self unschedule:@selector(fire)];
@@ -939,6 +940,15 @@
     
     boostStatus = 0;
     self.heroState = @"booster";
+    
+    //turn on absorb effect
+    //turn off existing one if already have one
+    if ([self.overlayHeroStateDictionary objectForKey:@"absorb"] != nil)
+    {
+        [self performSelector:@selector(absorbFin)];
+    }
+    [self turnOnAbsorbCollisionDetection];
+    isAbsorbing = YES;
 }
 
 -(void) boosterBackgroundStart
@@ -1006,6 +1016,8 @@
     //Change hero state back to idle
     self.heroState = @"idle";
     [self playCurrentFacialAnimation];
+    isAbsorbing = NO;
+    [self removeAbsorbCollisionDetection];
 }
 
 -(void) magic:(NSArray *)value;

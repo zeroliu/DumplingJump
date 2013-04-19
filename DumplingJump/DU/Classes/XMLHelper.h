@@ -23,4 +23,7 @@
 -(id) loadCollisionDataWithXML: (NSString *)fileName;
 -(id) loadUserAchievementData;
 -(id) loadAchievementData;
+-(id) loadBackgroundData;
+-(id) loadBackgroundObjectData;
+
 @end

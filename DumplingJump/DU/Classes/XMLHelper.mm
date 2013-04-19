@@ -577,4 +577,77 @@
     return dict;
 }
 
+-(id) loadBackgroundData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:@"Editor_background"] retain];
+    NSError *err = nil;
+
+    NSArray *backgroundDatas = [xmlDoc nodesForXPath:@"//background" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLDocument *backgroundElement in backgroundDatas)
+    {
+        if ([[[[backgroundElement nodesForXPath:@"end" error:&err] objectAtIndex:0] stringValue] isEqualToString:@"end"])
+        {
+            NSString *stageNum = [[[backgroundElement nodesForXPath:@"stage" error:&err] objectAtIndex:0] stringValue];
+            NSArray *datas = [backgroundElement children];
+            NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:[datas count]];
+            for (DDXMLElement *element in datas)
+            {
+                if (![[element name] isEqualToString:@"end"])
+                {
+                    [dataDictionary setObject:[element stringValue] forKey:[element name]];
+                }
+            }
+            [dict setObject:dataDictionary forKey:stageNum];
+        }
+    }
+    [xmlDoc release];
+    return dict;
+}
+
+-(id) loadBackgroundObjectData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:@"Editor_background_object"] retain];
+    NSError *err = nil;
+    
+    NSArray *objectDatas = [xmlDoc nodesForXPath:@"//object" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLDocument *objectElement in objectDatas)
+    {
+        if ([[[[objectElement nodesForXPath:@"end" error:&err] objectAtIndex:0] stringValue] isEqualToString:@"end"])
+        {
+            NSString *stageNum = [[[objectElement nodesForXPath:@"stage" error:&err] objectAtIndex:0] stringValue];
+            NSArray *datas = [objectElement children];
+            NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:[datas count]];
+            for (DDXMLElement *element in datas)
+            {
+                if (![[element name] isEqualToString:@"end"])
+                {
+                    [dataDictionary setObject:[element stringValue] forKey:[element name]];
+                }
+            }
+            
+            NSMutableArray *objectDataArray = [dict objectForKey:stageNum];
+            if (objectDataArray == nil)
+            {
+                objectDataArray = [NSMutableArray array];
+                [dict setObject:objectDataArray forKey:stageNum];
+            }
+            [objectDataArray addObject:dataDictionary];
+        }
+    }
+    [xmlDoc release];
+    return dict;
+}
+
 @end

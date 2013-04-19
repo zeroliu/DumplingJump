@@ -174,7 +174,8 @@ toRemovePowderArray = _toRemovePowderArray;
 
 -(void) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position warning:(double)warningTime
 {
-    CCSprite *warningSign = [CCSprite spriteWithFile:@"UI_play_warning.png"];
+    
+    CCSprite *warningSign = [CCSprite spriteWithSpriteFrameName:@"UI_play_warning.png"];
     warningSign.position = ccp(position.x,[[CCDirector sharedDirector] winSize].height-BLACK_HEIGHT-30);
     warningSign.scale = 0;
     id zoomInEffect = [CCScaleTo actionWithDuration:0.3 scale:0.8];

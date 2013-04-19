@@ -17,6 +17,7 @@
 #import "AchievementUnlockUI.h"
 #import "DeadUI.h"
 #import "GamespeedTestTool.h"
+#import "BackgroundManager.h"
 
 @interface GameLayer()
 {
@@ -263,6 +264,7 @@
 
 -(void) loadFrontendData
 {
+    [BackgroundManager shared];
     [[BackgroundController shared] initParam];
     [self initUI];
     [self initGame];

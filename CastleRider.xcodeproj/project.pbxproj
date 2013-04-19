@@ -695,6 +695,32 @@
 		7FFD8E8F160526B200C460F0 /* ReactionFunctions.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E8E160526B200C460F0 /* ReactionFunctions.mm */; };
 		7FFD8E931605637A00C460F0 /* EffectManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD8E921605637900C460F0 /* EffectManager.mm */; };
 		9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F06214E170F98FD002D883F /* GamespeedTestTool.mm */; };
+		9F0B256317212C6200495E98 /* BackgroundManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B256217212C6200495E98 /* BackgroundManager.mm */; };
+		9F0B257B1721337300495E98 /* BG_canvas_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25661721337300495E98 /* BG_canvas_1.png */; };
+		9F0B257C1721337300495E98 /* BG_canvas_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25671721337300495E98 /* BG_canvas_2.png */; };
+		9F0B257D1721337300495E98 /* BG_canvas_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25681721337300495E98 /* BG_canvas_3.png */; };
+		9F0B257E1721337300495E98 /* BG_canvas_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25691721337300495E98 /* BG_canvas_4.png */; };
+		9F0B257F1721337300495E98 /* BG_canvas_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B256A1721337300495E98 /* BG_canvas_5.png */; };
+		9F0B25801721337300495E98 /* BG_canvas_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B256B1721337300495E98 /* BG_canvas_end.png */; };
+		9F0B25811721337300495E98 /* BG_stage1_bat.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B256C1721337300495E98 /* BG_stage1_bat.png */; };
+		9F0B25821721337300495E98 /* BG_stage1_castle_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B256D1721337300495E98 /* BG_stage1_castle_left.png */; };
+		9F0B25831721337300495E98 /* BG_stage1_castle_left_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B256E1721337300495E98 /* BG_stage1_castle_left_end.png */; };
+		9F0B25841721337300495E98 /* BG_stage1_castle_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B256F1721337300495E98 /* BG_stage1_castle_right.png */; };
+		9F0B25851721337300495E98 /* BG_stage1_castle_right_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25701721337300495E98 /* BG_stage1_castle_right_end.png */; };
+		9F0B25861721337300495E98 /* BG_stage2_cloud_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25711721337300495E98 /* BG_stage2_cloud_1.png */; };
+		9F0B25871721337300495E98 /* BG_stage2_cloud_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25721721337300495E98 /* BG_stage2_cloud_2.png */; };
+		9F0B25881721337300495E98 /* BG_stage2_cloud_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25731721337300495E98 /* BG_stage2_cloud_3.png */; };
+		9F0B25891721337300495E98 /* BG_stage3_cloud_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25741721337300495E98 /* BG_stage3_cloud_1.png */; };
+		9F0B258A1721337300495E98 /* BG_stage3_cloud_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25751721337300495E98 /* BG_stage3_cloud_2.png */; };
+		9F0B258B1721337300495E98 /* BG_stage3_cloud_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25761721337300495E98 /* BG_stage3_cloud_3.png */; };
+		9F0B258C1721337300495E98 /* BG_stage3_cloud_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25771721337300495E98 /* BG_stage3_cloud_4.png */; };
+		9F0B258D1721337300495E98 /* BG_stage3_cloud_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25781721337300495E98 /* BG_stage3_cloud_5.png */; };
+		9F0B258E1721337300495E98 /* BG_stage3_ufo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25791721337300495E98 /* BG_stage3_ufo.png */; };
+		9F0B25931721347E00495E98 /* UI_mission_pages_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B258F1721347E00495E98 /* UI_mission_pages_off.png */; };
+		9F0B25941721347E00495E98 /* UI_mission_pages_on-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25901721347E00495E98 /* UI_mission_pages_on-hd.png */; };
+		9F0B25951721347E00495E98 /* UI_mission_pages_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25911721347E00495E98 /* UI_mission_pages_on.png */; };
+		9F0B25961721347E00495E98 /* UI_other_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B25921721347E00495E98 /* UI_other_mask.png */; };
+		9F0B2598172135B300495E98 /* UI_mission_pages_off-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0B2597172135B300495E98 /* UI_mission_pages_off-hd.png */; };
 		9F1455F8171BE02C006FCB45 /* achievementUnlockStarReward.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F1455F7171BE02C006FCB45 /* achievementUnlockStarReward.plist */; };
 		9F1455FB171BE0FD006FCB45 /* StarRewardData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1455FA171BE0FD006FCB45 /* StarRewardData.m */; };
 		9F1DEAEE16FBEA9600354C49 /* ItemUnlockUI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F1DEAED16FBEA9500354C49 /* ItemUnlockUI.mm */; };
@@ -723,8 +749,6 @@
 		9F55BD2B17154E8D002A75BC /* UI_mission_item_unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1C17154E8D002A75BC /* UI_mission_item_unlock.png */; };
 		9F55BD2C17154E8D002A75BC /* UI_mission_medal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1D17154E8D002A75BC /* UI_mission_medal.png */; };
 		9F55BD2D17154E8D002A75BC /* UI_mission_medal_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1E17154E8D002A75BC /* UI_mission_medal_shadow.png */; };
-		9F55BD2E17154E8D002A75BC /* UI_mission_pages_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1F17154E8D002A75BC /* UI_mission_pages_off.png */; };
-		9F55BD2F17154E8D002A75BC /* UI_mission_pages_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD2017154E8D002A75BC /* UI_mission_pages_on.png */; };
 		9F55BD3417154F51002A75BC /* sheetUI-achievement-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD3017154F51002A75BC /* sheetUI-achievement-hd.plist */; };
 		9F55BD3517154F51002A75BC /* sheetUI-achievement-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD3117154F51002A75BC /* sheetUI-achievement-hd.png */; };
 		9F55BD3617154F51002A75BC /* sheetUI-achievement.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD3217154F51002A75BC /* sheetUI-achievement.plist */; };
@@ -1777,6 +1801,33 @@
 		7FFD8E921605637900C460F0 /* EffectManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EffectManager.mm; sourceTree = "<group>"; };
 		9F06214D170F98FD002D883F /* GamespeedTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamespeedTestTool.h; sourceTree = "<group>"; };
 		9F06214E170F98FD002D883F /* GamespeedTestTool.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GamespeedTestTool.mm; sourceTree = "<group>"; };
+		9F0B256117212C6200495E98 /* BackgroundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundManager.h; sourceTree = "<group>"; };
+		9F0B256217212C6200495E98 /* BackgroundManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BackgroundManager.mm; sourceTree = "<group>"; };
+		9F0B25661721337300495E98 /* BG_canvas_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_canvas_1.png; sourceTree = "<group>"; };
+		9F0B25671721337300495E98 /* BG_canvas_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_canvas_2.png; sourceTree = "<group>"; };
+		9F0B25681721337300495E98 /* BG_canvas_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_canvas_3.png; sourceTree = "<group>"; };
+		9F0B25691721337300495E98 /* BG_canvas_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_canvas_4.png; sourceTree = "<group>"; };
+		9F0B256A1721337300495E98 /* BG_canvas_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_canvas_5.png; sourceTree = "<group>"; };
+		9F0B256B1721337300495E98 /* BG_canvas_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_canvas_end.png; sourceTree = "<group>"; };
+		9F0B256C1721337300495E98 /* BG_stage1_bat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage1_bat.png; sourceTree = "<group>"; };
+		9F0B256D1721337300495E98 /* BG_stage1_castle_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage1_castle_left.png; sourceTree = "<group>"; };
+		9F0B256E1721337300495E98 /* BG_stage1_castle_left_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage1_castle_left_end.png; sourceTree = "<group>"; };
+		9F0B256F1721337300495E98 /* BG_stage1_castle_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage1_castle_right.png; sourceTree = "<group>"; };
+		9F0B25701721337300495E98 /* BG_stage1_castle_right_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage1_castle_right_end.png; sourceTree = "<group>"; };
+		9F0B25711721337300495E98 /* BG_stage2_cloud_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage2_cloud_1.png; sourceTree = "<group>"; };
+		9F0B25721721337300495E98 /* BG_stage2_cloud_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage2_cloud_2.png; sourceTree = "<group>"; };
+		9F0B25731721337300495E98 /* BG_stage2_cloud_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage2_cloud_3.png; sourceTree = "<group>"; };
+		9F0B25741721337300495E98 /* BG_stage3_cloud_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage3_cloud_1.png; sourceTree = "<group>"; };
+		9F0B25751721337300495E98 /* BG_stage3_cloud_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage3_cloud_2.png; sourceTree = "<group>"; };
+		9F0B25761721337300495E98 /* BG_stage3_cloud_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage3_cloud_3.png; sourceTree = "<group>"; };
+		9F0B25771721337300495E98 /* BG_stage3_cloud_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage3_cloud_4.png; sourceTree = "<group>"; };
+		9F0B25781721337300495E98 /* BG_stage3_cloud_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage3_cloud_5.png; sourceTree = "<group>"; };
+		9F0B25791721337300495E98 /* BG_stage3_ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BG_stage3_ufo.png; sourceTree = "<group>"; };
+		9F0B258F1721347E00495E98 /* UI_mission_pages_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_pages_off.png; sourceTree = "<group>"; };
+		9F0B25901721347E00495E98 /* UI_mission_pages_on-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI_mission_pages_on-hd.png"; sourceTree = "<group>"; };
+		9F0B25911721347E00495E98 /* UI_mission_pages_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_pages_on.png; sourceTree = "<group>"; };
+		9F0B25921721347E00495E98 /* UI_other_mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_other_mask.png; sourceTree = "<group>"; };
+		9F0B2597172135B300495E98 /* UI_mission_pages_off-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UI_mission_pages_off-hd.png"; sourceTree = "<group>"; };
 		9F1455F7171BE02C006FCB45 /* achievementUnlockStarReward.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = achievementUnlockStarReward.plist; sourceTree = "<group>"; };
 		9F1455F9171BE0FD006FCB45 /* StarRewardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRewardData.h; sourceTree = "<group>"; };
 		9F1455FA171BE0FD006FCB45 /* StarRewardData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRewardData.m; sourceTree = "<group>"; };
@@ -1808,8 +1859,6 @@
 		9F55BD1C17154E8D002A75BC /* UI_mission_item_unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_item_unlock.png; sourceTree = "<group>"; };
 		9F55BD1D17154E8D002A75BC /* UI_mission_medal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_medal.png; sourceTree = "<group>"; };
 		9F55BD1E17154E8D002A75BC /* UI_mission_medal_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_medal_shadow.png; sourceTree = "<group>"; };
-		9F55BD1F17154E8D002A75BC /* UI_mission_pages_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_pages_off.png; sourceTree = "<group>"; };
-		9F55BD2017154E8D002A75BC /* UI_mission_pages_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_pages_on.png; sourceTree = "<group>"; };
 		9F55BD3017154F51002A75BC /* sheetUI-achievement-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-achievement-hd.plist"; sourceTree = "<group>"; };
 		9F55BD3117154F51002A75BC /* sheetUI-achievement-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetUI-achievement-hd.png"; sourceTree = "<group>"; };
 		9F55BD3217154F51002A75BC /* sheetUI-achievement.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetUI-achievement.plist"; sourceTree = "<group>"; };
@@ -3366,6 +3415,7 @@
 			isa = PBXGroup;
 			children = (
 				9F47FA2C17168B4D00ABFFAB /* mask.png */,
+				9F0B25641721337300495E98 /* background */,
 				9F55BD1117154E8D002A75BC /* sheetUI-achievement */,
 				7F3B58A916C86DC00010F8E4 /* sheetBackground */,
 				7F3B58AF16C86DC00010F8E4 /* sheetEffects */,
@@ -3453,6 +3503,8 @@
 				7FAFCC5A15D3A3E300F019F7 /* BackgroundView.mm */,
 				7FAFCC5D15D3A69E00F019F7 /* BackgroundModel.h */,
 				7FAFCC5E15D3A69E00F019F7 /* BackgroundModel.mm */,
+				9F0B256117212C6200495E98 /* BackgroundManager.h */,
+				9F0B256217212C6200495E98 /* BackgroundManager.mm */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -3693,6 +3745,33 @@
 			path = plists;
 			sourceTree = "<group>";
 		};
+		9F0B25641721337300495E98 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				9F0B25661721337300495E98 /* BG_canvas_1.png */,
+				9F0B25671721337300495E98 /* BG_canvas_2.png */,
+				9F0B25681721337300495E98 /* BG_canvas_3.png */,
+				9F0B25691721337300495E98 /* BG_canvas_4.png */,
+				9F0B256A1721337300495E98 /* BG_canvas_5.png */,
+				9F0B256B1721337300495E98 /* BG_canvas_end.png */,
+				9F0B256C1721337300495E98 /* BG_stage1_bat.png */,
+				9F0B256D1721337300495E98 /* BG_stage1_castle_left.png */,
+				9F0B256E1721337300495E98 /* BG_stage1_castle_left_end.png */,
+				9F0B256F1721337300495E98 /* BG_stage1_castle_right.png */,
+				9F0B25701721337300495E98 /* BG_stage1_castle_right_end.png */,
+				9F0B25711721337300495E98 /* BG_stage2_cloud_1.png */,
+				9F0B25721721337300495E98 /* BG_stage2_cloud_2.png */,
+				9F0B25731721337300495E98 /* BG_stage2_cloud_3.png */,
+				9F0B25741721337300495E98 /* BG_stage3_cloud_1.png */,
+				9F0B25751721337300495E98 /* BG_stage3_cloud_2.png */,
+				9F0B25761721337300495E98 /* BG_stage3_cloud_3.png */,
+				9F0B25771721337300495E98 /* BG_stage3_cloud_4.png */,
+				9F0B25781721337300495E98 /* BG_stage3_cloud_5.png */,
+				9F0B25791721337300495E98 /* BG_stage3_ufo.png */,
+			);
+			path = background;
+			sourceTree = "<group>";
+		};
 		9F55BD1117154E8D002A75BC /* sheetUI-achievement */ = {
 			isa = PBXGroup;
 			children = (
@@ -3710,8 +3789,11 @@
 				9F55BD1C17154E8D002A75BC /* UI_mission_item_unlock.png */,
 				9F55BD1D17154E8D002A75BC /* UI_mission_medal.png */,
 				9F55BD1E17154E8D002A75BC /* UI_mission_medal_shadow.png */,
-				9F55BD1F17154E8D002A75BC /* UI_mission_pages_off.png */,
-				9F55BD2017154E8D002A75BC /* UI_mission_pages_on.png */,
+				9F0B2597172135B300495E98 /* UI_mission_pages_off-hd.png */,
+				9F0B258F1721347E00495E98 /* UI_mission_pages_off.png */,
+				9F0B25901721347E00495E98 /* UI_mission_pages_on-hd.png */,
+				9F0B25911721347E00495E98 /* UI_mission_pages_on.png */,
+				9F0B25921721347E00495E98 /* UI_other_mask.png */,
 			);
 			path = "sheetUI-achievement";
 			sourceTree = "<group>";
@@ -4279,8 +4361,6 @@
 				9F55BD2B17154E8D002A75BC /* UI_mission_item_unlock.png in Resources */,
 				9F55BD2C17154E8D002A75BC /* UI_mission_medal.png in Resources */,
 				9F55BD2D17154E8D002A75BC /* UI_mission_medal_shadow.png in Resources */,
-				9F55BD2E17154E8D002A75BC /* UI_mission_pages_off.png in Resources */,
-				9F55BD2F17154E8D002A75BC /* UI_mission_pages_on.png in Resources */,
 				9F55BD3417154F51002A75BC /* sheetUI-achievement-hd.plist in Resources */,
 				9F55BD3517154F51002A75BC /* sheetUI-achievement-hd.png in Resources */,
 				9F55BD3617154F51002A75BC /* sheetUI-achievement.plist in Resources */,
@@ -4292,6 +4372,31 @@
 				9F55BD411715530D002A75BC /* UI_other_mask.png in Resources */,
 				9F47FA2D17168B4D00ABFFAB /* mask.png in Resources */,
 				9F1455F8171BE02C006FCB45 /* achievementUnlockStarReward.plist in Resources */,
+				9F0B257B1721337300495E98 /* BG_canvas_1.png in Resources */,
+				9F0B257C1721337300495E98 /* BG_canvas_2.png in Resources */,
+				9F0B257D1721337300495E98 /* BG_canvas_3.png in Resources */,
+				9F0B257E1721337300495E98 /* BG_canvas_4.png in Resources */,
+				9F0B257F1721337300495E98 /* BG_canvas_5.png in Resources */,
+				9F0B25801721337300495E98 /* BG_canvas_end.png in Resources */,
+				9F0B25811721337300495E98 /* BG_stage1_bat.png in Resources */,
+				9F0B25821721337300495E98 /* BG_stage1_castle_left.png in Resources */,
+				9F0B25831721337300495E98 /* BG_stage1_castle_left_end.png in Resources */,
+				9F0B25841721337300495E98 /* BG_stage1_castle_right.png in Resources */,
+				9F0B25851721337300495E98 /* BG_stage1_castle_right_end.png in Resources */,
+				9F0B25861721337300495E98 /* BG_stage2_cloud_1.png in Resources */,
+				9F0B25871721337300495E98 /* BG_stage2_cloud_2.png in Resources */,
+				9F0B25881721337300495E98 /* BG_stage2_cloud_3.png in Resources */,
+				9F0B25891721337300495E98 /* BG_stage3_cloud_1.png in Resources */,
+				9F0B258A1721337300495E98 /* BG_stage3_cloud_2.png in Resources */,
+				9F0B258B1721337300495E98 /* BG_stage3_cloud_3.png in Resources */,
+				9F0B258C1721337300495E98 /* BG_stage3_cloud_4.png in Resources */,
+				9F0B258D1721337300495E98 /* BG_stage3_cloud_5.png in Resources */,
+				9F0B258E1721337300495E98 /* BG_stage3_ufo.png in Resources */,
+				9F0B25931721347E00495E98 /* UI_mission_pages_off.png in Resources */,
+				9F0B25941721347E00495E98 /* UI_mission_pages_on-hd.png in Resources */,
+				9F0B25951721347E00495E98 /* UI_mission_pages_on.png in Resources */,
+				9F0B25961721347E00495E98 /* UI_other_mask.png in Resources */,
+				9F0B2598172135B300495E98 /* UI_mission_pages_off-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4576,6 +4681,7 @@
 				9F06214F170F98FD002D883F /* GamespeedTestTool.mm in Sources */,
 				9FBCB5B11714CF5700786A59 /* OutlineLabel.m in Sources */,
 				9F1455FB171BE0FD006FCB45 /* StarRewardData.m in Sources */,
+				9F0B256317212C6200495E98 /* BackgroundManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

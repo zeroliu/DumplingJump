@@ -5,7 +5,7 @@
 	<key>debug</key>
 	<dict>
 		<key>showMeTheMoneyEnabled</key>
-		<false/>
+		<true/>
 		<key>levelEditorEnabled</key>
 		<true/>
 		<key>gameSpeedEditorEnabled</key>

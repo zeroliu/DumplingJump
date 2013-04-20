@@ -10,4 +10,8 @@
 
 @interface BackgroundManager : CCNode
 + (id) shared;
+
+- (void) addBackgroundToLayer;
+- (void) reset;
+- (void) updateBackgroundPosition:(ccTime)deltaTime;
 @end

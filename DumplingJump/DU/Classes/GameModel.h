@@ -11,15 +11,11 @@
 
 @interface GameModel : CCNode
 
-//@property (assign, nonatomic) float scrollSpeed;
 @property (nonatomic, retain) Level *currentLevel;
 @property (nonatomic, assign) int state;
 @property (nonatomic, assign) float distance;
 @property (nonatomic, assign) float multiplier;
 @property (nonatomic, assign) float star;
-//@property (nonatomic, readonly) float gameSpeed;
-//@property (nonatomic, readonly) float gameSpeedIncreaseUnit;
-//@property (nonatomic, readonly) float gameSpeedMax;
 
 @property (nonatomic, readonly) float scrollSpeedIncrease;
 @property (nonatomic, readonly) float scrollSpeedIncreaseUnit;

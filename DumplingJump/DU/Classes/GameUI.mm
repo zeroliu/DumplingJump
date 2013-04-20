@@ -12,7 +12,6 @@
 #import "HeroManager.h"
 #import "BoardManager.h"
 #import "LevelManager.h"
-#import "BackgroundController.h"
 #import "GameModel.h"
 #import "Constants.h"
 

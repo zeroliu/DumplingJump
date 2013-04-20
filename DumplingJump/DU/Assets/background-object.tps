@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>cocos2d</string>
         <key>textureFileName</key>
-        <filename>../Resources/spriteSheets/sheetBackground-hd.png</filename>
+        <filename>../Resources/spriteSheets/sheetBackgroundObject-hd.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,7 +127,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>../Resources/spriteSheets/sheetBackground-hd.plist</filename>
+        <filename>../Resources/spriteSheets/sheetBackgroundObject-hd.plist</filename>
         <key>mainExtension</key>
         <string>-hd.</string>
         <key>forceIdenticalLayout</key>
@@ -162,7 +162,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>background</filename>
+            <filename>backgroundObject</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

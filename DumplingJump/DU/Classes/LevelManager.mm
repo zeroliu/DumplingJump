@@ -538,7 +538,7 @@ toRemovePowderArray = _toRemovePowderArray;
     [[[BoardManager shared] getBoard] rocketPowerup:interval];
     
     //Speed up scrolling speed
-    [[BackgroundController shared] speedUpWithScale:6 interval:interval];
+//    [[BackgroundController shared] speedUpWithScale:6 interval:interval];
     
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval-1) life:1];

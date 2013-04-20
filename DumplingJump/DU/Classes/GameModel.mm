@@ -29,9 +29,6 @@
 
 @synthesize
 powerUpData = _powerUpData,
-//gameSpeed = _gameSpeed,
-//gameSpeedIncreaseUnit = _gameSpeedIncreaseUnit,
-//gameSpeedMax = _gameSpeedMax,
 objectInitialSpeed = _objectInitialSpeed,
 multiplier = _multiplier,
 isHighScore = _isHighScore,
@@ -81,10 +78,6 @@ gameTime            = _gameTime;
         
         //preload initial data so that we don't need to search into the dictionary everytime
         _objectInitialSpeed = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"objectInitialSpeed"] floatValue];
-        
-        //        _gameSpeed = 1;
-        //        _gameSpeedIncreaseUnit = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedIncreaseUnit"] floatValue];
-        //        _gameSpeedMax = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"gameSpeedMax"] floatValue];
     }
     
     return self;

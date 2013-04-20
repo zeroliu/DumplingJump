@@ -1,7 +1,6 @@
 #import "GameLayer.h"
 #import "GameModel.h"
 #import "LevelManager.h"
-#import "BackgroundController.h"
 #import "BoardManager.h"
 #import "HeroManager.h"
 #import "StarManager.h"
@@ -264,8 +263,9 @@
 
 -(void) loadFrontendData
 {
-    [BackgroundManager shared];
-    [[BackgroundController shared] initParam];
+    [[BackgroundManager shared] addBackgroundToLayer];
+    [[BackgroundManager shared] reset];
+//    [[BackgroundController shared] initParam];
     [self initUI];
     [self initGame];
     if (_isDebug)
@@ -303,8 +303,8 @@
     //Set the currentLevel by loading from levelManager
     self.model.currentLevel = [[LevelManager shared] selectLevelWithName:LEVEL_NORMAL];
     //Set the corresponding background
-    [[BackgroundController shared] setBackgroundWithName:self.model.currentLevel.backgroundName];
-    [[BoardManager shared] createBoardWithSpriteName:self.model.currentLevel.boardType position:ccp(160,150*SCALE_MULTIPLIER)];
+//    [[BackgroundController shared] setBackgroundWithName:self.model.currentLevel.backgroundName];
+    [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
     [self generateHero];
 }
 
@@ -318,7 +318,8 @@
     if (self.model.state == GAME_START)
     {
         self.model.gameTime += deltaTime;
-        [[BackgroundController shared] updateBackground:deltaTime];
+        [[BackgroundManager shared] updateBackgroundPosition:deltaTime];
+//        [[BackgroundController shared] updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];
@@ -489,7 +490,6 @@
     [self generateHero];
     
     //Reset Board
-    //[[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
     [[BoardManager shared] createBoardWithSpriteName:MAZE_BOARD position:ccp(160,150*SCALE_MULTIPLIER)];
     
     //Reset game frame
@@ -500,6 +500,9 @@
     
     //Reset game speed
     [self.model resetGameSpeed];
+    
+    //Reset background
+    [[BackgroundManager shared] reset];
     
     //Resume game
     [self resumeGame];

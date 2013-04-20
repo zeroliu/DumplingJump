@@ -75,7 +75,7 @@
     
     for (int i=0; i<num_; i++)
     {
-        CCMenuItemSprite *bullet = [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithFile:normalSpriteFile_] selectedSprite:[CCSprite spriteWithFile:selectedSpriteFile_]];
+        CCMenuItemSprite *bullet = [CCMenuItemSprite itemWithNormalSprite:[CCSprite spriteWithSpriteFrameName:normalSpriteFile_] selectedSprite:[CCSprite spriteWithSpriteFrameName:selectedSpriteFile_]];
         bullet.position = ccp(0,0);
         bullet.isEnabled = NO;
         bullet.tag = i;

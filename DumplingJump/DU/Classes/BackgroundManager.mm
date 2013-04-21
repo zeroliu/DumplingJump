@@ -10,10 +10,21 @@
 #import "XMLHelper.h"
 #import "Constants.h"
 #import "Common.h"
+#import "HeroManager.h"
+#import "Hero.h"
 #import "GameModel.h"
 @interface BackgroundManager()
 {
     NSMutableDictionary*    _backgroundData;
+    
+    //Data structure
+    //<stage number>    -> NSArray
+    //                      -> NSDictionary
+    //                      -> NSDictionary
+    //<stage number>    -> NSArray
+    //                      -> NSDictionary
+    //                      -> NSDictionary
+    ///...
     NSMutableDictionary*    _backgroundObjectData;
     
     CCSpriteBatchNode*      _bgNode;
@@ -22,9 +33,17 @@
     CCSprite*               _belowBG;
     CCSprite*               _aboveBG;
     
+    NSMutableDictionary*    _belowSprites;
+    NSMutableDictionary*    _aboveSprites;
+    NSMutableArray*         _currentObjects;
+    NSArray*                _newObjects;
+    NSMutableArray*         _objectToRemove;
+    
     int                     _currentStage;
     int                     _maxStage;
     float                   _currentBgVelocity;
+    
+    float                   _winHeight;
 }
 @property (nonatomic, assign) float scrollSpeedScale;
 @end
@@ -49,7 +68,16 @@ scrollSpeedScale = _scrollSpeedScale;
     _belowBG = nil;
     [_aboveBG release];
     _aboveBG = nil;
-    
+    [_belowSprites release];
+    _belowSprites = nil;
+    [_aboveSprites release];
+    _aboveSprites = nil;
+    [_currentObjects release];
+    _currentObjects = nil;
+    [_newObjects release];
+    _newObjects = nil;
+    [_objectToRemove release];
+    _objectToRemove = nil;
     [super dealloc];
 }
 
@@ -84,6 +112,14 @@ scrollSpeedScale = _scrollSpeedScale;
         //Set batch node
         _bgNode = [[CCSpriteBatchNode batchNodeWithFile:@"sheetBackground.png"] retain];
         _bgObjectNode = [[CCSpriteBatchNode batchNodeWithFile:@"sheetBackgroundObject.png"] retain];
+        
+        _belowSprites = [[NSMutableDictionary alloc] init];
+        _aboveSprites = [[NSMutableDictionary alloc] init];
+        _currentObjects = [[NSMutableArray alloc] init];
+        _objectToRemove = [[NSMutableArray alloc] init];
+        
+        _winHeight = [CCDirector sharedDirector].winSize.height - BLACK_HEIGHT * 2;
+        _newObjects = nil;
     }
     
     return self;
@@ -111,10 +147,27 @@ scrollSpeedScale = _scrollSpeedScale;
     //Reset scroll speed scale
     _scrollSpeedScale = 1;
     
+    //Reset background objects
+    [_currentObjects removeAllObjects];
+    
+    //Add background objects for stage 1
+    [_currentObjects addObjectsFromArray:[_backgroundObjectData objectForKey:[NSString stringWithFormat:@"%d",_currentStage]]];
+    
     //Recreate background sprites
     [self resetBackgroundSprites];
     
+    //Recreate background object sprites
+    [self resetBackgroundObjectSprites];
+    
     [self updateCurrentBGVelocity];
+    
+    if (_newObjects != nil)
+    {
+        [_newObjects release];
+        _newObjects = nil;
+    }
+    
+    [_objectToRemove removeAllObjects];
 }
 
 - (void) updateBackgroundPosition:(ccTime)deltaTime
@@ -124,15 +177,96 @@ scrollSpeedScale = _scrollSpeedScale;
     _aboveBG.position = ccp(0, _belowBG.position.y + _belowBG.boundingBox.size.height-1);
     
     //If going out of the boundary, switch position
-    if (_aboveBG.position.y < 0)
+    if (_aboveBG.position.y < BLACK_HEIGHT)
     {
         [self swapBGSpritePointer:&_aboveBG with:&_belowBG];
         if (_currentStage < _maxStage)
         {
             _currentStage ++;
+            [self addTransitionSpriteToCurrentObject];
+            [self loadNewObjectData];
+            [self addNewBackgroundObjectsWithNewObjectData:_newObjects];
             [self updateCurrentBGVelocity];
             [self setNewBackgroundSprite];
         }
+    }
+}
+
+- (void) updateBackgroundObjectPosition:(ccTime)deltaTime
+{
+    for (NSDictionary* objectData in _currentObjects)
+    {
+        float initYPos = [[objectData objectForKey:@"y"] floatValue];
+        float currentVelocity = _winHeight / [[objectData objectForKey:@"time"] floatValue];
+        float dy = -GAMEMODEL.scrollSpeedIncrease * _scrollSpeedScale * currentVelocity * deltaTime;
+        
+        //Hero Influence
+        float heroMaxVy = ((HeroManager *)[HeroManager shared]).heroMaxVy;
+        float heroVy = ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y;
+        float influence = heroVy / 10 * [[objectData objectForKey:@"hero_influence"] floatValue];
+        dy = dy * (1+influence);
+        
+        NSString *objectID = [objectData objectForKey:@"id"];
+        CCSprite *belowSprite = [_belowSprites objectForKey:objectID];
+        CCSprite *aboveSprite = [_aboveSprites objectForKey:objectID];
+        belowSprite.position = ccpAdd(belowSprite.position, ccp(0,dy));
+        aboveSprite.position = ccp(aboveSprite.position.x, belowSprite.position.y + _winHeight - 1);
+        
+        if (aboveSprite.position.y < initYPos + BLACK_HEIGHT)
+        {
+            int objectStage = [[objectData objectForKey:@"stage"] intValue];
+            if (objectStage == _currentStage)
+            {
+                [_belowSprites setObject:aboveSprite forKey:objectID];
+                [_aboveSprites setObject:belowSprite forKey:objectID];
+            }
+            
+            // if above layer moves out of the screen
+            if (aboveSprite.position.y < initYPos + BLACK_HEIGHT - _winHeight)
+            {
+                if ([[aboveSprite children] count] > 0)
+                {
+                    float childHeightMax = 0;
+                    for (id child in [aboveSprite children])
+                    {
+                        if ([child isKindOfClass:[CCSprite class]])
+                        {
+                            childHeightMax = MAX(((CCSprite *)child).boundingBox.size.height, childHeightMax);
+                        }
+                    }
+                    if (aboveSprite.position.y < initYPos + BLACK_HEIGHT - _winHeight - childHeightMax)
+                    {
+                        [_objectToRemove addObject:[objectData copy]];
+                    }
+                }
+                else
+                {
+                    [_objectToRemove addObject:[objectData copy]];
+                }
+            }
+        }
+    }
+    
+    if ([_objectToRemove count] > 0)
+    {
+        for (NSDictionary* toRemoveObject in _objectToRemove)
+        {
+            NSString *objectID = [toRemoveObject objectForKey:@"id"];
+            [_currentObjects removeObject:toRemoveObject];
+            [[_belowSprites objectForKey:objectID] removeFromParentAndCleanup:NO];
+            [[_aboveSprites objectForKey:objectID] removeFromParentAndCleanup:NO];
+            [_belowSprites removeObjectForKey:objectID];
+            [_aboveSprites removeObjectForKey:objectID];
+        }
+        
+        [_objectToRemove removeAllObjects];
+    }
+
+    if (_newObjects != nil)
+    {
+        [_currentObjects addObjectsFromArray:_newObjects];
+        [_newObjects release];
+        _newObjects = nil;
     }
 }
 
@@ -165,11 +299,67 @@ scrollSpeedScale = _scrollSpeedScale;
     [_bgNode addChild:_aboveBG];
 }
 
+- (void) resetBackgroundObjectSprites
+{
+    [_bgObjectNode removeAllChildrenWithCleanup:NO];
+    
+    [_belowSprites removeAllObjects];
+    [_aboveSprites removeAllObjects];
+    
+    for (NSDictionary* objectData in _currentObjects)
+    {
+        NSString *objectID = [objectData objectForKey:@"id"];
+        NSString *spriteName = [objectData objectForKey:@"name"];
+        CCSprite* belowSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@.png",spriteName]];
+        CCSprite* aboveSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@.png",spriteName]];
+        
+        float anchorX = [[objectData objectForKey:@"anchorX"] floatValue];
+        float x = [[objectData objectForKey:@"x"] floatValue];
+        float y = [[objectData objectForKey:@"y"] floatValue];
+        belowSprite.anchorPoint = ccp(anchorX,0);
+        belowSprite.position = ccp(x, y + BLACK_HEIGHT);
+        aboveSprite.anchorPoint = ccp(anchorX,0);
+        aboveSprite.position = ccp(x, belowSprite.position.y + _winHeight - 1);
+        
+        [_belowSprites setObject:belowSprite forKey:objectID];
+        [_aboveSprites setObject:aboveSprite forKey:objectID];
+        
+        int layer = [[objectData objectForKey:@"z"] intValue];
+        [_bgObjectNode addChild:belowSprite z:layer];
+        [_bgObjectNode addChild:aboveSprite z:layer];
+    }
+}
+
+- (void) addNewBackgroundObjectsWithNewObjectData:(NSArray *)newObjects
+{
+    for (NSDictionary* objectData in newObjects)
+    {
+        NSString *objectID = [objectData objectForKey:@"id"];
+        NSString *spriteName = [objectData objectForKey:@"name"];
+        CCSprite* belowSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@.png",spriteName]];
+        CCSprite* aboveSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@.png",spriteName]];
+        
+        float anchorX = [[objectData objectForKey:@"anchorX"] floatValue];
+        float x = [[objectData objectForKey:@"x"] floatValue];
+        float y = [[objectData objectForKey:@"y"] floatValue];
+        belowSprite.anchorPoint = ccp(anchorX,0);
+        belowSprite.position = ccp(x, y + BLACK_HEIGHT + _winHeight);
+        aboveSprite.anchorPoint = ccp(anchorX,0);
+        aboveSprite.position = ccp(x, belowSprite.position.y + _winHeight*2 - 1);
+        
+        [_belowSprites setObject:belowSprite forKey:objectID];
+        [_aboveSprites setObject:aboveSprite forKey:objectID];
+        
+        int layer = [[objectData objectForKey:@"z"] intValue];
+        [_bgObjectNode addChild:belowSprite z:layer];
+        [_bgObjectNode addChild:aboveSprite z:layer];
+    }
+}
+
 - (void) updateCurrentBGVelocity
 {
-    float screenHeight = [CCDirector sharedDirector].winSize.height - BLACK_HEIGHT * 2;
     float duration = [[[_backgroundData objectForKey:[NSString stringWithFormat:@"%d",_currentStage]] objectForKey:@"time"] floatValue];
-    _currentBgVelocity = screenHeight / duration;
+    _currentBgVelocity = _winHeight / duration;
 }
 
 - (void) swapBGSpritePointer:(CCSprite **)spriteA with:(CCSprite **)spriteB
@@ -182,6 +372,28 @@ scrollSpeedScale = _scrollSpeedScale;
 - (void) setNewBackgroundSprite
 {
     [_aboveBG setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%@.png",[[_backgroundData objectForKey:[NSString stringWithFormat:@"%d",MIN(_currentStage+1, _maxStage)]] objectForKey:@"name"]]]];
+}
+
+- (void) loadNewObjectData
+{
+    _newObjects = [[_backgroundObjectData objectForKey:[NSString stringWithFormat:@"%d",_currentStage]] retain];
+}
+
+- (void) addTransitionSpriteToCurrentObject
+{
+    for (NSDictionary* objectData in _currentObjects)
+    {
+        NSString *transitionSpriteName = [objectData objectForKey:@"transition"];
+        if (![transitionSpriteName isEqualToString:@""])
+        {
+            NSString *objectID = [objectData objectForKey:@"id"];
+            CCSprite* transitionSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@.png",transitionSpriteName]];
+            transitionSprite.anchorPoint = ccp(0,0);
+            CCSprite* aboveSprite = [_aboveSprites objectForKey:objectID];
+            transitionSprite.position = ccp(0,aboveSprite.boundingBox.size.height-1);
+            [aboveSprite addChild:transitionSprite];
+        }
+    }
 }
 
 @end

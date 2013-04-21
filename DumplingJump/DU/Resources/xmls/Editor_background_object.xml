@@ -20,7 +20,7 @@
 		<stage>1</stage>
 		<time>5</time>
         <z>1</z>
-        <hero_influence>0.1</hero_influence>
+        <hero_influence>0.5</hero_influence>
         <x>0</x>
         <y>200</y>
         <anchorX>0</anchorX>
@@ -34,7 +34,7 @@
 		<stage>1</stage>
 		<time>5</time>
         <z>1</z>
-        <hero_influence>0.1</hero_influence>
+        <hero_influence>0.5</hero_influence>
         <x>320</x>
         <y>250</y>
         <anchorX>1</anchorX>
@@ -48,7 +48,7 @@
 		<stage>1</stage>
 		<time>5</time>
         <z>1</z>
-        <hero_influence>0.1</hero_influence>
+        <hero_influence>0.5</hero_influence>
         <x>320</x>
         <y>50</y>
         <anchorX>1</anchorX>
@@ -61,8 +61,8 @@
 		<name>BG_stage1_castle_left</name>
 		<stage>1</stage>
 		<time>3</time>
-        <z>1</z>
-        <hero_influence>0.3</hero_influence>
+        <z>2</z>
+        <hero_influence>0.8</hero_influence>
         <x>0</x>
         <y>0</y>
         <anchorX>0</anchorX>
@@ -75,8 +75,8 @@
 		<name>BG_stage1_castle_right</name>
 		<stage>1</stage>
 		<time>3</time>
-        <z>1</z>
-        <hero_influence>0.3</hero_influence>
+        <z>2</z>
+        <hero_influence>0.8</hero_influence>
         <x>320</x>
         <y>0</y>
         <anchorX>1</anchorX>
@@ -90,7 +90,7 @@
 		<stage>1</stage>
 		<time>4</time>
         <z>3</z>
-        <hero_influence>0.4</hero_influence>
+        <hero_influence>1</hero_influence>
         <x>250</x>
         <y>100</y>
         <anchorX>0.5</anchorX>
@@ -104,7 +104,7 @@
 		<stage>2</stage>
 		<time>8</time>
         <z>3</z>
-        <hero_influence>0.1</hero_influence>
+        <hero_influence>0.6</hero_influence>
         <x>0</x>
         <y>200</y>
         <anchorX>0</anchorX>
@@ -118,7 +118,7 @@
 		<stage>2</stage>
 		<time>8</time>
         <z>3</z>
-        <hero_influence>0.1</hero_influence>
+        <hero_influence>0.6</hero_influence>
         <x>320</x>
         <y>250</y>
         <anchorX>1</anchorX>
@@ -132,7 +132,7 @@
 		<stage>2</stage>
 		<time>8</time>
         <z>3</z>
-        <hero_influence>0.1</hero_influence>
+        <hero_influence>0.6</hero_influence>
         <x>320</x>
         <y>50</y>
         <anchorX>1</anchorX>
@@ -146,7 +146,7 @@
 		<stage>3</stage>
 		<time>15</time>
         <z>2</z>
-        <hero_influence>0.05</hero_influence>
+        <hero_influence>0.5</hero_influence>
         <x>260</x>
         <y>50</y>
         <anchorX>0.5</anchorX>
@@ -160,7 +160,7 @@
 		<stage>3</stage>
 		<time>15</time>
         <z>2</z>
-        <hero_influence>0.05</hero_influence>
+        <hero_influence>0.5</hero_influence>
         <x>100</x>
         <y>200</y>
         <anchorX>0.5</anchorX>
@@ -174,7 +174,7 @@
 		<stage>3</stage>
 		<time>15</time>
         <z>2</z>
-        <hero_influence>0.05</hero_influence>
+        <hero_influence>0.5</hero_influence>
         <x>240</x>
         <y>350</y>
         <anchorX>0.5</anchorX>
@@ -188,10 +188,10 @@
 		<stage>3</stage>
 		<time>10</time>
         <z>3</z>
-        <hero_influence>0.1</hero_influence>
-        <x>0</x>
+        <hero_influence>0.6</hero_influence>
+        <x>320</x>
         <y>300</y>
-        <anchorX>0</anchorX>
+        <anchorX>1</anchorX>
         <anchorY>0.5</anchorY>
         <transition></transition>
         <end>end</end>
@@ -202,10 +202,10 @@
 		<stage>3</stage>
 		<time>10</time>
         <z>3</z>
-        <hero_influence>0.1</hero_influence>
-        <x>320</x>
+        <hero_influence>0.6</hero_influence>
+        <x>0</x>
         <y>200</y>
-        <anchorX>1</anchorX>
+        <anchorX>0</anchorX>
         <anchorY>0.5</anchorY>
         <transition></transition>
         <end>end</end>
@@ -216,7 +216,7 @@
 		<stage>3</stage>
 		<time>10</time>
         <z>1</z>
-        <hero_influence>0.2</hero_influence>
+        <hero_influence>0.3</hero_influence>
         <x>150</x>
         <y>40</y>
         <anchorX>0.5</anchorX>

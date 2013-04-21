@@ -14,4 +14,5 @@
 - (void) addBackgroundToLayer;
 - (void) reset;
 - (void) updateBackgroundPosition:(ccTime)deltaTime;
+- (void) updateBackgroundObjectPosition:(ccTime)deltaTime;
 @end

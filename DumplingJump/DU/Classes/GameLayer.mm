@@ -319,6 +319,7 @@
     {
         self.model.gameTime += deltaTime;
         [[BackgroundManager shared] updateBackgroundPosition:deltaTime];
+        [[BackgroundManager shared] updateBackgroundObjectPosition:deltaTime];
 //        [[BackgroundController shared] updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];

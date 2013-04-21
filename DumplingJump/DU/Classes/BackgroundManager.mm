@@ -201,7 +201,6 @@ scrollSpeedScale = _scrollSpeedScale;
         float dy = -GAMEMODEL.scrollSpeedIncrease * _scrollSpeedScale * currentVelocity * deltaTime;
         
         //Hero Influence
-        float heroMaxVy = ((HeroManager *)[HeroManager shared]).heroMaxVy;
         float heroVy = ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y;
         float influence = heroVy / 10 * [[objectData objectForKey:@"hero_influence"] floatValue];
         dy = dy * (1+influence);
@@ -384,7 +383,7 @@ scrollSpeedScale = _scrollSpeedScale;
     for (NSDictionary* objectData in _currentObjects)
     {
         NSString *transitionSpriteName = [objectData objectForKey:@"transition"];
-        if (![transitionSpriteName isEqualToString:@""])
+        if (transitionSpriteName != nil && ![transitionSpriteName isEqualToString:@""])
         {
             NSString *objectID = [objectData objectForKey:@"id"];
             CCSprite* transitionSprite = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%@.png",transitionSpriteName]];

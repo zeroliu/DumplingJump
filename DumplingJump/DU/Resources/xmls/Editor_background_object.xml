@@ -11,6 +11,7 @@
 		<y>y</y>
 		<anchorX>anchorX</anchorX>
 		<transition>transition</transition>
+        <end>end of row</end>
 	</object>
 	<object>
 		<id>1</id>

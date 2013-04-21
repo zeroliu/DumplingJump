@@ -5,6 +5,7 @@
 		<name>name</name>
 		<stage>stage</stage>
 		<time>time</time>
+        <end>end of row</end>
 	</background>
 	<background>
 		<id>1</id>

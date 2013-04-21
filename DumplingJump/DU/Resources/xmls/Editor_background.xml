@@ -5,41 +5,40 @@
 		<name>name</name>
 		<stage>stage</stage>
 		<time>time</time>
-        <end></end>
 	</background>
-    <background>
+	<background>
 		<id>1</id>
 		<name>BG_canvas_1</name>
 		<stage>1</stage>
-		<time>20</time>
-        <end>end</end>
+		<time>30</time>
+		<end>end</end>
 	</background>
-    <background>
+	<background>
 		<id>2</id>
 		<name>BG_canvas_2</name>
 		<stage>2</stage>
-		<time>40</time>
-        <end>end</end>
+		<time>70</time>
+		<end>end</end>
 	</background>
-    <background>
+	<background>
 		<id>3</id>
 		<name>BG_canvas_3</name>
 		<stage>3</stage>
-		<time>60</time>
-        <end>end</end>
+		<time>110</time>
+		<end>end</end>
 	</background>
-    <background>
+	<background>
 		<id>4</id>
 		<name>BG_canvas_4</name>
 		<stage>4</stage>
-		<time>80</time>
-        <end>end</end>
+		<time>150</time>
+		<end>end</end>
 	</background>
-    <background>
+	<background>
 		<id>5</id>
 		<name>BG_canvas_5</name>
 		<stage>5</stage>
-		<time>100</time>
-        <end>end</end>
+		<time>190</time>
+		<end>end</end>
 	</background>
 </Backgrounds>

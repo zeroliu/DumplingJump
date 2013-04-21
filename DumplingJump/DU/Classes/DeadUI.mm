@@ -97,10 +97,16 @@
 {
     if (_isNew)
     {
+        [newAchievement stopAllActions];
+        id scaleUp = [CCScaleTo actionWithDuration:0.1 scale:1.2];
+        id scaleDown = [CCScaleTo actionWithDuration:0.4 scale:1];
+        [newAchievement runAction:[CCRepeatForever actionWithAction: [CCSequence actions:scaleUp, scaleDown, nil]]];
+        
         [newAchievement setVisible:YES];
     }
     else
     {
+        [newAchievement stopAllActions];
         [newAchievement setVisible:NO];
     }
 }

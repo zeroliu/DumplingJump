@@ -505,6 +505,9 @@
     //Reset background
     [[BackgroundManager shared] reset];
     
+    //Reset buttons in Game UI in case they got unlocked
+    [[GameUI shared] refreshButtons];
+    
     //Resume game
     [self resumeGame];
     

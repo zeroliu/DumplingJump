@@ -195,7 +195,6 @@ scrollSpeedScale = _scrollSpeedScale;
 
 - (void) updateBackgroundObjectPosition:(ccTime)deltaTime
 {
-    DLog(@"scrollSpeedScale = %g", _scrollSpeedScale);
     for (NSDictionary* objectData in _currentObjects)
     {
         float initYPos = [[objectData objectForKey:@"y"] floatValue];

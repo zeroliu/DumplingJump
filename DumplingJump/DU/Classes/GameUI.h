@@ -50,4 +50,5 @@
 -(void) updateDistanceSign:(int)distance;
 -(CGPoint) getStarDestination;
 -(void) scaleStarUI;
+-(void) refreshButtons;
 @end

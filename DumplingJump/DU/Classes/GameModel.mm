@@ -7,7 +7,6 @@
 //
 #import "WorldData.h"
 #import "GameModel.h"
-#import "GameUI.h"
 #import "Constants.h"
 #import "Hub.h"
 #import "EquipmentData.h"

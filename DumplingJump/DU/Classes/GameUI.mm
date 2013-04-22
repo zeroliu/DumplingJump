@@ -76,6 +76,12 @@ NSString *const achievementPopup = @"achievementPopup";
     [self adjustUI:magnetButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:pauseButton offset:BLACK_HEIGHT];
     
+    [self refreshButtons];
+    
+}
+
+- (void) refreshButtons
+{
     int buttonOffset = 0;
     
     if ([[USERDATA objectForKey:@"MAGNET"] intValue] >= 0)
@@ -97,7 +103,6 @@ NSString *const achievementPopup = @"achievementPopup";
     {
         [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, shieldButtonHolder.position.y)];
     }
-    
 }
 
 - (void) adjustUI:(CCNode *)element offset:(float)theOffset

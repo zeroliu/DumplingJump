@@ -5,41 +5,41 @@
 		<name>name</name>
 		<stage>stage</stage>
 		<time>time</time>
-        <end>end of row</end>
+		<end>end of row</end>
 	</background>
 	<background>
 		<id>1</id>
 		<name>BG_canvas_1</name>
 		<stage>1</stage>
-		<time>30</time>
+		<time>40</time>
 		<end>end</end>
 	</background>
 	<background>
 		<id>2</id>
 		<name>BG_canvas_2</name>
 		<stage>2</stage>
-		<time>70</time>
+		<time>80</time>
 		<end>end</end>
 	</background>
 	<background>
 		<id>3</id>
 		<name>BG_canvas_3</name>
 		<stage>3</stage>
-		<time>110</time>
+		<time>120</time>
 		<end>end</end>
 	</background>
 	<background>
 		<id>4</id>
 		<name>BG_canvas_4</name>
 		<stage>4</stage>
-		<time>150</time>
+		<time>160</time>
 		<end>end</end>
 	</background>
 	<background>
 		<id>5</id>
 		<name>BG_canvas_5</name>
 		<stage>5</stage>
-		<time>190</time>
+		<time>200</time>
 		<end>end</end>
 	</background>
 </Backgrounds>

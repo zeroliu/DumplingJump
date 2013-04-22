@@ -295,7 +295,7 @@
     
     if (blowAwayTrigger != 0)
     {
-        self.body->SetLinearVelocity(b2Vec2(self.maxVx * blowAwayTrigger, self.speed.y));
+        self.body->SetLinearVelocity(b2Vec2(blowAwayTrigger, self.speed.y));
     }
     else if (freezeTrigger != 0)
     {
@@ -728,9 +728,10 @@
         adjustJump = 0;
         adjustMove = 0;
         [self changeCollisionDetection:C_NOTHING];
-        float distance = ccpDistance(explosionPos, self.sprite.position);
-        float explosionForce = SHOCK_PRESSURE / 500;
-        self.body->ApplyLinearImpulse(b2Vec2(explosionForce * self.body->GetMass() * (self.sprite.position.x - explosionPos.x)/distance, explosionForce * self.body->GetMass() * (self.sprite.position.y - explosionPos.y)/distance), self.body->GetPosition());
+//        float distance = ccpDistance(explosionPos, self.sprite.position);
+//        float explosionForce = SHOCK_PRESSURE / 500;
+//        self.body->ApplyLinearImpulse(b2Vec2(0, self.body->GetMass() * 13), self.body->GetPosition());
+        self.body->SetLinearVelocity(b2Vec2(self.speed.x, 10));
         
         if (self.sprite.position.x < explosionPos.x)
         {
@@ -739,7 +740,8 @@
         {
             blowAwayTrigger = 1;
         }
-    
+        
+        [self playAnimationForever:@"H_hurt"];
 
         //Blow objects
         for (DUPhysicsObject *ob in ((LevelManager *)[LevelManager shared]).generatedObjects)

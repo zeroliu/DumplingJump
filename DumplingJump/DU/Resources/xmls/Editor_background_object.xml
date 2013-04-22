@@ -11,13 +11,13 @@
 		<y>y</y>
 		<anchorX>anchorX</anchorX>
 		<transition>transition</transition>
-        <end>end of row</end>
+		<end>end of row</end>
 	</object>
 	<object>
 		<id>1</id>
 		<name>BG_stage2_cloud_1</name>
 		<stage>1</stage>
-		<time>2</time>
+		<time>3</time>
 		<z>1</z>
 		<hero_influence>0.5</hero_influence>
 		<x>0</x>
@@ -41,7 +41,7 @@
 		<id>3</id>
 		<name>BG_stage2_cloud_3</name>
 		<stage>1</stage>
-		<time>2</time>
+		<time>3</time>
 		<z>1</z>
 		<hero_influence>0.5</hero_influence>
 		<x>320</x>
@@ -53,8 +53,8 @@
 		<id>4</id>
 		<name>BG_stage1_castle_left</name>
 		<stage>1</stage>
-		<time>3</time>
-		<z>2</z>
+		<time>4</time>
+		<z>4</z>
 		<hero_influence>0.8</hero_influence>
 		<x>0</x>
 		<y>0</y>
@@ -66,8 +66,8 @@
 		<id>5</id>
 		<name>BG_stage1_castle_right</name>
 		<stage>1</stage>
-		<time>3</time>
-		<z>2</z>
+		<time>4</time>
+		<z>4</z>
 		<hero_influence>0.8</hero_influence>
 		<x>320</x>
 		<y>0</y>
@@ -81,17 +81,29 @@
 		<stage>1</stage>
 		<time>4</time>
 		<z>3</z>
-		<hero_influence>1</hero_influence>
-		<x>250</x>
+		<hero_influence>0.4</hero_influence>
+		<x>220</x>
 		<y>100</y>
 		<anchorX>0.5</anchorX>
 		<end>end</end>
 	</object>
 	<object>
 		<id>7</id>
+		<name>BG_stage1_bat</name>
+		<stage>1</stage>
+		<time>4</time>
+		<z>3</z>
+		<hero_influence>0.4</hero_influence>
+		<x>100</x>
+		<y>200</y>
+		<anchorX>0.5</anchorX>
+		<end>end</end>
+	</object>
+	<object>
+		<id>8</id>
 		<name>BG_stage2_cloud_1</name>
 		<stage>2</stage>
-		<time>4</time>
+		<time>3</time>
 		<z>3</z>
 		<hero_influence>0.6</hero_influence>
 		<x>0</x>
@@ -100,10 +112,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>8</id>
+		<id>9</id>
 		<name>BG_stage2_cloud_2</name>
 		<stage>2</stage>
-		<time>3.5</time>
+		<time>3</time>
 		<z>3</z>
 		<hero_influence>0.6</hero_influence>
 		<x>320</x>
@@ -112,10 +124,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>9</id>
+		<id>10</id>
 		<name>BG_stage2_cloud_3</name>
 		<stage>2</stage>
-		<time>3.7</time>
+		<time>3</time>
 		<z>3</z>
 		<hero_influence>0.6</hero_influence>
 		<x>320</x>
@@ -124,10 +136,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>10</id>
+		<id>11</id>
 		<name>BG_stage3_cloud_1</name>
 		<stage>3</stage>
-		<time>4</time>
+		<time>2.5</time>
 		<z>2</z>
 		<hero_influence>0.5</hero_influence>
 		<x>260</x>
@@ -136,10 +148,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>11</id>
+		<id>12</id>
 		<name>BG_stage3_cloud_2</name>
 		<stage>3</stage>
-		<time>4</time>
+		<time>2.5</time>
 		<z>2</z>
 		<hero_influence>0.5</hero_influence>
 		<x>100</x>
@@ -148,10 +160,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>12</id>
+		<id>13</id>
 		<name>BG_stage3_cloud_3</name>
 		<stage>3</stage>
-		<time>4</time>
+		<time>2.5</time>
 		<z>2</z>
 		<hero_influence>0.5</hero_influence>
 		<x>240</x>
@@ -160,10 +172,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>13</id>
+		<id>14</id>
 		<name>BG_stage3_cloud_4</name>
 		<stage>4</stage>
-		<time>3</time>
+		<time>2</time>
 		<z>3</z>
 		<hero_influence>0.6</hero_influence>
 		<x>320</x>
@@ -172,10 +184,10 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>14</id>
+		<id>15</id>
 		<name>BG_stage3_cloud_5</name>
 		<stage>4</stage>
-		<time>3</time>
+		<time>2</time>
 		<z>3</z>
 		<hero_influence>0.6</hero_influence>
 		<x>0</x>
@@ -184,7 +196,7 @@
 		<end>end</end>
 	</object>
 	<object>
-		<id>15</id>
+		<id>16</id>
 		<name>BG_stage3_ufo</name>
 		<stage>5</stage>
 		<time>10</time>

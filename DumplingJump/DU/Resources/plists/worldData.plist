@@ -50,9 +50,9 @@
 		<key>dropRate</key>
 		<real>0.015</real>
 		<key>dropRateIncreaseUnit</key>
-		<real>0.25</real>
+		<real>0.4</real>
 		<key>dropRateIncreaseMax</key>
-		<real>1.5</real>
+		<integer>2</integer>
 		<key>levelTransitionDelay</key>
 		<integer>0</integer>
 		<key>scoreUnit</key>

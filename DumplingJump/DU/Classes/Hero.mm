@@ -937,7 +937,8 @@
     [self changeCollisionDetection:C_STAR | C_ADDTHING];
     [self scheduleOnce:@selector(boosterReady) delay:1];
     [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
-    
+    [[[BoardManager shared] getBoard] performSelector:@selector(boosterEffect) withObject:nil afterDelay:0.8];
+     
     boostStatus = 0;
     self.heroState = @"booster";
     
@@ -971,9 +972,7 @@
 {
     boostStatus = 2;
     float interval = [self getBoosterInterval];
-    [[[BoardManager shared] getBoard] boosterEffect];
-    
-    
+
     self.body->SetGravityScale(0);
     self.body->SetLinearVelocity(b2Vec2(0,0));
     [self scheduleOnce:@selector(boosterFin) delay:interval];

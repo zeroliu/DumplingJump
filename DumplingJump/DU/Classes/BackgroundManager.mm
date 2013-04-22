@@ -173,7 +173,7 @@ scrollSpeedScale = _scrollSpeedScale;
 
 - (void) updateBackgroundPosition:(ccTime)deltaTime
 {
-    float dy = -GAMEMODEL.scrollSpeedIncrease * _scrollSpeedScale * _currentBgVelocity * deltaTime;
+    float dy = -GAMEMODEL.scrollSpeedIncrease * MAX(1, _scrollSpeedScale/2.5) * _currentBgVelocity * deltaTime;
     _belowBG.position = ccpAdd(_belowBG.position, ccp(0,dy));
     _aboveBG.position = ccp(0, _belowBG.position.y + _belowBG.boundingBox.size.height-1);
     

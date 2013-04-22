@@ -526,24 +526,24 @@ toRemovePowderArray = _toRemovePowderArray;
     id loadParagraphAction = [CCCallFunc actionWithTarget:self selector:@selector(loadCurrentParagraph)];
     [GAMELAYER runAction:[CCSequence actions:delay1, loadParagraphAction, nil]];
 }
-
--(void) switchToNextLevelEffect
-{
-    [self rocketEffectWithDuration:3];
-}
-
--(void) rocketEffectWithDuration:(float)interval
-{
-    [[[HeroManager shared] getHero] rocketPowerup:interval];
-    [[[BoardManager shared] getBoard] rocketPowerup:interval];
-    
-    //Speed up scrolling speed
-//    [[BackgroundController shared] speedUpWithScale:6 interval:interval];
-    
-    //Play speed line effect
-    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval-1) life:1];
-    particleNode.position = CGPointZero;
-}
+//
+//-(void) switchToNextLevelEffect
+//{
+//    [self rocketEffectWithDuration:3];
+//}
+//
+//-(void) rocketEffectWithDuration:(float)interval
+//{
+//    [[[HeroManager shared] getHero] rocketPowerup:interval];
+//    [[[BoardManager shared] getBoard] rocketPowerup:interval];
+//    
+//    //Speed up scrolling speed
+////    [[BackgroundController shared] speedUpWithScale:6 interval:interval];
+//    
+//    //Play speed line effect
+//    CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval-1) life:1];
+//    particleNode.position = CGPointZero;
+//}
 
 -(void) stopCurrentParagraph
 {

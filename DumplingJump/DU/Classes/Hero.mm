@@ -954,7 +954,7 @@
 -(void) boosterBackgroundStart
 {
     float interval = [self getBoosterInterval];
-    [[BackgroundManager shared] speedUpWithScale:5 interval:interval];
+    [[BackgroundManager shared] speedUpWithScale:3 interval:interval];
     [GAMEMODEL boostGameSpeed:interval];
 }
 
@@ -1263,7 +1263,7 @@
         CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_revive.ccbi" parent:GAMELAYER z:Z_Hero-1 duration:1.5 life:2.3 following:self.sprite];
         particleNode.position = self.sprite.position;
         //speed up background scroll
-        [[BackgroundManager shared] speedUpWithScale:5 interval:1.5];
+        [[BackgroundManager shared] speedUpWithScale:3 interval:1.5];
         
         //move hero to the center of the screen
         id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,350)];

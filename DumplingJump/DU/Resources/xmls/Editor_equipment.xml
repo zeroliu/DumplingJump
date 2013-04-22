@@ -25,7 +25,7 @@
 		<name>MEGA</name>
 		<displayName>MEGA STAR</displayName>
 		<image>UI_item_megacoins</image>
-		<order>1</order>
+		<order>0</order>
 		<description>Increase MEGASTAR to </description>
 		<multiplier>1.80</multiplier>
 		<base>300</base>
@@ -101,7 +101,7 @@
 		<name>reborn</name>
 		<displayName>REBORN</displayName>
 		<image>UI_item_reborn</image>
-		<order>0</order>
+		<order>1</order>
 		<description>Revive once</description>
 		<multiplier>2.00</multiplier>
 		<base>400</base>
@@ -114,7 +114,7 @@
 		<name>headstart</name>
 		<displayName>HEAD START</displayName>
 		<image>UI_item_headstart</image>
-		<order>1</order>
+		<order>3</order>
 		<description>Boost ahead 1000m at the start of the game </description>
 		<multiplier>1.00</multiplier>
 		<base>300</base>
@@ -127,7 +127,7 @@
 		<name>MAGNET</name>
 		<displayName>MAGNET</displayName>
 		<image>UI_item_magnet</image>
-		<order>0</order>
+		<order>4</order>
 		<description>Decrease MAGNET cooldown time to</description>
 		<multiplier>3.00</multiplier>
 		<base>100</base>
@@ -146,7 +146,7 @@
 		<name>SHELTER</name>
 		<displayName>SHIELD</displayName>
 		<image>UI_item_shield</image>
-		<order>1</order>
+		<order>2</order>
 		<description>Decrease SHIELD cooldown time to</description>
 		<multiplier>2.00</multiplier>
 		<base>200</base>

@@ -20,6 +20,7 @@
 #import "GameUI.h"
 #import "DUEffectObject.h"
 #import "InterReactionManager.h"
+#import "BackgroundManager.h"
 #import <Foundation/Foundation.h>
 
 @interface Hero()
@@ -932,7 +933,7 @@
     [self playAnimationForever:@"H_booster"];
     
     //Ready effect
-//    [[BackgroundController shared] speedUpWithScale:0.5 interval:0.5];
+    [[BackgroundManager shared] speedUpWithScale:0.5 interval:0.5];
     [self changeCollisionDetection:C_STAR | C_ADDTHING];
     [self scheduleOnce:@selector(boosterReady) delay:1];
     [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
@@ -953,7 +954,7 @@
 -(void) boosterBackgroundStart
 {
     float interval = [self getBoosterInterval];
-//    [[BackgroundController shared] speedUpWithScale:5 interval:interval];
+    [[BackgroundManager shared] speedUpWithScale:5 interval:interval];
     [GAMEMODEL boostGameSpeed:interval];
 }
 
@@ -1262,7 +1263,7 @@
         CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_revive.ccbi" parent:GAMELAYER z:Z_Hero-1 duration:1.5 life:2.3 following:self.sprite];
         particleNode.position = self.sprite.position;
         //speed up background scroll
-//        [[BackgroundController shared] speedUpWithScale:3 interval:1.5];
+        [[BackgroundManager shared] speedUpWithScale:5 interval:1.5];
         
         //move hero to the center of the screen
         id moveTo = [CCMoveTo actionWithDuration:1.5 position:ccp(150,350)];

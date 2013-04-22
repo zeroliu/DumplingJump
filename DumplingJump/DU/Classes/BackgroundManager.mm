@@ -131,6 +131,7 @@ scrollSpeedScale = _scrollSpeedScale;
 {
     if (![[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"physicsDebug"] boolValue])
     {
+        [GAMELAYER addChild:self];
         [GAMELAYER addChild:_bgNode z:1];
         [GAMELAYER addChild:_bgObjectNode z:2];
     }
@@ -194,6 +195,7 @@ scrollSpeedScale = _scrollSpeedScale;
 
 - (void) updateBackgroundObjectPosition:(ccTime)deltaTime
 {
+    DLog(@"scrollSpeedScale = %g", _scrollSpeedScale);
     for (NSDictionary* objectData in _currentObjects)
     {
         float initYPos = [[objectData objectForKey:@"y"] floatValue];
@@ -202,8 +204,9 @@ scrollSpeedScale = _scrollSpeedScale;
         
         //Hero Influence
         float heroVy = ((Hero *)[[HeroManager shared] getHero]).body->GetLinearVelocity().y;
-        float influence = heroVy / 10 * [[objectData objectForKey:@"hero_influence"] floatValue];
-        dy = dy * (1+influence);
+        float influence = heroVy/2 * [[objectData objectForKey:@"hero_influence"] floatValue];
+        
+        dy = dy - MAX(influence,-2);
         
         NSString *objectID = [objectData objectForKey:@"id"];
         CCSprite *belowSprite = [_belowSprites objectForKey:objectID];
@@ -267,6 +270,16 @@ scrollSpeedScale = _scrollSpeedScale;
         [_newObjects release];
         _newObjects = nil;
     }
+}
+
+-(void) speedUpWithScale:(int)scale interval:(float)time
+{
+    [self stopAllActions];
+    id speedScaleUp = [CCActionTween actionWithDuration:0.5 key:@"scrollSpeedScale" from:1 to:scale];
+    id delay = [CCDelayTime actionWithDuration:time];
+    id speedScaleDown = [CCActionTween actionWithDuration:0.2 key:@"scrollSpeedScale" from:scale to:1];
+    id sequence = [CCSequence actions:speedScaleUp, delay, speedScaleDown, nil];
+    [self runAction:sequence];
 }
 
 #pragma mark -

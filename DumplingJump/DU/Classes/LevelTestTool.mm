@@ -101,7 +101,7 @@
         CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, nil];
         menu.position = CGPointZero;
         
-        [GAMELAYER addChild:menu];
+        [GAMELAYER addChild:menu z:5];
         
         myView = [[CCDirector sharedDirector] view];
         myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0,300, 260, 100)];

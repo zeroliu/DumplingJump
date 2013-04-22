@@ -15,4 +15,5 @@
 - (void) reset;
 - (void) updateBackgroundPosition:(ccTime)deltaTime;
 - (void) updateBackgroundObjectPosition:(ccTime)deltaTime;
+- (void) speedUpWithScale:(int)scale interval:(float)time;
 @end

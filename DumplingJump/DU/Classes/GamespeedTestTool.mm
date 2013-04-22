@@ -83,7 +83,7 @@
         gameSpeedDisplay = [[CCLabelTTF labelWithString:@"test" fontName:@"Helvetica" fontSize:12] retain];
         gameSpeedDisplay.anchorPoint = ccp(0,1);
         gameSpeedDisplay.position = ccp(100, [CCDirector sharedDirector].winSize.height - BLACK_HEIGHT);
-        [GAMELAYER addChild:gameSpeedDisplay];
+        [GAMELAYER addChild:gameSpeedDisplay z:5];
     }
 }
 

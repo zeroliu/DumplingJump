@@ -158,6 +158,7 @@
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1002729004"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<float key="IBUIAlpha">0.5</float>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
@@ -376,6 +377,14 @@
 					</object>
 					<int key="connectionID">53</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">priceLabelImage</string>
+						<reference key="source" ref="734300500"/>
+						<reference key="destination" ref="763819445"/>
+					</object>
+					<int key="connectionID">54</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -494,7 +503,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">53</int>
+			<int key="maxID">54</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -526,6 +535,7 @@
 						<string key="descriptionLabel">UILabel</string>
 						<string key="equipmentImageView">UIImageView</string>
 						<string key="priceLabel">UILabel</string>
+						<string key="priceLabelImage">UIImageView</string>
 						<string key="unlock0">UIImageView</string>
 						<string key="unlock1">UIImageView</string>
 						<string key="unlock2">UIImageView</string>
@@ -552,6 +562,10 @@
 						<object class="IBToOneOutletInfo" key="priceLabel">
 							<string key="name">priceLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="priceLabelImage">
+							<string key="name">priceLabelImage</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="unlock0">
 							<string key="name">unlock0</string>

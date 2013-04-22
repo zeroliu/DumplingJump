@@ -118,6 +118,7 @@
     [equipmentImageView release];
     [amountLabel release];
     [myContent release];
+    [priceLabelImage release];
     [super dealloc];
 }
 

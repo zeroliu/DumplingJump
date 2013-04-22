@@ -20,7 +20,7 @@
 	</Item>
 	<Item>
 		<group>4</group>
-		<type>powerups</type>
+		<type>special</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MEGA</name>
 		<displayName>MEGA STAR</displayName>
@@ -96,7 +96,7 @@
 	</Item>
 	<Item>
 		<group>5</group>
-		<type>items</type>
+		<type>special</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>reborn</name>
 		<displayName>REBORN</displayName>
@@ -109,7 +109,7 @@
 	</Item>
 	<Item>
 		<group>6</group>
-		<type>items</type>
+		<type>special</type>
 		<layout>EquipmentViewAmountCell</layout>
 		<name>headstart</name>
 		<displayName>HEAD START</displayName>
@@ -122,7 +122,7 @@
 	</Item>
 	<Item>
 		<group>7</group>
-		<type>skills</type>
+		<type>special</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>MAGNET</name>
 		<displayName>MAGNET</displayName>
@@ -141,7 +141,7 @@
 	</Item>
 	<Item>
 		<group>8</group>
-		<type>skills</type>
+		<type>special</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>SHELTER</name>
 		<displayName>SHIELD</displayName>
@@ -157,23 +157,5 @@
 		<level3>30</level3>
 		<level4>25</level4>
 		<unit>s</unit>
-	</Item>
-	<Item>
-		<group>9</group>
-		<type>multipliers</type>
-		<layout>EquipmentViewLevelCell</layout>
-		<name>goldenmultiplier</name>
-		<displayName>DOUBLE</displayName>
-		<image>UI_item_scorex3</image>
-		<order>0</order>
-		<description>none</description>
-		<multiplier>2.00</multiplier>
-		<base>500</base>
-		<unlockPrice>9999</unlockPrice>
-		<level0>1</level0>
-		<level1>1</level1>
-		<level2>1</level2>
-		<level3>1</level3>
-		<level4>1</level4>
 	</Item>
 </Equipments>

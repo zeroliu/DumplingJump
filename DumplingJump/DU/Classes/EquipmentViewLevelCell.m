@@ -112,10 +112,12 @@
     if (level < 4 && currentStar >= price)
     {
         [band setHidden:NO];
+        [priceLabelImage setAlpha:1];
     }
     else
     {
         [band setHidden:YES];
+        [priceLabelImage setAlpha:0.5];
     }
     
     float effectValue = [[myContent objectForKey:[NSString stringWithFormat:@"level%d", level]] floatValue];
@@ -160,6 +162,7 @@
     [currentButton release];
     [myContent release];
     [band release];
+    [priceLabelImage release];
     [super dealloc];
 }
 

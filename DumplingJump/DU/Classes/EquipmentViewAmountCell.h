@@ -17,6 +17,7 @@
     IBOutlet UILabel *descriptionLabel;
     IBOutlet UIImageView *equipmentImageView;
     IBOutlet UILabel *amountLabel;
+    IBOutlet UIImageView *priceLabelImage;
 }
 
 - (IBAction)didTapButton:(id)sender;

@@ -54,10 +54,12 @@
     if (currentStar >= [[content objectForKey:@"unlockPrice"] intValue])
     {
         [band setHidden:NO];
+        [priceLabelImage setAlpha:1];
     }
     else
     {
         [band setHidden:YES];
+        [priceLabelImage setAlpha:0.5];
     }
     
     if (overlay != nil)
@@ -112,6 +114,7 @@
     [priceLabel release];
     [titleLabel release];
     [myContent release];
+    [priceLabelImage release];
     [super dealloc];
 }
 @end

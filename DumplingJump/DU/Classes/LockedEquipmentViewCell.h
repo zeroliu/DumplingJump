@@ -18,6 +18,7 @@
     IBOutlet UILabel *titleLabel;
     IBOutlet UIButton *cellButton;
     IBOutlet UIImageView *band;
+    IBOutlet UIImageView *priceLabelImage;
     UIView *overlay;
 }
 

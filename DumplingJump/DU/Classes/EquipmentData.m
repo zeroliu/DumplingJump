@@ -102,22 +102,22 @@
         NSDictionary *item = [self.dataDictionary objectForKey:key];
         int amount = 0;
         amount = [[USERDATA objectForKey:[item objectForKey:@"name"]] intValue];
-        float multiplier = [[item objectForKey:@"multiplier"] floatValue];
-        float base = [[item objectForKey:@"base"] floatValue];
+//        float multiplier = [[item objectForKey:@"multiplier"] floatValue];
+//        float base = [[item objectForKey:@"base"] floatValue];
         int unlockPrice = [[item objectForKey:@"unlockPrice"] intValue];
         
-        if (amount >= 0)
+        if (amount >= 0 && amount < 4)
         {
-            int price = 0;
-            if (amount == 0)
-            {
-                price = base;
-            }
-            else
-            {
-                price = base * multiplier * amount;
-            }
-            
+            int price = [[item objectForKey:[NSString stringWithFormat:@"price%d",amount]] intValue];
+//            if (amount == 0)
+//            {
+//                price = base;
+//            }
+//            else
+//            {
+//                price = base * multiplier * amount;
+//            }
+//            
             if (price <= starNum)
             {
                 res ++;

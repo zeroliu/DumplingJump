@@ -67,22 +67,22 @@
     
     [amountLabel setText:[NSString stringWithFormat:@"%d", amount]];
 
-    if (amount >= 9)
+    if (amount >= 4)
     {
         [priceLabel setText:@"max"];
         [self setUserInteractionEnabled:NO];
     }
     else
     {
-        int price = 0;
-        if (amount == 0)
-        {
-            price = base;
-        }
-        else
-        {
-            price = base * multiplier * amount;
-        }
+        int price = [[myContent objectForKey:[NSString stringWithFormat:@"price%d",amount]] intValue];
+//        if (amount == 0)
+//        {
+//            price = base;
+//        }
+//        else
+//        {
+//            price = base * multiplier * amount;
+//        }
         
         [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
     }

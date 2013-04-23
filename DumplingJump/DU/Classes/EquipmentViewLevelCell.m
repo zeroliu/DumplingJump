@@ -94,14 +94,15 @@
     }
     else
     {
-        if (level == 0)
-        {
-            price = base;
-        }
-        else
-        {
-            price = base * multiplier * level;
-        }
+        price = [[myContent objectForKey:[NSString stringWithFormat:@"price%d",level]] intValue];
+//        if (level == 0)
+//        {
+//            price = base;
+//        }
+//        else
+//        {
+//            price = base * multiplier * level;
+//        }
         
         [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
         [self setUserInteractionEnabled:YES];

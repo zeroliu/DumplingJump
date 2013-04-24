@@ -50,7 +50,7 @@
 		<key>dropRate</key>
 		<real>0.015</real>
 		<key>dropRateIncreaseUnit</key>
-		<real>0.4</real>
+		<real>0.3</real>
 		<key>dropRateIncreaseMax</key>
 		<integer>2</integer>
 		<key>levelTransitionDelay</key>

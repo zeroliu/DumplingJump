@@ -18,30 +18,50 @@
 	</level>
 	<level>
 		<time>2</time>
-		<slot1>RANDOM_1</slot1>
+		<slot4>RANDOM_3</slot4>
 	</level>
 	<level>
 		<time>3</time>
-		<slot3>VAT</slot3>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot5>CLAW</slot5>
 	</level>
 	<level>
 		<time>4</time>
-		<slot2>VAT</slot2>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot2>ICE</slot2>
+		<slot8>ICE</slot8>
 	</level>
 	<level>
 		<time>5</time>
-		<slot3>VAT</slot3>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot4>CLAW</slot4>
 	</level>
 	<level>
 		<time>6</time>
-		<slot2>VAT</slot2>
-		<slot8>VAT</slot8>
-		<slot9>VAT</slot9>
+		<slot5>CLAW</slot5>
+	</level>
+	<level>
+		<time>7</time>
+		<slot2>ICE</slot2>
+		<slot8>ICE</slot8>
+	</level>
+	<level>
+		<time>8</time>
+		<slot4>CLAW</slot4>
+	</level>
+	<level>
+		<time>9</time>
+		<slot6>CLAW</slot6>
+	</level>
+	<level>
+		<time>10</time>
+		<slot2>ICE</slot2>
+		<slot8>ICE</slot8>
+	</level>
+	<level>
+		<time>11</time>
+		<slot5>CLAW</slot5>
+	</level>
+	<level>
+		<time>12</time>
+		<slot2>ICE</slot2>
+		<slot8>ICE</slot8>
 	</level>
 </stage1>

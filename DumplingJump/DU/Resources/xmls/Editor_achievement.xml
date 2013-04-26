@@ -22,22 +22,22 @@
 	</Achievement>
 	<Achievement>
 		<group>1</group>
-		<id>4</id>
+		<id>3</id>
 		<name>Steady Walker</name>
 		<points>5</points>
 		<type>distance</type>
 		<description1>Ride</description1>
-		<number>100</number>
+		<number>200</number>
 		<description2>meters</description2>
 	</Achievement>
 	<Achievement>
 		<group>1</group>
-		<id>3</id>
+		<id>4</id>
 		<name>Pocket Change</name>
 		<points>5</points>
 		<type>star</type>
 		<description1>Collect</description1>
-		<number>30</number>
+		<number>60</number>
 		<description2>stars</description2>
 	</Achievement>
 	<Achievement>
@@ -66,7 +66,7 @@
 		<points>100</points>
 		<type>score</type>
 		<description1>Score</description1>
-		<number>7000</number>
+		<number>1</number>
 	</Achievement>
 	<Achievement>
 		<group>10</group>
@@ -79,17 +79,17 @@
 	</Achievement>
 	<Achievement>
 		<group>2</group>
-		<id>2</id>
+		<id>1</id>
 		<name>Novice Walker</name>
 		<points>10</points>
 		<type>distance</type>
 		<description1>Ride</description1>
-		<number>250</number>
+		<number>300</number>
 		<description2>meters</description2>
 	</Achievement>
 	<Achievement>
 		<group>2</group>
-		<id>3</id>
+		<id>2</id>
 		<name>Nice try!</name>
 		<points>10</points>
 		<type>lifeStars</type>
@@ -99,7 +99,7 @@
 	</Achievement>
 	<Achievement>
 		<group>2</group>
-		<id>4</id>
+		<id>3</id>
 		<name>Rocketeer</name>
 		<points>10</points>
 		<type>powerBoost</type>
@@ -109,12 +109,12 @@
 	</Achievement>
 	<Achievement>
 		<group>2</group>
-		<id>1</id>
+		<id>4</id>
 		<name>Piggy Bank</name>
 		<points>10</points>
 		<type>star</type>
 		<description1>Collect</description1>
-		<number>30</number>
+		<number>60</number>
 		<description2>stars, no jump</description2>
 		<restriction>jump</restriction>
 	</Achievement>
@@ -125,7 +125,7 @@
 		<points>20</points>
 		<type>distance</type>
 		<description1>Ride</description1>
-		<number>250</number>
+		<number>300</number>
 		<description2>meters</description2>
 		<restriction>star</restriction>
 	</Achievement>
@@ -135,9 +135,19 @@
 		<name>Castle Rider</name>
 		<points>20</points>
 		<type>lifeStars</type>
-		<description1>Collect over</description1>
+		<description1>Collect</description1>
 		<number>500</number>
 		<description2>lifetime stars</description2>
+	</Achievement>
+	<Achievement>
+		<group>3</group>
+		<id>1</id>
+		<name>Double Power</name>
+		<points>1</points>
+		<type>powerCollect</type>
+		<description1>Collect</description1>
+		<number>2</number>
+		<description2>power-up</description2>
 	</Achievement>
 	<Achievement>
 		<group>3</group>
@@ -150,28 +160,28 @@
 		<description2>Sword</description2>
 	</Achievement>
 	<Achievement>
-		<group>3</group>
-		<id>1</id>
-		<name>Lump Sum</name>
-		<points>20</points>
-		<type>star</type>
-		<description1>Collect</description1>
-		<number>40</number>
-		<description2>stars</description2>
-	</Achievement>
-	<Achievement>
 		<group>4</group>
-		<id>2</id>
-		<name>Castle Walker</name>
-		<points>30</points>
-		<type>distance</type>
-		<description1>Ride</description1>
-		<number>300</number>
-		<description2>meters</description2>
+		<id>4</id>
+		<name>Hopper</name>
+		<points>50</points>
+		<type>actionJump</type>
+		<description1>Jump</description1>
+		<number>30</number>
+		<description2>times</description2>
 	</Achievement>
 	<Achievement>
 		<group>4</group>
 		<id>3</id>
+		<name>Castle Walker</name>
+		<points>30</points>
+		<type>distance</type>
+		<description1>Ride</description1>
+		<number>600</number>
+		<description2>meters</description2>
+	</Achievement>
+	<Achievement>
+		<group>4</group>
+		<id>1</id>
 		<name>Jumper</name>
 		<points>30</points>
 		<type>powerSpring</type>
@@ -181,21 +191,12 @@
 	</Achievement>
 	<Achievement>
 		<group>4</group>
-		<id>4</id>
-		<name>Score 800</name>
-		<points>30</points>
-		<type>score</type>
-		<description1>Score</description1>
-		<number>800</number>
-	</Achievement>
-	<Achievement>
-		<group>4</group>
-		<id>1</id>
+		<id>2</id>
 		<name>Payday</name>
 		<points>30</points>
 		<type>star</type>
 		<description1>Collect</description1>
-		<number>50</number>
+		<number>100</number>
 		<description2>stars</description2>
 	</Achievement>
 	<Achievement>
@@ -205,19 +206,19 @@
 		<points>40</points>
 		<type>distance</type>
 		<description1>Ride</description1>
-		<number>400</number>
+		<number>700</number>
 		<description2>meters</description2>
 		<restriction>powerup</restriction>
 	</Achievement>
 	<Achievement>
 		<group>5</group>
 		<id>2</id>
-		<name>Pro Castle Rider</name>
-		<points>40</points>
-		<type>lifeStars</type>
-		<description1>Collect over</description1>
-		<number>1000</number>
-		<description2>lifetime stars</description2>
+		<name>Head Start</name>
+		<points>5</points>
+		<type>itemHeadStart</type>
+		<description1>Use Headstart</description1>
+		<number>1</number>
+		<useEnglish>yes</useEnglish>
 	</Achievement>
 	<Achievement>
 		<group>5</group>
@@ -240,7 +241,7 @@
 	</Achievement>
 	<Achievement>
 		<group>6</group>
-		<id>1</id>
+		<id>2</id>
 		<name>I am back!</name>
 		<points>5</points>
 		<type>itemReborn</type>
@@ -250,17 +251,17 @@
 	</Achievement>
 	<Achievement>
 		<group>6</group>
-		<id>2</id>
+		<id>3</id>
 		<name>Keep on Riding</name>
 		<points>1</points>
 		<type>lifeDistance</type>
-		<description1>Ride over</description1>
-		<number>50000</number>
+		<description1>Ride</description1>
+		<number>60000</number>
 		<description2>lifetime meters</description2>
 	</Achievement>
 	<Achievement>
 		<group>6</group>
-		<id>3</id>
+		<id>1</id>
 		<name>Triple Power</name>
 		<points>1</points>
 		<type>powerCollect</type>
@@ -271,30 +272,11 @@
 	<Achievement>
 		<group>6</group>
 		<id>4</id>
-		<name>Score 2400</name>
-		<points>75</points>
-		<type>score</type>
-		<description1>Score</description1>
-		<number>2400</number>
-	</Achievement>
-	<Achievement>
-		<group>7</group>
-		<id>2</id>
-		<name>Head Start</name>
-		<points>5</points>
-		<type>itemHeadStart</type>
-		<description1>Use Headstart</description1>
+		<name>Star Attracter</name>
+		<points>1</points>
+		<type>skillMagnet</type>
+		<description1>Use Star Magnet</description1>
 		<number>1</number>
-		<useEnglish>yes</useEnglish>
-	</Achievement>
-	<Achievement>
-		<group>7</group>
-		<id>3</id>
-		<name>I am back again!</name>
-		<points>5</points>
-		<type>itemReborn</type>
-		<description1>Use Reborn</description1>
-		<number>2</number>
 		<useEnglish>yes</useEnglish>
 	</Achievement>
 	<Achievement>
@@ -304,7 +286,17 @@
 		<points>5</points>
 		<type>score</type>
 		<description1>Score</description1>
-		<number>3500</number>
+		<number>1</number>
+	</Achievement>
+	<Achievement>
+		<group>7</group>
+		<id>4</id>
+		<name>Defender</name>
+		<points>30</points>
+		<type>skillShield</type>
+		<description1>Use Shields</description1>
+		<number>2</number>
+		<useEnglish>yes</useEnglish>
 	</Achievement>
 	<Achievement>
 		<group>7</group>
@@ -313,7 +305,7 @@
 		<points>5</points>
 		<type>star</type>
 		<description1>Collect</description1>
-		<number>100</number>
+		<number>200</number>
 		<description2>stars</description2>
 		<restriction>powerup</restriction>
 	</Achievement>
@@ -324,7 +316,7 @@
 		<points>1</points>
 		<type>distance</type>
 		<description1>Ride</description1>
-		<number>600</number>
+		<number>1200</number>
 		<description2>meters</description2>
 		<restriction>item</restriction>
 	</Achievement>
@@ -340,21 +332,32 @@
 	</Achievement>
 	<Achievement>
 		<group>8</group>
-		<id>3</id>
-		<name>Score 4000</name>
-		<points>50</points>
-		<type>score</type>
-		<description1>Score</description1>
-		<number>4000</number>
+		<id>2</id>
+		<name>Pro Castle Rider</name>
+		<points>40</points>
+		<type>lifeStars</type>
+		<description1>Collect</description1>
+		<number>1000</number>
+		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
 		<group>8</group>
-		<id>4</id>
-		<name>Star Attracter</name>
+		<id>3</id>
+		<name>Unlimited Power</name>
 		<points>1</points>
-		<type>skillMagnet</type>
-		<description1>Use Star Magnet</description1>
-		<number>1</number>
+		<type>powerCollect</type>
+		<description1>Collect</description1>
+		<number>5</number>
+		<description2>power-up</description2>
+	</Achievement>
+	<Achievement>
+		<group>9</group>
+		<id>3</id>
+		<name>I am back again!</name>
+		<points>5</points>
+		<type>itemReborn</type>
+		<description1>Use Reborn</description1>
+		<number>2</number>
 		<useEnglish>yes</useEnglish>
 	</Achievement>
 	<Achievement>
@@ -363,8 +366,8 @@
 		<name>Forever Celebrity</name>
 		<points>30</points>
 		<type>lifeStars</type>
-		<description1>Collect over</description1>
-		<number>20000</number>
+		<description1>Collect</description1>
+		<number>3000</number>
 		<description2>lifetime stars</description2>
 	</Achievement>
 	<Achievement>
@@ -383,28 +386,6 @@
 		<points>30</points>
 		<type>score</type>
 		<description1>Score</description1>
-		<number>5400</number>
-	</Achievement>
-	<Achievement>
-		<group>9</group>
-		<id>4</id>
-		<name>Defender</name>
-		<points>30</points>
-		<type>skillShield</type>
-		<description1>Use Shields</description1>
-		<number>2</number>
-		<useEnglish>yes</useEnglish>
-	</Achievement>
-	<Achievement>
-		<group>group</group>
-		<id>id</id>
-		<name>name</name>
-		<points>points</points>
-		<type>type</type>
-		<description1>description1</description1>
-		<number>number</number>
-		<description2>description2</description2>
-		<restriction>restriction</restriction>
-		<useEnglish>use English</useEnglish>
+		<number>1</number>
 	</Achievement>
 </Achievements>

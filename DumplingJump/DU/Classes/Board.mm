@@ -353,6 +353,7 @@
 
 -(void) updateEnginePosition
 {
+    
     if (self.engineLeft != nil && self.engineRight != nil)
     {
         boardWidth = self.sprite.contentSize.width * self.sprite.scaleX;

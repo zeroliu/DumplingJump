@@ -69,8 +69,8 @@
 - (void) updateCellUI
 {
     [self setUserInteractionEnabled:YES];
-    float base = [[myContent objectForKey:@"base"] floatValue];
-    float multiplier = [[myContent objectForKey:@"multiplier"] floatValue];
+//    float base = [[myContent objectForKey:@"base"] floatValue];
+//    float multiplier = [[myContent objectForKey:@"multiplier"] floatValue];
     
     int level = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
     

@@ -114,7 +114,7 @@
             DUPhysicsObject *physicsObject = (DUPhysicsObject *)b->GetUserData();
             
             CCSprite* sprite = ((DUPhysicsObject *)b->GetUserData()).sprite;
-            if (!([physicsObject.name isEqualToString: BOARD] && [((Hero *)[[HeroManager shared] getHero]).heroState isEqualToString: @"booster"] && (((Hero *)[[HeroManager shared] getHero]).boostStatus == 1 || ((Hero *)[[HeroManager shared] getHero]).boostStatus == 2)))
+            if (!([physicsObject.name isEqualToString: BOARD] && [((Hero *)[[HeroManager shared] getHero]).heroState isEqualToString: @"booster"] && (((Hero *)[[HeroManager shared] getHero]).boostStatus >= 1)))
             {
                 sprite.position = ccp(b->GetPosition().x * RATIO,
                                       b->GetPosition().y * RATIO);

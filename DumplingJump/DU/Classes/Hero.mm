@@ -183,6 +183,9 @@
     [MESSAGECENTER removeObserver:self name:[NSString stringWithFormat:@"%@EndContact",self.name] object:nil];
 }
 
+#pragma mark -
+#pragma mark Movement
+
 -(void) updateHeroForce
 {
     if (directionForce.x != 0 || directionForce.y != 0)
@@ -232,6 +235,8 @@
     lastVelocity = self.body->GetLinearVelocity();
 }
 
+
+
 -(void) updateHeroBoosterEffect
 {
     //Ready phase, hero slowly moving back
@@ -243,7 +248,8 @@
         }
         else if (boostStatus == 1)
         {
-            if (self.sprite.position.y > 650)
+            //dash to the front
+            if (self.sprite.position.y > 480+BLACK_HEIGHT)
             {
                 boostStatus = 2;
                 [self boosterStart];
@@ -254,31 +260,62 @@
         }
         else if (boostStatus == 2)
         {
-            //Fake floating effect
+            //slow down
+            float vy = -powf((self.sprite.position.y -BLACK_HEIGHT-470),3.0)*3.0/800.0+30;
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, vy));
+            if (self.speed.y <= 0.3)
+            {
+                boostStatus = 3;
+                return;
+            }
+        }
+        else if (boostStatus == 3)
+        {
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.speed.y - 1));
+            if (self.speed.y < -4)
+            {
+                boostStatus = 4;
+                return;
+            }
+        }
+        else if (boostStatus == 4)
+        {
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.speed.y));
             if (self.sprite.position.y < 330)
             {
-                self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
+                boostStatus = 5;
+                return;
             }
-            else if (self.sprite.position.y > 340)
-            {
-                self.body->SetLinearVelocity(b2Vec2(self.speed.x, -10));
-            }
+        }
+        else if (boostStatus == 5)
+        {
+//            if (self.sprite.position.y < 330)
+//            {
+//                self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
+//            }
             
-            //Don't move out of the screen
-            if (self.sprite.position.x < 50)
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.speed.y+0.2));
+            if (self.speed.y >=0)
             {
-                self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
+                boostStatus = 6;
             }
-            else if (self.sprite.position.x > 270)
-            {
-                self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
-            }
+        }
+        else if (boostStatus == 5)
+        {
+            self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
+        }
+        
+        //Don't move out of the screen
+        if (self.sprite.position.x < 50)
+        {
+            self.body->SetLinearVelocity(b2Vec2(1, self.speed.y));
+        }
+        else if (self.sprite.position.x > 270)
+        {
+            self.body->SetLinearVelocity(b2Vec2(-1, self.speed.y));
         }
     }
 }
-
-#pragma mark -
-#pragma mark Movement
 
 -(void) updateHeroPositionWithAccX:(float)accX
 {
@@ -972,11 +1009,11 @@
 
 -(void) boosterStart
 {
-    boostStatus = 2;
+//    boostStatus = 2;
     float interval = [self getBoosterInterval];
 
     self.body->SetGravityScale(0);
-    self.body->SetLinearVelocity(b2Vec2(0,0));
+    self.body->SetLinearVelocity(b2Vec2(0,self.speed.y));
     [self scheduleOnce:@selector(boosterFin) delay:interval];
     [[[BoardManager shared] getBoard] scheduleOnce:@selector(boosterEnd) delay:interval-0.5];
 }

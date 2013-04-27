@@ -57,6 +57,7 @@
         [ANIMATIONMANAGER registerAnimationForName:HEADSTART_TRAIL];
         [ANIMATIONMANAGER registerAnimationForName:HEADSTART_SUPPORT];
         [ANIMATIONMANAGER registerAnimationForName:@"E_item_shield"];
+        [ANIMATIONMANAGER registerAnimationForName:@"E_ice_break"];
     }
     return self;
 }

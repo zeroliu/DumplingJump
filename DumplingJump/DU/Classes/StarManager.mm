@@ -49,7 +49,7 @@
     float yPosUnit = (float)STAR_Y_INTERVAL;
     
     Star *star = [self.starDictionary objectForKey:starName];
-    
+    BOOL isMirror = ((LevelManager *)[LevelManager shared]).isMirror;
     if (star != nil)
     {
         for (int i=0; i<SLOTS_NUM; i++)
@@ -57,9 +57,14 @@
             NSArray *line = [star.starLines objectAtIndex:i];
             for (int j=0; j<SLOTS_NUM-slot; j++)
             {
+                int dropSlot = j;
+                if (isMirror)
+                {
+                    dropSlot = SLOTS_NUM - j - 1;
+                }
                 if ([[line objectAtIndex:j] isEqual:@"O"])
                 {
-                    [[LevelManager shared] dropAddthingWithName:@"STAR" atPosition:ccp(xPosUnit * (slot + j) + 5 + xPosUnit/2,600+(SLOTS_NUM-1-i)*yPosUnit)];
+                    [[LevelManager shared] dropAddthingWithName:@"STAR" atPosition:ccp(xPosUnit * (slot + dropSlot) + 5 + xPosUnit/2,600+(SLOTS_NUM-1-i)*yPosUnit)];
                 }
             }
         }

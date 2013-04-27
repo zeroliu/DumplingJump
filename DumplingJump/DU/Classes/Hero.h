@@ -25,7 +25,8 @@
 -(void) updateHeroPositionWithAccX:(float)accX;
 -(void) updateHeroChildrenPosition;
 -(void) jump;
-- (void) resetHero;
+-(void) tapOnIce;
+-(void) resetHero;
 -(void) idle;
 -(void) headStart;
 //Called from AddthingObject
@@ -51,6 +52,7 @@
 -(void) beforeDie;
 -(BOOL) isShelterOn;
 -(BOOL) isBoosterOn;
+-(BOOL) isFreezing;
 
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

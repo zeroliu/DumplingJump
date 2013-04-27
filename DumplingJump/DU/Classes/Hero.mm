@@ -37,6 +37,7 @@
     BOOL hurtTrigger;
     BOOL isHeadStart;
     int boostStatus; //0 none, 1 ready, 2 start
+    int tapOnIceNumber;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -375,6 +376,20 @@
     return originalVelocity;
 }
 
+-(void) tapOnIce
+{
+    tapOnIceNumber ++;
+    
+    if (tapOnIceNumber > [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"iceBreakNum"] intValue])
+    {
+        [self iceFin];
+    }
+    
+    //Add tap effect
+//    [EFFECTMANAGER PlayEffectWithName:@"FX_Del" position:ccp(self.sprite.position.x + randomFloat(-10, 10),self.sprite.position.y + randomFloat(-10, 10)) z:1 parent:self.sprite];
+    [EFFECTMANAGER PlayEffectWithName:@"FX_Del" position:ccp(self.sprite.contentSize.width/2 + randomFloat(-10, 10), self.sprite.contentSize.height/2 + randomFloat(-10, 10)) z:1 parent:self.sprite];
+}
+
 -(void) jump
 {
     [self checkIfOnGround];
@@ -504,6 +519,9 @@
     adjustJump = 1;
     adjustMove = 1;
     freezeTrigger = 0;
+    
+    //Remove break ice hint
+    [[self.sprite getChildByTag:TAG_BREAK_ICE_HINT] removeFromParentAndCleanup:NO];
     
     //Change hero state back to idle
     self.heroState = @"idle";
@@ -804,11 +822,13 @@
         [self performSelector:stopReactionSelector];
     }
     
-    AddthingObject *contactObject = [value lastObject];
+//    AddthingObject *contactObject = [value lastObject];
     
-    [self playAnimation:@"H_ice" duration:contactObject.reaction.reactionLasting callback:^{
-        [self performSelector:@selector(iceFin)];
-    }];
+//    [self playAnimation:@"H_ice" duration:contactObject.reaction.reactionLasting callback:^{
+//        [self performSelector:@selector(iceFin)];
+//    }];
+    
+    [self playAnimationForever:@"H_ice"];
     
     self.heroState = @"ice";
     
@@ -832,6 +852,26 @@
     else
     {
         freezeTrigger = -1;
+    }
+    
+    //reset the tap on ice number
+    tapOnIceNumber = 0;
+    
+    //show tap hint animation
+    if ([self.sprite getChildByTag:TAG_BREAK_ICE_HINT] == nil)
+    {
+        CCSprite *tapHint = [CCSprite spriteWithSpriteFrameName:@"E_ice_break_1.png"];
+        [self.sprite addChild:tapHint];
+        
+        tapHint.anchorPoint = ccp(0.1,0.3);
+        tapHint.position = ccp(0,50);
+        tapHint.tag = TAG_BREAK_ICE_HINT;
+        id animation = [ANIMATIONMANAGER getAnimationWithName:@"E_ice_break"];
+        if(animation != nil)
+        {
+            CCRepeatForever *animAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animation]];
+            [tapHint runAction:animAction];
+        }
     }
 }
 
@@ -1618,6 +1658,11 @@
 -(BOOL) isBoosterOn
 {
     return [self.heroState isEqualToString:@"booster"];
+}
+
+-(BOOL) isFreezing
+{
+    return [self.heroState isEqualToString:@"ice"];
 }
 
 -(void) playAnimationForever:(NSString *)animName

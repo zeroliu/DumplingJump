@@ -77,7 +77,6 @@ hasGenerated = _hasGenerated;
     NSMutableArray *warningSignArray;
     BOOL isProcessingWarningSign;
     BOOL isUpdatingPowderCountdown;
-    BOOL isMirror;
 }
 
 @property (nonatomic, retain) LevelData *levelData;
@@ -94,7 +93,8 @@ paragraphsData = _paragraphsData,
 paragraphsCombination = _paragraphsCombination,
 paragraphNames = _paragraphNames,
 powderDictionary = _powderDictionary,
-toRemovePowderArray = _toRemovePowderArray;
+toRemovePowderArray = _toRemovePowderArray,
+isMirror = _isMirror;
 
 +(id) shared
 {
@@ -115,7 +115,7 @@ toRemovePowderArray = _toRemovePowderArray;
         _generatedObjects = [[NSMutableArray alloc] init];
         warningSignArray = [[NSMutableArray alloc] init];
         _toRemovePowderArray = [[NSMutableArray alloc] init];
-        isMirror = NO;
+        _isMirror = NO;
         //Scan all the files in xmls/levels folder and save it into paragraphsData dictionary
         self.paragraphsData = [[XMLHelper shared] loadParagraphFromFolder:@"xmls/levels"];
         
@@ -345,15 +345,15 @@ toRemovePowderArray = _toRemovePowderArray;
     if ([name rangeOfString:@"*"].location != NSNotFound)
     {
         //the paragraph is not reversible
-        isMirror = NO;
+        _isMirror = NO;
     }
     else
     {
         int mirrorRate = randomInt(0, 2);
-        isMirror = NO;
+        _isMirror = NO;
         if (mirrorRate > 0)
         {
-            isMirror = YES;
+            _isMirror = YES;
         }
     }
     
@@ -386,15 +386,15 @@ toRemovePowderArray = _toRemovePowderArray;
     if ([currentParagraphName rangeOfString:@"*"].location != NSNotFound)
     {
         //the paragraph is not reversible
-        isMirror = NO;
+        _isMirror = NO;
     }
     else
     {
         int mirrorRate = randomInt(0, 2);
-        isMirror = NO;
+        _isMirror = NO;
         if (mirrorRate > 0)
         {
-            isMirror = YES;
+            _isMirror = YES;
         }
     }
     
@@ -442,7 +442,7 @@ toRemovePowderArray = _toRemovePowderArray;
             for (int i=0; i<SLOTS_NUM; i++)
             {
                 int dropSlot = i;
-                if (isMirror)
+                if (_isMirror)
                 {
                     dropSlot = SLOTS_NUM - i - 1;
                 }
@@ -455,7 +455,9 @@ toRemovePowderArray = _toRemovePowderArray;
                 }
                 else if ([item rangeOfString:@"*"].location == 0)
                 {
-                    [[StarManager shared] dropStar:item AtSlot:dropSlot];
+                    //For star pattern, the starting point won't change if in mirror mode
+                    //The position will become mirror when droping the star object
+                    [[StarManager shared] dropStar:item AtSlot:i];
                     double starWait = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starWait"] doubleValue];
                     waitingTime = MAX(waitingTime, starWait);
                 } else

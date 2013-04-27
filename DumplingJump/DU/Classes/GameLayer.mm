@@ -377,7 +377,16 @@
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
 {
-    [[[HeroManager shared] getHero] jump];
+    if ([[[HeroManager shared] getHero] isFreezing])
+    {
+        //If hero is freezing, tap means break the ice
+        [[[HeroManager shared] getHero] tapOnIce];
+    }
+    else
+    {
+        //If hero is normal, tap means jump
+        [[[HeroManager shared] getHero] jump];
+    }
 }
 
 -(void) gameOver

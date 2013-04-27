@@ -78,6 +78,8 @@
 #define TAG_HEADSTART_BOOST 998
 #define TAG_HEADSTART_TRAIL 997
 #define TAG_HEADSTART_SUPPORT 996
+#define TAG_BREAK_ICE_HINT 995
+
 
 #pragma mark -
 #pragma mark Physics

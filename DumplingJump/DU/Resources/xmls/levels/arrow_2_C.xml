@@ -57,6 +57,9 @@
 	</level>
 	<level>
 		<time>10</time>
+	</level>
+	<level>
+		<time>11</time>
 		<slot3>ARROW</slot3>
 		<slot4>ARROW</slot4>
 		<slot6>ARROW</slot6>

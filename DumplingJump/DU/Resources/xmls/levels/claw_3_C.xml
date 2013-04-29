@@ -14,61 +14,39 @@
 	</level>
 	<level>
 		<time>1</time>
-		<slot1>(*)</slot1>
+		<slot8>(*)</slot8>
 	</level>
 	<level>
 		<time>2</time>
-		<slot7>RANDOM_3</slot7>
+		<slot6>CLAW</slot6>
 	</level>
 	<level>
 		<time>3</time>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>4</time>
-		<slot2>ARROW</slot2>
-		<slot3>ARROW</slot3>
-		<slot8>ARROW</slot8>
-		<slot9>ARROW</slot9>
+		<slot4>CLAW</slot4>
 	</level>
 	<level>
 		<time>5</time>
-		<slot4>ARROW</slot4>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
 	</level>
 	<level>
 		<time>6</time>
-		<slot1>ARROW</slot1>
-		<slot2>ARROW</slot2>
-		<slot7>ARROW</slot7>
-		<slot8>ARROW</slot8>
+		<slot2>RANDOM_3</slot2>
 	</level>
 	<level>
 		<time>7</time>
+		<slot6>CLAW</slot6>
 	</level>
 	<level>
 		<time>8</time>
-		<slot1>ARROW</slot1>
-		<slot2>ARROW</slot2>
-		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
 	</level>
 	<level>
 		<time>9</time>
-		<slot5>ARROW</slot5>
-		<slot6>ARROW</slot6>
-		<slot7>ARROW</slot7>
-		<slot8>ARROW</slot8>
-		<slot9>ARROW</slot9>
+		<slot4>CLAW</slot4>
 	</level>
 	<level>
 		<time>10</time>
-		<slot1>ARROW</slot1>
-		<slot2>ARROW</slot2>
-		<slot3>ARROW</slot3>
-		<slot4>ARROW</slot4>
+		<slot6>CLAW</slot6>
 	</level>
 </stage1>

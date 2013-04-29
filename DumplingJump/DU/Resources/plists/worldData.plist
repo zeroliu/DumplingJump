@@ -20,7 +20,7 @@
 	<key>common</key>
 	<dict>
 		<key>iceBreakNum</key>
-		<integer>8</integer>
+		<integer>6</integer>
 		<key>magicFrequence</key>
 		<real>0.3</real>
 		<key>starMultiplier</key>
@@ -40,9 +40,9 @@
 		<key>objectInitialSpeed</key>
 		<integer>3</integer>
 		<key>objectInitialSpeedIncreaseUnit</key>
-		<real>0.25</real>
+		<real>0.2</real>
 		<key>objectInitialSpeedIncreaseMax</key>
-		<integer>3</integer>
+		<integer>4</integer>
 		<key>scrollSpeed</key>
 		<real>-0.3</real>
 		<key>scrollSpeedIncreaseUnit</key>
@@ -52,9 +52,9 @@
 		<key>dropRate</key>
 		<real>0.015</real>
 		<key>dropRateIncreaseUnit</key>
-		<real>0.3</real>
+		<real>0.25</real>
 		<key>dropRateIncreaseMax</key>
-		<integer>2</integer>
+		<integer>3</integer>
 		<key>levelTransitionDelay</key>
 		<integer>0</integer>
 		<key>scoreUnit</key>

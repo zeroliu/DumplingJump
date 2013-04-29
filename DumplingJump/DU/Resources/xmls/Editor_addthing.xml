@@ -276,12 +276,12 @@
 		<ID>冰雹</ID>
 		<name>ICE</name>
 		<shape>Box</shape>
-		<width>80</width>
-		<length>50</length>
+		<width>76</width>
+		<length>47</length>
 		<I>10</I>
 		<mass>10</mass>
 		<res>0</res>
-		<fric>5</fric>
+		<fric>0</fric>
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>ice</react_type>

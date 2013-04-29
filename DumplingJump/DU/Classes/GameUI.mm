@@ -14,6 +14,8 @@
 #import "LevelManager.h"
 #import "GameModel.h"
 #import "Constants.h"
+#import "EquipmentData.h"
+#import "Hero.h"
 
 NSString *const distancePopup = @"DistancePopup";
 NSString *const achievementPopup = @"achievementPopup";
@@ -23,6 +25,7 @@ NSString *const achievementPopup = @"achievementPopup";
     id showMessageAction;
     BOOL _isShowingRebornButton;
     BOOL _isShowingDisplayQueue;
+    
     NSMutableArray *displayQueue;
 }
 
@@ -167,6 +170,7 @@ NSString *const achievementPopup = @"achievementPopup";
         [((CCControlButton *)[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:0]) setEnabled: enabled];
     }
     pauseButton.isEnabled = enabled;
+    [headStartButton setEnabled:enabled];
 }
 
 -(void) pauseGame:(id)sender
@@ -199,15 +203,30 @@ NSString *const achievementPopup = @"achievementPopup";
 
 -(void) rebornClicked:(id)sender
 {
-    DLog(@"reborn button clicked");
-    
-    int rebornTime = [[USERDATA objectForKey:@"reborn"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:(rebornTime - 1)] forKey:@"reborn"];
-    
     [self hideRebornButton];
+    
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentStar - [[[HeroManager shared] getHero] getRebornCost]] forKey:@"star"];
+    
     [self setButtonsEnabled:YES];
     [[[Hub shared] gameLayer] resumeGame];
     [[[HeroManager shared] getHero] reborn];
+}
+
+-(void) skipClicked:(id)sender
+{
+    [self beforeGameover];
+}
+
+-(void) headstartClicked:(id)sender
+{
+    [self hideHeadstartButton];
+    
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    [USERDATA setObject:[NSNumber numberWithInt:currentStar - [[[HeroManager shared] getHero] getHeadstartCost]] forKey:@"star"];
+    
+    //start headstart
+    [[[HeroManager shared] getHero] headStart];
 }
 
 -(void) fadeOut
@@ -358,24 +377,28 @@ NSString *const achievementPopup = @"achievementPopup";
 
 -(void) showRebornButton
 {
+    [self hideHeadstartButton];
+    
     [self createMask];
     
     //Disable all buttons
     [self setButtonsEnabled:NO];
     
+    [rebornButton setEnabled:YES];
+    
     [UIMask stopAllActions];
     [rebornButtonHolder stopAllActions];
     [rebornBar stopAllActions];
     
-    //Update reborn quantity number
-    
-    [rebornQuantity setString:[NSString stringWithFormat:@"%d",[[USERDATA objectForKey:@"reborn"] intValue]]];
+    //Update reborn cost
+    int rebornCost = [[[HeroManager shared] getHero] getRebornCost];
+    [rebornCostLabel setString:[NSString stringWithFormat:@"%d", rebornCost]];
     
     //Reset button
     rebornBar.scaleX = 1;
     
     //Reborn button fly in from the bottom
-    id rebornFlyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2)];
+    id rebornFlyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2 + 100)];
     
     float rebornCountdown = 3;
     //Start countdown animation
@@ -394,13 +417,55 @@ NSString *const achievementPopup = @"achievementPopup";
     [rebornBar runAction:countdownAnimation];
 }
 
+-(void) showHeadstartButton
+{
+    int headstartcost = [[[HeroManager shared] getHero] getHeadstartCost];
+    //Update cost label
+    [headstartCostLabel setString:[NSString stringWithFormat:@"%d", headstartcost]];
+    
+    //Reset button
+    headstartBar.scaleX = 1;
+    
+    [headStartButton setEnabled:YES];
+    
+    //Headstart button fly in from the top
+    id flyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height-50)];
+    
+    float countdown = 3;
+    //Start countdown animation
+    id countdownAnimation = [CCScaleTo actionWithDuration:countdown scaleX:0 scaleY:rebornBar.scaleY];
+    //Start countdown system
+    id countdownSystem = [CCDelayTime actionWithDuration:countdown];
+    
+    id noButtonPressedConsequence = [CCCallBlock actionWithBlock:^{
+        //Hide button
+        [self hideHeadstartButton];
+    }];
+    
+    id sequence = [CCSequence actions:[CCEaseExponentialOut actionWithAction:flyin], countdownSystem, noButtonPressedConsequence, nil];
+    
+    [headstartButtonHolder runAction:sequence];
+    [headstartBar runAction:countdownAnimation];
+}
+
 -(void) hideRebornButton
 {
     [UIMask stopAllActions];
     [rebornButtonHolder stopAllActions];
     [rebornBar stopAllActions];
+    [rebornButton setEnabled:NO];
     
     rebornButtonHolder.position = ccp([[CCDirector sharedDirector] winSize].width/2, -100);
+}
+
+-(void) hideHeadstartButton
+{
+    [headstartButtonHolder stopAllActions];
+    [headstartBar stopAllActions];
+    [headStartButton setEnabled:NO];
+    
+    id flyout = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height+100)];
+    [headstartButtonHolder runAction:[CCEaseBackIn actionWithAction:flyout]];
 }
 
 -(void) beforeGameover

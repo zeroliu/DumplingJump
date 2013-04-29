@@ -107,17 +107,17 @@
         <price1>1200</price1>
         <price2>3600</price2>
         <price3>10800</price3>
-		<level0>4</level0>
-		<level1>5</level1>
-		<level2>6</level2>
-		<level3>7</level3>
-		<level4>8</level4>
+		<level0>6</level0>
+		<level1>7</level1>
+		<level2>8</level2>
+		<level3>9</level3>
+		<level4>10</level4>
 		<unit>s</unit>
 	</Item>
 	<Item>
 		<group>5</group>
 		<type>special</type>
-		<layout>EquipmentViewAmountCell</layout>
+		<layout>EquipmentViewLevelCell</layout>
 		<name>reborn</name>
 		<displayName>REBORN</displayName>
 		<image>UI_item_reborn</image>
@@ -128,25 +128,37 @@
 		<unlockPrice>800</unlockPrice>
         <price0>400</price0>
         <price1>2000</price1>
-        <price2>10000</price2>
-        <price3>50000</price3>
+        <price2>5000</price2>
+        <price3>9999</price3>
+        <level0>100</level0>
+		<level1>95</level1>
+		<level2>90</level2>
+		<level3>85</level3>
+		<level4>80</level4>
+        <unit>%</unit>
 	</Item>
 	<Item>
 		<group>6</group>
 		<type>special</type>
-		<layout>EquipmentViewAmountCell</layout>
+		<layout>EquipmentViewLevelCell</layout>
 		<name>headstart</name>
 		<displayName>HEAD START</displayName>
 		<image>UI_item_headstart</image>
 		<order>3</order>
-		<description>Boost ahead 1000m at the start of the game </description>
+		<description>Boost ahead </description>
 		<multiplier>1.00</multiplier>
-		<base>300</base>
+		<base>2500</base>
 		<unlockPrice>800</unlockPrice>
         <price0>800</price0>
         <price1>2400</price1>
         <price2>7200</price2>
         <price3>21600</price3>
+        <level0>5</level0>
+		<level1>6</level1>
+		<level2>7</level2>
+		<level3>8</level3>
+		<level4>9</level4>
+		<unit>s</unit>
 	</Item>
 	<Item>
 		<group>7</group>

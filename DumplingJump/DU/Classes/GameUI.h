@@ -19,9 +19,19 @@
     CCNode *shieldButtonHolder; //0->CCControlButton, 1->green, 2->white effect
     CCNode *magnetButtonHolder;
     CCSprite *UIMask;
+
+    //Reborn button
+    CCControlButton *rebornButton;
     CCSprite *rebornBar;
     CCNode *rebornButtonHolder;
-    CCLabelTTF *rebornQuantity;
+    CCLabelBMFont *rebornCostLabel;
+    
+    //Headstart button
+    CCControlButton *headStartButton;
+    CCSprite *headstartBar;
+    CCNode *headstartButtonHolder;
+    CCLabelBMFont *headstartCostLabel;
+    
     CCMenuItem *pauseButton;
     CCSprite *mask;
     
@@ -51,4 +61,5 @@
 -(CGPoint) getStarDestination;
 -(void) scaleStarUI;
 -(void) refreshButtons;
+-(void) showHeadstartButton;
 @end

@@ -394,8 +394,7 @@
 -(void) boosterEffect
 {
     [self changeCollisionDetection:C_NOTHING];
-    [self.sprite runAction: [CCMoveTo actionWithDuration:0.3 position:ccp([CCDirector sharedDirector].winSize.width/2.0, -100)]];
-    
+    [self.sprite runAction: [CCMoveTo actionWithDuration:0.6 position:ccp([CCDirector sharedDirector].winSize.width/2.0, -100)]];
 }
 
 -(void) boosterEnd

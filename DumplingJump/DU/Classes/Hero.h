@@ -20,6 +20,7 @@
 @property (nonatomic, assign) BOOL canReborn;
 @property (nonatomic, assign) BOOL isSpringBoost;
 @property (nonatomic, assign) int boostStatus;
+@property (nonatomic, assign) int rebornCount;
 
 -(id)initHeroWithName:(NSString *)theName position:(CGPoint)thePosition radius:(float)theRadius mass:(float)theMass I:(float)theI fric:(float)theFric maxVx:(float)theMaxVx maxVy:(float)theMaxVy accValue:(float)theAccValue jumpValue:(float)theJumpValue gravityValue:(float)theGravity;
 -(void) updateHeroPositionWithAccX:(float)accX;
@@ -53,6 +54,8 @@
 -(BOOL) isShelterOn;
 -(BOOL) isBoosterOn;
 -(BOOL) isFreezing;
+-(int) getRebornCost;
+-(int) getHeadstartCost;
 
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

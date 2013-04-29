@@ -21,6 +21,7 @@
 #import "DUEffectObject.h"
 #import "InterReactionManager.h"
 #import "BackgroundManager.h"
+#import "EquipmentData.h"
 #import <Foundation/Foundation.h>
 
 @interface Hero()
@@ -38,6 +39,7 @@
     BOOL isHeadStart;
     int boostStatus; //0 none, 1 ready, 2 start
     int tapOnIceNumber;
+    
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -54,7 +56,7 @@
 @end
 
 @implementation Hero
-@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateDictionary = _overlayHeroStateDictionary, isSpringBoost = _isSpringBoost, boostStatus;
+@synthesize x=_x, y=_y, speed=_speed, acc=_acc, isOnGround=_isOnGround, heroState = _heroState, radius = _radius, mass = _mass, I = _I, fric = _fric, maxVx = _maxVx, maxVy = _maxVy, accValue = _accValue, jumpValue = _jumpValue, gravity = _gravity, canReborn = _canReborn, overlayHeroStateDictionary = _overlayHeroStateDictionary, isSpringBoost = _isSpringBoost, boostStatus, rebornCount = _rebornCount;
 
 #pragma mark -
 #pragma Initialization
@@ -103,6 +105,7 @@
     isAbsorbing = NO;
     isHeadStart = NO;
     _isSpringBoost = NO;
+    _rebornCount = 0;
 }
 
 -(void) initHeroSpriteWithFile:(NSString *)filename position:(CGPoint)thePosition
@@ -236,8 +239,6 @@
     lastVelocity = self.body->GetLinearVelocity();
 }
 
-
-
 -(void) updateHeroBoosterEffect
 {
     //Ready phase, hero slowly moving back
@@ -245,7 +246,14 @@
     {
         if (boostStatus == 0)
         {
-            self.body->SetLinearVelocity(b2Vec2(0, -0.5));
+            if (isHeadStart)
+            {
+                self.body->SetLinearVelocity(b2Vec2(0, 3));
+            }
+            else
+            {
+                self.body->SetLinearVelocity(b2Vec2(0, 1));
+            }
         }
         else if (boostStatus == 1)
         {
@@ -387,7 +395,7 @@
     
     //Add tap effect
 //    [EFFECTMANAGER PlayEffectWithName:@"FX_Del" position:ccp(self.sprite.position.x + randomFloat(-10, 10),self.sprite.position.y + randomFloat(-10, 10)) z:1 parent:self.sprite];
-    [EFFECTMANAGER PlayEffectWithName:@"FX_Del" position:ccp(self.sprite.contentSize.width/2 + randomFloat(-10, 10), self.sprite.contentSize.height/2 + randomFloat(-10, 10)) z:1 parent:self.sprite];
+    [EFFECTMANAGER PlayEffectWithName:@"FX_Frozen" position:ccp(self.sprite.contentSize.width/2 + randomFloat(-10, 10), self.sprite.contentSize.height/2 + randomFloat(-10, 10)) z:1 parent:self.sprite];
 }
 
 -(void) jump
@@ -673,6 +681,7 @@
     [[self.sprite getChildByTag:TAG_SPRING_BOOST] removeFromParentAndCleanup:NO];
     [[self.sprite getChildByTag:ABSORB_POWERUP_TAG] removeFromParentAndCleanup:NO];
     [[self.sprite getChildByTag:SHIELD_POWERUP_TAG] removeFromParentAndCleanup:NO];
+    [[self.sprite getChildByTag:TAG_BREAK_ICE_HINT] removeFromParentAndCleanup:NO];
 }
 
 - (void) idle
@@ -907,17 +916,16 @@
     [MESSAGECENTER postNotificationName:NOTIFICATION_HEADSTART object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.useHeadstartCount] forKey:@"num"]];
     
     isHeadStart = YES;
-    
-    self.body->SetTransform(b2Vec2([CCDirector sharedDirector].winSize.width/2 / RATIO, -200/RATIO),0);
+
     [self playAnimationForever:@"H_happy"];
     
     boostStatus = 0;
-    self.heroState = @"booster";
     
     //Create support
     CCSprite *headStartSupport = [CCSprite spriteWithSpriteFrameName:@"O_headstart_1.png"];
     headStartSupport.anchorPoint = ccp(0.5,1);
-    headStartSupport.position = ccp(self.sprite.contentSize.width/2,8 );
+    headStartSupport.position = ccp(self.sprite.contentSize.width/2,-20);
+    headStartSupport.opacity = 0;
     id supportAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_SUPPORT];
     if(supportAnimation != nil)
     {
@@ -925,59 +933,35 @@
         id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:supportAnimation]];
         [headStartSupport runAction:animAction];
     }
-    
     if ([self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] != nil)
     {
         [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] removeFromParentAndCleanup:NO];
     }
     [self.sprite addChild:headStartSupport z:-1 tag:TAG_HEADSTART_SUPPORT];
+    [headStartSupport runAction:[CCFadeIn actionWithDuration:0.5]];
+    [headStartSupport runAction:[CCEaseSineOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp(self.sprite.contentSize.width/2,8)]]];
     
-    //Create aurora
-    CCSprite *headStartBoostEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_wave_1.png"];
-    headStartBoostEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
-    id boostAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_BOOST];
-    if(boostAnimation != nil)
+    [self changeCollisionDetection:C_STAR | C_ADDTHING];
+    [self scheduleOnce:@selector(boosterReady) delay:1];
+    [self scheduleOnce:@selector(boosterBackgroundStart) delay:0.8];
+    [[[BoardManager shared] getBoard] performSelector:@selector(boosterEffect) withObject:nil afterDelay:0.8];
+    self.heroState = @"booster";
+    
+    //turn on absorb effect
+    //turn off existing one if already have one
+    if ([self.overlayHeroStateDictionary objectForKey:@"absorb"] != nil)
     {
-        [headStartBoostEffect stopAllActions];
-        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:boostAnimation]];
-        [headStartBoostEffect runAction:animAction];
+        [self performSelector:@selector(absorbFin)];
     }
-    
-    if ([self.sprite getChildByTag:TAG_HEADSTART_BOOST] != nil)
-    {
-        [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] removeFromParentAndCleanup:NO];
-    }
-    [self.sprite addChild:headStartBoostEffect z:-2 tag:TAG_HEADSTART_BOOST];
-    
-    //Create trail
-    CCSprite *headStartTrail = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_trail_1.png"];
-    headStartTrail.scaleY = 25;
-    headStartTrail.anchorPoint = ccp(0.5,1);
-    headStartTrail.position = ccp(self.sprite.contentSize.width/2,0);
-    id trailAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_TRAIL];
-    if(trailAnimation != nil)
-    {
-        [headStartTrail stopAllActions];
-        id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:trailAnimation]];
-        [headStartTrail runAction:animAction];
-    }
-    
-    if ([self.sprite getChildByTag:TAG_HEADSTART_TRAIL] != nil)
-    {
-        [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] removeFromParentAndCleanup:NO];
-    }
-    [self.sprite addChild:headStartTrail z:-3 tag:TAG_HEADSTART_TRAIL];
-    
-    [self changeCollisionDetection:C_STAR];
-    [self boosterReady];
-    [self boosterBackgroundStart];
+    [self turnOnAbsorbCollisionDetection];
+    isAbsorbing = YES;
 }
 
 -(float) getBoosterInterval
 {
     if (isHeadStart)
     {
-        return [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"headstartDuration"] floatValue];
+        return [[POWERUP_DATA objectForKey:@"headstart"] floatValue];
     }
     else
     {
@@ -1045,6 +1029,43 @@
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
     particleNode.position = CGPointZero;
+    if (isHeadStart)
+    {
+        //Create trail
+        CCSprite *headStartTrail = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_trail_1.png"];
+        headStartTrail.scaleY = 25;
+        headStartTrail.anchorPoint = ccp(0.5,1);
+        headStartTrail.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        id trailAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_TRAIL];
+        if(trailAnimation != nil)
+        {
+            [headStartTrail stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:trailAnimation]];
+            [headStartTrail runAction:animAction];
+        }
+        if ([self.sprite getChildByTag:TAG_HEADSTART_TRAIL] != nil)
+        {
+            [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] removeFromParentAndCleanup:NO];
+        }
+        [self.sprite addChild:headStartTrail z:-3 tag:TAG_HEADSTART_TRAIL];
+        
+        //Create aurora
+        CCSprite *headStartBoostEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_headstart_wave_1.png"];
+        headStartBoostEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
+        id boostAnimation = [ANIMATIONMANAGER getAnimationWithName:HEADSTART_BOOST];
+        if(boostAnimation != nil)
+        {
+            [headStartBoostEffect stopAllActions];
+            id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:boostAnimation]];
+            [headStartBoostEffect runAction:animAction];
+        }
+        if ([self.sprite getChildByTag:TAG_HEADSTART_BOOST] != nil)
+        {
+            [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] removeFromParentAndCleanup:NO];
+        }
+        [self.sprite addChild:headStartBoostEffect z:-2 tag:TAG_HEADSTART_BOOST];
+        
+    }
 }
 
 -(void) boosterStart
@@ -1056,6 +1077,8 @@
     self.body->SetLinearVelocity(b2Vec2(0,self.speed.y));
     [self scheduleOnce:@selector(boosterFin) delay:interval];
     [[[BoardManager shared] getBoard] scheduleOnce:@selector(boosterEnd) delay:interval-0.5];
+    
+    
 }
 
 -(void) boosterFin
@@ -1075,7 +1098,9 @@
     if (isHeadStart)
     {
         isHeadStart = NO;
-        id fadeOutAnim = [CCFadeOut actionWithDuration:0.3];
+        id fadeOutAnimBoost = [CCFadeOut actionWithDuration:0.5];
+        id fadeOutAnimTrail = [CCFadeOut actionWithDuration:0.5];
+        id fadeOutAnimSupport = [CCFadeOut actionWithDuration:0.5];
         id removeBoostFunc = [CCCallBlock actionWithBlock:^{
             [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] removeFromParentAndCleanup:NO];
         }];
@@ -1086,9 +1111,9 @@
             [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] removeFromParentAndCleanup:NO];
         }];
         
-        [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] runAction:[CCSequence actions:fadeOutAnim, removeBoostFunc, nil]];
-        [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] runAction:[CCSequence actions:fadeOutAnim, removeTrailFunc, nil]];
-        [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] runAction:[CCSequence actions:fadeOutAnim, removeSupportFunc, nil]];
+        [[self.sprite getChildByTag:TAG_HEADSTART_BOOST] runAction:[CCSequence actions:fadeOutAnimBoost, removeBoostFunc, nil]];
+        [[self.sprite getChildByTag:TAG_HEADSTART_TRAIL] runAction:[CCSequence actions:fadeOutAnimTrail, removeTrailFunc, nil]];
+        [[self.sprite getChildByTag:TAG_HEADSTART_SUPPORT] runAction:[CCSequence actions:fadeOutAnimSupport, removeSupportFunc, nil]];
     }
     
     //Change hero state back to idle
@@ -1255,6 +1280,7 @@
 {
     if (!self.canReborn)
     {
+        _rebornCount ++;
         CCSprite *halo = [CCSprite spriteWithSpriteFrameName:@"E_item_reborn_start_1.png"];
         halo.scale = 0.8;
         halo.tag = REBORN_POWERUP_TAG;
@@ -1626,17 +1652,23 @@
 
 -(void) beforeDie
 {
-    //TODO: use user data
-    if ([[USERDATA objectForKey:@"reborn"] intValue] > 0)
+    if ([[USERDATA objectForKey:@"reborn"] intValue] >= 0)
     {
-        //Pause game
-        [[[Hub shared] gameLayer] pauseGame];
-        
-        //Show revive button
-        [[GameUI shared] showRebornButton];
+        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+        if (currentStar > [self getRebornCost])
+        {
+            //Pause game
+            [[[Hub shared] gameLayer] pauseGame];
+            
+            //Show revive button
+            [[GameUI shared] showRebornButton];
+        }
+        else
+        {
+            [[[Hub shared] gameLayer] gameOver];
+        }
     } else
     {
-        //if has no revive
         [[[Hub shared] gameLayer] gameOver];
     }
 }
@@ -1683,6 +1715,22 @@
     id delay = [CCDelayTime actionWithDuration:time];
     id callbackFunc = [CCCallBlock actionWithBlock:block];
     [self.sprite runAction:[CCSequence actions:delay, callbackFunc, nil]];
+}
+
+-(int) getRebornCost
+{
+    int price = 9999;
+    NSDictionary *equipmentData = [((EquipmentData *)[EquipmentData shared]).dataDictionary objectForKey:@"reborn"];
+    if (_rebornCount < 3)
+    {
+        price = [[equipmentData objectForKey:[NSString stringWithFormat:@"price%d", _rebornCount]] intValue];
+    }
+    return price;
+}
+
+-(int) getHeadstartCost
+{
+    return [[[((EquipmentData *)[EquipmentData shared]).dataDictionary objectForKey:@"headstart"] objectForKey:@"base"] intValue];
 }
 
 #pragma mark -

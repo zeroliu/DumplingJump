@@ -17,6 +17,7 @@
 #import "DeadUI.h"
 #import "GamespeedTestTool.h"
 #import "BackgroundManager.h"
+#import "Hero.h"
 
 @interface GameLayer()
 {
@@ -365,12 +366,13 @@
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
     
-    int headStartCount = [[USERDATA objectForKey:@"headstart"] intValue];
-    if (headStartCount > 0)
+    if ([[USERDATA objectForKey:@"headstart"] intValue] >= 0)
     {
-        [USERDATA setObject:[NSNumber numberWithInt:headStartCount -1] forKey:@"headstart"];
-        [[[HeroManager shared] getHero] headStart];
-        [[[BoardManager shared] getBoard] hideBoard];
+        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+        if (currentStar > [[[HeroManager shared] getHero] getHeadstartCost])
+        {
+            [[GameUI shared] showHeadstartButton];
+        }
     }
     [self.model resetGameData];
 }
@@ -454,8 +456,6 @@
 
 -(void) updateGameData
 {
-    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentStar + self.model.star] forKey:@"star"];
     int currentHighscore = [[USERDATA objectForKey:@"highscore"] intValue];
     int myScore = (int)(self.model.distance*self.model.multiplier);
     if (myScore > currentHighscore)

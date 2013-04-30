@@ -13,6 +13,7 @@
 #import "HeroManager.h"
 #import "Hero.h"
 #import "GameModel.h"
+#import "CameraEffects.h"
 @interface BackgroundManager()
 {
     NSMutableDictionary*    _backgroundData;
@@ -139,6 +140,10 @@ scrollSpeedScale = _scrollSpeedScale;
 
 - (void) reset
 {
+    //Reset nodes position
+    _bgNode.position = CGPointZero;
+    _bgObjectNode.position = CGPointZero;
+    
     //Remove all existing sprites
     [_bgObjectNode removeAllChildrenWithCleanup:NO];
     
@@ -407,4 +412,9 @@ scrollSpeedScale = _scrollSpeedScale;
     }
 }
 
+- (void) shakeBackgroundWithX:(float)amountX y:(float)amountY duration:(float)time
+{
+    [[CameraEffects shared] shakeCameraWithTarget:_bgNode x:amountX y:amountY duration:time];
+    [[CameraEffects shared] shakeCameraWithTarget:_bgObjectNode x:amountX y:amountY duration:time];
+}
 @end

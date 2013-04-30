@@ -23,6 +23,7 @@
 #import "BackgroundManager.h"
 #import "EquipmentData.h"
 #import <Foundation/Foundation.h>
+#import "CameraEffects.h"
 
 @interface Hero()
 {
@@ -388,6 +389,9 @@
 {
     tapOnIceNumber ++;
     
+    //shake camera
+    [self shakeWithX:5 y:5 duration:0.1];
+    
     if (tapOnIceNumber > [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"iceBreakNum"] intValue])
     {
         [self iceFin];
@@ -739,6 +743,9 @@
     int hurtValue = [[value objectAtIndex:0] intValue];
     AddthingObject *contactObject = [value objectAtIndex:1];
     
+    //shake camera
+    [self shakeWithX:5 y:5 duration:0.2];
+    
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
     {
@@ -787,6 +794,8 @@
     //Blow hero
     if (![self.heroState isEqualToString:@"booster"])
     {
+        [self shakeWithX:20 y:20 duration:1];
+        
         CGPoint explosionPos = [[value objectAtIndex:0] CGPointValue];
         
         adjustJump = 0;
@@ -830,6 +839,8 @@
         SEL stopReactionSelector = NSSelectorFromString([NSString stringWithFormat:@"%@Fin", self.heroState]);
         [self performSelector:stopReactionSelector];
     }
+    
+    [self shakeWithX:5 y:5 duration:0.1];
     
 //    AddthingObject *contactObject = [value lastObject];
     
@@ -1025,6 +1036,10 @@
 -(void) boosterReady
 {
     float interval = [self getBoosterInterval];
+    
+    //shake camera
+    [self shakeWithX:10 y:10 duration:interval + 1];
+    
     boostStatus = 1;
     //Play speed line effect
     CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_speedline.ccbi" parent:GAMELAYER z:Z_Speedline duration: MAX(1, interval) life:1];
@@ -1731,6 +1746,12 @@
 -(int) getHeadstartCost
 {
     return [[[((EquipmentData *)[EquipmentData shared]).dataDictionary objectForKey:@"headstart"] objectForKey:@"base"] intValue];
+}
+
+- (void) shakeWithX:(float)amountX y:(float)amountY duration:(float)time
+{
+    [[CameraEffects shared] shakeCameraWithTarget:BATCHNODE x:amountX y:amountY duration:time];
+    [[BackgroundManager shared] shakeBackgroundWithX:amountX y:amountY duration:time];
 }
 
 #pragma mark -

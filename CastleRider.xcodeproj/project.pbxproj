@@ -716,6 +716,7 @@
 		9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */; };
 		9F47FA2D17168B4D00ABFFAB /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F47FA2C17168B4D00ABFFAB /* mask.png */; };
 		9F4D6BF2172F9E92006DC500 /* UI_equip_box_price_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D6BF1172F9E92006DC500 /* UI_equip_box_price_locked.png */; };
+		9F4D6BF6172FA514006DC500 /* CameraEffects.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D6BF5172FA514006DC500 /* CameraEffects.mm */; };
 		9F55BD2117154E8D002A75BC /* UI_mission_achieve_lifetime.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1217154E8D002A75BC /* UI_mission_achieve_lifetime.png */; };
 		9F55BD2217154E8D002A75BC /* UI_mission_achieve_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1317154E8D002A75BC /* UI_mission_achieve_lock.png */; };
 		9F55BD2317154E8D002A75BC /* UI_mission_achieve_unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1417154E8D002A75BC /* UI_mission_achieve_unlock.png */; };
@@ -1814,6 +1815,8 @@
 		9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterReactionManager.m; sourceTree = "<group>"; };
 		9F47FA2C17168B4D00ABFFAB /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		9F4D6BF1172F9E92006DC500 /* UI_equip_box_price_locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_price_locked.png; sourceTree = "<group>"; };
+		9F4D6BF4172FA513006DC500 /* CameraEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraEffects.h; sourceTree = "<group>"; };
+		9F4D6BF5172FA514006DC500 /* CameraEffects.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraEffects.mm; sourceTree = "<group>"; };
 		9F55BD1217154E8D002A75BC /* UI_mission_achieve_lifetime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_achieve_lifetime.png; sourceTree = "<group>"; };
 		9F55BD1317154E8D002A75BC /* UI_mission_achieve_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_achieve_lock.png; sourceTree = "<group>"; };
 		9F55BD1417154E8D002A75BC /* UI_mission_achieve_unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_achieve_unlock.png; sourceTree = "<group>"; };
@@ -3167,6 +3170,7 @@
 		7F7010E915AFEFFE00495B10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9F4D6BF3172FA504006DC500 /* Effect */,
 				9FEEB07E16F7FF64008A1D02 /* Achievement */,
 				7FF645C416B5D05300CF7E5C /* Data */,
 				7FF0822215B2355200E093E1 /* System */,
@@ -3736,6 +3740,15 @@
 				9F0B256A1721337300495E98 /* BG_canvas_5.png */,
 			);
 			path = background;
+			sourceTree = "<group>";
+		};
+		9F4D6BF3172FA504006DC500 /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D6BF4172FA513006DC500 /* CameraEffects.h */,
+				9F4D6BF5172FA514006DC500 /* CameraEffects.mm */,
+			);
+			name = Effect;
 			sourceTree = "<group>";
 		};
 		9F55BD1117154E8D002A75BC /* sheetUI-achievement */ = {
@@ -4634,6 +4647,7 @@
 				9FBCB5B11714CF5700786A59 /* OutlineLabel.m in Sources */,
 				9F1455FB171BE0FD006FCB45 /* StarRewardData.m in Sources */,
 				9F0B256317212C6200495E98 /* BackgroundManager.mm in Sources */,
+				9F4D6BF6172FA514006DC500 /* CameraEffects.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

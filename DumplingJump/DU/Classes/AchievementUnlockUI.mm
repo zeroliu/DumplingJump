@@ -91,8 +91,8 @@
         id hitEffect = [CCCallBlock actionWithBlock:^{
             CCNode *particleNode = [[DUParticleManager shared] createParticleWithName:@"FX_coinstarGet.ccbi" parent:unlockIcon.parent z:unlockIcon.zOrder+1];
             particleNode.position = unlockIcon.position;
-            id shakeStep1 = [CCMoveTo actionWithDuration:0.01 position:ccp(nodeHolder.position.x+5, nodeHolder.position.y-5)];
-            id wait = [CCDelayTime actionWithDuration:0.1];
+            id shakeStep1 = [CCMoveTo actionWithDuration:0.01 position:ccp(nodeHolder.position.x+8, nodeHolder.position.y-8)];
+            id wait = [CCDelayTime actionWithDuration:0.08];
             id shakeStep2 = [CCMoveTo actionWithDuration:0.01 position:ccp(nodeHolder.position.x, nodeHolder.position.y)];
             [nodeHolder runAction:[CCSequence actions:shakeStep1, wait, shakeStep2, nil]];
         }];

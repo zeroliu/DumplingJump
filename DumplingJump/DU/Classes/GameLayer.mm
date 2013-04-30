@@ -17,6 +17,7 @@
 #import "DeadUI.h"
 #import "GamespeedTestTool.h"
 #import "BackgroundManager.h"
+#import "CameraEffects.h"
 #import "Hero.h"
 
 @interface GameLayer()
@@ -351,6 +352,8 @@
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
         
         [[GamespeedTestTool shared] updateUI];
+        
+        [[CameraEffects shared] updateCameraEffect:deltaTime];
     }
 }
 
@@ -466,6 +469,9 @@
 
 -(void) restart
 {
+    //Reset batch node position
+    self.batchNode.position = CGPointZero;
+    
     //Clear all unlocked
     [[AchievementManager shared] removeAllUnlockedEvent];
     

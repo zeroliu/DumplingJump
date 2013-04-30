@@ -16,4 +16,5 @@
 - (void) updateBackgroundPosition:(ccTime)deltaTime;
 - (void) updateBackgroundObjectPosition:(ccTime)deltaTime;
 - (void) speedUpWithScale:(int)scale interval:(float)time;
+- (void) shakeBackgroundWithX:(float)amountX y:(float)amountY duration:(float)time;
 @end

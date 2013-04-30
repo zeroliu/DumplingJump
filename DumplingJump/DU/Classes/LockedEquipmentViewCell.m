@@ -60,7 +60,7 @@
     {
         [band setHidden:YES];
         [priceLabelImage setImage:[UIImage imageNamed:@"UI_equip_box_price_locked.png"]];
-    }
+    } 
     
     if (overlay != nil)
     {

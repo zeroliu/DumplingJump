@@ -54,12 +54,12 @@
     if (currentStar >= [[content objectForKey:@"unlockPrice"] intValue])
     {
         [band setHidden:NO];
-        [priceLabelImage setAlpha:1];
+        [priceLabelImage setImage:[UIImage imageNamed:@"UI_equip_box_price.png"]];
     }
     else
     {
         [band setHidden:YES];
-        [priceLabelImage setAlpha:0.5];
+        [priceLabelImage setImage:[UIImage imageNamed:@"UI_equip_box_price_locked.png"]];
     }
     
     if (overlay != nil)

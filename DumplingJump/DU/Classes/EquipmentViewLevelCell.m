@@ -95,14 +95,6 @@
     else
     {
         price = [[myContent objectForKey:[NSString stringWithFormat:@"price%d",level]] intValue];
-//        if (level == 0)
-//        {
-//            price = base;
-//        }
-//        else
-//        {
-//            price = base * multiplier * level;
-//        }
         
         [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
         [self setUserInteractionEnabled:YES];
@@ -113,12 +105,12 @@
     if (level < 4 && currentStar >= price)
     {
         [band setHidden:NO];
-        [priceLabelImage setAlpha:1];
+        [priceLabelImage setImage:[UIImage imageNamed:@"UI_equip_box_price.png"]];
     }
     else
     {
         [band setHidden:YES];
-        [priceLabelImage setAlpha:0.5];
+        [priceLabelImage setImage:[UIImage imageNamed:@"UI_equip_box_price_locked.png"]];
     }
     
     float effectValue = [[myContent objectForKey:[NSString stringWithFormat:@"level%d", level]] floatValue];

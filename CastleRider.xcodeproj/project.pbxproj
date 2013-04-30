@@ -715,6 +715,7 @@
 		9F1DEB0216FC08F700354C49 /* Eras Demi ITC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1DEB0116FC08F700354C49 /* Eras Demi ITC.ttf */; };
 		9F1F067016EBC32C000E81E5 /* InterReactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */; };
 		9F47FA2D17168B4D00ABFFAB /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F47FA2C17168B4D00ABFFAB /* mask.png */; };
+		9F4D6BF2172F9E92006DC500 /* UI_equip_box_price_locked.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4D6BF1172F9E92006DC500 /* UI_equip_box_price_locked.png */; };
 		9F55BD2117154E8D002A75BC /* UI_mission_achieve_lifetime.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1217154E8D002A75BC /* UI_mission_achieve_lifetime.png */; };
 		9F55BD2217154E8D002A75BC /* UI_mission_achieve_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1317154E8D002A75BC /* UI_mission_achieve_lock.png */; };
 		9F55BD2317154E8D002A75BC /* UI_mission_achieve_unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F55BD1417154E8D002A75BC /* UI_mission_achieve_unlock.png */; };
@@ -1812,6 +1813,7 @@
 		9F1F066E16EBC32C000E81E5 /* InterReactionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterReactionManager.h; sourceTree = "<group>"; };
 		9F1F066F16EBC32C000E81E5 /* InterReactionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterReactionManager.m; sourceTree = "<group>"; };
 		9F47FA2C17168B4D00ABFFAB /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		9F4D6BF1172F9E92006DC500 /* UI_equip_box_price_locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_price_locked.png; sourceTree = "<group>"; };
 		9F55BD1217154E8D002A75BC /* UI_mission_achieve_lifetime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_achieve_lifetime.png; sourceTree = "<group>"; };
 		9F55BD1317154E8D002A75BC /* UI_mission_achieve_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_achieve_lock.png; sourceTree = "<group>"; };
 		9F55BD1417154E8D002A75BC /* UI_mission_achieve_unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_mission_achieve_unlock.png; sourceTree = "<group>"; };
@@ -2715,6 +2717,7 @@
 		7F3B59AB16C86DC10010F8E4 /* sheetUI-1 */ = {
 			isa = PBXGroup;
 			children = (
+				9F4D6BF1172F9E92006DC500 /* UI_equip_box_price_locked.png */,
 				9F55BD38171551B5002A75BC /* UI_play_achievement_unlocked.png */,
 				9F55BD39171551B5002A75BC /* UI_play_bonus_star.png */,
 				9F55BD3A171551B5002A75BC /* UI_retry_equip_new.png */,
@@ -4345,6 +4348,7 @@
 				9F88385B17225912008A004C /* sheetBackgroundObject-hd.png in Resources */,
 				9F88385C17225912008A004C /* sheetBackgroundObject.plist in Resources */,
 				9F88385D17225912008A004C /* sheetBackgroundObject.png in Resources */,
+				9F4D6BF2172F9E92006DC500 /* UI_equip_box_price_locked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

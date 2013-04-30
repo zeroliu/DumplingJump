@@ -430,7 +430,7 @@ NSString *const achievementPopup = @"achievementPopup";
     [headStartButton setEnabled:YES];
     
     //Headstart button fly in from the top
-    id flyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height-50)];
+    id flyin = [CCMoveTo actionWithDuration:0.2 position:ccp(headstartButtonHolder.position.x, [[CCDirector sharedDirector] winSize].height-120)];
     
     float countdown = 3;
     //Start countdown animation
@@ -465,7 +465,7 @@ NSString *const achievementPopup = @"achievementPopup";
     [headstartBar stopAllActions];
     [headStartButton setEnabled:NO];
     
-    id flyout = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height+100)];
+    id flyout = [CCMoveTo actionWithDuration:0.2 position:ccp(headstartButtonHolder.position.x, [[CCDirector sharedDirector] winSize].height+100)];
     [headstartButtonHolder runAction:[CCEaseBackIn actionWithAction:flyout]];
 }
 

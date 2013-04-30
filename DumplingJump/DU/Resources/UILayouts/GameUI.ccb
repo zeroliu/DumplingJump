@@ -3593,8 +3593,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>50</real>
-							<real>130</real>
+							<real>10</real>
+							<real>120</real>
 							<integer>4</integer>
 						</array>
 					</dict>

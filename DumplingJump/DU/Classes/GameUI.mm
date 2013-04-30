@@ -370,8 +370,9 @@ NSString *const achievementPopup = @"achievementPopup";
     mask.anchorPoint = ccp(0.5,0.5);
     mask.position = ccp(winSize.width/2, winSize.height/2);
     mask.zOrder = Z_GAME_MASK;
+    mask.color = ccc3(0, 0, 0);
     mask.opacity = 0;
-    [mask runAction:[CCFadeTo actionWithDuration:0.1 opacity:90]];
+    [mask runAction:[CCFadeTo actionWithDuration:0.1 opacity:200]];
     [GAMELAYER addChild:mask];
 }
 
@@ -398,7 +399,7 @@ NSString *const achievementPopup = @"achievementPopup";
     rebornBar.scaleX = 1;
     
     //Reborn button fly in from the bottom
-    id rebornFlyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2 + 100)];
+    id rebornFlyin = [CCMoveTo actionWithDuration:0.2 position:ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2 - 50)];
     
     float rebornCountdown = 3;
     //Start countdown animation

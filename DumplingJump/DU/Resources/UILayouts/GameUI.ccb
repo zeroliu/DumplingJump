@@ -2023,7 +2023,7 @@
 								<key>value</key>
 								<array>
 									<real>0.0</real>
-									<real>-60</real>
+									<real>-120</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2899,7 +2899,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>-42</real>
+									<real>-45</real>
 									<real>-5</real>
 									<integer>0</integer>
 								</array>

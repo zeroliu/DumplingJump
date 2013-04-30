@@ -33,7 +33,7 @@
 #define Z_Speedline 20
 #define Z_Hero 5
 //game mask z order doesn't work because game mask sprite is not in sheetobject
-#define Z_GAME_MASK 9
+#define Z_GAME_MASK 12
 #define Z_Board 10
 #define Z_Engine 11
 #define Z_WarningSign 100

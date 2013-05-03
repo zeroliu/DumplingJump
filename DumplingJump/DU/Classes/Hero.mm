@@ -1312,6 +1312,7 @@
         [self.sprite addChild:halo z:-1];
         halo.position = ccp(halo.parent.contentSize.width/2,halo.parent.contentSize.height/2 + 3);
     }
+    self.sprite.zOrder = Z_Hero_Reborn;
     self.canReborn = YES;
     [self unschedule:@selector(rebornFinish)];
     [self scheduleOnce:@selector(rebornFinish) delay:10];
@@ -1333,6 +1334,8 @@
     //Play reborn finish animation
     [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
     self.canReborn = NO;
+    
+    self.sprite.zOrder = Z_Hero;
 }
 
 -(void) reborn
@@ -1667,25 +1670,25 @@
 
 -(void) beforeDie
 {
-    if ([[USERDATA objectForKey:@"reborn"] intValue] >= 0)
+//    if ([[USERDATA objectForKey:@"reborn"] intValue] >= 0)
+//    {
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    if (currentStar > [self getRebornCost])
     {
-        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-        if (currentStar > [self getRebornCost])
-        {
-            //Pause game
-            [[[Hub shared] gameLayer] pauseGame];
-            
-            //Show revive button
-            [[GameUI shared] showRebornButton];
-        }
-        else
-        {
-            [[[Hub shared] gameLayer] gameOver];
-        }
-    } else
+        //Pause game
+        [[[Hub shared] gameLayer] pauseGame];
+        
+        //Show revive button
+        [[GameUI shared] showRebornButton];
+    }
+    else
     {
         [[[Hub shared] gameLayer] gameOver];
     }
+//    } else
+//    {
+//        [[[Hub shared] gameLayer] gameOver];
+//    }
 }
 
 -(BOOL) isShelterOn

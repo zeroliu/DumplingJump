@@ -116,12 +116,12 @@
 	</Item>
 	<Item>
 		<group>5</group>
-		<type>special</type>
+		<type>notshowing</type>
 		<layout>EquipmentViewLevelCell</layout>
 		<name>reborn</name>
 		<displayName>REBORN</displayName>
 		<image>UI_item_reborn</image>
-		<order>1</order>
+		<order>0</order>
 		<description>Revive once</description>
 		<multiplier>2.00</multiplier>
 		<base>400</base>

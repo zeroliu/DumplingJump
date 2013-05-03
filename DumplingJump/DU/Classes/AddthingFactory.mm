@@ -125,6 +125,7 @@
         
         if(animation != nil)
         {
+//            DLog(@"%@", [((CCAnimation *) animation).frames description]);
             id animAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:animation]];
             [newObject.sprite runAction:animAction];
         }

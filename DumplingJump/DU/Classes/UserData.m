@@ -99,7 +99,7 @@ userAchievementDataDictionary = _userAchievementDataDictionary;
     if (plistData)
     {
         [plistData writeToFile:plistPath atomically:YES];
-        NSLog(@"writting user data successfully: \n %@", self.userDataDictionary);
+//        NSLog(@"writting user data successfully: \n %@", self.userDataDictionary);
     }
     else
     {
@@ -113,7 +113,7 @@ userAchievementDataDictionary = _userAchievementDataDictionary;
     if (achievementPlistData)
     {
         [achievementPlistData writeToFile:achievementPlistPath atomically:YES];
-        NSLog(@"writting user achievement data successfully:\n %@", self.userAchievementDataDictionary);
+//        NSLog(@"writting user achievement data successfully:\n %@", self.userAchievementDataDictionary);
     }
     else
     {

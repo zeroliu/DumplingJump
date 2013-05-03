@@ -11,7 +11,6 @@
 		<SHELTER>shield level</SHELTER>
 		<BOOSTER>booster level</BOOSTER>
 		<MAGNET>magnet level</MAGNET>
-		<reborn>reborn number</reborn>
 		<headstart>headstart number</headstart>
 		<goldenmultiplier>coin multiplier level</goldenmultiplier>
 		<achievementGroup>current achievement group</achievementGroup>
@@ -34,7 +33,6 @@
 		<SHELTER>-1</SHELTER>
 		<BOOSTER>0</BOOSTER>
 		<MAGNET>-1</MAGNET>
-		<reborn>-1</reborn>
 		<headstart>-1</headstart>
 		<goldenmultiplier>-1</goldenmultiplier>
 		<achievementGroup>1</achievementGroup>

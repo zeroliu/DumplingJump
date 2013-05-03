@@ -23,8 +23,6 @@
 {
     if (self = [super init])
     {
-//        animDict = [[NSMutableDictionary alloc] init];
-        
         [self loadAnimationData];
         
     }
@@ -38,13 +36,12 @@
     if (CC_CONTENT_SCALE_FACTOR() == 2)
     {
         path = [[NSBundle mainBundle] pathForResource:@"sheetObjects-hd" ofType:@"plist"];
-        //DLog(@"animation path = %@", path);
     } else
     {
         path = [[NSBundle mainBundle] pathForResource:@"sheetObjects" ofType:@"plist"];
     }
     
-    self.animDataDictionary = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] objectForKey:@"frames"];
+    _animDataDictionary = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] objectForKey:@"frames"];
 }
 
 -(void) registerAnimationForName:(NSString *)theName
@@ -78,9 +75,11 @@
         return;
     }
     
-    NSMutableArray *frameArray = [NSMutableArray array];
+    NSMutableArray *frameArray = [[NSMutableArray alloc] initWithCapacity:(end-start+1)];
     for (int i=start; i<=end; i++)
     {
+        NSAssert([theName isEqualToString:theFile], [NSString stringWithFormat: @"something wrong with the animation name"]);
+        
         NSString *frameName = [NSString stringWithFormat:@"%@_%d.png",theFile,i];
         id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
         [frameArray addObject:frameObject];
@@ -88,6 +87,7 @@
 
     id animObject = [CCAnimation animationWithSpriteFrames :frameArray delay:theDelay];
     [[CCAnimationCache sharedAnimationCache] addAnimation:animObject name:theName];
+    [frameArray release];
 }
 
 -(id) getAnimationWithName:(NSString *)theName

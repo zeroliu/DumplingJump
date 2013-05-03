@@ -5,11 +5,14 @@
 		<step0>step1</step0>
 		<step1>step2</step1>
 		<step2>step3</step2>
+        <step3>step4</step3>
 	</Combination>
 	<Combination>
 		<phase>0</phase>
 		<step0>0_tutorial_box_1</step0>
 		<step1>0_tutorial_vat_1</step1>
+        <step2>arrow_1_A</step2>
+        <step3>arrow_2_A</step3>
 	</Combination>
 	<Combination>
 		<phase>0</phase>

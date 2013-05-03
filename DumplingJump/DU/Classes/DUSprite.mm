@@ -32,7 +32,7 @@
 {
     [super deactivate];
     self.sprite.visible = NO;
-    self.sprite.position = ccp(-0,-0);
+    self.sprite.position = ccp(0,0);
     [self.sprite stopAllActions];
     [self.sprite removeFromParentAndCleanup:YES];
 //    NSLog(@"call DUSpirte deactive");
@@ -45,7 +45,7 @@
 
 -(void) dealloc
 {
-    [self.sprite removeFromParentAndCleanup:YES];
+//    [self.sprite removeFromParentAndCleanup:YES];
     [self.sprite release];
     [super dealloc];
 }

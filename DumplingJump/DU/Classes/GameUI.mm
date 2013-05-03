@@ -121,7 +121,6 @@ NSString *const achievementPopup = @"achievementPopup";
     if (mask != nil)
     {
         [mask removeFromParentAndCleanup:NO];
-        [mask release];
         mask = nil;
     }
 }
@@ -366,13 +365,16 @@ NSString *const achievementPopup = @"achievementPopup";
 - (void) createMask
 {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    mask = [[CCSprite spriteWithSpriteFrameName:@"UI_other_mask.png"] retain];
+//    mask = [CCSprite spriteWithSpriteFrameName:@"O_In_game_mask.png"];
+    mask = [CCSprite spriteWithSpriteFrameName:@"UI_other_mask.png"];
     mask.anchorPoint = ccp(0.5,0.5);
+    mask.scale = 15;
     mask.position = ccp(winSize.width/2, winSize.height/2);
     mask.zOrder = Z_GAME_MASK;
     mask.color = ccc3(0, 0, 0);
     mask.opacity = 0;
     [mask runAction:[CCFadeTo actionWithDuration:0.1 opacity:200]];
+//    [BATCHNODE addChild:mask];
     [GAMELAYER addChild:mask];
 }
 

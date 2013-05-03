@@ -19,5 +19,6 @@
 +(id) shared;
 -(void) reload;
 -(void) updateLevelName:(NSString *)theLevelName;
+-(void) updateLevelStep:(int)stepNum phase:(int)phaseNum;
 -(void) setEnable:(BOOL)isEnabled;
 @end

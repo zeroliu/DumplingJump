@@ -94,7 +94,8 @@ paragraphsCombination = _paragraphsCombination,
 paragraphNames = _paragraphNames,
 powderDictionary = _powderDictionary,
 toRemovePowderArray = _toRemovePowderArray,
-isMirror = _isMirror;
+isMirror = _isMirror,
+stepNum = _stepNum;
 
 +(id) shared
 {
@@ -129,6 +130,7 @@ isMirror = _isMirror;
         
         //TODO: Create weight look up table for the combinations
         
+        _stepNum = 0;
         currentPhaseIndex = 0;
         _powderDictionary = [[NSMutableDictionary alloc] init];
         [self clearWarningSign];
@@ -413,6 +415,9 @@ isMirror = _isMirror;
     
     //Remove the first element of the array
     [phasePharagraphs removeObjectAtIndex:0];
+    _stepNum++;
+    
+    [[LevelTestTool shared] updateLevelStep:_stepNum phase:currentPhaseIndex];
     
     //If the array is empty
     if ([phasePharagraphs count] == 0)
@@ -506,6 +511,7 @@ isMirror = _isMirror;
     if (phasePharagraphs == nil)
     {
         currentPhaseIndex ++;
+        _stepNum = 0;
         int phaseTotalNum = [_paragraphsCombination count];
         DLog(@"new phase TotalNum = %d", phaseTotalNum);
         if (currentPhaseIndex >= phaseTotalNum)
@@ -554,6 +560,7 @@ isMirror = _isMirror;
 
 -(void) resetParagraph
 {
+    _stepNum = 0;
     currentPhaseIndex = 0;
     [phasePharagraphs removeAllObjects];
     [phasePharagraphs release];
@@ -704,6 +711,11 @@ isMirror = _isMirror;
         }
         isUpdatingPowderCountdown = NO;
     }
+}
+
+- (int) getPhaseNum
+{
+    return currentPhaseIndex;
 }
 
 - (void)dealloc

@@ -389,9 +389,6 @@
 {
     tapOnIceNumber ++;
     
-    //shake camera
-    [self shakeWithX:5 y:5 duration:0.1];
-    
     if (tapOnIceNumber > [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"iceBreakNum"] intValue])
     {
         [self iceFin];
@@ -744,7 +741,7 @@
     AddthingObject *contactObject = [value objectAtIndex:1];
     
     //shake camera
-    [self shakeWithX:5 y:5 duration:0.2];
+    [self shakeWithX:2 y:2 duration:0.2];
     
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
@@ -1038,7 +1035,7 @@
     float interval = [self getBoosterInterval];
     
     //shake camera
-    [self shakeWithX:10 y:10 duration:interval + 1];
+    [self shakeWithX:5 y:5 duration:interval + 1];
     
     boostStatus = 1;
     //Play speed line effect
@@ -1312,6 +1309,7 @@
         [self.sprite addChild:halo z:-1];
         halo.position = ccp(halo.parent.contentSize.width/2,halo.parent.contentSize.height/2 + 3);
     }
+    self.sprite.zOrder = Z_Hero_Reborn;
     self.canReborn = YES;
     [self unschedule:@selector(rebornFinish)];
     [self scheduleOnce:@selector(rebornFinish) delay:10];
@@ -1333,6 +1331,8 @@
     //Play reborn finish animation
     [[EffectManager shared] PlayEffectWithName:@"FX_ReviveEnd" position:ccp(self.sprite.contentSize.width/2, self.sprite.contentSize.height/2) z:Z_Hero-1 parent:self.sprite];
     self.canReborn = NO;
+    
+    self.sprite.zOrder = Z_Hero;
 }
 
 -(void) reborn
@@ -1667,25 +1667,25 @@
 
 -(void) beforeDie
 {
-    if ([[USERDATA objectForKey:@"reborn"] intValue] >= 0)
+//    if ([[USERDATA objectForKey:@"reborn"] intValue] >= 0)
+//    {
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    if (currentStar > [self getRebornCost])
     {
-        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-        if (currentStar > [self getRebornCost])
-        {
-            //Pause game
-            [[[Hub shared] gameLayer] pauseGame];
-            
-            //Show revive button
-            [[GameUI shared] showRebornButton];
-        }
-        else
-        {
-            [[[Hub shared] gameLayer] gameOver];
-        }
-    } else
+        //Pause game
+        [[[Hub shared] gameLayer] pauseGame];
+        
+        //Show revive button
+        [[GameUI shared] showRebornButton];
+    }
+    else
     {
         [[[Hub shared] gameLayer] gameOver];
     }
+//    } else
+//    {
+//        [[[Hub shared] gameLayer] gameOver];
+//    }
 }
 
 -(BOOL) isShelterOn

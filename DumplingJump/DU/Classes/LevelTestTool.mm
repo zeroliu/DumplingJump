@@ -14,6 +14,8 @@
     CCMenuItemFont *levelSelectorToggle;
     CCMenuItemFont *levelSelectorConfirm;
     CCMenuItemFont *levelSelectorStatus;
+    CCMenuItemFont *levelStepNum;
+    CCMenuItemFont *levelPhaseNum;
     
     NSString *levelSelected;
     BOOL enabled;
@@ -78,7 +80,7 @@
         */
         
         levelSelectorToggle = [[CCMenuItemFont itemWithString:@"Level" target:self selector:@selector(showLevelSelector)] retain];
-        levelSelectorToggle.position = ccp(0,winSize.height - 80);
+        levelSelectorToggle.position = ccp(0,winSize.height - 140);
         levelSelectorToggle.anchorPoint = ccp(0,1);
         
         levelSelectorConfirm = [[CCMenuItemFont itemWithString:@"OK" target:self selector:@selector(confirmLevel)] retain];
@@ -98,7 +100,18 @@
         levelNameDisplay.position = ccp(0, winSize.height - 50);
         levelNameDisplay.anchorPoint = ccp(0,1);
         [levelNameDisplay setIsEnabled:NO];
-        CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, nil];
+        
+        levelStepNum = [[CCMenuItemFont itemWithString:@"Step Num:"] retain];
+        levelStepNum.position = ccp(0, winSize.height - 80);
+        levelStepNum.anchorPoint = ccp(0,1);
+        [levelStepNum setIsEnabled:NO];
+        
+        levelPhaseNum = [[CCMenuItemFont itemWithString:@"Phase Num:"] retain];
+        levelPhaseNum.position = ccp(0, winSize.height - 110);
+        levelPhaseNum.anchorPoint = ccp(0,1);
+        [levelPhaseNum setIsEnabled:NO];
+        
+        CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, levelPhaseNum, levelStepNum, nil];
         menu.position = CGPointZero;
         
         [GAMELAYER addChild:menu z:5];
@@ -118,6 +131,15 @@
     if (enabled)
     {
         [levelNameDisplay setString:theLevelName];
+    }
+}
+
+-(void) updateLevelStep:(int)stepNum phase:(int)phaseNum
+{
+    if (enabled)
+    {
+        [levelStepNum setString:[NSString stringWithFormat:@"Step: %d", stepNum]];
+        [levelPhaseNum setString:[NSString stringWithFormat:@"Phase: %d", phaseNum]];
     }
 }
 
@@ -179,6 +201,8 @@
     [levelSelectorToggle release];
     [levelSelectorConfirm release];
     [levelSelectorStatus release];
+    [levelStepNum release];
+    [levelPhaseNum release];
     [levelNameDisplay release];
     [myPickerView release];
     [super dealloc];

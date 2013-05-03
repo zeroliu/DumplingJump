@@ -25,7 +25,6 @@ A_redstar_4.png
 A_redstar_5.png
 A_redstar_6.png
 A_redstar_7.png
-UI_equip_box_price_locked.png
 UI_play_pushbonus_1.png
 UI_play_pushbonus_2.png
 UI_play_pushbonus_3.png
@@ -336,6 +335,7 @@ O_headstart_1.png
 O_headstart_2.png
 O_headstart_3.png
 O_headstart_4.png
+O_In_game_mask.png
 O_plate.png
 UI_other_loading_1.png
 UI_other_loading_2.png
@@ -619,6 +619,7 @@ UI_equip_box_lv_on.png
 UI_equip_box_normal.png
 UI_equip_box_normal_press.png
 UI_equip_box_price.png
+UI_equip_box_price_locked.png
 UI_equip_box_quantity.png
 UI_equip_canvas.png
 UI_equip_green.png

@@ -123,6 +123,7 @@
             NSString *animName = [NSString stringWithFormat:@"A_%@", [addthingName lowercaseString]];
             [ANIMATIONMANAGER registerAnimationForName: animName];
             [result setObject:data forKey:addthingName];
+            [data release];
         }
     }
     return result;
@@ -300,6 +301,7 @@
         {
             [effectDict setObject:data forKey:data.name];
         }
+        [data release];
     }
     
     return effectDict;
@@ -370,10 +372,11 @@
                 }
             }
             [dict setObject:theReaction forKey:theReaction.name];
+            [theReaction release];
         }
     }
     
-    return [NSDictionary dictionaryWithDictionary:dict];
+    return dict;
 }
 
 -(id) loadStarDataWithXML: (NSString *)fileName
@@ -389,7 +392,7 @@
         NSLog(@"%@",[err localizedDescription]);
     }
     
-    Star *currentStar;
+    Star *currentStar = nil;
     int lineWidth = 0;
     int lineCounter = 0;
     NSString *currentStarName;
@@ -421,6 +424,11 @@
                 [dict setObject:currentStar forKey:currentStarName];
             }
         }
+    }
+    
+    if (currentStar != nil)
+    {
+        [currentStar release];
     }
     
     return dict;

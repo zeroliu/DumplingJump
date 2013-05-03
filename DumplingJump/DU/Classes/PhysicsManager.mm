@@ -126,7 +126,7 @@
             {
                 if([physicsObject isMemberOfClass:[Hero class]] && physicsObject.body->IsActive())
                 {
-                    DLog(@"Hero before die will be called");
+//                    DLog(@"Hero before die will be called");
                     //When hero hits bottom
                     [[[HeroManager shared] getHero] beforeDie];
 

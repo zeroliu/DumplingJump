@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSMutableDictionary *powderDictionary;
 @property (nonatomic, retain) NSMutableArray *toRemovePowderArray;
 @property (nonatomic, assign) BOOL isMirror;
+@property (nonatomic, readonly) int stepNum;
 +(id) shared;
 -(Level *) selectLevelWithName:(NSString *)levelName;
 
@@ -43,4 +44,5 @@
 - (void) generateFloatingStar:(CGPoint)position;
 - (void) generateMegaFlyingStarAtPosition:(CGPoint)position;
 -(NSString *) getParagraphNameByIndex:(int)index;
+- (int) getPhaseNum;
 @end

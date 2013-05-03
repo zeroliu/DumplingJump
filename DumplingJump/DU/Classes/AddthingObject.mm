@@ -30,11 +30,20 @@
 @synthesize wait = _wait;
 @synthesize warningTime = _warningTime;
 
+- (void)dealloc
+{
+    [self.animation release];
+    [self.reaction release];
+    
+    [super dealloc];
+}
+
 -(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime warningTime:(double)warningTime
 {
-    if (self = [super initWithName:theName file:theFile body:theBody canResize:resize]) {
-        _reaction = [[ReactionManager shared] getReactionWithName:reactionName];
-        _animation = animationName;
+    if (self = [super initWithName:theName file:theFile body:theBody canResize:resize])
+    {
+        self.reaction = [[ReactionManager shared] getReactionWithName:reactionName];
+        self.animation = animationName;
         _isRemoved = NO;
         _wait = waitTime;
         _warningTime = warningTime;

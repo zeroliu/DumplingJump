@@ -106,7 +106,7 @@ typedef enum {
 
 - (void) createMask
 {
-    mask = [CCSprite spriteWithSpriteFrameName:@"UI_other_mask.png"] ;
+    mask = [[CCSprite spriteWithSpriteFrameName:@"UI_other_mask.png"] retain];
     mask.anchorPoint = ccp(0.5,0.5);
     mask.scale = 15;
     mask.position = ccp(winSize.width/2, winSize.height/2);

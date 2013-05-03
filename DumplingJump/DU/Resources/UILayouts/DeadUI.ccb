@@ -111,9 +111,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
+							<real>150</real>
+							<real>150</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -147,6 +147,8 @@
 						<integer>255</integer>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>

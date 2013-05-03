@@ -9,7 +9,7 @@
 		<key>levelEditorEnabled</key>
 		<true/>
 		<key>gameSpeedEditorEnabled</key>
-		<false/>
+		<true/>
 		<key>forceReloadUserData</key>
 		<true/>
 		<key>hasHeadStart</key>
@@ -42,19 +42,19 @@
 		<key>objectInitialSpeedIncreaseUnit</key>
 		<real>0.2</real>
 		<key>objectInitialSpeedIncreaseMax</key>
-		<integer>4</integer>
+		<integer>1</integer>
 		<key>scrollSpeed</key>
 		<real>-0.3</real>
 		<key>scrollSpeedIncreaseUnit</key>
 		<real>0.25</real>
 		<key>scrollSpeedIncreaseMax</key>
-		<integer>3</integer>
+		<integer>2</integer>
 		<key>dropRate</key>
 		<real>0.015</real>
 		<key>dropRateIncreaseUnit</key>
 		<real>0.25</real>
 		<key>dropRateIncreaseMax</key>
-		<integer>3</integer>
+		<integer>2</integer>
 		<key>levelTransitionDelay</key>
 		<integer>0</integer>
 		<key>scoreUnit</key>

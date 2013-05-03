@@ -389,9 +389,6 @@
 {
     tapOnIceNumber ++;
     
-    //shake camera
-    [self shakeWithX:5 y:5 duration:0.1];
-    
     if (tapOnIceNumber > [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"iceBreakNum"] intValue])
     {
         [self iceFin];
@@ -744,7 +741,7 @@
     AddthingObject *contactObject = [value objectAtIndex:1];
     
     //shake camera
-    [self shakeWithX:5 y:5 duration:0.2];
+    [self shakeWithX:2 y:2 duration:0.2];
     
     //If hero is not idle, stop and become idle
     if (![self.heroState isEqualToString:@"idle"])
@@ -1038,7 +1035,7 @@
     float interval = [self getBoosterInterval];
     
     //shake camera
-    [self shakeWithX:10 y:10 duration:interval + 1];
+    [self shakeWithX:5 y:5 duration:interval + 1];
     
     boostStatus = 1;
     //Play speed line effect

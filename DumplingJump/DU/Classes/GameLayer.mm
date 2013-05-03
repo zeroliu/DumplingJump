@@ -118,38 +118,40 @@
 
 -(void) setLoadingScreen
 {
-//    CCMenuItemFont *loadingText = [CCMenuItemFont itemWithString:@"loading..."];
-//    loadingText.position = CGPointZero;
+    CCMenuItemFont *loadingText = [CCMenuItemFont itemWithString:@"loading..."];
+    [loadingText setFontName:@"Eras Bold ITC"];
+    [loadingText setFontSize:20];
+    loadingText.position = CGPointZero;
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
     _loadingPlaceHolder = [[CCNode alloc] init];
     _loadingPlaceHolder.position = CGPointZero;
     [self addChild:_loadingPlaceHolder];
     
-    CCSprite *loadingText = [CCSprite spriteWithSpriteFrameName:@"UI_other_loading_1.png"];
+//    CCSprite *loadingText = [CCSprite spriteWithSpriteFrameName:@"UI_other_loading_1.png"];
     loadingText.anchorPoint = ccp(1,0.5);
     loadingText.position = ccp(winSize.width, 20);
-    loadingText.scale = 1.5f;
+//    loadingText.scale = 1.5f;
 
     //Build loading text animation
     //Manually create the animation because the animation manager and the plist data
     //has not being loaded yet
-    NSMutableArray *frameArray = [NSMutableArray array];
-    for (int i=1; i<=4; i++)
-    {
-        NSString *frameName = [NSString stringWithFormat:@"UI_other_loading_%d.png",i];
-        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-        [frameArray addObject:frameObject];
-    }
-    
-    id loadingTextAnim = [CCAnimation animationWithSpriteFrames :frameArray delay:0.12];
-    
-    if (loadingTextAnim != nil)
-    {
-        id loadingTextAnimate = [CCAnimate actionWithAnimation:loadingTextAnim];
-        [loadingText stopAllActions];
-        [loadingText runAction:[CCRepeatForever actionWithAction:loadingTextAnimate]];
-    }
+//    NSMutableArray *frameArray = [NSMutableArray array];
+//    for (int i=1; i<=4; i++)
+//    {
+//        NSString *frameName = [NSString stringWithFormat:@"UI_other_loading_%d.png",i];
+//        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+//        [frameArray addObject:frameObject];
+//    }
+//    
+//    id loadingTextAnim = [CCAnimation animationWithSpriteFrames :frameArray delay:0.12];
+//    
+//    if (loadingTextAnim != nil)
+//    {
+//        id loadingTextAnimate = [CCAnimate actionWithAnimation:loadingTextAnim];
+//        [loadingText stopAllActions];
+//        [loadingText runAction:[CCRepeatForever actionWithAction:loadingTextAnimate]];
+//    }
     
     CCSprite *heroSprite = [CCSprite spriteWithSpriteFrameName:@"H_hero_1.png"];
     heroSprite.anchorPoint = ccp(1,0.5);

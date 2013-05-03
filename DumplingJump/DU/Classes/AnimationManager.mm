@@ -81,6 +81,8 @@
     NSMutableArray *frameArray = [NSMutableArray array];
     for (int i=start; i<=end; i++)
     {
+        NSAssert([theName isEqualToString:theFile], [NSString stringWithFormat: @"something wrong with the animation name"]);
+        
         NSString *frameName = [NSString stringWithFormat:@"%@_%d.png",theFile,i];
         id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
         [frameArray addObject:frameObject];

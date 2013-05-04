@@ -26,18 +26,18 @@
 	</Combination>
 	<Combination>
 		<phase>0</phase>
-		<step0>0_tutorial_box_1</step0>
-		<step1>0_tutorial_vat_3</step1>
+		<step0>0_tutorial_vat_1</step0>
+		<step1>0_tutorial_box_1</step1>
 	</Combination>
 	<Combination>
 		<phase>0</phase>
-		<step0>0_tutorial_box_2</step0>
-		<step1>0_tutorial_vat_1</step1>
+		<step0>0_tutorial_vat_2</step0>
+		<step1>0_tutorial_box_2</step1>
 	</Combination>
 	<Combination>
 		<phase>0</phase>
-		<step0>0_tutorial_box_3</step0>
-		<step1>0_tutorial_vat_2</step1>
+		<step0>0_tutorial_vat_3</step0>
+		<step1>0_tutorial_box_3</step1>
 	</Combination>
 	<Combination>
 		<phase>1</phase>

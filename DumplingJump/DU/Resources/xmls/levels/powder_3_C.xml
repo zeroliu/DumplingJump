@@ -22,34 +22,29 @@
 	</level>
 	<level>
 		<time>3</time>
-		<slot2>BOMB</slot2>
+		<slot2>POWDER</slot2>
+		<slot8>BOMB</slot8>
 	</level>
 	<level>
 		<time>4</time>
-		<slot8>BOMB</slot8>
 	</level>
 	<level>
 		<time>5</time>
-		<slot2>BOMB</slot2>
 	</level>
 	<level>
 		<time>6</time>
-		<slot8>BOMB</slot8>
+		<slot2>BOMB</slot2>
+		<slot8>POWDER</slot8>
 	</level>
 	<level>
 		<time>7</time>
-		<slot2>BOMB</slot2>
 	</level>
 	<level>
 		<time>8</time>
-		<slot8>BOMB</slot8>
 	</level>
 	<level>
 		<time>9</time>
-		<slot2>BOMB</slot2>
-	</level>
-	<level>
-		<time>10</time>
+		<slot2>POWDER</slot2>
 		<slot8>BOMB</slot8>
 	</level>
 </stage1>

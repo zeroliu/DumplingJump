@@ -22,12 +22,12 @@
 	</level>
 	<level>
 		<time>3</time>
+		<slot2>VAT</slot2>
 		<slot8>CLAW</slot8>
 	</level>
 	<level>
 		<time>4</time>
 		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
 	</level>
 	<level>
 		<time>5</time>
@@ -38,10 +38,10 @@
 	<level>
 		<time>7</time>
 		<slot2>CLAW</slot2>
+		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>8</time>
-		<slot7>VAT</slot7>
 		<slot8>VAT</slot8>
 	</level>
 	<level>
@@ -52,11 +52,11 @@
 	</level>
 	<level>
 		<time>11</time>
+		<slot2>VAT</slot2>
 		<slot8>CLAW</slot8>
 	</level>
 	<level>
 		<time>12</time>
 		<slot2>VAT</slot2>
-		<slot3>VAT</slot3>
 	</level>
 </stage1>

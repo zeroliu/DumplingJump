@@ -242,12 +242,12 @@ scrollSpeedScale = _scrollSpeedScale;
                     }
                     if (aboveSprite.position.y < initYPos + BLACK_HEIGHT - _winHeight - childHeightMax)
                     {
-                        [_objectToRemove addObject:[objectData copy]];
+                        [_objectToRemove addObject:objectData];
                     }
                 }
                 else
                 {
-                    [_objectToRemove addObject:[objectData copy]];
+                    [_objectToRemove addObject:objectData];
                 }
             }
         }

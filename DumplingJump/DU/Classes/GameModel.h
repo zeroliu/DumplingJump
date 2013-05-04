@@ -47,6 +47,7 @@
 @property (nonatomic, retain) NSMutableDictionary *powerUpData;
 
 -(void) loadPowerUpLevelsData;
+-(void) decreaseGameSpeed; //for level debug tool
 -(void) updateGameSpeed;
 -(void) resetGameSpeed;
 -(void) boostGameSpeed:(float)interval;

@@ -134,6 +134,24 @@ gameTime            = _gameTime;
     }
 }
 
+-(void) decreaseGameSpeed
+{
+    if (_scrollSpeedIncrease > 1)
+    {
+        _scrollSpeedIncrease = MAX(_scrollSpeedIncrease -_scrollSpeedIncreaseUnit, 1);
+    }
+    
+    if (_objectInitialIncrease > 1)
+    {
+        _objectInitialIncrease = MAX(_objectInitialIncrease - _objectInitialIncreaseUnit, 1);
+    }
+    
+    if (_dropRateIncrease > 1)
+    {
+        _dropRateIncrease = MAX(_dropRateIncrease -_dropRateIncreaseUnit, 1);
+    }
+}
+
 -(void) boostGameSpeed:(float)interval
 {
     if (!isUsingBoosterData)

@@ -8,6 +8,7 @@
 
 #import "LevelTestTool.h"
 #import "LevelManager.h"
+#import "GameModel.h"
 @interface LevelTestTool()
 {
     CCMenuItemFont *levelNameDisplay;
@@ -16,6 +17,9 @@
     CCMenuItemFont *levelSelectorStatus;
     CCMenuItemFont *levelStepNum;
     CCMenuItemFont *levelPhaseNum;
+    CCMenuItemFont *speedUp;
+    CCMenuItemFont *speedDown;
+    CCMenuItemFont *speedLabel;
     
     NSString *levelSelected;
     BOOL enabled;
@@ -82,6 +86,7 @@
         levelSelectorToggle = [[CCMenuItemFont itemWithString:@"Level" target:self selector:@selector(showLevelSelector)] retain];
         levelSelectorToggle.position = ccp(0,winSize.height - 140);
         levelSelectorToggle.anchorPoint = ccp(0,1);
+        [levelSelectorToggle setFontSize:25];
         
         levelSelectorConfirm = [[CCMenuItemFont itemWithString:@"OK" target:self selector:@selector(confirmLevel)] retain];
         levelSelectorConfirm.anchorPoint = ccp(0,0);
@@ -94,24 +99,36 @@
         levelSelectorStatus.position = ccp(0, winSize.height - 270);
         [levelSelectorStatus setIsEnabled:NO];
         levelSelectorStatus.visible = NO;
+       
         
         [levelNameDisplay removeFromParentAndCleanup:NO];
         levelNameDisplay = [[CCMenuItemFont itemWithString:@"LevelName"] retain];
         levelNameDisplay.position = ccp(0, winSize.height - 50);
         levelNameDisplay.anchorPoint = ccp(0,1);
+        [levelNameDisplay setFontSize:25];
         [levelNameDisplay setIsEnabled:NO];
         
         levelStepNum = [[CCMenuItemFont itemWithString:@"Step Num:"] retain];
         levelStepNum.position = ccp(0, winSize.height - 80);
         levelStepNum.anchorPoint = ccp(0,1);
+        [levelStepNum setFontSize:25];
         [levelStepNum setIsEnabled:NO];
         
         levelPhaseNum = [[CCMenuItemFont itemWithString:@"Phase Num:"] retain];
         levelPhaseNum.position = ccp(0, winSize.height - 110);
         levelPhaseNum.anchorPoint = ccp(0,1);
+        [levelPhaseNum setFontSize:25];
         [levelPhaseNum setIsEnabled:NO];
         
-        CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, levelPhaseNum, levelStepNum, nil];
+        speedUp = [[CCMenuItemFont itemWithString:@"(+)" target:self selector:@selector(speedUPLevel)] retain];
+        speedUp.anchorPoint = ccp(1,0);
+        speedUp.position = ccp(winSize.width-10, winSize.height - 100);
+        
+        speedDown = [[CCMenuItemFont itemWithString:@"(-)" target:self selector:@selector(speedDownLevel)] retain];
+        speedDown.anchorPoint = ccp(1,0);
+        speedDown.position = ccp(winSize.width-10, winSize.height - 150);
+        
+        CCMenu *menu = [CCMenu menuWithItems:levelNameDisplay, levelSelectorToggle, levelSelectorConfirm, levelSelectorStatus, levelPhaseNum, levelStepNum, speedUp, speedDown, nil];
         menu.position = CGPointZero;
         
         [GAMELAYER addChild:menu z:5];
@@ -145,6 +162,16 @@
 
 #pragma mark -
 #pragma mark private
+
+-(void) speedUPLevel
+{
+    [GAMEMODEL updateGameSpeed];
+}
+
+-(void) speedDownLevel
+{
+    [GAMEMODEL decreaseGameSpeed];
+}
 
 -(void) showLevelSelector
 {
@@ -205,6 +232,9 @@
     [levelPhaseNum release];
     [levelNameDisplay release];
     [myPickerView release];
+    [speedUp release];
+    [speedDown release];
+    [speedLabel release];
     [super dealloc];
 }
 @end

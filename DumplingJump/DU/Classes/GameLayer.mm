@@ -224,7 +224,7 @@
 
 -(void) initBatchNode
 {
-    self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"sheetObjects.png"];
+    self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"sheetObjects.png" capacity:50];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetObjects.plist"];
     
     [self addChild:self.batchNode z:Z_BATCHNODE];
@@ -324,7 +324,6 @@
         self.model.gameTime += deltaTime;
         [[BackgroundManager shared] updateBackgroundPosition:deltaTime];
         [[BackgroundManager shared] updateBackgroundObjectPosition:deltaTime];
-//        [[BackgroundController shared] updateBackground:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
         [[[HeroManager shared] getHero] updateHeroChildrenPosition];

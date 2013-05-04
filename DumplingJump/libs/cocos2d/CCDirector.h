@@ -338,6 +338,10 @@ and when to execute the Scenes.
 // helper
 /** creates the Stats labels */
 -(void) createStatsLabel;
+
++(double) getAvailableBytes;
++(double) getAvailableKiloBytes;
++(double) getAvailableMegaBytes;
 @end
 
 // optimization. Should only be used to read it. Never to write it.

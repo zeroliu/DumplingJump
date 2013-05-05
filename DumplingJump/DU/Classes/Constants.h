@@ -29,6 +29,7 @@
 #pragma mark Layer Priority
 #define Z_DEADUI 25
 #define Z_PAUSEUI 25
+#define Z_OPTIONUI 25
 #define Z_GAMEUI 22
 #define Z_Speedline 20
 #define Z_Hero 5

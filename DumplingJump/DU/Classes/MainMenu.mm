@@ -15,11 +15,13 @@
 #import "DUButtonFactory.h"
 #import "MissionNode.h"
 #import "AchievementData.h"
+#import "OptionUI.h"
 #import <UIKit/UIKit.h>
 typedef enum {
     MainMenuStateHome,
     MainMenuStateMission,
-    MainMenuStateEquipment
+    MainMenuStateEquipment,
+    MainMenuStateOption
 } MainMenuState;
 
 @interface MainMenu()
@@ -63,6 +65,9 @@ typedef enum {
     
     //Create achievement view
     [self createAchievementView];
+    
+    //Create option view
+    [self createOptionView];
     
     //Create equipment view
 //    [self createEquipmentView];
@@ -130,6 +135,7 @@ typedef enum {
     settingButton = [[DUButtonFactory createButtonWithPosition:ccp(45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_title_sytem.png"] retain];
     settingButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:settingButton];
+    [settingButton addTarget:self action:@selector(showOption) forControlEvents:UIControlEventTouchUpInside];
     
     gameCenterButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_title_ranking.png"] retain];
     gameCenterButton.layer.zPosition = Z_BUTTONS;
@@ -147,6 +153,11 @@ typedef enum {
     [VIEW addSubview:equipmentView];
     
     [equipmentViewController hideEquipmentView];
+}
+
+- (void) createOptionView
+{
+    [[OptionUI shared] createUIwithParent:self];
 }
 
 - (void) createAchievementView
@@ -266,6 +277,29 @@ typedef enum {
     [self setMaskVisibility:YES];
 }
 
+- (void) showOption
+{
+    //Change state
+    state = MainMenuStateOption;
+    
+    [UIView animateWithDuration:0.1
+                     animations:^
+     {
+         //Hide all the buttons on main menu
+         [self setMainMenuButtonsEnabled:NO];
+         [self setMaskVisibility:YES];
+     }
+                     completion:^(BOOL finished)
+     {
+         if (finished)
+         {
+             [self setOptionButtonsEnabled:YES];
+             [[OptionUI shared] showUI];
+         }
+     }
+     ];
+}
+
 - (void) showEquipment
 {
     [self setMaskVisibility:YES];
@@ -315,6 +349,12 @@ typedef enum {
                     achievementScrollView.isTouchEnabled = NO;
                     [animationManager runAnimationsForSequenceNamed:@"Hide Achievement"];
                 }
+                else if (state == MainMenuStateOption)
+                {
+                    [self setOptionButtonsEnabled:NO];
+                    [[OptionUI shared] hideUI];
+                    [self setMaskVisibility:NO];
+                }
             }
             completion:^(BOOL finished)
             {
@@ -324,27 +364,27 @@ typedef enum {
     ];
 }
 
-- (void) didTapContinueButton
-{    
-    [self setMaskVisibility:NO];
-    [UIView animateWithDuration:0.3
-                     animations:^
-                     {
-                         if (state == MainMenuStateMission)
-                         {
-                             [self setAchievementButtonsEnabled:NO];
-                             achievementScrollView.isTouchEnabled = NO;
-                             [animationManager runAnimationsForSequenceNamed:@"Hide Achievement"];
-                         }
-                     }
-                     completion:^(BOOL finished)
-                     {
-                         state = MainMenuStateHome;
-                         [self startGame];
-                     }
-    ];
-
-}
+//- (void) didTapContinueButton
+//{    
+//    [self setMaskVisibility:NO];
+//    [UIView animateWithDuration:0.3
+//                     animations:^
+//                     {
+//                         if (state == MainMenuStateMission)
+//                         {
+//                             [self setAchievementButtonsEnabled:NO];
+//                             achievementScrollView.isTouchEnabled = NO;
+//                             [animationManager runAnimationsForSequenceNamed:@"Hide Achievement"];
+//                         }
+//                     }
+//                     completion:^(BOOL finished)
+//                     {
+//                         state = MainMenuStateHome;
+//                         [self startGame];
+//                     }
+//    ];
+//
+//}
 
 - (void) backToMainMenu
 {
@@ -398,6 +438,17 @@ typedef enum {
     
     backButton.alpha = opacity;
     continueButton.alpha = opacity;
+}
+
+- (void) setOptionButtonsEnabled:(BOOL)isEnabled
+{
+    [backButton setEnabled:isEnabled];
+    int opacity = 0;
+    if (isEnabled)
+    {
+        opacity = 1;
+    }
+    backButton.alpha = opacity;
 }
 
 - (void) setMaskVisibility:(BOOL)isVisible

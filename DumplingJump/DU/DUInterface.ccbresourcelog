@@ -791,6 +791,10 @@ ERAS_white_black_small-hd.fnt
 ERAS_white_black_small-hd.png
 ERAS_white_black_small.fnt
 ERAS_white_black_small.png
+ERAS_yellow_black-hd.fnt
+ERAS_yellow_black-hd.png
+ERAS_yellow_black.fnt
+ERAS_yellow_black.png
 ERASLGHT.TTF
 ERASMD.TTF
 blackbg.png
@@ -836,6 +840,10 @@ sheetUI-achievement-hd.plist
 sheetUI-achievement-hd.png
 sheetUI-achievement.plist
 sheetUI-achievement.png
+sheetUI-option-hd.plist
+sheetUI-option-hd.png
+sheetUI-option.plist
+sheetUI-option.png
 AchievementNode.ccbi
 AchievementUnlockUI.ccbi
 DeadAchievementUI.ccbi
@@ -844,5 +852,6 @@ GameUI.ccbi
 ItemGetUI.ccbi
 MainMenu.ccbi
 MissionNode.ccbi
+OptionUI.ccbi
 PauseUI.ccbi
 testIphone5.ccbi

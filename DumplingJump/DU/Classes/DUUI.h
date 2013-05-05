@@ -18,5 +18,6 @@
 }
 
 -(void) createUI;
+-(void) createUIwithParent:(CCNode *)parent;
 -(void) destroy;
 @end

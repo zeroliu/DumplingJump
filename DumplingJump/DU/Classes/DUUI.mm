@@ -13,10 +13,23 @@
 
 -(void) createUI
 {
-    node = [CCBReader nodeGraphFromFile:ccbFileName owner:self];
+    [self createUIwithParent:GAMELAYER];
+}
+
+-(void) createUIwithParent:(CCNode *)parent
+{
+    if (node != nil)
+    {
+        [node removeFromParentAndCleanup:NO];
+        [self removeFromParentAndCleanup:NO];
+        [node release];
+        node = nil;
+    }
+    
+    node = [[CCBReader nodeGraphFromFile:ccbFileName owner:self] retain];
     node.position = ccp(0,0);
-    [GAMELAYER addChild:self];
-    [GAMELAYER addChild:node z:priority];
+    [parent addChild:self];
+    [parent addChild:node z:priority];
     animationManager = node.userObject;
     DLog(@"class name: %@", [self class]);
 }
@@ -25,7 +38,7 @@
 {
     [node removeFromParentAndCleanup:NO];
     [self removeFromParentAndCleanup:NO];
-    //[node release];
-    //node = nil;
+    [node release];
+    node = nil;
 }
 @end

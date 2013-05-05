@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<data>
-		<music>is music enable</music>
-		<sfx>is sfx enable</sfx>
+		<music>is music enabled</music>
+		<sfx>is sfx enabled</sfx>
+        <tutorial>is tutorial enabled</tutorial>
 		<highscore>highscore</highscore>
 		<star>star</star>
 		<MAGIC>sword level</MAGIC>
@@ -26,6 +27,7 @@
 	<data>
 		<music>1</music>
 		<sfx>1</sfx>
+        <tutorial>1</tutorial>
 		<highscore>0</highscore>
 		<star>150</star>
 		<MAGIC>0</MAGIC>

@@ -222,7 +222,12 @@
     if (ccpDistance(hero.sprite.position, self.sprite.position) < 3)
     {
         [self unschedule:@selector(moveToHeroWithSpeed:)];
-        ((GameLayer *)GAMELAYER).model.star++;
+        float addStarNum = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue];
+        if ([self.name isEqualToString:@"ROYALSTAR"])
+        {
+            addStarNum = addStarNum * 2;
+        }
+        [GAMEMODEL addStarWithNum:addStarNum];
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [self removeFromParentAndCleanup:YES];
         [self removeAddthing];

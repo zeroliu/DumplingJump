@@ -790,6 +790,7 @@
 		9FC650601713FE6C00A4E294 /* ERAS_red_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FC6505C1713FE6C00A4E294 /* ERAS_red_black.png */; };
 		9FEEB08116F7FF88008A1D02 /* AchievementManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */; };
 		9FF57AE41736206C0008B78D /* UI_equip_box_locked_label.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF57AE31736206C0008B78D /* UI_equip_box_locked_label.png */; };
+		9FF57AE61736369F0008B78D /* A_royalstar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF57AE51736369F0008B78D /* A_royalstar_1.png */; };
 		9FF6493F16F308F500778BD9 /* UI_play_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6493E16F308F500778BD9 /* UI_play_warning.png */; };
 		9FF6924E16FFE5EE00B3FEA1 /* UI_equip_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */; };
 /* End PBXBuildFile section */
@@ -1897,6 +1898,7 @@
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
 		9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementManager.mm; sourceTree = "<group>"; };
 		9FF57AE31736206C0008B78D /* UI_equip_box_locked_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_locked_label.png; sourceTree = "<group>"; };
+		9FF57AE51736369F0008B78D /* A_royalstar_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A_royalstar_1.png; sourceTree = "<group>"; };
 		9FF6493E16F308F500778BD9 /* UI_play_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_play_warning.png; sourceTree = "<group>"; };
 		9FF6924B16FFE5EE00B3FEA1 /* UI_equip_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_bottom.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2475,6 +2477,7 @@
 		7F3B58BB16C86DC00010F8E4 /* sheetObjects */ = {
 			isa = PBXGroup;
 			children = (
+				9FF57AE51736369F0008B78D /* A_royalstar_1.png */,
 				7F3B58BC16C86DC00010F8E4 /* A_arrow_1.png */,
 				7F3B58BD16C86DC00010F8E4 /* A_blind_1.png */,
 				7F3B58BE16C86DC00010F8E4 /* A_blind_2.png */,
@@ -4366,6 +4369,7 @@
 				9F5C7F6417338C0E008D79EE /* UI_other_loading_3.png in Resources */,
 				9F5C7F6517338C0E008D79EE /* UI_other_loading_4.png in Resources */,
 				9FF57AE41736206C0008B78D /* UI_equip_box_locked_label.png in Resources */,
+				9FF57AE61736369F0008B78D /* A_royalstar_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

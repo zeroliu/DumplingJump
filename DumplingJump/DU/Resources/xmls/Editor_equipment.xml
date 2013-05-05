@@ -139,6 +139,30 @@
 		<level4>80</level4>
         <unit>%</unit>
 	</Item>
+    <Item>
+		<group>9</group>
+		<type>special</type>
+		<layout>EquipmentViewLevelCell</layout>
+		<name>ROYALSTAR</name>
+		<displayName>ROYAL STAR</displayName>
+		<image>UI_item_coinstar</image>
+		<order>0</order>
+		<description>Increase</description>
+		<multiplier>2.00</multiplier>
+		<base>400</base>
+		<unlockPrice>1000</unlockPrice>
+        <price0>800</price0>
+        <price1>3200</price1>
+        <price2>12800</price2>
+        <price3>51200</price3>
+        <level0>10</level0>
+		<level1>20</level1>
+		<level2>30</level2>
+		<level3>40</level3>
+		<level4>50</level4>
+        <unit>% chance of getting royal star</unit>
+        <unlockDescription>Increase star value</unlockDescription>
+	</Item>
 	<Item>
 		<group>6</group>
 		<type>special</type>

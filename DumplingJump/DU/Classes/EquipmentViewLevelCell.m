@@ -36,7 +36,7 @@
         
         [descriptionLabel setBackgroundColor:[UIColor clearColor]];
         [descriptionLabel setTextAlignment:UITextAlignmentLeft];
-        [descriptionLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:13]];
+        [descriptionLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:11]];
         [descriptionLabel setTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
         
         [priceLabel setBackgroundColor:[UIColor clearColor]];

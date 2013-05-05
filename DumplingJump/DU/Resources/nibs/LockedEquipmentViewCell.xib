@@ -84,7 +84,7 @@
 							<object class="IBUILabel" id="341166121">
 								<reference key="NSNextResponder" ref="171672305"/>
 								<int key="NSvFlags">293</int>
-								<string key="NSFrame">{{84, 7}, {159, 30}}</string>
+								<string key="NSFrame">{{86, 10}, {154, 30}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="459224144"/>
@@ -94,7 +94,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Unlock Mega Star</string>
+								<string key="IBUIText">Get mega stars falling from the sky</string>
 								<object class="NSColor" key="IBUITextColor" id="1064980255">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -104,15 +104,15 @@
 								<int key="IBUINumberOfLines">2</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">2</int>
-									<double key="pointSize">17</double>
+									<double key="pointSize">11</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">17</double>
+									<double key="NSSize">11</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-								<double key="preferredMaxLayoutWidth">159</double>
+								<double key="preferredMaxLayoutWidth">154</double>
 							</object>
 							<object class="IBUIView" id="505511591">
 								<reference key="NSNextResponder" ref="171672305"/>
@@ -124,7 +124,7 @@
 										<string key="NSFrameSize">{45, 45}</string>
 										<reference key="NSSuperview" ref="505511591"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="341166121"/>
+										<reference key="NSNextKeyView" ref="15301634"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -201,6 +201,21 @@
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+							</object>
+							<object class="IBUIImageView" id="15301634">
+								<reference key="NSNextResponder" ref="171672305"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{81, 43}, {68, 20}}</string>
+								<reference key="NSSuperview" ref="171672305"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="341166121"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">UI_equip_box_locked_label.png</string>
+								</object>
 							</object>
 						</array>
 						<string key="NSFrameSize">{254, 74}</string>
@@ -323,8 +338,9 @@
 							<reference ref="505511591"/>
 							<reference ref="459224144"/>
 							<reference ref="265794386"/>
-							<reference ref="341166121"/>
 							<reference ref="1022562948"/>
+							<reference ref="341166121"/>
+							<reference ref="15301634"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -366,6 +382,11 @@
 						<reference key="object" ref="1022562948"/>
 						<reference key="parent" ref="734300500"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">23</int>
+						<reference key="object" ref="15301634"/>
+						<reference key="parent" ref="734300500"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -378,6 +399,7 @@
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.CustomClassName">LockedEquipmentViewCell</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -387,7 +409,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -535,6 +557,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="UI_equip_box_label_new.png">{117, 134}</string>
 			<string key="UI_equip_box_locked.png">{508, 150}</string>
+			<string key="UI_equip_box_locked_label.png">{148, 45}</string>
 			<string key="UI_equip_box_price.png">{142, 53}</string>
 			<string key="UI_item_bomb_shadow.png">{80, 80}</string>
 		</dictionary>

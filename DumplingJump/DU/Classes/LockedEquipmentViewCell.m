@@ -33,7 +33,7 @@
         [priceLabel setTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel setTextAlignment:UITextAlignmentLeft];
-        [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:15]];
+        [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:11]];
         [titleLabel setTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
     }
     
@@ -47,7 +47,7 @@
     equipmentImageView.hidden = YES;
     
     [priceLabel setText:[NSString stringWithFormat:@"%d", [[content objectForKey:@"unlockPrice"] intValue]]];
-    [titleLabel setText:[NSString stringWithFormat:@"Unlock %@", [content objectForKey:@"displayName"]]];
+    [titleLabel setText:[NSString stringWithFormat:@"%@", [content objectForKey:@"unlockDescription"]]];
     
     //update band
     int currentStar = [[USERDATA objectForKey:@"star"] intValue];

@@ -1247,10 +1247,14 @@
         }
         
         float addStarNum = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue];
+        if ([star.name isEqualToString:@"ROYALSTAR"])
+        {
+            addStarNum = addStarNum * 2;
+        }
         [GAMEMODEL addStarWithNum:addStarNum];
         [[GameUI shared] updateStar:((GameLayer *)GAMELAYER).model.star];
         [star removeAddthing];
-        [[LevelManager shared] generateFlyingStarAtPosition:star.sprite.position destination: [[GameUI shared] getStarDestination]];
+        [[LevelManager shared] generateFlyingStarAtPosition:star.sprite.position destination: [[GameUI shared] getStarDestination] isRoyal:([star.name isEqualToString:@"ROYALSTAR"])];
     }
 }
 

@@ -12,6 +12,7 @@
     CCLabelBMFont *UIScoreText;
     CCLabelBMFont *UIStarText;
     CCSprite *starScoreIcon;
+    CCLabelBMFont *meterIcon;
     
     CCNode *clearMessage;
     CCLabelBMFont *distanceNum;
@@ -42,7 +43,7 @@
 +(id) shared;
 -(void) fadeOut;
 -(void) resetUI;
--(void) updateScore:(int)score;
+-(void) updateDistance:(int)distance;
 -(void) updateStar:(float)starNum;
 -(void) addStageClearMessageWithDistance:(int) distance;
 -(void) addAchievementUnlockMessageWithName:(NSString *)name;

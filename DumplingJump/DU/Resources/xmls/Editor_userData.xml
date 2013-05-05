@@ -8,6 +8,7 @@
 		<MAGIC>sword level</MAGIC>
 		<SPRING>spring level</SPRING>
 		<MEGA>mega star level</MEGA>
+        <ROYALSTAR>royal star level</ROYALSTAR>
 		<SHELTER>shield level</SHELTER>
 		<BOOSTER>booster level</BOOSTER>
 		<MAGNET>magnet level</MAGNET>
@@ -30,6 +31,7 @@
 		<MAGIC>0</MAGIC>
 		<SPRING>0</SPRING>
 		<MEGA>-1</MEGA>
+        <ROYALSTAR>-1</ROYALSTAR>
 		<SHELTER>-1</SHELTER>
 		<BOOSTER>0</BOOSTER>
 		<MAGNET>-1</MAGNET>

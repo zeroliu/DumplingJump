@@ -111,8 +111,8 @@ scrollSpeedScale = _scrollSpeedScale;
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetBackgroundObject.plist"];
         
         //Set batch node
-        _bgNode = [[CCSpriteBatchNode batchNodeWithFile:@"sheetBackground.png"] retain];
-        _bgObjectNode = [[CCSpriteBatchNode batchNodeWithFile:@"sheetBackgroundObject.png"] retain];
+        _bgNode = [[CCSpriteBatchNode batchNodeWithFile:@"sheetBackground.png" capacity:2] retain];
+        _bgObjectNode = [[CCSpriteBatchNode batchNodeWithFile:@"sheetBackgroundObject.png" capacity:22] retain];
         
         _belowSprites = [[NSMutableDictionary alloc] init];
         _aboveSprites = [[NSMutableDictionary alloc] init];

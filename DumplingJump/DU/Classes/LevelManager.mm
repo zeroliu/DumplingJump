@@ -218,11 +218,20 @@ stepNum = _stepNum;
         return nil;
     }
     
+    if ([dropObjectName isEqualToString:@"STAR"] && [[POWERUP_DATA objectForKey:@"ROYALSTAR"] intValue] > 0)
+    {
+        int chance = randomInt(0, 100);
+        if (chance < [[POWERUP_DATA objectForKey:@"ROYALSTAR"] intValue])
+        {
+            dropObjectName = @"ROYALSTAR";
+        }
+    }
+    
     AddthingObject *addthing = [[[AddthingFactory shared] createWithName:dropObjectName] retain];
     addthing.sprite.position = position;
     [self.generatedObjects addObject:addthing];
     int depth = 3;
-    if ([dropObjectName isEqualToString:@"STAR"])
+    if ([dropObjectName isEqualToString:@"STAR"] || [dropObjectName isEqualToString:@"ROYALSTAR"])
     {
         depth = 1;
     }
@@ -259,9 +268,14 @@ stepNum = _stepNum;
     [flyingStar addChildTo:BATCHNODE z:1];
 }
 
-- (void) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination
+- (void) generateFlyingStarAtPosition:(CGPoint)position destination:(CGPoint)destination isRoyal:(BOOL)isRoyal
 {
-    DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:@"A_star_1.png"];
+    NSString *starSpriteName = @"A_star_1.png";
+    if (isRoyal)
+    {
+        starSpriteName = @"A_royalstar_1.png";
+    }
+    DUSprite *flyingStar = [[DUSprite alloc] initWithName:@"flyingStar" file:starSpriteName];
     flyingStar.sprite.position = position;
     id moveToDestination = [CCMoveTo actionWithDuration:0.4 position:destination];
     id scaleDown = [CCScaleTo actionWithDuration:0.4 scale:0.6];

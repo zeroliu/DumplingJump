@@ -75,6 +75,7 @@ NSString *const achievementPopup = @"achievementPopup";
     [self adjustUI:UIScoreText offset:BLACK_HEIGHT];
     [self adjustUI:UIStarText offset:BLACK_HEIGHT];
     [self adjustUI:starScoreIcon offset:BLACK_HEIGHT];
+    [self adjustUI:meterIcon offset:BLACK_HEIGHT];
     [self adjustUI:shieldButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:magnetButtonHolder offset:BLACK_HEIGHT];
     [self adjustUI:pauseButton offset:BLACK_HEIGHT];
@@ -250,11 +251,11 @@ NSString *const achievementPopup = @"achievementPopup";
     [self setButtonsEnabled:YES];
 }
 
--(void) updateScore:(int)score
+-(void) updateDistance:(int)distance
 {
     if (UIScoreText != nil)
     {
-        [UIScoreText setString:[NSString stringWithFormat:@"%d", (int)score]];
+        [UIScoreText setString:[NSString stringWithFormat:@"%d", (int)distance]];
     }
 }
 
@@ -540,8 +541,8 @@ NSString *const achievementPopup = @"achievementPopup";
 -(void) scaleStarUI
 {
     [starScoreIcon stopAllActions];
-    id increaseSize = [CCScaleTo actionWithDuration:0.05 scale:1.4];
-    id reduceSize = [CCScaleTo actionWithDuration:0.2 scale:1];
+    id increaseSize = [CCScaleTo actionWithDuration:0.05 scale:1];
+    id reduceSize = [CCScaleTo actionWithDuration:0.2 scale:0.7];
     [starScoreIcon runAction:[CCSequence actions:increaseSize, reduceSize, nil]];
 }
 

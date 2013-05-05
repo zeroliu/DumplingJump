@@ -21,6 +21,7 @@
 		<level2>level2</level2>
 		<level3>level3</level3>
 		<level4>level4</level4>
+        <unlockDescription>unlock description</unlockDescription>
 	</Item>
 	<Item>
 		<group>4</group>
@@ -44,6 +45,7 @@
 		<level3>300</level3>
 		<level4>400</level4>
 		<unit>star bonus</unit>
+        <unlockDescription>Get mega stars falling from the sky</unlockDescription>
 	</Item>
 	<Item>
 		<group>1</group>
@@ -159,6 +161,7 @@
 		<level3>8</level3>
 		<level4>9</level4>
 		<unit>s</unit>
+        <unlockDescription>Boost ahead at the beginning</unlockDescription>
 	</Item>
 	<Item>
 		<group>7</group>
@@ -182,6 +185,7 @@
 		<level3>30</level3>
 		<level4>25</level4>
 		<unit>s</unit>
+        <unlockDescription>Absorb stars when activated</unlockDescription>
 	</Item>
 	<Item>
 		<group>8</group>
@@ -205,5 +209,6 @@
 		<level3>30</level3>
 		<level4>25</level4>
 		<unit>s</unit>
+        <unlockDescription>Shield yourself when activated</unlockDescription>
 	</Item>
 </Equipments>

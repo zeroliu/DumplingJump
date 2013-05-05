@@ -240,7 +240,7 @@
 {
     [[GameUI shared] createUI];
     [[GameUI shared] updateStar:0];
-    [[GameUI shared] updateScore:0];
+    [[GameUI shared] updateDistance:0];
 }
 
 -(void) loadBackendData
@@ -345,7 +345,7 @@
             [[GameUI shared] updateDistanceSign:distance];
             self.model.distance = self.model.distance + 1;
         }
-        [[GameUI shared] updateScore:(int)(self.model.distance*self.model.multiplier)];
+        [[GameUI shared] updateDistance:(int)(self.model.distance)];
         [MESSAGECENTER postNotificationName:NOTIFICATION_SCORE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(int)(self.model.distance*self.model.multiplier)] forKey:@"num"]];
         [[LevelManager shared] dropNextAddthing];
         [[LevelManager shared] updateWarningSign];
@@ -446,8 +446,9 @@
 
 - (void) showDeadUI
 {
+    int multiplier = [[USERDATA objectForKey:@"multiplier"] intValue];
     [[DeadUI shared] createUI];
-    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*self.model.multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:self.model.multiplier IsHighScore:self.model.isHighScore];
+    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
     [[DeadUI shared] updateNextMission:[[AchievementData shared] getNextMission:[[USERDATA objectForKey:@"achievementGroup"] intValue]]];
 }
 

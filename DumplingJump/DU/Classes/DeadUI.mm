@@ -16,8 +16,19 @@
 #import "AchievementNode.h"
 #import "AchievementManager.h"
 
+@interface DeadUI()
+@property (nonatomic, assign) int finalScore;
+@property (nonatomic, assign) int distance;
+@property (nonatomic, assign) int scoreDisplay;
+
+@end
+
 @implementation DeadUI
 @synthesize isNew = _isNew;
+@synthesize finalScore = _finalScore;
+@synthesize distance = _distance;
+@synthesize scoreDisplay = _scoreDisplay;
+
 +(id) shared
 {
     static id shared = nil;
@@ -36,6 +47,7 @@
         priority = Z_DEADUI;
         winsize = [[CCDirector sharedDirector] winSize];
         _isNew = NO;
+        _scoreDisplay = 0;
     }
     return self;
 }
@@ -113,22 +125,92 @@
 
 -(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(float)multiplier IsHighScore:(BOOL)isHighScore
 {
-    [scoreText setString:[NSString stringWithFormat:@"%d",score]];
+    _finalScore = score;
+    _distance = distance;
+    _scoreDisplay = 0;
+    [scoreText setString:@"0"];
     [starText setString:[NSString stringWithFormat:@"%d",star]];
     [totalStarText setString:[NSString stringWithFormat:@"%d",totalStar]];
     [distanceText setString:[NSString stringWithFormat:@"%d",distance]];
-    [multiplierText setString:[NSString stringWithFormat:@"%dx",[[USERDATA objectForKey:@"multiplier"] intValue]]];
-    if (isHighScore)
-    {
-        [highscoreSprite setOpacity:255];
-    }
-    else
-    {
-        [highscoreSprite setOpacity:0];
-    }
+    [multiplierText setString:[NSString stringWithFormat:@"%dx",(int)multiplier]];
+    [highscoreSprite setOpacity:0];
+//    if (isHighScore)
+//    {
+//        [highscoreSprite setOpacity:255];
+//    }
+//    else
+//    {
+//        [highscoreSprite setOpacity:0];
+//    }
     
     [self updateNewItemSign];
+    
+    [self performSelector:@selector(playShowDistanceEffect) withObject:nil afterDelay:0.8];
 }
+
+-(void) playShowDistanceEffect
+{
+    //distance label pop
+    id tweenDistance = [CCActionTween actionWithDuration:0.4 key:@"scoreDisplay" from: 0 to: _distance];
+    [distanceText runAction:[self createPopMoveEffectWithDistance:15]];
+    [distanceText runAction:[self createPopScaleEffect]];
+    [self runAction:tweenDistance];
+    //score label pop
+    [scoreText runAction:[self createPopMoveEffectWithDistance:25]];
+    [scoreText runAction:[self createPopScaleEffect]];
+    
+    [self updateScoreLabel:[NSNumber numberWithInt:_distance]];
+    
+    //Show score effect if multiplier is greater than 1
+    if ([[USERDATA objectForKey:@"multiplier"] intValue] > 1)
+    {
+        [self performSelector:@selector(playShowScoreEffect) withObject:nil afterDelay:0.7];
+    }
+}
+
+-(void) playShowScoreEffect
+{
+    id tweenScore = [CCActionTween actionWithDuration:0.4 key:@"scoreDisplay" from: _distance to: _finalScore];
+    
+    //multiplier label pop
+    [multiplierText runAction:[self createPopMoveEffectWithDistance:15]];
+    [multiplierText runAction:[self createPopScaleEffect]];
+    [self runAction:tweenScore];
+    
+    //score label pop
+    [scoreText runAction:[self createPopMoveEffectWithDistance:25]];
+    [scoreText runAction:[self createPopScaleEffect]];
+    
+    [self updateScoreLabel:[NSNumber numberWithInt:_finalScore]];
+}
+
+-(void) updateScoreLabel:(NSNumber *)target
+{
+    if (_scoreDisplay <= [target intValue])
+    {
+        [scoreText setString:[NSString stringWithFormat:@"%d", (int)_scoreDisplay]];
+        if (_scoreDisplay < [target intValue])
+        {
+            [self performSelector:@selector(updateScoreLabel:) withObject:target afterDelay:0.01];
+        }
+    }
+}
+
+-(id) createPopMoveEffectWithDistance:(float)distance
+{
+    id moveUp = [CCMoveBy actionWithDuration:0.2 position:ccp(0,distance)];
+    id moveDown = [CCMoveBy actionWithDuration:0.2 position:ccp(0,-distance)];
+    return [CCSequence actions:moveUp, moveDown, nil];
+}
+
+-(id) createPopScaleEffect
+{
+    id scaleUp = [CCScaleTo actionWithDuration:0.15 scale:1.3];
+    id scaleDown = [CCScaleTo actionWithDuration:0.15 scale:1];
+    return [CCSequence actions:scaleUp, scaleDown, nil];
+}
+
+
 
 -(void) updateNextMission:(NSDictionary *)nextMissionData
 {
@@ -170,45 +252,6 @@
 
 -(void) animateExclamationSign
 {
-
-//===========================================
-//===========UNUSED SHAKE EFFECT=============
-//===========================================
-//    NSMutableArray *actions = [NSMutableArray array];
-    
-//    id changeToRed = [CCCallBlock actionWithBlock:^{
-//        CCSpriteFrame *warningRed = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_play_warning.png"];
-//        [newItemSprite setDisplayFrame:warningRed];
-//    }];
-//    [actions addObject:changeToRed];
-//    int direction = 1;
-//    for (int i=0; i<50; i++)
-//    {
-//        float angle;
-//        if (direction > 0)
-//        {
-//            angle = randomFloat(5.0, 25.0);
-//        }
-//        else
-//        {
-//            angle = randomFloat(-25.0, -5.0);
-//        }
-//        direction = direction * -1;
-//        
-//        id rotate = [CCRotateTo actionWithDuration:0.05 angle:angle];
-//        [actions addObject:rotate];
-//    }
-//    id changeToNormal = [CCCallBlock actionWithBlock:^{
-//        CCSpriteFrame *warningNormal = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_retry_expression.png"];
-//        [newItemSprite setDisplayFrame:warningNormal];
-//        [newItemSprite setRotation:0];
-//    }];
-//    [actions addObject:changeToNormal];
-//    id delay = [CCDelayTime actionWithDuration:2];
-//    id restart = [CCCallFunc actionWithTarget:self selector:@selector(animateExclamationSign)];
-//    [actions addObject:delay];
-//    [actions addObject:restart];
-    
     [newItemSprite stopAllActions];
     id scaleUp = [CCScaleTo actionWithDuration:0.1 scale:1.2];
     id scaleDown = [CCScaleTo actionWithDuration:0.4 scale:1];
@@ -251,7 +294,6 @@
 - (void) setDeadUIVisible:(BOOL)isVisible callback:(SEL)selector
 {
     CGPoint targetPosition;
-    DLog(@"%g,%g",rideAgainSprite.position.x, rideAgainSprite.position.y);
     if (isVisible)
     {
         targetPosition = ccp(winsize.width/2.0, winsize.height/2.0);
@@ -262,7 +304,6 @@
     }
     
     id moveToAnim = [CCMoveTo actionWithDuration:0.1 position:targetPosition];
-    //id moveToAnim = [CCEaseInOut actionWithAction:moveToAnimRaw];
     if (selector != nil)
     {
         id callbackFunc = [CCCallFunc actionWithTarget:self selector:selector];
@@ -276,26 +317,45 @@
 
 - (void) dealloc
 {
-//    [homeButton release];
-//    [missionButton release];
-//    [equipmentButton release];
-//    [retryButton release];
-//    [facebookButton release];
-//    [twitterButton release];
-//    [highscoreSprite release];
-//    [newItemSprite release];
-//    [rideAgainSprite release];
-//    
-//    [scoreText release];
-//    [starText release];
-//    [totalStarText release];
-//    [distanceText release];
-//    [multiplierText release];
-//    [newItemText release];
-//    [nextMission release];
-//    
     [equipmentViewController release];
     [super dealloc];
 }
 
+//===========================================
+//===========UNUSED SHAKE EFFECT=============
+//===========================================
+//    NSMutableArray *actions = [NSMutableArray array];
+
+//    id changeToRed = [CCCallBlock actionWithBlock:^{
+//        CCSpriteFrame *warningRed = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_play_warning.png"];
+//        [newItemSprite setDisplayFrame:warningRed];
+//    }];
+//    [actions addObject:changeToRed];
+//    int direction = 1;
+//    for (int i=0; i<50; i++)
+//    {
+//        float angle;
+//        if (direction > 0)
+//        {
+//            angle = randomFloat(5.0, 25.0);
+//        }
+//        else
+//        {
+//            angle = randomFloat(-25.0, -5.0);
+//        }
+//        direction = direction * -1;
+//
+//        id rotate = [CCRotateTo actionWithDuration:0.05 angle:angle];
+//        [actions addObject:rotate];
+//    }
+//    id changeToNormal = [CCCallBlock actionWithBlock:^{
+//        CCSpriteFrame *warningNormal = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"UI_retry_expression.png"];
+//        [newItemSprite setDisplayFrame:warningNormal];
+//        [newItemSprite setRotation:0];
+//    }];
+//    [actions addObject:changeToNormal];
+//    id delay = [CCDelayTime actionWithDuration:2];
+//    id restart = [CCCallFunc actionWithTarget:self selector:@selector(animateExclamationSign)];
+//    [actions addObject:delay];
+//    [actions addObject:restart];
 @end

@@ -42,7 +42,7 @@
 		<key>objectInitialSpeedIncreaseUnit</key>
 		<real>0.2</real>
 		<key>objectInitialSpeedIncreaseMax</key>
-		<real>1.5</real>
+		<integer>4</integer>
 		<key>scrollSpeed</key>
 		<real>-0.3</real>
 		<key>scrollSpeedIncreaseUnit</key>

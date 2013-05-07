@@ -18,23 +18,19 @@
 	</level>
 	<level>
 		<time>2</time>
-		<slot6>CLAW</slot6>
-		<slot7>CLAW</slot7>
-		<slot8>CLAW</slot8>
+		<slot4>VAT</slot4>
+		<slot5>VAT</slot5>
 	</level>
 	<level>
 		<time>3</time>
-		<slot2>VAT</slot2>
 	</level>
 	<level>
 		<time>4</time>
-		<slot2>CLAW</slot2>
-		<slot3>CLAW</slot3>
-		<slot4>CLAW</slot4>
+		<slot6>CLAW</slot6>
+		<slot7>CLAW</slot7>
 	</level>
 	<level>
 		<time>5</time>
-		<slot8>VAT</slot8>
 	</level>
 	<level>
 		<time>6</time>
@@ -42,22 +38,19 @@
 	</level>
 	<level>
 		<time>7</time>
-		<slot3>CLAW</slot3>
-		<slot5>CLAW</slot5>
-		<slot7>CLAW</slot7>
+		<slot3>VAT</slot3>
+		<slot4>VAT</slot4>
 	</level>
 	<level>
 		<time>8</time>
-		<slot2>VAT</slot2>
-	</level>
-	<level>
-		<time>9</time>
-		<slot3>CLAW</slot3>
-		<slot5>CLAW</slot5>
 		<slot7>CLAW</slot7>
 	</level>
 	<level>
+		<time>9</time>
+		<slot6>CLAW</slot6>
+	</level>
+	<level>
 		<time>10</time>
-		<slot8>VAT</slot8>
+		<slot5>CLAW</slot5>
 	</level>
 </stage1>

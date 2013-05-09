@@ -658,4 +658,46 @@
     return dict;
 }
 
+-(id) loadIAPData
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    DDXMLDocument *xmlDoc = [[self loadXMLContentFromFile:@"Editor_iap"] retain];
+    NSError *err = nil;
+    
+    NSArray *objectDatas = [xmlDoc nodesForXPath:@"//item" error:&err];
+    if (err)
+    {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+    
+    for (DDXMLDocument *objectElement in objectDatas)
+    {
+        if ([[[[objectElement nodesForXPath:@"end" error:&err] objectAtIndex:0] stringValue] isEqualToString:@"end"])
+        {
+            NSString *category = [[[objectElement nodesForXPath:@"category" error:&err] objectAtIndex:0] stringValue];
+            
+            NSArray *datas = [objectElement children];
+            NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:[datas count]];
+            for (DDXMLElement *element in datas)
+            {
+                if (![[element name] isEqualToString:@"end"])
+                {
+                    [dataDictionary setObject:[element stringValue] forKey:[element name]];
+                }
+            }
+            
+            NSMutableArray *objectDataArray = [dict objectForKey:category];
+            if (objectDataArray == nil)
+            {
+                objectDataArray = [NSMutableArray array];
+                [dict setObject:objectDataArray forKey:category];
+            }
+            
+            [objectDataArray addObject:dataDictionary];
+        }
+    }
+    [xmlDoc release];
+    return dict;
+}
+
 @end

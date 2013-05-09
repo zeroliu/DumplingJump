@@ -10,17 +10,16 @@
 #import "cocos2d.h"
 #import "DUTableViewCell.h"
 
-@interface EquipmentViewAmountCell : DUTableViewCell
+@interface IAPCell : DUTableViewCell
 {
+    IBOutlet UIView *holder;
     IBOutlet UIButton *cellButton;
     IBOutlet UILabel *priceLabel;
-    IBOutlet UILabel *descriptionLabel;
-    IBOutlet UIImageView *equipmentImageView;
-    IBOutlet UILabel *amountLabel;
-    IBOutlet UIImageView *priceLabelImage;
+    IBOutlet UILabel *titleLabel;
+    IBOutlet UILabel *rewardLabel;
+    IBOutlet UIImageView *itemImageView;
 }
 
 - (IBAction)didTapButton:(id)sender;
-
-
+- (IBAction)didPressDownButton:(id)sender;
 @end

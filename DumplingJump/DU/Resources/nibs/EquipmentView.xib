@@ -64,7 +64,7 @@
 								<string key="NSFrame">{{25, 73}, {270, 334}}</string>
 								<reference key="NSSuperview" ref="732985395"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="470803028"/>
+								<reference key="NSNextKeyView" ref="94178670"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="253430721">
 									<int key="NSColorSpace">3</int>
@@ -132,6 +132,45 @@
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
+							<object class="IBUILabel" id="94178670">
+								<reference key="NSNextResponder" ref="732985395"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{48, 68}, {233, 318}}</string>
+								<reference key="NSSuperview" ref="732985395"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="470803028"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText">Can not connect to Apple store. Please check your Internet connection.</string>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
+									<object class="NSColorSpace" key="NSCustomColorSpace">
+										<int key="NSID">1</int>
+									</object>
+								</object>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<int key="IBUINumberOfLines">0</int>
+								<int key="IBUITextAlignment">1</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<string key="name">Helvetica</string>
+									<string key="family">Helvetica</string>
+									<int key="traits">0</int>
+									<double key="pointSize">16</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">16</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+								<double key="preferredMaxLayoutWidth">233</double>
+							</object>
 						</array>
 						<string key="NSFrameSize">{320, 480}</string>
 						<reference key="NSSuperview" ref="191373211"/>
@@ -197,7 +236,6 @@
 						<string key="NSFrame">{{93, 407}, {80, 73}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -281,6 +319,14 @@
 						<reference key="destination" ref="103606389"/>
 					</object>
 					<int key="connectionID">127</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">noInternetMessageLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="94178670"/>
+					</object>
+					<int key="connectionID">129</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -372,6 +418,7 @@
 							<reference ref="103606389"/>
 							<reference ref="442085010"/>
 							<reference ref="83145556"/>
+							<reference ref="94178670"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">BackgroundView</string>
@@ -397,6 +444,11 @@
 						<reference key="object" ref="83145556"/>
 						<reference key="parent" ref="732985395"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">128</int>
+						<reference key="object" ref="94178670"/>
+						<reference key="parent" ref="732985395"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -408,6 +460,7 @@
 				<string key="122.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="123.CustomClassName">OutlineLabel</string>
 				<string key="123.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="128.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -419,7 +472,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">127</int>
+			<int key="maxID">129</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -444,9 +497,9 @@
 						<string key="backButton">UIButton</string>
 						<string key="backgroundView">UIView</string>
 						<string key="bottomImage">UIImageView</string>
-						<string key="continueButton">UIButton</string>
+						<string key="noInternetMessageLabel">UILabel</string>
 						<string key="starIcon">UIImageView</string>
-						<string key="starNumLabel">UILabel</string>
+						<string key="starNumLabel">OutlineLabel</string>
 						<string key="storeButton">UIButton</string>
 						<string key="tableview">UITableView</string>
 					</dictionary>
@@ -463,9 +516,9 @@
 							<string key="name">bottomImage</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="continueButton">
-							<string key="name">continueButton</string>
-							<string key="candidateClassName">UIButton</string>
+						<object class="IBToOneOutletInfo" key="noInternetMessageLabel">
+							<string key="name">noInternetMessageLabel</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="starIcon">
 							<string key="name">starIcon</string>
@@ -473,7 +526,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="starNumLabel">
 							<string key="name">starNumLabel</string>
-							<string key="candidateClassName">UILabel</string>
+							<string key="candidateClassName">OutlineLabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="storeButton">
 							<string key="name">storeButton</string>

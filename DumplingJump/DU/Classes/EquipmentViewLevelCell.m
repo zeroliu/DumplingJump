@@ -69,8 +69,6 @@
 - (void) updateCellUI
 {
     [self setUserInteractionEnabled:YES];
-//    float base = [[myContent objectForKey:@"base"] floatValue];
-//    float multiplier = [[myContent objectForKey:@"multiplier"] floatValue];
     
     int level = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
     
@@ -132,7 +130,7 @@
         //TODO: star reducing anim
         [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
         [self.parentTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.path] withRowAnimation:UITableViewRowAnimationFade];
-        [self.parentTableView performSelector:@selector(reloadTableview) withObject:nil afterDelay:0.2];
+        [self.parentTableView performSelector:@selector(reloadTableview)];
     }
     else
     {
@@ -143,19 +141,34 @@
 }
 
 - (void)dealloc {
+    [holder release];
+    holder = nil;
     [unlockArray release];
+    unlockArray = nil;
     [unlock1 release];
+    unlock1 = nil;
     [unlock2 release];
+    unlock2 = nil;
     [unlock3 release];
+    unlock3 = nil;
     [unlock4 release];
+    unlock4 = nil;
     [unlock0 release];
+    unlock0 = nil;
     [priceLabel release];
+    priceLabel = nil;
     [descriptionLabel release];
+    descriptionLabel = nil;
     [equipmentImageView release];
+    equipmentImageView = nil;
     [currentButton release];
+    currentButton = nil;
     [myContent release];
+    myContent = nil;
     [band release];
+    band = nil;
     [priceLabelImage release];
+    priceLabelImage = nil;
     [super dealloc];
 }
 

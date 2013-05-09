@@ -11,14 +11,17 @@
 #import "EquipmentData.h"
 #import "EquipmentViewLevelCell.h"
 #import "LockedEquipmentViewCell.h"
-#import "EquipmentViewAmountCell.h"
 #import "UserData.h"
+#import "DUIAPHelper.h"
+#import "IAPCell.h"
 
 #define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).structedDictionary
 
 @interface EquipmentViewController()
 {
-    NSArray *equipmentTypesArray;
+    NSArray *_equipmentTypesArray;
+    NSArray *_IAPTypesArray;
+    BOOL _isIAP;
 }
 
 @end
@@ -31,19 +34,29 @@
     if (self = [super init])
     {
         _delegate = theDelegate;
-        equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"special", nil];
+        _isIAP = NO;
+        _equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"special", nil];
+        _IAPTypesArray = [[NSArray alloc] initWithObjects:@"premium", @"free", nil];
     }
     return self;
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [equipmentTypesArray count];
+    if (_isIAP)
+    {
+        return [_IAPTypesArray count];
+    }
+    return [_equipmentTypesArray count];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:section]] count];
+    if (_isIAP)
+    {
+        return [[[DUIAPHelper sharedInstance].dataDictionary objectForKey:[_IAPTypesArray objectAtIndex:section]] count];
+    }
+    return [[EQUIPMENT_DICT objectForKey:[_equipmentTypesArray objectAtIndex:section]] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,38 +66,46 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *equipmentData = [[EQUIPMENT_DICT objectForKey:[equipmentTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    
-    NSString *equipmentName = [equipmentData objectForKey:@"name"];
-    
     DUTableViewCell *cell = nil;
-    BOOL unlocked = YES;
-    if ([[USERDATA objectForKey:equipmentName] intValue] < 0)
+    NSDictionary *cellData = nil;
+    if (!_isIAP)
     {
-        unlocked = NO;
-    }
-    
-    Class cellClass = NSClassFromString([equipmentData objectForKey:@"layout"]);
-    if (unlocked)
-    {
-        cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[equipmentData objectForKey:@"layout"]];
-        if (cell == nil)
+        cellData = [[EQUIPMENT_DICT objectForKey:[_equipmentTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        
+        NSString *equipmentName = [cellData objectForKey:@"name"];
+        BOOL unlocked = YES;
+        if ([[USERDATA objectForKey:equipmentName] intValue] < 0)
         {
-            cell = [[[cellClass alloc] initWithXib:[equipmentData objectForKey:@"layout"] ] autorelease];
+            unlocked = NO;
         }
+        
+        Class cellClass = NSClassFromString([cellData objectForKey:@"layout"]);
+        if (unlocked)
+        {
+            cell = (DUTableViewCell *)[tableView dequeueReusableCellWithIdentifier:[cellData objectForKey:@"layout"]];
+            if (cell == nil)
+            {
+                cell = [[[cellClass alloc] initWithXib:[cellData objectForKey:@"layout"] ] autorelease];
+            }
+        }
+        else
+        {
+            cell = (LockedEquipmentViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
+            if (cell == nil)
+            {
+                cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
+            }
+        }
+        
     }
     else
     {
-        cell = (LockedEquipmentViewCell *)[tableView dequeueReusableCellWithIdentifier:@"LockedEquipmentViewCell"];
-        if (cell == nil)
-        {
-            cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
-        }
+        cellData = [[[DUIAPHelper sharedInstance].dataDictionary objectForKey:[_IAPTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        cell = [[[IAPCell alloc] initWithXib:@"IAPCell"] autorelease];
     }
     cell.path = indexPath;
     cell.parentTableView = self;
-    [cell setLayoutWithDictionary:equipmentData];
-
+    [cell setLayoutWithDictionary:cellData];
     return cell;
 }
 
@@ -102,7 +123,15 @@
     UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0,0, 260, 29)] autorelease];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
     [titleLabel setTextAlignment:UITextAlignmentCenter];
-    [titleLabel setText:[[equipmentTypesArray objectAtIndex:section] uppercaseString]];
+    
+    if (_isIAP)
+    {
+        [titleLabel setText:[[_IAPTypesArray objectAtIndex:section] uppercaseString]];
+    }
+    else
+    {
+        [titleLabel setText:[[_equipmentTypesArray objectAtIndex:section] uppercaseString]];
+    }
     [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:20]];
     [titleLabel setTextColor:[UIColor colorWithRed:242.0/255.0 green:228.0/255.0 blue:133.0/255.0 alpha:1]];
     [header addSubview:bgImage];
@@ -166,7 +195,6 @@
 
 - (void) setEquipmentButtonsEnabled:(BOOL)isEnabled
 {
-    [storeButton setEnabled:isEnabled];
     [backButton setEnabled:isEnabled];
     
     int opacity = 0;
@@ -175,13 +203,33 @@
         opacity = 1;
     }
     
-    storeButton.alpha = opacity;
+    backButton.alpha = opacity;
+    
+    //when showing IAP view, don't show store button
+    if (!(isEnabled && _isIAP))
+    {
+        [storeButton setEnabled:isEnabled];
+        storeButton.alpha = opacity;
+    }
+}
+
+- (void) setIAPButtonsEnabled:(BOOL)isEnabled
+{
+    [backButton setEnabled:isEnabled];
+    
+    int opacity = 0;
+    if (isEnabled)
+    {
+        opacity = 1;
+    }
+    
     backButton.alpha = opacity;
 }
 
 - (void) showEquipmentView
 {
     [self equipmentViewFlyInAnimationWithTarget:nil selector:nil];
+    noInternetMessageLabel.hidden = YES;
 }
 
 - (void) hideEquipmentView
@@ -191,17 +239,29 @@
 
 - (IBAction)didBackButtonClicked:(id)sender
 {
-    [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewBack)];
+    if (_isIAP)
+    {
+        _isIAP = NO;
+        [self reloadTableview];
+        [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(showEquipmentView)];
+    }
+    else
+    {
+        [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewBack)];
+    }
 }
 
 - (IBAction)didStoreButtonClicked:(id)sender
 {
+    [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(showIAPView)];
 }
 
-//- (IBAction)didContinueButtonClicked:(id)sender
-//{
-//    [self equipmentViewFlyOutAnimationWithTarget:self.delegate selector:@selector(didEquipmentViewContinue)];
-//}
+- (void) showIAPView
+{
+    _isIAP = YES;
+    [self reloadTableview];
+    [self equipmentViewFlyInAnimationWithTarget:nil selector:nil];
+}
 
 - (void) updateStarNum:(int)num
 {
@@ -231,11 +291,6 @@
     }
 }
 
-//- (void) setContinueButtonVisibility:(BOOL)isVisible
-//{
-//    [continueButton setHidden:!isVisible];
-//}
-
 - (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
 {
     [tableview reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
@@ -249,22 +304,23 @@
 - (void)dealloc
 {
     [tableview release];
-    [equipmentTypesArray release];
-//    [continueButton release];
+    tableview = nil;
+    [_equipmentTypesArray release];
+    _equipmentTypesArray = nil;
     [backgroundView release];
+    backgroundView = nil;
     [backButton release];
+    backButton = nil;
     [storeButton release];
+    storeButton = nil;
     [bottomImage release];
-    [starIcon release];
-    [starNumLabel release];
-    [super dealloc];
-}
-
-- (void)viewDidUnload {
+    bottomImage = nil;
     [starIcon release];
     starIcon = nil;
     [starNumLabel release];
     starNumLabel = nil;
-    [super viewDidUnload];
+    [noInternetMessageLabel release];
+    noInternetMessageLabel = nil;
+    [super dealloc];
 }
 @end

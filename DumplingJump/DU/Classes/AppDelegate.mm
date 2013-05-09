@@ -15,6 +15,7 @@
 #import "EquipmentData.h"
 #import "Constants.h"
 #import "UserData.h"
+#import "DUIAPHelper.h"
 #define TESTING 1
 
 @implementation AppController
@@ -27,6 +28,8 @@
         [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
         [TestFlight takeOff:@"e3bba9d3-ab3e-4592-8115-71c743fe7ede"];
 #endif
+    
+    [DUIAPHelper sharedInstance];
     
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

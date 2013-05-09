@@ -21,18 +21,16 @@
 {
     IBOutlet UITableView *tableview;
     IBOutlet UIView *backgroundView;
-//    IBOutlet UIButton *continueButton;
     IBOutlet UIButton *backButton;
     IBOutlet UIButton *storeButton;
     IBOutlet UIImageView *bottomImage;
     IBOutlet UIImageView *starIcon;
     IBOutlet OutlineLabel *starNumLabel;
+    IBOutlet UILabel *noInternetMessageLabel;
 }
 
 @property (nonatomic, retain) id delegate;
 - (id)initWithDelegate:(id)theDelegate;
-
-//- (void) setContinueButtonVisibility:(BOOL)isVisible;
 
 - (void) showEquipmentView;
 - (void) hideEquipmentView;
@@ -41,6 +39,5 @@
 - (void) reloadTableview;
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;
-//- (IBAction)didContinueButtonClicked:(id)sender;
 
 @end

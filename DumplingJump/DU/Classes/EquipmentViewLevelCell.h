@@ -25,6 +25,8 @@
     IBOutlet UIImageView *priceLabelImage;
     
     IBOutlet UIButton *currentButton;
+    
+    IBOutlet UIView *holder;
     NSDictionary *myContent;
 }
 - (IBAction)didTapButton:(id)sender;

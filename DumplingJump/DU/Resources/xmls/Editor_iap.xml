@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<IAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item>
+		<id>ID</id>
+		<reward>Reward</reward>
+		<name>Name</name>
+        <picture>Picture</picture>
+		<category>Category</category>
+		<productID>ProductID</productID>
+        <end>End of line</end>
+	</item>
+	<item>
+		<id>1</id>
+		<reward>+5000</reward>
+		<name>Lucky Stars</name>
+        <picture>UI_purch_stars_lv1</picture>
+		<category>premium</category>
+		<productID>edu.cmu.etc.CastleRider.LuckyStars</productID>
+        <end>end</end>
+	</item>
+	<item>
+		<id>2</id>
+		<reward>+30000</reward>
+		<name>Shooting Stars</name>
+        <picture>UI_purch_stars_lv2</picture>
+		<category>premium</category>
+		<productID>edu.cmu.etc.CastleRider.ShootingStars</productID>
+        <end>end</end>
+	</item>
+    <item>
+		<id>3</id>
+		<reward>+70000</reward>
+		<name>Metor Shower</name>
+        <picture>UI_purch_stars_lv3</picture>
+		<category>premium</category>
+		<productID>edu.cmu.etc.CastleRider.MetorShower</productID>
+        <end>end</end>
+	</item>
+    <item>
+		<id>4</id>
+		<reward>+160000</reward>
+		<name>Supernova</name>
+        <picture>UI_purch_stars_lv4</picture>
+		<category>premium</category>
+		<productID>edu.cmu.etc.CastleRider.Supernova</productID>
+        <end>end</end>
+	</item>
+    <item>
+		<id>5</id>
+		<reward>= 2 stars</reward>
+		<name>Forever Double</name>
+        <picture>UI_purch_stars_x2</picture>
+		<category>premium</category>
+		<productID>edu.cmu.etc.CastleRider.ForeverDouble</productID>
+        <end>end</end>
+	</item>
+    <item>
+		<id>6</id>
+		<reward>+1000</reward>
+		<name>Like Castle Rider</name>
+        <picture>UI_purch_like</picture>
+		<category>free</category>
+        <productID>edu.cmu.etc.CastleRider.Facebook</productID>
+        <end>end</end>
+	</item>
+    <item>
+		<id>7</id>
+		<reward>+1000</reward>
+		<name>Tweet Castle Rider</name>
+        <picture>UI_purch_tweet</picture>
+		<category>free</category>
+        <productID>edu.cmu.etc.CastleRider.Twitter</productID>
+        <end>end</end>
+	</item>
+</IAP>

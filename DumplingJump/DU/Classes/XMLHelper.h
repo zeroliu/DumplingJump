@@ -25,5 +25,6 @@
 -(id) loadAchievementData;
 -(id) loadBackgroundData;
 -(id) loadBackgroundObjectData;
+-(id) loadIAPData;
 
 @end

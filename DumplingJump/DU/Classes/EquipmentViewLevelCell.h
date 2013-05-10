@@ -30,5 +30,6 @@
     NSDictionary *myContent;
 }
 - (IBAction)didTapButton:(id)sender;
+- (IBAction)didPressDown:(id)sender;
 
 @end

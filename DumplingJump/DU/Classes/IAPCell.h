@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "DUTableViewCell.h"
+#import <StoreKit/StoreKit.h>
 
 @interface IAPCell : DUTableViewCell
 {
@@ -22,4 +23,6 @@
 
 - (IBAction)didTapButton:(id)sender;
 - (IBAction)didPressDownButton:(id)sender;
+- (void) updatePrice:(NSString *)price;
+- (void) setProduct:(SKProduct *)theProduct;
 @end

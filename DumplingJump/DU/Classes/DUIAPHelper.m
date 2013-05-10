@@ -29,6 +29,10 @@ dataDictionary = _dataDictionary;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
                                       @"edu.cmu.etc.CastleRider.LuckyStars",
+                                      @"edu.cmu.etc.CastleRider.ShootingStars",
+                                      @"edu.cmu.etc.CastleRider.MetorShower",
+                                      @"edu.cmu.etc.CastleRider.Supernova",
+                                      @"edu.cmu.etc.CastleRider.ForeverDouble",
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

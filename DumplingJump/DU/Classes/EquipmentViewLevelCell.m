@@ -14,6 +14,7 @@
 @interface EquipmentViewLevelCell()
 {
     NSMutableArray *unlockArray;
+    BOOL justTapped;
 }
 
 @end
@@ -48,6 +49,8 @@
         {
             [view setHighlighted:NO];
         }
+        
+        justTapped = NO;
     }
     
     return self;
@@ -119,6 +122,15 @@
 
 - (IBAction)didTapButton:(id)sender
 {
+    if (justTapped)
+    {
+        [self performSelector:@selector(resetHolderPosition) withObject:nil afterDelay:0.1];
+    }
+    else
+    {
+        [self resetHolderPosition];
+    }
+    
     int price = [priceLabel.text intValue];
     int currentStar = [[USERDATA objectForKey:@"star"] intValue];
     int currentLevel = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
@@ -140,7 +152,25 @@
 
 }
 
-- (void)dealloc {
+- (IBAction)didPressDown:(id)sender
+{
+    justTapped = YES;
+    [self performSelector:@selector(resetJustTapValue) withObject:nil afterDelay:0.1];
+    holder.center = ccp(holder.frame.size.width/2, holder.frame.size.height/2+2);
+}
+
+- (void) resetJustTapValue
+{
+    justTapped = NO;
+}
+
+- (void) resetHolderPosition
+{
+    holder.center = ccp(holder.frame.size.width/2, holder.frame.size.height/2);
+}
+
+- (void)dealloc
+{
     [holder release];
     holder = nil;
     [unlockArray release];

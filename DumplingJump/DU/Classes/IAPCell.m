@@ -10,11 +10,13 @@
 #import "UserData.h"
 #import "Constants.h"
 #import "EquipmentViewController.h"
+#import "DUIAPHelper.h"
 
 @interface IAPCell()
 {
     NSDictionary *myContent;
     BOOL justTapped;
+    SKProduct *product;
 }
 
 @end
@@ -83,7 +85,6 @@
 
 - (IBAction)didTapButton:(id)sender
 {
-    NSLog(@"inside out");
     if (justTapped)
     {
         [self performSelector:@selector(resetHolderPosition) withObject:nil afterDelay:0.1];
@@ -91,6 +92,11 @@
     else
     {
         [self resetHolderPosition];
+    }
+    
+    if ([[myContent objectForKey:@"category"] isEqualToString:@"premium"])
+    {
+        [[DUIAPHelper sharedInstance] buyProduct:product];
     }
 //    int price = [priceLabel.text intValue];
 //    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
@@ -112,7 +118,6 @@
 
 - (IBAction)didPressDownButton:(id)sender
 {
-    NSLog(@"touchDown");
     justTapped = YES;
     [self performSelector:@selector(resetJustTapValue) withObject:nil afterDelay:0.1];
     holder.center = ccp(holder.frame.size.width/2, holder.frame.size.height/2+2);
@@ -126,6 +131,16 @@
 - (void) resetHolderPosition
 {
     holder.center = ccp(holder.frame.size.width/2, holder.frame.size.height/2);
+}
+
+- (void) updatePrice:(NSString *)price
+{
+    [priceLabel setText:price];
+}
+
+- (void) setProduct:(SKProduct *)theProduct
+{
+    product = [theProduct retain];
 }
 
 - (void)dealloc
@@ -142,7 +157,8 @@
     rewardLabel = nil;
     [itemImageView release];
     rewardLabel = nil;
-    
+    [product release];
+    product = nil;
     [myContent release];
     myContent = nil;
     [super dealloc];

@@ -14,6 +14,7 @@
 #import "UserData.h"
 #import "DUIAPHelper.h"
 #import "IAPCell.h"
+#import "LoadingView.h"
 
 #define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).structedDictionary
 
@@ -21,7 +22,11 @@
 {
     NSArray *_equipmentTypesArray;
     NSArray *_IAPTypesArray;
+    NSArray *_productArray;
+    LoadingView *loadingView;
+    BOOL _loadSuccess;
     BOOL _isIAP;
+    NSNumberFormatter * _priceFormatter;
 }
 
 @end
@@ -37,6 +42,10 @@
         _isIAP = NO;
         _equipmentTypesArray = [[NSArray alloc] initWithObjects:@"powerups",@"special", nil];
         _IAPTypesArray = [[NSArray alloc] initWithObjects:@"premium", @"free", nil];
+        _priceFormatter = [[NSNumberFormatter alloc] init];
+        [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
     }
     return self;
 }
@@ -96,12 +105,28 @@
                 cell = [[[LockedEquipmentViewCell alloc] initWithXib:@"LockedEquipmentViewCell"] autorelease];
             }
         }
-        
     }
     else
     {
         cellData = [[[DUIAPHelper sharedInstance].dataDictionary objectForKey:[_IAPTypesArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
         cell = [[[IAPCell alloc] initWithXib:@"IAPCell"] autorelease];
+        
+        if ([[cellData objectForKey:@"category"] isEqualToString:@"free"])
+        {
+            [(IAPCell *)cell updatePrice:@"FREE"];
+        }
+        else
+        {
+            for (SKProduct *product in _productArray)
+            {
+                if ([product.productIdentifier isEqualToString:[cellData objectForKey:@"productID"]])
+                {
+                    [_priceFormatter setLocale:product.priceLocale];
+                    [(IAPCell *)cell updatePrice:[_priceFormatter stringFromNumber:product.price]];
+                    [(IAPCell *)cell setProduct:product];
+                }
+            }
+        }
     }
     cell.path = indexPath;
     cell.parentTableView = self;
@@ -228,6 +253,8 @@
 
 - (void) showEquipmentView
 {
+    [tableview setHidden:NO];
+    [noInternetMessageLabel setHidden:NO];
     [self equipmentViewFlyInAnimationWithTarget:nil selector:nil];
     noInternetMessageLabel.hidden = YES;
 }
@@ -242,6 +269,8 @@
     if (_isIAP)
     {
         _isIAP = NO;
+        [_productArray release];
+        _productArray = nil;
         [self reloadTableview];
         [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(showEquipmentView)];
     }
@@ -253,12 +282,41 @@
 
 - (IBAction)didStoreButtonClicked:(id)sender
 {
-    [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(showIAPView)];
+    [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(loadIAP)];
+}
+
+- (void) loadIAP
+{
+    loadingView = [[LoadingView loadingViewInView:[[CCDirector sharedDirector] view] withTitle:@"Loading..."] retain];
+    [[DUIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success)
+        {
+            _productArray = [products retain];
+        }
+        _loadSuccess = success;
+        [self showIAPView];
+    }];
 }
 
 - (void) showIAPView
 {
+    [loadingView removeView];
+    [loadingView release];
+    loadingView = nil;
+    
     _isIAP = YES;
+    if (_loadSuccess)
+    {
+        [tableview setHidden:NO];
+        [noInternetMessageLabel setHidden:YES];
+    }
+    else
+    {
+        [tableview setHidden:YES];
+        [noInternetMessageLabel setHidden:NO];
+        [noInternetMessageLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:18]];
+        [noInternetMessageLabel setText:@"Cannot connect to the store.\n\nPlease check your Internet connection"];
+    }
     [self reloadTableview];
     [self equipmentViewFlyInAnimationWithTarget:nil selector:nil];
 }
@@ -301,8 +359,31 @@
     [tableview reloadData];
 }
 
+- (void) productPurchased:(NSNotification *)notification
+{
+    NSString * productID = notification.object;
+    [[[DUIAPHelper sharedInstance].dataDictionary objectForKey:@"premium"] enumerateObjectsUsingBlock:^(NSDictionary *productData, NSUInteger idx, BOOL *stop) {
+        if ([[productData objectForKey:@"productID" ] isEqualToString:productID])
+        {
+            if ([productID rangeOfString:@"ForeverDouble"].location != NSNotFound)
+            {
+                [USERDATA setObject:[NSNumber numberWithBool:YES] forKey:@"foreverDouble"];
+            }
+            else
+            {
+                int reward = [[productData objectForKey:@"reward"] intValue];
+                int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+                [USERDATA setObject:[NSNumber numberWithInt:currentStar+reward] forKey:@"star"];
+                [self updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
+            }
+            *stop = YES;
+        }
+    }];
+}
+
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [tableview release];
     tableview = nil;
     [_equipmentTypesArray release];
@@ -321,6 +402,10 @@
     starNumLabel = nil;
     [noInternetMessageLabel release];
     noInternetMessageLabel = nil;
+    [_productArray release];
+    _productArray = nil;
+    [_priceFormatter release];
+    _priceFormatter = nil;
     [super dealloc];
 }
 @end

@@ -14,6 +14,7 @@
 @interface LockedEquipmentViewCell()
 {
     NSDictionary *myContent;
+    BOOL justTapped;
 }
 
 @end
@@ -35,6 +36,7 @@
         [titleLabel setTextAlignment:UITextAlignmentLeft];
         [titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:11]];
         [titleLabel setTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]];
+        justTapped = NO;
     }
     
     return self;
@@ -81,6 +83,15 @@
 
 - (IBAction)didTapButton:(id)sender
 {
+    if (justTapped)
+    {
+        [self performSelector:@selector(resetHolderPosition) withObject:nil afterDelay:0.1];
+    }
+    else
+    {
+        [self resetHolderPosition];
+    }
+    
     int price = [priceLabel.text intValue];
     int currentStar = [[USERDATA objectForKey:@"star"] intValue];
 
@@ -98,23 +109,51 @@
     }
 }
 
+- (IBAction)didPressDown:(id)sender
+{
+    justTapped = YES;
+    [self performSelector:@selector(resetJustTapValue) withObject:nil afterDelay:0.1];
+    holder.center = ccp(holder.frame.size.width/2, holder.frame.size.height/2+2);
+}
+
+- (void) resetJustTapValue
+{
+    justTapped = NO;
+}
+
+- (void) resetHolderPosition
+{
+    holder.center = ccp(holder.frame.size.width/2, holder.frame.size.height/2);
+}
+
 - (void) showUnlockAnimation
 {
     [self.parentTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.path] withRowAnimation:UITableViewRowAnimationLeft];
     [self.parentTableView performSelector:@selector(reloadTableview) withObject:nil afterDelay:0.3];
 }
 
-- (void)dealloc {
-    
+- (void)dealloc
+{
+    [holder release];
+    holder = nil;
     [band release];
+    band = nil;
     [cellButton release];
+    cellButton = nil;
     [overlay release];
+    overlay = nil;
     [equipmentImageView release];
+    equipmentImageView = nil;
     [parentView release];
+    parentView = nil;
     [priceLabel release];
+    priceLabel = nil;
     [titleLabel release];
+    titleLabel = nil;
     [myContent release];
+    myContent = nil;
     [priceLabelImage release];
+    priceLabelImage = nil;
     [super dealloc];
 }
 @end

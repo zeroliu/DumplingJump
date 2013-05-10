@@ -23,6 +23,7 @@
 		<totalGame>total game</totalGame>
 		<totalStar>total star</totalStar>
 		<totalDistance>total distance</totalDistance>
+        <foreverDouble>forever double</foreverDouble>
 	</data>
 	<data>
 		<music>1</music>
@@ -47,5 +48,6 @@
 		<totalGame>0</totalGame>
 		<totalStar>0</totalStar>
 		<totalDistance>0</totalDistance>
+        <foreverDouble>0</foreverDouble>
 	</data>
 </userData>

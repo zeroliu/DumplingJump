@@ -20,9 +20,10 @@
     IBOutlet UIImageView *band;
     IBOutlet UIImageView *priceLabelImage;
     UIView *overlay;
+    IBOutlet UIView *holder;
 }
 
 
 - (IBAction)didTapButton:(id)sender;
-
+- (IBAction)didPressDown:(id)sender;
 @end

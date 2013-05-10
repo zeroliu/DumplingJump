@@ -48,7 +48,6 @@
 								<string key="NSFrame">{{2, 0}, {250, 75}}</string>
 								<reference key="NSSuperview" ref="171672305"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -90,7 +89,7 @@
 										<string key="NSFrame">{{79, 42}, {17, 23}}</string>
 										<reference key="NSSuperview" ref="696468791"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="883569319"/>
+										<reference key="NSNextKeyView" ref="707331371"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -122,7 +121,7 @@
 										<string key="NSFrame">{{22, 14}, {45, 45}}</string>
 										<reference key="NSSuperview" ref="696468791"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="707331371"/>
+										<reference key="NSNextKeyView" ref="1065978628"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -241,7 +240,7 @@
 										<string key="NSFrame">{{113, 42}, {17, 23}}</string>
 										<reference key="NSSuperview" ref="696468791"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="1065978628"/>
+										<reference key="NSNextKeyView" ref="883569319"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -310,6 +309,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">48</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">didPressDown:</string>
+						<reference key="source" ref="443097978"/>
+						<reference key="destination" ref="734300500"/>
+						<int key="IBEventType">1</int>
+					</object>
+					<int key="connectionID">59</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -398,6 +406,14 @@
 						<reference key="destination" ref="1065978628"/>
 					</object>
 					<int key="connectionID">40</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">holder</string>
+						<reference key="source" ref="734300500"/>
+						<reference key="destination" ref="696468791"/>
+					</object>
+					<int key="connectionID">56</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -526,7 +542,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">55</int>
+			<int key="maxID">59</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -541,22 +557,26 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">EquipmentViewLevelCell</string>
 					<string key="superclassName">DUTableViewCell</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">didTapButton:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">didTapButton:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="didPressDown:">id</string>
+						<string key="didTapButton:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="didPressDown:">
+							<string key="name">didPressDown:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="didTapButton:">
 							<string key="name">didTapButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="band">UIImageView</string>
 						<string key="currentButton">UIButton</string>
 						<string key="descriptionLabel">UILabel</string>
 						<string key="equipmentImageView">UIImageView</string>
+						<string key="holder">UIView</string>
 						<string key="priceLabel">UILabel</string>
 						<string key="priceLabelImage">UIImageView</string>
 						<string key="unlock0">UIImageView</string>
@@ -581,6 +601,10 @@
 						<object class="IBToOneOutletInfo" key="equipmentImageView">
 							<string key="name">equipmentImageView</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="holder">
+							<string key="name">holder</string>
+							<string key="candidateClassName">UIView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="priceLabel">
 							<string key="name">priceLabel</string>

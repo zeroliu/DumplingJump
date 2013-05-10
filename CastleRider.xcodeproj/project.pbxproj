@@ -743,6 +743,7 @@
 		9F71F95F16FF7E5A00B24D15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95B16FF7E5A00B24D15 /* README.md */; };
 		9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95C16FF7E5A00B24D15 /* release_notes.md */; };
 		9F71F96216FF7EA800B24D15 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71F96116FF7EA800B24D15 /* libz.dylib */; };
+		9F76BEAA173CC5D100982A73 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F76BEA9173CC5D100982A73 /* LoadingView.m */; };
 		9F88385617225912008A004C /* sheetBackground-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F88384E17225912008A004C /* sheetBackground-hd.plist */; };
 		9F88385717225912008A004C /* sheetBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F88384F17225912008A004C /* sheetBackground-hd.png */; };
 		9F88385817225912008A004C /* sheetBackground.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F88385017225912008A004C /* sheetBackground.plist */; };
@@ -1869,6 +1870,8 @@
 		9F71F95C16FF7E5A00B24D15 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		9F71F95D16FF7E5A00B24D15 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9F71F96116FF7EA800B24D15 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9F76BEA8173CC5D100982A73 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		9F76BEA9173CC5D100982A73 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		9F88384E17225912008A004C /* sheetBackground-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sheetBackground-hd.plist"; sourceTree = "<group>"; };
 		9F88384F17225912008A004C /* sheetBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheetBackground-hd.png"; sourceTree = "<group>"; };
 		9F88385017225912008A004C /* sheetBackground.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sheetBackground.plist; sourceTree = "<group>"; };
@@ -2067,6 +2070,8 @@
 		7F32887F1662D87800DF86FC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9F76BEA8173CC5D100982A73 /* LoadingView.h */,
+				9F76BEA9173CC5D100982A73 /* LoadingView.m */,
 				7F3B5B8316C8779D0010F8E4 /* UIHelper */,
 				7FAA48D51671743200A8FCA0 /* MainMenu */,
 				7F3288961663416B00DF86FC /* SubCCB */,
@@ -4762,6 +4767,7 @@
 				9FF57AF7173710F60008B78D /* OptionUI.mm in Sources */,
 				9FD08DE2173A2DFD008B54F1 /* IAPHelper.m in Sources */,
 				9FD08DE5173AA91C008B54F1 /* DUIAPHelper.m in Sources */,
+				9F76BEAA173CC5D100982A73 /* LoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

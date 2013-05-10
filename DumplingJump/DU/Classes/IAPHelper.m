@@ -10,15 +10,17 @@
 #import "UserData.h"
 #import "Constants.h"
 
+
+
 NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
 
 @interface IAPHelper() <SKProductsRequestDelegate, SKPaymentTransactionObserver>
+
 @end
 
 @implementation IAPHelper
 {
     SKProductsRequest *_productsRequest;
-    
     RequestProductsCompletionHandler _completionHandler;
     NSSet *_productIdentifiers;
     NSMutableSet *_purchasedProductIdentifiers;

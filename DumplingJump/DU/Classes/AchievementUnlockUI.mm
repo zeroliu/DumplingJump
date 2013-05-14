@@ -154,10 +154,13 @@
         
         [node runAction:[CCSequence actions:delay, animationSequence, showForwardButton, nil]];
     }
+    
+    [forwardButton setEnabled:YES];
 }
 
 -(void)didTapFoward:(id)sender
 {
+    [forwardButton setEnabled:NO];
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
     id resumeGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(showDeadUI)];

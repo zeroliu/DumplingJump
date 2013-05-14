@@ -361,9 +361,9 @@
 						<key>displayName</key>
 						<string>CCControlButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>forwardButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>
@@ -569,9 +569,9 @@
 						<key>displayName</key>
 						<string>CCControlButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>retryButton</string>
 						<key>memberVarAssignmentType</key>
-						<integer>0</integer>
+						<integer>2</integer>
 						<key>properties</key>
 						<array>
 							<dict>

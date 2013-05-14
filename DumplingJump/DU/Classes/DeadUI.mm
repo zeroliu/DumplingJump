@@ -74,6 +74,7 @@
 
 - (void) didAchievementTapped:(id)sender
 {
+    [self setButtonsEnable:NO];
     [self setDeadUIVisible:NO callback:@selector(showAchievement)];
     [self setButtonsEnable:NO];
 }
@@ -99,6 +100,7 @@
 
 - (void) showDeadUI
 {
+    [self setButtonsEnable:YES];
     [self setDeadUIVisible:YES callback:nil];
     [self setButtonsEnable:YES];
     [self updateNewItemSign];
@@ -145,6 +147,7 @@
     
     [self updateNewItemSign];
     
+    [retryButton setEnabled:NO];
     [self performSelector:@selector(playShowDistanceEffect) withObject:nil afterDelay:0.8];
 }
 
@@ -166,6 +169,10 @@
     {
         [self performSelector:@selector(playShowScoreEffect) withObject:nil afterDelay:0.7];
     }
+    else
+    {
+        [retryButton setEnabled:YES];
+    }
 }
 
 -(void) playShowScoreEffect
@@ -182,6 +189,7 @@
     [scoreText runAction:[self createPopScaleEffect]];
     
     [self updateScoreLabel:[NSNumber numberWithInt:_finalScore]];
+    [retryButton setEnabled:YES];
 }
 
 -(void) updateScoreLabel:(NSNumber *)target
@@ -209,8 +217,6 @@
     id scaleDown = [CCScaleTo actionWithDuration:0.15 scale:1];
     return [CCSequence actions:scaleUp, scaleDown, nil];
 }
-
-
 
 -(void) updateNextMission:(NSDictionary *)nextMissionData
 {
@@ -262,6 +268,7 @@
 
 -(void) retry:(id)sender
 {
+    [self setButtonsEnable:NO];
     [animationManager runAnimationsForSequenceNamed:@"Fade White"];
     id delay = [CCDelayTime actionWithDuration:0.2f];
     id restartFunc = [CCCallFunc actionWithTarget:[[Hub shared] gameLayer] selector:@selector(restart)];
@@ -272,6 +279,7 @@
 
 -(void) didArsenalTapped:(id)sender
 {
+    [self setButtonsEnable:NO];
     [self setDeadUIVisible:NO callback:@selector(showEquipment)];
     [self setButtonsEnable:NO];
 }
@@ -288,6 +296,7 @@
 
 -(void) home:(id)sender
 {
+    [self setButtonsEnable:NO];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"]]];
 }
 

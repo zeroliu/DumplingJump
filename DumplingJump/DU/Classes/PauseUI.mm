@@ -35,10 +35,13 @@
 {
     [super createUI];
     [missionNode drawWithAchievementDataWithGroupID:[[USERDATA objectForKey:@"achievementGroup"] intValue]];
+    [retryButton setEnabled:YES];
+    [forwardButton setEnabled:YES];
 }
 
 -(void)resumeGame:(id)sender
 {
+    [forwardButton setEnabled:NO];
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
@@ -51,6 +54,7 @@
 
 -(void)restartGame:(id)sender
 {
+    [retryButton setEnabled:NO];
     id delay = [CCDelayTime actionWithDuration:0.5];
     id restartGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(restart)];
     id selfDestruction = [CCCallFunc actionWithTarget:self selector:@selector(destroy)];

@@ -11,6 +11,8 @@
 @interface PauseUI : DUUI
 {
     MissionNode *missionNode;
+    CCControlButton *retryButton;
+    CCControlButton *forwardButton;
 }
 +(id) shared;
 @end

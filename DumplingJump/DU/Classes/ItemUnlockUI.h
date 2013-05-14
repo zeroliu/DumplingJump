@@ -18,7 +18,7 @@
     CCLabelTTF *starText;
     CCSprite *starIcon;
     CCNode *nodeHolder;
-    
+    CCControlButton *forwardButton;
     CGFloat _starNum;
     CGFloat targetStarNum;
 }

@@ -18,6 +18,7 @@ BG_stage3_cloud_4.png
 BG_stage3_cloud_5.png
 BG_stage3_ufo.png
 mask.png
+indicator.png
 UI_play_pushbonus_1.png
 UI_play_pushbonus_2.png
 UI_play_pushbonus_3.png
@@ -721,7 +722,6 @@ UI_purch_box_normal.png
 UI_purch_box_press.png
 UI_purch_like.png
 UI_purch_reminder.png
-UI_purch_reminder_fliter.png
 UI_purch_reminder_no.png
 UI_purch_reminder_no_press.png
 UI_purch_reminder_yes.png

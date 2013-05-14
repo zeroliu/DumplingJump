@@ -13,6 +13,7 @@
 {
     MissionNode *missionNode;
     CGSize winsize;
+    CCControlButton *forwardButton;
 }
 +(id) shared;
 

@@ -60,23 +60,7 @@
     
     [self performSelector:@selector(updateStarNum)];
     
-    //update UI
-//    NSDictionary *currentEquipment = [[EquipmentData shared] findEquipmentWithGroupID:currentGroup];
-//    NSDictionary *nextEquipment = [[EquipmentData shared] findEquipmentWithGroupID:currentGroup+1];
-//    
-//    [USERDATA setObject:[NSNumber numberWithInt:0] forKey:[currentEquipment objectForKey:@"name"]];
-//    
-//    [itemTitle setString:[currentEquipment objectForKey:@"displayName"]];
-//    
-//    float scale = 150 / itemTitle.boundingBox.size.width;
-//    itemTitle.scale = MIN(1, scale);
-//    CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-//    CCSpriteFrame *unlockedItemframe = [cache spriteFrameByName:[NSString stringWithFormat:@"%@.png",[currentEquipment objectForKey:@"image"]]];
-//    [unlockedItemSprite setDisplayFrame:unlockedItemframe];
-//    CCSpriteFrame *lockedItemFrame = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[currentEquipment objectForKey:@"image"]]];
-//    [lockedItemSprite setDisplayFrame:lockedItemFrame];
-//    CCSpriteFrame *nextItemFrame = [cache spriteFrameByName:[NSString stringWithFormat:@"%@_shadow.png",[nextEquipment objectForKey:@"image"]]];
-//    [nextItemSprite setDisplayFrame:nextItemFrame];
+    [forwardButton setEnabled:YES];
 }
 
 -(void) updateStarNum
@@ -105,6 +89,7 @@
 
 -(void)didTapForward:(id)sender
 {
+    [forwardButton setEnabled:NO];
     //Show dead UI achievement exclamation sign
     ((DeadUI *)[DeadUI shared]).isNew = YES;
     

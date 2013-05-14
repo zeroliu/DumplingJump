@@ -26,6 +26,7 @@
 {
     [super createUI];
     [missionNode drawWithAchievementDataWithGroupID:[[USERDATA objectForKey:@"achievementGroup"] intValue]];
+    [forwardButton setEnabled:YES];
 }
 
 -(id) init
@@ -42,6 +43,7 @@
 
 -(void)didTapFoward:(id)sender
 {
+    [forwardButton setEnabled:NO];
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];
     id resumeGameFunc = [CCCallFunc actionWithTarget:[DeadUI shared] selector:@selector(showDeadUI)];

@@ -16,6 +16,7 @@
 #import "Constants.h"
 #import "UserData.h"
 #import "DUIAPHelper.h"
+#import "GCHelper.h"
 #define TESTING 1
 
 @implementation AppController
@@ -89,6 +90,8 @@
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 	
+    [[GCHelper sharedInstance] authenticateLocalUser];
+    
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 //	[director_ pushScene: [GameLayer scene]];
 	CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"];

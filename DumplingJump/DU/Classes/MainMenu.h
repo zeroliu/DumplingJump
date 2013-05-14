@@ -10,8 +10,9 @@
 #import "CCControlButton.h"
 #import "CCBAnimationManager.h"
 #import "EquipmentViewController.h"
+#import <GameKit/GameKit.h>
 
-@interface MainMenu : CCLayer <EquipmentViewControllerDelegate>
+@interface MainMenu : CCLayer <EquipmentViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     CGSize winSize;
     CCNode *achievementHolder;

@@ -48,6 +48,8 @@
 #define Z_SECONDARY_UI 2
 #define Z_MASK 1
 #define Z_BUYMORESTARS 20
+#define Z_GAMECENTER 30
+
 
 #pragma mark -
 #pragma mark Achievement Notification

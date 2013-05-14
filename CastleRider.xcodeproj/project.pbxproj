@@ -743,6 +743,8 @@
 		9F67EBF71741B624000D1B46 /* UI_purch_reminder_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67EBF21741B624000D1B46 /* UI_purch_reminder_yes.png */; };
 		9F67EBF81741B624000D1B46 /* UI_purch_reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67EBF31741B624000D1B46 /* UI_purch_reminder.png */; };
 		9F67EBFB1741B98E000D1B46 /* BuyMoreStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F67EBFA1741B98E000D1B46 /* BuyMoreStarViewController.m */; };
+		9F67EC0217421285000D1B46 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F67EC0117421285000D1B46 /* GCHelper.m */; };
+		9F67EC04174215FF000D1B46 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F67EC03174215FE000D1B46 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9F71F95E16FF7E5A00B24D15 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71F95A16FF7E5A00B24D15 /* libTestFlight.a */; };
 		9F71F95F16FF7E5A00B24D15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95B16FF7E5A00B24D15 /* README.md */; };
 		9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95C16FF7E5A00B24D15 /* release_notes.md */; };
@@ -1871,6 +1873,9 @@
 		9F67EBF31741B624000D1B46 /* UI_purch_reminder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_purch_reminder.png; sourceTree = "<group>"; };
 		9F67EBF91741B98E000D1B46 /* BuyMoreStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyMoreStarViewController.h; sourceTree = "<group>"; };
 		9F67EBFA1741B98E000D1B46 /* BuyMoreStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuyMoreStarViewController.m; sourceTree = "<group>"; };
+		9F67EC0017421285000D1B46 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
+		9F67EC0117421285000D1B46 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
+		9F67EC03174215FE000D1B46 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9F71F95A16FF7E5A00B24D15 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		9F71F95B16FF7E5A00B24D15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9F71F95C16FF7E5A00B24D15 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -1966,6 +1971,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F67EC04174215FF000D1B46 /* GameKit.framework in Frameworks */,
 				9FD08DDF173A2DC4008B54F1 /* StoreKit.framework in Frameworks */,
 				9F71F96216FF7EA800B24D15 /* libz.dylib in Frameworks */,
 				7F57279E163521570023B985 /* libxml2.dylib in Frameworks */,
@@ -2937,6 +2943,7 @@
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
+				9F67EC03174215FE000D1B46 /* GameKit.framework */,
 				9FD08DDE173A2DC4008B54F1 /* StoreKit.framework */,
 				9F71F96116FF7EA800B24D15 /* libz.dylib */,
 				7FD6222C16D627220032DAC3 /* Default.png */,
@@ -3211,6 +3218,8 @@
 				7FF5E5C3163516E40018B085 /* XMLHelper.mm */,
 				9FD08DE3173AA91C008B54F1 /* DUIAPHelper.h */,
 				9FD08DE4173AA91C008B54F1 /* DUIAPHelper.m */,
+				9F67EC0017421285000D1B46 /* GCHelper.h */,
+				9F67EC0117421285000D1B46 /* GCHelper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -4780,6 +4789,7 @@
 				9FD08DE5173AA91C008B54F1 /* DUIAPHelper.m in Sources */,
 				9F76BEAA173CC5D100982A73 /* LoadingView.m in Sources */,
 				9F67EBFB1741B98E000D1B46 /* BuyMoreStarViewController.m in Sources */,
+				9F67EC0217421285000D1B46 /* GCHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

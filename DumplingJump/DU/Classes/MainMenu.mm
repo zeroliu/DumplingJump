@@ -5,6 +5,7 @@
 //  Created by LIU Xiyuan on 12-12-6.
 //  Copyright (c) 2012年 CMU ETC. All rights reserved.
 //
+
 #import "Common.h"
 #import "MainMenu.h"
 #import "GameLayer.h"
@@ -17,8 +18,8 @@
 #import "AchievementData.h"
 #import "OptionUI.h"
 #import <UIKit/UIKit.h>
-
 #import "BuyMoreStarViewController.h"
+#import "GCHelper.h"
 typedef enum {
     MainMenuStateHome,
     MainMenuStateMission,
@@ -26,7 +27,7 @@ typedef enum {
     MainMenuStateOption
 } MainMenuState;
 
-@interface MainMenu()
+@interface MainMenu() 
 {
     MainMenuState state;
     DUScrollPageView *achievementScrollView;
@@ -92,7 +93,6 @@ typedef enum {
     {
         [self createShowMeTheMoneyButton];
     }
-    
 }
 
 
@@ -142,6 +142,7 @@ typedef enum {
     gameCenterButton = [[DUButtonFactory createButtonWithPosition:ccp(winSize.width - 45, winSize.height - 40 - BLACK_HEIGHT) image:@"UI_title_ranking.png"] retain];
     gameCenterButton.layer.zPosition = Z_BUTTONS;
     [VIEW addSubview:gameCenterButton];
+    [gameCenterButton addTarget:self action:@selector(showGameCenter) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) createEquipmentView
@@ -302,21 +303,46 @@ typedef enum {
      ];
 }
 
-- (void) showEquipment
+- (void) showGameCenter
 {
-    [self setMaskVisibility:YES];
-    [equipmentView setHidden:NO];
-    [equipmentViewController showEquipmentView];
-    //TODO: get star number from user data
-    [equipmentViewController updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
-    state = MainMenuStateEquipment;
-    [UIView animateWithDuration:0.1
-            animations:^
-            {
-                [self setMainMenuButtonsEnabled:NO];
-            }
-     ];
+    if ([GCHelper sharedInstance].gameCenterAvailable)
+    {
+        GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+        if (leaderboardController != nil)
+        {
+            [self setMainMenuButtonsEnabled:NO];
+            
+            leaderboardController.category = [GCHelper sharedInstance].currentLB;
+            leaderboardController.timeScope = GKLeaderboardTimeScopeWeek;
+            leaderboardController.leaderboardDelegate = self;
+            
+            [[CCDirector sharedDirector] presentModalViewController: leaderboardController animated:YES];
+        }
+    }
 }
+
+- (void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    [self setMainMenuButtonsEnabled:YES];
+    [[CCDirector sharedDirector] dismissModalViewControllerAnimated: YES];
+    [viewController release];
+}
+
+//- (void) showEquipment
+//{
+//    [self setMaskVisibility:YES];
+//    [equipmentView setHidden:NO];
+//    [equipmentViewController showEquipmentView];
+//    //TODO: get star number from user data
+//    [equipmentViewController updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
+//    state = MainMenuStateEquipment;
+//    [UIView animateWithDuration:0.1
+//            animations:^
+//            {
+//                [self setMainMenuButtonsEnabled:NO];
+//            }
+//     ];
+//}
 
 - (void) startGame
 {

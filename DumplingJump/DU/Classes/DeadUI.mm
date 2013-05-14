@@ -15,6 +15,7 @@
 #import "EquipmentData.h"
 #import "AchievementNode.h"
 #import "AchievementManager.h"
+#import "GCHelper.h"
 
 @interface DeadUI()
 @property (nonatomic, assign) int finalScore;
@@ -149,6 +150,9 @@
     
     [retryButton setEnabled:NO];
     [self performSelector:@selector(playShowDistanceEffect) withObject:nil afterDelay:0.8];
+    
+    //Submite distance to Leaderboard
+    [[GCHelper sharedInstance] reportScore:distance forLeaderboardID:@"edu.cmu.etc.CastleRider.distanceLB"];
 }
 
 -(void) playShowDistanceEffect

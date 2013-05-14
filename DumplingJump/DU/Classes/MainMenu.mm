@@ -17,6 +17,8 @@
 #import "AchievementData.h"
 #import "OptionUI.h"
 #import <UIKit/UIKit.h>
+
+#import "BuyMoreStarViewController.h"
 typedef enum {
     MainMenuStateHome,
     MainMenuStateMission,

@@ -146,7 +146,8 @@
     }
     else
     {
-        //TODO: show IAP
+        //show IAP
+        [[BuyMoreStarViewController shared] showWithNumber:price - currentStar];
     }
     [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
 

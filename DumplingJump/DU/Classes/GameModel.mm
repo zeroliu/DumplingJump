@@ -205,15 +205,20 @@ gameTime            = _gameTime;
 
 - (void) addStarWithNum:(int)num
 {
-    GAMEMODEL.star += num;
+    int addNum = num;
+    if ([[USERDATA objectForKey:@"edu.cmu.etc.CastleRider.ForeverDouble"] boolValue])
+    {
+        addNum = addNum * 2;
+    }
+    GAMEMODEL.star += addNum;
     [MESSAGECENTER postNotificationName:NOTIFICATION_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.star] forKey:@"num"]];
     
     //Add number to star bank
     int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentStar + num] forKey:@"star"];
+    [USERDATA setObject:[NSNumber numberWithInt:currentStar + addNum] forKey:@"star"];
     
     int currentTotalStar = [[USERDATA objectForKey:@"totalStar"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+num] forKey:@"totalStar"];
+    [USERDATA setObject:[NSNumber numberWithInt:currentTotalStar+addNum] forKey:@"totalStar"];
     [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_STAR object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalStar"] intValue]] forKey:@"num"]];
 }
 

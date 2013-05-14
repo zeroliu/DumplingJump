@@ -10,6 +10,7 @@
 #import "UserData.h"
 #import "Constants.h"
 #import "EquipmentViewController.h"
+#import "BuyMoreStarViewController.h"
 
 @interface LockedEquipmentViewCell()
 {
@@ -105,7 +106,8 @@
     }
     else
     {
-        //TODO: show IAP
+        //show IAP
+        [[BuyMoreStarViewController shared] showWithNumber:price - currentStar];
     }
 }
 

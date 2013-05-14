@@ -65,22 +65,16 @@
 
     [itemImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [myContent objectForKey:@"picture"]]]];
     
+    if (![[myContent objectForKey:@"isConsumable"] boolValue] && [[DUIAPHelper sharedInstance] productPurchased:[myContent objectForKey:@"productID"]])
+    {
+        [self setUserInteractionEnabled:NO];
+        [priceLabel setText:@"SOLD"];
+    }
+  
+    
     [titleLabel setText:[myContent objectForKey:@"name"]];
     [rewardLabel setText:[myContent objectForKey:@"reward"]];
     
-//    int amount = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
-//
-//    if (amount >= 4)
-//    {
-//        [priceLabel setText:@"max"];
-//        [self setUserInteractionEnabled:NO];
-//    }
-//    else
-//    {
-//        int price = [[myContent objectForKey:[NSString stringWithFormat:@"price%d",amount]] intValue];
-//
-//        [priceLabel setText:[NSString stringWithFormat:@"%d",price]];
-//    }
 }
 
 - (IBAction)didTapButton:(id)sender
@@ -98,22 +92,6 @@
     {
         [[DUIAPHelper sharedInstance] buyProduct:product];
     }
-//    int price = [priceLabel.text intValue];
-//    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-//    int currentNum = [[USERDATA objectForKey:[myContent objectForKey:@"name"]] intValue];
-//    
-//    if (currentStar >= price)
-//    {
-//        //Have enough money
-//        [USERDATA setObject:[NSNumber numberWithInt:currentNum+1] forKey: [myContent objectForKey:@"name"]];
-//        [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
-//    }
-//    else
-//    {
-//        //TODO: show IAP
-//    }
-//    [self updateCellUI];
-//    [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
 }
 
 - (IBAction)didPressDownButton:(id)sender
@@ -135,7 +113,10 @@
 
 - (void) updatePrice:(NSString *)price
 {
-    [priceLabel setText:price];
+    if ([[myContent objectForKey:@"isConsumable"] boolValue] || ![[DUIAPHelper sharedInstance] productPurchased:[myContent objectForKey:@"productID"]])
+    {
+        [priceLabel setText:price];
+    }
 }
 
 - (void) setProduct:(SKProduct *)theProduct

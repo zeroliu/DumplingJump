@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "OutlineLabel.h"
 #import <UIKit/UIKit.h>
+#import "BuyMoreStarViewController.h"
 
 @protocol EquipmentViewControllerDelegate <NSObject>
 @optional
@@ -17,7 +18,7 @@
 - (void) didHideEquipmentViewAnimStart;
 @end
 
-@interface EquipmentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface EquipmentViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, BuyMoreStarViewDelegate>
 {
     IBOutlet UITableView *tableview;
     IBOutlet UIView *backgroundView;

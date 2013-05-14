@@ -47,6 +47,7 @@
 #define Z_BUTTONS 3
 #define Z_SECONDARY_UI 2
 #define Z_MASK 1
+#define Z_BUYMORESTARS 20
 
 #pragma mark -
 #pragma mark Achievement Notification

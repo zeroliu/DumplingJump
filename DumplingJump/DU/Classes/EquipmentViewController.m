@@ -46,6 +46,7 @@
         [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
         [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+        [BuyMoreStarViewController shared].delegate = self;
     }
     return self;
 }
@@ -379,6 +380,12 @@
             *stop = YES;
         }
     }];
+    [self reloadTableview];
+}
+
+- (void) iapConfirmed
+{
+    [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(loadIAP)];
 }
 
 - (void)dealloc

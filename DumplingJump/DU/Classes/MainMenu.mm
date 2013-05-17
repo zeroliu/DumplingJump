@@ -204,7 +204,6 @@ typedef enum {
 
 - (void) createTitleHero
 {
-    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"sheetObjects.plist"]];
     
     if (_titleHero != nil)
@@ -305,14 +304,13 @@ typedef enum {
 
 - (void) showGameCenter
 {
+    
     if ([GCHelper sharedInstance].gameCenterAvailable)
-    {
+    {        
         GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
         if (leaderboardController != nil)
         {
             [self setMainMenuButtonsEnabled:NO];
-            
-            leaderboardController.category = [GCHelper sharedInstance].currentLB;
             leaderboardController.timeScope = GKLeaderboardTimeScopeWeek;
             leaderboardController.leaderboardDelegate = self;
             
@@ -327,22 +325,6 @@ typedef enum {
     [[CCDirector sharedDirector] dismissModalViewControllerAnimated: YES];
     [viewController release];
 }
-
-//- (void) showEquipment
-//{
-//    [self setMaskVisibility:YES];
-//    [equipmentView setHidden:NO];
-//    [equipmentViewController showEquipmentView];
-//    //TODO: get star number from user data
-//    [equipmentViewController updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
-//    state = MainMenuStateEquipment;
-//    [UIView animateWithDuration:0.1
-//            animations:^
-//            {
-//                [self setMainMenuButtonsEnabled:NO];
-//            }
-//     ];
-//}
 
 - (void) startGame
 {

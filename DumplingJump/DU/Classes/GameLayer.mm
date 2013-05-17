@@ -19,6 +19,8 @@
 #import "BackgroundManager.h"
 #import "CameraEffects.h"
 #import "Hero.h"
+#import "GCHelper.h"
+#import "HighscoreLineManager.h"
 
 @interface GameLayer()
 {
@@ -333,6 +335,8 @@
         float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
         self.model.distance += distanceIncrease;
         
+        [MESSAGECENTER postNotificationName:[NSString stringWithFormat:@"highdistance:%d",(int)self.model.distance] object:self];
+        
         [MESSAGECENTER postNotificationName:NOTIFICATION_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.model.distance] forKey:@"num"]];
         //Increase life distance
         float currentLifeDistance = [[USERDATA objectForKey:@"totalDistance"] floatValue];
@@ -379,6 +383,8 @@
         }
     }
     [self.model resetGameData];
+    
+    [[GCHelper sharedInstance] retrieveScores];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
@@ -467,6 +473,14 @@
     {
         [USERDATA setObject:[NSNumber numberWithInt:myScore] forKey:@"highscore"];
     }
+    
+    int currentHighDistance = [[USERDATA objectForKey:@"highdistance"] intValue];
+    int myDistance = (int)(self.model.distance);
+    if (myDistance > currentHighDistance)
+    {
+        [GCHelper sharedInstance].forceReload = YES;
+        [USERDATA setObject:[NSNumber numberWithInt:myDistance] forKey:@"highdistance"];
+    }
 }
 
 -(void) restart
@@ -524,6 +538,9 @@
     
     //Reset buttons in Game UI in case they got unlocked
     [[GameUI shared] refreshButtons];
+    
+    //Reset Line manager
+    [[HighscoreLineManager shared] reset];
     
     //Resume game
     [self resumeGame];

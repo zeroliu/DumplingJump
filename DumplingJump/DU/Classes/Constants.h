@@ -43,6 +43,7 @@
 
 #pragma mark -
 #pragma mark MainMenu Layer Priority
+#define Z_HIGHSCORE_LINE 5
 #define Z_BATCHNODE 10
 #define Z_BUTTONS 3
 #define Z_SECONDARY_UI 2

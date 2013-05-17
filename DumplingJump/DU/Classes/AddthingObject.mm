@@ -82,7 +82,6 @@
 -(void) setContactListener
 {
     [MESSAGECENTER addObserver:self selector:@selector(BeginContact:) name:[NSString stringWithFormat:@"%@Contact",self.ID] object:nil];
-//    [MESSAGECENTER addObserver:self selector:@selector(EndContact:) name:[NSString stringWithFormat:@"%@EndContact",self.name] object:nil];
 }
 
 -(void) removeContactListener

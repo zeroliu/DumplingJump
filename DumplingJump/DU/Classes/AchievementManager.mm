@@ -267,6 +267,7 @@ unlockedEvent       =   _unlockedEvent;
 
 - (void)dealloc
 {
+    [self removeAllNotification];
     [_registeredEvent release];
     [_unlockedEvent release];
     [super dealloc];

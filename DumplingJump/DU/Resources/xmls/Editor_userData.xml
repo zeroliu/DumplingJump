@@ -5,6 +5,7 @@
 		<sfx>is sfx enabled</sfx>
         <tutorial>is tutorial enabled</tutorial>
 		<highscore>highscore</highscore>
+        <highdistance>highdistance</highdistance>
 		<star>star</star>
 		<MAGIC>sword level</MAGIC>
 		<SPRING>spring level</SPRING>
@@ -30,6 +31,7 @@
 		<sfx>1</sfx>
         <tutorial>1</tutorial>
 		<highscore>0</highscore>
+        <highdistance>0</highdistance>
 		<star>150</star>
 		<MAGIC>0</MAGIC>
 		<SPRING>0</SPRING>

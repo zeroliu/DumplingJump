@@ -798,6 +798,7 @@
 		9FD08DDF173A2DC4008B54F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD08DDE173A2DC4008B54F1 /* StoreKit.framework */; };
 		9FD08DE2173A2DFD008B54F1 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD08DE1173A2DFD008B54F1 /* IAPHelper.m */; };
 		9FD08DE5173AA91C008B54F1 /* DUIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD08DE4173AA91C008B54F1 /* DUIAPHelper.m */; };
+		9FDDE6AE1745FBD200625D7A /* HighscoreLineManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FDDE6AD1745FBD200625D7A /* HighscoreLineManager.mm */; };
 		9FEEB08116F7FF88008A1D02 /* AchievementManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */; };
 		9FF57AE41736206C0008B78D /* UI_equip_box_locked_label.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF57AE31736206C0008B78D /* UI_equip_box_locked_label.png */; };
 		9FF57AE61736369F0008B78D /* A_royalstar_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF57AE51736369F0008B78D /* A_royalstar_1.png */; };
@@ -1937,6 +1938,8 @@
 		9FD08DE1173A2DFD008B54F1 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		9FD08DE3173AA91C008B54F1 /* DUIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUIAPHelper.h; sourceTree = "<group>"; };
 		9FD08DE4173AA91C008B54F1 /* DUIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUIAPHelper.m; sourceTree = "<group>"; };
+		9FDDE6AC1745FBD200625D7A /* HighscoreLineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreLineManager.h; sourceTree = "<group>"; };
+		9FDDE6AD1745FBD200625D7A /* HighscoreLineManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HighscoreLineManager.mm; sourceTree = "<group>"; };
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
 		9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AchievementManager.mm; sourceTree = "<group>"; };
 		9FF57AE31736206C0008B78D /* UI_equip_box_locked_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_locked_label.png; sourceTree = "<group>"; };
@@ -3556,6 +3559,8 @@
 				7F2C1974163278C3009FD26F /* Paragraph */,
 				7FD820FB15D863CC003AFCB8 /* Background */,
 				7FD820FA15D863C0003AFCB8 /* Level */,
+				9FDDE6AC1745FBD200625D7A /* HighscoreLineManager.h */,
+				9FDDE6AD1745FBD200625D7A /* HighscoreLineManager.mm */,
 			);
 			name = DUClasses;
 			sourceTree = "<group>";
@@ -4790,6 +4795,7 @@
 				9F76BEAA173CC5D100982A73 /* LoadingView.m in Sources */,
 				9F67EBFB1741B98E000D1B46 /* BuyMoreStarViewController.m in Sources */,
 				9F67EC0217421285000D1B46 /* GCHelper.m in Sources */,
+				9FDDE6AE1745FBD200625D7A /* HighscoreLineManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

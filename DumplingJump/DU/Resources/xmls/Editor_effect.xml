@@ -10,7 +10,7 @@
 		<name>FX_ArrowBreak</name>
 		<animation>E_arrow</animation>
 		<repeat>1</repeat>
-		<sound>NULL</sound>
+		<sound>arrowHit</sound>
 	</Effect>
 	<Effect>
 		<name>FX_Frozen</name>
@@ -29,7 +29,7 @@
 		<animation>E_powder</animation>
 		<repeat>1</repeat>
         <scale>2</scale>
-		<sound>NULL</sound>
+		<sound>crateExplode</sound>
 	</Effect>
 	<Effect>
 		<name>FX_ItemBomb</name>

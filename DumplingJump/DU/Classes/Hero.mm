@@ -425,7 +425,11 @@
 
 -(void) normalJump
 {
-    if (self.isOnGround) self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
+    if (self.isOnGround)
+    {
+        self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
+        [[AudioManager shared] playSFX:@"sfx_castleRider_jump.mp3"];
+    }
 }
 
 -(void) springJump

@@ -798,6 +798,13 @@
 		9FD08DDF173A2DC4008B54F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD08DDE173A2DC4008B54F1 /* StoreKit.framework */; };
 		9FD08DE2173A2DFD008B54F1 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD08DE1173A2DFD008B54F1 /* IAPHelper.m */; };
 		9FD08DE5173AA91C008B54F1 /* DUIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD08DE4173AA91C008B54F1 /* DUIAPHelper.m */; };
+		9FD20FA1174BF2C600B274A0 /* sfx_castleRider_jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA0174BF2C600B274A0 /* sfx_castleRider_jump.mp3 */; };
+		9FD20FA8174BF3E000B274A0 /* sfx_castleRider_arrowHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA2174BF3E000B274A0 /* sfx_castleRider_arrowHit.mp3 */; };
+		9FD20FA9174BF3E000B274A0 /* sfx_castleRider_barrelHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA3174BF3E000B274A0 /* sfx_castleRider_barrelHit.mp3 */; };
+		9FD20FAA174BF3E000B274A0 /* sfx_castleRider_crateCountdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA4174BF3E000B274A0 /* sfx_castleRider_crateCountdown.mp3 */; };
+		9FD20FAB174BF3E000B274A0 /* sfx_castleRider_crateExplode.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA5174BF3E000B274A0 /* sfx_castleRider_crateExplode.mp3 */; };
+		9FD20FAC174BF3E000B274A0 /* sfx_castleRider_crateHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA6174BF3E000B274A0 /* sfx_castleRider_crateHit.mp3 */; };
+		9FD20FAD174BF3E000B274A0 /* sfx_castleRider_iceHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FD20FA7174BF3E000B274A0 /* sfx_castleRider_iceHit.mp3 */; };
 		9FDDE6AE1745FBD200625D7A /* HighscoreLineManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FDDE6AD1745FBD200625D7A /* HighscoreLineManager.mm */; };
 		9FEEB08116F7FF88008A1D02 /* AchievementManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FEEB08016F7FF88008A1D02 /* AchievementManager.mm */; };
 		9FF57AE41736206C0008B78D /* UI_equip_box_locked_label.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF57AE31736206C0008B78D /* UI_equip_box_locked_label.png */; };
@@ -1938,6 +1945,13 @@
 		9FD08DE1173A2DFD008B54F1 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		9FD08DE3173AA91C008B54F1 /* DUIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUIAPHelper.h; sourceTree = "<group>"; };
 		9FD08DE4173AA91C008B54F1 /* DUIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUIAPHelper.m; sourceTree = "<group>"; };
+		9FD20FA0174BF2C600B274A0 /* sfx_castleRider_jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_jump.mp3; sourceTree = "<group>"; };
+		9FD20FA2174BF3E000B274A0 /* sfx_castleRider_arrowHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_arrowHit.mp3; sourceTree = "<group>"; };
+		9FD20FA3174BF3E000B274A0 /* sfx_castleRider_barrelHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_barrelHit.mp3; sourceTree = "<group>"; };
+		9FD20FA4174BF3E000B274A0 /* sfx_castleRider_crateCountdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_crateCountdown.mp3; sourceTree = "<group>"; };
+		9FD20FA5174BF3E000B274A0 /* sfx_castleRider_crateExplode.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_crateExplode.mp3; sourceTree = "<group>"; };
+		9FD20FA6174BF3E000B274A0 /* sfx_castleRider_crateHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_crateHit.mp3; sourceTree = "<group>"; };
+		9FD20FA7174BF3E000B274A0 /* sfx_castleRider_iceHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_castleRider_iceHit.mp3; sourceTree = "<group>"; };
 		9FDDE6AC1745FBD200625D7A /* HighscoreLineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreLineManager.h; sourceTree = "<group>"; };
 		9FDDE6AD1745FBD200625D7A /* HighscoreLineManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HighscoreLineManager.mm; sourceTree = "<group>"; };
 		9FEEB07F16F7FF88008A1D02 /* AchievementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementManager.h; sourceTree = "<group>"; };
@@ -3360,6 +3374,13 @@
 		7F7010F815AFEFFE00495B10 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				9FD20FA0174BF2C600B274A0 /* sfx_castleRider_jump.mp3 */,
+				9FD20FA2174BF3E000B274A0 /* sfx_castleRider_arrowHit.mp3 */,
+				9FD20FA3174BF3E000B274A0 /* sfx_castleRider_barrelHit.mp3 */,
+				9FD20FA4174BF3E000B274A0 /* sfx_castleRider_crateCountdown.mp3 */,
+				9FD20FA5174BF3E000B274A0 /* sfx_castleRider_crateExplode.mp3 */,
+				9FD20FA6174BF3E000B274A0 /* sfx_castleRider_crateHit.mp3 */,
+				9FD20FA7174BF3E000B274A0 /* sfx_castleRider_iceHit.mp3 */,
 				7FC4C05F16BBA70A0031CE11 /* Music_MainMenu.mp3 */,
 				7FC4C06016BBA70A0031CE11 /* Music_Game.mp3 */,
 			);
@@ -4506,6 +4527,13 @@
 				9F67EBF61741B624000D1B46 /* UI_purch_reminder_yes_press.png in Resources */,
 				9F67EBF71741B624000D1B46 /* UI_purch_reminder_yes.png in Resources */,
 				9F67EBF81741B624000D1B46 /* UI_purch_reminder.png in Resources */,
+				9FD20FA1174BF2C600B274A0 /* sfx_castleRider_jump.mp3 in Resources */,
+				9FD20FA8174BF3E000B274A0 /* sfx_castleRider_arrowHit.mp3 in Resources */,
+				9FD20FA9174BF3E000B274A0 /* sfx_castleRider_barrelHit.mp3 in Resources */,
+				9FD20FAA174BF3E000B274A0 /* sfx_castleRider_crateCountdown.mp3 in Resources */,
+				9FD20FAB174BF3E000B274A0 /* sfx_castleRider_crateExplode.mp3 in Resources */,
+				9FD20FAC174BF3E000B274A0 /* sfx_castleRider_crateHit.mp3 in Resources */,
+				9FD20FAD174BF3E000B274A0 /* sfx_castleRider_iceHit.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

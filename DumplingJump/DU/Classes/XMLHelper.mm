@@ -295,6 +295,9 @@
             } else if ([[child name] isEqualToString:@"scale"])
             {
                 data.scale = [[child stringValue] intValue];
+            } else if ([[child name] isEqualToString:@"sound"])
+            {
+                data.sound = [child stringValue];
             }
         }
         if (data.name != nil)

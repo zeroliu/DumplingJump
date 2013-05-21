@@ -77,6 +77,7 @@ hasGenerated = _hasGenerated;
     NSMutableArray *warningSignArray;
     BOOL isProcessingWarningSign;
     BOOL isUpdatingPowderCountdown;
+    BOOL hasPlayedPowderSFX;
 }
 
 @property (nonatomic, retain) LevelData *levelData;
@@ -672,6 +673,7 @@ stepNum = _stepNum;
     [_powderDictionary removeAllObjects];
     [_toRemovePowderArray removeAllObjects];
     isUpdatingPowderCountdown = NO;
+    hasPlayedPowderSFX = NO;
 }
 
 - (void) updateWarningSign
@@ -720,8 +722,22 @@ stepNum = _stepNum;
         {
             PowderInfo *info = [_powderDictionary objectForKey:addthingID];
             info.countdown -= deltaTime;
+            //Check if need to play the countdown SFX
+            if (!hasPlayedPowderSFX && info.countdown < [info.countdownLabel.string intValue])
+            {
+                hasPlayedPowderSFX = YES;
+                [[AudioManager shared] playSFX:@"sfx_castleRider_crateCountdown.mp3"];
+                
+                //reset hasPlayedPowderSFX
+                id delay = [CCDelayTime actionWithDuration:0.9];
+                id resetBlock = [CCCallBlock actionWithBlock:^{
+                    hasPlayedPowderSFX = NO;
+                }];
+                [GAMELAYER runAction:[CCSequence actions:delay, resetBlock, nil]];
+            }
             [info.countdownLabel setString:[NSString stringWithFormat:@"%d",(int)info.countdown]];
             info.countdownLabel.position = ccpAdd(((AddthingObject *)info.addthing).position, ccp(0,55));
+
         }
         isUpdatingPowderCountdown = NO;
     }

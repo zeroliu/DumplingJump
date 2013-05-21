@@ -119,6 +119,9 @@
     {
         self.forceReload = NO;
         
+        //Remove highscore manager observers
+        [[HighscoreLineManager shared] removeObservers];
+        
         [USERDATA setObject:[NSNumber numberWithInt:currentTime] forKey:@"scoreRetrieveTime"];
     
         GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
@@ -166,8 +169,7 @@
                             [self.playerID2Alias setObject:player.alias forKey:player.playerID];
                         }
                         
-                        //Remove highscore manager observers
-                        [[HighscoreLineManager shared] removeObservers];
+                        
                         
                         //Register highscore to manager
                         for (GKScore *score in scores)
@@ -177,15 +179,15 @@
                                 [[HighscoreLineManager shared] registerHighDistance:score.value playerID:score.playerID nickName:[self.playerID2Alias objectForKey:score.playerID]];
                             }
                         }
-                        
-                        if ([[USERDATA objectForKey:@"highdistance"] intValue] > 30)
-                        {
-                            //Register local player highscore to manager
-                            [[HighscoreLineManager shared] registerHighDistance:[[USERDATA objectForKey:@"highdistance"] intValue] playerID:[GKLocalPlayer localPlayer].playerID nickName:@"Your BEST"];
-                        }
                     }
                 }];
             }];
+        }
+        
+        if ([[USERDATA objectForKey:@"highdistance"] intValue] > 30)
+        {
+            //Register local player highscore to manager
+            [[HighscoreLineManager shared] registerHighDistance:[[USERDATA objectForKey:@"highdistance"] intValue] playerID:[GKLocalPlayer localPlayer].playerID nickName:@"Your BEST"];
         }
     }
 }

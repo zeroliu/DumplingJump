@@ -264,14 +264,20 @@
 
 -(void) preloadMusic
 {
-    [[AudioManager shared] preloadBackgroundMusic:@"Music_Game.mp3"];
+    [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_jump.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_arrowHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_barrelHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_crateCountdown.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_crateExplode.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_crateHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_castleRider_iceHit.mp3"];
 }
 
 -(void) loadFrontendData
 {
     [[BackgroundManager shared] addBackgroundToLayer];
     [[BackgroundManager shared] reset];
-//    [[BackgroundController shared] initParam];
     [self initUI];
     [self initGame];
     if (_isDebug)
@@ -372,7 +378,7 @@
     self.model.state = GAME_START;
     [[LevelManager shared] loadCurrentParagraph];
     [[AudioManager shared] setBackgroundMusicVolume:1];
-    [[AudioManager shared] playBackgroundMusic:@"Music_Game.mp3" loop:YES];
+    [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
     
     if ([[USERDATA objectForKey:@"headstart"] intValue] >= 0)
     {

@@ -52,12 +52,17 @@
     [effect addChildTo:theParent z:theZ];
     id animation = [ANIMATIONMANAGER getAnimationWithName:effect.effectData.animationName];
     
-    if(animation != nil)
+    if (animation != nil)
     {
         id animAction = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation:animation] times:effect.effectData.times];
         id callbackWrapper = [CCCallFunc actionWithTarget:effect selector:@selector(archive)];
         id sequence = [CCSequence actions:animAction, callbackWrapper, nil];
         [effect.sprite runAction:sequence];
+    }
+    
+    if (![effect.effectData.sound isEqualToString:@"NULL"])
+    {
+        [[AudioManager shared] playSFX:[NSString stringWithFormat:@"sfx_castleRider_%@.mp3",effect.effectData.sound]];
     }
     
     return effect;

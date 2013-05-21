@@ -9,9 +9,9 @@
 #import "DUEffectData.h"
 #import "AnimationManager.h"
 @implementation DUEffectData
-@synthesize name=_name, animationName=_animationName, times=_times, idlePictureName=_idlePictureName, scale = _scale;
+@synthesize name=_name, animationName=_animationName, times=_times, idlePictureName=_idlePictureName, scale = _scale, sound = _sound;
 
--(id) initWithName:(NSString *)theName animation:(NSString *)animationName idlePictureName:(NSString *)idleName times:(int)theTimes scale:(float)theScale
+-(id) initWithName:(NSString *)theName animation:(NSString *)animationName idlePictureName:(NSString *)idleName times:(int)theTimes scale:(float)theScale sound:(NSString *)theSound
 {
     if (self = [super init])
     {
@@ -20,6 +20,7 @@
         self.idlePictureName = idleName;
         self.times = theTimes;
         self.scale = theScale;
+        self.sound = theSound;
     }
     
     return self;
@@ -34,6 +35,7 @@
         _idlePictureName = nil;
         _times = 1;
         _scale = 1;
+        self.sound = @"NULL";
     }
     
     return self;
@@ -44,6 +46,7 @@
     [_name release];
     [_animationName release];
     [_idlePictureName release];
+    [_sound release];
     [super dealloc];
 }
 @end

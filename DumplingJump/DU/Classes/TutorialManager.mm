@@ -45,7 +45,6 @@
         _tutorialLabel = [[CCLabelTTF labelWithString:@"" fontName:@"Eras Bold ITC" fontSize:30] retain];
         _tutorialLabel.anchorPoint = ccp(0.5,0.5);
         _tutorialLabel.position = ccp([CCDirector sharedDirector].winSize.width/2, [CCDirector sharedDirector].winSize.height + BLACK_HEIGHT - 50);
-        [GAMELAYER addChild:_tutorialLabel z:Z_TUTORIALUI - 1];
         
         //Generate awesome words
         _awesomeWords = [[NSArray alloc] initWithObjects:@"Awesome!",@"Great!",@"Good Job!",@"Nice!",@"Super!",@"Marvelous!",@"Fantastic!",@"Terrific!", nil];
@@ -56,6 +55,9 @@
     
 - (void) startMoveTutorial
 {
+    [_tutorialLabel removeFromParentAndCleanup:NO];
+    [GAMELAYER addChild:_tutorialLabel z:Z_TUTORIALUI - 1];
+    
     _subIndex = 0;
     _counter = 0;
     

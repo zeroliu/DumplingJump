@@ -6,6 +6,7 @@ float randomFloat(float start, float end)
     return t * (end - start) + start;
 }
 
+//start <= x < end
 int randomInt(int start, int end)
 {
     int t = arc4random() % (end - start);

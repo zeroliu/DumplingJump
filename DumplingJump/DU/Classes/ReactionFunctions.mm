@@ -36,7 +36,6 @@
 
     if (target.position.x > 0 && target.position.x < [[CCDirector sharedDirector] winSize].width && target.position.y < [[CCDirector sharedDirector] winSize].height/2 + 100 && target.position.y > 40)
     {
-        DLog(@"explode");
         if (target.position.x > [[CCDirector sharedDirector] winSize].width/2)
         {
             [self explode_r:source data:data];
@@ -124,6 +123,8 @@
     CGPoint explosionPos = target.position;
     if (explosionPos.x > 0 && explosionPos.x < [[CCDirector sharedDirector] winSize].width && explosionPos.y < [[CCDirector sharedDirector] winSize].height/2 + 100 && explosionPos.y > 40)
     {
+        [MESSAGECENTER postNotificationName:NOTIFICATION_BOMB_EXPLODE object:self];
+        
         [[HeroManager shared] heroReactWithReactionName:reaction.name heroAnimName:reaction.heroReactAnimationName reactionLasting:reaction.reactionLasting heroSelectorName:@"bowEffect" heroSelectorParam:[NSValue valueWithCGPoint: target.position]];
     }
     [[GameUI shared] fadeOut];

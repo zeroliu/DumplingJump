@@ -13,4 +13,8 @@
 + (id) shared;
 
 - (void) startMoveTutorial;
+- (void) startJumpTutorial;
+- (void) startPowerupTutorial;
+- (void) startAddthingTutorial;
+- (void) startBombTutorial;
 @end

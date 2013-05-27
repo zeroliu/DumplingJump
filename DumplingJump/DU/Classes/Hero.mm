@@ -1779,6 +1779,13 @@
     }
 }
 
+-(void) smileWithDuration:(float)time
+{
+    [self playAnimation:@"H_happy" duration:time callback:^{
+        [self playCurrentFacialAnimation];
+    }];
+}
+
 #pragma mark -
 #pragma mark ListenerHandler
 -(void) onSwipeUpDetected:(UISwipeGestureRecognizer *)recognizer

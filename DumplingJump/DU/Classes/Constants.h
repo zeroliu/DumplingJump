@@ -30,7 +30,7 @@
 #define Z_DEADUI 25
 #define Z_PAUSEUI 25
 #define Z_OPTIONUI 25
-#define Z_TUTORIALUI 25
+#define Z_TUTORIALUI 34
 #define Z_GAMEUI 22
 #define Z_Speedline 20
 #define Z_Hero 5
@@ -40,7 +40,7 @@
 #define Z_GAME_MASK 12
 #define Z_Board 10
 #define Z_Engine 11
-#define Z_WarningSign 100
+#define Z_WarningSign 30
 
 #pragma mark -
 #pragma mark MainMenu Layer Priority
@@ -80,8 +80,9 @@
 #define NOTIFICATION_DIE_TIME @"actionDie"
 
 //This is used for tutorial
-#define NOTIFICATION_MOVE @"actionMove"
-
+#define NOTIFICATION_MOVE @"tutorialMove"
+#define NOTIFICATION_TOUCH_ADDTHING @"tutorialAddthing"
+#define NOTIFICATION_BOMB_EXPLODE @"tutorialBomb"
 
 
 #pragma mark -
@@ -91,6 +92,9 @@
 #define TAG_HEADSTART_TRAIL 997
 #define TAG_HEADSTART_SUPPORT 996
 #define TAG_BREAK_ICE_HINT 995
+#define TAG_TUTORIAL_DROP_SWORD 899
+#define TAG_TUTORIAL_DROP_ARROW 898
+#define TAG_TUTORIAL_DROP_BOMB 897
 
 
 #pragma mark -

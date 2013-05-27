@@ -59,6 +59,13 @@ typedef void (^CallbackBlock)();
     [animationHolder runAction:[CCRepeatForever actionWithAction:animate]];
 }
 
+-(void) changeToImage:(NSString *)imageName
+{
+    [animationHolder stopAllActions];
+    CCSpriteFrame *newImage = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:imageName];
+    [animationHolder setDisplayFrame:newImage];
+}
+
 -(void) showUIwithCallback:(void(^)())callbackBlock
 {
     [self showUI];
@@ -92,6 +99,12 @@ typedef void (^CallbackBlock)();
     id bottomMoveDown = [CCMoveTo actionWithDuration:0.1 position:ccp(winSize.width/2, -100+BLACK_HEIGHT)];
     [bottom runAction:bottomMoveDown];
     [[GameUI shared] removeMask];
+}
+
+-(void) updateTipWithNumber:(int)num description:(NSString *)text
+{
+    [tipNumLabel setString:[NSString stringWithFormat:@"Tip %d", num]];
+    [tipLabel setString:text];
 }
 
 -(void) didTapForward

@@ -57,6 +57,7 @@
 -(int) getRebornCost;
 -(int) getHeadstartCost;
 -(void) jumpEnabled:(BOOL)isEnabled;
+-(void) smileWithDuration:(float)time;
 
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

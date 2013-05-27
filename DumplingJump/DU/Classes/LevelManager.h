@@ -23,7 +23,7 @@
 
 -(id) dropAddthingWithName:(NSString *)objectName atPosition:(CGPoint)position;
 -(id) dropAddthingWithName:(NSString *)objectName atSlot:(int) num;
-
+-(void) dropAddthingWithName:(NSString *)objectName atSlot:(int)num warning:(double)warningTime;
 -(void) updateWarningSign;
 -(void) updatePowderCountdown:(ccTime)deltaTime;
 

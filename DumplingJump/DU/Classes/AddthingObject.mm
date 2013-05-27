@@ -137,6 +137,8 @@
             //Hero reacts
             [HEROMANAGER heroReactWithReaction:self.reaction contactObject:self];
             
+            [MESSAGECENTER postNotificationName:NOTIFICATION_TOUCH_ADDTHING object:self];
+            
             //If addthing will disappear after touch the hero
             if (self.reaction.triggerCleanHero == 1)
             {

@@ -17,6 +17,7 @@
 		<wait>Waiting time after drop</wait>
 		<warningTime>Warning time before drop</warningTime>
 		<customData>Custom Data</customData>
+        <firstTouchSFX>First Touch SFX</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>酒桶</ID>
@@ -43,6 +44,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
+        <firstTouchSFX>barrelHit</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>木箱</ID>
@@ -57,6 +59,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>Null</react_type>
+        <firstTouchSFX>crateHit</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>大鐵箱</ID>
@@ -129,6 +132,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>bow</react_type>
+        <firstTouchSFX>barrelHit</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>強力火藥</ID>
@@ -143,6 +147,7 @@
 		<gravity>100</gravity>
 		<blood>1</blood>
 		<react_type>bow_2</react_type>
+        <firstTouchSFX>barrelHit</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>對人炸彈</ID>
@@ -299,6 +304,7 @@
 		<blood>1</blood>
 		<react_type>ice</react_type>
 		<warningTime>0.7</warningTime>
+        <firstTouchSFX>iceHit</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>itemsLv1</ID>

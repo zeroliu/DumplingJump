@@ -21,6 +21,7 @@
 @interface AddthingObject()
 {
     BOOL _isRemoved;
+    BOOL _hasPlayedFirstTouchSFX;
 }
 @end
 
@@ -29,16 +30,18 @@
 @synthesize animation = _animation;
 @synthesize wait = _wait;
 @synthesize warningTime = _warningTime;
+@synthesize firstTouchSFX = _firstTouchSFX;
 
 - (void)dealloc
 {
     [self.animation release];
     [self.reaction release];
+    [self.firstTouchSFX release];
     
     [super dealloc];
 }
 
--(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime warningTime:(double)warningTime
+-(id) initWithID:(NSString *)theID name:(NSString *)theName file:(NSString *)theFile body:(b2Body *)theBody canResize:(BOOL)resize reaction:(NSString *)reactionName animation:(NSString *)animationName wait:(double)waitTime warningTime:(double)warningTime firstTouchSFX:(NSString *)firstTouchSFX
 {
     if (self = [super initWithName:theName file:theFile body:theBody canResize:resize])
     {
@@ -47,7 +50,8 @@
         _isRemoved = NO;
         _wait = waitTime;
         _warningTime = warningTime;
-
+        self.firstTouchSFX = firstTouchSFX;
+        
         self.ID = theID;
         [self setContactListener];
         [self setCountdownClean];
@@ -56,6 +60,8 @@
         {
             [self playAnimation];
         }
+        
+        _hasPlayedFirstTouchSFX = NO;
     }
     return self;
 }
@@ -137,6 +143,14 @@
                 //DLog(@"My ID is %@", self.ID);
                 [self removeAddthing];
             }
+            else
+            {
+                [self playFirstTouchSFX];
+            }
+        }
+        else
+        {
+            [self playFirstTouchSFX];
         }
         
         //            DLog(@"%@ Touch Hero",self.name);
@@ -148,6 +162,14 @@
             {
                 [self removeAddthing];
             }
+            else
+            {
+                [self playFirstTouchSFX];
+            }
+        }
+        else
+        {
+            [self playFirstTouchSFX];
         }
         //            DLog(@"%@ Touch Board",self.name);
     } else if ([targetObject.name isEqualToString:@"SLASH"])
@@ -164,7 +186,24 @@
             {
                 [self removeAddthing];
             }
+            else
+            {
+                [self playFirstTouchSFX];
+            }
         }
+        else
+        {
+            [self playFirstTouchSFX];
+        }
+    }
+}
+
+-(void) playFirstTouchSFX
+{
+    if (!_hasPlayedFirstTouchSFX && self.firstTouchSFX != nil)
+    {
+        _hasPlayedFirstTouchSFX = YES;
+        [[AudioManager shared] playSFX:[NSString stringWithFormat:@"sfx_castleRider_%@.mp3", self.firstTouchSFX]];
     }
 }
 

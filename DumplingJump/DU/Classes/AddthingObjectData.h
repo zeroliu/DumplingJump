@@ -11,7 +11,7 @@
 @interface AddthingObjectData : CCNode
 
 @property (nonatomic, retain)
-NSString *name,*shape,*spriteName, *reactionName, *animationName, *customData;
+NSString *name,*shape,*spriteName, *reactionName, *animationName, *customData, *firstTouchSFX;
 @property (nonatomic, assign)
 double radius, //Used for circle
 width, //Used for Box

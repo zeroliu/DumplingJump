@@ -117,6 +117,9 @@
                 } else if ([[child name] isEqualToString:@"customData"])
                 {
                     data.customData = [child stringValue];
+                } else if ([[child name] isEqualToString:@"firstTouchSFX"])
+                {
+                    data.firstTouchSFX = [child stringValue];
                 }
             }
             data.spriteName = [NSString stringWithFormat:@"A_%@_1", [addthingName lowercaseString]];

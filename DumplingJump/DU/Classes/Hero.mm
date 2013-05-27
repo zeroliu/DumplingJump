@@ -357,6 +357,8 @@
     {
         [maskNode updateSprite:ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
     }
+    
+    [MESSAGECENTER postNotificationName:NOTIFICATION_MOVE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.speed.x] forKey:@"num"]];
 }
 
 -(float) calibrateVelocity:(float)originalVelocity position:(float)posX
@@ -1675,25 +1677,28 @@
 
 -(void) beforeDie
 {
-//    if ([[USERDATA objectForKey:@"reborn"] intValue] >= 0)
-//    {
-    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-    if (currentStar > [self getRebornCost])
+    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
     {
-        //Pause game
-        [[[Hub shared] gameLayer] pauseGame];
-        
-        //Show revive button
-        [[GameUI shared] showRebornButton];
+        //if in tutorial, immediately reborn
+        [[GameUI shared] createMask];
+        [self reborn];
     }
     else
     {
-        [[[Hub shared] gameLayer] gameOver];
+        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+        if (currentStar > [self getRebornCost])
+        {
+            //Pause game
+            [[[Hub shared] gameLayer] pauseGame];
+            
+            //Show revive button
+            [[GameUI shared] showRebornButton];
+        }
+        else
+        {
+            [[[Hub shared] gameLayer] gameOver];
+        }
     }
-//    } else
-//    {
-//        [[[Hub shared] gameLayer] gameOver];
-//    }
 }
 
 -(BOOL) isShelterOn
@@ -1760,6 +1765,18 @@
 {
     [[CameraEffects shared] shakeCameraWithTarget:BATCHNODE x:amountX y:amountY duration:time];
     [[BackgroundManager shared] shakeBackgroundWithX:amountX y:amountY duration:time];
+}
+
+- (void) jumpEnabled:(BOOL)isEnabled
+{
+    if (isEnabled)
+    {
+        adjustJump = 1;
+    }
+    else
+    {
+        adjustJump = 0;
+    }
 }
 
 #pragma mark -

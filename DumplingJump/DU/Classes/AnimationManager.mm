@@ -2,10 +2,12 @@
 
 @interface AnimationManager()
 @property (nonatomic, retain) NSMutableDictionary *animDataDictionary;
+@property (nonatomic, retain) NSMutableDictionary *tutorialAnimDataDictionary;
 @end
 
 @implementation AnimationManager
 @synthesize animDataDictionary = _animDataDictionary;
+@synthesize tutorialAnimDataDictionary = _tutorialAnimDataDictionary;
 
 +(id) shared
 {
@@ -33,15 +35,19 @@
 -(void) loadAnimationData
 {
     NSString *path;
+    NSString *tutorialPath;
     if (CC_CONTENT_SCALE_FACTOR() == 2)
     {
         path = [[NSBundle mainBundle] pathForResource:@"sheetObjects-hd" ofType:@"plist"];
+        tutorialPath = [[NSBundle mainBundle] pathForResource:@"sheetTutorial-hd" ofType:@"plist"];
     } else
     {
         path = [[NSBundle mainBundle] pathForResource:@"sheetObjects" ofType:@"plist"];
+        tutorialPath = [[NSBundle mainBundle] pathForResource:@"sheetTutorial" ofType:@"plist"];
     }
     
     _animDataDictionary = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] objectForKey:@"frames"];
+    _tutorialAnimDataDictionary = [[[NSMutableDictionary alloc] initWithContentsOfFile:tutorialPath] objectForKey:@"frames"];
 }
 
 -(void) registerAnimationForName:(NSString *)theName
@@ -66,6 +72,24 @@
     [self addAnimationWithName:theName file:theName startFrame:1 endFrame:(count-1) delay:ANIMATION_DELAY_INBETWEEN/theSpeed];
 //    DLog(@"Animation %@ registed", theName);
 }
+
+-(void) registerTutorialAnimationForName:(NSString *)theName
+{
+    if ([[CCAnimationCache sharedAnimationCache] animationByName:theName] != nil)
+    {
+        DLog(@"Warning: Animation <%@> already existed.", theName);
+        return;
+    }
+    
+    int count = 1;
+    while ([self.tutorialAnimDataDictionary objectForKey:[NSString stringWithFormat:@"%@_%d.png", theName, count]] != nil)
+    {
+        count ++;
+    }
+    
+    [self addAnimationWithName:theName file:theName startFrame:1 endFrame:(count-1) delay:ANIMATION_DELAY_INBETWEEN];
+}
+
 
 -(void) addAnimationWithName:(NSString *)theName file:(NSString *)theFile startFrame:(int)start endFrame:(int)end delay:(float)theDelay
 {
@@ -119,6 +143,9 @@
 - (void)dealloc
 {
     [_animDataDictionary release];
+    _animDataDictionary = nil;
+    [_tutorialAnimDataDictionary release];
+    _tutorialAnimDataDictionary = nil;
     [super dealloc];
 }
 @end

@@ -30,6 +30,7 @@
 #define Z_DEADUI 25
 #define Z_PAUSEUI 25
 #define Z_OPTIONUI 25
+#define Z_TUTORIALUI 25
 #define Z_GAMEUI 22
 #define Z_Speedline 20
 #define Z_Hero 5
@@ -77,6 +78,10 @@
 #define NOTIFICATION_SKILL_LEVEL @"skillLevel"
 #define NOTIFICATION_BOOSTER_UNDER @"actionBoosterUnder"
 #define NOTIFICATION_DIE_TIME @"actionDie"
+
+//This is used for tutorial
+#define NOTIFICATION_MOVE @"actionMove"
+
 
 
 #pragma mark -

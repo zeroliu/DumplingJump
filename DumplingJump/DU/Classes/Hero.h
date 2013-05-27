@@ -56,6 +56,7 @@
 -(BOOL) isFreezing;
 -(int) getRebornCost;
 -(int) getHeadstartCost;
+-(void) jumpEnabled:(BOOL)isEnabled;
 
 //-(void) heroLandOnBoard:(NSNotification *)notification;
 @end

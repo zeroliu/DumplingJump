@@ -48,20 +48,23 @@ unlockedEvent       =   _unlockedEvent;
 
 - (void) registerAchievement:(NSDictionary *)achievementData
 {
-    NSString *notificationName = [achievementData objectForKey:@"type"];
-    [_registeredEvent setObject:achievementData forKey:notificationName];
-    if ([notificationName isEqualToString:NOTIFICATION_BOOSTER_UNDER])
+    if ([[USERDATA objectForKey:@"tutorial"] intValue] == 0)
     {
-        //booster under achievement
-        [MESSAGECENTER addObserver:self selector:@selector(getBoosterUnder:) name:notificationName object:nil];
-    }
-    else if ([notificationName isEqualToString:NOTIFICATION_DIE_TIME])
-    {
-        [MESSAGECENTER addObserver:self selector:@selector(checkDieTime:) name:notificationName object:nil];
-    }
-    else
-    {
-        [MESSAGECENTER addObserver:self selector:@selector(checkRegularAchievement:) name:notificationName object:nil];
+        NSString *notificationName = [achievementData objectForKey:@"type"];
+        [_registeredEvent setObject:achievementData forKey:notificationName];
+        if ([notificationName isEqualToString:NOTIFICATION_BOOSTER_UNDER])
+        {
+            //booster under achievement
+            [MESSAGECENTER addObserver:self selector:@selector(getBoosterUnder:) name:notificationName object:nil];
+        }
+        else if ([notificationName isEqualToString:NOTIFICATION_DIE_TIME])
+        {
+            [MESSAGECENTER addObserver:self selector:@selector(checkDieTime:) name:notificationName object:nil];
+        }
+        else
+        {
+            [MESSAGECENTER addObserver:self selector:@selector(checkRegularAchievement:) name:notificationName object:nil];
+        }
     }
 }
 

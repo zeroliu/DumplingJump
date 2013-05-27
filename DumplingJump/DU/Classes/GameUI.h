@@ -50,6 +50,7 @@
 -(void) showRebornButton;
 -(void) pauseUI;
 -(void) resumeUI;
+-(void) createMask;
 -(void) removeMask;
 -(void) setButtonsEnabled: (BOOL)enabled;
 //Reset all the button bars to full

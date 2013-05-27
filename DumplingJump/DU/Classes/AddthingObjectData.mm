@@ -25,7 +25,8 @@ wait = _wait,
 warningTime = _warningTime,
 reactionName = _reactionName,
 animationName = _animationName,
-customData = _customData;
+customData = _customData,
+firstTouchSFX = _firstTouchSFX;
 
 -(id) initWithName:(NSString *)theName 
              shape:(NSString *)theShape 
@@ -90,6 +91,7 @@ customData = _customData;
         _reactionName = nil;
         _animationName = nil;
         _customData = nil;
+        _firstTouchSFX = nil;
     }
     
     return self;
@@ -102,6 +104,7 @@ customData = _customData;
     [_reactionName release];
     [_animationName release];
     [_customData release];
+    [_firstTouchSFX release];
     [super dealloc];
 }
 @end

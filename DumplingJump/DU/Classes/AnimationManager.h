@@ -12,5 +12,5 @@
 -(void) registerAnimationForName:(NSString *)theName;
 -(void) registerAnimationForName:(NSString *)theName speed:(float)theSpeed;
 //-(id) getAnimationWithName:(NSString *)theName repeat:(int)repeatTimes;
-
+-(void) registerTutorialAnimationForName:(NSString *)theName;
 @end

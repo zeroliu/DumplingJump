@@ -21,6 +21,8 @@
 #import "Hero.h"
 #import "GCHelper.h"
 #import "HighscoreLineManager.h"
+#import "TutorialUI.h"
+#import "TutorialManager.h"
 
 @interface GameLayer()
 {
@@ -130,30 +132,8 @@
     _loadingPlaceHolder.position = CGPointZero;
     [self addChild:_loadingPlaceHolder];
     
-//    CCSprite *loadingText = [CCSprite spriteWithSpriteFrameName:@"UI_other_loading_1.png"];
     loadingText.anchorPoint = ccp(1,0.5);
     loadingText.position = ccp(winSize.width, 20);
-//    loadingText.scale = 1.5f;
-
-    //Build loading text animation
-    //Manually create the animation because the animation manager and the plist data
-    //has not being loaded yet
-//    NSMutableArray *frameArray = [NSMutableArray array];
-//    for (int i=1; i<=4; i++)
-//    {
-//        NSString *frameName = [NSString stringWithFormat:@"UI_other_loading_%d.png",i];
-//        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
-//        [frameArray addObject:frameObject];
-//    }
-//    
-//    id loadingTextAnim = [CCAnimation animationWithSpriteFrames :frameArray delay:0.12];
-//    
-//    if (loadingTextAnim != nil)
-//    {
-//        id loadingTextAnimate = [CCAnimate actionWithAnimation:loadingTextAnim];
-//        [loadingText stopAllActions];
-//        [loadingText runAction:[CCRepeatForever actionWithAction:loadingTextAnimate]];
-//    }
     
     CCSprite *heroSprite = [CCSprite spriteWithSpriteFrameName:@"H_hero_1.png"];
     heroSprite.anchorPoint = ccp(1,0.5);
@@ -228,6 +208,7 @@
 {
     self.batchNode = [CCSpriteBatchNode batchNodeWithFile:@"sheetObjects.png" capacity:50];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetObjects.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"sheetTutorial.plist"];
     
     [self addChild:self.batchNode z:Z_BATCHNODE];
 }
@@ -243,6 +224,11 @@
     [[GameUI shared] createUI];
     [[GameUI shared] updateStar:0];
     [[GameUI shared] updateDistance:0];
+    
+    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
+    {
+        [[TutorialUI shared] createUI];
+    }
 }
 
 -(void) loadBackendData
@@ -338,30 +324,47 @@
         [[[HeroManager shared] getHero] updateHeroBoosterEffect];
         [[[HeroManager shared] getHero] updateJumpState];
         
-        float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
-        self.model.distance += distanceIncrease;
-        
-        [MESSAGECENTER postNotificationName:[NSString stringWithFormat:@"highdistance:%d",(int)self.model.distance] object:self];
-        
-        [MESSAGECENTER postNotificationName:NOTIFICATION_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.model.distance] forKey:@"num"]];
-        //Increase life distance
-        float currentLifeDistance = [[USERDATA objectForKey:@"totalDistance"] floatValue];
-        [USERDATA setObject:[NSNumber numberWithFloat:currentLifeDistance+distanceIncrease] forKey: @"totalDistance"];
-        [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:[[USERDATA objectForKey:@"totalDistance"] floatValue]] forKey:@"num"]];
-        
-        int distance = (int)self.model.distance;
-        if (distance>0 && distance % 250 == 0)
+        if ([[USERDATA objectForKey:@"tutorial"] intValue] == 0)
         {
-            [[GameUI shared] updateDistanceSign:distance];
-            self.model.distance = self.model.distance + 1;
+            //Calculate distance increase
+            float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
+            
+            //Update distance value
+            self.model.distance += distanceIncrease;
+        
+            //Post highdistance signal
+            [MESSAGECENTER postNotificationName:[NSString stringWithFormat:@"highdistance:%d",(int)self.model.distance] object:self];
+            
+            //Post distance achievement signal
+            [MESSAGECENTER postNotificationName:NOTIFICATION_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.model.distance] forKey:@"num"]];
+            
+            //Increase life distance
+            float currentLifeDistance = [[USERDATA objectForKey:@"totalDistance"] floatValue];
+            [USERDATA setObject:[NSNumber numberWithFloat:currentLifeDistance+distanceIncrease] forKey: @"totalDistance"];
+            [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_DISTANCE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:[[USERDATA objectForKey:@"totalDistance"] floatValue]] forKey:@"num"]];
+            
+            //Show distance sign if needed
+            int distance = (int)self.model.distance;
+            if (distance>0 && distance % 250 == 0)
+            {
+                [[GameUI shared] updateDistanceSign:distance];
+                
+                //Hacky way for avoiding the sign showing up multiple times
+                self.model.distance = self.model.distance + 1;
+            }
+            
+            //Update distance text on game UI
+            [[GameUI shared] updateDistance:(int)(self.model.distance)];
+            
+            //Post score achievement notification
+            [MESSAGECENTER postNotificationName:NOTIFICATION_SCORE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(int)(self.model.distance*self.model.multiplier)] forKey:@"num"]];
+            
+            [[LevelManager shared] dropNextAddthing];
         }
-        [[GameUI shared] updateDistance:(int)(self.model.distance)];
-        [MESSAGECENTER postNotificationName:NOTIFICATION_SCORE object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:(int)(self.model.distance*self.model.multiplier)] forKey:@"num"]];
-        [[LevelManager shared] dropNextAddthing];
+        
         [[LevelManager shared] updateWarningSign];
         [[LevelManager shared] updatePowderCountdown:deltaTime];
         [[CCDirector sharedDirector].scheduler setTimeScale:_timeScale];
-        
         [[GamespeedTestTool shared] updateUI];
         
         [[CameraEffects shared] updateCameraEffect:deltaTime];
@@ -370,27 +373,36 @@
 
 -(void) startGame
 {
-    //Increase life game count
-    int currentGameNum = [[USERDATA objectForKey:@"totalGame"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentGameNum+1] forKey: @"totalGame"];
-    [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_GAME object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalGame"] intValue]] forKey:@"num"]];
-    
     self.model.state = GAME_START;
-    [[LevelManager shared] loadCurrentParagraph];
+    
+    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
+    {
+        [[TutorialManager shared] performSelector:@selector(startMoveTutorial) withObject:nil afterDelay:1];
+    }
+    else
+    {
+        //Increase life game count
+        int currentGameNum = [[USERDATA objectForKey:@"totalGame"] intValue];
+        [USERDATA setObject:[NSNumber numberWithInt:currentGameNum+1] forKey: @"totalGame"];
+        [MESSAGECENTER postNotificationName:NOTIFICATION_LIFE_GAME object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[[USERDATA objectForKey:@"totalGame"] intValue]] forKey:@"num"]];
+        
+        if ([[USERDATA objectForKey:@"headstart"] intValue] >= 0)
+        {
+            int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+            if (currentStar > [[[HeroManager shared] getHero] getHeadstartCost])
+            {
+                [[GameUI shared] showHeadstartButton];
+            }
+        }
+
+        [[LevelManager shared] loadCurrentParagraph];
+        [[GCHelper sharedInstance] retrieveScores];
+    }
+    
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
-    
-    if ([[USERDATA objectForKey:@"headstart"] intValue] >= 0)
-    {
-        int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-        if (currentStar > [[[HeroManager shared] getHero] getHeadstartCost])
-        {
-            [[GameUI shared] showHeadstartButton];
-        }
-    }
     [self.model resetGameData];
     
-    [[GCHelper sharedInstance] retrieveScores];
 }
 
 - (void)ccTouchesBegan:(NSSet*)touches withEvent:(UIEvent*)event
@@ -460,7 +472,14 @@
 {
     int multiplier = [[USERDATA objectForKey:@"multiplier"] intValue];
     [[DeadUI shared] createUI];
-    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
+    if ([[USERDATA objectForKey:@"tutorial"] intValue]> 0)
+    {
+        [[DeadUI shared] updateUIDataWithScore:100 Star:0 TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:100 Multiplier:multiplier IsHighScore:NO];
+    }
+    else
+    {
+        [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
+    }
     [[DeadUI shared] updateNextMission:[[AchievementData shared] getNextMission:[[USERDATA objectForKey:@"achievementGroup"] intValue]]];
 }
 

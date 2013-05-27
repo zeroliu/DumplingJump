@@ -86,27 +86,49 @@ NSString *const achievementPopup = @"achievementPopup";
 
 - (void) refreshButtons
 {
-    int buttonOffset = 0;
-    
-    if ([[USERDATA objectForKey:@"MAGNET"] intValue] >= 0)
+    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
     {
-        [magnetButtonHolder setPosition:ccp(288 - 64 * buttonOffset, magnetButtonHolder.position.y)];
-        buttonOffset ++;
+        [UIScoreText setVisible:NO];
+        [UIStarText setVisible:NO];
+        [starScoreIcon setVisible:NO];
+        [meterIcon setVisible:NO];
+        [shieldButtonHolder setVisible:NO];
+        [magnetButtonHolder setVisible:NO];
+        [pauseButton setVisible:NO];
     }
     else
     {
-        [magnetButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, magnetButtonHolder.position.y)];
+        [UIScoreText setVisible:YES];
+        [UIStarText setVisible:YES];
+        [starScoreIcon setVisible:YES];
+        [meterIcon setVisible:YES];
+        [shieldButtonHolder setVisible:YES];
+        [magnetButtonHolder setVisible:YES];
+        [pauseButton setVisible:YES];
+        
+        int buttonOffset = 0;
+        
+        if ([[USERDATA objectForKey:@"MAGNET"] intValue] >= 0)
+        {
+            [magnetButtonHolder setPosition:ccp(288 - 64 * buttonOffset, magnetButtonHolder.position.y)];
+            buttonOffset ++;
+        }
+        else
+        {
+            [magnetButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, magnetButtonHolder.position.y)];
+        }
+        
+        if ([[USERDATA objectForKey:@"SHELTER"] intValue] >= 0)
+        {
+            [shieldButtonHolder setPosition:ccp(288 - 64 * buttonOffset, shieldButtonHolder.position.y)];
+            buttonOffset ++;
+        }
+        else
+        {
+            [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, shieldButtonHolder.position.y)];
+        }
     }
     
-    if ([[USERDATA objectForKey:@"SHELTER"] intValue] >= 0)
-    {
-        [shieldButtonHolder setPosition:ccp(288 - 64 * buttonOffset, shieldButtonHolder.position.y)];
-        buttonOffset ++;
-    }
-    else
-    {
-        [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, shieldButtonHolder.position.y)];
-    }
 }
 
 - (void) adjustUI:(CCNode *)element offset:(float)theOffset
@@ -554,11 +576,9 @@ NSString *const achievementPopup = @"achievementPopup";
     _buttonsDictionary = nil;
     [_buttonstatusDictionary release];
     _buttonstatusDictionary = nil;
-    if (showMessageAction!=nil)
-    {
-        [showMessageAction release];
-        showMessageAction = nil;
-    }
+    [showMessageAction release];
+    showMessageAction = nil;
+    
     [mask release];
     mask = nil;
     [super dealloc];

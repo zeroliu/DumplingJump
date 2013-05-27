@@ -27,5 +27,6 @@ ${TP} DumplingJump/DU/Assets/ui2.tps
 ${TP} DumplingJump/DU/Assets/ui3.tps
 ${TP} DumplingJump/DU/Assets/ui-achievement.tps
 ${TP} DumplingJump/DU/Assets/ui-option.tps
+${TP} DumplingJump/DU/Assets/tutorial.tps
 fi
 exit 0

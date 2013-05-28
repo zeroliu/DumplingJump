@@ -306,7 +306,7 @@
     CCLabelTTF *goodJobLabel = [CCLabelTTF labelWithString:word fontName:@"Eras Bold ITC" fontSize:22];
     goodJobLabel.anchorPoint = ccp(0.5,0.5);
     goodJobLabel.position = ccpAdd(((Hero *)[HEROMANAGER getHero]).sprite.position, ccp(0, 10));
-    goodJobLabel.color = ccGREEN;
+    goodJobLabel.color = ccYELLOW;
     goodJobLabel.scale = 0.01;
     goodJobLabel.opacity = 0;
     [GAMELAYER addChild:goodJobLabel z:Z_TUTORIALUI - 1];

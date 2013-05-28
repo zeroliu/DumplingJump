@@ -7,7 +7,6 @@
 //
 
 #import "AudioManager.h"
-#import "SimpleAudioEngine.h"
 #import "UserData.h"
 #import "Constants.h"
 @implementation AudioManager
@@ -62,6 +61,21 @@
     {
         [[SimpleAudioEngine sharedEngine] playEffect:SFXName];
     }
+}
+
+-(ALuint) playSFXwithLoop:(NSString *)SFXName
+{
+    if ([[USERDATA objectForKey:@"sfx"] boolValue])
+    {
+        return [[SimpleAudioEngine sharedEngine] playEffectWithLoop:SFXName];
+    }
+    
+    return 0;
+}
+
+-(void) stopSFX:(ALuint)SFXTag
+{
+    [[SimpleAudioEngine sharedEngine] stopEffect:SFXTag];
 }
 
 -(void) fadeInBackgroundMusic

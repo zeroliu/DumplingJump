@@ -251,13 +251,20 @@
 -(void) preloadMusic
 {
     [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_jump.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_arrowHit.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_barrelHit.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_crateCountdown.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_crateExplode.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_crateHit.mp3"];
-    [[AudioManager shared] preloadSFX:@"sfx_castleRider_iceHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_hero_jump.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_arrowHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_barrelHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_blindBat.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_clawHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_crateCountdown.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_crateExplode.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_crateHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_addthing_iceHit.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_powerup_springBounce.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_powerup_springJump.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_powerup_starCollect.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_powerup_swordFlame.mp3"];
+    [[AudioManager shared] preloadSFX:@"sfx_UI_menuButton.mp3"];
 }
 
 -(void) loadFrontendData
@@ -474,7 +481,10 @@
     [[DeadUI shared] createUI];
     if ([[USERDATA objectForKey:@"tutorial"] intValue]> 0)
     {
-        [[DeadUI shared] updateUIDataWithScore:100 Star:0 TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:100 Multiplier:multiplier IsHighScore:NO];
+        [[DeadUI shared] updateUIDataWithScore:100 Star:0 TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:100 Multiplier:1 IsHighScore:NO];
+        
+        //Set tutorial enabled to false
+        [USERDATA setObject:@0 forKey:@"tutorial"];
     }
     else
     {

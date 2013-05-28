@@ -62,7 +62,7 @@
     
     if (![effect.effectData.sound isEqualToString:@"NULL"])
     {
-        [[AudioManager shared] playSFX:[NSString stringWithFormat:@"sfx_castleRider_%@.mp3",effect.effectData.sound]];
+        [[AudioManager shared] playSFX:[NSString stringWithFormat:@"sfx_%@.mp3",effect.effectData.sound]];
     }
     
     return effect;

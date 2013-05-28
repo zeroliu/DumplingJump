@@ -726,7 +726,7 @@ stepNum = _stepNum;
             if (!hasPlayedPowderSFX && info.countdown < [info.countdownLabel.string intValue])
             {
                 hasPlayedPowderSFX = YES;
-                [[AudioManager shared] playSFX:@"sfx_castleRider_crateCountdown.mp3"];
+                [[AudioManager shared] playSFX:@"sfx_addthing_crateCountdown.mp3"];
                 
                 //reset hasPlayedPowderSFX
                 id delay = [CCDelayTime actionWithDuration:0.9];

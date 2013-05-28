@@ -243,6 +243,8 @@ typedef enum {
 //Show achievement view
 - (void) showAchievement
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
+    
     //Change state
     state = MainMenuStateMission;
     
@@ -281,6 +283,8 @@ typedef enum {
 
 - (void) showOption
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
+    
     //Change state
     state = MainMenuStateOption;
     
@@ -349,6 +353,7 @@ typedef enum {
 //Back button on the main menu got hit
 - (void) back
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [self setMaskVisibility:NO];
     [UIView animateWithDuration:0.1
             animations:^

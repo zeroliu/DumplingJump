@@ -22,7 +22,6 @@
 #import "InterReactionManager.h"
 #import "BackgroundManager.h"
 #import "EquipmentData.h"
-#import <Foundation/Foundation.h>
 #import "CameraEffects.h"
 
 @interface Hero()
@@ -40,7 +39,7 @@
     BOOL isHeadStart;
     int boostStatus; //0 none, 1 ready, 2 start
     int tapOnIceNumber;
-    
+    ALuint bounceSFXTag;
 }
 @property (nonatomic, assign) float x,y;
 @property (nonatomic, assign) b2Vec2 speed,acc;
@@ -74,7 +73,7 @@
         self.accValue = theAccValue;
         self.jumpValue = theJumpValue;
         self.gravity = theGravity;
-        
+        bounceSFXTag = 0;
         _overlayHeroStateDictionary = [[NSMutableDictionary alloc] init];
         
         [self initHeroParam];
@@ -225,6 +224,7 @@
     {
         if (_isSpringBoost)
         {
+            bounceSFXTag = [[AudioManager shared] playSFXwithLoop:@"sfx_powerup_springBounce.mp3"];
             [self removeHeroSpringEffect];
             id animation = [ANIMATIONMANAGER getAnimationWithName:HEROSPRING];
             if(animation != nil)
@@ -299,11 +299,6 @@
         }
         else if (boostStatus == 5)
         {
-//            if (self.sprite.position.y < 330)
-//            {
-//                self.body->SetLinearVelocity(b2Vec2(self.speed.x, 0));
-//            }
-            
             self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.speed.y+0.2));
             if (self.speed.y >=0)
             {
@@ -404,7 +399,7 @@
 -(void) jump
 {
     [self checkIfOnGround];
-    if (self.isOnGround)
+    if (self.isOnGround && adjustJump > 0)
     {
         GAMEMODEL.jumpCount ++;
         [MESSAGECENTER postNotificationName:NOTIFICATION_JUMP object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:GAMEMODEL.jumpCount] forKey:@"num"]];
@@ -430,7 +425,7 @@
     if (self.isOnGround)
     {
         self.body->SetLinearVelocity(b2Vec2(self.speed.x, self.jumpValue/RATIO * adjustJump));
-        [[AudioManager shared] playSFX:@"sfx_castleRider_jump.mp3"];
+        [[AudioManager shared] playSFX:@"sfx_hero_jump.mp3"];
     }
 }
 
@@ -438,6 +433,9 @@
 {
     if (self.isOnGround && self.sprite.position.y < [CCDirector sharedDirector].winSize.height/2)
     {
+        [[AudioManager shared] stopSFX:bounceSFXTag];
+        [[AudioManager shared] playSFX:@"sfx_powerup_springJump.mp3"];
+        
         _isSpringBoost = YES;
         CCSprite *springBoostEffect = [CCSprite spriteWithSpriteFrameName:@"E_item_spring_1.png"];
         springBoostEffect.position = ccp(self.sprite.contentSize.width/2,self.sprite.contentSize.height/2);
@@ -545,6 +543,9 @@
 
 -(void) springFin
 {
+    //Stop playing bounce SFX
+    [[AudioManager shared] stopSFX:bounceSFXTag];
+    
     //Remove spring effect
     _isSpringBoost = NO;
     [self removeHeroSpringEffect];
@@ -917,11 +918,14 @@
         [self performSelector:@selector(blindFin)];
     }
     
+    bounceSFXTag = [[AudioManager shared] playSFXwithLoop:@"sfx_powerup_springBounce.mp3"];
+    
     [self playAnimation:@"H_spring" duration:[[POWERUP_DATA objectForKey:@"SPRING"] floatValue] callback:^{
         [self performSelector:@selector(springFin)];
     }];
     
     self.heroState = @"spring";
+    [[AudioManager shared] playSFX:@"sfx_powerup_starCollect.mp3"];
 }
 
 -(void) headStart
@@ -1182,6 +1186,8 @@
     
     if ([self.overlayHeroStateDictionary objectForKey:@"blind"] == nil)
     {
+        [[AudioManager shared] playSFX:@"sfx_addthing_blindBat.mp3"];
+        
         [self playAnimationForever:@"H_blind"];
         
         CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
@@ -1215,6 +1221,8 @@
 -(void) fire
 {
     DUPhysicsObject *slash = [[LevelManager shared] dropAddthingWithName:@"SLASH" atPosition:ccp(self.sprite.position.x,self.sprite.position.y +5)];
+    
+    [[AudioManager shared] playSFX:@"sfx_powerup_swordFlame.mp3"];
     
     id delay = [CCDelayTime actionWithDuration:0.2];
     id fadeOut = [CCFadeOut actionWithDuration:0.2];
@@ -1251,6 +1259,8 @@
                 [self playCurrentFacialAnimation];
             }];
         }
+        
+        [[AudioManager shared] playSFX:@"sfx_powerup_starCollect.mp3"];
         
         float addStarNum = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue];
         if ([star.name isEqualToString:@"ROYALSTAR"])
@@ -1677,6 +1687,9 @@
 
 -(void) beforeDie
 {
+    //Stop playing bounce SFX
+    [[AudioManager shared] stopSFX:bounceSFXTag];
+    
     if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
     {
         //if in tutorial, immediately reborn

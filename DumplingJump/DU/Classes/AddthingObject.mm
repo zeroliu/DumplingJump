@@ -205,7 +205,7 @@
     if (!_hasPlayedFirstTouchSFX && self.firstTouchSFX != nil)
     {
         _hasPlayedFirstTouchSFX = YES;
-        [[AudioManager shared] playSFX:[NSString stringWithFormat:@"sfx_castleRider_%@.mp3", self.firstTouchSFX]];
+        [[AudioManager shared] playSFX:[NSString stringWithFormat:@"sfx_addthing_%@.mp3", self.firstTouchSFX]];
     }
 }
 
@@ -261,6 +261,7 @@
     
     if (ccpDistance(hero.sprite.position, self.sprite.position) < 3)
     {
+        [[AudioManager shared] playSFX:@"sfx_powerup_starCollect.mp3"];
         [self unschedule:@selector(moveToHeroWithSpeed:)];
         float addStarNum = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"starMultiplier"] floatValue];
         if ([self.name isEqualToString:@"ROYALSTAR"])

@@ -7,6 +7,7 @@
 //
 
 #import "CCNode.h"
+#import "SimpleAudioEngine.h"
 @interface AudioManager : CCNode
 
 +(id) shared;
@@ -17,6 +18,8 @@
 -(void) playBackgroundMusic:(NSString *)musicName loop:(BOOL)isLoop;
 -(void) stopBackgroundMusic;
 -(void) playSFX:(NSString *)SFXName;
+-(ALuint) playSFXwithLoop:(NSString *)SFXName;
+-(void) stopSFX:(ALuint)SFXTag;
 
 -(void) fadeInBackgroundMusic;
 -(void) fadeOutBackgroundMusic;

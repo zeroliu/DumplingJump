@@ -118,6 +118,7 @@
 		<blood>1</blood>
 		<react_type>claw</react_type>
 		<warningTime>0.7</warningTime>
+        <firstTouchSFX>clawHit</firstTouchSFX>
 	</Item>
 	<Item>
 		<ID>火藥</ID>

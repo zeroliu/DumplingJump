@@ -355,7 +355,7 @@
             
             [self showGoodJob];
             
-            if (_subIndex > 5)
+            if (_subIndex > 4)
             {
                 //current tutorial succeed, move to next step
                 [MESSAGECENTER removeObserver:self name:NOTIFICATION_MOVE object:nil];

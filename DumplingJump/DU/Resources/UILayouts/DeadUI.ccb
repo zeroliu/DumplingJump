@@ -303,7 +303,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>148</real>
+									<real>138</real>
 									<real>312</real>
 									<integer>0</integer>
 								</array>
@@ -326,8 +326,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -375,7 +375,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>148</real>
+									<real>138</real>
 									<real>282</real>
 									<integer>0</integer>
 								</array>
@@ -398,8 +398,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
 									<true/>
 									<integer>0</integer>
 								</array>
@@ -1259,422 +1259,6 @@
 					</dict>
 					<dict>
 						<key>baseClass</key>
-						<string>CCControlButton</string>
-						<key>children</key>
-						<array/>
-						<key>customClass</key>
-						<string></string>
-						<key>displayName</key>
-						<string>twitterButton</string>
-						<key>memberVarAssignmentName</key>
-						<string>twitterButton</string>
-						<key>memberVarAssignmentType</key>
-						<integer>2</integer>
-						<key>properties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>position</string>
-								<key>type</key>
-								<string>Position</string>
-								<key>value</key>
-								<array>
-									<real>247</real>
-									<real>238</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>anchorPoint</string>
-								<key>type</key>
-								<string>Point</string>
-								<key>value</key>
-								<array>
-									<real>0.5</real>
-									<real>0.5</real>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>scale</string>
-								<key>type</key>
-								<string>ScaleLock</string>
-								<key>value</key>
-								<array>
-									<real>1</real>
-									<real>1</real>
-									<false/>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>ignoreAnchorPointForPosition</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>ccControl</string>
-								<key>type</key>
-								<string>BlockCCControl</string>
-								<key>value</key>
-								<array>
-									<string></string>
-									<integer>0</integer>
-									<integer>32</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>enabled</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>title|1</string>
-								<key>type</key>
-								<string>String</string>
-								<key>value</key>
-								<string></string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleTTF|1</string>
-								<key>type</key>
-								<string>FontTTF</string>
-								<key>value</key>
-								<string>Helvetica</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleTTFSize|1</string>
-								<key>type</key>
-								<string>FloatScale</string>
-								<key>value</key>
-								<array>
-									<real>12</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>labelAnchorPoint</string>
-								<key>type</key>
-								<string>Point</string>
-								<key>value</key>
-								<array>
-									<real>0.5</real>
-									<real>0.5</real>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>preferedSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>45</real>
-									<real>45</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>zoomOnTouchDown</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>backgroundSpriteFrame|1</string>
-								<key>type</key>
-								<string>SpriteFrame</string>
-								<key>value</key>
-								<array>
-									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_retry_twitter.png</string>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleColor|1</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<integer>255</integer>
-									<integer>255</integer>
-									<integer>255</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>backgroundSpriteFrame|2</string>
-								<key>type</key>
-								<string>SpriteFrame</string>
-								<key>value</key>
-								<array>
-									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_retry_twitter.png</string>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleColor|2</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<integer>255</integer>
-									<integer>255</integer>
-									<integer>255</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>backgroundSpriteFrame|3</string>
-								<key>type</key>
-								<string>SpriteFrame</string>
-								<key>value</key>
-								<array>
-									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_retry_twitter.png</string>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleColor|3</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<integer>255</integer>
-									<integer>255</integer>
-									<integer>255</integer>
-								</array>
-							</dict>
-						</array>
-					</dict>
-					<dict>
-						<key>baseClass</key>
-						<string>CCControlButton</string>
-						<key>children</key>
-						<array/>
-						<key>customClass</key>
-						<string></string>
-						<key>displayName</key>
-						<string>facebookButton</string>
-						<key>memberVarAssignmentName</key>
-						<string>facebookButton</string>
-						<key>memberVarAssignmentType</key>
-						<integer>2</integer>
-						<key>properties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>position</string>
-								<key>type</key>
-								<string>Position</string>
-								<key>value</key>
-								<array>
-									<real>247</real>
-									<real>290</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>anchorPoint</string>
-								<key>type</key>
-								<string>Point</string>
-								<key>value</key>
-								<array>
-									<real>0.5</real>
-									<real>0.5</real>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>scale</string>
-								<key>type</key>
-								<string>ScaleLock</string>
-								<key>value</key>
-								<array>
-									<real>1</real>
-									<real>1</real>
-									<false/>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>ignoreAnchorPointForPosition</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<false/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>ccControl</string>
-								<key>type</key>
-								<string>BlockCCControl</string>
-								<key>value</key>
-								<array>
-									<string></string>
-									<integer>0</integer>
-									<integer>32</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>enabled</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>title|1</string>
-								<key>type</key>
-								<string>String</string>
-								<key>value</key>
-								<string></string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleTTF|1</string>
-								<key>type</key>
-								<string>FontTTF</string>
-								<key>value</key>
-								<string>Helvetica</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleTTFSize|1</string>
-								<key>type</key>
-								<string>FloatScale</string>
-								<key>value</key>
-								<array>
-									<real>12</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>labelAnchorPoint</string>
-								<key>type</key>
-								<string>Point</string>
-								<key>value</key>
-								<array>
-									<real>0.5</real>
-									<real>0.5</real>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>preferedSize</string>
-								<key>type</key>
-								<string>Size</string>
-								<key>value</key>
-								<array>
-									<real>42</real>
-									<real>41</real>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>zoomOnTouchDown</string>
-								<key>type</key>
-								<string>Check</string>
-								<key>value</key>
-								<true/>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>backgroundSpriteFrame|1</string>
-								<key>type</key>
-								<string>SpriteFrame</string>
-								<key>value</key>
-								<array>
-									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_retry_facebook.png</string>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleColor|1</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<integer>255</integer>
-									<integer>255</integer>
-									<integer>255</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>backgroundSpriteFrame|2</string>
-								<key>type</key>
-								<string>SpriteFrame</string>
-								<key>value</key>
-								<array>
-									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_retry_facebook.png</string>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleColor|2</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<integer>255</integer>
-									<integer>255</integer>
-									<integer>255</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>backgroundSpriteFrame|3</string>
-								<key>type</key>
-								<string>SpriteFrame</string>
-								<key>value</key>
-								<array>
-									<string>Resources/spriteSheets/sheetUI-1.plist</string>
-									<string>UI_retry_facebook.png</string>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>titleColor|3</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<integer>255</integer>
-									<integer>255</integer>
-									<integer>255</integer>
-								</array>
-							</dict>
-						</array>
-					</dict>
-					<dict>
-						<key>baseClass</key>
 						<string>CCSprite</string>
 						<key>children</key>
 						<array>
@@ -2036,7 +1620,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>95.5</real>
+									<real>87.5</real>
 									<real>312</real>
 									<integer>0</integer>
 								</array>
@@ -2059,9 +1643,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2124,7 +1708,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>105</real>
+									<real>97</real>
 									<real>282</real>
 									<integer>0</integer>
 								</array>
@@ -2147,9 +1731,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2212,7 +1796,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>114</real>
+									<real>106</real>
 									<real>252</real>
 									<integer>0</integer>
 								</array>
@@ -2235,9 +1819,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2300,7 +1884,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>108</real>
+									<real>101</real>
 									<real>222</real>
 									<integer>0</integer>
 								</array>
@@ -2323,9 +1907,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2388,8 +1972,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>168</real>
-									<real>312</real>
+									<real>160</real>
+									<real>311</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2411,9 +1995,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2476,8 +2060,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>168</real>
-									<real>282</real>
+									<real>160</real>
+									<real>281</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2499,9 +2083,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2538,7 +2122,7 @@
 								<key>type</key>
 								<string>Text</string>
 								<key>value</key>
-								<string>2445</string>
+								<string>9999</string>
 							</dict>
 						</array>
 					</dict>
@@ -2564,8 +2148,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>168</real>
-									<real>252</real>
+									<real>160</real>
+									<real>251</real>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2587,9 +2171,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2638,9 +2222,11 @@
 								<key>type</key>
 								<string>Text</string>
 								<key>value</key>
-								<string>8989</string>
+								<string>999m</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>baseClass</key>
@@ -2664,7 +2250,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>168</real>
+									<real>160</real>
 									<real>222</real>
 									<integer>0</integer>
 								</array>
@@ -2687,9 +2273,9 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
+									<real>0.89999997615814209</real>
 									<real>1</real>
-									<real>1</real>
-									<true/>
+									<false/>
 									<integer>0</integer>
 								</array>
 							</dict>
@@ -2727,6 +2313,422 @@
 								<string>Text</string>
 								<key>value</key>
 								<string>10x</string>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCControlButton</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>twitterButton</string>
+						<key>memberVarAssignmentName</key>
+						<string>twitterButton</string>
+						<key>memberVarAssignmentType</key>
+						<integer>2</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>250</real>
+									<real>238</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
+									<true/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccControl</string>
+								<key>type</key>
+								<string>BlockCCControl</string>
+								<key>value</key>
+								<array>
+									<string></string>
+									<integer>0</integer>
+									<integer>32</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>enabled</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>title|1</string>
+								<key>type</key>
+								<string>String</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTF|1</string>
+								<key>type</key>
+								<string>FontTTF</string>
+								<key>value</key>
+								<string>Helvetica</string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTFSize|1</string>
+								<key>type</key>
+								<string>FloatScale</string>
+								<key>value</key>
+								<array>
+									<real>12</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>labelAnchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>preferedSize</string>
+								<key>type</key>
+								<string>Size</string>
+								<key>value</key>
+								<array>
+									<real>45</real>
+									<real>45</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>zoomOnTouchDown</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|1</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_twitter.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|1</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|2</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_twitter.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|2</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|3</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_twitter.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|3</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>baseClass</key>
+						<string>CCControlButton</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>facebookButton</string>
+						<key>memberVarAssignmentName</key>
+						<string>facebookButton</string>
+						<key>memberVarAssignmentType</key>
+						<integer>2</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>250</real>
+									<real>290</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>anchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>0.89999997615814209</real>
+									<real>0.89999997615814209</real>
+									<true/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ignoreAnchorPointForPosition</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<false/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccControl</string>
+								<key>type</key>
+								<string>BlockCCControl</string>
+								<key>value</key>
+								<array>
+									<string></string>
+									<integer>0</integer>
+									<integer>32</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>enabled</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>title|1</string>
+								<key>type</key>
+								<string>String</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTF|1</string>
+								<key>type</key>
+								<string>FontTTF</string>
+								<key>value</key>
+								<string>Helvetica</string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleTTFSize|1</string>
+								<key>type</key>
+								<string>FloatScale</string>
+								<key>value</key>
+								<array>
+									<real>12</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>labelAnchorPoint</string>
+								<key>type</key>
+								<string>Point</string>
+								<key>value</key>
+								<array>
+									<real>0.5</real>
+									<real>0.5</real>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>preferedSize</string>
+								<key>type</key>
+								<string>Size</string>
+								<key>value</key>
+								<array>
+									<real>42</real>
+									<real>41</real>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>zoomOnTouchDown</string>
+								<key>type</key>
+								<string>Check</string>
+								<key>value</key>
+								<true/>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|1</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_facebook.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|1</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|2</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_facebook.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|2</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>backgroundSpriteFrame|3</string>
+								<key>type</key>
+								<string>SpriteFrame</string>
+								<key>value</key>
+								<array>
+									<string>Resources/spriteSheets/sheetUI-1.plist</string>
+									<string>UI_retry_facebook.png</string>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>titleColor|3</string>
+								<key>type</key>
+								<string>Color3</string>
+								<key>value</key>
+								<array>
+									<integer>255</integer>
+									<integer>255</integer>
+									<integer>255</integer>
+								</array>
 							</dict>
 						</array>
 					</dict>

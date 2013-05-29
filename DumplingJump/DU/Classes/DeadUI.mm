@@ -134,9 +134,26 @@
     [scoreText setString:@"0"];
     [starText setString:[NSString stringWithFormat:@"%d",star]];
     [totalStarText setString:[NSString stringWithFormat:@"%d",totalStar]];
-    [distanceText setString:[NSString stringWithFormat:@"%d",distance]];
+    [distanceText setString:[NSString stringWithFormat:@"%dm",distance]];
     [multiplierText setString:[NSString stringWithFormat:@"%dx",(int)multiplier]];
     [highscoreSprite setOpacity:0];
+    
+    int xPos = 165;
+    if (totalStar > 99999 || distance > 9999)
+    {
+        xPos = 152;
+    }
+    else if (totalStar > 9999 || distance > 999)
+    {
+        xPos = 160;
+    }
+    
+    starText.position = ccp(xPos, starText.position.y);
+    totalStarText.position = ccp(xPos, totalStarText.position.y);
+    distanceText.position = ccp(xPos, distanceText.position.y);
+    multiplierText.position = ccp(xPos, multiplierText.position.y);
+    
+    
 //    if (isHighScore)
 //    {
 //        [highscoreSprite setOpacity:255];
@@ -159,38 +176,48 @@
 {
     //distance label pop
     id tweenDistance = [CCActionTween actionWithDuration:0.4 key:@"scoreDisplay" from: 0 to: _distance];
-    [distanceText runAction:[self createPopMoveEffectWithDistance:15]];
-    [distanceText runAction:[self createPopScaleEffect]];
+    [distanceText runAction:[self createPopMoveEffectWithDistance:15 withDuration:0.2]];
+    [distanceText runAction:[self createPopScaleEffectWithDuration:0.15]];
     [self runAction:tweenDistance];
     //score label pop
-    [scoreText runAction:[self createPopMoveEffectWithDistance:25]];
-    [scoreText runAction:[self createPopScaleEffect]];
+    [scoreText runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
+    [scoreText runAction:[self createPopScaleEffectWithDuration:0.15]];
     
-    [self updateScoreLabel:[NSNumber numberWithInt:_distance]];
+    [self updateScoreLabelWithMeter:[NSNumber numberWithInt:_distance]];
     
     //Show score effect if multiplier is greater than 1
-    if ([[USERDATA objectForKey:@"multiplier"] intValue] > 1)
-    {
-        [self performSelector:@selector(playShowScoreEffect) withObject:nil afterDelay:0.7];
-    }
-    else
-    {
-        [retryButton setEnabled:YES];
-    }
+//    if ([[USERDATA objectForKey:@"multiplier"] intValue] > 1)
+//    {
+        [self performSelector:@selector(playMultiplier) withObject:nil afterDelay:0.7];
+//    }
+//    else
+//    {
+//        [retryButton setEnabled:YES];
+//    }
+}
+
+-(void) playMultiplier
+{
+    [multiplierText runAction:[self createPopMoveEffectWithDistance:10 withDuration:0.2]];
+    [multiplierText runAction:[self createPopScaleEffectWithDuration:0.15]];
+
+    [scoreText runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
+    [scoreText runAction:[self createPopScaleEffectWithDuration:0.15]];
+    
+    [scoreText setString:[NSString stringWithFormat:@"x%d",[[USERDATA objectForKey:@"multiplier"] intValue]]];
+    [self performSelector:@selector(playShowScoreEffect) withObject:nil afterDelay:0.5];
 }
 
 -(void) playShowScoreEffect
 {
-    id tweenScore = [CCActionTween actionWithDuration:0.4 key:@"scoreDisplay" from: _distance to: _finalScore];
+    _scoreDisplay = 0;
+    id tweenScore = [CCActionTween actionWithDuration:0.4 key:@"scoreDisplay" from: 0 to: _finalScore];
     
-    //multiplier label pop
-    [multiplierText runAction:[self createPopMoveEffectWithDistance:15]];
-    [multiplierText runAction:[self createPopScaleEffect]];
     [self runAction:tweenScore];
     
     //score label pop
-    [scoreText runAction:[self createPopMoveEffectWithDistance:25]];
-    [scoreText runAction:[self createPopScaleEffect]];
+    [scoreText runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
+    [scoreText runAction:[self createPopScaleEffectWithDuration:0.15]];
     
     [self updateScoreLabel:[NSNumber numberWithInt:_finalScore]];
     [retryButton setEnabled:YES];
@@ -208,17 +235,29 @@
     }
 }
 
--(id) createPopMoveEffectWithDistance:(float)distance
+-(void) updateScoreLabelWithMeter:(NSNumber *)target
 {
-    id moveUp = [CCMoveBy actionWithDuration:0.2 position:ccp(0,distance)];
-    id moveDown = [CCMoveBy actionWithDuration:0.2 position:ccp(0,-distance)];
+    if (_scoreDisplay <= [target intValue])
+    {
+        [scoreText setString:[NSString stringWithFormat:@"%dm", (int)_scoreDisplay]];
+        if (_scoreDisplay < [target intValue])
+        {
+            [self performSelector:@selector(updateScoreLabelWithMeter:) withObject:target afterDelay:0.01];
+        }
+    }
+}
+
+-(id) createPopMoveEffectWithDistance:(float)distance withDuration:(float)duration
+{
+    id moveUp = [CCMoveBy actionWithDuration:duration position:ccp(0,distance)];
+    id moveDown = [CCMoveBy actionWithDuration:duration position:ccp(0,-distance)];
     return [CCSequence actions:moveUp, moveDown, nil];
 }
 
--(id) createPopScaleEffect
+-(id) createPopScaleEffectWithDuration:(float)duration
 {
-    id scaleUp = [CCScaleTo actionWithDuration:0.15 scale:1.3];
-    id scaleDown = [CCScaleTo actionWithDuration:0.15 scale:1];
+    id scaleUp = [CCScaleTo actionWithDuration:duration scale:1.3];
+    id scaleDown = [CCScaleTo actionWithDuration:duration scale:1];
     return [CCSequence actions:scaleUp, scaleDown, nil];
 }
 

@@ -20,12 +20,25 @@
 
 @implementation CircleMask
 
+- (void)dealloc
+{
+    [_maskSprite release];
+    _maskSprite = nil;
+    [_textureSprite release];
+    _textureSprite = nil;
+    [_retval release];
+    _retval = nil;
+    [rt release];
+    rt = nil;
+    [super dealloc];
+}
+
 -(id) initWithTexture:(CCSprite *)textureSprite Mask:(CCSprite *)maskSprite
 {
     if (self = [super init])
     {
-        _textureSprite = textureSprite;
-        _maskSprite = maskSprite;
+        _textureSprite = [textureSprite retain];
+        _maskSprite = [maskSprite retain];
         isActive = false;
     }
     
@@ -38,8 +51,6 @@
     rt = [[CCRenderTexture renderTextureWithWidth:_textureSprite.contentSize.width height:_textureSprite.contentSize.height] retain];
     
     // 2
-    
-    //_maskSprite.position = ccp(_maskSprite.contentSize.width/2, _maskSprite.contentSize.height/2);
     _textureSprite.position = ccp(_textureSprite.contentSize.width/2, _textureSprite.contentSize.height/2);
     
     // 3
@@ -53,7 +64,7 @@
     [rt end];
     
     // 5
-    _retval = [CCSprite spriteWithTexture:rt.sprite.texture];
+    _retval = [[CCSprite spriteWithTexture:rt.sprite.texture] retain];
     _retval.flipY = YES;
     
     isActive = true;
@@ -75,6 +86,8 @@
 -(void)removeMask
 {
     [_retval removeFromParentAndCleanup:NO];
+    [_retval release];
+    _retval = nil;
     isActive = NO;
 }
 @end

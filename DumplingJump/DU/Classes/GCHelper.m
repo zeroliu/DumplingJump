@@ -178,13 +178,30 @@
                             {
                                 [[HighscoreLineManager shared] registerHighDistance:score.value playerID:score.playerID nickName:[self.playerID2Alias objectForKey:score.playerID]];
                             }
+                            
+                            if ([score.playerID isEqualToString: [GKLocalPlayer localPlayer].playerID])
+                            {
+                                //Check if we should use local high score or remote one
+                                if (score.value > [[USERDATA objectForKey:@"highdistance"] intValue])
+                                {
+                                    //if remote high score is higher
+                                    //overwrite local one with remote one
+                                    [USERDATA setObject:[NSNumber numberWithInt:score.value] forKey:@"highdistance"];
+                                    self.forceReload = YES;
+                                }
+                                else if (score.value < [[USERDATA objectForKey:@"highdistance"] intValue])
+                                {
+                                    //if local high score is higher
+                                    [self reportScore:[[USERDATA objectForKey:@"highdistance"] intValue] forLeaderboardID:@"edu.cmu.etc.CastleRider.distanceLB"];
+                                }
+                            }
                         }
                     }
                 }];
             }];
         }
         
-        if ([[USERDATA objectForKey:@"highdistance"] intValue] > 30)
+        if ([[USERDATA objectForKey:@"highdistance"] intValue] > 20)
         {
             //Register local player highscore to manager
             [[HighscoreLineManager shared] registerHighDistance:[[USERDATA objectForKey:@"highdistance"] intValue] playerID:[GKLocalPlayer localPlayer].playerID nickName:@"Your BEST"];

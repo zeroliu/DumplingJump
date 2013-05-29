@@ -1190,11 +1190,11 @@
         
         [self playAnimationForever:@"H_blind"];
         
-        CCSprite *blackBg = [CCSprite spriteWithFile:@"blackbg.png"];
-        CCSprite *mask = [CCSprite spriteWithFile:@"mask.png"];
+        CCSprite *blackBg = [CCSprite spriteWithSpriteFrameName:@"blackbg.png"];
+        CCSprite *mask = [CCSprite spriteWithSpriteFrameName:@"mask.png"];
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        maskNode = [[CircleMask alloc] initWithTexture:[blackBg retain] Mask:[mask retain]];
+        maskNode = [[CircleMask alloc] initWithTexture:blackBg Mask:mask];
         CCSprite *final = [maskNode maskedSpriteWithSprite: ccp(self.sprite.position.x, self.sprite.position.y+self.radius*4)];
         final.position = ccp(winSize.width/2,winSize.height/2);
         [GAMELAYER addChild:final z:10];
@@ -1202,7 +1202,6 @@
     else
     {
         //Already blind
-        
     }
     
     [self stopActionByTag:BLIND_EFFECT_TAG];

@@ -17,7 +17,7 @@
 {
     int _subIndex;
     int _counter;
-    CCLabelTTF *_tutorialLabel;
+    CCLabelBMFont *_tutorialLabel;
     NSArray *_awesomeWords;
 }
 
@@ -42,7 +42,8 @@
     if (self = [super init])
     {
         //Create text label on GameLayer
-        _tutorialLabel = [[CCLabelTTF labelWithString:@"" fontName:@"Eras Bold ITC" fontSize:30] retain];
+        _tutorialLabel = [[CCLabelBMFont labelWithString:@"" fntFile:@"ERAS_white_black.fnt"] retain];
+//        _tutorialLabel = [[CCLabelTTF labelWithString:@"" fontName:@"Eras Bold ITC" fontSize:30] retain];
         _tutorialLabel.anchorPoint = ccp(0.5,0.5);
         _tutorialLabel.position = ccp([CCDirector sharedDirector].winSize.width/2, [CCDirector sharedDirector].winSize.height + BLACK_HEIGHT - 50);
         

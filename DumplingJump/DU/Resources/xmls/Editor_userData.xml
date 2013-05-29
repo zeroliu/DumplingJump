@@ -29,7 +29,7 @@
 	<data>
 		<music>1</music>
 		<sfx>1</sfx>
-        <tutorial>1</tutorial>
+        <tutorial>0</tutorial>
 		<highscore>0</highscore>
         <highdistance>0</highdistance>
 		<star>150</star>

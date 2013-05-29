@@ -11,7 +11,7 @@
 #import "Constants.h"
 #import "Hub.h"
 
-#define OFFSET 30
+#define OFFSET 20
 
 @implementation HighscoreLine
 
@@ -104,7 +104,7 @@ registedlinesDictionary  = _registedlinesDictionary;
     for (NSString *key in [self.registedlinesDictionary allKeys])
     {
         HighscoreLine* lineInfo = [self.registedlinesDictionary objectForKey:key];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"%d",lineInfo.highDistance] object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:[NSString stringWithFormat:@"highdistance:%d",lineInfo.highDistance-OFFSET] object:nil];
     }
     
     [self.registedlinesDictionary removeAllObjects];

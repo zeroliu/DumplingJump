@@ -27,8 +27,8 @@
 {
     if (self = [super init])
     {
-        normalSpriteFile_ = normalSpriteFile;
-        selectedSpriteFile_ = selectedSpriteFile;
+        normalSpriteFile_ = [normalSpriteFile retain];
+        selectedSpriteFile_ = [selectedSpriteFile retain];
         num_ = num;
         position_ = pos;
         
@@ -93,6 +93,10 @@
 
 - (void)dealloc
 {
+    [normalSpriteFile_ release];
+    normalSpriteFile_ = nil;
+    [selectedSpriteFile_ release];
+    selectedSpriteFile_ = nil;
     [bulletsMenu_ removeAllChildrenWithCleanup:YES];
     [bulletsMenu_ release];
     [super dealloc];

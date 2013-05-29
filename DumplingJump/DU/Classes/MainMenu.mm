@@ -20,6 +20,9 @@
 #import <UIKit/UIKit.h>
 #import "BuyMoreStarViewController.h"
 #import "GCHelper.h"
+
+#define TAG_HERO_ANIM 10
+
 typedef enum {
     MainMenuStateHome,
     MainMenuStateMission,
@@ -32,6 +35,8 @@ typedef enum {
     MainMenuState state;
     DUScrollPageView *achievementScrollView;
     CCSprite *_titleHero;
+    int _currentAnimNum;
+    NSArray *_animationList;
 }
 @end
 
@@ -42,6 +47,8 @@ typedef enum {
     if (self = [super init])
     {
         winSize = [[CCDirector sharedDirector] winSize];
+        _animationList = [[NSArray alloc] initWithObjects:@"happy",@"magic",@"spring",@"shelter", nil];
+        _currentAnimNum = 0;
     }
     return self;
 }
@@ -87,6 +94,7 @@ typedef enum {
     //Load main menu background music
     [[AudioManager shared] preloadBackgroundMusic:@"Music_MainMenu.mp3"];
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
+    [[AudioManager shared] setBackgroundMusicVolume:1];
     
     //DEBUG
     if ([[[[WorldData shared] loadDataWithAttributName:@"debug"] objectForKey:@"showMeTheMoneyEnabled"] boolValue])
@@ -191,15 +199,6 @@ typedef enum {
     
     [backButton setEnabled:NO];
     [backButton setAlpha:0];
-    
-//    continueButton = [[DUButtonFactory createButtonWithPosition:ccp(265, winSize.height - 46 - BLACK_HEIGHT) image:@"UI_other_play.png"] retain];
-//    continueButton.layer.zPosition = Z_BUTTONS;
-//    [VIEW addSubview:continueButton];
-//    [continueButton addTarget:self action:@selector(didTapContinueButton) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    [continueButton setEnabled:NO];
-//    [continueButton setAlpha:0];
-    
 }
 
 - (void) createTitleHero
@@ -216,25 +215,74 @@ typedef enum {
     _titleHero.scale = 1.3;
     _titleHero.position = CGPointZero;
     
-    //Build hero animation
+    [titleHeroHolder addChild:_titleHero z:1];
+    
+    [self playHeroAnimation];
+    [self moveHero];
+}
+
+- (void) moveHero
+{
+    //Default move to left
+    int destination = 0;
+    if (_titleHero.position.x < winSize.width/2)
+    {
+        //move to right
+        destination = 170;
+    }
+    
+    id delay = [CCDelayTime actionWithDuration:5];
+    id moveHero = [CCMoveTo actionWithDuration:2 position:ccp(destination, _titleHero.position.y)];
+    id changeStatus = [CCCallFunc actionWithTarget:self selector:@selector(playHeroAnimation)];
+    id callAgain = [CCCallFunc actionWithTarget:self selector:@selector(moveHero)];
+    
+    [_titleHero runAction:[CCSequence actions:changeStatus, delay, moveHero, callAgain, nil]];
+}
+
+- (void) playHeroAnimation
+{
+    //add effect
+    CCSprite *effect = [CCSprite spriteWithSpriteFrame: [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"E_powerup_1.png"]];
+    [titleHeroHolder addChild:effect z:2];
+    effect.position = _titleHero.position;
+    
+    NSMutableArray *effectFrameArray = [NSMutableArray array];
+    for (int i=1; i<=7; i++)
+    {
+        NSString *frameName = [NSString stringWithFormat:@"E_powerup_%d.png",i];
+        id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
+        [effectFrameArray addObject:frameObject];
+    }
+    
+    id effectAnim = [CCAnimation animationWithSpriteFrames:effectFrameArray delay:0.12];
+    CCAnimate *effectAnimate = [CCAnimate actionWithAnimation:effectAnim];
+    id removeSelf = [CCCallBlock actionWithBlock:^{
+        [effect removeFromParentAndCleanup:NO];
+    }];
+    [effect runAction:[CCSequence actions:effectAnimate, removeSelf, nil]];
+    
+    NSString *animationName = [_animationList objectAtIndex:_currentAnimNum];
+    
     NSMutableArray *frameArray = [NSMutableArray array];
     for (int i=1; i<=6; i++)
     {
-        NSString *frameName = [NSString stringWithFormat:@"H_magic_%d.png",i];
+        NSString *frameName = [NSString stringWithFormat:@"H_%@_%d.png",animationName,i];
         id frameObject = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
         [frameArray addObject:frameObject];
     }
     
-    id heroAnim = [CCAnimation animationWithSpriteFrames :frameArray delay:0.12];
+    id heroAnim = [CCAnimation animationWithSpriteFrames:frameArray delay:0.12];
     
     if (heroAnim != nil)
     {
-        id heroAnimate = [CCAnimate actionWithAnimation:heroAnim];
-        [_titleHero stopAllActions];
-        [_titleHero runAction:[CCRepeatForever actionWithAction:heroAnimate]];
+        [_titleHero stopActionByTag:TAG_HERO_ANIM];
+        CCAnimate *heroAnimate = [CCAnimate actionWithAnimation:heroAnim];
+        CCRepeatForever *heroAnimateRepeat = [CCRepeatForever actionWithAction:heroAnimate];
+        heroAnimateRepeat.tag = TAG_HERO_ANIM;
+        [_titleHero runAction:heroAnimateRepeat];
     }
     
-    [titleHeroHolder addChild:_titleHero z:1];
+    _currentAnimNum = (_currentAnimNum + 1) % [_animationList count];
 }
 
 #pragma mark -
@@ -503,6 +551,9 @@ typedef enum {
     [achievementScrollView release];
     
     [equipmentViewController release];
+    
+    [_animationList release];
+    _animationList = nil;
     [super dealloc];
 }
 @end

@@ -28,6 +28,7 @@
     CCSprite *newAchievement;
     
     CCLabelBMFont *scoreText;
+    CCLabelBMFont *scoreTextWhite;
     CCLabelBMFont *starText;
     CCLabelBMFont *totalStarText;
     CCLabelBMFont *distanceText;

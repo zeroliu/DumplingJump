@@ -132,6 +132,7 @@
     _distance = distance;
     _scoreDisplay = 0;
     [scoreText setString:@"0"];
+    [scoreTextWhite setString:@"0"];
     [starText setString:[NSString stringWithFormat:@"%d",star]];
     [totalStarText setString:[NSString stringWithFormat:@"%d",totalStar]];
     [distanceText setString:[NSString stringWithFormat:@"%dm",distance]];
@@ -145,14 +146,15 @@
     }
     else if (totalStar > 9999 || distance > 999)
     {
-        xPos = 160;
+        xPos = 158;
     }
     
     starText.position = ccp(xPos, starText.position.y);
     totalStarText.position = ccp(xPos, totalStarText.position.y);
     distanceText.position = ccp(xPos, distanceText.position.y);
     multiplierText.position = ccp(xPos, multiplierText.position.y);
-    
+    scoreText.opacity = 255;
+    scoreTextWhite.opacity = 0;
     
 //    if (isHighScore)
 //    {
@@ -182,18 +184,13 @@
     //score label pop
     [scoreText runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
     [scoreText runAction:[self createPopScaleEffectWithDuration:0.15]];
+    [scoreTextWhite runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
+    [scoreTextWhite runAction:[self createPopScaleEffectWithDuration:0.15]];
+    [self shiningScoreText];
     
     [self updateScoreLabelWithMeter:[NSNumber numberWithInt:_distance]];
     
-    //Show score effect if multiplier is greater than 1
-//    if ([[USERDATA objectForKey:@"multiplier"] intValue] > 1)
-//    {
-        [self performSelector:@selector(playMultiplier) withObject:nil afterDelay:0.7];
-//    }
-//    else
-//    {
-//        [retryButton setEnabled:YES];
-//    }
+    [self performSelector:@selector(playMultiplier) withObject:nil afterDelay:0.7];
 }
 
 -(void) playMultiplier
@@ -203,8 +200,12 @@
 
     [scoreText runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
     [scoreText runAction:[self createPopScaleEffectWithDuration:0.15]];
+    [scoreTextWhite runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
+    [scoreTextWhite runAction:[self createPopScaleEffectWithDuration:0.15]];
+    [self shiningScoreText];
     
     [scoreText setString:[NSString stringWithFormat:@"x%d",[[USERDATA objectForKey:@"multiplier"] intValue]]];
+    [scoreTextWhite setString:[NSString stringWithFormat:@"x%d",[[USERDATA objectForKey:@"multiplier"] intValue]]];
     [self performSelector:@selector(playShowScoreEffect) withObject:nil afterDelay:0.5];
 }
 
@@ -218,6 +219,9 @@
     //score label pop
     [scoreText runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
     [scoreText runAction:[self createPopScaleEffectWithDuration:0.15]];
+    [scoreTextWhite runAction:[self createPopMoveEffectWithDistance:25 withDuration:0.2]];
+    [scoreTextWhite runAction:[self createPopScaleEffectWithDuration:0.15]];
+    [self shiningScoreText];
     
     [self updateScoreLabel:[NSNumber numberWithInt:_finalScore]];
     [retryButton setEnabled:YES];
@@ -228,6 +232,7 @@
     if (_scoreDisplay <= [target intValue])
     {
         [scoreText setString:[NSString stringWithFormat:@"%d", (int)_scoreDisplay]];
+        [scoreTextWhite setString:[NSString stringWithFormat:@"%d", (int)_scoreDisplay]];
         if (_scoreDisplay < [target intValue])
         {
             [self performSelector:@selector(updateScoreLabel:) withObject:target afterDelay:0.01];
@@ -240,6 +245,7 @@
     if (_scoreDisplay <= [target intValue])
     {
         [scoreText setString:[NSString stringWithFormat:@"%dm", (int)_scoreDisplay]];
+        [scoreTextWhite setString:[NSString stringWithFormat:@"%dm", (int)_scoreDisplay]];
         if (_scoreDisplay < [target intValue])
         {
             [self performSelector:@selector(updateScoreLabelWithMeter:) withObject:target afterDelay:0.01];
@@ -259,6 +265,19 @@
     id scaleUp = [CCScaleTo actionWithDuration:duration scale:1.3];
     id scaleDown = [CCScaleTo actionWithDuration:duration scale:1];
     return [CCSequence actions:scaleUp, scaleDown, nil];
+}
+
+-(void) shiningScoreText
+{
+    id fadeInNormal = [CCFadeIn actionWithDuration:0.1];
+    id fadeInWhite = [CCFadeIn actionWithDuration:0.1];
+    id delay1 = [CCDelayTime actionWithDuration:0.2];
+    id delay2 = [CCDelayTime actionWithDuration:0.2];
+    id fadeOutNormal = [CCFadeOut actionWithDuration:0.1];
+    id fadeOutWhite = [CCFadeOut actionWithDuration:0.1];
+    
+    [scoreText runAction:[CCSequence actions:fadeOutNormal, delay1, fadeInNormal, nil]];
+    [scoreTextWhite runAction:[CCSequence actions:fadeInWhite, delay2, fadeOutWhite, nil]];
 }
 
 -(void) updateNextMission:(NSDictionary *)nextMissionData

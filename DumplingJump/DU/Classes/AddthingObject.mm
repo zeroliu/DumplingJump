@@ -190,12 +190,18 @@
             }
             else
             {
-                [self playFirstTouchSFX];
+                if (self.sprite.position.y < 240)
+                {
+                    [self playFirstTouchSFX];
+                }
             }
         }
         else
         {
-            [self playFirstTouchSFX];
+            if (self.sprite.position.y < 240)
+            {
+                [self playFirstTouchSFX];
+            }
         }
     }
 }

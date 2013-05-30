@@ -12,9 +12,14 @@
 
 + (id) shared;
 
+- (BOOL) isInTutorial;
+- (BOOL) isInGameTutorial;
+
 - (void) startMoveTutorial;
 - (void) startJumpTutorial;
 - (void) startPowerupTutorial;
 - (void) startAddthingTutorial;
 - (void) startBombTutorial;
+
+- (void) resetTutorial;
 @end

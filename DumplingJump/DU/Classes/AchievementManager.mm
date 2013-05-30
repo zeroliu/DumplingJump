@@ -13,6 +13,7 @@
 #import "GameLayer.h"
 #import "Hub.h"
 #import "GameUI.h"
+#import "TutorialManager.h"
 
 @interface AchievementManager()
 @property (nonatomic, retain) NSMutableDictionary *registeredEvent;
@@ -48,7 +49,7 @@ unlockedEvent       =   _unlockedEvent;
 
 - (void) registerAchievement:(NSDictionary *)achievementData
 {
-    if ([[USERDATA objectForKey:@"tutorial"] intValue] == 0)
+    if (![[TutorialManager shared] isInTutorial])
     {
         NSString *notificationName = [achievementData objectForKey:@"type"];
         [_registeredEvent setObject:achievementData forKey:notificationName];

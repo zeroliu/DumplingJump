@@ -23,6 +23,7 @@
 #import "BackgroundManager.h"
 #import "EquipmentData.h"
 #import "CameraEffects.h"
+#import "TutorialManager.h"
 
 @interface Hero()
 {
@@ -1689,7 +1690,7 @@
     //Stop playing bounce SFX
     [[AudioManager shared] stopSFX:bounceSFXTag];
     
-    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
+    if ([[TutorialManager shared] isInGameTutorial])
     {
         //if in tutorial, immediately reborn
         [[GameUI shared] createMask];

@@ -225,7 +225,7 @@
     [[GameUI shared] updateStar:0];
     [[GameUI shared] updateDistance:0];
     
-    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
+    if ([[TutorialManager shared] isInTutorial])
     {
         [[TutorialUI shared] createUI];
     }
@@ -323,7 +323,7 @@
     if (self.model.state == GAME_START)
     {
         self.model.gameTime += deltaTime;
-        [[BackgroundManager shared] updateBackgroundPosition:deltaTime];
+        
         [[BackgroundManager shared] updateBackgroundObjectPosition:deltaTime];
         [PHYSICSMANAGER updatePhysicsBody:deltaTime];
         [[HeroManager shared] updateHeroPosition];
@@ -331,8 +331,10 @@
         [[[HeroManager shared] getHero] updateHeroBoosterEffect];
         [[[HeroManager shared] getHero] updateJumpState];
         
-        if ([[USERDATA objectForKey:@"tutorial"] intValue] == 0)
+        if (![[TutorialManager shared] isInGameTutorial])
         {
+            [[BackgroundManager shared] updateBackgroundPosition:deltaTime];
+            
             //Calculate distance increase
             float distanceIncrease = [[[[WorldData shared] loadDataWithAttributName:@"common"] objectForKey:@"scoreUnit"] floatValue] * 10;
             
@@ -382,8 +384,9 @@
 {
     self.model.state = GAME_START;
     
-    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
+    if ([[TutorialManager shared] isInTutorial])
     {
+        [[TutorialManager shared] resetTutorial];
         [[TutorialManager shared] performSelector:@selector(startMoveTutorial) withObject:nil afterDelay:1];
     }
     else
@@ -402,10 +405,9 @@
             }
         }
 
-        [[LevelManager shared] loadCurrentParagraph];
         [[GCHelper sharedInstance] retrieveScores];
     }
-    
+    [[LevelManager shared] loadCurrentParagraph];
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [[AudioManager shared] playBackgroundMusic:@"Music_MainMenu.mp3" loop:YES];
     [self.model resetGameData];
@@ -479,17 +481,13 @@
 {
     int multiplier = [[USERDATA objectForKey:@"multiplier"] intValue];
     [[DeadUI shared] createUI];
-    if ([[USERDATA objectForKey:@"tutorial"] intValue]> 0)
+    if ([[TutorialManager shared] isInTutorial])
     {
-        [[DeadUI shared] updateUIDataWithScore:100 Star:0 TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:100 Multiplier:1 IsHighScore:NO];
-        
-        //Set tutorial enabled to false
         [USERDATA setObject:@0 forKey:@"tutorial"];
     }
-    else
-    {
-        [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
-    }
+ 
+    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
+    
     [[DeadUI shared] updateNextMission:[[AchievementData shared] getNextMission:[[USERDATA objectForKey:@"achievementGroup"] intValue]]];
 }
 

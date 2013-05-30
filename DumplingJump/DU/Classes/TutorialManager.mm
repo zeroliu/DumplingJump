@@ -12,6 +12,7 @@
 #import "HeroManager.h"
 #import "Hero.h"
 #import "LevelManager.h"
+#import "GameUI.h"
 
 @interface TutorialManager()
 {
@@ -19,6 +20,7 @@
     int _counter;
     CCLabelBMFont *_tutorialLabel;
     NSArray *_awesomeWords;
+    BOOL _isInGameTutorial;
 }
 
 @end
@@ -41,24 +43,46 @@
 {
     if (self = [super init])
     {
-        //Create text label on GameLayer
-        _tutorialLabel = [[CCLabelBMFont labelWithString:@"" fntFile:@"ERAS_white_black.fnt"] retain];
-//        _tutorialLabel = [[CCLabelTTF labelWithString:@"" fontName:@"Eras Bold ITC" fontSize:30] retain];
-        _tutorialLabel.anchorPoint = ccp(0.5,0.5);
-        _tutorialLabel.position = ccp([CCDirector sharedDirector].winSize.width/2, [CCDirector sharedDirector].winSize.height + BLACK_HEIGHT - 50);
-        
         //Generate awesome words
         _awesomeWords = [[NSArray alloc] initWithObjects:@"Awesome!",@"Great!",@"Good Job!",@"Nice!",@"Super!",@"Marvelous!",@"Fantastic!",@"Terrific!", nil];
     }
     
     return self;
 }
-    
-- (void) startMoveTutorial
+
+- (void) resetTutorial
 {
-    [_tutorialLabel removeFromParentAndCleanup:NO];
+    _isInGameTutorial = YES;
+    
+    if (_tutorialLabel != nil)
+    {
+        [_tutorialLabel removeFromParentAndCleanup:NO];
+        [_tutorialLabel release];
+        _tutorialLabel = nil;
+    }
+    //Create text label on GameLayer
+    _tutorialLabel = [[CCLabelBMFont labelWithString:@"" fntFile:@"ERAS_white_black.fnt"] retain];
+    _tutorialLabel.anchorPoint = ccp(0.5,0.5);
+    _tutorialLabel.position = ccp([CCDirector sharedDirector].winSize.width/2, [CCDirector sharedDirector].winSize.height + BLACK_HEIGHT - 50);
+    
     [GAMELAYER addChild:_tutorialLabel z:Z_TUTORIALUI - 1];
     
+    [[GameUI shared] refreshButtons];
+    
+}
+
+- (BOOL) isInTutorial;
+{
+    return [[USERDATA objectForKey:@"tutorial"] intValue] > 0;
+}
+
+- (BOOL) isInGameTutorial
+{
+    return _isInGameTutorial;
+}
+
+- (void) startMoveTutorial
+{
     _subIndex = 0;
     _counter = 0;
     
@@ -268,12 +292,20 @@
         [self showGoodJob];
         [self hideText];
         [MESSAGECENTER removeObserver:self name:NOTIFICATION_BOMB_EXPLODE object:nil];
-        [GAMELAYER performSelector:@selector(gameOver) withObject:nil afterDelay:2];
+        [self performSelector:@selector(endGameTutorial) withObject:nil afterDelay:2];
     }];
     
     CCSequence *sequences = [CCSequence actions:delay, winBlock, nil];
     sequences.tag = TAG_TUTORIAL_DROP_BOMB;
     [GAMELAYER runAction:sequences];
+}
+
+- (void) endGameTutorial
+{
+    //Set tutorial enabled to false
+    _isInGameTutorial = NO;
+    [[GameUI shared] fadeInUI];
+    [[TutorialUI shared] destroy];
 }
 
 - (void) showText:(NSString *)text

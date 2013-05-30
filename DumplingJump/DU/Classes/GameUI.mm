@@ -16,6 +16,7 @@
 #import "Constants.h"
 #import "EquipmentData.h"
 #import "Hero.h"
+#import "TutorialManager.h"
 
 NSString *const distancePopup = @"DistancePopup";
 NSString *const achievementPopup = @"achievementPopup";
@@ -86,25 +87,25 @@ NSString *const achievementPopup = @"achievementPopup";
 
 - (void) refreshButtons
 {
-    if ([[USERDATA objectForKey:@"tutorial"] intValue] > 0)
+    if ([[TutorialManager shared] isInGameTutorial])
     {
-        [UIScoreText setVisible:NO];
-        [UIStarText setVisible:NO];
-        [starScoreIcon setVisible:NO];
-        [meterIcon setVisible:NO];
+        [UIScoreText setOpacity:0];
+        [UIStarText setOpacity:0];
+        [starScoreIcon setOpacity:0];
+        [meterIcon setOpacity:0];
+        [pauseButton setOpacity:0];
         [shieldButtonHolder setVisible:NO];
         [magnetButtonHolder setVisible:NO];
-        [pauseButton setVisible:NO];
     }
     else
     {
-        [UIScoreText setVisible:YES];
-        [UIStarText setVisible:YES];
-        [starScoreIcon setVisible:YES];
-        [meterIcon setVisible:YES];
+        [UIScoreText setOpacity:255];
+        [UIStarText setOpacity:255];
+        [starScoreIcon setOpacity:255];
+        [meterIcon setOpacity:255];
+        [pauseButton setOpacity:255];
         [shieldButtonHolder setVisible:YES];
         [magnetButtonHolder setVisible:YES];
-        [pauseButton setVisible:YES];
         
         int buttonOffset = 0;
         
@@ -128,6 +129,18 @@ NSString *const achievementPopup = @"achievementPopup";
             [shieldButtonHolder setPosition:ccp([CCDirector sharedDirector].winSize.width + 100, shieldButtonHolder.position.y)];
         }
     }
+}
+
+- (void) fadeInUI
+{
+    [UIScoreText runAction:[CCFadeIn actionWithDuration:0.5]];
+    [UIStarText runAction:[CCFadeIn actionWithDuration:0.5]];
+    [starScoreIcon runAction:[CCFadeIn actionWithDuration:0.5]];
+    [meterIcon runAction:[CCFadeIn actionWithDuration:0.5]];
+    [pauseButton runAction:[CCSequence actions:[CCFadeIn actionWithDuration:0.5],[CCCallBlock actionWithBlock:^{
+        [self refreshButtons];
+    }],nil]];
+    
     
 }
 
@@ -191,7 +204,7 @@ NSString *const achievementPopup = @"achievementPopup";
     {
         [((CCControlButton *)[[self.buttonsDictionary objectForKey:buttonName] getChildByTag:0]) setEnabled: enabled];
     }
-    pauseButton.isEnabled = enabled;
+    [pauseButton setEnabled:enabled];
     [headStartButton setEnabled:enabled];
 }
 

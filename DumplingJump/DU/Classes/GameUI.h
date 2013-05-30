@@ -33,7 +33,7 @@
     CCNode *headstartButtonHolder;
     CCLabelBMFont *headstartCostLabel;
     
-    CCMenuItem *pauseButton;
+    CCControlButton *pauseButton;
     CCSprite *mask;
     
     CCLabelTTF *unlockAchievementName;
@@ -52,6 +52,7 @@
 -(void) resumeUI;
 -(void) createMask;
 -(void) removeMask;
+-(void) fadeInUI;
 -(void) setButtonsEnabled: (BOOL)enabled;
 //Reset all the button bars to full
 -(void) resetAllButtonBar;

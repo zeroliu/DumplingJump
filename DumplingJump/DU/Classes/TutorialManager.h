@@ -14,12 +14,15 @@
 
 - (BOOL) isInTutorial;
 - (BOOL) isInGameTutorial;
+- (BOOL) isInStoreTutorial;
 
 - (void) startMoveTutorial;
 - (void) startJumpTutorial;
 - (void) startPowerupTutorial;
 - (void) startAddthingTutorial;
 - (void) startBombTutorial;
-
+- (void) startStoreTutorialPartOne;
+- (void) startStoreTutorialPartTwo;
 - (void) resetTutorial;
+- (void) finishTutorial;
 @end

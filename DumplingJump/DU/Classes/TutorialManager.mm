@@ -13,6 +13,7 @@
 #import "Hero.h"
 #import "LevelManager.h"
 #import "GameUI.h"
+#import "DeadUI.h"
 
 @interface TutorialManager()
 {
@@ -21,6 +22,7 @@
     CCLabelBMFont *_tutorialLabel;
     NSArray *_awesomeWords;
     BOOL _isInGameTutorial;
+    BOOL _isInStoreTutorial;
 }
 
 @end
@@ -53,6 +55,7 @@
 - (void) resetTutorial
 {
     _isInGameTutorial = YES;
+    _isInStoreTutorial = NO;
     
     if (_tutorialLabel != nil)
     {
@@ -79,6 +82,11 @@
 - (BOOL) isInGameTutorial
 {
     return _isInGameTutorial;
+}
+
+- (BOOL) isInStoreTutorial
+{
+    return _isInStoreTutorial;
 }
 
 - (void) startMoveTutorial
@@ -221,6 +229,36 @@
         //Start checking addthing
         [MESSAGECENTER addObserver:self selector:@selector(hitByBomb) name:NOTIFICATION_BOMB_EXPLODE object:nil];
     }];
+}
+
+- (void) startStoreTutorialPartOne
+{
+    _isInStoreTutorial = YES;
+    _subIndex = 0;
+    _counter = 0;
+    
+    //Disable deadUI buttons
+    [[DeadUI shared] setButtonsEnable:NO];
+    
+    //Wait for the score animation finishes
+    //Show deadUI tutorial UIs
+    [[DeadUI shared] performSelector:@selector(showStoreTutorial) withObject:nil afterDelay:2.5];
+    
+    //Show hint
+    [self performSelector:@selector(showText:) withObject:@"Check the STORE" afterDelay:2.5];
+}
+
+- (void) startStoreTutorialPartTwo
+{
+    [self hideText];
+    
+    DLog(@"Part II");
+}
+
+- (void) finishTutorial
+{
+    _isInStoreTutorial = NO;
+    [USERDATA setObject:@0 forKey:@"tutorial"];
 }
 
 #pragma mark - Private

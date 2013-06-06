@@ -29,16 +29,16 @@
 	<data>
 		<music>1</music>
 		<sfx>1</sfx>
-        <tutorial>0</tutorial>
+        <tutorial>1</tutorial>
 		<highscore>0</highscore>
         <highdistance>0</highdistance>
-		<star>150</star>
+		<star>100</star>
 		<MAGIC>0</MAGIC>
 		<SPRING>0</SPRING>
 		<MEGA>-1</MEGA>
         <ROYALSTAR>-1</ROYALSTAR>
 		<SHELTER>-1</SHELTER>
-		<BOOSTER>0</BOOSTER>
+		<BOOSTER>-1</BOOSTER>
 		<MAGNET>-1</MAGNET>
 		<headstart>-1</headstart>
 		<goldenmultiplier>-1</goldenmultiplier>

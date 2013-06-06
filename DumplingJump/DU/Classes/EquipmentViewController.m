@@ -15,6 +15,7 @@
 #import "DUIAPHelper.h"
 #import "IAPCell.h"
 #import "LoadingView.h"
+#import "TutorialManager.h"
 
 #define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).structedDictionary
 
@@ -47,6 +48,8 @@
         [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
         [BuyMoreStarViewController shared].delegate = self;
+        
+        
     }
     return self;
 }
@@ -132,6 +135,15 @@
     cell.path = indexPath;
     cell.parentTableView = self;
     [cell setLayoutWithDictionary:cellData];
+    
+    if ([[TutorialManager shared] isInStoreTutorial])
+    {
+        if (indexPath.row != 0 || indexPath.section != 0)
+        {
+            [cell setUserInteractionEnabled:NO];
+        }
+    }
+    
     return cell;
 }
 
@@ -190,6 +202,12 @@
          
      } completion:^(BOOL finished) {
          [target performSelector:callback];
+         if ([[TutorialManager shared] isInStoreTutorial])
+         {
+             //Back and store button disable
+             [backButton setEnabled:NO];
+             [storeButton setEnabled:NO];
+         }
      }];
 }
 
@@ -258,11 +276,38 @@
     [noInternetMessageLabel setHidden:NO];
     [self equipmentViewFlyInAnimationWithTarget:nil selector:nil];
     noInternetMessageLabel.hidden = YES;
+    if ([[TutorialManager shared] isInStoreTutorial])
+    {
+        [tutorialHintLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:23]];
+        [tutorialHintLabel setText:@"Unlock BOOSTER"];
+        [self createEquipmentviewTutorialMask];
+        //0
+        //Tableview scroll disable
+        [tableview setScrollEnabled:NO];
+
+        //1
+        //Play UI fade animation
+        [self playTutorialAnimation];
+    }
 }
 
 - (void) hideEquipmentView
 {
     [self equipmentViewFlyOutAnimationWithTarget:nil selector:nil];
+}
+
+- (void) playTutorialAnimation
+{
+    [tutorialHintLabel setAlpha:0];
+    [UIView animateWithDuration:0.2 delay:1 options:(UIViewAnimationOptionCurveLinear) animations:^
+     {
+         [tutorialHintLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:23]];
+         [tutorialHintLabel setAlpha:1];
+         [tutorialMask setAlpha:0.8];
+     } completion:^(BOOL finished)
+    {
+         
+     }];
 }
 
 - (IBAction)didBackButtonClicked:(id)sender
@@ -360,6 +405,20 @@
     [tableview reloadData];
 }
 
+- (void) removeTutorial
+{
+    [UIView animateWithDuration:0.2 delay:0 options:(UIViewAnimationOptionCurveLinear) animations:^
+     {
+         [self setEquipmentButtonsEnabled:YES];
+         [tableview setScrollEnabled:YES];
+         [tutorialMask setAlpha:0];
+         [tutorialHintLabel setAlpha:0];
+     } completion:^(BOOL finished) {
+         [self reloadTableview];
+         [[TutorialManager shared] finishTutorial];
+     }];
+}
+
 - (void) productPurchased:(NSNotification *)notification
 {
     NSString * productID = notification.object;
@@ -388,6 +447,39 @@
     [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(loadIAP)];
 }
 
+- (void) createEquipmentviewTutorialMask
+{
+    CAShapeLayer *maskWithHole = [CAShapeLayer layer];
+    
+    // Both frames are defined in the same coordinate system
+    CGRect biggerRect = CGRectMake(BLACK_HEIGHT, 0, 320, 480);
+    
+    CGRect rectInTableView = [tableview rectForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    CGRect rectInSuperView = [tableview convertRect:rectInTableView toView:[tableview superview]];
+    CGRect smallerRect = rectInSuperView;
+    smallerRect.size = CGSizeMake(smallerRect.size.width-10, smallerRect.size.height);
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPath];
+    [maskPath moveToPoint:CGPointMake(CGRectGetMinX(biggerRect), CGRectGetMinY(biggerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMinX(biggerRect), CGRectGetMaxY(biggerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMaxX(biggerRect), CGRectGetMaxY(biggerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMaxX(biggerRect), CGRectGetMinY(biggerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMinX(biggerRect), CGRectGetMinY(biggerRect))];
+    
+    [maskPath moveToPoint:CGPointMake(CGRectGetMinX(smallerRect), CGRectGetMinY(smallerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMinX(smallerRect), CGRectGetMaxY(smallerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMaxX(smallerRect), CGRectGetMaxY(smallerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMaxX(smallerRect), CGRectGetMinY(smallerRect))];
+    [maskPath addLineToPoint:CGPointMake(CGRectGetMinX(smallerRect), CGRectGetMinY(smallerRect))];
+    
+    [maskWithHole setPath:[maskPath CGPath]];
+    [maskWithHole setFillRule:kCAFillRuleEvenOdd];
+    [maskWithHole setFillColor:[[UIColor orangeColor] CGColor]];
+    
+    
+    tutorialMask.layer.mask = maskWithHole;
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -413,6 +505,10 @@
     _productArray = nil;
     [_priceFormatter release];
     _priceFormatter = nil;
+    [tutorialMask release];
+    tutorialMask = nil;
+    [tutorialHintLabel release];
+    tutorialHintLabel = nil;
     [super dealloc];
 }
 @end

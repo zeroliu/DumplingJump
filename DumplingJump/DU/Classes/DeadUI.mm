@@ -16,6 +16,7 @@
 #import "AchievementNode.h"
 #import "AchievementManager.h"
 #import "GCHelper.h"
+#import "TutorialManager.h"
 
 @interface DeadUI()
 @property (nonatomic, assign) int finalScore;
@@ -72,6 +73,8 @@
 
     [equipmentViewController hideEquipmentView];
 }
+
+
 
 - (void) didAchievementTapped:(id)sender
 {
@@ -224,7 +227,10 @@
     [self shiningScoreText];
     
     [self updateScoreLabel:[NSNumber numberWithInt:_finalScore]];
-    [retryButton setEnabled:YES];
+    if (![[TutorialManager shared] isInStoreTutorial])
+    {
+        [retryButton setEnabled:YES];
+    }
 }
 
 -(void) updateScoreLabel:(NSNumber *)target
@@ -344,6 +350,12 @@
     [self setButtonsEnable:NO];
     [self setDeadUIVisible:NO callback:@selector(showEquipment)];
     [self setButtonsEnable:NO];
+    
+    if ([[TutorialManager shared] isInStoreTutorial])
+    {
+        [self hideStoreTutorial];
+        [[TutorialManager shared] startStoreTutorialPartTwo];
+    }
 }
 
 -(void) setButtonsEnable:(BOOL)isEnable
@@ -384,6 +396,34 @@
     {
         [rideAgainSprite runAction:moveToAnim];
     }
+}
+
+-(void) showStoreTutorial
+{
+    //tutorialMask fade in
+    [tutorialMask runAction:[CCFadeIn actionWithDuration:0.2]];
+    
+    //show hint arrow
+    [hintArrow runAction:[CCFadeIn actionWithDuration:0.2]];
+    
+    //animate hint arrow
+    id moveUp = [CCMoveBy actionWithDuration:0.5 position:ccp(0, 25)];
+    id moveDown = [CCMoveBy actionWithDuration:0.5 position:ccp(0, -25)];
+    
+    [hintArrow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:moveUp, moveDown, nil]]];
+    
+    [equipmentButton setEnabled:YES];
+}
+
+-(void) hideStoreTutorial
+{
+    [tutorialMask runAction:[CCFadeOut actionWithDuration:0.2]];
+    
+    id stopAnimation = [CCCallBlock actionWithBlock:^{
+        [hintArrow stopAllActions];
+    }];
+    
+    [hintArrow runAction:[CCSequence actions:[CCFadeOut actionWithDuration:0.2], stopAnimation, nil]];
 }
 
 - (void) dealloc

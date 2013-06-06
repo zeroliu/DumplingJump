@@ -28,6 +28,8 @@
     IBOutlet UIImageView *starIcon;
     IBOutlet OutlineLabel *starNumLabel;
     IBOutlet UILabel *noInternetMessageLabel;
+    IBOutlet UIView *tutorialMask;
+    IBOutlet UILabel *tutorialHintLabel;
 }
 
 @property (nonatomic, retain) id delegate;
@@ -40,5 +42,5 @@
 - (void) reloadTableview;
 - (IBAction)didBackButtonClicked:(id)sender;
 - (IBAction)didStoreButtonClicked:(id)sender;
-
+- (void) removeTutorial;
 @end

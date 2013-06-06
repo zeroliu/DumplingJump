@@ -387,7 +387,7 @@
     if ([[TutorialManager shared] isInTutorial])
     {
         [[TutorialManager shared] resetTutorial];
-        [[TutorialManager shared] performSelector:@selector(startMoveTutorial) withObject:nil afterDelay:1];
+        [[TutorialManager shared] performSelector:@selector(startBombTutorial) withObject:nil afterDelay:1];
     }
     else
     {
@@ -481,12 +481,24 @@
 {
     int multiplier = [[USERDATA objectForKey:@"multiplier"] intValue];
     [[DeadUI shared] createUI];
+    int currentStar = [[USERDATA objectForKey:@"star"] intValue];
+    
     if ([[TutorialManager shared] isInTutorial])
     {
-        [USERDATA setObject:@0 forKey:@"tutorial"];
+        //Check if need to run store tutorial
+        //hardcode 100 for the price to unlock the first item booster
+        //if booster has not been unlocked and player has enough money
+        if (currentStar >= 100 && [[USERDATA objectForKey:@"BOOSTER"] intValue] < 0)
+        {
+            [[TutorialManager shared] startStoreTutorialPartOne];
+        }
+        else
+        {
+            [USERDATA setObject:@0 forKey:@"tutorial"];
+        }
     }
  
-    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:[[USERDATA objectForKey:@"star"] intValue] Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
+    [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:currentStar Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
     
     [[DeadUI shared] updateNextMission:[[AchievementData shared] getNextMission:[[USERDATA objectForKey:@"achievementGroup"] intValue]]];
 }

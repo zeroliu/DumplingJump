@@ -26,6 +26,8 @@
     CCSprite *highscoreSprite;
     CCSprite *newItemSprite;
     CCSprite *newAchievement;
+    CCSprite *tutorialMask;
+    CCSprite *hintArrow;
     
     CCLabelBMFont *scoreText;
     CCLabelBMFont *scoreTextWhite;
@@ -46,5 +48,7 @@
 +(id) shared;
 -(void) updateUIDataWithScore:(int)score Star:(int)star TotalStar:(int)totalStar Distance:(int)distance Multiplier:(float)multiplier IsHighScore:(BOOL)isHighScore;
 -(void) updateNextMission:(NSDictionary *)nextMissionData;
-
+-(void) showStoreTutorial;
+-(void) hideStoreTutorial;
+-(void) setButtonsEnable:(BOOL)isEnable;
 @end

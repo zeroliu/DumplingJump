@@ -1699,7 +1699,7 @@
     else
     {
         int currentStar = [[USERDATA objectForKey:@"star"] intValue];
-        if (currentStar > [self getRebornCost])
+        if (currentStar > [self getRebornCost] && ![[TutorialManager shared] isInTutorial])
         {
             //Pause game
             [[[Hub shared] gameLayer] pauseGame];

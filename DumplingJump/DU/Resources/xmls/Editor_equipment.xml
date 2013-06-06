@@ -58,7 +58,7 @@
 		<description>Increase BOOSTER duration to </description>
 		<multiplier>1.80</multiplier>
 		<base>200</base>
-		<unlockPrice>0</unlockPrice>
+		<unlockPrice>100</unlockPrice>
         <price0>400</price0>
         <price1>1200</price1>
         <price2>3600</price2>
@@ -69,6 +69,7 @@
 		<level3>6</level3>
 		<level4>7</level4>
 		<unit>s</unit>
+        <unlockDescription>I believe I can fly</unlockDescription>
 	</Item>
 	<Item>
 		<group>2</group>

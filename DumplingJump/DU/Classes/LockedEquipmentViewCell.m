@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "EquipmentViewController.h"
 #import "BuyMoreStarViewController.h"
+#import "TutorialManager.h"
 
 @interface LockedEquipmentViewCell()
 {
@@ -103,6 +104,10 @@
         [USERDATA setObject:[NSNumber numberWithInt:currentStar-price] forKey:@"star"];
         [self showUnlockAnimation];
         [self.parentTableView updateStarNum:[[USERDATA objectForKey:@"star"] intValue]];
+        if ([[TutorialManager shared] isInStoreTutorial])
+        {
+            [self.parentTableView performSelector:@selector(removeTutorial) withObject:nil afterDelay:0.5];
+        }
     }
     else
     {

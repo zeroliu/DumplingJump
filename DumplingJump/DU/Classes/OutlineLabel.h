@@ -10,4 +10,6 @@
 
 @interface OutlineLabel : UILabel
 
+- (void) setText:(NSString *)text withFont:(UIFont *)font color:(UIColor *)fontColor strokeSize:(int)strokeSize strokeColor:(UIColor *)strokeColor  sizeToFit: (BOOL)isSizeToFit;
+
 @end

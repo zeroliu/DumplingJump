@@ -583,6 +583,8 @@
 
 -(void) playCurrentFacialAnimation
 {
+    
+    
     NSString *animationToPlay = nil;
     //If has main reaction
     if (![self.heroState isEqualToString:@"idle"])
@@ -1794,9 +1796,12 @@
 
 -(void) smileWithDuration:(float)time
 {
-    [self playAnimation:@"H_happy" duration:time callback:^{
-        [self playCurrentFacialAnimation];
-    }];
+    if (!isReborning)
+    {
+        [self playAnimation:@"H_happy" duration:time callback:^{
+            [self playCurrentFacialAnimation];
+        }];
+    }
 }
 
 #pragma mark -

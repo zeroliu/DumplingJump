@@ -159,7 +159,7 @@
 									<object class="IBUILabel" id="1028191142">
 										<reference key="NSNextResponder" ref="342903891"/>
 										<int key="NSvFlags">293</int>
-										<string key="NSFrame">{{109, 36}, {72, 21}}</string>
+										<string key="NSFrame">{{106, 36}, {72, 21}}</string>
 										<reference key="NSSuperview" ref="342903891"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="671185335"/>
@@ -366,6 +366,7 @@
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="13.CustomClassName">OutlineLabel</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -413,8 +414,8 @@
 						<string key="holder">UIView</string>
 						<string key="itemImageView">UIImageView</string>
 						<string key="priceLabel">UILabel</string>
-						<string key="rewardLabel">UILabel</string>
-						<string key="titleLabel">UILabel</string>
+						<string key="rewardLabel">OutlineLabel</string>
+						<string key="titleLabel">OutlineLabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="cellButton">
@@ -435,11 +436,11 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="rewardLabel">
 							<string key="name">rewardLabel</string>
-							<string key="candidateClassName">UILabel</string>
+							<string key="candidateClassName">OutlineLabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="titleLabel">
 							<string key="name">titleLabel</string>
-							<string key="candidateClassName">UILabel</string>
+							<string key="candidateClassName">OutlineLabel</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

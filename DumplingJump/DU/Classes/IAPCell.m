@@ -71,9 +71,10 @@
         [priceLabel setText:@"SOLD"];
     }
   
-    
-    [titleLabel setText:[myContent objectForKey:@"name"]];
-    [rewardLabel setText:[myContent objectForKey:@"reward"]];
+    [titleLabel setText:[myContent objectForKey:@"name"] withFont:[UIFont fontWithName:@"Eras Bold ITC" size:13] color:titleLabel.textColor strokeSize:4 strokeColor:[UIColor blackColor] sizeToFit:NO];
+//    [titleLabel setText:[myContent objectForKey:@"name"]];
+    [rewardLabel setText:[myContent objectForKey:@"reward"] withFont:[UIFont fontWithName:@"Eras Bold ITC" size:17] color:rewardLabel.textColor strokeSize:4 strokeColor:[UIColor blackColor] sizeToFit:NO];
+//    [rewardLabel setText:[myContent objectForKey:@"reward"]];
     
 }
 

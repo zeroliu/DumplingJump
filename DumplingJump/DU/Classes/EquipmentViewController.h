@@ -29,7 +29,7 @@
     IBOutlet OutlineLabel *starNumLabel;
     IBOutlet UILabel *noInternetMessageLabel;
     IBOutlet UIView *tutorialMask;
-    IBOutlet UILabel *tutorialHintLabel;
+    IBOutlet OutlineLabel *tutorialHintLabel;
 }
 
 @property (nonatomic, retain) id delegate;

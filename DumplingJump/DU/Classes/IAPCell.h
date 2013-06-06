@@ -10,14 +10,15 @@
 #import "cocos2d.h"
 #import "DUTableViewCell.h"
 #import <StoreKit/StoreKit.h>
+#import "OutlineLabel.h"
 
 @interface IAPCell : DUTableViewCell
 {
     IBOutlet UIView *holder;
     IBOutlet UIButton *cellButton;
     IBOutlet UILabel *priceLabel;
-    IBOutlet UILabel *titleLabel;
-    IBOutlet UILabel *rewardLabel;
+    IBOutlet OutlineLabel *titleLabel;
+    IBOutlet OutlineLabel *rewardLabel;
     IBOutlet UIImageView *itemImageView;
 }
 

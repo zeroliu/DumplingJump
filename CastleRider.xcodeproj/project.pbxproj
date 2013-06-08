@@ -419,7 +419,7 @@
 		9F67EBF81741B624000D1B46 /* UI_purch_reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F67EBF31741B624000D1B46 /* UI_purch_reminder.png */; };
 		9F67EBFB1741B98E000D1B46 /* BuyMoreStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F67EBFA1741B98E000D1B46 /* BuyMoreStarViewController.m */; };
 		9F67EC0217421285000D1B46 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F67EC0117421285000D1B46 /* GCHelper.m */; };
-		9F67EC04174215FF000D1B46 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F67EC03174215FE000D1B46 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9F67EC04174215FF000D1B46 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F67EC03174215FE000D1B46 /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9F71F95E16FF7E5A00B24D15 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F71F95A16FF7E5A00B24D15 /* libTestFlight.a */; };
 		9F71F95F16FF7E5A00B24D15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95B16FF7E5A00B24D15 /* README.md */; };
 		9F71F96016FF7E5A00B24D15 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F71F95C16FF7E5A00B24D15 /* release_notes.md */; };
@@ -471,6 +471,9 @@
 		9FA0A3C017541B7A00C5A088 /* sfx_powerup_starCollect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FA0A3B217541B7A00C5A088 /* sfx_powerup_starCollect.mp3 */; };
 		9FA0A3C117541B7A00C5A088 /* sfx_powerup_swordFlame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FA0A3B317541B7A00C5A088 /* sfx_powerup_swordFlame.mp3 */; };
 		9FA0A3C217541B7A00C5A088 /* sfx_UI_menuButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9FA0A3B417541B7A00C5A088 /* sfx_UI_menuButton.mp3 */; };
+		9FA624461763AEF10078B60F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA624451763AEF10078B60F /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9FA624481763B23E0078B60F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA624471763B23E0078B60F /* Twitter.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		9FA6244A1763BB2F0078B60F /* tweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA624491763BB2F0078B60F /* tweet.png */; };
 		9FA6EAE117111E2D00566ECD /* UI_equip_box_locked_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA6EADC17111E2D00566ECD /* UI_equip_box_locked_press.png */; };
 		9FA6EAE217111E2D00566ECD /* UI_equip_box_lv_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA6EADD17111E2D00566ECD /* UI_equip_box_lv_on.png */; };
 		9FA6EAE317111E2D00566ECD /* UI_equip_box_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA6EADE17111E2D00566ECD /* UI_equip_box_normal.png */; };
@@ -1287,6 +1290,9 @@
 		9FA0A3B217541B7A00C5A088 /* sfx_powerup_starCollect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_powerup_starCollect.mp3; sourceTree = "<group>"; };
 		9FA0A3B317541B7A00C5A088 /* sfx_powerup_swordFlame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_powerup_swordFlame.mp3; sourceTree = "<group>"; };
 		9FA0A3B417541B7A00C5A088 /* sfx_UI_menuButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_UI_menuButton.mp3; sourceTree = "<group>"; };
+		9FA624451763AEF10078B60F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		9FA624471763B23E0078B60F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		9FA624491763BB2F0078B60F /* tweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tweet.png; sourceTree = "<group>"; };
 		9FA6EADC17111E2D00566ECD /* UI_equip_box_locked_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_locked_press.png; sourceTree = "<group>"; };
 		9FA6EADD17111E2D00566ECD /* UI_equip_box_lv_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_lv_on.png; sourceTree = "<group>"; };
 		9FA6EADE17111E2D00566ECD /* UI_equip_box_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI_equip_box_normal.png; sourceTree = "<group>"; };
@@ -1338,6 +1344,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA624481763B23E0078B60F /* Twitter.framework in Frameworks */,
+				9FA624461763AEF10078B60F /* Social.framework in Frameworks */,
 				9F67EC04174215FF000D1B46 /* GameKit.framework in Frameworks */,
 				9FD08DDF173A2DC4008B54F1 /* StoreKit.framework in Frameworks */,
 				9F71F96216FF7EA800B24D15 /* libz.dylib in Frameworks */,
@@ -1983,6 +1991,8 @@
 		7F41434215AAC659002CFC9A = {
 			isa = PBXGroup;
 			children = (
+				9FA624471763B23E0078B60F /* Twitter.framework */,
+				9FA624451763AEF10078B60F /* Social.framework */,
 				9F67EC03174215FE000D1B46 /* GameKit.framework */,
 				9FD08DDE173A2DC4008B54F1 /* StoreKit.framework */,
 				9F71F96116FF7EA800B24D15 /* libz.dylib */,
@@ -2375,6 +2385,7 @@
 		7F7010F615AFEFFE00495B10 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9FA624491763BB2F0078B60F /* tweet.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -3189,6 +3200,7 @@
 				9F169B73175726CE00F3B88B /* E_speedline_whi.png in Resources */,
 				9F169B74175726CE00F3B88B /* E_star_cross_white.png in Resources */,
 				9F169B75175726CE00F3B88B /* E_star_normal_white.png in Resources */,
+				9FA6244A1763BB2F0078B60F /* tweet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,8 @@
 #import "AchievementManager.h"
 #import "GCHelper.h"
 #import "TutorialManager.h"
+#import <Social/Social.h>
+#import <Twitter/Twitter.h>
 
 @interface DeadUI()
 @property (nonatomic, assign) int finalScore;
@@ -366,6 +368,78 @@
     [retryButton setEnabled:isEnable];
     [facebookButton setEnabled:isEnable];
     [twitterButton setEnabled:isEnable];
+}
+
+-(void) didTapFacebook
+{
+    if ([SLComposeViewController instanceMethodForSelector:@selector(isAvailableForServiceType)] != nil)
+    {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+        {
+            SLComposeViewController *facebookSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            [facebookSheet setInitialText:[NSString stringWithFormat:@"I've just achieved %@ points and %@ in Castle Rider, come and challenge me!", scoreText.string, distanceText.string]];
+            CCScene *scene = [[CCDirector sharedDirector] runningScene];
+            CCNode *n = [scene.children objectAtIndex:0];
+            UIImage *img = [self screenshotWithStartNode:n];
+            [facebookSheet addImage:img];
+            [facebookSheet addURL:[NSURL URLWithString:@"http://www.google.com"]]; //TODO: replace with our website
+            [[CCDirector sharedDirector] presentViewController:facebookSheet animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a facebook post right now, make sure your device has an internet connection and you have at least one Facebook account setup" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a facebook post right now, make sure to upgrade your device to iOS 6 or above" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }
+
+}
+
+-(void) didTapTwitter
+{
+    if ([SLComposeViewController instanceMethodForSelector:@selector(isAvailableForServiceType)] != nil)
+    {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+        {
+            SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            [tweetSheet setInitialText:[NSString stringWithFormat:@"I've just achieved %@ points and %@ in Castle Rider, come and challenge me!", scoreText.string, distanceText.string]];
+            CCScene *scene = [[CCDirector sharedDirector] runningScene];
+            CCNode *n = [scene.children objectAtIndex:0];
+            UIImage *img = [self screenshotWithStartNode:n];
+            [tweetSheet addImage:img];
+            [tweetSheet addURL:[NSURL URLWithString:@"http://www.google.com"]]; //TODO: replace with our website
+            [[CCDirector sharedDirector] presentViewController:tweetSheet animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+        }
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a tweet right now, make sure to upgrade your device to iOS 6 or above" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+-(UIImage*) screenshotWithStartNode:(CCNode*)startNode
+{
+    [CCDirector sharedDirector].nextDeltaTimeZero = YES;
+    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    CCRenderTexture* rtx =
+    [CCRenderTexture renderTextureWithWidth:winSize.width
+                                     height:winSize.height];
+    [rtx begin];
+    [startNode visit];
+    [rtx end];
+    
+    return [rtx getUIImage];
 }
 
 -(void) home:(id)sender

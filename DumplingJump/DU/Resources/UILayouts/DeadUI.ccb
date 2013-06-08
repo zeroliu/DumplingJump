@@ -147,8 +147,6 @@
 						<integer>255</integer>
 					</dict>
 				</array>
-				<key>seqExpanded</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>animatedProperties</key>
@@ -1991,8 +1989,8 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string></string>
-									<integer>0</integer>
+									<string>didTapTwitter</string>
+									<integer>2</integer>
 									<integer>32</integer>
 								</array>
 							</dict>
@@ -2199,8 +2197,8 @@
 								<string>BlockCCControl</string>
 								<key>value</key>
 								<array>
-									<string></string>
-									<integer>0</integer>
+									<string>didTapFacebook</string>
+									<integer>2</integer>
 									<integer>32</integer>
 								</array>
 							</dict>
@@ -3125,8 +3123,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>seqExpanded</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>animatedProperties</key>
@@ -3306,8 +3302,6 @@
 						<integer>0</integer>
 					</dict>
 				</array>
-				<key>seqExpanded</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

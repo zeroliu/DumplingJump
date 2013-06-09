@@ -14,6 +14,9 @@
 @end
 
 @implementation BuyMoreStarViewController
+@synthesize
+cancelButton = _cancelButton,
+confirmButton = _confirmButton;
 
 + (BuyMoreStarViewController *) shared
 {
@@ -26,6 +29,16 @@
     
     return shared;
 }
+
+//- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+//    {
+//        
+//    }
+//    
+//    return self;
+//}
 
 - (void) showWithNumber:(int)number
 {
@@ -67,6 +80,8 @@
     [super viewDidLoad];
     [self.titleLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:20]];
     [self.descriptionLabel setFont:[UIFont fontWithName:@"Eras Bold ITC" size:12]];
+    [self.cancelButton setImage:[UIImage imageNamed:@"UI_purch_reminder_no_press.png"] forState:UIControlStateHighlighted];
+    [self.confirmButton setImage:[UIImage imageNamed:@"UI_purch_reminder_yes_press.png"] forState:UIControlStateHighlighted];
 }
 
 - (void) setButtonEnabled:(BOOL)isEnabled

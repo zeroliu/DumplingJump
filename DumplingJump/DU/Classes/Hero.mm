@@ -1692,6 +1692,8 @@
     //Stop playing bounce SFX
     [[AudioManager shared] stopSFX:bounceSFXTag];
     
+    [self resetHero];
+    
     if ([[TutorialManager shared] isInGameTutorial])
     {
         //if in tutorial, immediately reborn

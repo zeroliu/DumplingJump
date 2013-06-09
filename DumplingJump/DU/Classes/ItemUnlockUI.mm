@@ -40,8 +40,12 @@
     
     //increase current group
     int currentGroup = [[USERDATA objectForKey:@"achievementGroup"] intValue];
-    [USERDATA setObject:[NSNumber numberWithInt:currentGroup + 1] forKey:@"achievementGroup"];
-    
+    if (currentGroup < 9)
+    {
+        [USERDATA setObject:[NSNumber numberWithInt:currentGroup + 1] forKey:@"achievementGroup"];
+        //Show dead UI achievement exclamation sign
+        ((DeadUI *)[DeadUI shared]).isNew = YES;
+    }
     [onMedalMultiplierText setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
     [multiplierNum setString:[NSString stringWithFormat:@"%dx", currentGroup+1]];
     
@@ -91,8 +95,6 @@
 {
     [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [forwardButton setEnabled:NO];
-    //Show dead UI achievement exclamation sign
-    ((DeadUI *)[DeadUI shared]).isNew = YES;
     
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];

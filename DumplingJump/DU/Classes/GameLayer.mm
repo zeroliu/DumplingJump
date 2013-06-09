@@ -387,7 +387,7 @@
     if ([[TutorialManager shared] isInTutorial])
     {
         [[TutorialManager shared] resetTutorial];
-        [[TutorialManager shared] performSelector:@selector(startBombTutorial) withObject:nil afterDelay:1];
+        [[TutorialManager shared] performSelector:@selector(startMoveTutorial) withObject:nil afterDelay:1];
     }
     else
     {
@@ -501,6 +501,7 @@
     [[DeadUI shared] updateUIDataWithScore:(int)(self.model.distance*multiplier) Star:self.model.star TotalStar:currentStar Distance:self.model.distance Multiplier:multiplier IsHighScore:self.model.isHighScore];
     
     [[DeadUI shared] updateNextMission:[[AchievementData shared] getNextMission:[[USERDATA objectForKey:@"achievementGroup"] intValue]]];
+
 }
 
 -(BOOL) isHighScore

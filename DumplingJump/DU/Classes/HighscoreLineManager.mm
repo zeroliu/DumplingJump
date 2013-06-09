@@ -119,7 +119,7 @@ registedlinesDictionary  = _registedlinesDictionary;
         _justShowed = YES;
         [self performSelector:@selector(resetJustShowed) withObject:nil afterDelay:0.3];
         HighscoreLine* lineInfo = [self.registedlinesDictionary objectForKey:highDistance];
-        NSLog([NSString stringWithFormat:@"(%@,%@):%d", lineInfo.playerID, lineInfo.nickName, lineInfo.highDistance]);
+//        NSLog([NSString stringWithFormat:@"(%@,%@):%d", lineInfo.playerID, lineInfo.nickName, lineInfo.highDistance]);
         
         CCNode *lineHolder = [self createHighdistanceLineWithLineInfo:lineInfo];
         id scrollDownAction = [CCMoveTo actionWithDuration:3 position:ccp(_winsize.width/2, BLACK_HEIGHT-50)];

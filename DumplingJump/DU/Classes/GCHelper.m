@@ -129,7 +129,7 @@
         {
             leaderboardRequest.playerScope = GKLeaderboardPlayerScopeFriendsOnly;
             leaderboardRequest.timeScope = GKLeaderboardTimeScopeWeek;
-            leaderboardRequest.range = NSMakeRange(1,50);
+            leaderboardRequest.range = NSMakeRange(1,10);
             
             [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error)
             {

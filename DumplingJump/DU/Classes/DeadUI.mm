@@ -80,6 +80,7 @@
 
 - (void) didAchievementTapped:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [self setButtonsEnable:NO];
     [self setDeadUIVisible:NO callback:@selector(showAchievement)];
     [self setButtonsEnable:NO];
@@ -338,6 +339,7 @@
 
 -(void) retry:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [self setButtonsEnable:NO];
     [animationManager runAnimationsForSequenceNamed:@"Fade White"];
     id delay = [CCDelayTime actionWithDuration:0.2f];
@@ -349,6 +351,7 @@
 
 -(void) didArsenalTapped:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [self setButtonsEnable:NO];
     [self setDeadUIVisible:NO callback:@selector(showEquipment)];
     [self setButtonsEnable:NO];
@@ -382,7 +385,7 @@
             CCNode *n = [scene.children objectAtIndex:0];
             UIImage *img = [self screenshotWithStartNode:n];
             [facebookSheet addImage:img];
-            [facebookSheet addURL:[NSURL URLWithString:@"http://www.google.com"]]; //TODO: replace with our website
+//            [facebookSheet addURL:[NSURL URLWithString:@"http://www.google.com"]]; //TODO: replace with our website
             [[CCDirector sharedDirector] presentViewController:facebookSheet animated:YES completion:nil];
         }
         else
@@ -411,7 +414,7 @@
             CCNode *n = [scene.children objectAtIndex:0];
             UIImage *img = [self screenshotWithStartNode:n];
             [tweetSheet addImage:img];
-            [tweetSheet addURL:[NSURL URLWithString:@"http://www.google.com"]]; //TODO: replace with our website
+//            [tweetSheet addURL:[NSURL URLWithString:@"http://www.google.com"]]; //TODO: replace with our website
             [[CCDirector sharedDirector] presentViewController:tweetSheet animated:YES completion:nil];
         }
         else
@@ -444,6 +447,7 @@
 
 -(void) home:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [self setButtonsEnable:NO];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccbi"]]];
 }

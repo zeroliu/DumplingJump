@@ -356,7 +356,7 @@ typedef enum {
 
 - (void) showGameCenter
 {
-    
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     if ([GCHelper sharedInstance].gameCenterAvailable)
     {        
         GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
@@ -380,6 +380,7 @@ typedef enum {
 
 - (void) startGame
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [equipmentView removeFromSuperview];
     [playButton removeFromSuperview];
     [achievementButton removeFromSuperview];

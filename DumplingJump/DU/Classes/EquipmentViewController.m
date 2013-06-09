@@ -16,6 +16,7 @@
 #import "IAPCell.h"
 #import "LoadingView.h"
 #import "TutorialManager.h"
+#import "AudioManager.h"
 
 #define EQUIPMENT_DICT ((EquipmentData *)[EquipmentData shared]).structedDictionary
 
@@ -312,6 +313,7 @@
 
 - (IBAction)didBackButtonClicked:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     if (_isIAP)
     {
         _isIAP = NO;
@@ -328,6 +330,7 @@
 
 - (IBAction)didStoreButtonClicked:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [self equipmentViewFlyOutAnimationWithTarget:self selector:@selector(loadIAP)];
 }
 

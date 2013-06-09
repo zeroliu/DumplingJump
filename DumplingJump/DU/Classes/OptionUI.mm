@@ -83,10 +83,12 @@
     int currentStatus = [[USERDATA objectForKey:@"sfx"] intValue];
     [USERDATA setObject:[NSNumber numberWithInt:1-currentStatus] forKey:@"sfx"];
     [self updateButtonsStatus];
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
 }
 
 -(void) didTapMusicToggle:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     int currentStatus = [[USERDATA objectForKey:@"music"] intValue];
     [USERDATA setObject:[NSNumber numberWithInt:1-currentStatus] forKey:@"music"];
     if (currentStatus == 0)
@@ -104,6 +106,7 @@
 
 -(void) didTapTutorialToggle:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     int currentStatus = [[USERDATA objectForKey:@"tutorial"] intValue];
     [USERDATA setObject:[NSNumber numberWithInt:1-currentStatus] forKey:@"tutorial"];
     [self updateButtonsStatus];

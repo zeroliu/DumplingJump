@@ -381,7 +381,7 @@
 }
 
 -(void) startGame
-{
+{    
     self.model.state = GAME_START;
     
     if ([[TutorialManager shared] isInTutorial])

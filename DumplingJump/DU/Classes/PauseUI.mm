@@ -41,6 +41,7 @@
 
 -(void)resumeGame:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [forwardButton setEnabled:NO];
     [[AudioManager shared] setBackgroundMusicVolume:1];
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
@@ -54,6 +55,7 @@
 
 -(void)restartGame:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [retryButton setEnabled:NO];
     id delay = [CCDelayTime actionWithDuration:0.5];
     id restartGameFunc = [CCCallFunc actionWithTarget:GAMELAYER selector:@selector(restart)];

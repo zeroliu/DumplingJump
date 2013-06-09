@@ -160,6 +160,7 @@
 
 -(void)didTapFoward:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [forwardButton setEnabled:NO];
     [animationManager runAnimationsForSequenceNamed:@"Fly Up"];
     id delay = [CCDelayTime actionWithDuration:0.5];

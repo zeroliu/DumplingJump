@@ -109,6 +109,7 @@ typedef void (^CallbackBlock)();
 
 -(void) didTapForward
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     [forwardButton setEnabled:NO];
     [self hideUI];
     self.callbackBlock();

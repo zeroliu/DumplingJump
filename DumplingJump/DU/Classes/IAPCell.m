@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "EquipmentViewController.h"
 #import "DUIAPHelper.h"
+#import "AudioManager.h"
 
 @interface IAPCell()
 {
@@ -80,6 +81,7 @@
 
 - (IBAction)didTapButton:(id)sender
 {
+    [[AudioManager shared] playSFX:@"sfx_UI_menuButton.mp3"];
     if (justTapped)
     {
         [self performSelector:@selector(resetHolderPosition) withObject:nil afterDelay:0.1];
